@@ -74,10 +74,25 @@
 
   <number description="Default" title="Number"></number>
   <tip align="center">I am a tip align center.</tip>
+
+  <br>
+  <br>
+  <dev-tip>单选不需要使用 group</dev-tip>
+  <radio title="default" :options="radio001" @change="change"></radio>
+  <radio title="preselect 'China'" :options="radio001" value="China"></radio>
+
+  <radio :title="'fill mode value is '+radio001Value" :fill_mode=true :options="radio001" :value.sync="radio001Value" @change="change"></radio>
+
+  <radio title="fill mode with custom placeholder and label" :fill_mode=true fill_label="Other" fill_placeholder="填写其他的哦" :options="radio001" @change="change"></radio>
+
+ 
+  <br>
+  <br>
   
 </template>
 
 <script>
+import DevTip from './components/Dev-tip'
 import Hello from './components/Hello'
 import Number from './components/Number'
 import Selector from './components/Select'
@@ -86,6 +101,7 @@ import Btn from './components/Button'
 import Tip from './components/tip'
 import Boolean from './components/Boolean'
 import GroupTitle from './components/Group-title'
+import Radio from './components/Radio'
 
 export default {
   components: {
@@ -96,7 +112,9 @@ export default {
     Btn,
     Tip,
     Boolean,
-    GroupTitle
+    GroupTitle,
+    Radio,
+    DevTip
   },
   data: function () {
     return {
@@ -104,13 +122,15 @@ export default {
       selected1: '广西',
       value1:'',
       submit001:'click me',
-      disable001: false
+      disable001: false,
+      radio001:['China', 'Japan'],
+      radio001Value: 'China',
+      radio002Value: 'Japan'
     }
   },
   methods: {
     change: function (value) {
-      console.log('change:', value,'parent value:',this.selected1)
-      console.log('parent value1',this.value1)
+      console.log('change:', value)
       this.selected1 = value;
     },
     processButton001: function(){
