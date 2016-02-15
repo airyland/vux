@@ -93,7 +93,9 @@
 
   <checklist title="preselect China and Japan" :options="commonList" :value.sync="checklist002" @change="change"></checklist>
 
-  <checklist title="preselect China and Japan" :options="commonList" :value.sync="checklist003" :max=2 @change="change"></checklist>
+  <checklist title="set max=2" :options="commonList" :value.sync="checklist003" :max=2 @change="change"></checklist>
+
+<checklist title="set required=false and no min-error will show" :options="commonList" :value.sync="checklist004" :max=2 :required=false @change="change"></checklist>
 
 
 </template>
@@ -138,7 +140,8 @@ export default {
       commonList:['China', 'Japan','America'],
       checklist001: [],
       checklist002: ['China','Japan'],
-      checklist003: ['China','Japan']
+      checklist003: ['China','Japan'],
+      checklist004: []
     }
   },
   methods: {

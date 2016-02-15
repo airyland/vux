@@ -1,5 +1,5 @@
 <template>
-     <div class="weui_cells_title">{{title}}<span v-show="!valid" style="color:#E64340;padding-left:0.3em;">{{error}}</span></div>
+     <div class="weui_cells_title">{{title}}<span v-show="!valid && dirty" style="color:#E64340;padding-left:0.3em;">{{error}}</span></div>
         <div class="weui_cells weui_cells_checkbox">
             <label class="weui_cell weui_check_label" for="checkbox_{{uuid}}_{{index}}" v-for="(index,one) in options">
                 <div class="weui_cell_hd">
@@ -14,11 +14,18 @@
 </template>
 
 <script>
+import Base from '../libs/base'
 export default {
+    mixins: [Base],
     props: {
         title: {
             type: String,
             required: true
+        },
+        required: {
+            type: Boolean,
+            required: false,
+            default: true
         },
         options: {
             type: Array,
@@ -58,6 +65,10 @@ export default {
             }
         }else{
             this.min =1;
+        }
+
+        if(!this.required){
+            this.min = 0;
         }
     },
     computed: {
