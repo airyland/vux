@@ -15,6 +15,8 @@
 
 <script>
 import Base from '../libs/base'
+import { shuffle } from 'lodash'
+
 export default {
     mixins: [Base],
     props: {
@@ -44,6 +46,11 @@ export default {
             type: Boolean,
             required: false,
             default: false
+        },
+        random_order: {
+            type: Boolean,
+            required: false,
+            default: false
         }
     },
     ready(){
@@ -70,6 +77,10 @@ export default {
         if(!this.required){
             this.min = 0;
         }
+
+        if(this.random_order){
+            this.options = shuffle(this.options);
+        }
     },
     computed: {
         valid: function(){
@@ -83,7 +94,6 @@ export default {
             if(this.value.length>this.max){
                 err.push(this.$interpolate('最多只能选择{{max}}个哦'));
             }
-            console.log(err);
             return err;
         }
     },
