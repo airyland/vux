@@ -78,10 +78,10 @@ export default {
         error: function(){
             let err = [];
             if(this.value.length<this.min){
-                err.push('最少要选择'+this.min+'个哦');
+                err.push(this.$interpolate('最少要选择{{min}}个哦'));
             }
             if(this.value.length>this.max){
-                err.push('最多只能选择'+this.max+'个哦');
+                err.push(this.$interpolate('最多只能选择{{max}}个哦'));
             }
             console.log(err);
             return err;
