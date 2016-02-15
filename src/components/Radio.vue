@@ -55,13 +55,13 @@ export default {
         default: '其他'
       }
     },
-    methods() {
-      onFocus() {
+    methods: {
+      onFocus: function() {
         this.value = this.fillValue || '';
         this.isFocus = true
       }
     },
-    watch() {
+    watch: {
       value(newVal) {
         var isOption = contains(this.options, newVal);
         if (newVal !== '' && isOption) {
