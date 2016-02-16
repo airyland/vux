@@ -88,7 +88,18 @@
  
   <br>
   <br>
-  
+
+  <checklist title="default checklist" :options="commonList" :value.sync="checklist001" @change="change"></checklist>
+
+  <checklist title="preselect China and Japan" :options="commonList" :value.sync="checklist002" @change="change"></checklist>
+
+  <checklist title="set max=2" :options="commonList" :value.sync="checklist003" :max=2 @change="change"></checklist>
+
+<checklist title="set required=false and no min-error will show" :options="commonList" :value.sync="checklist004" :max=2 :required=false @change="change"></checklist>
+
+<checklist title="set random_order=true" :random_order=true :options="checklist005" :value.sync="checklist005Value" @change="change"></checklist>
+
+
 </template>
 
 <script>
@@ -102,6 +113,7 @@ import Tip from './components/tip'
 import Boolean from './components/Boolean'
 import GroupTitle from './components/Group-title'
 import Radio from './components/Radio'
+import Checklist from './components/Checklist'
 
 export default {
   components: {
@@ -114,7 +126,8 @@ export default {
     Boolean,
     GroupTitle,
     Radio,
-    DevTip
+    DevTip,
+    Checklist
   },
   data: function () {
     return {
@@ -125,13 +138,19 @@ export default {
       disable001: false,
       radio001:['China', 'Japan'],
       radio001Value: 'China',
-      radio002Value: 'Japan'
+      radio002Value: 'Japan',
+      commonList:['China', 'Japan','America'],
+      checklist001: [],
+      checklist002: ['China','Japan'],
+      checklist003: ['China','Japan'],
+      checklist004: [],
+      checklist005: ['01','02','03'],
+      checklist005Value:[]
     }
   },
   methods: {
     change: function (value) {
       console.log('change:', value)
-      this.selected1 = value;
     },
     processButton001: function(){
       this.submit001='processing';

@@ -9,6 +9,7 @@
     "test": "karma start build/karma.conf.js --single-run"
   },
   "dependencies": {
+    "lodash": "^4.3.0",
     "vue": "^1.0.15"
   },
   "devDependencies": {
