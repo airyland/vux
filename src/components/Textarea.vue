@@ -41,8 +41,8 @@ export default {
 	},
 	watch: {
 		value: function(newVal){
-			if(this.value.length>200){
-				this.value = newVal.slice(0,200)
+			if(this.max && this.value.length>this.max){
+				this.value = newVal.slice(0,this.max)
 			}
 			this.$dispatch('change',this.value)
 		}
