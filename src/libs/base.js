@@ -2,7 +2,11 @@ export default {
   props: {
     prisine: true,
     touched: false,
-    valid: true
+    valid: true,
+    required: {
+      type: Boolean,
+      default: true
+    }
   },
   created: function () {
   },

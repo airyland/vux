@@ -2,7 +2,7 @@
   <div>
 
     <group title="Default">
-      <x-input title="message" placeholder="I'am placeholder"></x-input>
+      <x-input title="message" placeholder="I'm placeholder"></x-input>
     </group>
 
     <group title="set is_type=china_name">
@@ -21,8 +21,8 @@
       <x-input title="地址" placeholder="请输入URL地址" is_type="url"></x-input>
     </group>
 
-    <group title="set is_type=ip">
-      <x-input title="ip地址" placeholder="请输入ip地址" is_type="ip"></x-input>
+    <group title="set is_type=ip and required=false">
+      <x-input title="ip地址" placeholder="请输入ip地址" is_type="ip" :required=false></x-input>
     </group>
 
 

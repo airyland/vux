@@ -5,9 +5,9 @@
         	<span class="label_desc" v-if="inline_desc">{{inline_desc}}</span>
         </div>
         <div class="weui_cell_bd weui_cell_primary">
-            <input class="weui_input" type="text" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="setTouched"/>
+            <input class="weui_input" type="text" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur"/>
         </div>
-        <div class="weui_cell_ft" v-show="touched && !valid">
+        <div class="weui_cell_ft" v-show="touched && !valid && firstError">
             <i class="weui_icon_warn" title="{{!valid ? firstError : ''}}"></i>
         </div>
     </div>
@@ -86,8 +86,57 @@
       }
 		},
     methods: {
+      blur: function () {
+        this.setTouched()
+        this.validate()
+      },
       getError: function () {
         this.firstError = this.errors[Object.keys(this.errors)[0]]
+      },
+      validate: function () {
+        this.errors = {}
+          
+        if(!this.value && !this.required){
+          this.valid = true
+          return
+        }
+
+        if(!this.value && this.required){
+          this.valid = false;
+          this.errors.required = '必填哦'
+        }
+
+        const validator = validators[this.is_type]
+        if(validator){
+          this.valid = validator['fn'](this.value)
+          if(!this.valid) {
+            this.errors.format = validator['msg']+'格式不对哦~'
+            return
+          }else{
+            delete this.errors.format
+          }
+        }
+
+        if(this.min) {
+          if (this.value.length < this.min){
+            this.errors.min = this.$interpolate('最少应该输入{{min}}个字符哦')
+            this.valid = false
+            return
+          }else{
+            delete this.errors.min
+          }
+        }
+
+        if(this.max) {
+          if (this.value.length > this.max){
+            this.errors.max = this.$interpolate('最多可以输入{{max}}个字符哦')
+            this.valid = false
+            return
+          }else{
+            delete this.errors.max
+          }
+        }
+        this.valid = true;
       }
     },
     data: function () {
@@ -99,40 +148,9 @@
       valid: function () {
         this.getError()
       },
-      value: function () {
-          this.errors = {}
-          const validator = validators[this.is_type]
-          if(validator){
-            this.valid = validator['fn'](this.value)
-            if(!this.valid) {
-              this.errors.format = validator['msg']+'格式不对哦~'
-              return
-            }else{
-              delete this.errors.format
-            }
-          }
-
-          if(this.min) {
-            if (this.value.length < this.min){
-              this.errors.min = this.$interpolate('最少应该输入{{min}}个字符哦')
-              this.valid = false
-              return
-            }else{
-              delete this.errors.min
-            }
-          }
-
-          if(this.max) {
-            if (this.value.length > this.max){
-              this.errors.max = this.$interpolate('最多可以输入{{max}}个字符哦')
-              this.valid = false
-              return
-            }else{
-              delete this.errors.max
-            }
-          }
-          this.valid = true;
-       }
+      value: function (newVal) {
+        this.validate()
+      }
     }
 	}
 </script>
