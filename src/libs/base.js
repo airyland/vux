@@ -1,18 +1,17 @@
 export default {
   props: {
     prisine: true,
-    touched: false
+    touched: false,
+    valid: true
   },
   created: function () {
-    this.prisine = true
-    this.touched = false
   },
   computed: {
     dirty: function () {
       return !this.prisine
     },
-    untouched: function () {
-      return !this.touched
+    invalid: function () {
+      return !this.valid
     }
   },
   watch: {
