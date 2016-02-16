@@ -1,6 +1,4 @@
 <template>
-	<div class="weui_cells_title" v-show="description && (!type || type!=='inline')">{{description}}</div>
-	<div :class="type==='inline'?'weui_cell weui_cell_box':'weui_cells'">
 		<div class="weui_cell" :class="{'weui_select_after':title,'weui_cell_select':!readonly}">
 			<div class="weui_cell_hd" v-show="title" :class="{'weui_cell_primary':readonly}">
 	            {{title}}
@@ -15,14 +13,11 @@
           		{{selected}}
             </div>
 		</div>
-	</div>
 </template>
 
 <script>
 export default {
   ready () {
-  	console.log('ready')
-  	console.log('defautl value is',this.selected)
   	this.value = this.selected;
   },
   data:function(){
@@ -48,13 +43,6 @@ export default {
     },
     placeholder: {
     	type: String
-    },
-    description: {
-    	type: String
-    },
-    type: {
-    	type: String,
-    	default: 'group'
     },
     selected: {
     	type:String,
