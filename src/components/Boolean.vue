@@ -1,6 +1,9 @@
 <template>
 	<div class="weui_cell weui_cell_switch">
-	    <div class="weui_cell_hd weui_cell_primary">{{title}}</div>
+	    <div class="weui_cell_hd weui_cell_primary">
+	    	<label class="weui_label" :style="{width:title.length+1+'em'}">{{title}}</label>
+	    	<span class="label_desc" v-if="inline_desc">{{inline_desc}}</span>
+	    </div>
 	    <div class="weui_cell_ft">
 	        <input class="weui_switch" type="checkbox" :disabled="disabled" v-model="value"/>
 	    </div>
@@ -8,7 +11,11 @@
 </template>
 
 <script>
+import InlineDesc from './Inline-desc'
 export default {
+	components:{
+		InlineDesc
+	},
 	props: {
 		title: {
 			type: String,
@@ -19,20 +26,25 @@ export default {
 			default: false,
 		},
 		value: {
-			type: Boolean
+			type: Boolean,
+			twoWay: true
+		},
+		inline_desc: {
+			type: String
 		}
 	},
 	ready: function(){
-		console.log('ready');
 	},
-	watch :{
+	watch: {
 		value: function(newVal){
-			console.log(newVal)
+			this.$dispatch('change',newVal)
 		}
 	}
 }
 </script>
 
 <style>
-
+.weui_cell_switch .weui_cell_ft {
+	font-size: 0;
+}
 </style>

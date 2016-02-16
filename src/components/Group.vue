@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<div class="weui_cells_title" v-show="title">{{title}}</div>
-	    <div class="weui_cells">
+		<div class="weui_cells_title" v-if="title">{{title}}</div>
+	    <div class="weui_cells" :class="{'no_group_title':!title}">
 	   		<slot></slot>
 	    </div>
 	</div>
@@ -20,5 +20,7 @@ export default {
 </script>
 
 <style>
-
+.no_group_title {
+	margin-top:15px;
+}
 </style>

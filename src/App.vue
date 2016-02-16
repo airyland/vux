@@ -1,108 +1,9 @@
 <template>
-  <div id="app">
-  <br>
-<br>
-
-<group title="boolean elements">
-  <boolean title="default setting"></boolean>
-  <boolean title="default true" :value=true></boolean>
-</group>
-
-<br>
-<br>
-
-    <number description="Default" title="Number"></number>
-    <number description="listen to change events" title="Number" :value=0 :min=0 @change="change"></number>
-    <number description="set width=100 // not work" title="Number" :width=100></number>
-    <number description="set step=0.5" title="Number" :step=0.5></number>
-    <number description="set value=1, min=-5 and max=8" title="Number" :min=-5 :max=8 :value=1></number>
-    <number :value=10 :readonly=true description="set value and readonly" title="Number"></number>
-
-    <group title='used as group element set type="inline"'>
-      <number title="Number" :min=-5 :max=8 :value=1 type="inline"></number>
-      <number title="Number" :min=-5 :max=8 :value=1 type="inline"></number>
-      <div class="weui_cell weui_cell_switch">
-            <div class="weui_cell_hd weui_cell_primary">Other element</div>
-            <div class="weui_cell_ft">
-                <input class="weui_switch" type="checkbox"/>
-            </div> 
-        </div>
-    </group>
- 
-
-    <br/>
-    <br/>
-
-  
-    <selector description="no placeholder" title="省份" :options="list"></selector>
-    
-    <selector description="with placeholder" placeholder="请选择省份" title="省份" :options="list" @change="change"></selector>
-
-    <selector description="without title" placeholder="请选择省份" :options="list"></selector>
-
-    <selector description="set value=广西" :selected.sync="selected1" :value.sync="value1" title="省份" :options="list"></selector>
-
-    <selector description="readonly" selected="广东" :readonly=true title="省份" :options="list"></selector>
-
-
-    <group title='used as a group element set type="inline"'>
-     <selector placeholder="请选择省份" title="省份" :options="list" type="inline"></selector>
-     <selector description="set 广西=selected" selected="广西" title="省份" :options="list" type="inline"></selector>
-    </group>
-
-  <br/>
-  <br/>
-  
-  <group-title>types: default, primary, warn</group-title>
-  <btn>submit</btn>
-  <btn type="primary">primary</btn>
-  <btn type="warn">Delete</btn>
-
-  <group-title>disabled</group-title>
-  <btn :disabled=true>disable submit</btn>
-  <btn type="primary" :disabled=true>disable primary</btn>
-  <btn type="warn" :disabled=true>disable Delete</btn>
-
-  <group-title>use :text and :disabled</group-title>
-  <btn :text="submit001" :disabled="disable001" @click="processButton001" type="primary"></btn>
-
-<br>
-<br>
-
- <number description="Default" title="Number"></number>
- <tip>I am a tip.</tip>
-
-  <number description="Default" title="Number"></number>
-  <tip align="center">I am a tip align center.</tip>
-
-  <br>
-  <br>
-  <dev-tip>单选不需要使用 group</dev-tip>
-  <radio title="default" :options="radio001" @change="change"></radio>
-  <radio title="preselect 'China'" :options="radio001" value="China"></radio>
-
-  <radio :title="'fill mode value is '+radio001Value" :fill_mode=true :options="radio001" :value.sync="radio001Value" @change="change"></radio>
-
-  <radio title="fill mode with custom placeholder and label" :fill_mode=true fill_label="Other" fill_placeholder="填写其他的哦" :options="radio001" @change="change"></radio>
-
- 
-  <br>
-  <br>
-
-  <checklist title="default checklist" :options="commonList" :value.sync="checklist001" @change="change"></checklist>
-
-  <checklist title="preselect China and Japan" :options="commonList" :value.sync="checklist002" @change="change"></checklist>
-
-  <checklist title="set max=2" :options="commonList" :value.sync="checklist003" :max=2 @change="change"></checklist>
-
-  <checklist title="set required=false and no min-error will show" :options="commonList" :value.sync="checklist004" :max=2 :required=false @change="change"></checklist>
-
-  <checklist title="set random_order=true" :random_order=true :options="checklist005" :value.sync="checklist005Value" @change="change"></checklist>
-
-<br>
-<br>
-<textarea title="textarea" :max=200 @change="change" placeholder="请填写详细信息"></textarea>
-
+<div>
+  <router-view  
+  transition
+  transition-mode="out-in"></router-view>
+</div>
 </template>
 
 <script>
@@ -117,6 +18,8 @@ import GroupTitle from './components/Group-title'
 import Radio from './components/Radio'
 import Checklist from './components/Checklist'
 import Textarea from './components/Textarea'
+import Cell from './components/Cell'
+import Xinput from './components/Input'
 
 export default {
   components: {
@@ -130,7 +33,9 @@ export default {
     Radio,
     DevTip,
     Checklist,
-    Textarea
+    Textarea,
+    Cell,
+    Xinput
   },
   data: function () {
     return {
@@ -167,11 +72,31 @@ export default {
 body {
   font-family: Helvetica, sans-serif;
   background-color: #fbf9fe;
+  padding-bottom:50px;
 }
 .weui_cell_box.weui_cell {
    padding:0;
 }
 
+.weui_cell_ft.with_arrow:after {
+    content: " ";
+    display: inline-block;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    height: 6px;
+    width: 6px;
+    border-width: 2px 2px 0 0;
+    border-color: #C8C8CD;
+    border-style: solid;
+    position: relative;
+    top: -2px;
+    top: -1px;
+    margin-left: .3em;
+  }
+
+.weui_cells > a {
+  color:#000;
+}
   /*!
  * WeUI v0.3.0 (https://github.com/weui/weui)
  * Copyright 2016 Tencent, Inc.
