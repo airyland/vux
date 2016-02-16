@@ -7,6 +7,7 @@ import Yi from './yi'
 import Icon from './demos/Icon'
 import Switch from './demos/Switch'
 import Radio from './demos/Radio'
+import Input from './demos/Input'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -30,6 +31,9 @@ router.map({
   },
   '/component/radio': {
     component: Radio
+  },
+  '/component/input': {
+    component: Input
   }
 })
 

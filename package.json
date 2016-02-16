@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "lodash": "^4.3.0",
+    "validator": "^3.39.0",
     "vue": "^1.0.15",
     "vue-router": "^0.7.11"
   },

@@ -14,11 +14,21 @@ export default {
       return !this.valid
     }
   },
+  methods: {
+    setTouched: function () {
+      this.touched = true
+    }
+  },
   watch: {
     value: function (newVal) {
       if (this.prisine === true) {
         this.prisine = false
       }
+    }
+  },
+  data: function () {
+    return {
+      errors: {}
     }
   }
 }

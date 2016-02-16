@@ -10,6 +10,7 @@
     <cell title="Icon" :is_link=true link="component/icon"></cell>
     <cell title="Date" :is_link=true link="component/date"></cell>
     <cell title="Switch" :is_link=true link="component/switch"></cell>
+    <cell title="Input" :is_link=true link="component/input"></cell>
   </group>
   <router-view></router-view>
 
@@ -122,13 +123,6 @@
 <br>
 <br>
 
-<group title="input element">
-  <xinput title="姓名" placeholder="请输入姓名"></xinput>
-</group>
-
-<group title="set keyboard=number">
-  <xinput title="电话号码" placeholder="请输入手机号码" keyboard="number"></xinput>
-</group>
 
 <br>
 <br>
