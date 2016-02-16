@@ -1,7 +1,7 @@
 <template>
   <div>
   <group>
-    <cell title="微信设置页面" :is_link=true link="demos"></cell>
+    <cell title="微信设置页面" :is_link=true link="demo/wechat"></cell>
     <cell title="小蚁摄像设置" :is_link=true link="demo/yi"></cell>
   </group>
   <router-view></router-view>
