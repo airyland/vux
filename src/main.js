@@ -4,6 +4,9 @@ import App from './App'
 import Wechat from './Wechat'
 import Home from './Home'
 import Yi from './yi'
+import Icon from './demos/Icon'
+import Switch from './demos/Switch'
+import Radio from './demos/Radio'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -18,6 +21,15 @@ router.map({
   },
   '/demo/yi': {
     component: Yi
+  },
+  '/component/icon': {
+    component: Icon
+  },
+  '/component/switch': {
+    component: Switch
+  },
+  '/component/radio': {
+    component: Radio
   }
 })
 

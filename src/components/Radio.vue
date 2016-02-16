@@ -1,6 +1,5 @@
 <template>
-    <div class="weui_cells_title" v-show="title">{{title}}</div>
-         <div class="weui_cells weui_cells_radio">
+         <div class="weui_cells_radio">
          <label class="weui_cell weui_check_label" for="radio_{{uuid}}_{{index}}" v-for="(index,one) in options">
              <div class="weui_cell_bd weui_cell_primary">
                  <p>{{one}}</p>
@@ -94,3 +93,6 @@ function contains(a, obj) {
   return false;
 }
 </script>
+
+<style>
+</style>

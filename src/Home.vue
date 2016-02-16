@@ -3,6 +3,13 @@
   <group>
     <cell title="微信设置页面" :is_link=true link="demo/wechat"></cell>
     <cell title="小蚁摄像设置" :is_link=true link="demo/yi"></cell>
+    <cell title="Radio" :is_link=true link="component/radio"></cell>
+    <cell title="Checklist" :is_link=true link="component/checklist"></cell>
+    <cell title="Selector" :is_link=true link="component/selector"></cell>
+    <cell title="Box" :is_link=true link="component/box"></cell>
+    <cell title="Icon" :is_link=true link="component/icon"></cell>
+    <cell title="Date" :is_link=true link="component/date"></cell>
+    <cell title="Switch" :is_link=true link="component/switch"></cell>
   </group>
   <router-view></router-view>
 
@@ -10,10 +17,7 @@
   <br>
   <br>
 
-<group title="boolean elements">
-  <boolean title="default setting"></boolean>
-  <boolean title="default true" :value=true></boolean>
-</group>
+
 
 <br>
 <br>
@@ -69,29 +73,7 @@
   <br/>
   <br/>
 
-  <box gap="10px 10px">
-    <icon type="success"></icon>
-    <icon type="info"></icon>
-    <icon type="info_circle"></icon>
-    <icon type="warn"></icon>
-    <icon type="waiting"></icon>
-    <icon type="waiting_circle"></icon>
-    <icon type="safe_success"></icon>
-    <icon type="safe_warn"></icon>
-    <icon type="success_circle"></icon>
-    <icon type="success_no_circle"></icon>
-    <icon type="circle"></icon>
-    <icon type="download"></icon>
-    <icon type="cancel"></icon>
-    <icon type="search"></icon>
-    <icon type="clear"></icon>
-  </box>
-  <box gap="10px 10px">
-    <icon type="success" class="icon_big"></icon>
-    <icon type="info" class="icon_big"></icon>
-    <icon type="safe_success" class="icon_big"></icon>
-    <icon type="safe_warn" class="icon_big"></icon>
-  </box>
+ 
   <br/>
   <br/>
   
@@ -122,14 +104,7 @@
 
   <br>
   <br>
-  <dev-tip>单选不需要使用 group</dev-tip>
-  <radio title="default" :options="radio001" @change="change"></radio>
-  <radio title="preselect 'China'" :options="radio001" value="China"></radio>
-
-  <radio :title="'fill mode value is '+radio001Value" :fill_mode=true :options="radio001" :value.sync="radio001Value" @change="change"></radio>
-
-  <radio title="fill mode with custom placeholder and label" :fill_mode=true fill_label="Other" fill_placeholder="填写其他的哦" :options="radio001" @change="change"></radio>
-
+  
  
   <br>
   <br>
