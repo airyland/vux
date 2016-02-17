@@ -1,23 +1,23 @@
 <template>
 <div>
 <group title="Basic">
-  <boolean title="Camera" :value=true></boolean>
+  <switch title="Camera" :value=true></switch>
   <cell title="Camera Name" :is_link=true value="小蚁智能摄像机"></cell>
   <cell title="Settings" inline_desc="Status light, image rotation, newwork info, firmware etc." :is_link=true></cell>
 </group>
 
 <group title="Security">
-  <boolean title="PIN Protection" inline_desc="Require PIN to access camera" :value=false></boolean>
+  <switch title="PIN Protection" inline_desc="Require PIN to access camera" :value=false></switch>
 </group>
 
 <group title="Alerts">
-  <boolean title="Activity Alerts" inline_desc="Send alerts when activity is detected" :value=true></boolean>
+  <switch title="Activity Alerts" inline_desc="Send alerts when activity is detected" :value=true></switch>
   <cell title="Settings" inline_desc="Video alerts, frequency, more" :is_link=true></cell>
   <cell title="Schedule" :is_link=true value="11:00-22:00"></cell>
 </group>
 
 <group title="Storage">
-  <boolean title="Activity Detection Recording" inline_desc="Videos will only be saved when activity is detected" :value=false></boolean>
+  <switch title="Activity Detection Recording" inline_desc="Videos will only be saved when activity is detected" :value=false></switch>
   <cell title="Storage" :is_link=true value="In good condition"></cell>
 </group>
 
@@ -31,7 +31,7 @@ import Selector from './components/Select'
 import Group from './components/Group'
 import Btn from './components/Button'
 import Tip from './components/tip'
-import Boolean from './components/Boolean'
+import Switch from './components/Switch'
 import GroupTitle from './components/Group-title'
 import Radio from './components/Radio'
 import Checklist from './components/Checklist'
@@ -49,7 +49,7 @@ export default {
     Group,
     Btn,
     Tip,
-    Boolean,
+    Switch,
     GroupTitle,
     Radio,
     DevTip,

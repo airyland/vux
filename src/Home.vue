@@ -137,7 +137,7 @@ import Selector from './components/Select'
 import Group from './components/Group'
 import Btn from './components/Button'
 import Tip from './components/tip'
-import Boolean from './components/Boolean'
+import Switch from './components/Switch'
 import GroupTitle from './components/Group-title'
 import Radio from './components/Radio'
 import Checklist from './components/Checklist'
@@ -154,7 +154,7 @@ export default {
     Group,
     Btn,
     Tip,
-    Boolean,
+    Switch,
     GroupTitle,
     Radio,
     DevTip,

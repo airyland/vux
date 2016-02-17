@@ -6,7 +6,7 @@
   <tip>如果你要关闭或开启微信的新消息通知，请在iPhone的"设置"-"通知"功能中，找到应用程序"微信"更改。</tip>
 
   <group>
-    <boolean title="通知显示消息详情" :value=true></boolean>
+    <switch title="通知显示消息详情" :value=true></switch>
   </group>
   <tip>关闭后，当收到微信消息时，通知提示将不再显示发信人和内容摘要。</tip>
 
@@ -16,13 +16,13 @@
   <tip>设置系统功能消息提示声音和振动的时段。</tip>
 
   <group>
-    <boolean title="声音" :value=false></boolean>
-    <boolean title="振动" :value=true></boolean>
+    <switch title="声音" :value=false></switch>
+    <switch title="振动" :value=true></switch>
   </group>
   <tip>当微信在运行时，你可以设置是否需要声音或者振动。</tip>
 
   <group>
-    <boolean title="朋友圈照片更新" :value=true></boolean>
+    <switch title="朋友圈照片更新" :value=true></switch>
   </group>
   <tip>关闭后，有朋友更新照片时，界面下面的"发现"切换按钮上不再出现红点提示。</tip>
   </div>
@@ -35,7 +35,7 @@ import Selector from './components/Select'
 import Group from './components/Group'
 import Btn from './components/Button'
 import Tip from './components/tip'
-import Boolean from './components/Boolean'
+import Switch from './components/Switch'
 import GroupTitle from './components/Group-title'
 import Radio from './components/Radio'
 import Checklist from './components/Checklist'
@@ -53,7 +53,7 @@ export default {
     Group,
     Btn,
     Tip,
-    Boolean,
+    Switch,
     GroupTitle,
     Radio,
     DevTip,

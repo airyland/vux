@@ -7,7 +7,7 @@
         <div class="weui_cell_bd weui_cell_primary">
             <input class="weui_input" type="text" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur"/>
         </div>
-        <div class="weui_cell_ft" v-show="touched && !valid && firstError">
+        <div class="weui_cell_ft" v-show="(touched && !valid && firstError) || (forceShowError && !valid && firstError)">
             <i class="weui_icon_warn" title="{{!valid ? firstError : ''}}"></i>
         </div>
     </div>
@@ -131,17 +131,21 @@
           if (this.value.length > this.max){
             this.errors.max = this.$interpolate('最多可以输入{{max}}个字符哦')
             this.valid = false
+            this.forceShowError = true
             return
           }else{
+            this.forceShowError = false
             delete this.errors.max
           }
         }
+
         this.valid = true;
       }
     },
     data: function () {
       return {
-        firstError: ''
+        firstError: '',
+        forceShowError: false
       }
     },
     watch: {
