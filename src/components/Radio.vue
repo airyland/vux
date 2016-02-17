@@ -25,10 +25,6 @@
 export default {
   ready() {},
     props: {
-      title: {
-        type: String,
-        required: true
-      },
       options: {
         type: Array,
         required: true
