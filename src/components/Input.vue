@@ -1,20 +1,22 @@
 <template>
 	<div class="weui_cell">
-        <div class="weui_cell_hd">
-        	<label class="weui_label" :style="{width: labelWidth + 'em'}">{{title}}</label>
-        	<span class="label_desc" v-if="inline_desc">{{inline_desc}}</span>
-        </div>
-        <div class="weui_cell_bd weui_cell_primary">
-            <input class="weui_input" type="text" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur"/>
-        </div>
-        <div class="weui_cell_ft" v-show="(touched && !valid && firstError) || (forceShowError && !valid && firstError)">
-            <i class="weui_icon_warn" title="{{!valid ? firstError : ''}}"></i>
-        </div>
+    <div class="weui_cell_hd">
+    	<label class="weui_label" :style="{width: labelWidth + 'em'}">{{title}}</label>
+    	<span class="label_desc" v-if="inline_desc">{{inline_desc}}</span>
     </div>
+    <div class="weui_cell_bd weui_cell_primary">
+      <input class="weui_input" type="text" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur"/>
+    </div>
+    <div class="weui_cell_ft">
+      <icon type="clear" v-show="show_clear && value" @click="value=''"></icon>
+      <icon type="warn" title="{{!valid ? firstError : ''}}" v-show="(touched && !valid && firstError) || (forceShowError && !valid && firstError)"></>
+    </div>
+  </div>
 </template>
 
 <script>
   import Base from '../libs/base'
+  import Icon from './Icon'
   import { isEmail, isIP, isURL, isMobilePhone } from 'validator'
   const validators = {
     'email': {
@@ -44,6 +46,9 @@
   }
 	export default {
     mixins: [ Base ],
+    components: {
+      Icon
+    },
     ready: function () {
       this.errors = {}
     },
@@ -70,7 +75,11 @@
         type: String
       },
       min: Number,
-      max: Number
+      max: Number,
+      show_clear: {
+        type: Boolean,
+        default: true
+      }
 		},
 		computed: {
       pattern: function () {

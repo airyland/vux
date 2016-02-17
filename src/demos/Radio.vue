@@ -19,9 +19,7 @@
 </template>
 
 <script>
-	import Radio from '../components/Radio'
-	import Group from '../components/Group'
-	import DevTip from '../components/Dev-tip'
+  import { Radio, Group, DevTip } from '../components/'
 	export default {
 		components: {
 			Radio,

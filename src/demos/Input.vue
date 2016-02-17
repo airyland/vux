@@ -5,6 +5,10 @@
       <x-input title="message" placeholder="I'm placeholder"></x-input>
     </group>
 
+    <group title="不显示清除按钮">
+      <x-input title="message" placeholder="I'm placeholder" :show_clear=false></x-input>
+    </group>
+
     <group title="set is_type=china_name">
       <x-input title="姓名" placeholder="请输入姓名" is_type="china_name"></x-input>
     </group>
@@ -34,8 +38,7 @@
 </template>
 
 <script>
-  import XInput from '../components/Input'
-  import Group from '../components/Group'
+  import { Input as XInput, Group } from '../components/'
   export default {
     components: {
       XInput,
