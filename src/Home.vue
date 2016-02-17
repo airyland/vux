@@ -4,10 +4,8 @@
       <cell title="Radio" :is_link=true link="component/radio"></cell>
       <cell title="Checklist" :is_link=true link="component/checklist"></cell>
       <cell title="Selector" :is_link=true link="component/selector"></cell>
-      <cell title="Box" :is_link=true link="component/box"></cell>
       <cell title="Button" :is_link=true link="component/button"></cell>
       <cell title="Textarea" :is_link=true link="component/textarea"></cell>
-      <cell title="Icon" :is_link=true link="component/icon"></cell>
       <cell title="Date" :is_link=true link="component/date"></cell>
       <cell title="Switch" :is_link=true link="component/switch"></cell>
       <cell title="Input" :is_link=true link="component/input"></cell>
@@ -15,9 +13,12 @@
     </group>
 
     <group title="UI" title_color="#04be02">
+      <cell title="Icon" :is_link=true link="component/icon"></cell>
+      <cell title="Box" :is_link=true link="component/box"></cell>
       <cell title="Flexbox" :is_link=true link="component/flexbox"></cell>
       <cell title="Tab" :is_link=true link="component/tab"></cell>
       <cell title="Swiper" :is_link=true link="component/swiper"></cell>
+      <cell title="Clocker倒计时" :is_link=true link="component/time"></cell>
     </group>
 
     <group title="Demo" title_color="#04be02">

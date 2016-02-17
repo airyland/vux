@@ -1,9 +1,23 @@
 <template>
-  <div class="vuee-tab"><slot></slot></div>
+  <div class="vuee-tab">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
   export default {
+    props: {
+      line_width: {
+        type: Number,
+        required: false,
+        default: 3
+      },
+      color: {
+        type: String,
+        required: false,
+        default: '#04be02'
+      }
+    }
   }
 </script>
 
