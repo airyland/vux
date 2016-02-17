@@ -1,24 +1,24 @@
 <template>
-         <div class="weui_cells_radio">
-         <label class="weui_cell weui_check_label" for="radio_{{uuid}}_{{index}}" v-for="(index,one) in options">
-             <div class="weui_cell_bd weui_cell_primary">
-                 <p>{{one}}</p>
-             </div>
-             <div class="weui_cell_ft">
-                 <input type="radio" class="weui_check" v-model="value" id="radio_{{uuid}}_{{index}}" value="{{one}}">
-                 <span class="weui_icon_checked"></span>
-             </div>
-        </label>
-        <div class="weui_cell" v-show="fill_mode">
-          <div class="weui_cell_hd"><label for="" class="weui_label">{{fill_label}}</label></div>
-          <div class="weui_cell_bd weui_cell_primary">
-              <input class="weui_input needsclick" type="text" v-model="fillValue" placeholder="{{fill_placeholder}}" @blur="isFocus=false;" @focus="onFocus()">
-          </div>
-          <div class="weui_cell_ft" v-show="value==='' && !isFocus">
-              <i class="weui_icon_warn"></i>
-          </div>
-        </div>
-     </div>
+  <div class="weui_cells_radio">
+     <label class="weui_cell weui_check_label" for="radio_{{uuid}}_{{index}}" v-for="(index,one) in options">
+         <div class="weui_cell_bd weui_cell_primary">
+             <p>{{one}}</p>
+         </div>
+         <div class="weui_cell_ft">
+             <input type="radio" class="weui_check" v-model="value" id="radio_{{uuid}}_{{index}}" value="{{one}}">
+             <span class="weui_icon_checked"></span>
+         </div>
+    </label>
+    <div class="weui_cell" v-show="fill_mode">
+      <div class="weui_cell_hd"><label for="" class="weui_label">{{fill_label}}</label></div>
+      <div class="weui_cell_bd weui_cell_primary">
+          <input class="weui_input needsclick" type="text" v-model="fillValue" placeholder="{{fill_placeholder}}" @blur="isFocus=false;" @focus="onFocus()">
+      </div>
+      <div class="weui_cell_ft" v-show="value==='' && !isFocus">
+          <i class="weui_icon_warn"></i>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
