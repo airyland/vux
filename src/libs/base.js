@@ -1,8 +1,5 @@
 export default {
   props: {
-    prisine: true,
-    touched: false,
-    valid: true,
     required: {
       type: Boolean,
       default: true
@@ -32,7 +29,10 @@ export default {
   },
   data: function () {
     return {
-      errors: {}
+      errors: {},
+      prisine: true,
+      touched: false,
+      valid: true
     }
   }
 }
