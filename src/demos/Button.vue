@@ -1,0 +1,45 @@
+<template>
+<div>
+  <group-title>types: default, primary, warn</group-title>
+  <box gap="10px 10px">
+    <x-button>submit</x-button>
+    <x-button type="primary">primary</x-button>
+    <x-button type="warn">Delete</x-button>
+ 
+    <group-title>disabled</group-title>
+    <x-button :disabled=true>disable submit</x-button>
+    <x-button type="primary" :disabled=true>disable primary</x-button>
+    <x-button type="warn" :disabled=true>disable Delete</x-button>
+
+    <group-title>use :text and :disabled</group-title>
+    <x-button :text="submit001" :disabled="disable001" @click="processButton001" type="primary"></x-button>
+   </box>
+</div>
+</template>
+
+<script>
+  import { XButton, Box, GroupTitle, Group } from '../components/'
+  export default {
+    components: {
+      XButton,
+      Box,
+      GroupTitle,
+      Group
+    },
+    methods: {
+      change: function (value) {
+        console.log('change:', value)
+      },
+      processButton001: function(){
+        this.submit001='processing';
+        this.disable001=true;
+      }
+    },
+    data: function () {
+      return {
+        submit001: 'click me',
+        disable001: false
+      }
+    }
+  }
+</script>

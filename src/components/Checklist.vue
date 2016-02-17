@@ -1,16 +1,16 @@
 <template>
-     <div class="weui_cells_title">{{title}}<span v-show="!valid && dirty" style="color:#E64340;padding-left:0.3em;">{{error}}</span></div>
-        <div class="weui_cells weui_cells_checkbox">
-            <label class="weui_cell weui_check_label" for="checkbox_{{uuid}}_{{index}}" v-for="(index,one) in options">
-                <div class="weui_cell_hd">
-                    <input type="checkbox" class="weui_check" value="{{one}}" v-model="value" id="checkbox_{{uuid}}_{{index}}">
-                    <i class="weui_icon_checked"></i>
-                </div>
-                <div class="weui_cell_bd weui_cell_primary">
-                    <p>{{one}}</p>
-                </div>
-            </label>
+    <div class="weui_cells_title">{{title}}<span v-show="!valid && dirty" style="color:#E64340;padding-left:0.3em;">{{error}}</span></div>
+    <div class="weui_cells weui_cells_checkbox">
+    <label class="weui_cell weui_check_label" for="checkbox_{{uuid}}_{{index}}" v-for="(index,one) in options">
+        <div class="weui_cell_hd">
+            <input type="checkbox" class="weui_check" value="{{one}}" v-model="value" id="checkbox_{{uuid}}_{{index}}">
+            <i class="weui_icon_checked"></i>
         </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <p>{{one}}</p>
+        </div>
+    </label>
+</div>
 </template>
 
 <script>
@@ -18,94 +18,94 @@ import Base from '../libs/base'
 import { shuffle } from 'lodash'
 
 export default {
-    mixins: [Base],
-    props: {
-        title: {
-            type: String,
-            required: true
-        },
-        required: {
-            type: Boolean,
-            required: false,
-            default: true
-        },
-        options: {
-            type: Array,
-            required: true
-        },
-        value: {
-            type: Array,
-            required: false,
-            twoWay: true
-        },
-        max: {
-            type: Number,
-            required: false,
-        },
-        fill_mode: {
-            type: Boolean,
-            required: false,
-            default: false
-        },
-        random_order: {
-            type: Boolean,
-            required: false,
-            default: false
-        }
+  mixins: [Base],
+  props: {
+    title: {
+      type: String,
+      required: true
     },
-    ready(){
-        let total = this.fill_mode?(this.options.length+1):this.options.length;
-        if(this.max){
-            if(this.max>total){
-                this.max = total;
-            }
-        }else{
-            this.max = total;
-        }
-
-        if(this.min){
-            if(this.min<0){
-                this.min =1;
-            }
-            if(this.min>=total){
-                this.min = total;
-            }
-        }else{
-            this.min =1;
-        }
-
-        if(!this.required){
-            this.min = 0;
-        }
-
-        if(this.random_order){
-            this.options = shuffle(this.options);
-        }
+    required: {
+      type: Boolean,
+      required: false,
+      default: true
     },
-    computed: {
-        valid: function(){
-            return this.value.length>=this.min && this.value.length<=this.max;
-        },
-        error: function(){
-            let err = [];
-            if(this.value.length<this.min){
-                err.push(this.$interpolate('最少要选择{{min}}个哦'));
-            }
-            if(this.value.length>this.max){
-                err.push(this.$interpolate('最多只能选择{{max}}个哦'));
-            }
-            return err;
-        }
+    options: {
+      type: Array,
+      required: true
     },
-    data(){
-        return {
-            uuid: Math.random().toString(36).substring(3, 8)
-        }
+    value: {
+      type: Array,
+      required: false,
+      twoWay: true
     },
-    watch: {
-        value(newVal){
-            this.$dispatch('change',this.value);
-        }
+    max: {
+      type: Number,
+      required: false
+    },
+    fill_mode: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    random_order: {
+      type: Boolean,
+      required: false,
+      default: false
     }
+  },
+  ready(){
+    let total = this.fill_mode?(this.options.length+1):this.options.length;
+    if(this.max){
+      if(this.max>total){
+        this.max = total;
+      }
+    }else{
+      this.max = total;
+    }
+
+    if(this.min){
+      if(this.min<0){
+        this.min =1;
+      }
+      if(this.min>=total){
+          this.min = total;
+      }
+    }else{
+      this.min =1;
+    }
+
+    if(!this.required){
+      this.min = 0;
+    }
+
+    if(this.random_order){
+      this.options = shuffle(this.options)
+    }
+  },
+  computed: {
+    valid: function(){
+      return this.value.length>=this.min && this.value.length<=this.max
+    },
+    error: function(){
+      let err = [];
+      if(this.value.length<this.min){
+        err.push(this.$interpolate('最少要选择{{min}}个哦'))
+      }
+      if(this.value.length>this.max){
+          err.push(this.$interpolate('最多只能选择{{max}}个哦'))
+      }
+      return err;
+    }
+  },
+  data(){
+    return {
+      uuid: Math.random().toString(36).substring(3, 8)
+    }
+  },
+  watch: {
+    value(newVal){
+      this.$dispatch('change',this.value)
+    }
+  }
 } 
 </script>

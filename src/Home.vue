@@ -1,196 +1,36 @@
 <template>
   <div>
-  <group>
-    <cell title="微信设置页面" :is_link=true link="demo/wechat"></cell>
-    <cell title="小蚁摄像设置" :is_link=true link="demo/yi"></cell>
-    <cell title="Radio" :is_link=true link="component/radio"></cell>
-    <cell title="Checklist" :is_link=true link="component/checklist"></cell>
-    <cell title="Selector" :is_link=true link="component/selector"></cell>
-    <cell title="Box" :is_link=true link="component/box"></cell>
-    <cell title="Icon" :is_link=true link="component/icon"></cell>
-    <cell title="Date" :is_link=true link="component/date"></cell>
-    <cell title="Switch" :is_link=true link="component/switch"></cell>
-    <cell title="Input" :is_link=true link="component/input"></cell>
-  </group>
-  <router-view></router-view>
-
-
-  <br>
-  <br>
-
-
-
-<br>
-<br>
-
-    <number description="Default" title="Number"></number>
-    <number description="listen to change events" title="Number" :value=0 :min=0 @change="change"></number>
-    <number description="set width=100 // not work" title="Number" :width=100></number>
-    <number description="set step=0.5" title="Number" :step=0.5></number>
-    <number description="set value=1, min=-5 and max=8" title="Number" :min=-5 :max=8 :value=1></number>
-    <number :value=10 :readonly=true description="set value and readonly" title="Number"></number>
-
-    <group title='used as group element set type="inline"'>
-      <number title="Number" :min=-5 :max=8 :value=1 type="inline"></number>
-      <number title="Number" :min=-5 :max=8 :value=1 type="inline"></number>
-      <div class="weui_cell weui_cell_switch">
-            <div class="weui_cell_hd weui_cell_primary">Other element</div>
-            <div class="weui_cell_ft">
-                <input class="weui_switch" type="checkbox"/>
-            </div> 
-        </div>
+    <group>
+      <cell title="Radio" :is_link=true link="component/radio"></cell>
+      <cell title="Checklist" :is_link=true link="component/checklist"></cell>
+      <cell title="Selector" :is_link=true link="component/selector"></cell>
+      <cell title="Box" :is_link=true link="component/box"></cell>
+      <cell title="Button" :is_link=true link="component/button"></cell>
+      <cell title="Textarea" :is_link=true link="component/textarea"></cell>
+      <cell title="Icon" :is_link=true link="component/icon"></cell>
+      <cell title="Date" :is_link=true link="component/date"></cell>
+      <cell title="Switch" :is_link=true link="component/switch"></cell>
+      <cell title="Input" :is_link=true link="component/input"></cell>
+      <cell title="Number" :is_link=true link="component/number"></cell>
+      <cell title="微信设置页面" :is_link=true link="demo/wechat"></cell>
+      <cell title="小蚁摄像设置" :is_link=true link="demo/yi"></cell>
+      <cell title="TODO:Address" :is_link=true link="component/address"></cell>
+      <cell title="TODO:Rater" :is_link=true link="component/rater"></cell>
+      <cell title="TODO:Picker" :is_link=true link="component/picker"></cell>
     </group>
- 
-
-    <br/>
-    <br/>
-
-    <group title="no placeholder">
-      <selector title="省份" :options="list"></selector>
-    </group>
-   
-    
-    <group title="with placeholder">
-      <selector placeholder="请选择省份" title="省份" :options="list" @change="change"></selector>
-    </group>
-
-    <group title="without title">
-      <selector placeholder="请选择省份" :options="list"></selector>
-    </group>
-    
-    <group title="set value=广西">
-      <selector :selected.sync="selected1" :value.sync="value1" title="省份" :options="list"></selector>
-    </group>
-
-    <group title="readonly">
-      <selector selected="广东" :readonly=true title="省份" :options="list"></selector>
-    </group>
-
-    <group title='multi selector'>
-     <selector placeholder="请选择省份" title="省份" :options="list" type="inline"></selector>
-     <selector selected="广西" title="省份" :options="list"></selector>
-    </group>
-
-  <br/>
-  <br/>
-
- 
-  <br/>
-  <br/>
-  
-  <group-title>types: default, primary, warn</group-title>
-  <box gap="10px 10px">
-    <btn>submit</btn>
-    <btn type="primary">primary</btn>
-    <btn type="warn">Delete</btn>
- 
- 
-
-    <group-title>disabled</group-title>
-    <btn :disabled=true>disable submit</btn>
-    <btn type="primary" :disabled=true>disable primary</btn>
-    <btn type="warn" :disabled=true>disable Delete</btn>
-
-    <group-title>use :text and :disabled</group-title>
-    <btn :text="submit001" :disabled="disable001" @click="processButton001" type="primary"></btn>
-   </box>
-<br>
-<br>
-
- <number description="Default" title="Number"></number>
- <tip>I am a tip.</tip>
-
-  <number description="Default" title="Number"></number>
-  <tip align="center">I am a tip align center.</tip>
-
-  <br>
-  <br>
-  
- 
-  <br>
-  <br>
-
-  <checklist title="default checklist" :options="commonList" :value.sync="checklist001" @change="change"></checklist>
-
-  <checklist title="preselect China and Japan" :options="commonList" :value.sync="checklist002" @change="change"></checklist>
-
-  <checklist title="set max=2" :options="commonList" :value.sync="checklist003" :max=2 @change="change"></checklist>
-
-  <checklist title="set required=false and no min-error will show" :options="commonList" :value.sync="checklist004" :max=2 :required=false @change="change"></checklist>
-
-  <checklist title="set random_order=true" :random_order=true :options="checklist005" :value.sync="checklist005Value" @change="change"></checklist>
-
-<br>
-<br>
-
-
-<br>
-<br>
-<textarea title="textarea" :max=200 @change="change" placeholder="请填写详细信息"></textarea>
-</div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import DevTip from './components/Dev-tip'
-import Number from './components/Number'
-import Selector from './components/Select'
-import Group from './components/Group'
-import Btn from './components/Button'
-import Tip from './components/tip'
-import Switch from './components/Switch'
-import GroupTitle from './components/Group-title'
-import Radio from './components/Radio'
-import Checklist from './components/Checklist'
-import Textarea from './components/Textarea'
-import Cell from './components/Cell'
-import Xinput from './components/Input'
-import Box from './components/box'
-import Icon from './components/Icon'
-
+import { Cell, Group } from './components/'
 export default {
   components: {
-    Number,
-    Selector,
-    Group,
-    Btn,
-    Tip,
-    Switch,
-    GroupTitle,
-    Radio,
-    DevTip,
-    Checklist,
-    Textarea,
     Cell,
-    Xinput,
-    Box,
-    Icon
+    Group
   },
   data: function () {
     return {
-      list: [{ text: '广东', value: 'gd'}, {text: '广西', value: 'gx'}],
-      selected1: '广西',
-      value1:'',
-      submit001:'click me',
-      disable001: false,
-      radio001:['China', 'Japan'],
-      radio001Value: 'China',
-      radio002Value: 'Japan',
-      commonList:['China', 'Japan','America'],
-      checklist001: [],
-      checklist002: ['China','Japan'],
-      checklist003: ['China','Japan'],
-      checklist004: [],
-      checklist005: ['01','02','03'],
-      checklist005Value:[]
-    }
-  },
-  methods: {
-    change: function (value) {
-      console.log('change:', value)
-    },
-    processButton001: function(){
-      this.submit001='processing';
-      this.disable001=true;
     }
   }
 }

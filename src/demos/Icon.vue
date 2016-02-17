@@ -26,7 +26,7 @@
 </template>
 
 <script>
-	import Box from '../components/box'
+	import Box from '../components/Box'
 	import Icon from '../components/Icon'
 	export default {
 		components: {

@@ -12,7 +12,8 @@
     "lodash": "^4.3.0",
     "validator": "^3.39.0",
     "vue": "^1.0.15",
-    "vue-router": "^0.7.11"
+    "vue-router": "^0.7.11",
+    "zepto": "^1.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
