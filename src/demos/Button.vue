@@ -13,18 +13,44 @@
 
     <group-title>use :text and :disabled</group-title>
     <x-button :text="submit001" :disabled="disable001" @click="processButton001" type="primary"></x-button>
-   </box>
+
+    <group-title>combined with flexbox</group-title>
+    <flexbox>
+      <flexbox-item>
+        <x-button type="primary">primary</x-button>
+      </flexbox-item>
+      <flexbox-item>
+        <x-button type="warn">Delete</x-button>
+      </flexbox-item>
+    </flexbox>
+    <group-title>combined with flexbox</group-title>
+    <flexbox>
+       <flexbox-item>
+        <x-button type="default">default</x-button>
+      </flexbox-item>
+      <flexbox-item>
+        <x-button type="primary">primary</x-button>
+      </flexbox-item>
+      <flexbox-item>
+        <x-button type="warn">Delete</x-button>
+      </flexbox-item>
+    </flexbox>
+
+  </box>
+
 </div>
 </template>
 
 <script>
-  import { XButton, Box, GroupTitle, Group } from '../components/'
+  import { XButton, Box, GroupTitle, Group, Flexbox, FlexboxItem } from '../components/'
   export default {
     components: {
       XButton,
       Box,
       GroupTitle,
-      Group
+      Group,
+      Flexbox,
+      FlexboxItem
     },
     methods: {
       change: function (value) {

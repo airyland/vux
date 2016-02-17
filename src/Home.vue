@@ -1,6 +1,6 @@
 <template>
   <div>
-    <group>
+    <group title="Form" title_color="#04be02">
       <cell title="Radio" :is_link=true link="component/radio"></cell>
       <cell title="Checklist" :is_link=true link="component/checklist"></cell>
       <cell title="Selector" :is_link=true link="component/selector"></cell>
@@ -12,12 +12,27 @@
       <cell title="Switch" :is_link=true link="component/switch"></cell>
       <cell title="Input" :is_link=true link="component/input"></cell>
       <cell title="Number" :is_link=true link="component/number"></cell>
+    </group>
+
+    <group title="UI" title_color="#04be02">
+      <cell title="Flexbox" :is_link=true link="component/flexbox"></cell>
+      <cell title="Tab" :is_link=true link="component/tab"></cell>
+      <cell title="Swiper" :is_link=true link="component/swiper"></cell>
+    </group>
+
+    <group title="Demo" title_color="#04be02">
       <cell title="微信设置页面" :is_link=true link="demo/wechat"></cell>
       <cell title="小蚁摄像设置" :is_link=true link="demo/yi"></cell>
-      <cell title="TODO:Address" :is_link=true link="component/address"></cell>
-      <cell title="TODO:Rater" :is_link=true link="component/rater"></cell>
-      <cell title="TODO:Picker" :is_link=true link="component/picker"></cell>
     </group>
+
+    <group title="TODO" title_color="#04be02">
+      <cell title="Address" :is_link=true link="component/address"></cell>
+      <cell title="Rater" :is_link=true link="component/rater"></cell>
+      <cell title="Picker" :is_link=true link="component/picker"></cell>
+      <cell title="短信验证组件" :is_link=true link="component/address"></cell>
+      <cell title="图片验证码" :is_link=true link="component/rater"></cell>
+    </group>
+
     <router-view></router-view>
   </div>
 </template>

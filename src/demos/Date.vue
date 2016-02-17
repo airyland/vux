@@ -1,5 +1,9 @@
 <template>
-
+  <div>
+    <group>
+      <date title="生日"></date>
+    </group>
+  </div>
 </template>
 
 <script>

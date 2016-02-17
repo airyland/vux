@@ -14,6 +14,10 @@ import Selector from './demos/Selector'
 import Tip from './demos/Tip'
 import Button from './demos/Button'
 import Textarea from './demos/Textarea'
+import Date from './demos/Date'
+import Flexbox from './demos/Flexbox'
+import Tab from './demos/Tab'
+import Swiper from './demos/Swiper'
 /* eslint-disable no-new */
 Vue.use(Router)
 var router = new Router()
@@ -57,6 +61,18 @@ router.map({
   },
   '/component/textarea': {
     component: Textarea
+  },
+  '/component/date': {
+    component: Date
+  },
+  '/component/flexbox': {
+    component: Flexbox
+  },
+  '/component/tab': {
+    component: Tab
+  },
+  '/component/swiper': {
+    component: Swiper
   }
 })
 

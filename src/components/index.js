@@ -6,6 +6,7 @@ import Input from './Input'
 import Number from './Number'
 import Cell from './Cell'
 import Checklist from './Checklist'
+import Date from './Date'
 import Switch from './Switch'
 import Textarea from './Textarea'
 import GroupTitle from './Group-title'
@@ -13,10 +14,15 @@ import Box from './Box'
 import Tip from './Tip'
 import Selector from './Select'
 import XButton from './Button'
+import Flexbox from './Flexbox'
+import FlexboxItem from './Flexbox-item'
+import Tab from './Tab'
+import TabItem from './Tab-item'
 
 const Vuee = {
   Radio,
   Group,
+  Date,
   DevTip,
   Address,
   Input,
@@ -29,7 +35,11 @@ const Vuee = {
   Selector,
   Cell,
   XButton,
-  Textarea
+  Textarea,
+  Flexbox,
+  FlexboxItem,
+  Tab,
+  TabItem
 }
 
 module.exports = Vuee
