@@ -18,6 +18,7 @@
       <cell title="Flexbox" :is_link=true link="component/flexbox"></cell>
       <cell title="Tab" :is_link=true link="component/tab"></cell>
       <cell title="Swiper" :is_link=true link="component/swiper"></cell>
+      <cell title="Sticky" :is_link=true link="component/sticky"></cell>
       <cell title="Clocker倒计时" :is_link=true link="component/time"></cell>
     </group>
 

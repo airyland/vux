@@ -18,6 +18,7 @@ import Date from './demos/Date'
 import Flexbox from './demos/Flexbox'
 import Tab from './demos/Tab'
 import Swiper from './demos/Swiper'
+import Sticky from './demos/Sticky'
 /* eslint-disable no-new */
 Vue.use(Router)
 var router = new Router()
@@ -73,6 +74,9 @@ router.map({
   },
   '/component/swiper': {
     component: Swiper
+  },
+  '/component/sticky': {
+    component: Sticky
   }
 })
 

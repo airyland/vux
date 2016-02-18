@@ -20,6 +20,7 @@ import Tab from './Tab'
 import TabItem from './Tab-item'
 import Swiper from './Swiper'
 import SwiperItem from './Swiper/Swiper-item'
+import Sticky from './sticky/'
 
 const Vuee = {
   Radio,
@@ -43,7 +44,8 @@ const Vuee = {
   Tab,
   TabItem,
   Swiper,
-  SwiperItem
+  SwiperItem,
+  Sticky
 }
 
 module.exports = Vuee
