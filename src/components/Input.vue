@@ -5,10 +5,10 @@
     	<span class="label_desc" v-if="inline_desc">{{inline_desc}}</span>
     </div>
     <div class="weui_cell_bd weui_cell_primary">
-      <input class="weui_input" :type="type" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur"/>
+      <input class="weui_input" :type="type" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur" v-focus="focus"/>
     </div>
     <div class="weui_cell_ft">
-      <icon type="clear" v-show="show_clear && value" @click="value=''"></icon>
+      <icon type="clear" v-show="show_clear && value" @click="clear"></icon>
       <icon type="warn" title="{{!valid ? firstError : ''}}" v-show="!equal_with && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
       <icon type="warn" v-show="hasLengthEqual && dirty && equal_with && !valid"></icon>
       <icon type="success" v-show="equal_with && equal_with===value && valid"></icon>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+  import { focus, focusAuto } from 'vue-focus';
   import Base from '../libs/base'
   import Icon from './Icon'
   import InlineDesc from './Inline-desc'
@@ -48,6 +49,10 @@
     }
   }
 	export default {
+    directives: {
+      focusAuto: focusAuto,
+      focus: focus
+    },
     mixins: [ Base ],
     components: {
       Icon
@@ -107,6 +112,10 @@
       }
 		},
     methods: {
+      clear: function () {
+        this.value = ''
+        this.focus = true
+      },
       blur: function () {
         this.setTouched()
         this.validate()
@@ -184,7 +193,8 @@
       let data = {
         firstError: '',
         forceShowError: false,
-        hasLengthEqual: false
+        hasLengthEqual: false,
+        focus: false
       }
       return data
     },
