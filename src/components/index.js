@@ -18,6 +18,8 @@ import Flexbox from './Flexbox'
 import FlexboxItem from './Flexbox-item'
 import Tab from './Tab'
 import TabItem from './Tab-item'
+import Swiper from './Swiper'
+import SwiperItem from './Swiper/Swiper-item'
 
 const Vuee = {
   Radio,
@@ -39,7 +41,9 @@ const Vuee = {
   Flexbox,
   FlexboxItem,
   Tab,
-  TabItem
+  TabItem,
+  Swiper,
+  SwiperItem
 }
 
 module.exports = Vuee

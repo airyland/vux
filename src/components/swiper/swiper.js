@@ -4,8 +4,11 @@ function Swiper (options) {
     container: '.swiper',
     item: '.item',
     direction: 'vertical',
+    activeClass: 'active',
     threshold: 50,
-    duration: 300
+    duration: 300,
+    auto: false,
+    interval: 3000
   }
   this._options = extend(this._default, options)
   this._start = {}
@@ -14,6 +17,7 @@ function Swiper (options) {
   this._prev = 0
   this._current = 0
   this._offset = 0
+  this._goto = -1
   this._eventHandlers = {}
 
   this.$container = this._options.container.querySelector('.swiper')
@@ -23,38 +27,62 @@ function Swiper (options) {
   this._width = this.$container.offsetWidth
   this._height = this.$container.offsetHeight
 
+  this.timer = null
+
+  this._auto()
   this._init()
   this._bind()
+  return this
+}
+
+Swiper.prototype._auto = function () {
+  var me = this
+  if (this._options.auto) {
+    me.timer = setTimeout(function () {
+      me.next()
+    }, me._options.interval)
+  }
+}
+
+Swiper.prototype.stop = function () {
+  clearTimeout(this.timer)
 }
 
 Swiper.prototype._init = function () {
-
-  var width = this._width
-  var height = this._height
+  var me = this
+  var width = me._width
+  var height = me._height
 
   var w = width
-  var h = height * this.count
+  var h = height * me.count
 
-  if (this._options.direction === 'horizontal') {
-    w = width * this.count
+  if (me._options.direction === 'horizontal') {
+    w = width * me.count
     h = height
   }
 
-  this.$container.style.width = w + 'px'
-  this.$container.style.height = h + 'px'
+  me.$container.style.width = w + 'px'
+  me.$container.style.height = h + 'px'
 
-  Array.prototype.forEach.call(this.$items, function ($item) {
+  Array.prototype.forEach.call(me.$items, function ($item, key) {
     $item.style.width = width + 'px'
     $item.style.height = height + 'px'
   })
+
+  me._activate(0)
 }
 
 Swiper.prototype._bind = function () {
   var me = this
 
   this.$container.addEventListener('touchstart', function (e) {
+    me.stop()
     me._start.x = e.changedTouches[0].pageX
     me._start.y = e.changedTouches[0].pageY
+
+    me.$container.style['-webkit-transition'] = 'none'
+    me.$container.style.transition = 'none'
+
   }, false)
 
   this.$container.addEventListener('touchmove', function (e) {
@@ -69,8 +97,6 @@ Swiper.prototype._bind = function () {
       transform = 'translate3d(' + (distance - me._offset) + 'px, 0, 0)'
     }
 
-    me.$container.style['-webkit-transition'] = '0'
-    me.$container.style.transition = '0'
     me.$container.style['-webkit-transform'] = transform
     me.$container.style.transform = transform
 
@@ -80,6 +106,7 @@ Swiper.prototype._bind = function () {
   this.$container.addEventListener('touchend', function (e) {
     me._end.x = e.changedTouches[0].pageX
     me._end.y = e.changedTouches[0].pageY
+
     var distance = me._end.y - me._start.y
     if (me._options.direction === 'horizontal') {
       distance = me._end.x - me._start.x
@@ -93,21 +120,25 @@ Swiper.prototype._bind = function () {
     }
 
     me._show(me._current)
+
   }, false)
 
-  this.$container.addEventListener('transitionEnd', function (e) {
-  }, false)
+  this.$container.addEventListener('transitionEnd', function (e) {}, false)
 
   this.$container.addEventListener('webkitTransitionEnd', function (e) {
     if (e.target !== me.$container) {
       return false
     }
 
-    if (me._current !== me._prev) {
-      var cb = me._eventHandlers.swiped
-      if (cb) {
-        cb.apply(me, [me._prev, me._current])
-      }
+    if (me._current !== me._prev || me._goto > -1) {
+      me._activate(me._current)
+      var cb = me._eventHandlers.swiped || noop
+      cb.apply(me, [me._prev, me._current])
+      me._goto = -1
+    }
+
+    if (me._options.auto) {
+      me._auto()
     }
 
     e.preventDefault()
@@ -131,6 +162,46 @@ Swiper.prototype._show = function (index) {
   this.$container.style.transform = transform
 }
 
+Swiper.prototype._activate = function (index) {
+  var clazz = this._options.activeClass
+  Array.prototype.forEach.call(this.$items, function ($item, key) {
+    $item.classList.remove(clazz)
+    if (index === key) {
+      $item.classList.add(clazz)
+    }
+  })
+}
+
+Swiper.prototype.go = function (index) {
+  if (index < 0 || index > this.count - 1 || index === this._current) {
+    return
+  }
+
+  if (index === 0) {
+    this._current = 0
+    this._prev = 0
+  } else {
+    this._current = index
+    this._prev = index - 1
+  }
+
+  this._goto = index
+  this._show(this._current)
+
+  return this
+}
+
+Swiper.prototype.next = function () {
+  if (this._current >= this.count - 1) {
+    this._current = 0
+    this._show(0)
+    return this
+  }
+  this._prev = this._current
+  this._show(++this._current)
+  return this
+}
+
 Swiper.prototype.on = function (event, callback) {
   if (this._eventHandlers[event]) {
     console.error('event ' + event + ' is already register')
@@ -148,7 +219,12 @@ function extend (target, source) {
   for (var key in source) {
     target[key] = source[key]
   }
+
   return target
+}
+
+function noop () {
+
 }
 
 export default Swiper

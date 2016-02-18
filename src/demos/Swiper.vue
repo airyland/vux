@@ -1,14 +1,33 @@
 <template>
   <div>
+    <group-title>THX to: https://github.com/wechatui/swiper</group-title>
+    <group-title>默认设置</group-title>
     <swiper :list="list"></swiper>
+    <br/>
+    <br/>
+    <group-title>自动轮播</group-title>
+    <swiper :list="list" :auto=true></swiper>
+    <br/>
+    <br/>
+    <group-title>引入swiper-item自定义item内容，用height定义高度</group-title>
+    <swiper :auto=true :height=100>
+      <swiper-item class="black"><h2 class="title fadeInUp animated">它无孔不入</h2></swiper-item>
+      <swiper-item class="black"><h2 class="title fadeInUp animated">你无处可藏</h2></swiper-item>
+      <swiper-item class="black"><h2 class="title fadeInUp animated">不是它可恶</h2></swiper-item>
+      <swiper-item class="black"><h2 class="title fadeInUp animated">而是它不懂你</h2></swiper-item>
+      <swiper-item class="black"><h2 class="title fadeInUp animated">我们试图</h2></swiper-item>
+      <swiper-item class="black"><h2 class="title fadeInUp animated">做些改变</h2></swiper-item>
+    </swiper>
   <div>
 </template>
 
 <script>
-  import Swiper from '../components/Swiper/'
+  import { Swiper, GroupTitle, SwiperItem } from '../components/'
   export default {
     components: {
-      Swiper
+      Swiper,
+      SwiperItem,
+      GroupTitle
     },
     data: function(){
       return {
@@ -29,3 +48,54 @@
     }
  }
 </script>
+
+<style>
+.black {
+  background-color: #000;
+}
+.title{
+  line-height: 100px;
+  text-align: center;
+  color: #fff;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+</style>
