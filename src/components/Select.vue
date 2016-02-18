@@ -1,5 +1,5 @@
 <template>
-	<div class="weui_cell" :class="{'weui_select_after':title,'weui_cell_select':!readonly}">
+	<div class="weui_cell" :class="{'weui_select_after':title, 'weui_cell_select':!readonly}">
 		<div class="weui_cell_hd" v-show="title" :class="{'weui_cell_primary':readonly}">
       {{title}}
     </div>
@@ -18,18 +18,18 @@
 <script>
 export default {
   ready () {
-  	this.value = this.selected;
+    this.value = this.selected
   },
-  data:function(){
-  	return {
-  		values:null
-  	}
+  data: function () {
+    return {
+      values: null
+    }
   },
   watch: {
-  	value: function(newValue){
-  		this.selected = newValue;
-  		this.$dispatch('change', newValue)
-  	}
+    value: function (newValue) {
+      this.selected = newValue
+      this.$dispatch('change', newValue)
+    }
   },
   props: {
     title: {
@@ -41,18 +41,18 @@ export default {
       required: true
     },
     placeholder: {
-    	type: String
+      type: String
     },
     selected: {
-    	type:String,
-    	twoWay:true
+      type: String,
+      twoWay: true
     },
     readonly: {
-    	type: Boolean,
-    	default: false
+      type: Boolean,
+      default: false
     },
-    value:{
-    	type: String
+    value: {
+      type: String
     }
   }
 }

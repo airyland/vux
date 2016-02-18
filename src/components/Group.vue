@@ -10,13 +10,13 @@
 <script>
 import GroupTitle from './Group-title'
 export default {
-	components: {
-    	GroupTitle
-  	},
-	props: {
-		title: String,
-		title_color: String
-	}
+  components: {
+    GroupTitle
+  },
+  props: {
+    title: String,
+    title_color: String
+  }
 }
 </script>
 

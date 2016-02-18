@@ -12,7 +12,7 @@
     <div class="weui_cell" v-show="fill_mode">
       <div class="weui_cell_hd"><label for="" class="weui_label">{{fill_label}}</label></div>
       <div class="weui_cell_bd weui_cell_primary">
-          <input class="weui_input needsclick" type="text" v-model="fillValue" placeholder="{{fill_placeholder}}" @blur="isFocus=false;" @focus="onFocus()">
+          <input class="weui_input needsclick" type="text" v-model="fillValue" placeholder="{{fill_placeholder}}" @blur="isFocus=false" @focus="onFocus()">
       </div>
       <div class="weui_cell_ft" v-show="value==='' && !isFocus">
           <i class="weui_icon_warn"></i>
@@ -23,70 +23,69 @@
 
 <script>
 export default {
-  ready() {},
-    props: {
-      options: {
-        type: Array,
-        required: true
-      },
-      value: {
-        type: String,
-        required: false,
-        twoWay: true
-      },
-      fill_mode: {
-        type: Boolean,
-        required: false,
-        default: false
-      },
-      fill_placeholder: {
-        type: String,
-        required: false,
-        default: '其他'
-      },
-      fill_label: {
-        type: String,
-        required: false,
-        default: '其他'
-      }
+  props: {
+    options: {
+      type: Array,
+      required: true
     },
-    methods: {
-      onFocus: function() {
-        this.value = this.fillValue || '';
-        this.isFocus = true
-      }
+    value: {
+      type: String,
+      required: false,
+      twoWay: true
     },
-    watch: {
-      value(newVal) {
-        var isOption = contains(this.options, newVal);
-        if (newVal !== '' && isOption) {
-          this.fillValue = '';
-        }
-        this.$dispatch('change', newVal);
-      },
-      fillValue(newVal) {
-        if (this.fill_mode && this.isFocus) {
-          this.value = newVal;
-        }
-      }
+    fill_mode: {
+      type: Boolean,
+      required: false,
+      default: false
     },
-    data() {
-      return {
-        uuid: Math.random().toString(36).substring(3, 8),
-        fillValue: '',
-        isFocus: false
+    fill_placeholder: {
+      type: String,
+      required: false,
+      default: '其他'
+    },
+    fill_label: {
+      type: String,
+      required: false,
+      default: '其他'
+    }
+  },
+  methods: {
+    onFocus: function () {
+      this.value = this.fillValue || ''
+      this.isFocus = true
+    }
+  },
+  watch: {
+    value (newVal) {
+      var isOption = contains(this.options, newVal)
+      if (newVal !== '' && isOption) {
+        this.fillValue = ''
+      }
+      this.$dispatch('change', newVal)
+    },
+    fillValue (newVal) {
+      if (this.fill_mode && this.isFocus) {
+        this.value = newVal
       }
     }
-}
-
-function contains(a, obj) {
-  var i = a.length;
-  while (i--) {
-    if (a[i] === obj) {
-      return true;
+  },
+  data () {
+    return {
+      uuid: Math.random().toString(36).substring(3, 8),
+      fillValue: '',
+      isFocus: false
     }
   }
-  return false;
+}
+
+function contains (a, obj) {
+  var i = a.length
+  while (i--) {
+    if (a[i] === obj) {
+      return true
+    }
+  }
+  return false
 }
 </script>
 

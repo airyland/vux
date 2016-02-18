@@ -13,33 +13,32 @@
 <script>
 import InlineDesc from './Inline-desc'
 export default {
-	components:{
-		InlineDesc
-	},
-	props: {
-		title: {
-			type: String,
-			required: true
-		},
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
-		value: {
-			type: Boolean,
-			twoWay: true
-		},
-		inline_desc: {
-			type: String
-		}
-	},
-	ready: function(){
-	},
-	watch: {
-		value: function(newVal){
-			this.$dispatch('change',newVal)
-		}
-	}
+  components: {
+    InlineDesc
+  },
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    value: {
+      type: Boolean,
+      twoWay: true
+    },
+    inline_desc: {
+      type: String
+    }
+  },
+  ready: function () {},
+  watch: {
+    value: function (newVal) {
+      this.$dispatch('change', newVal)
+    }
+  }
 }
 </script>
 

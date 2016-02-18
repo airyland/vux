@@ -26,13 +26,13 @@
     },
     data: function () {
       return {
-        commonList:['China', 'Japan','America'],
+        commonList: [ 'China', 'Japan', 'America' ],
         checklist001: [],
-        checklist002: ['China','Japan'],
-        checklist003: ['China','Japan'],
+        checklist002: [ 'China', 'Japan' ],
+        checklist003: [ 'China', 'Japan' ],
         checklist004: [],
-        checklist005: ['01','02','03'],
-        checklist005Value:[]
+        checklist005: [ '01', '02', '03' ],
+        checklist005Value: []
       }
     }
   }

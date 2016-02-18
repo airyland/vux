@@ -44,8 +44,8 @@ import Cell from './components/Cell'
 import Xinput from './components/Input'
 
 export default {
-  ready: function(){
-    console.log('ready');
+  ready: function () {
+    console.log('ready')
   },
   components: {
     Number,
@@ -64,30 +64,11 @@ export default {
   },
   data: function () {
     return {
-      list: [{ text: '广东', value: 'gd'}, {text: '广西', value: 'gx'}],
-      selected1: '广西',
-      value1:'',
-      submit001:'click me',
-      disable001: false,
-      radio001:['China', 'Japan'],
-      radio001Value: 'China',
-      radio002Value: 'Japan',
-      commonList:['China', 'Japan','America'],
-      checklist001: [],
-      checklist002: ['China','Japan'],
-      checklist003: ['China','Japan'],
-      checklist004: [],
-      checklist005: ['01','02','03'],
-      checklist005Value:[]
     }
   },
   methods: {
     change: function (value) {
       console.log('change:', value)
-    },
-    processButton001: function(){
-      this.submit001='processing';
-      this.disable001=true;
     }
   }
 }

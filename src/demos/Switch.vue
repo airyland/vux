@@ -6,12 +6,12 @@
 </template>
 
 <script>
-	import Boolean from '../components/Switch'
-	import Group from '../components/Group'
-	export default {
-		components: {
-			Boolean,
-			Group
-		}
-	}
+import Boolean from '../components/Switch'
+import Group from '../components/Group'
+export default {
+  components: {
+    Boolean,
+    Group
+  }
+}
 </script>

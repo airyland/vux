@@ -56,9 +56,9 @@
       change: function (value) {
         console.log('change:', value)
       },
-      processButton001: function(){
-        this.submit001='processing';
-        this.disable001=true;
+      processButton001: function () {
+        this.submit001 = 'processing'
+        this.disable001 = true
       }
     },
     data: function () {

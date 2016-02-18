@@ -1,5 +1,5 @@
 <template>
-    <div class="weui_cells_title">{{title}}<span v-show="!valid && dirty" style="color:#E64340;padding-left:0.3em;">{{error}}</span></div>
+    <div class="weui_cells_title">{{title}}<span v-show="!valid && dirty" style="color:#E64340padding-left:0.3em">{{error}}</span></div>
     <div class="weui_cells weui_cells_checkbox">
     <label class="weui_cell weui_check_label" for="checkbox_{{uuid}}_{{index}}" v-for="(index,one) in options">
         <div class="weui_cell_hd">
@@ -15,7 +15,9 @@
 
 <script>
 import Base from '../libs/base'
-import { shuffle } from 'lodash'
+import {
+  shuffle
+} from 'lodash'
 
 export default {
   mixins: [Base],
@@ -53,59 +55,59 @@ export default {
       default: false
     }
   },
-  ready(){
-    let total = this.fill_mode?(this.options.length+1):this.options.length;
-    if(this.max){
-      if(this.max>total){
-        this.max = total;
+  ready () {
+    let total = this.fill_mode ? (this.options.length + 1) : this.options.length
+    if (this.max) {
+      if (this.max > total) {
+        this.max = total
       }
-    }else{
-      this.max = total;
+    } else {
+      this.max = total
     }
 
-    if(this.min){
-      if(this.min<0){
-        this.min =1;
+    if (this.min) {
+      if (this.min < 0) {
+        this.min = 1
       }
-      if(this.min>=total){
-          this.min = total;
+      if (this.min >= total) {
+        this.min = total
       }
-    }else{
-      this.min =1;
+    } else {
+      this.min = 1
     }
 
-    if(!this.required){
-      this.min = 0;
+    if (!this.required) {
+      this.min = 0
     }
 
-    if(this.random_order){
+    if (this.random_order) {
       this.options = shuffle(this.options)
     }
   },
   computed: {
-    valid: function(){
-      return this.value.length>=this.min && this.value.length<=this.max
+    valid: function () {
+      return this.value.length >= this.min && this.value.length <= this.max
     },
-    error: function(){
-      let err = [];
-      if(this.value.length<this.min){
+    error: function () {
+      let err = []
+      if (this.value.length < this.min) {
         err.push(this.$interpolate('最少要选择{{min}}个哦'))
       }
-      if(this.value.length>this.max){
-          err.push(this.$interpolate('最多只能选择{{max}}个哦'))
+      if (this.value.length > this.max) {
+        err.push(this.$interpolate('最多只能选择{{max}}个哦'))
       }
-      return err;
+      return err
     }
   },
-  data(){
+  data () {
     return {
       uuid: Math.random().toString(36).substring(3, 8)
     }
   },
   watch: {
-    value(newVal){
-      this.$dispatch('change',this.value)
+    value (newVal) {
+      this.$dispatch('change', this.value)
     }
   }
-} 
+}
 </script>

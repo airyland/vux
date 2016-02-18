@@ -27,12 +27,12 @@
     </flexbox>
 
     <flexbox>
-      <flexbox-item><div class="flex-demo" style="margin-left:0;">1</div></flexbox-item>
-      <flexbox-item><div class="flex-demo" style="margin-left:0;">2</div></flexbox-item>
+      <flexbox-item><div class="flex-demo" style="margin-left:0">1</div></flexbox-item>
+      <flexbox-item><div class="flex-demo" style="margin-left:0">2</div></flexbox-item>
       <flexbox-item><div class="flex-demo">3</div></flexbox-item>
-      <flexbox-item><div class="flex-demo" style="margin-left:0;">4</div></flexbox-item>
-      <flexbox-item><div class="flex-demo" style="margin-left:0;">5</div></flexbox-item>
-      <flexbox-item><div class="flex-demo" style="margin-left:0;">6</div></flexbox-item>
+      <flexbox-item><div class="flex-demo" style="margin-left:0">4</div></flexbox-item>
+      <flexbox-item><div class="flex-demo" style="margin-left:0">5</div></flexbox-item>
+      <flexbox-item><div class="flex-demo" style="margin-left:0">6</div></flexbox-item>
     </flexbox>
 
   </div>

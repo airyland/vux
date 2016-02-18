@@ -24,8 +24,8 @@
       Switch
     },
     methods: {
-      change: function(val){
-        console.log('change',val)
+      change: function (val) {
+        console.log('change', val)
       }
     }
   }

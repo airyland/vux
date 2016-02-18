@@ -23,8 +23,38 @@
 
 
 <style>
-  .vuee-tab {display:-webkit-box;display:-webkit-flex;background-color:#fff;height:44px}
-  .vuee-tab button{padding:0;border:0;outline:0;background:0 0;-webkit-appearance:none}
-  .vuee-tab .vuee-tab-item{display:block;-webkit-box-flex:1;-webkit-flex:1;width:100%;height:100%;-webkit-box-sizing:border-box;background:-webkit-gradient(linear,left top,left bottom,from(#e5e5e5),to(#e5e5e5)) bottom left no-repeat;background:-webkit-linear-gradient(270deg,#e5e5e5,#e5e5e5,rgba(229,229,229,0)) bottom left no-repeat;background:linear-gradient(180deg,#e5e5e5,#e5e5e5,rgba(229,229,229,0)) bottom left no-repeat;-webkit-background-size:100% 1px;font-size:14px;text-align:center;line-height:44px;color:#666}
-  .vuee-tab .vuee-tab-item.vuee-tab-selected{background:0 0;color:#04be02;border-bottom:3px solid #04be02}
+  .vuee-tab {
+     display: -webkit-box;
+     display: -webkit-flex;
+     background-color: #fff;
+     height: 44px;
+ }
+ .vuee-tab button {
+     padding: 0;
+     border: 0;
+     outline: 0;
+     background: 0 0;
+     -webkit-appearance: none;
+ }
+ .vuee-tab .vuee-tab-item {
+     display: block;
+     -webkit-box-flex: 1;
+     -webkit-flex: 1;
+     width: 100%;
+     height: 100%;
+     -webkit-box-sizing: border-box;
+     background: -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), to(#e5e5e5)) bottom left no-repeat;
+     background: -webkit-linear-gradient(270deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
+     background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
+     -webkit-background-size: 100% 1px;
+     font-size: 14px;
+     text-align: center;
+     line-height: 44px;
+     color: #666;
+ }
+ .vuee-tab .vuee-tab-item.vuee-tab-selected {
+     background: 0 0;
+     color: #04be02;
+     border-bottom: 3px solid #04be02;
+ }
 </style>
