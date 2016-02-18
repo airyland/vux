@@ -25,6 +25,7 @@ export default {
       if (this.prisine === true) {
         this.prisine = false
       }
+      this.$dispatch('change', newVal)
     }
   },
   data: function () {

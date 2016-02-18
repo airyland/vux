@@ -5,11 +5,13 @@
     	<span class="label_desc" v-if="inline_desc">{{inline_desc}}</span>
     </div>
     <div class="weui_cell_bd weui_cell_primary">
-      <input class="weui_input" type="text" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur"/>
+      <input class="weui_input" :type="type" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur"/>
     </div>
     <div class="weui_cell_ft">
       <icon type="clear" v-show="show_clear && value" @click="value=''"></icon>
-      <icon type="warn" title="{{!valid ? firstError : ''}}" v-show="(touched && !valid && firstError) || (forceShowError && !valid && firstError)"></>
+      <icon type="warn" title="{{!valid ? firstError : ''}}" v-show="!equal_with && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
+      <icon type="warn" v-show="hasLengthEqual && dirty && equal_with && !valid"></icon>
+      <icon type="success" v-show="equal_with && equal_with===value && valid"></icon>
     </div>
   </div>
 </template>
@@ -17,6 +19,7 @@
 <script>
   import Base from '../libs/base'
   import Icon from './Icon'
+  import InlineDesc from './Inline-desc'
   import { isEmail, isIP, isURL, isMobilePhone } from 'validator'
   const validators = {
     'email': {
@@ -50,7 +53,9 @@
       Icon
     },
     ready: function () {
-      this.errors = {}
+      if(this.equal_with){
+        this.show_clear = false
+      }
     },
 		props: {
 			title: {
@@ -79,6 +84,13 @@
       show_clear: {
         type: Boolean,
         default: true
+      },
+      equal_with: {
+        type: String
+      },
+      type: {
+        type: String,
+        default: 'text'
       }
 		},
 		computed: {
@@ -91,7 +103,7 @@
         return this.title.replace(/[^x00-xff]/g,'00').length/2+1
       },
       hasErrors: function () {
-        return Object.keys(this.errors).length
+        return Object.keys(this.errors).lenth>0
       }
 		},
     methods: {
@@ -100,9 +112,14 @@
         this.validate()
       },
       getError: function () {
-        this.firstError = this.errors[Object.keys(this.errors)[0]]
+        let key = Object.keys(this.errors)[0]
+        this.firstError = this.errors[key]
       },
       validate: function () {
+        if(this.equal_with){
+          this.validateEqual()
+          return
+        }
         this.errors = {}
           
         if(!this.value && !this.required){
@@ -149,20 +166,41 @@
         }
 
         this.valid = true;
+      },
+      validateEqual: function () {
+          let willCheck = this.dirty || this.value.length >= this.equal_with.length 
+          // 只在长度符合时显示正确与否
+          if(willCheck && this.value !== this.equal_with){
+            this.valid = false;
+            this.errors.equal = '输入不一致';
+            return
+          }else{
+            this.valid = true
+            delete this.errors.equal
+          }
       }
     },
     data: function () {
-      return {
+      let data = {
         firstError: '',
-        forceShowError: false
+        forceShowError: false,
+        hasLengthEqual: false
       }
+      return data
     },
     watch: {
       valid: function () {
         this.getError()
       },
       value: function (newVal) {
-        this.validate()
+        if(this.equal_with){
+          if(newVal.length === this.equal_with.length){
+            this.hasLengthEqual = true;
+          }
+          this.validateEqual()
+        }else{
+          this.validate()
+        }
       }
     }
 	}

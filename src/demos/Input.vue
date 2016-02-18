@@ -29,9 +29,13 @@
       <x-input title="ip地址" placeholder="请输入ip地址" is_type="ip" :required=false></x-input>
     </group>
 
-
     <group title="set min=2 and max=5">
       <x-input title="2-5个字符" placeholder="" :min=2 :max=5></x-input>
+    </group>
+
+    <group title="确认输入">
+      <x-input title="请输入6位数字" type="text" placeholder="" :value.sync="password" :min=6 :max=6 @change="change"></x-input>
+      <x-input title="请确认6位数字" type="text" placeholder="" :equal_with="password"></x-input>
     </group>
 
   </div>
@@ -43,6 +47,16 @@
     components: {
       XInput,
       Group
+    },
+    data: function () {
+      return {
+        password: '123465'
+      }
+    },
+    methods: {
+      change: function (val) {
+        console.log(val)
+      }
     }
   }
 </script>
