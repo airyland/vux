@@ -28,7 +28,8 @@
         auto: _this.auto,
         interval: _this.interval,
         threshold: _this.threshold,
-        duration: _this.duration
+        duration: _this.duration,
+        height: _this.height
       })
       .on('swiped', function (prev, current) {
         _this.current = current

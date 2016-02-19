@@ -8,7 +8,8 @@ function Swiper (options) {
     threshold: 50,
     duration: 300,
     auto: false,
-    interval: 3000
+    interval: 3000,
+    height: 'auto'
   }
   this._options = extend(this._default, options)
   this._start = {}
@@ -20,13 +21,14 @@ function Swiper (options) {
   this._goto = -1
   this._eventHandlers = {}
 
+  this.$box = this._options.container
   this.$container = this._options.container.querySelector('.swiper')
   this.$items = this.$container.querySelectorAll(this._options.item)
   this.count = this.$items.length
 
   this._width = this.$container.offsetWidth
-  this._height = this.$container.offsetHeight
-
+  this._height = this._options.height === 'auto' ? this.$container.offsetHeight : this._options.height
+  console.log(this._height)
   this.timer = null
 
   this._auto()
@@ -59,6 +61,11 @@ Swiper.prototype._init = function () {
   if (me._options.direction === 'horizontal') {
     w = width * me.count
     h = height
+  }
+
+  if (me._options.direction === 'vertical') {
+    h = height * me.count
+    me.$box.style.height = height + 'px'
   }
 
   me.$container.style.width = w + 'px'

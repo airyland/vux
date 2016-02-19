@@ -19,6 +19,7 @@ import Flexbox from './demos/Flexbox'
 import Tab from './demos/Tab'
 import Swiper from './demos/Swiper'
 import Sticky from './demos/Sticky'
+import Picker from './demos/Picker'
 /* eslint-disable no-new */
 Vue.use(Router)
 var router = new Router()
@@ -77,7 +78,14 @@ router.map({
   },
   '/component/sticky': {
     component: Sticky
+  },
+  '/component/picker': {
+    component: Picker
   }
+})
+
+router.beforeEach(function () {
+  window.scrollTo(0, 0)
 })
 
 router.start(App, '#app')

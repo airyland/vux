@@ -19,7 +19,7 @@
       <cell title="Tab" :is_link=true link="component/tab"></cell>
       <cell title="Swiper" :is_link=true link="component/swiper"></cell>
       <cell title="Sticky" :is_link=true link="component/sticky"></cell>
-      <cell title="Clocker倒计时" :is_link=true link="component/time"></cell>
+      <cell title="Picker" :is_link=true link="component/picker"></cell>
     </group>
 
     <group title="Demo" title_color="#04be02">
@@ -30,9 +30,9 @@
     <group title="TODO" title_color="#04be02">
       <cell title="Address" :is_link=true link="component/address"></cell>
       <cell title="Rater" :is_link=true link="component/rater"></cell>
-      <cell title="Picker" :is_link=true link="component/picker"></cell>
       <cell title="短信验证组件" :is_link=true link="component/address"></cell>
       <cell title="图片验证码" :is_link=true link="component/rater"></cell>
+      <cell title="Clocker倒计时" :is_link=true link="component/time"></cell>
     </group>
 
     <router-view></router-view>

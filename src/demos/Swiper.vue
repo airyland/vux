@@ -18,6 +18,17 @@
       <swiper-item class="black"><h2 class="title fadeInUp animated">我们试图</h2></swiper-item>
       <swiper-item class="black"><h2 class="title fadeInUp animated">做些改变</h2></swiper-item>
     </swiper>
+    <br/>
+    <br/>
+    <group-title>垂直方向文字滚动</group-title>
+    <swiper :auto=true :height=30 direction="vertical" :interval=2000 class="text-scroll">
+      <swiper-item><p>义务爱了 完成传奇世界H5-王者归来任务 获得20金币</p></swiper-item>
+      <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包 消耗30金币</p></swiper-item>
+      <swiper-item><p>零哥章魚 完成传奇世界H5-王者归来任务 获得30金币</p></swiper-item>
+      <swiper-item><p>做迎而為 兑换【饿了么】畅享美食红包 消耗20金币</p></swiper-item>
+      <swiper-item><p>只知道不知道 兑换【饿了么】畅享美食红包 消耗20金币</p></swiper-item>
+      <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包 消耗30金币</p></swiper-item>
+    </swiper>
   <div>
 </template>
 
@@ -54,6 +65,16 @@ export default {
 </script>
 
 <style>
+.text-scroll {
+  border: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+}
+.text-scroll p{
+  font-size: 12px;
+  text-align: center;
+  line-height: 30px;
+}
 .black {
   background-color: #000;
 }

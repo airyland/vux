@@ -1,5 +1,5 @@
 <template>
-<div><slot></slot></div>  
+<div><slot></slot></div>
 </template>
 
 <script>
@@ -7,8 +7,8 @@ import sticky from './sticky'
 export default {
   props: {
   },
-  ready() {
-   sticky(this.$el)
+  ready () {
+    sticky(this.$el)
   }
 }
 </script>
