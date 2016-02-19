@@ -18,8 +18,7 @@ export default {
     title_color: String
   },
   events: {
-    'class.add': function (value) {
-      console.log(this.$el.querySelector('.weui_cells').classList)
+    'group.class.add': function (value) {
       this.$el.querySelector('.weui_cells').classList.add(value)
     }
   }

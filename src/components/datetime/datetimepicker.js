@@ -115,7 +115,6 @@ function parseDate(format, value) {
       result[formatParts[i]] = valueParts[i];
     }
   }
-  console.log(result);
   return result;
 }
 
@@ -207,7 +206,6 @@ function DatetimePicker(config) {
 DatetimePicker.prototype = {
 
   show: function (value) {
-    console.log('now value', value)
     var self = this;
     var config = self.config;
     CURRENT_PICKER = self;
