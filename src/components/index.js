@@ -22,6 +22,7 @@ import Swiper from './Swiper'
 import SwiperItem from './Swiper/Swiper-item'
 import Sticky from './sticky/'
 import Picker from './picker/'
+import Datetime from './datetime/'
 
 const Vuee = {
   Radio,
@@ -47,7 +48,8 @@ const Vuee = {
   Swiper,
   SwiperItem,
   Sticky,
-  Picker
+  Picker,
+  Datetime
 }
 
 module.exports = Vuee

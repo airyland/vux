@@ -6,7 +6,7 @@
       <cell title="Selector" :is_link=true link="component/selector"></cell>
       <cell title="Button" :is_link=true link="component/button"></cell>
       <cell title="Textarea" :is_link=true link="component/textarea"></cell>
-      <cell title="Date" :is_link=true link="component/date"></cell>
+      <cell title="Datetime" :is_link=true link="component/datetime"></cell>
       <cell title="Switch" :is_link=true link="component/switch"></cell>
       <cell title="Input" :is_link=true link="component/input"></cell>
       <cell title="Number" :is_link=true link="component/number"></cell>

@@ -20,6 +20,7 @@ import Tab from './demos/Tab'
 import Swiper from './demos/Swiper'
 import Sticky from './demos/Sticky'
 import Picker from './demos/Picker'
+import Datetime from './demos/Datetime'
 /* eslint-disable no-new */
 Vue.use(Router)
 var router = new Router()
@@ -81,6 +82,9 @@ router.map({
   },
   '/component/picker': {
     component: Picker
+  },
+  '/component/datetime': {
+    component: Datetime
   }
 })
 
