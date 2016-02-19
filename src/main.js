@@ -21,6 +21,7 @@ import Swiper from './demos/Swiper'
 import Sticky from './demos/Sticky'
 import Picker from './demos/Picker'
 import Datetime from './demos/Datetime'
+import Popup from './demos/Popup'
 /* eslint-disable no-new */
 Vue.use(Router)
 var router = new Router()
@@ -85,6 +86,9 @@ router.map({
   },
   '/component/datetime': {
     component: Datetime
+  },
+  '/component/popup': {
+    component: Popup
   }
 })
 

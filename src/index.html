@@ -7,10 +7,18 @@
     <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">{% } %}
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/weui/weui/master/dist/style/weui.min.css">
     <script type="text/javascript" src="http://cdnjs.gtimg.com/cdnjs/libs/zepto/1.1.4/zepto.min.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
   </head>
   <body>
     <div id="app"></div>
     <app></app>{% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
     <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>{% } %}
+    <script type="text/javascript">
+      if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+            FastClick.attach(document.body);
+        }, false);
+      }
+    </script>
   </body>
 </html>

@@ -20,6 +20,7 @@
       <cell title="Swiper" :is_link=true link="component/swiper"></cell>
       <cell title="Sticky" :is_link=true link="component/sticky"></cell>
       <cell title="Picker" :is_link=true link="component/picker"></cell>
+      <cell title="Popup" :is_link=true link="component/popup"></cell>
     </group>
 
     <group title="Demo" title_color="#04be02">
