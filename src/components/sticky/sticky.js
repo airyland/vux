@@ -1,3 +1,5 @@
+// http://efe.baidu.com/blog/position-sticky/
+
 // 检测iOS版本大于等于6
 function gtIOS6 () {
   var userAgent = window.navigator.userAgent

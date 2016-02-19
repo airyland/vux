@@ -23,7 +23,7 @@ export default {
       required: true
     },
     value: {
-      type: String,
+      type: Array,
       required: false,
       twoWay: true
     },
@@ -32,32 +32,60 @@ export default {
       default: 'scroller-item'
     }
   },
+  methods: {
+    getValue: function () {
+      var data = [];
+      for (var i =0; i < this.data.length; i++){
+        data.push(this.scroller[i].value)
+      }
+      return data
+    },
+    emitChange: function () {
+      this.$emit('change', this.getValue())
+    }
+  },
+  data () {
+    return {
+      scroller: [],
+      count: 0
+    }
+  },
+  created () {
+    this.count = this.data.length
+  },
   ready () {
     var _this = this
     for (var i=0;i<this.data.length;i++){
       var uuid = Math.random().toString(36).substring(3, 8)
       this.$el.querySelector('.vuee-picker-'+i).setAttribute('id', 'vuee-picker-' + uuid)
-      this.scroller = new Scroller('#' + 'vuee-picker-' + uuid, {
-        data: this.data[i],
-        defaultValue: this.value,
-        itemClass: this.item_class,
+
+      ;(function(i){
+        _this.scroller[i] = new Scroller('#' + 'vuee-picker-' + uuid, {
+        data: _this.data[i],
+        defaultValue: _this.value[i],
+        itemClass: _this.item_class,
         onSelect: function (value) {
-          _this.value = value
+          _this.value[i] = value
+          _this.$dispatch('change', _this.getValue())
         }
-      });
+      })
+      })(i)
     }
     //this.$dispatch('change', this.value || this.data[0].value)
   },
   watch: {
-    value: function (newVal) {
-      this.$dispatch('change', newVal)
-      if (this.scroller.value !== newVal) {
-        this.scroller.select(newVal)
+    value: function (val) {
+      for (var i = 0; i < val.length; i++) {
+        if (this.scroller[i].value !== val[i]){
+          this.scroller[i].select(val[i])
+        }
       }
     }
   },
   beforeDestroy: function () {
-    this.scroller.destroy()
+    for (var i = 0; i < val.length; i++) {
+      this.scroller[i].destroy()
+    }
   }
 }
 </script>
