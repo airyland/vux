@@ -20,7 +20,10 @@ export default {
   props: {
     data: {
       type: Array,
-      required: true
+      //required: true
+    },
+    chain_data: {
+      type: Object
     },
     value: {
       type: Array,
@@ -30,6 +33,10 @@ export default {
     item_class: {
       type: String,
       default: 'scroller-item'
+    },
+    is_chain: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -50,10 +57,23 @@ export default {
       count: 0
     }
   },
-  created () {
-    this.count = this.data.length
+  beforeCompile () {
+    console.log('is_chain',!!this.chain_data, this.chain_data)
+    if(!!this.chain_data){
+      this.level = 
+      this.level0 = Object.keys(this.chain_data)
+      // 计算多少级
+      var length = Object.keys(this.chain_data).length
+      this.data = []
+      for (var i = 0; i < length; i++) {
+        
+      }
+    }
+    
+    //this.data[0] = 
   },
   ready () {
+    this.count = this.data.length
     var _this = this
     for (var i=0;i<this.data.length;i++){
       var uuid = Math.random().toString(36).substring(3, 8)

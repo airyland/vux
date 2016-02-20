@@ -1,5 +1,8 @@
 <template>
 <div>
+  <group-title>联动</group-title>
+  <picker :chain_data="year7" :value.sync="year7Value" @change="change"></picker>
+  <br>
   <group-title>默认，不设置默认值时选中第一个</group-title>
   <picker :data="years" :value.sync="year1" @change="change"></picker>
   <br>
@@ -56,7 +59,21 @@
         year4: ['2002','4'],
         year5: ['2005'],
         year6: [['你','我','他'],['you','I','him'],['ni','wo','ta'],[1,2,3,4,5],[5,4,3,2,1]],
-        year6Value: ['我','him','ni','1','2']
+        year6Value: ['我','him','ni','1','2'],
+        year7: {
+          "0":['中国','美国'],
+          "1":{
+            "中国":["广东",'广西'],
+            "美国":['美国001','美国002']
+          },
+          "2":{
+            "广东":['深圳','广州'],
+            "广西":['广西001','广西002'],
+            "美国001":['美国0001','美国0002'],
+            "美国002":['美国0003','美国0004']
+          }       
+        },
+        year7Value: []
       }
     },
     watch: {
