@@ -10,6 +10,7 @@
       <cell title="Switch" :is_link=true link="component/switch"></cell>
       <cell title="Input" :is_link=true link="component/input"></cell>
       <cell title="Number" :is_link=true link="component/number"></cell>
+      <cell title="Range" :is_link=true link="component/range"></cell>
     </group>
 
     <group title="UI" title_color="#04be02">

@@ -22,6 +22,7 @@ import Sticky from './demos/Sticky'
 import Picker from './demos/Picker'
 import Datetime from './demos/Datetime'
 import Popup from './demos/Popup'
+import Range from './demos/Range'
 /* eslint-disable no-new */
 Vue.use(Router)
 var router = new Router()
@@ -89,6 +90,9 @@ router.map({
   },
   '/component/popup': {
     component: Popup
+  },
+  '/component/range': {
+    component: Range
   }
 })
 

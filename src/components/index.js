@@ -24,6 +24,7 @@ import Sticky from './sticky/'
 import Picker from './picker/'
 import Datetime from './datetime/'
 import Popup from './popup/'
+import Range from './range/'
 
 const Vuee = {
   Radio,
@@ -51,7 +52,8 @@ const Vuee = {
   Sticky,
   Picker,
   Datetime,
-  Popup
+  Popup,
+  Range
 }
 
 module.exports = Vuee
