@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Picker from './datetimepicker' 
+import Picker from './datetimepicker'
 import Group from '../Group'
 import InlineDesc from '../Inline-desc'
 
@@ -47,25 +47,25 @@ export default {
   },
   created () {
     this.$dispatch('group.class.add', 'weui_cells_access')
-  },  
+  },
   ready () {
     var _this = this
     console.log(this.$el)
     const uuid = Math.random().toString(36).substring(3, 8)
     this.$el.setAttribute('id', 'vuee-datetime-' + uuid)
     var options = {
-      trigger : '#vuee-datetime-' + uuid,
-      format : _this.format,
+      trigger: '#vuee-datetime-' + uuid,
+      format: _this.format,
       value: _this.value,
       output: '.vuee-datetime-value',
       onConfirm: function (value) {
         _this.value = value
       }
     }
-    if(this.min_year){
+    if (this.min_year) {
       options.minYear = this.min_year
     }
-    if(this.max_year){
+    if (this.max_year) {
       options.maxYear = this.max_year
     }
     this.picker = new Picker(options)
@@ -78,7 +78,7 @@ export default {
   beforeDestroy () {
     this.picker.destroy()
   }
-} 
+}
 </script>
 
 <style>

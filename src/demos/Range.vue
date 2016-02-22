@@ -37,6 +37,13 @@
         <range slot="value" :value.sync="data8" disabled :disabled_opacity=0.1></range>
       </cell>
     </group>
+
+    <group title="bar height">
+      <cell title="亮度" :inline_desc="'当前选择'+data9">
+        <range slot="value" :value.sync="data9" :range_bar_height=4></range>
+      </cell>
+    </group>
+
   </div>
 </template>
 
@@ -58,11 +65,11 @@ export default {
       data5: 28,
       data6: 37,
       data7: 17,
-      data8: 25
+      data8: 25,
+      data9: 50
     }
   }
 }
-  
 </script>
 
 <style>

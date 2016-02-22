@@ -9,10 +9,10 @@
   const supported = support.flex
   export default {
     ready () {
-      if(!supported) {
-        var list = this.$el.querySelectorAll('.vuee-flexbox-item');
-        var number = list.length;
-        var width = (100/number)+'%'
+      if (!supported) {
+        var list = this.$el.querySelectorAll('.vuee-flexbox-item')
+        var number = list.length
+        var width = (100 / number) + '%'
         for (var i = 0; i < number; i++) {
           list[i].style.width = width
         }

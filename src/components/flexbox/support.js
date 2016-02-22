@@ -26,14 +26,14 @@ supported.wrap = supported.flexwrap
 
 export default supported
 
-function test(prop, name) {
+function test (prop, name) {
   var el = document.createElement('div')
   el.style.cssText = prefix(prop)
   supported[name] = !!el.style.length
   html.className += ' ' + (supported[name] ? '' : 'no-') + name
 }
 
-function prefix(str) {
+function prefix (str) {
   var out = ''
   for (var i = 0; i < prefixes.length; i++) {
     out += prefixes[i] + str

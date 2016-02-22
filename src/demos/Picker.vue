@@ -21,58 +21,65 @@
 </template>
 
 <script>
-  import { Picker, GroupTitle } from '../components/'
-  let years = [];
-  for (var i = 2000; i <= 2030; i++) {
-    years.push({
-      name: i + '年',
-      value: i + ''
-    })
-  }
-  export default {
-    ready () {
+import {
+ Picker,
+ GroupTitle
+} from '../components/'
+let years = []
+for (var i = 2000; i <= 2030; i++) {
+  years.push({
+    name: i + '年',
+    value: i + ''
+  })
+}
+export default {
+  ready () {},
+  components: {
+    Picker,
+    GroupTitle
+  },
+  methods: {
+    change: function (value) {
+      console.log('new Value', value)
     },
-    components: {
-      Picker,
-      GroupTitle
-    },
-    methods: {
-      change: function (value) {
-        console.log('new Value', value)
+    change3: function (value) {
+      this.year5 = value[0]
+    }
+  },
+  computed: {},
+  data: function () {
+    return {
+      years: [years],
+      years1: [years, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]],
+      year1: [''],
+      year2: ['2002'],
+      year3: ['2005'],
+      year4: ['2002', '4'],
+      year5: ['2005'],
+      year6: [
+        ['你', '我', '他'],
+        ['you', 'I', 'him'],
+        ['ni', 'wo', 'ta'],
+        [1, 2, 3, 4, 5],
+        [5, 4, 3, 2, 1]
+      ],
+      year6Value: ['我', 'him', 'ni', '1', '2']
+    }
+  },
+  watch: {
+    year5: {
+      handler: function (val) {
+        this.year3[0] = val
+        this.year3.$set(0, val)
       },
-      change3: function (value) {
-        this.year5 = value[0]
-      }
+      deep: true
     },
-    computed: {
-    },
-    data: function () {
-      return {
-        years: [years],
-        years1: [years, [1,2,3,4,5,6,7,8,9,10,11,12]],
-        year1: [''],
-        year2: ['2002'],
-        year3: ['2005'],
-        year4: ['2002','4'],
-        year5: ['2005'],
-        year6: [['你','我','他'],['you','I','him'],['ni','wo','ta'],[1,2,3,4,5],[5,4,3,2,1]],
-        year6Value: ['我','him','ni','1','2']
-      }
-    },
-    watch: {
-      year5: {
-        handler: function (val) {
-          this.year3[0] = val
-          this.year3.$set(0,val)
-        },
-        deep: true
-      },
-      year3: {
-        handler:function (val){
+    year3: {
+      handler: function (val) {
         this.year5 = val[0]
       },
       deep: true
     }
-    }
   }
+}
 </script>

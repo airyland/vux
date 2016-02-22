@@ -35,7 +35,7 @@
         show: false,
         show1: false
       }
-    } 
+    }
   }
 </script>
 

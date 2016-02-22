@@ -21,22 +21,22 @@ export default {
   ready () {
     var _this = this
     this.popup = new Popup({
-      input: "#JS_dialog",
+      input: '#JS_dialog',
       container: _this.$el,
-      innerHTML: "",
-      onOpen: function(dialog){
+      innerHTML: '',
+      onOpen: function (dialog) {
         _this.show = true
       },
-      onClose: function(dialog){
-          _this.show = false
+      onClose: function (dialog) {
+        _this.show = false
       }
     })
   },
   watch: {
-    show: function (val){
-      if(val){
+    show: function (val) {
+      if (val) {
         this.popup.show()
-      }else{
+      } else {
         this.popup.hide()
       }
     }

@@ -34,8 +34,8 @@ export default {
   },
   methods: {
     getValue: function () {
-      var data = [];
-      for (var i =0; i < this.data.length; i++){
+      var data = []
+      for (var i = 0; i < this.data.length; i++) {
         data.push(this.scroller[i].value)
       }
       return data
@@ -55,35 +55,36 @@ export default {
   },
   ready () {
     var _this = this
-    for (var i=0;i<this.data.length;i++){
+    for (var i = 0; i < this.data.length; i++) {
       var uuid = Math.random().toString(36).substring(3, 8)
-      this.$el.querySelector('.vuee-picker-'+i).setAttribute('id', 'vuee-picker-' + uuid)
+      this.$el.querySelector('.vuee-picker-' + i).setAttribute('id', 'vuee-picker-' + uuid)
 
-      ;(function(i){
+      ;
+      (function (i) {
         _this.scroller[i] = new Scroller('#' + 'vuee-picker-' + uuid, {
-        data: _this.data[i],
-        defaultValue: _this.value[i],
-        itemClass: _this.item_class,
-        onSelect: function (value) {
-          _this.value[i] = value
-          _this.$dispatch('change', _this.getValue())
-        }
-      })
+          data: _this.data[i],
+          defaultValue: _this.value[i],
+          itemClass: _this.item_class,
+          onSelect: function (value) {
+            _this.value[i] = value
+            _this.$dispatch('change', _this.getValue())
+          }
+        })
       })(i)
     }
-    //this.$dispatch('change', this.value || this.data[0].value)
+    //  this.$dispatch('change', this.value || this.data[0].value)
   },
   watch: {
     value: function (val) {
       for (var i = 0; i < val.length; i++) {
-        if (this.scroller[i].value !== val[i]){
+        if (this.scroller[i].value !== val[i]) {
           this.scroller[i].select(val[i])
         }
       }
     }
   },
   beforeDestroy: function () {
-    for (var i = 0; i < val.length; i++) {
+    for (var i = 0; i < this.count; i++) {
       this.scroller[i].destroy()
     }
   }
