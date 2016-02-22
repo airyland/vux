@@ -27,15 +27,19 @@
       <cell title="Clocker倒计时" :is_link=true link="component/clocker"></cell>
     </group>
 
-    <group title="Demo" title_color="#04be02">
-      <cell title="微信设置页面" :is_link=true link="demo/wechat"></cell>
-      <cell title="小蚁摄像设置" :is_link=true link="demo/yi"></cell>
-    </group>
-
     <group title="TODO" title_color="#04be02">
       <cell title="Address" :is_link=true link="component/address"></cell>
       <cell title="短信验证组件" :is_link=true link="component/address"></cell>
       <cell title="图片验证码" :is_link=true link="component/rater"></cell>
+      <cell title="Calendar" :is_link=true link="component/calendar"></cell>
+      <cell title="Progress" :is_link=true link="component/progress"></cell>
+      <cell title="Dialog" :is_link=true link="component/dialog"></cell>
+      <cell title="Toast" :is_link=true link="component/toast"></cell>
+    </group>
+
+    <group title="Demo" title_color="#04be02">
+      <cell title="微信设置页面" :is_link=true link="demo/wechat"></cell>
+      <cell title="小蚁摄像设置" :is_link=true link="demo/yi"></cell>
     </group>
 
     <router-view></router-view>
