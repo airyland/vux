@@ -1,6 +1,6 @@
 {
-  "name": "vuee",
-  "description": "momi",
+  "name": "vux",
+  "description": "vue adapter for weui",
   "author": "airyland <airyland@qq.com>",
   "private": true,
   "scripts": {

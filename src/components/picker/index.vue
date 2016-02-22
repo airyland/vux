@@ -2,7 +2,7 @@
   <div>
     <flexbox>
       <flexbox-item v-for="(index, one) in data" style="margin-left:0;">
-        <div class="vuee-picker-{{index}}"></div>
+        <div class="vux-picker-{{index}}"></div>
       </flexbox-item>
     </flexbox>
   </div>
@@ -57,11 +57,11 @@ export default {
     var _this = this
     for (var i = 0; i < this.data.length; i++) {
       var uuid = Math.random().toString(36).substring(3, 8)
-      this.$el.querySelector('.vuee-picker-' + i).setAttribute('id', 'vuee-picker-' + uuid)
+      this.$el.querySelector('.vux-picker-' + i).setAttribute('id', 'vux-picker-' + uuid)
 
       ;
       (function (i) {
-        _this.scroller[i] = new Scroller('#' + 'vuee-picker-' + uuid, {
+        _this.scroller[i] = new Scroller('#' + 'vux-picker-' + uuid, {
           data: _this.data[i],
           defaultValue: _this.value[i],
           itemClass: _this.item_class,

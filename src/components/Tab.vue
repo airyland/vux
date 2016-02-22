@@ -1,5 +1,5 @@
 <template>
-  <div class="vuee-tab">
+  <div class="vux-tab">
     <slot></slot>
   </div>
 </template>
@@ -23,20 +23,20 @@
 
 
 <style>
-  .vuee-tab {
+  .vux-tab {
      display: -webkit-box;
      display: -webkit-flex;
      background-color: #fff;
      height: 44px;
  }
- .vuee-tab button {
+ .vux-tab button {
      padding: 0;
      border: 0;
      outline: 0;
      background: 0 0;
      -webkit-appearance: none;
  }
- .vuee-tab .vuee-tab-item {
+ .vux-tab .vux-tab-item {
      display: block;
      -webkit-box-flex: 1;
      -webkit-flex: 1;
@@ -52,7 +52,7 @@
      line-height: 44px;
      color: #666;
  }
- .vuee-tab .vuee-tab-item.vuee-tab-selected {
+ .vux-tab .vux-tab-item.vux-tab-selected {
      background: 0 0;
      color: #04be02;
      border-bottom: 3px solid #04be02;

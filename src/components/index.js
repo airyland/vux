@@ -29,7 +29,7 @@ import Actionsheet from './Actionsheet'
 import Clocker from './clocker/'
 import Rater from './rater/'
 
-const Vuee = {
+const vux = {
   Radio,
   Group,
   Date,
@@ -62,5 +62,5 @@ const Vuee = {
   Rater
 }
 
-module.exports = Vuee
+module.exports = vux
 

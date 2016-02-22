@@ -1,5 +1,5 @@
 <template>
-  <div class="vuee-flexbox">
+  <div class="vux-flexbox">
     <slot></slot>
   </div>
 </template>
@@ -10,7 +10,7 @@
   export default {
     ready () {
       if (!supported) {
-        var list = this.$el.querySelectorAll('.vuee-flexbox-item')
+        var list = this.$el.querySelectorAll('.vux-flexbox-item')
         var number = list.length
         var width = (100 / number) + '%'
         for (var i = 0; i < number; i++) {
@@ -22,7 +22,7 @@
 </script>
 
 <style>
-.vuee-flexbox{
+.vux-flexbox{
   text-align:left;
   display:-webkit-box;
   display:-webkit-flex;
@@ -30,7 +30,7 @@
   -webkit-align-items:center;
 }
 
-.vuee-flexbox .vuee-flexbox-item{
+.vux-flexbox .vux-flexbox-item{
   -webkit-box-sizing:border-box;
   -webkit-box-flex:1;
   -webkit-flex:1;
@@ -38,11 +38,11 @@
   min-width:20px;
 }
 
-.vuee-flexbox .vuee-flexbox-item:first-child{
+.vux-flexbox .vux-flexbox-item:first-child{
   margin-left:0;
 }
 
-.vuee-flexbox[vueee-mode~=average] .vuee-flexbox-item{
+.vux-flexbox[vuxe-mode~=average] .vux-flexbox-item{
   width:100%;
 }
 </style>

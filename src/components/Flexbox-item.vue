@@ -1,5 +1,5 @@
 <template>
-  <div class="vuee-flexbox-item">
+  <div class="vux-flexbox-item">
     <slot></slot>
   </div>
 </template>
