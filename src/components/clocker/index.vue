@@ -1,20 +1,18 @@
 <template>
   <div>
     <span v-if="showTimeString">{{timeString}}</span>
-    <div class="vux-clocker-tpl"><slot></slot><div>
+    <div class="vux-clocker-tpl"><slot></slot></div>
   </div>
 </template>
 
 <script>
 const Clocker = require('./clocker')
-import trim from '../../libs/trim'
 export default {
   ready () {
     let _this = this
     _this.slot = this.$el.querySelector('.vux-clocker-tpl')
-    _this.slotString = trim(_this.slot.innerHTML, true)
-
-    if (_this.slotString !== '<div>  </div>' && _this.slotString !== '<div></div>') {
+    _this.slotString = _this.slot.innerHTML
+    if (_this.slotString !== '') {
       _this.showTimeString = false
     }
     this.clocker = new Clocker(_this.time)
@@ -52,6 +50,9 @@ export default {
       timeString: '',
       slotString: ''
     }
+  },
+  beforeDestroy () {
+    this.clocker = null
   }
 }
 </script>

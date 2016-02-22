@@ -5,6 +5,9 @@ export default function (str, replaceBreak) {
   var i = str.length
   while (ws.test(str.charAt(--i)))
   var rs = str.slice(0, i + 1)
+  if(!rs){
+    return ''
+  }
   if (!replaceBreak){
     return rs
   }else{

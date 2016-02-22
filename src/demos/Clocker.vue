@@ -19,6 +19,12 @@
           <span style="color:blue">%M 分 %S 秒</span>
         </clocker>
       </cell>
+      <cell title="分割两位数字">
+        <clocker time="2016-05-01" slot="value">
+          <span class="day">%_D1</span>
+          <span class="day">%_D2</span>天
+        </clocker>
+      </cell>
     </group>
 
   </div>
@@ -36,5 +42,12 @@ export default {
 </script>
 
 <style>
-  
+.day {
+  background-color:#000;
+  color:#fff;
+  text-align:center;
+  display:inline-block;
+  padding:0 3px;
+  border-radius:3px;
+}
 </style>
