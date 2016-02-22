@@ -11,6 +11,7 @@
       <cell title="Input" :is_link=true link="component/input"></cell>
       <cell title="Number" :is_link=true link="component/number"></cell>
       <cell title="Range" :is_link=true link="component/range"></cell>
+      <cell title="Rater" :is_link=true link="component/rater"></cell>
     </group>
 
     <group title="UI" title_color="#04be02">
@@ -33,7 +34,6 @@
 
     <group title="TODO" title_color="#04be02">
       <cell title="Address" :is_link=true link="component/address"></cell>
-      <cell title="Rater" :is_link=true link="component/rater"></cell>
       <cell title="短信验证组件" :is_link=true link="component/address"></cell>
       <cell title="图片验证码" :is_link=true link="component/rater"></cell>
     </group>

@@ -1,3 +1,4 @@
+// https://github.com/MoeKit/clocker
 var instances = [],
   matchers = [];
 // Miliseconds

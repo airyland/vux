@@ -25,6 +25,7 @@ import Popup from './demos/Popup'
 import Range from './demos/Range'
 import Actionsheet from './demos/Actionsheet'
 import Clocker from './demos/Clocker'
+import Rater from './demos/Rater'
 /* eslint-disable no-new */
 Vue.use(Router)
 var router = new Router()
@@ -101,6 +102,9 @@ router.map({
   },
   '/component/clocker': {
     component: Clocker
+  },
+  '/component/rater': {
+    component: Rater
   }
 })
 
