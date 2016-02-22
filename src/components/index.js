@@ -25,6 +25,7 @@ import Picker from './picker/'
 import Datetime from './datetime/'
 import Popup from './popup/'
 import Range from './range/'
+import Actionsheet from './Actionsheet'
 
 const Vuee = {
   Radio,
@@ -53,7 +54,8 @@ const Vuee = {
   Picker,
   Datetime,
   Popup,
-  Range
+  Range,
+  Actionsheet
 }
 
 module.exports = Vuee
