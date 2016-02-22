@@ -1,6 +1,6 @@
 <template>
   <div class="weui_cells_radio">
-     <label class="weui_cell weui_check_label" for="radio_{{uuid}}_{{index}}" v-for="(index,one) in options">
+     <label class="weui_cell weui_cell_radio weui_check_label" for="radio_{{uuid}}_{{index}}" v-for="(index,one) in options">
          <div class="weui_cell_bd weui_cell_primary">
              <p>{{one}}</p>
          </div>
@@ -90,4 +90,7 @@ function contains (a, obj) {
 </script>
 
 <style>
+.weui_cell_radio > * {
+  pointer-events: none;
+}
 </style>
