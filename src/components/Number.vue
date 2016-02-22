@@ -1,49 +1,52 @@
 <template>
-  <div>
-    <div class="weui_cells_title" v-show="description">{{description || '测试'}}</div>
-    <div class="weui_cells" v-show="type!=='inline'">
-      <div class="weui_cell">
-        <div class="weui_cell_bd weui_cell_primary">
-            <p>{{title}}</p>
-        </div>
-        <div class="weui_cell_ft" v-show="!readonly">
-          <a @click="sub()" class="number-selector":class="{'number-disabled':disabled_min}">-</a>
-          <input v-model="value" class="number-input" v-bind:style="width+'px'"/>
-          <a @click="add()" class="number-selector" :class="{'number-disabled':disabled_max}">+</a>
-        </div>
-        <div class="weui_cell_ft" v-else>
-        {{value}}
-        </div>
-      </div>
-    </div>
-    <div class="weui_cell" v-else>
-      <div class="weui_cell_bd weui_cell_primary">
-        <p>{{title}}</p>
-      </div>
-      <div class="weui_cell_ft" v-show="!readonly">
-        <a @click="sub()" class="number-selector":class="{'number-disabled':disabled_min}">-</a>
-        <input v-model="value" class="number-input" v-bind:style="width+'px'"/>
-        <a @click="add()" class="number-selector" :class="{'number-disabled':disabled_max}">+</a>
-      </div>
-      <div class="weui_cell_ft" v-else>
-        {{value}}
-      </div>
-    </div>
+<div class="weui_cell">
+  <div class="weui_cell_bd weui_cell_primary">
+      <p>{{title}}</p>
   </div>
+  <div class="weui_cell_ft" v-show="!readonly" style="font-size:0">
+    <a @click="sub()" class="number-selector number-selector-sub needsclick":class="{'number-disabled':disabled_min}">-</a>
+    <input v-model="value" class="number-input" :style="{width: width+'px'}" number/>
+    <a @click="add()" class="number-selector number-selector-plus needsclick" :class="{'number-disabled':disabled_max}">+</a>
+  </div>
+  <div class="weui_cell_ft" v-else>
+  {{value}}
+  </div>
+</div>
 </template>
 
 <style>
   .number-input {
+    float:left;
+    height:20px;
+    font-size:20px;
+    color: #666;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     border:1px solid #ececec;
-    padding:3px 3px;
+    padding:3px 0;
     text-align:center;
+    border-radius: 1px;
   }
   .number-selector {
-    font-size:16px;
+    float:left;
+    height:20px;
+    font-size:25px;
+    line-height:18px;
     color:#3cc51f;
+    border:1px solid #ececec;
   }
   .number-selector.number-disabled{
     color:#ccc;
+  }
+  .number-selector-sub {
+    border-right:none;
+    padding:3px 10px;
+  }
+  .number-selector-plus {
+    border-left:none;
+    margin-right: 5px;
+    padding:3px 8px;
   }
 </style>
 
@@ -70,12 +73,9 @@ export default {
       type: Boolean,
       default: false
     },
-    description: {
-      type: String
-    },
-    width: Number,
-    type: {
-      type: String
+    width: {
+      type: Number,
+      default: 50
     }
   },
   data: function () {
