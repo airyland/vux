@@ -42,11 +42,13 @@
   .number-selector-sub {
     border-right:none;
     padding:3px 10px;
+    border-radius:2px 0 0 2px;
   }
   .number-selector-plus {
     border-left:none;
     margin-right: 5px;
     padding:3px 8px;
+    border-radius:0 2px 2px 0;
   }
 </style>
 
