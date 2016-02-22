@@ -26,6 +26,7 @@ import Datetime from './datetime/'
 import Popup from './popup/'
 import Range from './range/'
 import Actionsheet from './Actionsheet'
+import Clocker from './clocker/'
 
 const Vuee = {
   Radio,
@@ -55,7 +56,8 @@ const Vuee = {
   Datetime,
   Popup,
   Range,
-  Actionsheet
+  Actionsheet,
+  Clocker
 }
 
 module.exports = Vuee

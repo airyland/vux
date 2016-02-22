@@ -23,6 +23,7 @@
       <cell title="Picker" :is_link=true link="component/picker"></cell>
       <cell title="Popup" :is_link=true link="component/popup"></cell>
       <cell title="Actionsheet" :is_link=true link="component/actionsheet"></cell>
+      <cell title="Clocker倒计时" :is_link=true link="component/clocker"></cell>
     </group>
 
     <group title="Demo" title_color="#04be02">
@@ -35,7 +36,6 @@
       <cell title="Rater" :is_link=true link="component/rater"></cell>
       <cell title="短信验证组件" :is_link=true link="component/address"></cell>
       <cell title="图片验证码" :is_link=true link="component/rater"></cell>
-      <cell title="Clocker倒计时" :is_link=true link="component/time"></cell>
     </group>
 
     <router-view></router-view>

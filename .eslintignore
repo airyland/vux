@@ -4,3 +4,5 @@ src/components/popup/*.js
 src/components/picker/*.js
 src/components/datetime/*.js
 src/components/range/*.js
+src/components/clocker/*.js
+src/libs/trim.js
