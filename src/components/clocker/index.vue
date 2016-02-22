@@ -6,7 +6,7 @@
 </template>
 
 <script>
-const Clocker = require('./clocker') 
+const Clocker = require('./clocker')
 import trim from '../../libs/trim'
 export default {
   ready () {
@@ -14,12 +14,11 @@ export default {
     _this.slot = this.$el.querySelector('.vux-clocker-tpl')
     _this.slotString = trim(_this.slot.innerHTML, true)
 
-    if(_this.slotString !== '<div>  </div>' && _this.slotString !== '<div></div>'){
+    if (_this.slotString !== '<div>  </div>' && _this.slotString !== '<div></div>') {
       _this.showTimeString = false
     }
-    
-    const ck = new Clocker(_this.time)
-    .on('tick',function (event) {
+    this.clocker = new Clocker(_this.time)
+    .on('tick', function (event) {
       _this.update(event)
     })
     .on('finish', function () {
@@ -30,11 +29,9 @@ export default {
   },
   methods: {
     update: function (event) {
-      if(this.showTimeString){
-        //console.log('show')
+      if (this.showTimeString) {
         this.timeString = event.strftime(this.format)
-      }else{
-        //console.log('not show')
+      } else {
         this.slot.innerHTML = event.strftime(this.slotString)
       }
     }

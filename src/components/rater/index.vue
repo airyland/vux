@@ -7,7 +7,7 @@
 <script>
   export default {
     ready () {
-      for(var i = 0; i < this.max; i++) {
+      for (var i = 0; i < this.max; i++) {
         this.colors.push('#ccc')
       }
       if (this.value) {
@@ -45,12 +45,12 @@
     },
     methods: {
       handleClick (i, force) {
-        if(!this.disabled || force){
+        if (!this.disabled || force) {
           this.value = i + 1
-          for (var j = 0; j < this.max; j++){
-            if(j<=i){
+          for (var j = 0; j < this.max; j++) {
+            if (j <= i) {
               this.colors.$set(j, this.active_color)
-            }else{
+            } else {
               this.colors.$set(j, '#ccc')
             }
           }
@@ -86,13 +86,13 @@
   padding-right: 2px!important;
 }
 .vux-rater a:hover {
-  color: #ffdd99; 
+  color: #ffdd99;
 }
 .vux-rater a.is-active {
   
 }
 .vux-rater a.is-disabled {
   color: #ccc !important;
-  cursor: not-allowed; 
+  cursor: not-allowed;
 }
 </style>
