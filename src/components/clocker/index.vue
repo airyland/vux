@@ -30,7 +30,10 @@ export default {
       if (this.showTimeString) {
         this.timeString = event.strftime(this.format)
       } else {
-        this.slot.innerHTML = event.strftime(this.slotString)
+        let string = event.strftime(this.slotString)
+        if (string !== this.cacheSlotString) {
+          this.slot.innerHTML = this.cacheSlotString = string
+        }
       }
     }
   },
@@ -48,7 +51,8 @@ export default {
     return {
       showTimeString: true,
       timeString: '',
-      slotString: ''
+      slotString: '',
+      cacheSlotString: ''
     }
   },
   beforeDestroy () {
