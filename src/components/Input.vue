@@ -1,7 +1,7 @@
 <template>
 	<div class="weui_cell">
     <div class="weui_cell_hd">
-    	<label class="weui_label" :style="{width: labelWidth + 'em'}">{{title}}</label>
+    	<label class="weui_label" :style="{width: labelWidth + 'em'}" v-if="title">{{title}}</label>
     	<inline-desc v-if="inline_desc">{{inline_desc}}</inline-desc>
     </div>
     <div class="weui_cell_bd weui_cell_primary">
@@ -57,6 +57,11 @@ const validators = {
   }
 }
 export default {
+  ready () {
+    if(!this.title && !this.placeholder){
+      console.warn('no title and no placeholder?')
+    }
+  },
   directives: {
     focusAuto: focusAuto,
     focus: focus
@@ -74,7 +79,7 @@ export default {
   props: {
     title: {
       type: String,
-      reqired: true
+      default: ''
     },
     placeholder: {
       type: String
