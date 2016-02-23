@@ -3,7 +3,8 @@
     <group>
       <popup-picker :title="title1" :data="list1" :value.sync="value1"></popup-picker>
       <popup-picker :title="title2" :data="list2" :value.sync="value2"></popup-picker>
-      <popup-picker :title="title3" :data="list3" :columns="3" :value.sync="value3" show-name></popup-picker>
+      <popup-picker :title="title3" :data="list3" :columns="3" :value.sync="value3"></popup-picker>
+      <popup-picker :title="title4" :data="list3" :columns="3" :value.sync="value4" show-name></popup-picker>
     </group>
   </div>
 </template>
@@ -20,7 +21,8 @@ export default {
     return {
       title1: '手机机型',
       title2: '详细机型',
-      title3: '联动',
+      title3: '联动显示值',
+      title4: '联动显示文字',
       list1: [['小米', 'iPhone', '华为', '情怀', '三星', '其他', '不告诉你']],
       list2: [['小米', 'iPhone', '华为', '情怀', '三星', '其他', '不告诉你'], ['小米1', 'iPhone2', '华为3', '情怀4', '三星5', '其他6', '不告诉你7']],
       list3: [{
@@ -82,7 +84,8 @@ export default {
       }],
       value1: ['iPhone'],
       value2: ['iPhone', '华为3'],
-      value3: []
+      value3: [],
+      value4: []
     }
   }
 }
