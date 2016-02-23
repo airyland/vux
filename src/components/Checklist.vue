@@ -1,6 +1,5 @@
 <template>
-  <div class="weui_cells_title">{{title}}<span v-show="!valid && dirty" style="color:#E64340padding-left:0.3em">{{error}}</span>
-  </div>
+  <div class="weui_cells_title">{{title}}</div>
   <div class="weui_cells weui_cells_checkbox">
     <label class="weui_cell weui_check_label" for="checkbox_{{uuid}}_{{index}}" v-for="(index,one) in options">
       <div class="weui_cell_hd">
@@ -12,15 +11,22 @@
       </div>
     </label>
   </div>
+  <tip v-show="!valid && dirty"><icon type="warn" class="icon_small"></icon>{{error}}</tip>
 </template>
 
 <script>
 import Base from '../libs/base'
+import Tip from './Tip'
+import Icon from './Icon'
 import {
   shuffle
 } from 'lodash'
 
 export default {
+  components: {
+    Tip,
+    Icon
+  },
   mixins: [Base],
   props: {
     title: {

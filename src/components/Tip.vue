@@ -24,4 +24,7 @@ export default {
   padding-left:10px;
   padding-right:5px;
 }
+.group-tip .weui_icon {
+  padding-right: 3px;
+}
 </style>
