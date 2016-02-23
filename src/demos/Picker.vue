@@ -1,29 +1,33 @@
 <template>
 <div>
+  <br>
   <group-title>默认，不设置默认值时选中第一个</group-title>
-  <picker :data="years" :value.sync="year1" @change="change"></picker>
+  <picker :data='years' :value.sync='year1' @change='change'></picker>
   <br>
   <group-title>设置默认值时</group-title>
-  <picker :data="years" :value.sync="year2" @change="change"></picker>
+  <picker :data='years' :value.sync='year2' @change='change'></picker>
   <br>
   <group-title>双向绑定</group-title>
-  <picker :data="years" :value.sync="year3" @change="change3"></picker>
-  <select v-model="year5">
-    <option v-for="one in years[0]" value="{{one.value}}">{{one.name}}</option>
+  <picker :data='years' :value.sync='year3' @change='change3'></picker>
+  <select v-model='year5'>
+    <option v-for='one in years[0]' value='{{one.value}}'>{{one.name}}</option>
   </select>
   <br>
-  <group-title>多列</group-title>
-  <picker :data="years1" :value.sync="year4" @change="change"></picker>
+  <group-title>非联动多列</group-title>
+  <picker :data='years1' :value.sync='year4' @change='change'></picker>
   <br>
   <group-title>五列</group-title>
-  <picker :data="year6" :value.sync="year6Value" @change="change"></picker>
+  <picker :data='year6' :value.sync='year6Value' @change='change'></picker>
+  <br>
+  <group-title>地区联动: 当前值{{year7Value}}</group-title>
+  <picker :data='year7' :columns=3 :value.sync='year7Value' @change='change'></picker>
 </div>
 </template>
 
 <script>
 import {
- Picker,
- GroupTitle
+  Picker,
+  GroupTitle
 } from '../components/'
 let years = []
 for (var i = 2000; i <= 2030; i++) {
@@ -47,6 +51,18 @@ export default {
     }
   },
   computed: {},
+  watch: {
+    year5: {
+      handler: function (val) {
+        this.year3[0] = val
+        this.year3.$set(0, val)
+      },
+      deep: true
+    },
+    change3: function (value) {
+      this.year5 = value[0]
+    }
+  },
   data: function () {
     return {
       years: [years],
@@ -63,22 +79,65 @@ export default {
         [1, 2, 3, 4, 5],
         [5, 4, 3, 2, 1]
       ],
-      year6Value: ['我', 'him', 'ni', '1', '2']
-    }
-  },
-  watch: {
-    year5: {
-      handler: function (val) {
-        this.year3[0] = val
-        this.year3.$set(0, val)
-      },
-      deep: true
-    },
-    year3: {
-      handler: function (val) {
-        this.year5 = val[0]
-      },
-      deep: true
+      year6Value: ['我', 'him', 'ni', '1', '2'],
+      year7: [{
+        name: '中国',
+        value: 'china',
+        parent: 0
+      }, {
+        name: '美国',
+        value: 'USA',
+        parent: 0
+      }, {
+        name: '广东',
+        value: 'china001',
+        parent: 'china'
+      }, {
+        name: '广西',
+        value: 'china002',
+        parent: 'china'
+      }, {
+        name: '美国001',
+        value: 'usa001',
+        parent: 'USA'
+      }, {
+        name: '美国002',
+        value: 'usa002',
+        parent: 'USA'
+      }, {
+        name: '广州',
+        value: 'gz',
+        parent: 'china001'
+      }, {
+        name: '深圳',
+        value: 'sz',
+        parent: 'china001'
+      }, {
+        name: '广西001',
+        value: 'gz',
+        parent: 'china002'
+      }, {
+        name: '广西002',
+        value: 'sz',
+        parent: 'china002'
+      }, {
+        name: '美国001_001',
+        value: '0003',
+        parent: 'usa001'
+      }, {
+        name: '美国001_002',
+        value: '0004',
+        parent: 'usa001'
+      }, {
+        name: '美国002_001',
+        value: '0005',
+        parent: 'usa002'
+      }, {
+        name: '美国002_002',
+        value: '0006',
+        parent: 'usa002'
+      }],
+      year7Value: []
     }
   }
 }

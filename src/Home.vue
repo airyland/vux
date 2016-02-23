@@ -23,6 +23,7 @@
       <cell title="Sticky" :is_link=true link="component/sticky"></cell>
       <cell title="Picker" :is_link=true link="component/picker"></cell>
       <cell title="Popup" :is_link=true link="component/popup"></cell>
+      <cell title="Popup Picker" :is_link=true link="component/popup-picker"></cell>
       <cell title="Actionsheet" :is_link=true link="component/actionsheet"></cell>
       <cell title="Clocker倒计时" :is_link=true link="component/clocker"></cell>
     </group>
