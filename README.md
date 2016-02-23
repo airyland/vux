@@ -1,6 +1,5 @@
-# vue
+# Vux
 
-> momi
 
 ## Build Setup
 

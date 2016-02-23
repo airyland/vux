@@ -24,8 +24,12 @@ import Sticky from './sticky/'
 import Picker from './picker/'
 import Datetime from './datetime/'
 import Popup from './popup/'
+import Range from './range/'
+import Actionsheet from './Actionsheet'
+import Clocker from './clocker/'
+import Rater from './rater/'
 
-const Vuee = {
+const vux = {
   Radio,
   Group,
   Date,
@@ -51,8 +55,12 @@ const Vuee = {
   Sticky,
   Picker,
   Datetime,
-  Popup
+  Popup,
+  Range,
+  Actionsheet,
+  Clocker,
+  Rater
 }
 
-module.exports = Vuee
+module.exports = vux
 

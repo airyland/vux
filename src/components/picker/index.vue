@@ -2,7 +2,7 @@
   <div>
     <flexbox>
       <flexbox-item v-for="(index, one) in data" style="margin-left:0;">
-        <div class="vuee-picker-{{index}}"></div>
+        <div class="vux-picker-{{index}}"></div>
       </flexbox-item>
     </flexbox>
   </div>
@@ -12,43 +12,104 @@
 import Scroller from './scroller'
 import Flexbox from '../Flexbox'
 import FlexboxItem from '../Flexbox-item'
+import Manager from './chain'
 export default {
   components: {
     Flexbox,
     FlexboxItem
   },
+  created () {
+    if (this.chainData) {
+      const length = this.chainDataColumns
+      this.store = new Manager(this.chainData, length)
+      this.data = this.store.getColumns()
+    }
+  },
+  ready () {
+    var _this = this
+    if (!this.data) {
+      return
+    }
+
+    this.count = this.data.length
+    // set first item as value
+
+    if (this.value.length < this.count) {
+      for (let i = 0; i < this.count; i++) {
+        this.value.$set(i, this.data[i][0].value)
+      }
+    }
+
+    this.uuids = []
+    for (var i = 0; i < this.data.length; i++) {
+      var uuid = Math.random().toString(36).substring(3, 8)
+      this.uuids.push(uuid)
+      this.$el.querySelector('.vux-picker-' + i).setAttribute('id', 'vux-picker-' + uuid)
+
+      ;
+      (function (i) {
+        _this.scroller[i] = new Scroller('#' + 'vux-picker-' + uuid, {
+          data: _this.data[i],
+          defaultValue: _this.value[i] || _this.data[i][0].value,
+          itemClass: _this.item_class,
+          onSelect: function (value) {
+            _this.value.$set(i, value)
+            _this.$dispatch('change', _this.getValue())
+            if (_this.chainData) {
+              _this.render(i + 1)
+            }
+          }
+        })
+      })(i)
+    }
+  },
   props: {
     data: {
-      type: Array,
-      //required: true
+      type: Array
     },
-    chain_data: {
-      type: Object
+    chainData: {
+      type: Array
+    },
+    chainDataColumns: {
+      type: Number
     },
     value: {
       type: Array,
       required: false,
       twoWay: true
     },
-    item_class: {
+    itemClass: {
       type: String,
       default: 'scroller-item'
-    },
-    is_chain: {
-      type: Boolean,
-      default: false
     }
   },
   methods: {
+    render: function (i) {
+      if (i > this.count - 1) {
+        return
+      }
+      const _this = this
+      _this.scroller[i].destroy()
+      _this.$el.querySelector('#' + 'vux-picker-' + _this.uuids[i]).innerHTML = ''
+      let list = _this.store.getChildren(_this.getValue()[i - 1])
+      _this.scroller[i] = new Scroller('#' + 'vux-picker-' + _this.uuids[i], {
+        data: list,
+        itemClass: _this.item_class,
+        onSelect: function (value) {
+          _this.value.$set(i, value)
+          _this.$dispatch('change', _this.getValue())
+          _this.render(i + 1)
+        }
+      })
+      _this.value.$set(i, list[0].value)
+      _this.render(i + 1)
+    },
     getValue: function () {
-      var data = [];
-      for (var i =0; i < this.data.length; i++){
+      var data = []
+      for (var i = 0; i < this.data.length; i++) {
         data.push(this.scroller[i].value)
       }
       return data
-    },
-    emitChange: function () {
-      this.$emit('change', this.getValue())
     }
   },
   data () {
@@ -57,53 +118,17 @@ export default {
       count: 0
     }
   },
-  beforeCompile () {
-    console.log('is_chain',!!this.chain_data, this.chain_data)
-    if(!!this.chain_data){
-      this.level = 
-      this.level0 = Object.keys(this.chain_data)
-      // 计算多少级
-      var length = Object.keys(this.chain_data).length
-      this.data = []
-      for (var i = 0; i < length; i++) {
-        
-      }
-    }
-    
-    //this.data[0] = 
-  },
-  ready () {
-    this.count = this.data.length
-    var _this = this
-    for (var i=0;i<this.data.length;i++){
-      var uuid = Math.random().toString(36).substring(3, 8)
-      this.$el.querySelector('.vuee-picker-'+i).setAttribute('id', 'vuee-picker-' + uuid)
-
-      ;(function(i){
-        _this.scroller[i] = new Scroller('#' + 'vuee-picker-' + uuid, {
-        data: _this.data[i],
-        defaultValue: _this.value[i],
-        itemClass: _this.item_class,
-        onSelect: function (value) {
-          _this.value[i] = value
-          _this.$dispatch('change', _this.getValue())
-        }
-      })
-      })(i)
-    }
-    //this.$dispatch('change', this.value || this.data[0].value)
-  },
   watch: {
     value: function (val) {
       for (var i = 0; i < val.length; i++) {
-        if (this.scroller[i].value !== val[i]){
+        if (this.scroller[i].value !== val[i]) {
           this.scroller[i].select(val[i])
         }
       }
     }
   },
   beforeDestroy: function () {
-    for (var i = 0; i < val.length; i++) {
+    for (var i = 0; i < this.count; i++) {
       this.scroller[i].destroy()
     }
   }

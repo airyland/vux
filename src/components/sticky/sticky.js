@@ -28,11 +28,11 @@ function isSupportSticky () {
 export default function (nav) {
   if (gtIOS6() || isSupportSticky()) {
     // 大于等于iOS6版本使用sticky
-    nav.classList.add('vuee-sticky')
+    nav.classList.add('vux-sticky')
   } else {
     var navOffsetY = nav.offsetTop
     window.addEventListener('scroll', function () {
-      window.scrollY >= navOffsetY ? nav.classList.add('vuee-fixed') : nav.classList.remove('vuee-fixed')
+      window.scrollY >= navOffsetY ? nav.classList.add('vux-fixed') : nav.classList.remove('vux-fixed')
     })
   }
 }
