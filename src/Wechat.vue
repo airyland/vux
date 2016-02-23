@@ -11,7 +11,7 @@
   <tip>关闭后，当收到微信消息时，通知提示将不再显示发信人和内容摘要。</tip>
 
   <group>
-    <cell title="功能消息免打扰" :is_link=true></cell>
+    <cell title="功能消息免打扰" is-link></cell>
   </group>
   <tip>设置系统功能消息提示声音和振动的时段。</tip>
 

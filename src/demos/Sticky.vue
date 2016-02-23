@@ -4,8 +4,8 @@
     <br/>
     <br/>
     <sticky>
-      <tab :line_width=1>
-        <tab-item :selected=true>正在正映</tab-item>
+      <tab :line-width=1>
+        <tab-item selected>正在正映</tab-item>
         <tab-item>即将上映</tab-item>
       </tab>
     </sticky>

@@ -32,7 +32,7 @@
         type: String,
         default: '★'
       },
-      active_color: {
+      activeColor: {
         type: String,
         default: '#fc6'
       },
@@ -49,7 +49,7 @@
           this.value = i + 1
           for (var j = 0; j < this.max; j++) {
             if (j <= i) {
-              this.colors.$set(j, this.active_color)
+              this.colors.$set(j, this.activeColor)
             } else {
               this.colors.$set(j, '#ccc')
             }

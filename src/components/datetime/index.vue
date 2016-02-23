@@ -2,7 +2,7 @@
 <a class="weui_cell" href="javascript:">
   <div class="weui_cell_bd weui_cell_primary">
     <p>{{title}}</p>
-    <inline-desc v-if="inline_desc">{{inline_desc}}</inline-desc>
+    <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
   </div>
   <div class="weui_cell_ft with_arrow vux-datetime-value">{{value}}</div>
 </a>
@@ -32,16 +32,16 @@ export default {
       default: '',
       twoWay: true
     },
-    inline_desc: {
+    inlineDesc: {
       type: String
     },
     placeholder: {
       type: String
     },
-    min_year: {
+    minYear: {
       type: Number
     },
-    max_year: {
+    maxYear: {
       type: Number
     }
   },
@@ -61,11 +61,11 @@ export default {
         _this.value = value
       }
     }
-    if (this.min_year) {
-      options.minYear = this.min_year
+    if (this.minYear) {
+      options.minYear = this.minYear
     }
-    if (this.max_year) {
-      options.maxYear = this.max_year
+    if (this.maxYear) {
+      options.maxYear = this.maxYear
     }
     this.picker = new Picker(options)
   },

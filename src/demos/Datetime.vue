@@ -5,7 +5,7 @@
   </group>
 
   <group title="YYYY-MM-DD HH:II">
-    <datetime :value.sync="value2" format="YYYY-MM-DD HH:II" @change="change" title="开始时间" inline_desc="精确到分钟"></datetime>
+    <datetime :value.sync="value2" format="YYYY-MM-DD HH:II" @change="change" title="开始时间" inline-desc="精确到分钟"></datetime>
   </group>
 
   <group title="可以直接通过value指定placeholder">
@@ -13,7 +13,7 @@
   </group>
 
   <group title="指定最小，最大年份">
-    <datetime :value.sync="value4" :min_year=2000 :max_year=2016 format="YYYY-MM-DD HH:II" @change="change" title="两千年后的时间"></datetime>
+    <datetime :value.sync="value4" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:II" @change="change" title="两千年后的时间"></datetime>
   </group>
 
 </div>

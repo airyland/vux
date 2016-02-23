@@ -9,10 +9,10 @@
              <span class="weui_icon_checked"></span>
          </div>
     </label>
-    <div class="weui_cell" v-show="fill_mode">
-      <div class="weui_cell_hd"><label for="" class="weui_label">{{fill_label}}</label></div>
+    <div class="weui_cell" v-show="fillMode">
+      <div class="weui_cell_hd"><label for="" class="weui_label">{{fillLabel}}</label></div>
       <div class="weui_cell_bd weui_cell_primary">
-          <input class="weui_input needsclick" type="text" v-model="fillValue" placeholder="{{fill_placeholder}}" @blur="isFocus=false" @focus="onFocus()">
+          <input class="weui_input needsclick" type="text" v-model="fillValue" placeholder="{{fillPlaceholder}}" @blur="isFocus=false" @focus="onFocus()">
       </div>
       <div class="weui_cell_ft" v-show="value==='' && !isFocus">
           <i class="weui_icon_warn"></i>
@@ -33,17 +33,17 @@ export default {
       required: false,
       twoWay: true
     },
-    fill_mode: {
+    fillMode: {
       type: Boolean,
       required: false,
       default: false
     },
-    fill_placeholder: {
+    fillPlaceholder: {
       type: String,
       required: false,
       default: '其他'
     },
-    fill_label: {
+    fillLabel: {
       type: String,
       required: false,
       default: '其他'
@@ -64,7 +64,7 @@ export default {
       this.$dispatch('change', newVal)
     },
     fillValue (newVal) {
-      if (this.fill_mode && this.isFocus) {
+      if (this.fillMode && this.isFocus) {
         this.value = newVal
       }
     }

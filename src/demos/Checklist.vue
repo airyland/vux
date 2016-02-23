@@ -8,7 +8,7 @@
 
     <checklist title="set required=false and no min-error will show" :options="commonList" :value.sync="checklist004" :max=2 :required=false @change="change"></checklist>
 
-    <checklist title="set random_order=true" :random_order=true :options="checklist005" :value.sync="checklist005Value" @change="change"></checklist>
+    <checklist title="set random order" random-order :options="checklist005" :value.sync="checklist005Value" @change="change"></checklist>
   </div>
 </template>
 

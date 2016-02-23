@@ -29,14 +29,14 @@
         type: Boolean,
         default: false
       },
-      disabled_opacity: {
+      disabledOpacity: {
         default: 0.75
       },
-      range_bar_height: {
+      rangeBarHeight: {
         type: Number,
         default: 1
       },
-      range_handle_height: {
+      rangeHandleHeight: {
         type: Number,
         default: 30
       }
@@ -49,7 +49,7 @@
         min: _this.min,
         max: _this.max,
         disable: _this.disabled,
-        disabledOpacity: _this.disabled_opacity,
+        disabledOpacity: _this.disabledOpacity,
         callback: function () {
 
         }
@@ -58,9 +58,9 @@
         options.step = _this.step
       }
       this.range = new Powerange(this.$el.querySelector('.vux-range-input'), options)
-      const handleTop = (this.range_handle_height - this.range_bar_height) / 2
+      const handleTop = (this.rangeHandleHeight - this.rangeBarHeight) / 2
       this.$el.querySelector('.range-handle').style.top = `-${handleTop}px`
-      this.$el.querySelector('.range-bar').style.height = `${this.range_bar_height}px`
+      this.$el.querySelector('.range-bar').style.height = `${this.rangeBarHeight}px`
     },
     beforeDestroy () {
       // @todo

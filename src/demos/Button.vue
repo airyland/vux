@@ -7,9 +7,9 @@
     <x-button type="warn">Delete</x-button>
  
     <group-title>disabled</group-title>
-    <x-button :disabled=true>disable submit</x-button>
-    <x-button type="primary" :disabled=true>disable primary</x-button>
-    <x-button type="warn" :disabled=true>disable Delete</x-button>
+    <x-button disabled>disable submit</x-button>
+    <x-button type="primary" disabled>disable primary</x-button>
+    <x-button type="warn" disabled>disable Delete</x-button>
 
     <group-title>use :text and :disabled</group-title>
     <x-button :text="submit001" :disabled="disable001" @click="processButton001" type="primary"></x-button>

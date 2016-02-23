@@ -1,5 +1,5 @@
 <template>
-	<div class="weui_cell" v-if="!is_link">
+	<div class="weui_cell" v-if="!isLink">
     <div class="weui_cell_hd">
       <slot name="icon"></slot>
     </div>
@@ -8,20 +8,20 @@
         {{title}}
         <slot name="after-title"></slot>
       </p>
-    	<inline-desc>{{inline_desc}}</inline-desc>
+    	<inline-desc>{{inlineDesc}}</inline-desc>
   	</div>
   	<div class="weui_cell_ft">
       {{value}}
       <slot name="value"></slot>
     </div>
 	</div>
-	<a class="weui_cell" href="javascript:" v-if="is_link" v-link="link">
+	<a class="weui_cell" href="javascript:" v-if="isLink" v-link="link">
     <div class="weui_cell_hd">
       <slot name="icon"></slot>
     </div>
     <div class="weui_cell_bd weui_cell_primary">
       <p>{{title}}</p>
-      <inline-desc v-if="inline_desc">{{inline_desc}}</inline-desc>
+      <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
     <div class="weui_cell_ft with_arrow">
       {{value}}
@@ -44,14 +44,14 @@ export default {
     value: {
       type: String
     },
-    is_link: {
+    isLink: {
       type: Boolean,
       default: false
     },
     link: {
       type: String
     },
-    inline_desc: {
+    inlineDesc: {
       type: String
     }
   }

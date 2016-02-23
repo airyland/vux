@@ -1,8 +1,10 @@
 <template>
-	<group title="switch element">
-	  <boolean title="default setting"></boolean>
-	  <boolean title="default true" :value=true></boolean>
-	</group>
+  <div>
+  	<group title="switch element">
+  	  <boolean title="default setting"></boolean>
+  	  <boolean title="default true" :value=true></boolean>
+  	</group>
+  </div>
 </template>
 
 <script>

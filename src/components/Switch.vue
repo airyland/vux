@@ -2,7 +2,7 @@
 	<div class="weui_cell weui_cell_switch">
 	    <div class="weui_cell_hd weui_cell_primary">
 	    	<label class="weui_label" :style="{width:title.length+1+'em'}">{{title}}</label>
-	    	<span class="label_desc" v-if="inline_desc">{{inline_desc}}</span>
+	    	<span class="label_desc" v-if="inlineDesc">{{inlineDesc}}</span>
 	    </div>
 	    <div class="weui_cell_ft">
 	        <input class="weui_switch" type="checkbox" :disabled="disabled" v-model="value"/>
@@ -29,7 +29,7 @@ export default {
       type: Boolean,
       twoWay: true
     },
-    inline_desc: {
+    inlineDesc: {
       type: String
     }
   },

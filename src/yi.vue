@@ -2,23 +2,23 @@
 <div>
 <group title="Basic">
   <switch title="Camera" :value=true></switch>
-  <cell title="Camera Name" :is_link=true value="小蚁智能摄像机"></cell>
-  <cell title="Settings" inline_desc="Status light, image rotation, newwork info, firmware etc." :is_link=true></cell>
+  <cell title="Camera Name" is-link value="小蚁智能摄像机"></cell>
+  <cell title="Settings" inline-desc="Status light, image rotation, newwork info, firmware etc." is-link></cell>
 </group>
 
 <group title="Security">
-  <switch title="PIN Protection" inline_desc="Require PIN to access camera" :value=false></switch>
+  <switch title="PIN Protection" inline-desc="Require PIN to access camera" :value=false></switch>
 </group>
 
 <group title="Alerts">
-  <switch title="Activity Alerts" inline_desc="Send alerts when activity is detected" :value=true></switch>
-  <cell title="Settings" inline_desc="Video alerts, frequency, more" :is_link=true></cell>
-  <cell title="Schedule" :is_link=true value="11:00-22:00"></cell>
+  <switch title="Activity Alerts" inline-desc="Send alerts when activity is detected" :value=true></switch>
+  <cell title="Settings" inline-desc="Video alerts, frequency, more" is-link></cell>
+  <cell title="Schedule" is-link value="11:00-22:00"></cell>
 </group>
 
 <group title="Storage">
-  <switch title="Activity Detection Recording" inline_desc="Videos will only be saved when activity is detected" :value=false></switch>
-  <cell title="Storage" :is_link=true value="In good condition"></cell>
+  <switch title="Activity Detection Recording" inline-desc="Videos will only be saved when activity is detected" :value=false></switch>
+  <cell title="Storage" is-link value="In good condition"></cell>
 </group>
 
   </div>

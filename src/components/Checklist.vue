@@ -1,16 +1,17 @@
 <template>
-    <div class="weui_cells_title">{{title}}<span v-show="!valid && dirty" style="color:#E64340padding-left:0.3em">{{error}}</span></div>
-    <div class="weui_cells weui_cells_checkbox">
+  <div class="weui_cells_title">{{title}}<span v-show="!valid && dirty" style="color:#E64340padding-left:0.3em">{{error}}</span>
+  </div>
+  <div class="weui_cells weui_cells_checkbox">
     <label class="weui_cell weui_check_label" for="checkbox_{{uuid}}_{{index}}" v-for="(index,one) in options">
-        <div class="weui_cell_hd">
-            <input type="checkbox" class="weui_check" value="{{one}}" v-model="value" id="checkbox_{{uuid}}_{{index}}">
-            <i class="weui_icon_checked"></i>
-        </div>
-        <div class="weui_cell_bd weui_cell_primary">
-            <p>{{one}}</p>
-        </div>
+      <div class="weui_cell_hd">
+        <input type="checkbox" class="weui_check" value="{{one}}" v-model="value" id="checkbox_{{uuid}}_{{index}}">
+        <i class="weui_icon_checked"></i>
+      </div>
+      <div class="weui_cell_bd weui_cell_primary">
+        <p>{{one}}</p>
+      </div>
     </label>
-</div>
+  </div>
 </template>
 
 <script>
@@ -44,12 +45,12 @@ export default {
       type: Number,
       required: false
     },
-    fill_mode: {
+    fillMode: {
       type: Boolean,
       required: false,
       default: false
     },
-    random_order: {
+    randomOrder: {
       type: Boolean,
       required: false,
       default: false
@@ -80,7 +81,7 @@ export default {
       this.min = 0
     }
 
-    if (this.random_order) {
+    if (this.randomOrder) {
       this.options = shuffle(this.options)
     }
   },

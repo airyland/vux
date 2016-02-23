@@ -7,7 +7,7 @@
 <script>
   export default {
     props: {
-      line_width: {
+      lineWidth: {
         type: Number,
         required: false,
         default: 3

@@ -2,16 +2,16 @@
 	<div class="weui_cell">
     <div class="weui_cell_hd">
     	<label class="weui_label" :style="{width: labelWidth + 'em'}" v-if="title">{{title}}</label>
-    	<inline-desc v-if="inline_desc">{{inline_desc}}</inline-desc>
+    	<inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
     <div class="weui_cell_bd weui_cell_primary">
       <input class="weui_input" :type="type" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur" v-focus="focus"/>
     </div>
     <div class="weui_cell_ft">
-      <icon type="clear" v-show="show_clear && value" @click="clear"></icon>
-      <icon type="warn" title="{{!valid ? firstError : ''}}" v-show="!equal_with && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
-      <icon type="warn" v-show="hasLengthEqual && dirty && equal_with && !valid"></icon>
-      <icon type="success" v-show="equal_with && equal_with===value && valid"></icon>
+      <icon type="clear" v-show="showClear && value" @click="clear"></icon>
+      <icon type="warn" title="{{!valid ? firstError : ''}}" v-show="!equalWith && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
+      <icon type="warn" v-show="hasLengthEqual && dirty && equalWith && !valid"></icon>
+      <icon type="success" v-show="equalWith && equalWith===value && valid"></icon>
     </div>
   </div>
 </template>
@@ -43,13 +43,13 @@ const validators = {
     fn: isURL,
     msg: 'URL地址'
   },
-  'china_mobile': {
+  'china-mobile': {
     fn: function (str) {
       return isMobilePhone(str, 'zh-CN')
     },
     msg: '手机号码'
   },
-  'china_name': {
+  'china-name': {
     fn: function (str) {
       return str.length >= 2 && str.length <= 6
     },
@@ -61,8 +61,8 @@ export default {
     if (!this.title && !this.placeholder) {
       console.warn('no title and no placeholder?')
     }
-    if (this.equal_with) {
-      this.show_clear = false
+    if (this.equalWith) {
+      this.showClear = false
     }
   },
   directives: {
@@ -90,19 +90,19 @@ export default {
     keyboard: {
       type: String
     },
-    inline_desc: {
+    inlineDesc: {
       type: String
     },
-    is_type: {
+    isType: {
       type: String
     },
     min: Number,
     max: Number,
-    show_clear: {
+    showClear: {
       type: Boolean,
       default: true
     },
-    equal_with: {
+    equalWith: {
       type: String
     },
     type: {
@@ -137,7 +137,7 @@ export default {
       this.firstError = this.errors[key]
     },
     validate: function () {
-      if (this.equal_with) {
+      if (this.equalWith) {
         this.validateEqual()
         return
       }
@@ -153,7 +153,7 @@ export default {
         this.errors.required = '必填哦'
       }
 
-      const validator = validators[this.is_type]
+      const validator = validators[this.isType]
       if (validator) {
         this.valid = validator[ 'fn' ](this.value)
         if (!this.valid) {
@@ -189,9 +189,9 @@ export default {
       this.valid = true
     },
     validateEqual: function () {
-      let willCheck = this.dirty || this.value.length >= this.equal_with.length
+      let willCheck = this.dirty || this.value.length >= this.equalWith.length
         // 只在长度符合时显示正确与否
-      if (willCheck && this.value !== this.equal_with) {
+      if (willCheck && this.value !== this.equalWith) {
         this.valid = false
         this.errors.equal = '输入不一致'
         return
@@ -215,8 +215,8 @@ export default {
       this.getError()
     },
     value: function (newVal) {
-      if (this.equal_with) {
-        if (newVal.length === this.equal_with.length) {
+      if (this.equalWith) {
+        if (newVal.length === this.equalWith.length) {
           this.hasLengthEqual = true
         }
         this.validateEqual()

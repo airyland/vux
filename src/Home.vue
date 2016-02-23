@@ -1,46 +1,46 @@
 <template>
   <div>
     <group title="Form" title_color="#04be02">
-      <cell title="Radio" :is_link=true link="component/radio"></cell>
-      <cell title="Checklist" :is_link=true link="component/checklist"></cell>
-      <cell title="Selector" :is_link=true link="component/selector"></cell>
-      <cell title="Button" :is_link=true link="component/button"></cell>
-      <cell title="Textarea" :is_link=true link="component/textarea"></cell>
-      <cell title="Datetime" :is_link=true link="component/datetime"></cell>
-      <cell title="Switch" :is_link=true link="component/switch"></cell>
-      <cell title="Input" :is_link=true link="component/input"></cell>
-      <cell title="Number" :is_link=true link="component/number"></cell>
-      <cell title="Range" :is_link=true link="component/range"></cell>
-      <cell title="Rater" :is_link=true link="component/rater"></cell>
+      <cell title="Radio" is-link link="component/radio"></cell>
+      <cell title="Checklist" is-link link="component/checklist"></cell>
+      <cell title="Selector" is-link link="component/selector"></cell>
+      <cell title="Button" is-link link="component/button"></cell>
+      <cell title="Textarea" is-link link="component/textarea"></cell>
+      <cell title="Datetime" is-link link="component/datetime"></cell>
+      <cell title="Switch" is-link link="component/switch"></cell>
+      <cell title="Input" is-link link="component/input"></cell>
+      <cell title="Number" is-link link="component/number"></cell>
+      <cell title="Range" is-link link="component/range"></cell>
+      <cell title="Rater" is-link link="component/rater"></cell>
     </group>
 
     <group title="UI" title_color="#04be02">
-      <cell title="Icon" :is_link=true link="component/icon"></cell>
-      <cell title="Box" :is_link=true link="component/box"></cell>
-      <cell title="Flexbox" :is_link=true link="component/flexbox"></cell>
-      <cell title="Tab" :is_link=true link="component/tab"></cell>
-      <cell title="Swiper" :is_link=true link="component/swiper"></cell>
-      <cell title="Sticky" :is_link=true link="component/sticky"></cell>
-      <cell title="Picker" :is_link=true link="component/picker"></cell>
-      <cell title="Popup" :is_link=true link="component/popup"></cell>
-      <cell title="Popup Picker" :is_link=true link="component/popup-picker"></cell>
-      <cell title="Actionsheet" :is_link=true link="component/actionsheet"></cell>
-      <cell title="Clocker倒计时" :is_link=true link="component/clocker"></cell>
+      <cell title="Icon" is-link link="component/icon"></cell>
+      <cell title="Box" is-link link="component/box"></cell>
+      <cell title="Flexbox" is-link link="component/flexbox"></cell>
+      <cell title="Tab" is-link link="component/tab"></cell>
+      <cell title="Swiper" is-link link="component/swiper"></cell>
+      <cell title="Sticky" is-link link="component/sticky"></cell>
+      <cell title="Picker" is-link link="component/picker"></cell>
+      <cell title="Popup" is-link link="component/popup"></cell>
+      <cell title="Popup Picker" is-link link="component/popup-picker"></cell>
+      <cell title="Actionsheet" is-link link="component/actionsheet"></cell>
+      <cell title="Clocker倒计时" is-link link="component/clocker"></cell>
     </group>
 
     <group title="TODO" title_color="#04be02">
-      <cell title="Address" :is_link=true link="component/address"></cell>
-      <cell title="短信验证组件" :is_link=true link="component/address"></cell>
-      <cell title="图片验证码" :is_link=true link="component/rater"></cell>
-      <cell title="Calendar" :is_link=true link="component/calendar"></cell>
-      <cell title="Progress" :is_link=true link="component/progress"></cell>
-      <cell title="Dialog" :is_link=true link="component/dialog"></cell>
-      <cell title="Toast" :is_link=true link="component/toast"></cell>
+      <cell title="Address" is-link link="component/address"></cell>
+      <cell title="短信验证组件" is-link link="component/address"></cell>
+      <cell title="图片验证码" is-link link="component/rater"></cell>
+      <cell title="Calendar" is-link link="component/calendar"></cell>
+      <cell title="Progress" is-link link="component/progress"></cell>
+      <cell title="Dialog" is-link link="component/dialog"></cell>
+      <cell title="Toast" is-link link="component/toast"></cell>
     </group>
 
     <group title="Demo" title_color="#04be02">
-      <cell title="微信设置页面" :is_link=true link="demo/wechat"></cell>
-      <cell title="小蚁摄像设置" :is_link=true link="demo/yi"></cell>
+      <cell title="微信设置页面" is-link link="demo/wechat"></cell>
+      <cell title="小蚁摄像设置" is-link link="demo/yi"></cell>
     </group>
 
     <router-view></router-view>

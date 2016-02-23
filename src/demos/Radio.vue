@@ -9,11 +9,11 @@
 	</group>
 
 	<group :title="'fill mode value is '+radio001Value">
-		<radio :fill_mode=true :options="radio001" :value.sync="radio001Value" @change="change"></radio>
+		<radio fill-mode :options="radio001" :value.sync="radio001Value" @change="change"></radio>
 	</group>
 	  
 	<group title="fill mode with custom placeholder and label">
-		<radio :fill_mode=true fill_label="Other" fill_placeholder="填写其他的哦" :options="radio001" @change="change"></radio>
+		<radio fill-mode fill-label="Other" fill-placeholder="填写其他的哦" :options="radio001" @change="change"></radio>
 	</group>
 </div>
 </template>
