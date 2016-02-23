@@ -58,8 +58,11 @@ const validators = {
 }
 export default {
   ready () {
-    if(!this.title && !this.placeholder){
+    if (!this.title && !this.placeholder) {
       console.warn('no title and no placeholder?')
+    }
+    if (this.equal_with) {
+      this.show_clear = false
     }
   },
   directives: {
@@ -70,11 +73,6 @@ export default {
   components: {
     Icon,
     InlineDesc
-  },
-  ready: function () {
-    if (this.equal_with) {
-      this.show_clear = false
-    }
   },
   props: {
     title: {
