@@ -45,7 +45,6 @@ import Xinput from './components/Input'
 
 export default {
   ready: function () {
-    console.log('ready')
   },
   components: {
     Number,

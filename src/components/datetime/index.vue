@@ -50,7 +50,6 @@ export default {
   },
   ready () {
     var _this = this
-    console.log(this.$el)
     const uuid = Math.random().toString(36).substring(3, 8)
     this.$el.setAttribute('id', 'vux-datetime-' + uuid)
     var options = {

@@ -28,7 +28,6 @@ function Swiper (options) {
 
   this._width = this.$container.offsetWidth
   this._height = this._options.height === 'auto' ? this.$container.offsetHeight : this._options.height
-  console.log(this._height)
   this.timer = null
 
   this._auto()
