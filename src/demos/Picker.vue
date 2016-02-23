@@ -1,7 +1,7 @@
 <template>
 <div>
   <group-title>地区联动: 当前值{{year7Value}}</group-title>
-  <picker :chain-data='year7' :chain-data-columns=3 :value.sync='year7Value' @change='change'></picker>
+  <picker :data='year7' :columns=3 :value.sync='year7Value' @change='change'></picker>
   <br>
   <group-title>默认，不设置默认值时选中第一个</group-title>
   <picker :data='years' :value.sync='year1' @change='change'></picker>

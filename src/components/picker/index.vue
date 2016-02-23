@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vux-picker">
     <flexbox>
       <flexbox-item v-for="(index, one) in data" style="margin-left:0;">
         <div class="vux-picker-{{index}}"></div>
@@ -19,9 +19,9 @@ export default {
     FlexboxItem
   },
   created () {
-    if (this.chainData) {
-      const length = this.chainDataColumns
-      this.store = new Manager(this.chainData, length)
+    if (this.columns !== 999) {
+      const length = this.columns
+      this.store = new Manager(this.data, length)
       this.data = this.store.getColumns()
     }
   },
@@ -33,10 +33,9 @@ export default {
 
     this.count = this.data.length
     // set first item as value
-
     if (this.value.length < this.count) {
       for (let i = 0; i < this.count; i++) {
-        this.value.$set(i, this.data[i][0].value)
+        _this.value.$set(i, _this.data[i][0].value || _this.data[i][0])
       }
     }
 
@@ -55,7 +54,7 @@ export default {
           onSelect: function (value) {
             _this.value.$set(i, value)
             _this.$dispatch('change', _this.getValue())
-            if (_this.chainData) {
+            if (this.columns !== 999) {
               _this.render(i + 1)
             }
           }
@@ -67,11 +66,9 @@ export default {
     data: {
       type: Array
     },
-    chainData: {
-      type: Array
-    },
-    chainDataColumns: {
-      type: Number
+    columns: {
+      type: Number,
+      default: 999
     },
     value: {
       type: Array,
@@ -85,6 +82,9 @@ export default {
   },
   methods: {
     render: function (i) {
+      if (this.columns === 999) {
+        return
+      }
       if (i > this.count - 1) {
         return
       }
@@ -130,6 +130,7 @@ export default {
   beforeDestroy: function () {
     for (var i = 0; i < this.count; i++) {
       this.scroller[i].destroy()
+      this.scroller[i] = null
     }
   }
 }
@@ -137,4 +138,9 @@ export default {
 
 <style>
 @import './scroller.css'
+
+.vux-picker {
+  border:1px solid red;
+}
+
 </style>

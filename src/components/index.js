@@ -28,6 +28,7 @@ import Range from './range/'
 import Actionsheet from './Actionsheet'
 import Clocker from './clocker/'
 import Rater from './rater/'
+import PopupPicker from './Popup-picker'
 
 const vux = {
   Radio,
@@ -59,7 +60,8 @@ const vux = {
   Range,
   Actionsheet,
   Clocker,
-  Rater
+  Rater,
+  PopupPicker
 }
 
 module.exports = vux

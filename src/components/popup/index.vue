@@ -1,5 +1,5 @@
 <template>
-  <div v-show="show" transition="popup" :style="{height:height}">
+  <div v-show="show" transition="popup" :style="{height:height}" class="vux-popup">
     <slot></slot>
   </div>
 </template>
@@ -45,6 +45,9 @@ export default {
 </script>
 
 <style>
+.vux-popup {
+  border-top: 2px solid #04BE02;
+}
 .picker-dialog {
   position: fixed;
   left: 0;
