@@ -29,6 +29,7 @@ import Clocker from './clocker/'
 import Rater from './rater/'
 import PopupPicker from './Popup-picker'
 import Address from './address/'
+import Toast from './toast'
 
 const vux = {
   Radio,
@@ -61,7 +62,8 @@ const vux = {
   Clocker,
   Rater,
   PopupPicker,
-  Address
+  Address,
+  Toast
 }
 
 module.exports = vux

@@ -27,6 +27,7 @@
       <cell title="Popup Picker" is-link link="component/popup-picker"></cell>
       <cell title="Actionsheet" is-link link="component/actionsheet"></cell>
       <cell title="Clocker倒计时" is-link link="component/clocker"></cell>
+      <cell title="Toast" is-link link="component/toast"></cell>
     </group>
 
     <group title="TODO" title_color="#04be02">
@@ -35,7 +36,6 @@
       <cell title="Calendar" is-link link="component/calendar"></cell>
       <cell title="Progress" is-link link="component/progress"></cell>
       <cell title="Dialog" is-link link="component/dialog"></cell>
-      <cell title="Toast" is-link link="component/toast"></cell>
     </group>
 
     <group title="Demo" title_color="#04be02">
