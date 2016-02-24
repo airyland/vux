@@ -33,6 +33,7 @@ import Toast from './toast'
 import Loading from './Loading'
 import Alert from './Alert'
 import Confirm from './Confirm'
+import Progress from './progress/'
 
 const vux = {
   Radio,
@@ -69,7 +70,8 @@ const vux = {
   Toast,
   Loading,
   Alert,
-  Confirm
+  Confirm,
+  Progress
 }
 
 module.exports = vux

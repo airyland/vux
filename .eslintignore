@@ -7,3 +7,4 @@ src/components/range/*.js
 src/components/clocker/*.js
 src/libs/trim.js
 src/assets/*/*.js
+src/components/progress/*.js

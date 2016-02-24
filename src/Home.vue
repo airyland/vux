@@ -26,18 +26,18 @@
       <cell title="Popup" is-link link="component/popup"></cell>
       <cell title="Popup Picker" is-link link="component/popup-picker"></cell>
       <cell title="Actionsheet" is-link link="component/actionsheet"></cell>
-      <cell title="Clocker倒计时" is-link link="component/clocker"></cell>
+      <cell title="Clocker" is-link link="component/clocker"></cell>
       <cell title="Toast" is-link link="component/toast"></cell>
       <cell title="Loading" is-link link="component/loading"></cell>
       <cell title="Alert" is-link link="component/alert"></cell>
       <cell title="Confirm" is-link link="component/confirm"></cell>
+      <cell title="Progress" is-link link="component/progress"></cell>
     </group>
 
-    <group title="TODO" title-color="#04be02">
+    <group title="TODO" title-color="#04be02" v-if="showTodo">
       <cell title="短信验证组件" is-link link="component/address"></cell>
       <cell title="图片验证码" is-link link="component/rater"></cell>
       <cell title="Calendar" is-link link="component/calendar"></cell>
-      <cell title="Progress" is-link link="component/progress"></cell>
     </group>
 
     <group title="Demo" title-color="#04be02">

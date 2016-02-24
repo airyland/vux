@@ -32,6 +32,7 @@ import Toast from './demos/Toast'
 import Loading from './demos/Loading'
 import Alert from './demos/Alert'
 import Confirm from './demos/Confirm'
+import Progress from './demos/Progress'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -130,6 +131,9 @@ router.map({
   },
   '/component/confirm': {
     component: Confirm
+  },
+  '/component/progress': {
+    component: Progress
   }
 })
 
