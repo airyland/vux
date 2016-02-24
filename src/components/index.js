@@ -1,7 +1,6 @@
 import Radio from './Radio'
 import Group from './Group'
 import DevTip from './Dev-tip'
-import Address from './Address'
 import Input from './Input'
 import Number from './Number'
 import Cell from './Cell'
@@ -29,13 +28,13 @@ import Actionsheet from './Actionsheet'
 import Clocker from './clocker/'
 import Rater from './rater/'
 import PopupPicker from './Popup-picker'
+import Address from './address/'
 
 const vux = {
   Radio,
   Group,
   Date,
   DevTip,
-  Address,
   Input,
   GroupTitle,
   Number,
@@ -61,7 +60,8 @@ const vux = {
   Actionsheet,
   Clocker,
   Rater,
-  PopupPicker
+  PopupPicker,
+  Address
 }
 
 module.exports = vux

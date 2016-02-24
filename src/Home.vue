@@ -12,6 +12,7 @@
       <cell title="Number" is-link link="component/number"></cell>
       <cell title="Range" is-link link="component/range"></cell>
       <cell title="Rater" is-link link="component/rater"></cell>
+      <cell title="Address" is-link link="component/address"></cell>
     </group>
 
     <group title="UI" title_color="#04be02">
@@ -29,7 +30,6 @@
     </group>
 
     <group title="TODO" title_color="#04be02">
-      <cell title="Address" is-link link="component/address"></cell>
       <cell title="短信验证组件" is-link link="component/address"></cell>
       <cell title="图片验证码" is-link link="component/rater"></cell>
       <cell title="Calendar" is-link link="component/calendar"></cell>

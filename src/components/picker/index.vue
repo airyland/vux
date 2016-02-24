@@ -22,7 +22,7 @@ export default {
     if (this.columns !== 999) {
       const length = this.columns
       this.store = new Manager(this.data, length)
-      this.data = this.store.getColumns()
+      this.data = this.store.getColumns(this.value)
     }
   },
   ready () {
@@ -59,6 +59,9 @@ export default {
             }
           }
         })
+        if (_this.value) {
+          _this.scroller[i].select(_this.value[i])
+        }
       })(i)
     }
   },
