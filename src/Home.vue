@@ -28,6 +28,7 @@
       <cell title="Actionsheet" is-link link="component/actionsheet"></cell>
       <cell title="Clocker倒计时" is-link link="component/clocker"></cell>
       <cell title="Toast" is-link link="component/toast"></cell>
+      <cell title="Loading" is-link link="component/loading"></cell>
     </group>
 
     <group title="TODO" title_color="#04be02">

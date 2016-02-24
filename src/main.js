@@ -29,6 +29,7 @@ import Rater from './demos/Rater'
 import PopupPicker from './demos/Popup-picker'
 import Address from './demos/Address'
 import Toast from './demos/Toast'
+import Loading from './demos/Loading'
 /* eslint-disable no-new */
 Vue.use(Router)
 var router = new Router()
@@ -117,6 +118,9 @@ router.map({
   },
   '/component/toast': {
     component: Toast
+  },
+  '/component/loading': {
+    component: Loading
   }
 })
 
