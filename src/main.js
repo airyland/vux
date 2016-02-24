@@ -1,7 +1,3 @@
-require('file?name=vendors/weui.0.3.0.min.css!./assets/vendors/weui.0.3.0.min.css')
-require('file?name=vendors/zepto.1.1.4.min.js!./assets/vendors/zepto.1.1.4.min.js')
-require('file?name=vendors/fastclick.1.0.6.min.js!./assets/vendors/fastclick.1.0.6.min.js')
-
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from './App'
