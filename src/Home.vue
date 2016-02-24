@@ -1,6 +1,6 @@
 <template>
   <div>
-    <group title="Form" title_color="#04be02">
+    <group title="Form" title-color="#04be02">
       <cell title="Radio" is-link link="component/radio"></cell>
       <cell title="Checklist" is-link link="component/checklist"></cell>
       <cell title="Selector" is-link link="component/selector"></cell>
@@ -15,7 +15,7 @@
       <cell title="Address" is-link link="component/address"></cell>
     </group>
 
-    <group title="UI" title_color="#04be02">
+    <group title="UI" title-color="#04be02">
       <cell title="Icon" is-link link="component/icon"></cell>
       <cell title="Box" is-link link="component/box"></cell>
       <cell title="Flexbox" is-link link="component/flexbox"></cell>
@@ -33,15 +33,14 @@
       <cell title="Confirm" is-link link="component/confirm"></cell>
     </group>
 
-    <group title="TODO" title_color="#04be02">
+    <group title="TODO" title-color="#04be02">
       <cell title="短信验证组件" is-link link="component/address"></cell>
       <cell title="图片验证码" is-link link="component/rater"></cell>
       <cell title="Calendar" is-link link="component/calendar"></cell>
       <cell title="Progress" is-link link="component/progress"></cell>
-      <cell title="Dialog" is-link link="component/dialog"></cell>
     </group>
 
-    <group title="Demo" title_color="#04be02">
+    <group title="Demo" title-color="#04be02">
       <cell title="微信设置页面" is-link link="demo/wechat"></cell>
       <cell title="小蚁摄像设置" is-link link="demo/yi"></cell>
     </group>
