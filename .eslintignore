@@ -6,3 +6,4 @@ src/components/datetime/*.js
 src/components/range/*.js
 src/components/clocker/*.js
 src/libs/trim.js
+src/assets/*/*.js
