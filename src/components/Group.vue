@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="weui_cells_title" v-if="title" :style="{color:title_color}">{{title}}</div>
+		<div class="weui_cells_title" v-if="title" :style="{color:titleColor}">{{title}}</div>
     <div class="weui_cells" :class="{'no_group_title':!title}">
    		<slot></slot>
     </div>
@@ -15,7 +15,7 @@ export default {
   },
   props: {
     title: String,
-    title_color: String
+    titleColor: String
   },
   events: {
     'group.class.add': function (value) {

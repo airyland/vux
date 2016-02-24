@@ -7,5 +7,5 @@ export default function (value, list) {
   })
   return _.map(rs, function (one) {
     return one.name
-  })
+  }).join(' ')
 }

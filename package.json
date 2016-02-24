@@ -1,13 +1,16 @@
 {
   "name": "vux",
+  "version": "0.0.1",
   "description": "vue adapter for weui",
   "author": "airyland <airyland@qq.com>",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "rimraf dist && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js",
-    "test": "karma start build/karma.conf.js --single-run"
+    "build": "rimraf dist && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js && cd dist/static && mkdir vendors && cd ../../ && cp src/assets/vendors/* dist/static/vendors && cp CNAME dist/",
+    "test": "karma start build/karma.conf.js --single-run",
+    "deploy": "gh-pages -d dist",
+    "xdeploy": "npm run build && gh-pages -d dist"
   },
+  "main": "src/components/index.js",
   "dependencies": {
     "lodash": "^4.3.0",
     "validator": "^3.39.0",
@@ -24,6 +27,7 @@
     "babel-preset-stage-2": "^6.0.0",
     "babel-runtime": "^5.8.0",
     "connect-history-api-fallback": "^1.1.0",
+    "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.0",
     "eslint": "^1.10.3",
     "eslint-friendly-formatter": "^1.2.2",
@@ -33,6 +37,7 @@
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.4",
     "function-bind": "^1.0.2",
+    "gh-pages": "^0.10.0",
     "html-webpack-plugin": "^1.7.0",
     "inject-loader": "^2.0.1",
     "jasmine-core": "^2.4.1",
