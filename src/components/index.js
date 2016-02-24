@@ -31,6 +31,8 @@ import PopupPicker from './Popup-picker'
 import Address from './address/'
 import Toast from './toast'
 import Loading from './Loading'
+import Alert from './Alert'
+import Confirm from './Confirm'
 
 const vux = {
   Radio,
@@ -65,7 +67,9 @@ const vux = {
   PopupPicker,
   Address,
   Toast,
-  Loading
+  Loading,
+  Alert,
+  Confirm
 }
 
 module.exports = vux

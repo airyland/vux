@@ -30,6 +30,9 @@ import PopupPicker from './demos/Popup-picker'
 import Address from './demos/Address'
 import Toast from './demos/Toast'
 import Loading from './demos/Loading'
+import Alert from './demos/Alert'
+import Confirm from './demos/Confirm'
+
 /* eslint-disable no-new */
 Vue.use(Router)
 var router = new Router()
@@ -121,6 +124,12 @@ router.map({
   },
   '/component/loading': {
     component: Loading
+  },
+  '/component/alert': {
+    component: Alert
+  },
+  '/component/confirm': {
+    component: Confirm
   }
 })
 

@@ -29,6 +29,8 @@
       <cell title="Clocker倒计时" is-link link="component/clocker"></cell>
       <cell title="Toast" is-link link="component/toast"></cell>
       <cell title="Loading" is-link link="component/loading"></cell>
+      <cell title="Alert" is-link link="component/alert"></cell>
+      <cell title="Confirm" is-link link="component/confirm"></cell>
     </group>
 
     <group title="TODO" title_color="#04be02">
