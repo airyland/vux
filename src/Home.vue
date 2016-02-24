@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1 class="vux-title">Vux</h1>
     <group title="Form" title-color="#04be02">
       <cell title="Radio" is-link link="component/radio"></cell>
       <cell title="Checklist" is-link link="component/checklist"></cell>
@@ -45,7 +46,12 @@
       <cell title="小蚁摄像设置" is-link link="demo/yi"></cell>
     </group>
 
-    <router-view></router-view>
+    <group title="About" title-color="#04be02">
+      <cell title="关于" is-link link="intro/about"></cell>
+      <cell title="捐赠支持" is-link link="intro/donate"></cell>
+      <cell title="组件需求" is-link link="intro/suggest"></cell>
+      <cell title="意见建议" is-link link="intro/feedback"></cell>
+    </group>
   </div>
 </template>
 
@@ -89,5 +95,12 @@ body {
 }
 .weui_cells > a {
     color: #000;
+}
+.vux-title {
+  width:75px;
+  margin:0 auto;
+  text-align: center;
+  padding-top: 10px;
+  color: #35495e;
 }
 </style>
