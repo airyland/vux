@@ -35,6 +35,7 @@ import Alert from './demos/Alert'
 import Confirm from './demos/Confirm'
 import Progress from './demos/Progress'
 import XImg from './demos/XImg'
+import Onepx from './demos/Onepx'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -139,6 +140,9 @@ router.map({
   },
   '/component/x-img': {
     component: XImg
+  },
+  '/component/1px': {
+    component: Onepx
   }
 })
 

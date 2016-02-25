@@ -36,6 +36,7 @@
 
     <group title="优化" title-color="#04be02">
       <cell title="X-img" value="延迟加载及webp切换支持" is-link link="component/x-img"></cell>
+      <cell title="1px" value="1px解决方案(FrozenUI)" is-link link="component/1px"></cell>
     </group>
 
     <group title="TODO" title-color="#04be02" v-if="showTodo">

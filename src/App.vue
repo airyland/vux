@@ -1,9 +1,9 @@
 <template>
-<div>
-  <router-view
-  transition
-  transition-mode="out-in"></router-view>
-</div>
+  <div>
+    <router-view
+    transition
+    transition-mode="out-in"></router-view>
+  </div>
 </template>
 
 <script>

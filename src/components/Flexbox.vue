@@ -34,7 +34,7 @@
   -webkit-box-sizing:border-box;
   -webkit-box-flex:1;
   -webkit-flex:1;
-  margin-left:8px;
+  /**margin-left:8px;**/
   min-width:20px;
 }
 
