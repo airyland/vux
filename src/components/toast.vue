@@ -15,6 +15,10 @@ export default {
       type: Boolean,
       default: false,
       twoWay: true
+    },
+    time: {
+      type: Number,
+      default: 2000
     }
   },
   watch: {
@@ -24,7 +28,7 @@ export default {
         clearTimeout(this.timeout)
         this.timeout = setTimeout(function () {
           _this.show = false
-        }, 2000)
+        }, _this.time)
       }
     }
   }
