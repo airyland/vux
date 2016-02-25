@@ -1,7 +1,7 @@
 <template>
-  <cell :title="title">
-    <span slot="value" @click="show=true" v-if="!showName">{{value | array2string}}</span>
-    <span slot="value" @click="show=true" v-else>{{value | value2name data}}</span>
+  <cell :title="title" primary="right">
+    <span class="vux-popup-picker-value" slot="value" @click="show=true" v-if="!showName">{{value | array2string}}</span>
+    <span class="vux-popup-picker-value" slot="value" @click="show=true" v-else>{{value | value2name data}}</span>
   </cell>
 
   <popup :show.sync="show" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid">
@@ -82,5 +82,9 @@ export default {
 .vux-header {
   height: 44px;
   color: #04BE02;
+}
+.vux-popup-picker-value {
+  display: inline-block;
+  width: 100%;
 }
 </style>
