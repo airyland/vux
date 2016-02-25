@@ -34,6 +34,10 @@
       <cell title="Progress" is-link link="component/progress"></cell>
     </group>
 
+    <group title="优化" title-color="#04be02">
+      <cell title="X-img" value="延迟加载及webp切换支持" is-link link="component/x-img"></cell>
+    </group>
+
     <group title="TODO" title-color="#04be02" v-if="showTodo">
       <cell title="短信验证组件" is-link link="component/address"></cell>
       <cell title="图片验证码" is-link link="component/rater"></cell>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from './App'
+
 import Wechat from './Wechat'
 import Home from './Home'
 import Yi from './yi'
@@ -33,6 +34,7 @@ import Loading from './demos/Loading'
 import Alert from './demos/Alert'
 import Confirm from './demos/Confirm'
 import Progress from './demos/Progress'
+import XImg from './demos/XImg'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -134,6 +136,9 @@ router.map({
   },
   '/component/progress': {
     component: Progress
+  },
+  '/component/x-img': {
+    component: XImg
   }
 })
 

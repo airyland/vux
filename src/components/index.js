@@ -34,6 +34,7 @@ import Loading from './Loading'
 import Alert from './Alert'
 import Confirm from './Confirm'
 import Progress from './progress/'
+import XImg from './X-img'
 
 const vux = {
   Radio,
@@ -71,7 +72,8 @@ const vux = {
   Loading,
   Alert,
   Confirm,
-  Progress
+  Progress,
+  XImg
 }
 
 module.exports = vux

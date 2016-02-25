@@ -12,10 +12,12 @@
   },
   "main": "src/components/index.js",
   "dependencies": {
+    "blazy": "^1.5.2",
     "lodash": "^4.3.0",
     "validator": "^3.39.0",
     "vue": "^1.0.16",
     "vue-focus": "^0.1.1",
+    "vue-lazyload": "^0.2.9",
     "vue-router": "^0.7.11",
     "zepto": "^1.0.1"
   },
