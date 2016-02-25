@@ -2,25 +2,25 @@
   <div class="vux-block-demo">
     <br/>
     <flexbox class="ui-border-tb">
-      <flexbox-item class="ui-border-r test"><div>1</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>2</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>3</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>4</div></flexbox-item>
-      <flexbox-item class="test"><div>5</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div>北京</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div>上海</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div>广州</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div>深圳</div></flexbox-item>
+      <flexbox-item class="test"><div>其他</div></flexbox-item>
     </flexbox>
     <flexbox class="ui-border-b">
-      <flexbox-item class="ui-border-r test"><div>1</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>2</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>3</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>4</div></flexbox-item>
-      <flexbox-item class="test"><div>5</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div>天津</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div>西安</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div>重庆</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div>杭州</div></flexbox-item>
+      <flexbox-item class="test"><div>其他</div></flexbox-item>
     </flexbox>
     <flexbox class="ui-border-b">
-      <flexbox-item class="ui-border-r test"><div>1</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>2</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>3</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>4</div></flexbox-item>
-      <flexbox-item class="test"><div>5</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div>南京</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div>武汉</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div>成都</div></flexbox-item>
+      <flexbox-item class="ui-border-r test"><div></div></flexbox-item>
+      <flexbox-item class="test"><div>其他</div></flexbox-item>
     </flexbox>
     <br/>
     <br/>

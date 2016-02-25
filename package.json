@@ -19,6 +19,7 @@
     "vue-focus": "^0.1.1",
     "vue-lazyload": "^0.2.9",
     "vue-router": "^0.7.11",
+    "webp-support": "^1.0.0",
     "zepto": "^1.0.1"
   },
   "devDependencies": {
