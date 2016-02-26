@@ -20,6 +20,9 @@
       <cell title="用户评分">
         <rater :value.sync="data4" slot="value" disabled></rater>
       </cell>
+      <cell title="只读模式下支持小数">
+        <rater :value.sync="data41" slot="value" active-color="#04BE02" disabled></rater>
+      </cell>
     </group>
 
     <group title="自定义图形,注意部分图形无法使用，比如♥ ❤">
@@ -27,16 +30,16 @@
         <rater :value.sync="data4" slot="value" star="♡" active-color="red"></rater>
       </cell>
       <cell title="晴天指数">
-        <rater :value.sync="data5" slot="value" star="☼" active-color="#FF9900" :padding="4"></rater>
+        <rater :value.sync="data5" slot="value" star="☼" active-color="#FF9900" :margin="4"></rater>
       </cell>
       <cell title="心情怎么样">
-        <rater :value.sync="data5" slot="value" star="☻" active-color="#FF9900" :padding="8"></rater>
+        <rater :value.sync="data5" slot="value" star="☻" active-color="#FF9900" :margin="8"></rater>
       </cell>
       <cell title="其他星星">
-        <rater :value.sync="data5" slot="value" star="✩" active-color="#FF9900" :padding="5"></rater>
+        <rater :value.sync="data5" slot="value" star="✩" active-color="#FF9900" :margin="5"></rater>
       </cell>
       <cell title="尴尬指数">
-        <rater :value.sync="data5" slot="value" star="囧" active-color="#FF9900" :padding="5"></rater>
+        <rater :value.sync="data5" slot="value" star="囧" active-color="#FF9900" :margin="5"></rater>
       </cell>
     </group>
 
@@ -57,6 +60,7 @@ export default {
       data2: 5,
       data3: 5,
       data4: 3,
+      data41: 3.5,
       data5: 3
     }
   }
