@@ -126,6 +126,7 @@ import Utils from './utils';
       }
 
       function work() {
+        if (that.stop) return;
         setTimeout(function() {
           if (!that.status) return;
           that._trickle();
@@ -344,6 +345,9 @@ import Utils from './utils';
      *
      */
     _setProgress: function(barSelector, n) {
+      if (this.stop) {
+        return;
+      }
       var progress = this._render();
       if (!progress) {
         return;
@@ -525,6 +529,13 @@ import Utils from './utils';
       barCSS.transition = 'all ' + speed + 'ms ' + ease;
 
       return barCSS;
+    },
+
+    destroy: function () {
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      this.stop = true
     }
 
   };

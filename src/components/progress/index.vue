@@ -46,8 +46,9 @@ export default {
       uuid: uuid()
     }
   },
-  beforeDestroy () {
+  destroyed () {
     if (this.template > 0) {
+      this.progress.destroy()
       if (this.progress.timer) {
         clearTimeout(this.progress.timer)
       }
@@ -56,7 +57,7 @@ export default {
     }
     if (this.template === 1) {
       const progress = document.querySelector('#mprogress1')
-      progress.parentNode.removeChild(progress)
+      progress && progress.parentNode.removeChild(progress)
     }
   }
 }

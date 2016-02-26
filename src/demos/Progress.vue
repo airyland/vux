@@ -4,8 +4,6 @@
     <br/>
     <progress :percent.sync="percent1"></progress>
     <br/>
-    <progress :template="1"></progress>
-    <br/>
     <progress :template="2"></progress>
     <br/>
     <progress :template="3"></progress>
