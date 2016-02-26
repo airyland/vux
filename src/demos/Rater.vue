@@ -23,6 +23,9 @@
       <cell title="只读模式下支持小数">
         <rater :value.sync="data41" slot="value" active-color="#04BE02" disabled></rater>
       </cell>
+      <cell title="改变字体大小">
+        <rater :value.sync="data42" slot="value" active-color="#04BE02" :font-size=15 disabled></rater>
+      </cell>
     </group>
 
     <group title="自定义图形,注意部分图形无法使用，比如♥ ❤">
@@ -61,6 +64,7 @@ export default {
       data3: 5,
       data4: 3,
       data41: 3.5,
+      data42: 3.5,
       data5: 3
     }
   }

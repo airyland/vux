@@ -1,6 +1,6 @@
 <template>
   <div class="vux-rater">
-    <a class="vux-rater-box" v-for="i in max" @click="handleClick(i)" :class="{'is-active':value > i}" :style="{color:colors[i],marginRight:margin+'px'}">
+    <a class="vux-rater-box" v-for="i in max" @click="handleClick(i)" :class="{'is-active':value > i}" :style="{color:colors[i],marginRight:margin+'px',fontSize: fontSize + 'px', width: fontSize + 'px', height: fontSize + 'px'}">
       <span class="vux-rater-inner">{{star}}<span class="vux-rater-outer" :style="{color: activeColor, width: cutPercent + '%'}" v-if="disabled && cutIndex === i">{{star}}</span></span>
     </a>
   </div>
@@ -46,6 +46,10 @@
       margin: {
         type: Number,
         default: 2
+      },
+      fontSize: {
+        type: Number,
+        default: 25
       }
     },
     computed: {
@@ -86,10 +90,7 @@
   line-height: normal;
 }
 .vux-rater a {
-  font-size: 25px;
   display: inline-block;
-  width: 25px;
-  height: 25px;
   text-align: center;
   line-height: 25px;
   cursor: pointer;
