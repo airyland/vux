@@ -118,3 +118,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.weui_cells_checkbox > label > * {
+  pointer-events: none;
+}
+</style>
