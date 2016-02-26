@@ -36,6 +36,7 @@ import Confirm from './demos/Confirm'
 import Progress from './demos/Progress'
 import XImg from './demos/XImg'
 import Onepx from './demos/1px'
+import Orientation from './demos/Orientation'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -143,6 +144,9 @@ router.map({
   },
   '/component/1px': {
     component: Onepx
+  },
+  '/component/orientation': {
+    component: Orientation
   }
 })
 

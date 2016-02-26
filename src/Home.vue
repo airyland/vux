@@ -97,6 +97,9 @@
       <cell title="1px" value="1px解决方案(FrozenUI)" is-link link="component/1px">
         <span class="demo-icon" slot="icon">&#xe621;</span>
       </cell>
+      <cell title="Orientation" value="横竖屏切换提示" is-link link="component/orientation">
+        <span class="demo-icon" slot="icon">&#xe628;</span>
+      </cell>
     </group>
 
     <group title="TODO" title-color="#04be02" v-if="showTodo">
