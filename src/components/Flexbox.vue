@@ -17,6 +17,12 @@
           list[i].style.width = width
         }
       }
+    },
+    props: {
+      marginLeft: {
+        type: Number,
+        default: 8
+      }
     }
   }
 </script>
@@ -34,12 +40,11 @@
   -webkit-box-sizing:border-box;
   -webkit-box-flex:1;
   -webkit-flex:1;
-  /**margin-left:8px;**/
   min-width:20px;
 }
 
 .vux-flexbox .vux-flexbox-item:first-child{
-  margin-left:0;
+  margin-left:0!important;
 }
 
 .vux-flexbox[vuxe-mode~=average] .vux-flexbox-item{

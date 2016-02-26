@@ -35,7 +35,7 @@ import Alert from './demos/Alert'
 import Confirm from './demos/Confirm'
 import Progress from './demos/Progress'
 import XImg from './demos/XImg'
-import Onepx from './demos/Onepx'
+import Onepx from './demos/1px'
 
 /* eslint-disable no-new */
 Vue.use(Router)

@@ -1,5 +1,5 @@
 <template>
-  <div class="vux-block-demo">
+  <div class="vux-demo">
     <br/>
     <flexbox class="ui-border-tb">
       <flexbox-item class="ui-border-r test"><div>北京</div></flexbox-item>
@@ -83,11 +83,9 @@
 </template>
 
 <script>
-import Block from '../components/Onepx'
 import { Flexbox, FlexboxItem } from '../components/'
 export default {
   components: {
-    Block,
     Flexbox,
     FlexboxItem
   }
@@ -95,10 +93,16 @@ export default {
 </script>
 
 <style scoped>
-.vux-block-demo .test{
+@import '../components/1px.css';
+
+.vux-demo .test{
   height:50px;
   text-align:center;
   line-height: 50px;
+}
+
+.vux-demo .vux-flexbox {
+  background-color: #fff;
 }
 
 .item {

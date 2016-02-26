@@ -1,11 +1,7 @@
-<template>
-</template>
-
-<script>
-</script>
-
-<style>
-/* 1px hack */
+/** 
+* https://github.com/frozenui/frozenui/ 
+* MIT License
+*/
 
 .ui-border-t {
   border-top: 1px solid #e0e0e0;
@@ -133,4 +129,3 @@
     pointer-events: none;
   }
 }
-</style>
