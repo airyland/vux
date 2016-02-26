@@ -19,6 +19,8 @@
       min: {
         default: 0
       },
+      minHTML: String,
+      maxHTML: String,
       max: {
         default: 100
       },
@@ -48,6 +50,8 @@
         start: _this.value,
         min: _this.min,
         max: _this.max,
+        minHTML: _this.minHTML,
+        maxHTML: _this.maxHTML,
         disable: _this.disabled,
         disabledOpacity: _this.disabledOpacity,
         callback: function () {
