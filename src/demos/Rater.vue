@@ -38,8 +38,6 @@
       <cell title="尴尬指数">
         <rater :value.sync="data5" slot="value" star="囧" active-color="#FF9900" :padding="5"></rater>
       </cell>
-      <cell title="就举上面这些例子，其他自由发挥">
-      </cell>
     </group>
 
   </div>
