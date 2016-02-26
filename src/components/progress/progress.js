@@ -271,6 +271,11 @@ import Utils from './utils';
       var progress = document.createElement('div');
       var currTpl = this._getCurrTemplate() || '';
       var MParent = document.querySelector(this.options.parent);
+
+      if (!MParent) {
+        return;
+      }
+
       var fromStart;
 
       progress.id = this._getRenderedId(true);
@@ -340,6 +345,9 @@ import Utils from './utils';
      */
     _setProgress: function(barSelector, n) {
       var progress = this._render();
+      if (!progress) {
+        return;
+      }
       var bar = progress.querySelector(barSelector);
       var speed = this.options.speed;
       var ease = this.options.easing;
@@ -370,18 +378,18 @@ import Utils from './utils';
           });
           progress.offsetWidth; /* Repaint */
 
-          setTimeout(function() {
+          that.timer = setTimeout(function() {
             Utils.setcss(progress, {
               transition: 'all ' + speed + 'ms linear',
               opacity: 0
             });
-            setTimeout(function() {
+            that.timer = setTimeout(function() {
               that._remove();
               next();
             }, speed);
           }, speed);
         } else {
-          setTimeout(next, speed);
+          that.timer = setTimeout(next, speed);
         }
       });
 

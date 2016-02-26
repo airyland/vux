@@ -48,8 +48,15 @@ export default {
   },
   beforeDestroy () {
     if (this.template > 0) {
-      this.progress.set(1)
-      this.progress._remove()
+      if (this.progress.timer) {
+        clearTimeout(this.progress.timer)
+      }
+      this.progress = null
+      document.querySelector(`#vux-progress-${this.uuid}`).innerHTML = ''
+    }
+    if (this.template === 1) {
+      const progress = document.querySelector('#mprogress1')
+      progress.parentNode.removeChild(progress)
     }
   }
 }
