@@ -1,5 +1,9 @@
 <template>
-  <div><span class="demo-icon" slot="icon"></span>
+  <div>
+    <div class="center">
+      <h1 class="vux-title">Vux</h1>
+      <p class="vux-notice">Beta. Not Production Ready.</p>
+    </div>
     <group title="Form" title-color="#04be02">
       <cell title="Radio" is-link link="component/radio">
         <span class="demo-icon" slot="icon">&#xe60f;</span>
@@ -138,6 +142,25 @@ export default {
 
 <style>
 @import './demos/style.css';
+.center {
+  margin-top: 15px;
+  text-align: center;
+}
+.vux-notice {
+  color: #666;
+  line-height: 40px;
+}
+.vux-title {
+  vertical-align: middle;
+  text-align: center;
+  color: #04BE02;
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  border-radius: 50%;
+  background-color: #35495e;
+}
 body {
   font-family: Helvetica, sans-serif;
   background-color: #fbf9fe;

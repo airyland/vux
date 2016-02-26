@@ -1,7 +1,7 @@
 <template>
   <div>
     <p style="text-align:center">shake your phone</p>
-    <shake @shake="shake"></shake>
+    <shake @shake="shake" :threshold=5></shake>
   </div>
 </template>
 
