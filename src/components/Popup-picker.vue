@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import uuid from '../libs/uuid'
 import Picker from './picker/'
 import Cell from './Cell'
 import Popup from './popup'
@@ -26,7 +25,10 @@ import Flexbox from './Flexbox'
 import FlexboxItem from './Flexbox-item'
 import array2string from '../filters/array2String'
 import value2name from '../filters/value2name'
+import Base from '../libs/base'
+
 export default {
+  mixins: [Base],
   components: {
     Picker,
     Cell,
@@ -68,8 +70,7 @@ export default {
   },
   data () {
     return {
-      show: false,
-      uuid: uuid()
+      show: false
     }
   }
 }

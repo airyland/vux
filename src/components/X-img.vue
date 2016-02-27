@@ -5,11 +5,11 @@
 <script>
 import Blazy from 'blazy'
 import webpSupport from 'webp-support'
-import uuid from '../libs/uuid'
+import Base from '../libs/base'
 
 export default {
+  mixins: [Base],
   compiled () {
-    this.uuid = uuid()
     // use webp or default
     if (webpSupport() && this.src && this.webpSrc) {
       this.src = this.webpSrc

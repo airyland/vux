@@ -108,7 +108,6 @@ export default {
   },
   data () {
     return {
-      uuid: Math.random().toString(36).substring(3, 8)
     }
   },
   watch: {

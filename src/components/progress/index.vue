@@ -12,9 +12,9 @@
 
 <script>
 import Progress from './progress'
-import uuid from '../../libs/uuid'
-
+import Base from '../../libs/base'
 export default {
+  mixins: [Base],
   props: {
     template: {
       type: Number,
@@ -43,7 +43,6 @@ export default {
   },
   data () {
     return {
-      uuid: uuid()
     }
   },
   destroyed () {
