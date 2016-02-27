@@ -29,6 +29,9 @@
       <cell title="Input" is-link link="component/input">
         <span class="demo-icon" slot="icon">&#xe614;</span>
       </cell>
+      <cell title="Cell" is-link link="component/cell">
+        <span class="demo-icon" slot="icon">&#xe614;</span>
+      </cell>
       <cell title="Number" is-link link="component/number">
         <span class="demo-icon" slot="icon">&#xe605;</span>
       </cell>

@@ -38,6 +38,7 @@ import XImg from './demos/XImg'
 import Onepx from './demos/1px'
 import Orientation from './demos/Orientation'
 import Shake from './demos/Shake'
+import Cell from './demos/Cell'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -151,6 +152,9 @@ router.map({
   },
   '/component/shake': {
     component: Shake
+  },
+  '/component/cell': {
+    component: Cell
   }
 })
 
