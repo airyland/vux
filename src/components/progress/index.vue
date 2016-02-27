@@ -46,7 +46,7 @@ export default {
     }
   },
   destroyed () {
-    if (this.template > 0) {
+    if (this.template > 0 && this.progress) {
       this.progress.destroy()
       if (this.progress.timer) {
         clearTimeout(this.progress.timer)

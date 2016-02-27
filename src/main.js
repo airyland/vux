@@ -155,13 +155,14 @@ router.map({
 })
 
 router.beforeEach(function (transition) {
-  // if (transition.to && transition.to.fullPath !== '/') {
-  //  window.scrollTo(0, 0)
-  // }
+  if (transition.to && transition.to.fullPath !== '/') {
+    window.scrollTo(0, 0)
+  }
+  transition.next()
 })
 
 router.afterEach(function (transition) {
-  // document.title = transition.to.fullPath === '/' ? `Home-Vux` : `${transition.to.fullPath.split('/')[2]}-Vux`
+  document.title = transition.to.fullPath === '/' ? `Home-Vux` : `${transition.to.fullPath.split('/')[2]}-Vux`
 })
 
 router.start(App, '#app')
