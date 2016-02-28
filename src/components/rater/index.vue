@@ -98,6 +98,7 @@
 }
 .vux-rater a:last-child {
   padding-right: 2px!important;
+  margin-right: 0px!important;
 }
 .vux-rater a:hover {
   color: #ffdd99;
