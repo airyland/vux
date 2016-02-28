@@ -3,7 +3,7 @@
   <group>
     <switch title="Show" :value.sync="show"></switch>
   </group>
-  <actionsheet :show.sync="show" :menus="menus"></actionsheet>
+  <actionsheet :show.sync="show" :menus="menus" @menu-click="click"></actionsheet>
 </div>
 </template>
 
@@ -19,11 +19,14 @@
       return {
         show: false,
         menus: {
-          menu1: '示例菜单',
-          menu2: '示例菜单',
-          menu3: '示例菜单',
-          menu4: '示例菜单'
+          menu1: '发送给朋友',
+          menu2: '分享到朋友圈'
         }
+      }
+    },
+    methods: {
+      click: function (key) {
+        console.log(key)
       }
     }
   }
