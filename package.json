@@ -5,7 +5,7 @@
   "author": "airyland <airyland@qq.com>",
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "rimraf dist && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js && cd dist/static && mkdir vendors && cd ../../ && cp src/assets/vendors/* dist/static/vendors && cp CNAME dist/",
+    "build": "rimraf dist && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js && cd dist/static && mkdir vendors && cd ../../ && cp -r src/assets/ dist/static/ && cp CNAME dist/",
     "test": "karma start build/karma.conf.js --single-run",
     "deploy": "gh-pages -d dist",
     "xdeploy": "npm run build && gh-pages -d dist"
