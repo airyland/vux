@@ -31,7 +31,7 @@
       <cell title="Smilies">
         <rater :value.sync="data5" slot="value" star="☻" active-color="#FF9900" :margin="4"></rater>
       </cell>
-      <cell title="Diffenent stars">
+      <cell title="Different stars">
         <rater :value.sync="data5" slot="value" star="✩" active-color="#FF9900" :margin="4"></rater>
       </cell>
       <cell title="How embarrass">
