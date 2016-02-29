@@ -94,6 +94,9 @@
       <cell title="Search" link="component/search">
         <span class="demo-icon" slot="icon">&#xe63b;</span>
       </cell>
+      <cell title="Spinner" link="component/spinner">
+        <span class="demo-icon" slot="icon">&#xe610;</span>
+      </cell>
     </group>
 
     <group title="优化" title-color="#04be02">
@@ -137,7 +140,7 @@
         <span class="demo-icon" slot="icon">&#xe62b;</span>
       </cell>
     </group>
-    
+
   </div>
 </template>
 

@@ -44,6 +44,7 @@ import Emotion from './demos/Wechat-emotion'
 import Search from './demos/Search'
 import Donate from './demos/Donate'
 import Thanks from './demos/Thanks'
+import Spinner from './demos/Spinner'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -175,6 +176,9 @@ router.map({
   },
   '/project/thanks': {
     component: Thanks
+  },
+  '/component/spinner': {
+    component: Spinner
   }
 })
 
