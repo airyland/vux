@@ -1,132 +1,38 @@
 <template>
   <div>
     <div class="center">
-      <h1 class="vux-title">Vux</h1>
-      <p class="vux-notice">Beta. Not Production Ready.</p>
+      <svg style="width:60px;height:60px;" version="1.1" id="图形" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1024px" height="1024px" viewBox="0 0 1024 1024" enable-background="new 0 0 1024 1024" xml:space="preserve"><path class="svgpath" data-index="path_0" fill="#35495e" d="M512 816.64 51.2 985.6l460.8-947.2 460.8 947.2L512 816.64 512 816.64zM509.44 207.36 189.44 862.72l317.44-117.76L506.88 207.36 509.44 207.36zM509.44 207.36" /></svg>
+
+      <h1 class="vux-title" style="display:none;">
+        <span class="demo-icon" slot="icon" style="font-size:60px;color:#35495e;display: block;">&#xe637;</span>
+      </h1>
+      <p class="vux-notice">Beta. Not Production Ready(v0.1).</p>
+      </div>
+      <group>
+        <cell title="Demo" link="/demo">
+          <span class="demo-icon" slot="icon" style="color:#F70968">&#xe633;</span>
+        </cell>
+      </group>
+      <group>
+        <cell title="Milestone" value="v0.0.1">
+          <span class="demo-icon" slot="icon">&#xe62d;</span>
+        </cell>
+        <cell title="HISTORY.md" value="-">
+          <span class="demo-icon" slot="icon" style="color:#666;">&#xe63a;</span>
+        </cell>
+        <cell title="Thanks" link="project/thanks">
+          <span class="demo-icon" slot="icon" style="color:#666;">&#xe62e;</span>
+        </cell>
+      </group>
+      <group>
+        <cell title="Fork me" link="http://github.com/airyland/vux">
+          <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
+        </cell>
+        <cell title="Buy me a coffee" link="project/donate">
+          <span class="demo-icon" slot="icon" style="color:red;">&#xe630;</span>
+        </cell>
+      </group>
     </div>
-    <group title="Form" title-color="#04be02">
-      <cell title="Radio" is-link link="component/radio">
-        <span class="demo-icon" slot="icon">&#xe60f;</span>
-      </cell>
-      <cell title="Checklist" is-link link="component/checklist">
-        <span class="demo-icon" slot="icon">&#xe61d;</span>
-      </cell>
-      <cell title="Selector" is-link link="component/selector">
-        <span class="demo-icon" slot="icon">&#xe607;</span>
-      </cell>
-      <cell title="Button" is-link link="component/button">
-        <span class="demo-icon" slot="icon">&#xe616;</span>
-      </cell>
-      <cell title="Textarea" is-link link="component/textarea">
-        <span class="demo-icon" slot="icon">&#xe611;</span>
-      </cell>
-      <cell title="Datetime" is-link link="component/datetime">
-        <span class="demo-icon" slot="icon">&#xe60a;</span>
-      </cell>
-      <cell title="Switch" is-link link="component/switch">
-        <span class="demo-icon" slot="icon">&#xe61c;</span>
-      </cell>
-      <cell title="Input" is-link link="component/input">
-        <span class="demo-icon" slot="icon">&#xe614;</span>
-      </cell>
-      <cell title="Cell" is-link link="component/cell">
-        <span class="demo-icon" slot="icon">&#xe614;</span>
-      </cell>
-      <cell title="Number" is-link link="component/number">
-        <span class="demo-icon" slot="icon">&#xe605;</span>
-      </cell>
-      <cell title="Range" is-link link="component/range">
-        <span class="demo-icon" slot="icon">&#xe60b;</span>
-      </cell>
-      <cell title="Rater" is-link link="component/rater">
-        <span class="demo-icon" slot="icon">&#xe606;</span>
-      </cell>
-      <cell title="Address" is-link link="component/address">
-        <span class="demo-icon" slot="icon">&#xe61b;</span>
-      </cell>
-    </group>
-
-    <group title="UI" title-color="#04be02">
-      <cell title="Icon" is-link link="component/icon">
-        <span class="demo-icon" slot="icon">&#xe619;</span>
-      </cell>
-      <cell title="Box" is-link link="component/box">
-        <span class="demo-icon" slot="icon">&#xe60d;</span>
-      </cell>
-      <cell title="Flexbox" is-link link="component/flexbox">
-        <span class="demo-icon" slot="icon">&#xe61f;</span>
-      </cell>
-      <cell title="Tab" is-link link="component/tab">
-        <span class="demo-icon" slot="icon">&#xe615;</span>
-      </cell>
-      <cell title="Swiper" is-link link="component/swiper">
-        <span class="demo-icon" slot="icon">&#xe612;</span>
-      </cell>
-      <cell title="Sticky" is-link link="component/sticky">
-        <span class="demo-icon" slot="icon">&#xe623;</span>
-      </cell>
-      <cell title="Picker" is-link link="component/picker">
-        <span class="demo-icon" slot="icon">&#xe627;</span>
-      </cell>
-      <cell title="Popup" is-link link="component/popup">
-        <span class="demo-icon" slot="icon">&#xe61e;</span>
-      </cell>
-      <cell title="Popup Picker" is-link link="component/popup-picker">
-        <span class="demo-icon" slot="icon">&#xe626;</span>
-      </cell>
-      <cell title="Actionsheet" is-link link="component/actionsheet">
-        <span class="demo-icon" slot="icon">&#xe624;</span>
-      </cell>
-      <cell title="Clocker" is-link link="component/clocker">
-        <span class="demo-icon" slot="icon">&#xe620;</span>
-      </cell>
-      <cell title="Toast" is-link link="component/toast">
-        <span class="demo-icon" slot="icon">&#xe625;</span>
-      </cell>
-      <cell title="Loading" is-link link="component/loading">
-        <span class="demo-icon" slot="icon">&#xe610;</span>
-      </cell>
-      <cell title="Alert" is-link link="component/alert">
-        <span class="demo-icon" slot="icon">&#xe603;</span>
-      </cell>
-      <cell title="Confirm" is-link link="component/confirm">
-        <span class="demo-icon" slot="icon">&#xe608;</span>
-      </cell>
-      <cell title="Progress" is-link link="component/progress">
-        <span class="demo-icon" slot="icon">&#xe618;</span>
-      </cell>
-    </group>
-
-    <group title="优化" title-color="#04be02">
-      <cell title="X-img" value="延迟加载及webp切换支持" is-link link="component/x-img">
-        <span class="demo-icon" slot="icon">&#xe602;</span>
-      </cell>
-      <cell title="1px" value="1px解决方案(FrozenUI)" is-link link="component/1px">
-        <span class="demo-icon" slot="icon">&#xe621;</span>
-      </cell>
-      <cell title="Orientation" value="横竖屏切换提示" is-link link="component/orientation">
-        <span class="demo-icon" slot="icon">&#xe628;</span>
-      </cell>
-      <cell title="Shake" value="摇一摇" is-link link="component/shake">
-        <span class="demo-icon" slot="icon">&#xe629;</span>
-      </cell>
-    </group>
-
-    <group title="TODO" title-color="#04be02" v-if="showTodo">
-      <cell title="短信验证组件" is-link link="component/address"></cell>
-      <cell title="图片验证码" is-link link="component/rater"></cell>
-      <cell title="Calendar" is-link link="component/calendar"></cell>
-    </group>
-
-    <group title="Demo" title-color="#04be02">
-      <cell title="微信设置页面" is-link link="demo/wechat">
-        <span class="demo-icon" slot="icon">&#xe600;</span>
-      </cell>
-      <cell title="小蚁摄像设置" is-link link="demo/yi">
-        <span class="demo-icon" slot="icon">&#xe622;</span>
-      </cell>
-    </group>
-  </div>
 </template>
 
 <script>
@@ -162,7 +68,6 @@ export default {
   height: 75px;
   line-height: 75px;
   border-radius: 50%;
-  background-color: #35495e;
 }
 body {
   font-family: Helvetica, sans-serif;

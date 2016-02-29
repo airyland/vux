@@ -1,13 +1,12 @@
 @font-face {
   font-family: 'vux-demo';
-  src: url('//at.alicdn.com/t/font_1456477239_4969172.eot'); /* IE9*/
-  src: url('//at.alicdn.com/t/font_1456477239_4969172.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/font_1456477239_4969172.woff') format('woff'), /* chrome、firefox */
-  url('//at.alicdn.com/t/font_1456477239_4969172.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('//at.alicdn.com/t/font_1456477239_4969172.svg#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('//at.alicdn.com/t/font_1456670029_8446653.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1456670029_8446653.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1456670029_8446653.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1456670029_8446653.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1456670029_8446653.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
-                    
-             
+                                                                                                                                                                
 .demo-icon {
   font-family: 'vux-demo';
   font-size:20px;

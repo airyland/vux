@@ -39,6 +39,11 @@ import Onepx from './demos/1px'
 import Orientation from './demos/Orientation'
 import Shake from './demos/Shake'
 import Cell from './demos/Cell'
+import Demo from './demos/Demo'
+import Emotion from './demos/Wechat-emotion'
+import Search from './demos/Search'
+import Donate from './demos/Donate'
+import Thanks from './demos/Thanks'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -155,6 +160,21 @@ router.map({
   },
   '/component/cell': {
     component: Cell
+  },
+  '/demo': {
+    component: Demo
+  },
+  '/component/emotion': {
+    component: Emotion
+  },
+  '/component/search': {
+    component: Search
+  },
+  '/project/donate': {
+    component: Donate
+  },
+  '/project/thanks': {
+    component: Thanks
   }
 })
 
@@ -162,11 +182,16 @@ router.beforeEach(function (transition) {
   if (transition.to && transition.to.fullPath !== '/') {
     window.scrollTo(0, 0)
   }
-  transition.next()
+  if (/\/http/.test(transition.to.path)) {
+    let url = transition.to.path.split('http')[1]
+    location.href = `http${url}`
+  } else {
+    transition.next()
+  }
 })
 
 router.afterEach(function (transition) {
-  document.title = transition.to.fullPath === '/' ? `Home-Vux` : `${transition.to.fullPath.split('/')[2]}-Vux`
+  // document.title = transition.to.fullPath === '/' ? `Home-Vux` : `${transition.to.fullPath.split('/')[2]}-Vux`
 })
 
 router.start(App, '#app')
