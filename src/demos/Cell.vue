@@ -1,12 +1,12 @@
 <template>
   <div>
     <group>
-      <cell title="账户与安全" is-link value="已保护"></cell>
+      <cell title="账户与安全" value="已保护"></cell>
     </group>
     <group>
-      <cell title="新消息通知" is-link></cell>
-      <cell title="隐私" is-link></cell>
-      <cell title="通用" is-link></cell>
+      <cell title="新消息通知" link="test"></cell>
+      <cell title="隐私" link="test"></cell>
+      <cell title="通用" link="test"></cell>
     </group>
     <group>
       <cell title="接受新消息通知" value="已开启"></cell>

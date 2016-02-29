@@ -15,7 +15,7 @@
       <slot name="value"></slot>
     </div>
 	</div>
-	<a class="weui_cell" href="javascript:" v-if="isLink" v-link="link">
+	<a class="weui_cell" :href="link" v-if="isLink" v-link="link">
     <div class="weui_cell_hd">
       <slot name="icon"></slot>
     </div>
@@ -33,6 +33,11 @@
 <script>
 import InlineDesc from './Inline-desc'
 export default {
+  created () {
+    if (this.link) {
+      this.isLink = true
+    }
+  },
   components: {
     InlineDesc
   },
@@ -44,10 +49,6 @@ export default {
     value: {
       type: String
     },
-    isLink: {
-      type: Boolean,
-      default: false
-    },
     link: {
       type: String
     },
@@ -57,6 +58,11 @@ export default {
     primary: {
       type: String,
       default: 'left'
+    }
+  },
+  data () {
+    return {
+      isLink: false
     }
   }
 }
