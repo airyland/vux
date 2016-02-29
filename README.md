@@ -1,8 +1,12 @@
+![Vux](logo.png?raw=true "")
+
 # Vux
 
-## Beta.
-
 ![Vux](vux.png?raw=true "")
+
+## Work in Progress
+ 
+This is a work in progress, so do not reply on this for anything important. And pull requests are welcome!
 
 ## Build Setup
 
@@ -21,3 +25,10 @@ npm test
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Liscence
+
+MIT
+
+
+
