@@ -69,7 +69,7 @@ export default {
 </script>
 
 <style>
-@import 'assets/vendors/weui.0.3.0.min.css';
+@import 'assets/vendors/weui.0.4.0.min.css';
 
 body {
   font-family: Helvetica, sans-serif;
