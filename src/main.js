@@ -45,6 +45,7 @@ import Search from './demos/Search'
 import Donate from './demos/Donate'
 import Thanks from './demos/Thanks'
 import Spinner from './demos/Spinner'
+import Calendar from './demos/Calendar'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -179,6 +180,9 @@ router.map({
   },
   '/component/spinner': {
     component: Spinner
+  },
+  '/component/calendar': {
+    component: Calendar
   }
 })
 

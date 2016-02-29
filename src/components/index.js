@@ -36,6 +36,7 @@ import Confirm from './Confirm'
 import Progress from './progress/'
 import XImg from './X-img'
 import Spinner from './Spinner'
+import Calendar from './calendar/'
 
 const vux = {
   Radio,
@@ -75,7 +76,8 @@ const vux = {
   Confirm,
   Progress,
   XImg,
-  Spinner
+  Spinner,
+  Calendar
 }
 
 module.exports = vux

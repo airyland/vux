@@ -97,6 +97,9 @@
       <cell title="Spinner" link="component/spinner">
         <span class="demo-icon" slot="icon">&#xe610;</span>
       </cell>
+      <cell title="Calendar" link="component/calendar">
+        <span class="demo-icon" slot="icon">&#xe62b;</span>
+      </cell>
     </group>
 
     <group title="优化" title-color="#04be02">
@@ -135,9 +138,6 @@
     <group title="Todo" title-color="#04be02" style="display: none;">
       <cell title="Step" link="component/radio">
         <span class="demo-icon" slot="icon">&#xe62c;</span>
-      </cell>
-      <cell title="Calendar" link="component/radio">
-        <span class="demo-icon" slot="icon">&#xe62b;</span>
       </cell>
     </group>
 
