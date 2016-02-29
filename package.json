@@ -16,7 +16,7 @@
     "lodash": "^4.3.0",
     "shake.js": "^1.2.2",
     "validator": "^3.39.0",
-    "vue": "^1.0.16",
+    "vue": "^1.0.17",
     "vue-focus": "^0.1.1",
     "vue-lazyload": "^0.2.9",
     "vue-router": "^0.7.11",
