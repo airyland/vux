@@ -5,23 +5,25 @@ import {
 from 'lodash'
 import * as Eventor from '../../libs/eventor'
 var mNow = 0, // 当前相对月份
-  yNow = 0, // 当前相对年份
-  silde = false // 日历列表正在滑动
+  yNow = 0 // 当前相对年份
+
 
 function Calendar(option) {
   var _this = this
     // 过去的时间是否可选
-  this.calenTitles // 年，月标题
+  _this.calenTitles // 年，月标题
   _this.aMonths // 可以选择的所有月份
   _this.aYears // 可以选择的所有年份
-  this.yearTitle // 当前年标题
-  this.monthTitle // 当前月标题
-  this.prevYearBtn // 上一年
-  this.nextYearBtn // 下一年
-  this.prevMonthBtn // 上个月
-  this.nextMonthBtn // 下个月
+  _this.yearTitle // 当前年标题
+  _this.monthTitle // 当前月标题
+  _this.prevYearBtn // 上一年
+  _this.nextYearBtn // 下一年
+  _this.prevMonthBtn // 上个月
+  _this.nextMonthBtn // 下个月
   _this.selectYearBox // 年份选择
   _this.selectMonthBox // 月份选择
+
+  _this.slide = false // 日历列表正在滑动
 
   option = option || {}
   var defaults = {
@@ -36,15 +38,15 @@ function Calendar(option) {
     startJSON: {},
     format: 'yy-mm-dd'
   }
-  this.o = assign(defaults, option)
+  _this.o = assign(defaults, option)
   var oDate = new Date()
-  this.hours = false
-  this.hoursPast = false
-  this.focusObj = null
-  this.shield = '[]'
-  this.startDate = ''
-  this.startJSON = {}
-  this.fixDate = {
+  _this.hours = false
+  _this.hoursPast = false
+  _this.focusObj = null
+  _this.shield = '[]'
+  _this.startDate = ''
+  _this.startJSON = {}
+  _this.fixDate = {
     y: oDate.getFullYear(),
     m: oDate.getMonth() + 1,
     d: 0
@@ -94,7 +96,7 @@ Calendar.prototype.init = function () {
     _this.oCalen.appendChild(_this.calendarList)
 
     // 滑动切换上下月
-    sildeSwitch(_this.calendarList, function (obj, dir) {
+    _this.slideSwitch(_this.calendarList, function (obj, dir) {
       dir > 0 ? mNow-- : mNow++
 
       _this.startJSON.prev.m = mNow - 1
@@ -261,7 +263,7 @@ Calendar.prototype.init = function () {
             }
           }
 
-          sildeSwitch(_this.selectYearBox, function (obj, dir) {
+          _this.slideSwitch(_this.selectYearBox, function (obj, dir) {
             _this.selectYearBox.index = _this.selectYearBox.index || 0
             var count = _this.selectYearBox.children.length
 
@@ -279,7 +281,7 @@ Calendar.prototype.init = function () {
             _this.selectYearBox.style.transform = val
 
             setTimeout(function () {
-              silde = false
+              _this.slide = false
             }, 500)
           })
         })
@@ -860,22 +862,21 @@ Calendar.prototype.switchDate = function (dir, type) {
  */
 Calendar.prototype.transitions = function (obj, dir) {
   var _this = this
-
   if (dir > 0) {
-    toolClass(obj, 'silde prev-to')
+    toolClass(obj, 'slide prev-to')
   } else {
-    toolClass(obj, 'silde next-to')
+    toolClass(obj, 'slide next-to')
   }
 
   setTimeout(function () {
     end()
-  }, 500)
+  }, 1000)
 
   function end() {
     _this.appendList(_this.startJSON, function () {
-      toolClass(obj, 'silde prev-to next-to', 'remove')
+      toolClass(obj, 'slide prev-to next-to', 'remove')
       _this.addEvent()
-      silde = false
+      _this.slide = false
     })
   }
 }
@@ -909,7 +910,8 @@ Calendar.prototype.changes = function (val) {
  * @param  {[type]} ev [description]
  * @return {[type]}    [description]
  */
-function sildeSwitch(obj, callBack) {
+Calendar.prototype.slideSwitch = function(obj, callBack) {
+  var _this = this
   obj.onmousedown = start
   obj.addEventListener('touchstart', start, false)
 
@@ -920,17 +922,14 @@ function sildeSwitch(obj, callBack) {
     var needW = parseInt(document.documentElement.clientWidth / 5, 10)
     var dir
 
-    var _this = this
-
     function move(ev) {
       var oEv = ev.targetTouches ? ev.targetTouches[0] : (ev || event)
       dir = oEv.pageX - disX
-      if (silde) return false
+      if (_this.slide) return false
 
       if (Math.abs(dir) >= needW) {
-        silde = true
-
-        callBack && callBack(_this, dir)
+        _this.slide = true
+        callBack && callBack(this, dir)
       }
 
       oEv.preventDefault && oEv.preventDefault()

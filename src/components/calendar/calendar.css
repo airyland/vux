@@ -1,7 +1,7 @@
 .calendars {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.calendar .silde {
+.calendar .slide {
   -webkit-transition: all linear .5s;
   transition: all linear .5s;
 }
