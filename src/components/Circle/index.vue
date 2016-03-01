@@ -6,6 +6,10 @@
 </template>
 
 <script>
+/**
+* Fork from https://github.com/react-component/progress
+* MIT license
+*/
 export default {
   ready () {
   },

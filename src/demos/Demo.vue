@@ -97,6 +97,9 @@
       <cell title="Spinner" link="component/spinner">
         <span class="demo-icon" slot="icon">&#xe610;</span>
       </cell>
+      <cell title="Circle" link="component/circle">
+        <span class="demo-icon" slot="icon">&#xe63d;</span>
+      </cell>
       <cell title="Calendar" link="component/calendar">
         <span class="demo-icon" slot="icon">&#xe62b;</span>
       </cell>
