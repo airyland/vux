@@ -1,7 +1,7 @@
 <template>
-  <svg class="rc-progress-circle" viewBox="0 0 100 100">
-    <path class="rc-progress-circle-trail" :d="pathString" :stroke="trailColor" :stroke-width="trailWidth" :fill-opacity="0"/>
-    <path class="rc-progress-circle-path" :d="pathString" stroke-linecap="round" :stroke="strokeColor" :stroke-width="strokeWidth" fill-opacity="0" :style="pathStyle"/>
+  <svg view-box="0 0 100 100">
+    <path :d="pathString" :stroke="trailColor" :stroke-width="trailWidth" :fill-opacity="0"/>
+    <path :d="pathString" stroke-linecap="round" :stroke="strokeColor" :stroke-width="strokeWidth" fill-opacity="0" :style="pathStyle"/>
   </svg>
 </template>
 
