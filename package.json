@@ -5,7 +5,7 @@
   "author": "airyland <airyland@qq.com>",
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "rimraf dist && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js && cd dist/static && mkdir vendors && cd ../../ && cp -r src/assets/ dist/static/ && cp CNAME dist/",
+    "build": "rimraf dist && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js && cd dist/static && mkdir vendors && cd ../../ && cp -r src/assets/ dist/static/ && cp CNAME dist/ && node build/fetch-milestone.js && cp build/milestone.json dist/",
     "test": "karma start build/karma.conf.js --single-run",
     "deploy": "gh-pages -d dist",
     "xdeploy": "npm run build && gh-pages -d dist"
@@ -30,6 +30,9 @@
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-stage-2": "^6.0.0",
     "babel-runtime": "^5.8.0",
+    "co": "^4.6.0",
+    "co-fs": "^1.2.0",
+    "co-request": "^1.0.0",
     "connect-history-api-fallback": "^1.1.0",
     "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.0",

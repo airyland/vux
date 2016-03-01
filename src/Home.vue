@@ -14,7 +14,7 @@
         </cell>
       </group>
       <group>
-        <cell title="Milestone" value="v0.0.1">
+        <cell title="Milestone" value="v0.0.1" link="project/milestone">
           <span class="demo-icon" slot="icon">&#xe62d;</span>
         </cell>
         <cell title="HISTORY.md" value="-">
