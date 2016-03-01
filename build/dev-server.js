@@ -1,3 +1,6 @@
+// fetch issues
+require('./fetch-milestone')
+
 var express = require('express')
 var webpack = require('webpack')
 var config = require('./webpack.dev.conf')

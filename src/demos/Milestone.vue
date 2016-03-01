@@ -15,26 +15,15 @@
 
 <script>
 import { Box, Icon } from '../components/'
+const milestones = require('../../build/milestone.json')
 export default {
   components: {
     Box,
     Icon
   },
-  route: {
-    data: function (transition) {
-      /*eslint-disable */
-      $.get('./milestone.json', function (data) {
-        console.log(data)
-        transition.next({
-          milestones: data
-        })
-      })
-      /*eslint-enable */
-    }
-  },
   data () {
     return {
-      milestones: []
+      milestones: milestones
     }
   }
 }
