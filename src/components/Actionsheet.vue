@@ -6,6 +6,8 @@
         <div class="weui_actionsheet_cell" v-for="(key, text) in menus" @click="dispatchEvent('menu-click', key)">
           {{{text}}}
         </div>
+        <div class="vux-actionsheet-gap" v-if="showCancel"></div>
+        <div class="weui_actionsheet_cell vux-actionsheet-cancel" @click="dispatchEvent('menu-click', 'cancel')" v-if="showCancel">{{cancelText}}</div>
       </div>
     </div>
   </div>
@@ -20,6 +22,14 @@ export default {
       defalt: false,
       twoWay: true
     },
+    showCancel: {
+      type: Boolean,
+      default: false
+    },
+    cancelText: {
+      type: String,
+      default: 'cancel'
+    },
     menus: {
       type: Object,
       required: false,
@@ -27,12 +37,23 @@ export default {
     }
   },
   methods: {
-    dispatchEvent (event, message) {
+    dispatchEvent (event, menu) {
       if (event === 'menu-click') {
-        this.$dispatch(event, message)
+        this.$dispatch(event, menu)
         this.show = false
       }
     }
   }
 }
 </script>
+
+<style>
+.vux-actionsheet-gap {
+  height: 8px;
+  width: 100%;
+  background-color: #eee;
+}
+.vux-actionsheet-cancel:before {
+  border-top: none;
+}
+</style>
