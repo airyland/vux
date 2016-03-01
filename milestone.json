@@ -12,6 +12,10 @@
         "milestone": "0.1.0(Production Ready)",
         "list": [
             {
+                "title": "Calendar: fix swiping",
+                "state": "open"
+            },
+            {
                 "title": "Tab: animate bottom border",
                 "state": "open"
             },
