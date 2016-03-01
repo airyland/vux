@@ -100,6 +100,9 @@
       <cell title="Circle" link="component/circle">
         <span class="demo-icon" slot="icon">&#xe63d;</span>
       </cell>
+      <cell title="Countup" link="component/countup">
+        <span class="demo-icon" slot="icon">&#xe63e;</span>
+      </cell>
       <cell title="Calendar" link="component/calendar">
         <span class="demo-icon" slot="icon">&#xe62b;</span>
       </cell>

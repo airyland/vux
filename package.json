@@ -13,6 +13,7 @@
   "main": "src/components/index.js",
   "dependencies": {
     "blazy": "^1.5.2",
+    "countup": "^1.6.1",
     "lodash": "^4.3.0",
     "shake.js": "^1.2.2",
     "validator": "^3.39.0",

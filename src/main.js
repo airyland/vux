@@ -48,6 +48,7 @@ import Spinner from './demos/Spinner'
 import Calendar from './demos/Calendar'
 import Milestone from './demos/Milestone'
 import Circle from './demos/Circle'
+import Countup from './demos/Countup'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -191,6 +192,9 @@ router.map({
   },
   '/component/circle': {
     component: Circle
+  },
+  '/component/countup': {
+    component: Countup
   }
 })
 
