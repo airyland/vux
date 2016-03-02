@@ -5,7 +5,7 @@
     <switch title="Show cancel menu" :value.sync="show2"></switch>
   </group>
   <actionsheet :show.sync="show1" :menus="menus1" @menu-click="click"></actionsheet>
-  <actionsheet :show.sync="show2" :menus="menus2" @menu-click="click" show-cancel cancel-text="取消"></actionsheet>
+  <actionsheet :show.sync="show2" :menus="menus2" @menu-click="click" show-cancel></actionsheet>
 </div>
 </template>
 
@@ -26,9 +26,8 @@
         },
         show2: false,
         menus2: {
-          menu1: '商家信息错误',
-          menu2: '商家已关',
-          menu3: '商家占用'
+          menu1: 'Take Photo',
+          menu2: 'Choose from photos'
         }
       }
     },
