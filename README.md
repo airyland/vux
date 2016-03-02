@@ -1,8 +1,8 @@
-![Vux](logo.png?raw=true "")
+![Vux](https://raw.githubusercontent.com/airyland/vux/master/logo.png "")
 
 # Vux
 
-![Vux](vux.png?raw=true "")
+![Vux](https://raw.githubusercontent.com/airyland/vux/master/vux.png "")
 
 ## Work in Progress
  

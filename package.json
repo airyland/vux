@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "vue adapter for weui",
   "author": "airyland <airyland@qq.com>",
   "scripts": {
