@@ -18,12 +18,9 @@
     "lodash": "^4.3.0",
     "shake.js": "^1.2.2",
     "validator": "^3.39.0",
-    "vue": "^1.0.17",
     "vue-focus": "^0.1.1",
     "vue-lazyload": "^0.2.9",
-    "vue-router": "^0.7.11",
-    "webp-support": "^1.0.0",
-    "zepto": "^1.0.1"
+    "webp-support": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -60,9 +57,11 @@
     "phantomjs": "^1.9.19",
     "rimraf": "^2.5.0",
     "url-loader": "^0.5.7",
+    "vue": "^1.0.17",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
     "vue-loader": "^8.0.0",
+    "vue-router": "^0.7.11",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
