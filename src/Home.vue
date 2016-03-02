@@ -14,7 +14,7 @@
         </cell>
       </group>
       <group>
-        <cell title="Milestone" value="v0.0.1" link="project/milestone">
+        <cell title="Milestone" :value="'v' + version" link="project/milestone">
           <span class="demo-icon" slot="icon">&#xe62d;</span>
         </cell>
         <cell title="HISTORY.md" value="-">
@@ -37,6 +37,7 @@
 
 <script>
 import { Cell, Group } from './components/'
+const version = require('../package.json').version
 export default {
   components: {
     Cell,
@@ -44,6 +45,7 @@ export default {
   },
   data: function () {
     return {
+      version: version
     }
   }
 }
