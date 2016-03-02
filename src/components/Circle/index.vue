@@ -1,8 +1,11 @@
 <template>
-  <svg view-box="0 0 100 100">
-    <path :d="pathString" :stroke="trailColor" :stroke-width="trailWidth" :fill-opacity="0"/>
-    <path :d="pathString" stroke-linecap="round" :stroke="strokeColor" :stroke-width="strokeWidth" fill-opacity="0" :style="pathStyle"/>
-  </svg>
+  <div class="vux-circle">
+    <svg view-box="0 0 100 100">
+      <path :d="pathString" :stroke="trailColor" :stroke-width="trailWidth" :fill-opacity="0"/>
+      <path :d="pathString" stroke-linecap="round" :stroke="strokeColor" :stroke-width="strokeWidth" fill-opacity="0" :style="pathStyle"/>
+    </svg>
+    <div class="vux-circle-content"><slot></slot></div>
+  </path>
 </template>
 
 <script>
@@ -57,3 +60,21 @@ export default {
   }
 }
 </script>
+
+<style>
+.vux-circle {
+  position: relative;
+  width: 101%;
+  height: 101%;
+  overflow: hidden;
+}
+.vux-circle-content {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+</style>
