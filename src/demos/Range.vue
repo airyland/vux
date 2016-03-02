@@ -46,10 +46,10 @@
 
     <group title="更改左右文字">
       <cell title="文字大小" :inline-desc="'当前选择' + data10">
-        <range slot="value" :value.sync="data10" :min="12" :max="22" min-HTML="<span style='font-size:12px;'>小</span>" max-HTML="<span style='font-size:22px;position:relative;top:-10px;'>大</span>"></range>
+        <range slot="value" :value.sync="data10" :min="12" :max="22" min-HTML="<span style='font-size:12px;'>小</span>" max-HTML="<span style='font-size:22px;'>大</span>"></range>
       </cell>
       <cell title="屏幕亮度" :inline-desc="'亮度' + data11 + '%'">
-        <range slot="value" :value.sync="data11" min-HTML="<span style='font-size:16px;color:#F90;position:relative;top:-4px;'>☼</span>" max-HTML="<span style='font-size:30px;position:relative;top:-16px;color:#F90;'>☼</span>"></range>
+        <range slot="value" :value.sync="data11" min-HTML="<span style='font-size:16px;color:#F90;'>☼</span>" max-HTML="<span style='font-size:30px;color:#F90;'>☼</span>"></range>
       </cell>
     </group>
 
