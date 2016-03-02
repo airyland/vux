@@ -1,14 +1,19 @@
-![Vux](https://raw.githubusercontent.com/airyland/vux/master/logo.png "")
+<p align="center">
+  <a href="http://gulpjs.com">
+    <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
+  </a>
+  <p align="center">VUX = Vue + Weui + Components </p>
+  <p align="center">
+    <img src="https://raw.githubusercontent.com/airyland/vux/master/vux.png" width="600">
+  </p>
+</p>
 
-# Vux
-
-![Vux](https://raw.githubusercontent.com/airyland/vux/master/vux.png "")
 
 ## Work in Progress
  
-This is a work in progress, so do not reply on this for anything important. And pull requests are welcome!
+This project is still in progress, so do not reply on this for anything important before production-ready version released. And pull requests are welcome.
 
-## Build Setup
+## Development Setup
 
 ``` bash
 # install dependencies
