@@ -1,6 +1,6 @@
 <template>
   <div class="vux-range-input-box" style="width:180px;position:relative;margin-right:20px;">
-    <input class="vux-range-input" v-model="value">
+    <input class="vux-range-input" v-model="value" number>
   </div>
 </template>
 
@@ -14,6 +14,7 @@
       },
       value: {
         default: 0,
+        type: Number,
         twoWay: true
       },
       min: {
