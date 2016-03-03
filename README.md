@@ -74,7 +74,7 @@ const Countup = function (resolve) {
 
 ## Work in Progress
  
-This project is still in progress, so do not reply on this for anything important before production-ready version released. And pull requests are welcome.
+This project is still in progress, so do not rely on this for anything important before production-ready version released. And pull requests are welcome.
 
 ## Development Setup
 
