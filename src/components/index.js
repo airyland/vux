@@ -34,6 +34,12 @@ import Loading from './Loading'
 import Alert from './Alert'
 import Confirm from './Confirm'
 import Progress from './progress/'
+import XImg from './X-img'
+import Spinner from './Spinner'
+import Calendar from './calendar/'
+import Icon from './Icon'
+import Circle from './Circle/'
+import Style from './Style'
 
 const vux = {
   Radio,
@@ -71,7 +77,13 @@ const vux = {
   Loading,
   Alert,
   Confirm,
-  Progress
+  Progress,
+  XImg,
+  Spinner,
+  Calendar,
+  Icon,
+  Circle,
+  Style
 }
 
 module.exports = vux

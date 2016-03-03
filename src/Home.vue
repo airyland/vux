@@ -1,62 +1,43 @@
 <template>
   <div>
-    <h1 class="vux-title">Vux</h1>
-    <group title="Form" title-color="#04be02">
-      <cell title="Radio" is-link link="component/radio"></cell>
-      <cell title="Checklist" is-link link="component/checklist"></cell>
-      <cell title="Selector" is-link link="component/selector"></cell>
-      <cell title="Button" is-link link="component/button"></cell>
-      <cell title="Textarea" is-link link="component/textarea"></cell>
-      <cell title="Datetime" is-link link="component/datetime"></cell>
-      <cell title="Switch" is-link link="component/switch"></cell>
-      <cell title="Input" is-link link="component/input"></cell>
-      <cell title="Number" is-link link="component/number"></cell>
-      <cell title="Range" is-link link="component/range"></cell>
-      <cell title="Rater" is-link link="component/rater"></cell>
-      <cell title="Address" is-link link="component/address"></cell>
-    </group>
+    <div class="center">
+      <svg style="width:60px;height:60px;" version="1.1" id="图形" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1024px" height="1024px" viewBox="0 0 1024 1024" enable-background="new 0 0 1024 1024" xml:space="preserve"><path class="svgpath" data-index="path_0" fill="#35495e" d="M512 816.64 51.2 985.6l460.8-947.2 460.8 947.2L512 816.64 512 816.64zM509.44 207.36 189.44 862.72l317.44-117.76L506.88 207.36 509.44 207.36zM509.44 207.36" /></svg>
 
-    <group title="UI" title-color="#04be02">
-      <cell title="Icon" is-link link="component/icon"></cell>
-      <cell title="Box" is-link link="component/box"></cell>
-      <cell title="Flexbox" is-link link="component/flexbox"></cell>
-      <cell title="Tab" is-link link="component/tab"></cell>
-      <cell title="Swiper" is-link link="component/swiper"></cell>
-      <cell title="Sticky" is-link link="component/sticky"></cell>
-      <cell title="Picker" is-link link="component/picker"></cell>
-      <cell title="Popup" is-link link="component/popup"></cell>
-      <cell title="Popup Picker" is-link link="component/popup-picker"></cell>
-      <cell title="Actionsheet" is-link link="component/actionsheet"></cell>
-      <cell title="Clocker" is-link link="component/clocker"></cell>
-      <cell title="Toast" is-link link="component/toast"></cell>
-      <cell title="Loading" is-link link="component/loading"></cell>
-      <cell title="Alert" is-link link="component/alert"></cell>
-      <cell title="Confirm" is-link link="component/confirm"></cell>
-      <cell title="Progress" is-link link="component/progress"></cell>
-    </group>
-
-    <group title="TODO" title-color="#04be02" v-if="showTodo">
-      <cell title="短信验证组件" is-link link="component/address"></cell>
-      <cell title="图片验证码" is-link link="component/rater"></cell>
-      <cell title="Calendar" is-link link="component/calendar"></cell>
-    </group>
-
-    <group title="Demo" title-color="#04be02">
-      <cell title="微信设置页面" is-link link="demo/wechat"></cell>
-      <cell title="小蚁摄像设置" is-link link="demo/yi"></cell>
-    </group>
-
-    <group title="About" title-color="#04be02">
-      <cell title="关于" is-link link="intro/about"></cell>
-      <cell title="捐赠支持" is-link link="intro/donate"></cell>
-      <cell title="组件需求" is-link link="intro/suggest"></cell>
-      <cell title="意见建议" is-link link="intro/feedback"></cell>
-    </group>
-  </div>
+      <h1 class="vux-title" style="display:none;">
+        <span class="demo-icon" slot="icon" style="font-size:60px;color:#35495e;display: block;">&#xe637;</span>
+      </h1>
+      <p class="vux-notice">Beta. Not Production Ready(v0.1).</p>
+      </div>
+      <group>
+        <cell title="Demo" link="/demo">
+          <span class="demo-icon" slot="icon" style="color:#F70968">&#xe633;</span>
+        </cell>
+      </group>
+      <group>
+        <cell title="Milestone" :value="'v' + version" link="project/milestone">
+          <span class="demo-icon" slot="icon">&#xe62d;</span>
+        </cell>
+        <cell title="HISTORY.md" value="-">
+          <span class="demo-icon" slot="icon" style="color:#666;">&#xe63a;</span>
+        </cell>
+        <cell title="Thanks" link="project/thanks">
+          <span class="demo-icon" slot="icon" style="color:#666;">&#xe62e;</span>
+        </cell>
+      </group>
+      <group>
+        <cell title="Fork me" link="http://github.com/airyland/vux">
+          <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
+        </cell>
+        <cell title="Buy me a coffee" link="project/donate">
+          <span class="demo-icon" slot="icon" style="color:red;">&#xe630;</span>
+        </cell>
+      </group>
+    </div>
 </template>
 
 <script>
 import { Cell, Group } from './components/'
+const version = require('../package.json').version
 export default {
   components: {
     Cell,
@@ -64,43 +45,35 @@ export default {
   },
   data: function () {
     return {
+      version: version
     }
   }
 }
 </script>
 
 <style>
+@import './demos/style.css';
+.center {
+  margin-top: 15px;
+  text-align: center;
+}
+.vux-notice {
+  color: #666;
+  line-height: 40px;
+}
+.vux-title {
+  vertical-align: middle;
+  text-align: center;
+  color: #04BE02;
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  border-radius: 50%;
+}
 body {
   font-family: Helvetica, sans-serif;
   background-color: #fbf9fe;
   padding-bottom: 50px;
-}
-.weui_cell_box.weui_cell {
-  padding: 0
-}
-.weui_cell_ft.with_arrow:after {
-  content: " ";
-  display: inline-block;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  height: 6px;
-  width: 6px;
-  border-width: 2px 2px 0 0;
-  border-color: #C8C8CD;
-  border-style: solid;
-  position: relative;
-  top: -2px;
-  top: -1px;
-  margin-left: .3em;
-}
-.weui_cells > a {
-    color: #000;
-}
-.vux-title {
-  width:75px;
-  margin:0 auto;
-  text-align: center;
-  padding-top: 10px;
-  color: #35495e;
 }
 </style>

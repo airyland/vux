@@ -80,18 +80,16 @@ Swiper.prototype._init = function () {
 
 Swiper.prototype._bind = function () {
   var me = this
-
-  this.$container.addEventListener('touchstart', function (e) {
+  this.touchstartHandler = function (e) {
     me.stop()
     me._start.x = e.changedTouches[0].pageX
     me._start.y = e.changedTouches[0].pageY
 
     me.$container.style['-webkit-transition'] = 'none'
     me.$container.style.transition = 'none'
+  }
 
-  }, false)
-
-  this.$container.addEventListener('touchmove', function (e) {
+  this.touchmoveHandler = function (e) {
     me._move.x = e.changedTouches[0].pageX
     me._move.y = e.changedTouches[0].pageY
 
@@ -107,9 +105,9 @@ Swiper.prototype._bind = function () {
     me.$container.style.transform = transform
 
     e.preventDefault()
-  }, false)
+  }
 
-  this.$container.addEventListener('touchend', function (e) {
+  this.touchendHandler = function (e) {
     me._end.x = e.changedTouches[0].pageX
     me._end.y = e.changedTouches[0].pageY
 
@@ -126,8 +124,13 @@ Swiper.prototype._bind = function () {
     }
 
     me._show(me._current)
+  }
 
-  }, false)
+  this.$container.addEventListener('touchstart', this.touchstartHandler, false)
+
+  this.$container.addEventListener('touchmove', this.touchmoveHandler, false)
+
+  this.$container.addEventListener('touchend', this.touchendHandler, false)
 
   this.$container.addEventListener('transitionEnd', function (e) {}, false)
 
@@ -219,6 +222,15 @@ Swiper.prototype.on = function (event, callback) {
   this._eventHandlers[event] = callback
 
   return this
+}
+
+Swiper.prototype.destroy = function () {
+  if (this.timer) {
+    clearTimeout(this.timer)
+  }
+  this.$container.removeEventListener('touchstart', this.touchstartHandler, false)
+  this.$container.removeEventListener('touchmove', this.touchmoveHandler, false)
+  this.$container.removeEventListener('touchend', this.touchendHandler, false)
 }
 
 function extend (target, source) {

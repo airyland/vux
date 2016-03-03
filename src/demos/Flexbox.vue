@@ -35,6 +35,11 @@
       <flexbox-item><div class="flex-demo" style="margin-left:0">6</div></flexbox-item>
     </flexbox>
 
+    <br/>
+    <br/>
+    <flexbox>
+    </flexbox>
+
   </div>
 </template>
 

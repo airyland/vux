@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="icon" href="./static/favicon.png" type="image/x-icon">
     <title>Vux</title>{% for (var css in o.htmlWebpackPlugin.files.css) { %}
     <link href=".{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">{% } %}
     <script type="text/javascript" src="./static/vendors/zepto.1.1.4.min.js"></script>
@@ -19,5 +20,7 @@
         }, false);
       }
     </script>
+    <!--for wechat share icon-->
+    <img src="./static/logo_520.png" style="display: none;">
   </body>
 </html>

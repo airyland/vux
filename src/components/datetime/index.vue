@@ -12,8 +12,10 @@
 import Picker from './datetimepicker'
 import Group from '../Group'
 import InlineDesc from '../Inline-desc'
+import Base from '../../libs/base'
 
 export default {
+  mixins: [Base],
   components: {
     Group,
     InlineDesc
@@ -50,7 +52,7 @@ export default {
   },
   ready () {
     var _this = this
-    const uuid = Math.random().toString(36).substring(3, 8)
+    const uuid = this.uuid
     this.$el.setAttribute('id', 'vux-datetime-' + uuid)
     var options = {
       trigger: '#vux-datetime-' + uuid,

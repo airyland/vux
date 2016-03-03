@@ -3,27 +3,27 @@
     <div class="weui_cell_hd">
       <slot name="icon"></slot>
     </div>
-  	<div class="weui_cell_bd weui_cell_primary">
+  	<div class="weui_cell_bd" :class="{'weui_cell_primary':primary==='left'}">
     	<p>
         {{title}}
         <slot name="after-title"></slot>
       </p>
     	<inline-desc>{{inlineDesc}}</inline-desc>
   	</div>
-  	<div class="weui_cell_ft">
+  	<div class="weui_cell_ft" :class="{'weui_cell_primary':primary==='right'}">
       {{value}}
       <slot name="value"></slot>
     </div>
 	</div>
-	<a class="weui_cell" href="javascript:" v-if="isLink" v-link="link">
+	<a class="weui_cell" :href="link" v-if="isLink" v-link="link">
     <div class="weui_cell_hd">
       <slot name="icon"></slot>
     </div>
-    <div class="weui_cell_bd weui_cell_primary">
+    <div class="weui_cell_bd" :class="{'weui_cell_primary':primary==='left'}">
       <p>{{title}}</p>
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
-    <div class="weui_cell_ft with_arrow">
+    <div class="weui_cell_ft with_arrow" :class="{'weui_cell_primary':primary==='right'}">
       {{value}}
       <slot name="value"></slot>
     </div>
@@ -33,6 +33,11 @@
 <script>
 import InlineDesc from './Inline-desc'
 export default {
+  created () {
+    if (this.link) {
+      this.isLink = true
+    }
+  },
   components: {
     InlineDesc
   },
@@ -44,15 +49,20 @@ export default {
     value: {
       type: String
     },
-    isLink: {
-      type: Boolean,
-      default: false
-    },
     link: {
       type: String
     },
     inlineDesc: {
       type: String
+    },
+    primary: {
+      type: String,
+      default: 'left'
+    }
+  },
+  data () {
+    return {
+      isLink: false
     }
   }
 }

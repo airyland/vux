@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from './App'
+
 import Wechat from './Wechat'
 import Home from './Home'
 import Yi from './yi'
@@ -33,6 +34,21 @@ import Loading from './demos/Loading'
 import Alert from './demos/Alert'
 import Confirm from './demos/Confirm'
 import Progress from './demos/Progress'
+import XImg from './demos/XImg'
+import Onepx from './demos/1px'
+import Orientation from './demos/Orientation'
+import Shake from './demos/Shake'
+import Cell from './demos/Cell'
+import Demo from './demos/Demo'
+import Emotion from './demos/Wechat-emotion'
+import Search from './demos/Search'
+import Donate from './demos/Donate'
+import Thanks from './demos/Thanks'
+import Spinner from './demos/Spinner'
+import Calendar from './demos/Calendar'
+import Milestone from './demos/Milestone'
+import Circle from './demos/Circle'
+import Countup from './demos/Countup'
 
 /* eslint-disable no-new */
 Vue.use(Router)
@@ -134,11 +150,68 @@ router.map({
   },
   '/component/progress': {
     component: Progress
+  },
+  '/component/x-img': {
+    component: XImg
+  },
+  '/component/1px': {
+    component: Onepx
+  },
+  '/component/orientation': {
+    component: Orientation
+  },
+  '/component/shake': {
+    component: Shake
+  },
+  '/component/cell': {
+    component: Cell
+  },
+  '/demo': {
+    component: Demo
+  },
+  '/component/emotion': {
+    component: Emotion
+  },
+  '/component/search': {
+    component: Search
+  },
+  '/project/donate': {
+    component: Donate
+  },
+  '/project/thanks': {
+    component: Thanks
+  },
+  '/project/milestone': {
+    component: Milestone
+  },
+  '/component/spinner': {
+    component: Spinner
+  },
+  '/component/calendar': {
+    component: Calendar
+  },
+  '/component/circle': {
+    component: Circle
+  },
+  '/component/countup': {
+    component: Countup
   }
 })
 
-router.beforeEach(function () {
-  window.scrollTo(0, 0)
+router.beforeEach(function (transition) {
+  if (transition.to && transition.to.fullPath !== '/') {
+    window.scrollTo(0, 0)
+  }
+  if (/\/http/.test(transition.to.path)) {
+    let url = transition.to.path.split('http')[1]
+    location.href = `http${url}`
+  } else {
+    transition.next()
+  }
+})
+
+router.afterEach(function (transition) {
+  // document.title = transition.to.fullPath === '/' ? `Home-Vux` : `${transition.to.fullPath.split('/')[2]}-Vux`
 })
 
 router.start(App, '#app')

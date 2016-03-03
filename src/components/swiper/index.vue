@@ -73,6 +73,9 @@
       return {
         current: 0
       }
+    },
+    beforeDestroy () {
+      this.swiper.destroy()
     }
   }
 

@@ -1,0 +1,131 @@
+/** 
+* https://github.com/frozenui/frozenui/ 
+* MIT License
+*/
+
+.ui-border-t {
+  border-top: 1px solid #e0e0e0;
+}
+
+.ui-border-b {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.ui-border-tb {
+  border-top: #e0e0e0 1px solid;
+  border-bottom: #e0e0e0 1px solid;
+  background-image: none;
+}
+
+.ui-border-l {
+  border-left: 1px solid #e0e0e0;
+}
+
+.ui-border-r {
+  border-right: 1px solid #e0e0e0;
+}
+
+.ui-border {
+  border: 1px solid #e0e0e0;
+}
+
+.ui-border-radius {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .ui-border-radius {
+    position: relative;
+    border: 0;
+  }
+
+  .ui-border-radius:before {
+    content: "";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #e0e0e0;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    border-radius: 8px;
+    pointer-events: none;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .ui-border {
+    position: relative;
+    border: 0;
+  }
+
+  .ui-border-t,
+    .ui-border-b,
+    .ui-border-l,
+    .ui-border-r,
+    .ui-border-tb {
+    border: 0;
+  }
+
+  .ui-border-t {
+    background-position: left top;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
+  }
+
+  .ui-border-b {
+    background-position: left bottom;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
+  }
+
+  .ui-border-t,
+    .ui-border-b,
+    .ui-border-tb {
+    background-repeat: repeat-x;
+    -webkit-background-size: 100% 1px;
+  }
+
+  .ui-border-tb {
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), -webkit-gradient(linear, left top, left bottom, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
+    background-position: top, bottom;
+  }
+
+  .ui-border-l {
+    background-position: left top;
+    background-image: -webkit-gradient(linear, right top, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
+  }
+
+  .ui-border-r {
+    background-position: right top;
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
+  }
+
+  .ui-border-l,
+    .ui-border-r {
+    background-repeat: repeat-y;
+    -webkit-background-size: 1px 100%;
+  }
+
+  .ui-border:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), -webkit-gradient(linear, left top, right top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), -webkit-gradient(linear, left top, left bottom, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), -webkit-gradient(linear, right top, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
+    -webkit-background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+    background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+    -webkit-background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+    background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+    background-repeat: no-repeat;
+    background-position: top, right, bottom, left;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    z-index: 10;
+    pointer-events: none;
+  }
+}

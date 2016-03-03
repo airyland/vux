@@ -39,8 +39,17 @@
     </group>
 
     <group title="bar height">
-      <cell title="亮度" :inline-desc="'当前选择'+data9">
+      <cell title="粗细" :inline-desc="'当前选择'+data9">
         <range slot="value" :value.sync="data9" :range-bar-height=4></range>
+      </cell>
+    </group>
+
+    <group title="更改左右文字">
+      <cell title="文字大小" :inline-desc="'当前选择' + data10">
+        <range slot="value" :value.sync="data10" :min="12" :max="22" min-HTML="<span style='font-size:12px;'>小</span>" max-HTML="<span style='font-size:22px;'>大</span>"></range>
+      </cell>
+      <cell title="屏幕亮度" :inline-desc="'亮度' + data11 + '%'">
+        <range slot="value" :value.sync="data11" min-HTML="<span style='font-size:16px;color:#F90;'>☼</span>" max-HTML="<span style='font-size:30px;color:#F90;'>☼</span>"></range>
       </cell>
     </group>
 
@@ -66,7 +75,9 @@ export default {
       data6: 37,
       data7: 17,
       data8: 25,
-      data9: 50
+      data9: 50,
+      data10: 14,
+      data11: 30
     }
   }
 }

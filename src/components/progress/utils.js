@@ -112,11 +112,17 @@ var Utils = {
   },
 
   hasClass: function(element, name) {
+    if (!element) {
+      return false
+    }
     var list = typeof element == 'string' ? element : Utils.classList(element);
     return list.indexOf(' ' + name + ' ') >= 0;
   },
 
   addClass: function(element, name) {
+    if (!element) {
+      return;
+    }
     var oldList = Utils.classList(element),
       newList = oldList + name;
 
@@ -153,6 +159,9 @@ var Utils = {
   },
 
   classList: function(element) {
+    if (!element) {
+      return;
+    }
     return (' ' + (element.className || '') + ' ').replace(/\s+/gi, ' ');
   },
 

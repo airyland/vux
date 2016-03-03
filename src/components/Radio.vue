@@ -22,7 +22,10 @@
 </template>
 
 <script>
+import Base from '../libs/base'
+
 export default {
+  mixins: [Base],
   props: {
     options: {
       type: Array,
@@ -71,7 +74,6 @@ export default {
   },
   data () {
     return {
-      uuid: Math.random().toString(36).substring(3, 8),
       fillValue: '',
       isFocus: false
     }
