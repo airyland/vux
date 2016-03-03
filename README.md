@@ -3,9 +3,12 @@
     <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
   </a>
   <p align="center">VUX = Vue + Weui + Components </p>
-  <p align="center">
-    <img src="https://raw.githubusercontent.com/airyland/vux/master/vux.png" width="600">
-  </p>
+</p>
+
+## Demo
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/airyland/vux/master/qr.png" width="300">
 </p>
 
 ## Usage
@@ -90,6 +93,12 @@ npm test
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Components
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/airyland/vux/master/vux.png" width="600">
+</p>
 
 ## Liscence
 
