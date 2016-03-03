@@ -8,6 +8,66 @@
   </p>
 </p>
 
+## Usage
+
+``` bash
+# install vue-cli
+npm install -g vue-cli
+
+# init a webpack project
+vue init webpack my-project
+cd my-project
+npm install
+npm install vux
+npm run dev
+```
+
+``` html
+<template>
+  <div>
+    <group>
+      <cell title="vue" value="cool"></cell>
+    </group>
+  </div>
+</template>
+
+<script>
+import { Style, Group, Cell } from 'vux'
+export default {
+  components: {
+    Style, // style component is necessary
+    Group,
+    Cell
+  }
+}
+</script>
+```
+
+## Remove click delays
+
+include Fastclick
+
+`<script type="text/javascript" src="./static/vendors/fastclick.1.0.6.min.js"></script>`
+
+then 
+
+``` js
+if ('addEventListener' in document) {
+  document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body);
+  }, false);
+}
+```
+
+## Async loading Components
+
+``` js
+// import Countup from './demos/Countup'
+
+const Countup = function (resolve) {
+  require(['./demos/Countup'], resolve) // webpack will do the rest things
+}
+```
 
 ## Work in Progress
  
