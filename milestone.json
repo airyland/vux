@@ -20,6 +20,14 @@
         "milestone": "0.1.0(Production Ready)",
         "list": [
             {
+                "title": "搜索界面位置问题",
+                "state": "open"
+            },
+            {
+                "title": "Android: demo icon missing",
+                "state": "open"
+            },
+            {
                 "title": "Calendar: fix swiping",
                 "state": "open"
             },
