@@ -53,7 +53,7 @@ import Countup from './demos/Countup'
 Vue.use(Router)
 
 var router = new Router({
-  history: true, // use history=false when testing
+  history: false, // use history=false when testing
   saveScrollPosition: true
 })
 
