@@ -50,9 +50,12 @@ import Milestone from './demos/Milestone'
 import Circle from './demos/Circle'
 import Countup from './demos/Countup'
 
-/* eslint-disable no-new */
 Vue.use(Router)
-var router = new Router()
+
+var router = new Router({
+  history: true, // use history=false when testing
+  saveScrollPosition: true
+})
 
 router.map({
   '/': {
@@ -199,19 +202,12 @@ router.map({
 })
 
 router.beforeEach(function (transition) {
-  if (transition.to && transition.to.fullPath !== '/') {
-    window.scrollTo(0, 0)
-  }
   if (/\/http/.test(transition.to.path)) {
     let url = transition.to.path.split('http')[1]
     location.href = `http${url}`
   } else {
     transition.next()
   }
-})
-
-router.afterEach(function (transition) {
-  // document.title = transition.to.fullPath === '/' ? `Home-Vux` : `${transition.to.fullPath.split('/')[2]}-Vux`
 })
 
 router.start(App, '#app')
