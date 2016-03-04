@@ -210,4 +210,10 @@ router.beforeEach(function (transition) {
   }
 })
 
+router.afterEach(function (transition) {
+  if (transition.to.fullPath !== '/demo') {
+    window.scrollTo(0, 0)
+  }
+})
+
 router.start(App, '#app')
