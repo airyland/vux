@@ -48,6 +48,7 @@ import Calendar from './demos/Calendar'
 import Milestone from './demos/Milestone'
 import Circle from './demos/Circle'
 import Countup from './demos/Countup'
+import ColorPicker from './demos/Color-picker'
 
 Vue.use(Router)
 
@@ -194,6 +195,9 @@ router.map({
   },
   '/component/countup': {
     component: Countup
+  },
+  '/component/color-picker': {
+    component: ColorPicker
   }
 })
 

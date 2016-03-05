@@ -39,6 +39,7 @@ import Calendar from './calendar/'
 import Icon from './Icon'
 import Circle from './Circle/'
 import Style from './Style'
+import ColorPicker from './Color-picker'
 
 const vux = {
   Radio,
@@ -81,7 +82,8 @@ const vux = {
   Calendar,
   Icon,
   Circle,
-  Style
+  Style,
+  ColorPicker
 }
 
 module.exports = vux

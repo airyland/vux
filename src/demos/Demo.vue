@@ -43,6 +43,9 @@
       <cell title="Address" link="component/address">
         <span class="demo-icon" slot="icon">&#xe61b;</span>
       </cell>
+      <cell title="Color Picker" link="component/color-picker">
+        <span class="demo-icon" slot="icon">&#xe61b;</span>
+      </cell>
     </group>
 
     <group title="UI" title-color="#04be02">
