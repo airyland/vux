@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Mobile web UI based on Vue and Weui",
   "author": "airyland <airyland@qq.com>",
   "scripts": {
@@ -20,7 +20,7 @@
     "validator": "^3.39.0",
     "vue-focus": "^0.1.1",
     "vue-lazyload": "^0.2.9",
-    "webp-support": "^1.0.1"
+    "webp-support": "^1.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
