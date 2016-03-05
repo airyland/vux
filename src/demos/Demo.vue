@@ -44,7 +44,7 @@
         <span class="demo-icon" slot="icon">&#xe61b;</span>
       </cell>
       <cell title="Color Picker" link="component/color-picker">
-        <span class="demo-icon" slot="icon">&#xe61b;</span>
+        <span class="demo-icon" slot="icon" style="color:#f2c400;">&#xe63f;</span>
       </cell>
     </group>
 
