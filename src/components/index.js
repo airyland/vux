@@ -5,7 +5,6 @@ import Input from './Input'
 import Number from './Number'
 import Cell from './Cell'
 import Checklist from './Checklist'
-import Date from './Date'
 import Switch from './Switch'
 import Textarea from './Textarea'
 import GroupTitle from './Group-title'
@@ -44,7 +43,6 @@ import Style from './Style'
 const vux = {
   Radio,
   Group,
-  Date,
   DevTip,
   Input,
   GroupTitle,

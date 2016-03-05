@@ -25,7 +25,7 @@ export default {
     },
     text: {
       type: String,
-      default: '确定'
+      default: 'OK'
     }
   },
   methods: {

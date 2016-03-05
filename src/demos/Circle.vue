@@ -12,8 +12,8 @@
     </div>
     <br>
     <div style='width:100px;height:100px;'>
-      <circle :percent=100 :stroke-width=6 stroke-color=#3FC7FA>
-        <span>Done!</span>
+      <circle :percent=100 :stroke-width=3 stroke-color=#04BE02>
+        <icon type="success"></icon>
       </circle>
     </div>
     <br>
@@ -28,13 +28,15 @@
 <script>
 import Circle from '../components/Circle/'
 import Range from '../components/range'
+import Icon from '../components/Icon'
 export default {
   ready () {
     setInterval(this.update2, 2000)
   },
   components: {
     Circle,
-    Range
+    Range,
+    Icon
   },
   data () {
     return {

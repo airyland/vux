@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <switch title="开关" :value.sync="show1" @change="show1change"></switch>
+      <switch title="Toggle" :value.sync="show1" @change="show1change"></switch>
     </group>
     <loading :show="show1" :text="text1"></loading>
   </div>
@@ -18,7 +18,7 @@ export default {
   data () {
     return {
       show1: false,
-      text1: '开始处理'
+      text1: 'Processing'
     }
   },
   methods: {
@@ -28,10 +28,10 @@ export default {
         tick(0, function (percent) {
           if (percent === 100) {
             _this.show1 = false
-            _this.text1 = '开始处理'
+            _this.text1 = 'Start processing'
             return
           }
-          _this.text1 = `完成${percent}%`
+          _this.text1 = `${percent}% completed`
         })
       }
     }

@@ -15,7 +15,6 @@ import Selector from './demos/Selector'
 import Tip from './demos/Tip'
 import Button from './demos/Button'
 import Textarea from './demos/Textarea'
-import Date from './demos/Date'
 import Flexbox from './demos/Flexbox'
 import Tab from './demos/Tab'
 import Swiper from './demos/Swiper'
@@ -96,9 +95,6 @@ router.map({
   },
   '/component/textarea': {
     component: Textarea
-  },
-  '/component/date': {
-    component: Date
   },
   '/component/flexbox': {
     component: Flexbox
