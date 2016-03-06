@@ -1,5 +1,5 @@
 <template>
-  <div class="vux-tab-item" :class="{'vux-tab-selected':selected}" :style="{borderWidth:$parent.lineWidth+'px',borderColor:$parent.color,color:$parent.color}"><slot></slot></div>
+  <div class="vux-tab-item" :class="{'vux-tab-selected':selected}" :style="{borderWidth:$parent.lineWidth+'px',borderColor:$parent.activeColor,color:selected ? $parent.activeColor : $parent.defaultColor}"><slot></slot></div>
 </template>
 
 <script>

@@ -8,20 +8,20 @@
     <br/>
     <br/>
     <br/>
-    <tab :line-width=2 color='#fc378c'>
+    <tab :line-width=2 active-color='#fc378c'>
       <tab-item :selected="demo2 === item" v-for="item in list2" @click="demo2 = item">{{item}}</tab-item>
     </tab>
     <br/>
     <br/>
     <br/>
-    <tab :line_width=2>
+    <tab :line-width=2>
       <tab-item :selected="demo3 === item" v-for="item in list3" @click="demo3 = item">{{item}}</tab-item>
     </tab>
     <br/>
     <br/>
     <br/>
     <sticky>
-      <tab :line_width=1>
+      <tab :line-width=1>
       <tab-item :selected="demo4 === item" v-for="item in list4" @click="demo4 = item">{{item}}</tab-item>
       </tab>
     </sticky>

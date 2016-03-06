@@ -12,10 +12,15 @@
         required: false,
         default: 3
       },
-      color: {
+      activeColor: {
         type: String,
         required: false,
         default: '#04be02'
+      },
+      defaultColor: {
+        type: String,
+        required: false,
+        default: '#666'
       }
     }
   }
