@@ -8,6 +8,7 @@
 ## Demo
 
 <p align="center">
+  <a href="https://vux.li/?x-page=github_readme">https://vux.li</a>
   <img src="https://raw.githubusercontent.com/airyland/vux/master/qr.png" width="300">
 </p>
 
