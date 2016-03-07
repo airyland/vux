@@ -1,10 +1,12 @@
 <p align="center">
-  <a href="http://gulpjs.com">
+  <a href="http://vux.li">
     <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
   </a>
 </p>
 <p align="center">
-  [![Gitter](https://badges.gitter.im/airyland/vux.svg)](https://gitter.im/airyland/vux?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+  <a href="https://gitter.im/airyland/vux?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge">
+    <img src="https://badges.gitter.im/airyland/vux.svg">
+  </a>
 </p>
 <p align="center">VUX = Vue + Weui + Components </p>
 
