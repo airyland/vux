@@ -3,10 +3,6 @@
         "milestone": "0.0.1",
         "list": [
             {
-                "title": "Tab: custom default text color",
-                "state": "open"
-            },
-            {
                 "title": "Popop: add destroy function",
                 "state": "open"
             }
@@ -17,10 +13,6 @@
         "list": [
             {
                 "title": "Android: demo icon missing",
-                "state": "open"
-            },
-            {
-                "title": "Calendar: fix swiping",
                 "state": "open"
             },
             {
