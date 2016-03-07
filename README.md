@@ -2,8 +2,11 @@
   <a href="http://gulpjs.com">
     <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
   </a>
-  <p align="center">VUX = Vue + Weui + Components </p>
 </p>
+<p align="center">
+  [![Gitter](https://badges.gitter.im/airyland/vux.svg)](https://gitter.im/airyland/vux?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+</p>
+<p align="center">VUX = Vue + Weui + Components </p>
 
 ## Demo
 
