@@ -7,6 +7,8 @@
 
 ## Demo
 
+[![Join the chat at https://gitter.im/airyland/vux](https://badges.gitter.im/airyland/vux.svg)](https://gitter.im/airyland/vux?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 <p align="center">
   <a href="https://vux.li/?x-page=github_readme">https://vux.li</a><br/>
   <img src="https://raw.githubusercontent.com/airyland/vux/master/qr.png" width="300">
