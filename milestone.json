@@ -1,16 +1,15 @@
 [
     {
         "milestone": "0.0.1",
-        "list": [
-            {
-                "title": "Popop: add destroy function",
-                "state": "open"
-            }
-        ]
+        "list": []
     },
     {
         "milestone": "0.1.0(Production Ready)",
         "list": [
+            {
+                "title": "pull2refresh component",
+                "state": "open"
+            },
             {
                 "title": "Android: demo icon missing",
                 "state": "open"
