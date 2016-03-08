@@ -21,7 +21,6 @@ export default {
   ready () {
     var _this = this
     this.popup = new Popup({
-      input: '#JS_dialog',
       container: _this.$el,
       innerHTML: '',
       onOpen: function (dialog) {
@@ -40,6 +39,10 @@ export default {
         this.popup.hide()
       }
     }
+  },
+  beforeDestroy () {
+    console.log('destroyed')
+    this.popup.destroy()
   }
 }
 </script>
