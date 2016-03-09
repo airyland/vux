@@ -7,6 +7,10 @@
         "milestone": "0.1.0(Production Ready)",
         "list": [
             {
+                "title": "step component",
+                "state": "open"
+            },
+            {
                 "title": "pull2refresh component",
                 "state": "open"
             },
