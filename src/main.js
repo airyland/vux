@@ -49,6 +49,7 @@ import Milestone from './demos/Milestone'
 import Circle from './demos/Circle'
 import Countup from './demos/Countup'
 import ColorPicker from './demos/Color-picker'
+import Blur from './demos/Blur'
 
 Vue.use(Router)
 
@@ -198,6 +199,9 @@ router.map({
   },
   '/component/color-picker': {
     component: ColorPicker
+  },
+  '/component/blur': {
+    component: Blur
   }
 })
 
