@@ -1,6 +1,6 @@
 <template>
   <div>
-    <group>
+    <group title="English">
       <cell title="Default" primary="right">
         <calendar slot="value" :value.sync="demo1"></calendar>
       </cell>
@@ -9,6 +9,11 @@
       </cell>
       <cell title="disable past date" primary="right">
         <calendar slot="value" :value.sync="demo3" disable-past></calendar>
+      </cell>
+    </group>
+    <group title="中文">
+      <cell title="中文星期" primary="right">
+        <calendar slot="value" :value.sync="demo4" :date-list=['日','一','二','三','四','五','六'] disable-past></calendar>
       </cell>
     </group>
   </div>
@@ -26,7 +31,8 @@ export default {
     return {
       demo1: 'Select date',
       demo2: 'date and hour',
-      demo3: 'Select date'
+      demo3: 'Select date',
+      demo4: '请选择'
     }
   }
 }
