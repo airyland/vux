@@ -37,21 +37,24 @@
 
 <style>
 .vux-flexbox{
-  text-align:left;
-  display:-webkit-box;
-  display:-webkit-flex;
-  -webkit-box-align:center;
-  -webkit-align-items:center;
+  width: 100%;
+  text-align: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
 }
 
 .vux-flexbox .vux-flexbox-item{
-  -webkit-box-sizing:border-box;
-  -webkit-box-flex:1;
-  -webkit-flex:1;
-  min-width:20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  min-width: 20px;
 }
 
 .vux-flexbox .vux-flexbox-item:first-child{
-  margin-left:0!important;
+  margin-left: 0!important;
 }
 </style>
