@@ -7,6 +7,10 @@
         "milestone": "0.1.0(Production Ready)",
         "list": [
             {
+                "title": "address组件异步加载数据",
+                "state": "open"
+            },
+            {
                 "title": "step component",
                 "state": "open"
             },
