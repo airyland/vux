@@ -19,6 +19,9 @@
       <cell title="Datetime" link="component/datetime">
         <span class="demo-icon" slot="icon">&#xe60a;</span>
       </cell>
+      <cell title="Calendar" link="component/calendar">
+        <span class="demo-icon" slot="icon">&#xe62b;</span>
+      </cell>
       <cell title="Switch" link="component/switch">
         <span class="demo-icon" slot="icon">&#xe61c;</span>
       </cell>
@@ -40,14 +43,14 @@
       <cell title="Address" link="component/address">
         <span class="demo-icon" slot="icon">&#xe61b;</span>
       </cell>
+      <cell title="Color Picker" link="component/color-picker">
+        <span class="demo-icon" slot="icon" style="color:#f2c400;">&#xe63f;</span>
+      </cell>
     </group>
 
     <group title="UI" title-color="#04be02">
       <cell title="Icon" link="component/icon">
         <span class="demo-icon" slot="icon">&#xe619;</span>
-      </cell>
-      <cell title="Box" link="component/box">
-        <span class="demo-icon" slot="icon">&#xe60d;</span>
       </cell>
       <cell title="Flexbox" link="component/flexbox">
         <span class="demo-icon" slot="icon">&#xe61f;</span>
@@ -102,9 +105,6 @@
       </cell>
       <cell title="Countup" link="component/countup">
         <span class="demo-icon" slot="icon">&#xe63e;</span>
-      </cell>
-      <cell title="Calendar" link="component/calendar">
-        <span class="demo-icon" slot="icon">&#xe62b;</span>
       </cell>
     </group>
 

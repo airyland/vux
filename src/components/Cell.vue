@@ -11,7 +11,7 @@
     	<inline-desc>{{inlineDesc}}</inline-desc>
   	</div>
   	<div class="weui_cell_ft" :class="{'weui_cell_primary':primary==='right'}">
-      {{value}}
+      {{{value}}}
       <slot name="value"></slot>
     </div>
 	</div>
@@ -24,7 +24,7 @@
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
     <div class="weui_cell_ft with_arrow" :class="{'weui_cell_primary':primary==='right'}">
-      {{value}}
+      {{{value}}}
       <slot name="value"></slot>
     </div>
   </a>

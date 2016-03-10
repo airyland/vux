@@ -5,7 +5,7 @@
   </div>
   <div class="weui_cell_ft" v-show="!readonly" style="font-size:0">
     <a @click="sub()" class="number-selector number-selector-sub needsclick":class="{'number-disabled':disabled_min}">-</a>
-    <input v-model="value" class="number-input" :style="{width: width+'px'}" number/>
+    <input v-model="value" class="number-input" :style="{width: width+'px'}" number :readonly="!fillable" />
     <a @click="add()" class="number-selector number-selector-plus needsclick" :class="{'number-disabled':disabled_max}">+</a>
   </div>
   <div class="weui_cell_ft" v-else>
@@ -54,9 +54,6 @@
 
 <script>
 export default {
-  // 定义
-  /* @todo readonly*/
-  /* @todo disabled on_change*/
   props: {
     min: Number,
     max: Number,
@@ -71,9 +68,9 @@ export default {
     title: {
       type: String
     },
-    readonly: {
+    fillable: {
       type: Boolean,
-      default: false
+      default: true
     },
     width: {
       type: Number,

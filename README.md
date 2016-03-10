@@ -1,13 +1,21 @@
 <p align="center">
-  <a href="http://gulpjs.com">
+  <a href="http://vux.li">
     <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
   </a>
-  <p align="center">VUX = Vue + Weui + Components </p>
 </p>
+<p align="center">
+  <a href="https://gitter.im/airyland/vux?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge">
+    <img src="https://badges.gitter.im/airyland/vux.svg">
+  </a>
+</p>
+<p align="center">VUX = Vue + Weui + Components </p>
+
+[![Issue Stats](http://issuestats.com/github/airyland/vux/badge/issue)](http://issuestats.com/github/airyland/vux) [![Circle CI](https://circleci.com/gh/airyland/vux.svg?style=svg)](https://circleci.com/gh/airyland/vux)
 
 ## Demo
 
 <p align="center">
+  <a href="https://vux.li/?x-page=github_readme">https://vux.li</a><br/>
   <img src="https://raw.githubusercontent.com/airyland/vux/master/qr.png" width="300">
 </p>
 

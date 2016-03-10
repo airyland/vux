@@ -39,16 +39,26 @@
       </cell>
     </group>
 
+    <group title="two way binding">
+      <cell title="Your history score">
+        <rater :value.sync="data6" active-color="#04BE02" slot="value"></rater>
+      </cell>
+      <cell title="range">
+        <range slot="value" :value.sync="data6" :step=1 :min=0 :max=5>
+      </cell>
+    </group>
+
   </div>
 </template>
 
 <script>
-import { Rater, Group, Cell } from '../components/'
+import { Rater, Group, Cell, Range } from '../components/'
 export default {
   components: {
     Rater,
     Group,
-    Cell
+    Cell,
+    Range
   },
   data () {
     return {
@@ -58,7 +68,8 @@ export default {
       data4: 3,
       data41: 3.7,
       data42: 3.5,
-      data5: 3
+      data5: 3,
+      data6: 3
     }
   }
 }

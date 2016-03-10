@@ -1,9 +1,9 @@
 <template>
   <div>
     <group>
-      <switch title="开关" :value.sync="show"></switch>
+      <switch title="Toggle" :value.sync="show"></switch>
     </group>
-    <confirm :show.sync="show" title="温馨提示">确认要放弃吗？</confirm>
+    <confirm :show.sync="show" title="confirm deleting the item"><p style="text-align:center;">Are you sure?</p></confirm>
   </div>
 </template>
 

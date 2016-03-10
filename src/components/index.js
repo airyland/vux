@@ -5,7 +5,6 @@ import Input from './Input'
 import Number from './Number'
 import Cell from './Cell'
 import Checklist from './Checklist'
-import Date from './Date'
 import Switch from './Switch'
 import Textarea from './Textarea'
 import GroupTitle from './Group-title'
@@ -40,11 +39,11 @@ import Calendar from './calendar/'
 import Icon from './Icon'
 import Circle from './Circle/'
 import Style from './Style'
+import ColorPicker from './Color-picker'
 
 const vux = {
   Radio,
   Group,
-  Date,
   DevTip,
   Input,
   GroupTitle,
@@ -83,7 +82,8 @@ const vux = {
   Calendar,
   Icon,
   Circle,
-  Style
+  Style,
+  ColorPicker
 }
 
 module.exports = vux

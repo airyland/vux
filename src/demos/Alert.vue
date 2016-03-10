@@ -1,9 +1,9 @@
 <template>
   <div>
     <group>
-      <switch title="开关" :value.sync="show"></switch>
+      <switch title="Toggle" :value.sync="show"></switch>
     </group>
-    <alert :show.sync="show" title="操作提示">消息发送成功</alert>
+    <alert :show.sync="show" title="congratulations">Message is sent successfully~</alert>
   </div>
 </template>
 

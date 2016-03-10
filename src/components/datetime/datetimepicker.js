@@ -104,7 +104,7 @@ function parseDate(format, value) {
   if (formatParts.length !== valueParts.length) {
     // throw 'Invalid format or value';
     // 当日期格式不对时，默认为当前日期
-    var date = formater(new Date(), format.replace('ii','mm'));
+    var date = formater(new Date(), format.toLowerCase());
     valueParts = date.split(/\D+/);
   }
 

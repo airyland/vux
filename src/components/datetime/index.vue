@@ -54,7 +54,7 @@ export default {
     var _this = this
     const uuid = this.uuid
     this.$el.setAttribute('id', 'vux-datetime-' + uuid)
-    var options = {
+    let options = {
       trigger: '#vux-datetime-' + uuid,
       format: _this.format,
       value: _this.value,

@@ -21,8 +21,8 @@
       return {
         show1: false,
         menus1: {
-          menu1: '发送给朋友',
-          menu2: '分享到朋友圈'
+          menu1: 'Share to friends',
+          menu2: 'Share to timeline'
         },
         show2: false,
         menus2: {

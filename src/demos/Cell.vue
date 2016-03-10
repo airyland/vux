@@ -1,19 +1,21 @@
 <template>
   <div>
     <group>
-      <cell title="账户与安全" value="已保护"></cell>
+      <cell title="My Account" value="Protected"></cell>
     </group>
     <group>
-      <cell title="新消息通知" link="test"></cell>
-      <cell title="隐私" link="test"></cell>
-      <cell title="通用" link="test"></cell>
+      <cell title="Notifications" link="test"></cell>
+      <cell title="Privacy" link="test"></cell>
+      <cell title="General" link="test"></cell>
     </group>
     <group>
-      <cell title="接受新消息通知" value="已开启"></cell>
+      <cell title="Notifications" value="Enabled"></cell>
     </group>
-    <group>
-      <cell title="custom content">
-        <div slot="value"><span style="color: green">I am customed content</span></div>
+    <group title="use slot for complexed content">
+      <cell title="slot content">
+        <div slot="value">
+          <span style="color: green">Hi, I'm Vux.</span>
+        </div>
       </cell>
     </group>
   </div>

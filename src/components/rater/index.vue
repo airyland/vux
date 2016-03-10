@@ -77,7 +77,7 @@
     },
     watch: {
       value: function (val) {
-
+        this.handleClick(val - 1)
       }
     }
   }

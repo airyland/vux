@@ -67,6 +67,11 @@
       this.$el.querySelector('.range-handle').style.top = `-${handleTop}px`
       this.$el.querySelector('.range-bar').style.height = `${this.rangeBarHeight}px`
     },
+    watch: {
+      value: function (val) {
+        this.range.setStart(val)
+      }
+    },
     beforeDestroy () {
       // @todo
     }
