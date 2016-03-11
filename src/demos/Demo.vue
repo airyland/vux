@@ -106,6 +106,9 @@
       <cell title="Countup" link="component/countup">
         <span class="demo-icon" slot="icon">&#xe63e;</span>
       </cell>
+      <cell title="Blur" link="component/blur">
+        <span class="demo-icon" slot="icon">&#xe640;</span>
+      </cell>
     </group>
 
     <group title="优化" title-color="#04be02">
