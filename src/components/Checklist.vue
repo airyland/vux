@@ -108,7 +108,6 @@ export default {
   },
   data () {
     return {
-      uuid: Math.random().toString(36).substring(3, 8)
     }
   },
   watch: {
@@ -118,3 +117,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.weui_cells_checkbox > label > * {
+  pointer-events: none;
+}
+</style>

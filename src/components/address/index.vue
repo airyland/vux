@@ -3,7 +3,6 @@
 </template>
 
 <script>
-const list = require('./list.json')
 import name2value from '../../filters/name2value'
 import PopupPicker from '../Popup-picker'
 export default {
@@ -25,16 +24,15 @@ export default {
     rawValue: {
       type: Boolean,
       default: false
+    },
+    list: {
+      type: Array,
+      required: true
     }
   },
   beforeCompile () {
     if (this.value.length && this.rawValue) {
-      this.value = name2value(this.value, list).split(' ')
-    }
-  },
-  data () {
-    return {
-      list: list
+      this.value = name2value(this.value, this.list).split(' ')
     }
   }
 }

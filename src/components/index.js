@@ -5,7 +5,6 @@ import Input from './Input'
 import Number from './Number'
 import Cell from './Cell'
 import Checklist from './Checklist'
-import Date from './Date'
 import Switch from './Switch'
 import Textarea from './Textarea'
 import GroupTitle from './Group-title'
@@ -34,11 +33,18 @@ import Loading from './Loading'
 import Alert from './Alert'
 import Confirm from './Confirm'
 import Progress from './progress/'
+import XImg from './X-img'
+import Spinner from './spinner/'
+import Calendar from './calendar/'
+import Icon from './Icon'
+import Circle from './Circle/'
+import Style from './Style'
+import ColorPicker from './Color-picker'
+import AddressChinaData from './address/list.json'
 
 const vux = {
   Radio,
   Group,
-  Date,
   DevTip,
   Input,
   GroupTitle,
@@ -71,7 +77,15 @@ const vux = {
   Loading,
   Alert,
   Confirm,
-  Progress
+  Progress,
+  XImg,
+  Spinner,
+  Calendar,
+  Icon,
+  Circle,
+  Style,
+  ColorPicker,
+  AddressChinaData
 }
 
 module.exports = vux

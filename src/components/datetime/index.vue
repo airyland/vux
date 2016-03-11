@@ -12,8 +12,10 @@
 import Picker from './datetimepicker'
 import Group from '../Group'
 import InlineDesc from '../Inline-desc'
+import Base from '../../libs/base'
 
 export default {
+  mixins: [Base],
   components: {
     Group,
     InlineDesc
@@ -43,6 +45,34 @@ export default {
     },
     maxYear: {
       type: Number
+    },
+    confirmText: {
+      type: String,
+      default: 'ok'
+    },
+    cancelText: {
+      type: String,
+      default: 'cancel'
+    },
+    yearRow: {
+      type: String,
+      default: '{value}'
+    },
+    monthRow: {
+      type: String,
+      default: '{value}'
+    },
+    dayRow: {
+      type: String,
+      default: '{value}'
+    },
+    hourRow: {
+      type: String,
+      default: '{value}'
+    },
+    minuteRow: {
+      type: String,
+      default: '{value}'
     }
   },
   created () {
@@ -50,13 +80,20 @@ export default {
   },
   ready () {
     var _this = this
-    const uuid = Math.random().toString(36).substring(3, 8)
+    const uuid = this.uuid
     this.$el.setAttribute('id', 'vux-datetime-' + uuid)
-    var options = {
+    let options = {
       trigger: '#vux-datetime-' + uuid,
       format: _this.format,
       value: _this.value,
       output: '.vux-datetime-value',
+      confirmText: _this.confirmText,
+      cancelText: _this.cancelText,
+      yearRow: _this.yearRow,
+      monthRow: _this.monthRow,
+      dayRow: _this.dayRow,
+      hourRow: _this.hourRow,
+      minuteRow: _this.minuteRow,
       onConfirm: function (value) {
         _this.value = value
       }

@@ -12,9 +12,9 @@
 
 <script>
 import Progress from './progress'
-import uuid from '../../libs/uuid'
-
+import Base from '../../libs/base'
 export default {
+  mixins: [Base],
   props: {
     template: {
       type: Number,
@@ -43,13 +43,20 @@ export default {
   },
   data () {
     return {
-      uuid: uuid()
     }
   },
-  beforeDestroy () {
-    if (this.template > 0) {
-      this.progress.set(1)
-      this.progress._remove()
+  destroyed () {
+    if (this.template > 0 && this.progress) {
+      this.progress.destroy()
+      if (this.progress.timer) {
+        clearTimeout(this.progress.timer)
+      }
+      this.progress = null
+      document.querySelector(`#vux-progress-${this.uuid}`).innerHTML = ''
+    }
+    if (this.template === 1) {
+      const progress = document.querySelector('#mprogress1')
+      progress && progress.parentNode.removeChild(progress)
     }
   }
 }

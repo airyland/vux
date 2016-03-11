@@ -17,8 +17,8 @@
     <group title="set value=1, min=-5 and max=8">
       <number title="Number" :min=-5 :max=8 :value=1></number>
     </group>
-    <group title="set value and readonly">
-      <number :value=10 :readonly=true title="Number"></number>
+    <group title="fillable = false">
+      <number :value=10 title="Number" :fillable=false></number>
     </group>
     <group title='with other element'>
       <number title="Number" :min=-5 :max=8 :value=1 type="inline"></number>

@@ -36,7 +36,6 @@
   top: -13px;
   position: absolute;
   width: 30px;
-
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
@@ -45,11 +44,11 @@
 .range-max {
   color: #181819;
   font-size: 12px;
-  height: 20px;
-  padding-top: 4px;
   position: absolute;
   text-align: center;
-  top: -9px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
   width: 24px;
 }
 

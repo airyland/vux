@@ -1,15 +1,15 @@
 /* global describe, it, expect */
 
 import Vue from 'vue'
-import Hello from 'src/components/Hello'
+import XInput from 'src/components/Input'
 
 describe('Hello.vue', () => {
   it('should render correct contents', () => {
     const vm = new Vue({
-      template: '<div><hello></hello></div>',
-      components: { Hello }
+      template: '<div><x-input></x-input></div>',
+      components: { XInput }
     }).$mount()
-    expect(vm.$el.querySelector('.hello h1').textContent).toBe('Hello World!')
+    expect(/weui_input/.test(vm.$el.innerHTML)).toBe(true)
   })
 })
 

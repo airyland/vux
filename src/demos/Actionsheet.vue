@@ -1,9 +1,11 @@
 <template>
 <div>
   <group>
-    <switch title="Show" :value.sync="show"></switch>
+    <switch title="Normal Usage" :value.sync="show1"></switch>
+    <switch title="Show cancel menu" :value.sync="show2"></switch>
   </group>
-  <actionsheet :show.sync="show" :menus="menus"></actionsheet>
+  <actionsheet :show.sync="show1" :menus="menus1" @menu-click="click"></actionsheet>
+  <actionsheet :show.sync="show2" :menus="menus2" @menu-click="click" show-cancel></actionsheet>
 </div>
 </template>
 
@@ -17,13 +19,21 @@
     },
     data () {
       return {
-        show: false,
-        menus: {
-          menu1: '示例菜单',
-          menu2: '示例菜单',
-          menu3: '示例菜单',
-          menu4: '示例菜单'
+        show1: false,
+        menus1: {
+          menu1: 'Share to friends',
+          menu2: 'Share to timeline'
+        },
+        show2: false,
+        menus2: {
+          menu1: 'Take Photo',
+          menu2: 'Choose from photos'
         }
+      }
+    },
+    methods: {
+      click: function (key) {
+        console.log(key)
       }
     }
   }

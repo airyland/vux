@@ -1,7 +1,7 @@
 <template>
-  <cell :title="title">
-    <span slot="value" @click="show=true" v-if="!showName">{{value | array2string}}</span>
-    <span slot="value" @click="show=true" v-else>{{value | value2name data}}</span>
+  <cell :title="title" primary="right">
+    <span class="vux-popup-picker-value" slot="value" @click="show=true" v-if="!showName">{{value | array2string}}</span>
+    <span class="vux-popup-picker-value" slot="value" @click="show=true" v-else>{{value | value2name data}}</span>
   </cell>
 
   <popup :show.sync="show" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid">
@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import uuid from '../libs/uuid'
 import Picker from './picker/'
 import Cell from './Cell'
 import Popup from './popup'
@@ -26,7 +25,10 @@ import Flexbox from './Flexbox'
 import FlexboxItem from './Flexbox-item'
 import array2string from '../filters/array2String'
 import value2name from '../filters/value2name'
+import Base from '../libs/base'
+
 export default {
+  mixins: [Base],
   components: {
     Picker,
     Cell,
@@ -68,8 +70,7 @@ export default {
   },
   data () {
     return {
-      show: false,
-      uuid: uuid()
+      show: false
     }
   }
 }
@@ -82,5 +83,9 @@ export default {
 .vux-header {
   height: 44px;
   color: #04BE02;
+}
+.vux-popup-picker-value {
+  display: inline-block;
+  width: 100%;
 }
 </style>

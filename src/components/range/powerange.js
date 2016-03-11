@@ -1428,8 +1428,8 @@ Powerange.prototype.extraClass = function(klass) {
 
 Powerange.prototype.setRange = function(min, max) {
   if (typeof min === 'number' && typeof max === 'number' && !this.options.hideRange) {
-    this.slider.querySelector('.range-min').innerHTML = min;
-    this.slider.querySelector('.range-max').innerHTML = max;
+    this.slider.querySelector('.range-min').innerHTML = this.options.minHTML || min;
+    this.slider.querySelector('.range-max').innerHTML = this.options.maxHTML || max;
   }
 };
 

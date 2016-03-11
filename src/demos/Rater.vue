@@ -1,44 +1,50 @@
 <template>
   <div>
-    <rater :value.sync="data1"></rater>
-    <br/>
-    <rater :max=10 :value.sync="data2"></rater>
-    <br/>
-    <group title="和cell一起使用">
-      <cell title="给个好评呗">
+    <group title="Normal Usage">
+      <cell title="set default score = 5" inline-desc="total 5 stars if not specified">
         <rater :value.sync="data3" slot="value"></rater>
       </cell>
-      <cell title="给个好评呗">
+      <cell title="change color">
         <rater :value.sync="data3" slot="value" :max=6 active-color="#04BE02"></rater>
       </cell>
-      <cell title="给个好评呗">
-        <rater :value.sync="data3" slot="value" :max=8></rater>
-      </cell>
     </group>
 
-    <group title="不可点击">
-      <cell title="用户评分">
+    <group title="disabled = true">
+      <cell title="Your history score">
         <rater :value.sync="data4" slot="value" disabled></rater>
       </cell>
+      <cell :title="'Decimal score ' + data41 " inline-desc="Only support in readonly mode">
+        <rater :value.sync="data41" slot="value" active-color="#04BE02" disabled></rater>
+      </cell>
+      <cell title="custom font-size(15px)">
+        <rater :value.sync="data42" slot="value" active-color="#04BE02" :font-size=15 disabled></rater>
+      </cell>
     </group>
 
-    <group title="自定义图形,注意部分图形无法使用，比如♥ ❤">
-      <cell title="爱心指数">
-        <rater :value.sync="data4" slot="value" star="♡" active-color="red"></rater>
+    <group title="custom star, some symbols like ♥ ❤ are not proper.">
+      <cell title="loving">
+        <rater :value.sync="data4" slot="value" star="♡" active-color="red" :margin="15"></rater>
       </cell>
-      <cell title="晴天指数">
-        <rater :value.sync="data5" slot="value" star="☼" active-color="#FF9900" :padding="4"></rater>
+      <cell title="Sunshine">
+        <rater :value.sync="data5" slot="value" star="☼" active-color="#FF9900" :margin="4"></rater>
       </cell>
-      <cell title="心情怎么样">
-        <rater :value.sync="data5" slot="value" star="☻" active-color="#FF9900" :padding="8"></rater>
+      <cell title="Smilies">
+        <rater :value.sync="data5" slot="value" star="☻" active-color="#FF9900" :margin="4"></rater>
       </cell>
-      <cell title="其他星星">
-        <rater :value.sync="data5" slot="value" star="✩" active-color="#FF9900" :padding="5"></rater>
+      <cell title="Different stars">
+        <rater :value.sync="data5" slot="value" star="✩" active-color="#FF9900" :margin="4"></rater>
       </cell>
-      <cell title="尴尬指数">
-        <rater :value.sync="data5" slot="value" star="囧" active-color="#FF9900" :padding="5"></rater>
+      <cell title="How embarrass">
+        <rater :value.sync="data5" slot="value" star="囧" active-color="#FF9900" :margin="4"></rater>
       </cell>
-      <cell title="就举上面这些例子，其他自由发挥">
+    </group>
+
+    <group title="two way binding">
+      <cell title="Your history score">
+        <rater :value.sync="data6" active-color="#04BE02" slot="value"></rater>
+      </cell>
+      <cell title="range">
+        <range slot="value" :value.sync="data6" :step=1 :min=0 :max=5>
       </cell>
     </group>
 
@@ -46,12 +52,13 @@
 </template>
 
 <script>
-import { Rater, Group, Cell } from '../components/'
+import { Rater, Group, Cell, Range } from '../components/'
 export default {
   components: {
     Rater,
     Group,
-    Cell
+    Cell,
+    Range
   },
   data () {
     return {
@@ -59,7 +66,10 @@ export default {
       data2: 5,
       data3: 5,
       data4: 3,
-      data5: 3
+      data41: 3.7,
+      data42: 3.5,
+      data5: 3,
+      data6: 3
     }
   }
 }

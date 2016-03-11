@@ -26,11 +26,11 @@ export default {
     },
     confirmText: {
       type: String,
-      default: '确定'
+      default: 'confirm'
     },
     cancelText: {
       type: String,
-      default: '取消'
+      default: 'cancel'
     }
   },
   methods: {

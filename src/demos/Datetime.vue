@@ -1,19 +1,23 @@
 <template>
 <div>
-  <group title="默认 YYYY-MM-DD">
-    <datetime :value.sync="value1" @change="change" title="生日"></datetime>
+  <group title="default format: YYYY-MM-DD">
+    <datetime :value.sync="value1" @change="change" title="Birthday"></datetime>
   </group>
 
   <group title="YYYY-MM-DD HH:II">
-    <datetime :value.sync="value2" format="YYYY-MM-DD HH:II" @change="change" title="开始时间" inline-desc="精确到分钟"></datetime>
+    <datetime :value.sync="value2" format="YYYY-MM-DD HH:II" @change="change" title="start time" inline-desc="select hour and minute"></datetime>
   </group>
 
-  <group title="可以直接通过value指定placeholder">
-    <datetime :value.sync="value3" format="YYYY-MM-DD HH:II" @change="change" title="开始时间"></datetime>
+  <group title="value as placeholder">
+    <datetime :value.sync="value3" format="YYYY-MM-DD HH:II" @change="change" title="start time"></datetime>
   </group>
 
-  <group title="指定最小，最大年份">
-    <datetime :value.sync="value4" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:II" @change="change" title="两千年后的时间"></datetime>
+  <group title="specified min-year and max-year">
+    <datetime :value.sync="value4" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:II" @change="change" title="years after 2000"></datetime>
+  </group>
+
+  <group title="specified template text in Chinese">
+    <datetime :value.sync="value5" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:II" @change="change" title="Chinese" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
   </group>
 
 </div>
@@ -32,8 +36,9 @@ export default {
     return {
       value1: '2016-02-11',
       value2: '',
-      value3: '请选择',
-      value4: '请选择'
+      value3: 'please select',
+      value4: 'please select',
+      value5: '请选择日期'
     }
   },
   methods: {

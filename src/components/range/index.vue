@@ -1,6 +1,6 @@
 <template>
   <div class="vux-range-input-box" style="width:180px;position:relative;margin-right:20px;">
-    <input class="vux-range-input" v-model="value">
+    <input class="vux-range-input" v-model="value" number>
   </div>
 </template>
 
@@ -14,11 +14,14 @@
       },
       value: {
         default: 0,
+        type: Number,
         twoWay: true
       },
       min: {
         default: 0
       },
+      minHTML: String,
+      maxHTML: String,
       max: {
         default: 100
       },
@@ -48,6 +51,8 @@
         start: _this.value,
         min: _this.min,
         max: _this.max,
+        minHTML: _this.minHTML,
+        maxHTML: _this.maxHTML,
         disable: _this.disabled,
         disabledOpacity: _this.disabledOpacity,
         callback: function () {
@@ -61,6 +66,11 @@
       const handleTop = (this.rangeHandleHeight - this.rangeBarHeight) / 2
       this.$el.querySelector('.range-handle').style.top = `-${handleTop}px`
       this.$el.querySelector('.range-bar').style.height = `${this.rangeBarHeight}px`
+    },
+    watch: {
+      value: function (val) {
+        this.range.setStart(val)
+      }
     },
     beforeDestroy () {
       // @todo

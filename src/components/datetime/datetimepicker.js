@@ -5,9 +5,9 @@ var MASK_TEMPLATE = '<div class="dp-mask"></div>';
 
 var TEMPLATE = '<div class="dp-container"> \
   <div class="dp-header"> \
-    <div class="dp-item dp-left" data-role="cancel">取消</div> \
+    <div class="dp-item dp-left" data-role="cancel">cancel</div> \
     <div class="dp-item dp-center"></div> \
-    <div class="dp-item dp-right" data-role="confirm">完成</div> \
+    <div class="dp-item dp-right" data-role="confirm">ok</div> \
   </div> \
   <div class="dp-content"> \
     <div class="dp-item" data-role="year"></div> \
@@ -44,17 +44,19 @@ var DEFAULT_CONFIG = {
   currentMonth: NOW.getMonth() + 1,
   minYear: 2000,
   maxYear: 2030,
-  yearRow: '{value}年',
-  monthRow: '{value}月',
-  dayRow: '{value}日',
-  hourRow: '{value}点',
-  minuteRow: '{value}分',
+  yearRow: '{value}',
+  monthRow: '{value}',
+  dayRow: '{value}',
+  hourRow: '{value}',
+  minuteRow: '{value}',
   format: 'YYYY-MM-DD',
   value: NOW.getFullYear() + '-' + (NOW.getMonth() + 1) + '-' + NOW.getDate(),
   onSelect: function () {},
   onConfirm: function () {},
   onShow: function () {},
-  onHide: function () {}
+  onHide: function () {},
+  confirmText: 'ok',
+  cancelText: 'cancel'
 };
 
 function each(obj, fn) {
@@ -104,7 +106,7 @@ function parseDate(format, value) {
   if (formatParts.length !== valueParts.length) {
     // throw 'Invalid format or value';
     // 当日期格式不对时，默认为当前日期
-    var date = formater(new Date(), format.replace('ii','mm'));
+    var date = formater(new Date(), format.toLowerCase());
     valueParts = date.split(/\D+/);
   }
 
@@ -181,13 +183,11 @@ function hideMask() {
 
 function DatetimePicker(config) {
   var self = this;
-
   self.config = {};
   self.value = config.value || '';
   each(DEFAULT_CONFIG, function (key, val) {
     self.config[key] = config[key] || val;
   });
-
 
   var trigger = self.config.trigger;
   if (trigger) {
@@ -197,7 +197,6 @@ function DatetimePicker(config) {
 
     $(trigger).click(function (e) {
       e.preventDefault();
-      // self.show(typeof output.value == 'undefined' ? output.innerHTML : output.value);
       self.show(self.value);
     });
   }
@@ -267,6 +266,17 @@ DatetimePicker.prototype = {
         });
 
       });
+
+      if(!self.renderText) {
+        if(self.config.confirmText) {
+          $(self.find('[data-role=confirm]')).text(self.config.confirmText)
+        }
+
+        if(self.config.cancelText) {
+          $(self.find('[data-role=cancel]')).text(self.config.cancelText)
+        }
+        self.renderText = true
+      }
 
       this.show(value)
 
@@ -398,16 +408,6 @@ DatetimePicker.prototype = {
     if (self.config.onConfirm.call(self, value) === false) {
       return;
     }
-
-    /**
-    if (output) {
-      if (typeof output.value == 'undefined') {
-        output.innerHTML = value;
-      } else {
-        output.value = value;
-      }
-    }
-    **/
 
     self.hide();
   }
