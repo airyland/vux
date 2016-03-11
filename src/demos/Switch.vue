@@ -1,9 +1,13 @@
 <template>
   <div>
-  	<group title="switch element">
+  	<group title="default">
   	  <boolean title="default setting"></boolean>
   	  <boolean title="default true" :value=true></boolean>
   	</group>
+    <group title="disabled">
+      <boolean title="default setting" disabled></boolean>
+      <boolean title="default true" :value=true disabled></boolean>
+    </group>
   </div>
 </template>
 
