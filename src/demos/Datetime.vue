@@ -16,6 +16,10 @@
     <datetime :value.sync="value4" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:II" @change="change" title="years after 2000"></datetime>
   </group>
 
+  <group title="specified template text in Chinese">
+    <datetime :value.sync="value5" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:II" @change="change" title="Chinese" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
+  </group>
+
 </div>
 </template>
 
@@ -33,7 +37,8 @@ export default {
       value1: '2016-02-11',
       value2: '',
       value3: 'please select',
-      value4: 'please select'
+      value4: 'please select',
+      value5: '请选择日期'
     }
   },
   methods: {

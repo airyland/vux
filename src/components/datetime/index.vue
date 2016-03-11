@@ -45,6 +45,34 @@ export default {
     },
     maxYear: {
       type: Number
+    },
+    confirmText: {
+      type: String,
+      default: 'ok'
+    },
+    cancelText: {
+      type: String,
+      default: 'cancel'
+    },
+    yearRow: {
+      type: String,
+      default: '{value}'
+    },
+    monthRow: {
+      type: String,
+      default: '{value}'
+    },
+    dayRow: {
+      type: String,
+      default: '{value}'
+    },
+    hourRow: {
+      type: String,
+      default: '{value}'
+    },
+    minuteRow: {
+      type: String,
+      default: '{value}'
     }
   },
   created () {
@@ -59,6 +87,13 @@ export default {
       format: _this.format,
       value: _this.value,
       output: '.vux-datetime-value',
+      confirmText: _this.confirmText,
+      cancelText: _this.cancelText,
+      yearRow: _this.yearRow,
+      monthRow: _this.monthRow,
+      dayRow: _this.dayRow,
+      hourRow: _this.hourRow,
+      minuteRow: _this.minuteRow,
       onConfirm: function (value) {
         _this.value = value
       }
