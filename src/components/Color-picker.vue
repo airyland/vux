@@ -1,13 +1,20 @@
 <template>
-  <div class="vux-color-picker" :class="{'vux-color-picker-flex': isFlex}">
-    <span v-for="color in colors" class="vux-color-item" :style="{borderRadius: width/2 + 'px',backgroundColor: color, width: width + 'px', height: width + 'px', marginRight: margin + 'px'}" @click="change(color)" :class="{'vux-color-white': color === '#fff' || color === '#fff', 'vux-color-picker-small': size === 'small', 'vux-color-picker-middle': size === 'middle'}">
-      <icon v-if="color === value" class="vux-color-checked" :style="{lineHeight: width + 'px'}" type="success_no_circle"></icon>
-    </span>
+  <div class="vux-color-picker">
+    <flexbox>
+      <flexbox-item v-for="color in colors" class="vux-color-box">
+        <span class="vux-color-item" :style="{borderRadius: width/2 + 'px',backgroundColor: color, width: width + 'px', height: width + 'px'}" @click="change(color)" :class="{'vux-color-white': color === '#fff' || color === '#fff', 'vux-color-picker-small': size === 'small', 'vux-color-picker-middle': size === 'middle'}">
+        <icon v-if="color === value" class="vux-color-checked" :style="{lineHeight: width + 'px'}" type="success_no_circle"></icon>
+        </span>
+      </flexbox-item>
+    </flexbox>
   </div>
 </template>
 
 <script>
 import Icon from './Icon'
+import Flexbox from './Flexbox'
+import FlexboxItem from './Flexbox-item'
+
 const sizeMap = {
   'large': 40,
   'middle': 30,
@@ -15,7 +22,9 @@ const sizeMap = {
 }
 export default {
   components: {
-    Icon
+    Icon,
+    Flexbox,
+    FlexboxItem
   },
   props: {
     colors: {
@@ -26,17 +35,9 @@ export default {
       type: String,
       default: 'large'
     },
-    margin: {
-      type: Number,
-      default: 8
-    },
     value: {
       type: String,
       twoWay: true
-    },
-    isFlex: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
@@ -54,6 +55,9 @@ export default {
 </script>
 
 <style>
+.vux-color-box {
+  text-align: center;
+}
 .vux-color-picker {
   font-size: 0;
 }

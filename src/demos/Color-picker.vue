@@ -1,20 +1,30 @@
 <template>
-  <div style="padding: 15px;">
-    <color-picker :colors="colors1" :value.sync="color1"></color-picker>
-    <br>
-    <color-picker :colors="colors1" :value.sync="color1" size="middle"></color-picker>
-    <br>
-    <color-picker :colors="colors1" :value.sync="color1" size="small"></color-picker>
-    <br>
-    <p>You pick color: {{color1}}</p>
+  <div>
+    <div style="padding: 15px;">
+      <color-picker :colors="colors1" :value.sync="color1"></color-picker>
+      <br>
+      <color-picker :colors="colors1" :value.sync="color1" size="middle"></color-picker>
+    </div>
+    <group title="as a cell's content">
+      <cell :title="'Color:' + color1">
+        <color-picker slot="value" :colors="colors1" :value.sync="color1" size="small"></color-picker>
+      </cell>
+    </group>
+    <group title="a cell without title">
+      <cell primary="right">
+        <color-picker slot="value" :colors="colors1" :value.sync="color1" size="middle"></color-picker>
+      </cell>
+    </group>
   </div>
 </template>
 
 <script>
-import { ColorPicker } from '../components/'
+import { ColorPicker, Group, Cell } from '../components/'
 export default {
   components: {
-    ColorPicker
+    ColorPicker,
+    Group,
+    Cell
   },
   data () {
     return {
