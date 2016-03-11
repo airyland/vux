@@ -7,7 +7,7 @@
         "milestone": "0.1.0(Production Ready)",
         "list": [
             {
-                "title": "address组件异步加载数据",
+                "title": "datetime、flexbox等挺多组件在手机火狐浏览器都有问题",
                 "state": "open"
             },
             {
