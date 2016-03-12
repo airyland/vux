@@ -24,7 +24,8 @@
     "validator": "^3.39.0",
     "vue-focus": "^0.1.1",
     "vue-lazyload": "^0.2.9",
-    "webp-support": "^1.0.2"
+    "webp-support": "^1.0.2",
+    "xscroll": "^3.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

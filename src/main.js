@@ -50,6 +50,7 @@ import Circle from './demos/Circle'
 import Countup from './demos/Countup'
 import ColorPicker from './demos/Color-picker'
 import Blur from './demos/Blur'
+import Scroller from './demos/Scroller'
 
 Vue.use(Router)
 
@@ -202,6 +203,9 @@ router.map({
   },
   '/component/blur': {
     component: Blur
+  },
+  '/component/scroller': {
+    component: Scroller
   }
 })
 

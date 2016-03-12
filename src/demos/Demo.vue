@@ -109,6 +109,9 @@
       <cell title="Blur" link="component/blur">
         <span class="demo-icon" slot="icon">&#xe640;</span>
       </cell>
+      <cell title="Scroller" link="component/scroller">
+        <span class="demo-icon" slot="icon">&#xe641;</span>
+      </cell>
     </group>
 
     <group title="优化" title-color="#04be02">
