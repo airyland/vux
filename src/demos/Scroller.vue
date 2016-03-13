@@ -1,7 +1,21 @@
 <template>
   <div>
-    <divider>A Horizontal Scroller</divider>
-    <scroller>
+    <divider>A Horizontal Scroller without Scrollbar</divider>
+    <scroller lock-y :scrollbar-x=false>
+      <div class="box1">
+        <div class="box1-item" v-for="i in 7"><span>{{' ' + i + ' '}}</span></div>
+      </div>
+    </scroller>
+
+    <divider>A Horizontal Scroller with Scrollbar</divider>
+    <scroller lock-y scrollbar-x>
+      <div class="box1">
+        <div class="box1-item" v-for="i in 7"><span>{{' ' + i + ' '}}</span></div>
+      </div>
+    </scroller>
+
+    <divider>A Horizontal Scroller without bounce effect</divider>
+    <scroller lock-y scrollbar-x :bounce=false>
       <div class="box1">
         <div class="box1-item" v-for="i in 7"><span>{{' ' + i + ' '}}</span></div>
       </div>

@@ -11,6 +11,34 @@ import XScroll from '../../../node_modules/xscroll/build/cmd/xscroll.js'
 
 export default {
   props: {
+    lockX: Boolean,
+    lockY: Boolean,
+    scrollbarX: Boolean,
+    scrollbarY: Boolean,
+    bounce: {
+      type: Boolean,
+      default: true
+    },
+    useOriginScroll: {
+      type: Boolean,
+      default: false
+    },
+    useTransition: {
+      type: Boolean,
+      default: true
+    },
+    preventDefault: {
+      type: Boolean,
+      default: true
+    },
+    boundryCheck: {
+      type: Boolean,
+      default: true
+    },
+    gpuAcceleration: {
+      type: Boolean,
+      default: true
+    }
   },
   ready () {
     const uuid = Math.random().toString(36).substring(3, 8)
@@ -28,10 +56,17 @@ export default {
     }
     this._xscroll = new XScroll({
       renderTo: `#vux-scroller-${uuid}`,
-      lockX: false,
-      lockY: true,
-      scrollbarX: false,
-      content: content
+      lockX: this.lockX,
+      lockY: this.lockY,
+      scrollbarX: this.scrollbarX,
+      scrollbarY: this.scrollbarY,
+      content: content,
+      bounce: this.bounce,
+      useOriginScroll: this.useOriginScroll,
+      useTransition: this.useTransition,
+      preventDefault: this.preventDefault,
+      boundryCheck: this.boundryCheck,
+      gpuAcceleration: this.gpuAcceleration
     })
     this._xscroll.render()
   },
