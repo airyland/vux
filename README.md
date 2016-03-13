@@ -13,6 +13,12 @@
   <a href="https://circleci.com/gh/airyland/vux">
     <img src="https://circleci.com/gh/airyland/vux.svg?style=svg" alt="">
   </a>
+  <a href="https://www.npmjs.com/package/vux">
+    <img src="https://img.shields.io/npm/v/vux.svg?style=flat-square" alt="">
+  </a>
+  <a href="https://www.npmjs.com/package/vux">
+    <img src="https://img.shields.io/npm/dm/vux.svg?style=flat-square" alt="">
+  </a>
   <a href="http://issuestats.com/github/airyland/vux">
     <img src="http://issuestats.com/github/airyland/vux/badge/issue" alt="">
   </a>
