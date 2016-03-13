@@ -9,8 +9,14 @@
   </a>
 </p>
 <p align="center">VUX = Vue + Weui + Components </p>
-
-[![Issue Stats](http://issuestats.com/github/airyland/vux/badge/issue)](http://issuestats.com/github/airyland/vux) [![Circle CI](https://circleci.com/gh/airyland/vux.svg?style=svg)](https://circleci.com/gh/airyland/vux)
+<p align="center">
+  <a href="https://circleci.com/gh/airyland/vux">
+    <img src="https://circleci.com/gh/airyland/vux.svg?style=svg" alt="">
+  </a>
+  <a href="http://issuestats.com/github/airyland/vux">
+    <img src="http://issuestats.com/github/airyland/vux/badge/issue" alt="">
+  </a>
+</p>
 
 ## Demo
 
