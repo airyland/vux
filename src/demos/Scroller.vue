@@ -20,6 +20,20 @@
         <div class="box1-item" v-for="i in 7"><span>{{' ' + i + ' '}}</span></div>
       </div>
     </scroller>
+
+    <divider>A Vertical Scroller</divider>
+    <scroller lock-x style="height:200px;">
+        <div class="box2">
+          <p v-for="i in 80">placeholder {{i}}</p>
+        </div>
+    </scroller>
+
+    <divider>A Vertical Scroller with scrollbar y</divider>
+    <scroller lock-x scrollbar-y style="height:200px;">
+        <div class="box2">
+          <p v-for="i in 80">placeholder {{i}}</p>
+        </div>
+    </scroller>
   </div>
 </template>
 
@@ -53,5 +67,9 @@ export default {
 }
 .box1-item:first-child {
   margin-left: 0;
+}
+.box2-wrap {
+  height: 300px;
+  overflow: hidden;
 }
 </style>
