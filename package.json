@@ -58,6 +58,7 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-spec-reporter": "0.0.23",
     "karma-webpack": "^1.7.0",
+    "less": "^2.6.1",
     "less-loader": "^2.2.2",
     "phantomjs": "^1.9.19",
     "rimraf": "^2.5.0",

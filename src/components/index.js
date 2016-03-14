@@ -41,6 +41,7 @@ import Circle from './Circle/'
 import Style from './Style'
 import ColorPicker from './Color-picker'
 import AddressChinaData from './address/list.json'
+import Divider from './divider/'
 
 const vux = {
   Radio,
@@ -85,7 +86,8 @@ const vux = {
   Circle,
   Style,
   ColorPicker,
-  AddressChinaData
+  AddressChinaData,
+  Divider
 }
 
 module.exports = vux
