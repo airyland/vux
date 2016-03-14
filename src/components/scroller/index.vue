@@ -8,6 +8,17 @@
 
 <script>
 import XScroll from '../../../node_modules/xscroll/build/cmd/xscroll.js'
+import Pulldown from '../../../node_modules/xscroll/build/cmd/plugins/pulldown'
+
+const pulldownDefaultConfig = {
+  content: 'Pull Down To Refresh',
+  height: 60,
+  autoRefresh: false,
+  downContent: 'Pull Down To Refresh',
+  upContent: 'Release To Refresh',
+  loadingContent: 'Loading...',
+  clsPrefix: 'xs-plugin-pulldown-'
+}
 
 export default {
   props: {
@@ -38,9 +49,23 @@ export default {
     gpuAcceleration: {
       type: Boolean,
       default: true
+    },
+    usePulldown: {
+      type: Boolean,
+      default: false
+    },
+    /**
+    * refer to: http://xscroll.github.io/node_modules/xscroll/doc/PullDown.html
+    */
+    pulldownConfig: {
+      type: Object
     }
   },
+  compiled () {
+    this.uuid = Math.random().toString(36).substring(3, 8)
+  },
   ready () {
+    const _this = this
     const uuid = Math.random().toString(36).substring(3, 8)
     this.$el.setAttribute('id', `vux-scroller-${uuid}`)
     let content = null
@@ -54,6 +79,7 @@ export default {
     if (!content) {
       throw new Error('no content is found')
     }
+
     this._xscroll = new XScroll({
       renderTo: `#vux-scroller-${uuid}`,
       lockX: this.lockX,
@@ -68,10 +94,30 @@ export default {
       boundryCheck: this.boundryCheck,
       gpuAcceleration: this.gpuAcceleration
     })
+
+    if (this.usePulldown) {
+      this.pulldown = new Pulldown(Object.assign(pulldownDefaultConfig, this.pulldownConfig))
+      this._xscroll.plug(this.pulldown)
+      _this.pulldown.on('loading', function (e) {
+        _this.$dispatch('pulldown:loading', _this.uuid)
+      })
+    }
     this._xscroll.render()
+  },
+  events: {
+    'pulldown:reset': function (uuid) {
+      const _this = this
+      if (uuid === _this.uuid) {
+        _this.pulldown.reset(function () {
+          // repaint
+          _this._xscroll.render()
+        })
+      }
+    }
   },
   beforeDestroy () {
     this._xscroll.destroy()
+    this.pulldown && this.pulldown.pluginDestructor()
   }
 }
 </script>

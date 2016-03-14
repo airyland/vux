@@ -34,6 +34,20 @@
           <p v-for="i in 80">placeholder {{i}}</p>
         </div>
     </scroller>
+
+    <divider>Pull Down to Refresh</divider>
+    <scroller lock-x scrollbar-y use-pulldown style="height:200px;" @pulldown:loading="load">
+        <div class="box2">
+          <p v-for="i in 80">placeholder {{i}}</p>
+        </div>
+    </scroller>
+
+    <divider>Chinese: 下拉刷新</divider>
+    <scroller lock-x scrollbar-y use-pulldown :pulldown-config={content:'下拉刷新',downContent:'下拉刷新',upContent:'释放刷新',loadingContent:'加载中'} style="height:200px;" @pulldown:loading="load">
+        <div class="box2">
+          <p v-for="i in 80">占位 {{i}}</p>
+        </div>
+    </scroller>
   </div>
 </template>
 
@@ -45,6 +59,14 @@ export default {
   components: {
     Scroller,
     Divider
+  },
+  methods: {
+    load: function (uuid) {
+      const _this = this
+      setTimeout(function () {
+        _this.$broadcast('pulldown:reset', uuid)
+      }, 3000)
+    }
   }
 }
 </script>
