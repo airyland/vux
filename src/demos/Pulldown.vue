@@ -1,40 +1,5 @@
 <template>
   <div>
-    <divider>A Horizontal Scroller without Scrollbar</divider>
-    <scroller lock-y :scrollbar-x=false>
-      <div class="box1">
-        <div class="box1-item" v-for="i in 7"><span>{{' ' + i + ' '}}</span></div>
-      </div>
-    </scroller>
-
-    <divider>A Horizontal Scroller with Scrollbar</divider>
-    <scroller lock-y scrollbar-x>
-      <div class="box1">
-        <div class="box1-item" v-for="i in 7"><span>{{' ' + i + ' '}}</span></div>
-      </div>
-    </scroller>
-
-    <divider>A Horizontal Scroller without bounce effect</divider>
-    <scroller lock-y scrollbar-x :bounce=false>
-      <div class="box1">
-        <div class="box1-item" v-for="i in 7"><span>{{' ' + i + ' '}}</span></div>
-      </div>
-    </scroller>
-
-    <divider>A Vertical Scroller</divider>
-    <scroller lock-x style="height:200px;">
-        <div class="box2">
-          <p v-for="i in 80">placeholder {{i}}</p>
-        </div>
-    </scroller>
-
-    <divider>A Vertical Scroller with scrollbar y</divider>
-    <scroller lock-x scrollbar-y style="height:200px;">
-        <div class="box2">
-          <p v-for="i in 80">placeholder {{i}}</p>
-        </div>
-    </scroller>
-
     <divider>Pull Down to Refresh</divider>
     <scroller lock-x scrollbar-y use-pulldown style="height:200px;" @pulldown:loading="load">
         <div class="box2">

@@ -2,13 +2,14 @@
   <div>
     <div class="xs-container">
       <slot></slot>
+      <slot name="pulldown"></slot>
     </div>
   </div>
 </template>
 
 <script>
-import XScroll from '../../../node_modules/xscroll/build/cmd/xscroll.js'
-import Pulldown from '../../../node_modules/xscroll/build/cmd/plugins/pulldown'
+import XScroll from '../../../node_modules/vux-xscroll/build/cmd/xscroll.js'
+import Pulldown from '../../../node_modules/vux-xscroll/build/cmd/plugins/pulldown'
 
 const pulldownDefaultConfig = {
   content: 'Pull Down To Refresh',
@@ -58,7 +59,15 @@ export default {
     * refer to: http://xscroll.github.io/node_modules/xscroll/doc/PullDown.html
     */
     pulldownConfig: {
-      type: Object
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    pulldownStatus: {
+      type: String,
+      default: 'default',
+      twoWay: true
     }
   },
   compiled () {
@@ -96,16 +105,27 @@ export default {
     })
 
     if (this.usePulldown) {
-      this.pulldown = new Pulldown(Object.assign(pulldownDefaultConfig, this.pulldownConfig))
+      // if use slot=pulldown
+      let container = this.$el.querySelector('div[slot="pulldown"]')
+      let config = Object.assign(pulldownDefaultConfig, this.pulldownConfig)
+      if (container) {
+        config.container = container
+      }
+      this.pulldown = new Pulldown(config)
       this._xscroll.plug(this.pulldown)
       _this.pulldown.on('loading', function (e) {
         _this.$dispatch('pulldown:loading', _this.uuid)
+      })
+      _this.pulldown.on('statuschange', function (val) {
+        _this.pulldownStatus = val.newVal
       })
     }
     this._xscroll.render()
   },
   events: {
     'pulldown:reset': function (uuid) {
+      // set pulldown status to default
+      this.pulldownStatus = 'default'
       const _this = this
       if (uuid === _this.uuid) {
         _this.pulldown.reset(function () {

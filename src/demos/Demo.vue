@@ -112,6 +112,9 @@
       <cell title="Scroller" link="component/scroller">
         <span class="demo-icon" slot="icon">&#xe641;</span>
       </cell>
+      <cell title="Pulldown" link="component/pulldown">
+        <span class="demo-icon" slot="icon">&#xe64f;</span>
+      </cell>
     </group>
 
     <group title="优化" title-color="#04be02">
