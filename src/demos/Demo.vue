@@ -158,6 +158,15 @@
 
 <script>
 import { Cell, Group } from '../components/'
+
+/**
+* fix firefox cell bottom border missing
+*/
+
+if (/firefox/i.test(navigator.userAgent)) {
+  document.querySelector('body').classList.add('firefox')
+}
+
 export default {
   components: {
     Cell,
@@ -201,5 +210,8 @@ body {
 }
 .weui_cells > a {
     color: #000;
+}
+.firefox .weui_cells:after {
+  transform-origin: 50% 50%;
 }
 </style>
