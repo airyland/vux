@@ -52,6 +52,7 @@ import ColorPicker from './demos/Color-picker'
 import Blur from './demos/Blur'
 import Scroller from './demos/Scroller'
 import Pulldown from './demos/Pulldown'
+import Pullup from './demos/Pullup'
 
 Vue.use(Router)
 
@@ -210,6 +211,9 @@ router.map({
   },
   '/component/pulldown': {
     component: Pulldown
+  },
+  '/component/pullup': {
+    component: Pullup
   }
 })
 

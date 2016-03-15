@@ -115,6 +115,9 @@
       <cell title="Pulldown" link="component/pulldown">
         <span class="demo-icon" slot="icon">&#xe64f;</span>
       </cell>
+      <cell title="Pullup" link="component/pullup">
+        <span class="demo-icon" slot="icon">&#xe650;</span>
+      </cell>
     </group>
 
     <group title="优化" title-color="#04be02">
