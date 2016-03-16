@@ -57,7 +57,7 @@ import Pullup from './demos/Pullup'
 Vue.use(Router)
 
 var router = new Router({
-  history: false, // use history=false when testing
+  history: /vux.li/.test(location.href), // use history=false when testing
   saveScrollPosition: true
 })
 
