@@ -109,11 +109,6 @@ export default {
   data () {
     return {
     }
-  },
-  watch: {
-    value (newVal) {
-      this.$dispatch('change', this.value)
-    }
   }
 }
 </script>
