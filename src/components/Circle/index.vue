@@ -5,7 +5,7 @@
       <path :d="pathString" stroke-linecap="round" :stroke="strokeColor" :stroke-width="strokeWidth" fill-opacity="0" :style="pathStyle"/>
     </svg>
     <div class="vux-circle-content"><slot></slot></div>
-  </path>
+  </div>
 </template>
 
 <script>
