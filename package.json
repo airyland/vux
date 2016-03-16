@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "0.0.92",
+  "version": "0.0.93",
   "description": "Mobile web UI based on Vue and Weui",
   "author": "airyland <airyland@qq.com>",
   "repository": {
