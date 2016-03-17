@@ -9,6 +9,8 @@
     <checklist title="set required=false and no min-error will show" :options="commonList" :value.sync="checklist004" :max=2 :required=false @change="change"></checklist>
 
     <checklist title="set random order" random-order :options="checklist005" :value.sync="checklist005Value" @change="change"></checklist>
+	
+	<checklist title="set object value" :options="checklist006" :value.sync="checklist006Value" :required=false></checklist>
   </div>
 </template>
 
@@ -32,7 +34,9 @@
         checklist003: [ 'China', 'Japan' ],
         checklist004: [],
         checklist005: [ '01', '02', '03' ],
-        checklist005Value: []
+        checklist005Value: [],
+        checklist006: [{ id: 1, value: 'Jack'}, { id: 2, value: 'Marry'}, { id: 3, value: 'Tom'}],
+        checklist006Value: [ '1']
       }
     }
   }
