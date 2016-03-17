@@ -54,12 +54,12 @@ import Scroller from './demos/Scroller'
 import Pulldown from './demos/Pulldown'
 import Pullup from './demos/Pullup'
 
-var FastClick = require('fastclick')
+const FastClick = require('fastclick')
 FastClick.attach(document.body)
 
 Vue.use(Router)
 
-var router = new Router({
+const router = new Router({
   history: /vux.li/.test(location.href), // use history=false when testing
   saveScrollPosition: true
 })

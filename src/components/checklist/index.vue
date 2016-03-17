@@ -101,9 +101,6 @@ export default {
     valid: function () {
       return this.value.length >= this.min && this.value.length <= this.max
     },
-    isObjectList: function () {
-      return typeof this.options[0] === 'object'
-    },
     error: function () {
       let err = []
       if (this.value.length < this.min) {

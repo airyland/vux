@@ -68,18 +68,9 @@ export default {
 
 ## Remove click delays
 
-include Fastclick
-
-`<script type="text/javascript" src="./static/vendors/fastclick.1.0.6.min.js"></script>`
-
-then 
-
 ``` js
-if ('addEventListener' in document) {
-  document.addEventListener('DOMContentLoaded', function() {
-      FastClick.attach(document.body);
-  }, false);
-}
+const FastClick = require('fastclick')
+FastClick.attach(document.body)
 ```
 
 ## Async loading Components
