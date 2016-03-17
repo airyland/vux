@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import XScroll from '../../../node_modules/vux-xscroll/build/cmd/xscroll.js'
-import Pulldown from '../../../node_modules/vux-xscroll/build/cmd/plugins/pulldown'
-import Pullup from '../../../node_modules/vux-xscroll/build/cmd/plugins/pullup'
+import XScroll from 'vux-xscroll/build/cmd/xscroll.js'
+import Pulldown from 'vux-xscroll/build/cmd/plugins/pulldown'
+import Pullup from 'vux-xscroll/build/cmd/plugins/pullup'
 
 const pulldownDefaultConfig = {
   content: 'Pull Down To Refresh',
