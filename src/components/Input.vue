@@ -20,12 +20,11 @@
 import Base from '../libs/base'
 import Icon from './Icon'
 import InlineDesc from './Inline-desc'
-import {
-  isEmail,
-  isIP,
-  isURL,
-  isMobilePhone
-} from 'validator'
+
+import isEmail from 'validator/lib/isEmail'
+import isIP from 'validator/lib/isIP'
+import isURL from 'validator/lib/isURL'
+import isMobilePhone from 'validator/lib/isMobilePhone'
 
 const validators = {
   'email': {

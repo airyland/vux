@@ -1,11 +1,13 @@
-import _ from 'lodash'
+import map from 'lodash.map'
+import find from 'lodash.find'
+
 export default function (value, list) {
-  let rs = _.map(value, function (one, index) {
-    return _.find(list, {
+  let rs = map(value, function (one, index) {
+    return find(list, {
       value: one
     })
   })
-  return _.map(rs, function (one) {
+  return map(rs, function (one) {
     return one.name
   }).join(' ')
 }

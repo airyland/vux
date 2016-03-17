@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { indexOf } from 'lodash'
+import indexOf from 'lodash.indexof'
 // gif https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/5.gif
 // whole https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/default218877.gif
 // http://res.wx.qq.com/mmbizwap/zh_CN/htmledition/images/icon/appmsg/emotion/icon_emotion_switch.2x278965.png

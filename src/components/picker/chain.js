@@ -1,4 +1,6 @@
 "use strict"
+import filter from 'lodash.filter'
+
 const Manager = class {
   constructor (data, count) {
     this.data = data
@@ -6,13 +8,13 @@ const Manager = class {
   }
 
   getChildren (value) {
-    return _.filter(this.data, function (one) {
+    return filter(this.data, function (one) {
       return one.parent === value
     })
   }
 
   getFirstColumn () {
-    return _.filter(this.data, function (one) {
+    return filter(this.data, function (one) {
       return !one.parent || one.parent === 0
     })
   }

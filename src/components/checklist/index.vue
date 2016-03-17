@@ -19,9 +19,7 @@ import Base from '../../libs/base'
 import Tip from '../Tip'
 import Icon from '../Icon'
 import { getValue, getKey } from './object-filter'
-import {
-  shuffle
-} from 'lodash'
+import shuffle from 'lodash.shuffle'
 
 export default {
   components: {

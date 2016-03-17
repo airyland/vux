@@ -1,8 +1,4 @@
 // fork from https://github.com/rookie125/mobile-calendar
-import {
-  assign
-}
-from 'lodash'
 import * as Eventor from '../../libs/eventor'
 var mNow = 0, // 当前相对月份
   yNow = 0 // 当前相对年份
@@ -38,7 +34,7 @@ function Calendar(option) {
     startJSON: {},
     format: 'yy-mm-dd'
   }
-  _this.o = assign(defaults, option)
+  _this.o = Object.assign(defaults, option)
   var oDate = new Date()
   _this.hours = false
   _this.hoursPast = false
