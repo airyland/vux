@@ -54,6 +54,9 @@ import Scroller from './demos/Scroller'
 import Pulldown from './demos/Pulldown'
 import Pullup from './demos/Pullup'
 
+var FastClick = require('fastclick')
+FastClick.attach(document.body)
+
 Vue.use(Router)
 
 var router = new Router({
@@ -220,7 +223,7 @@ router.map({
 router.beforeEach(function (transition) {
   if (/\/http/.test(transition.to.path)) {
     let url = transition.to.path.split('http')[1]
-    location.href = `http${url}`
+    window.location.href = `http${url}`
   } else {
     transition.next()
   }
