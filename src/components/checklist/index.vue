@@ -3,11 +3,11 @@
   <div class="weui_cells weui_cells_checkbox">
     <label class="weui_cell weui_check_label" for="checkbox_{{uuid}}_{{index}}" v-for="(index,one) in options">
       <div class="weui_cell_hd">
-        <input type="checkbox" class="weui_check" value="{{one}}" v-model="value" id="checkbox_{{uuid}}_{{index}}">
+        <input type="checkbox" class="weui_check" value="{{one | getKey}}" v-model="value" id="checkbox_{{uuid}}_{{index}}">
         <i class="weui_icon_checked"></i>
       </div>
       <div class="weui_cell_bd weui_cell_primary">
-        <p>{{one}}</p>
+        <p>{{one | getValue}}</p>
       </div>
     </label>
   </div>
@@ -15,9 +15,10 @@
 </template>
 
 <script>
-import Base from '../libs/base'
-import Tip from './Tip'
-import Icon from './Icon'
+import Base from '../../libs/base'
+import Tip from '../Tip'
+import Icon from '../Icon'
+import { getValue, getKey } from './object-filter'
 import {
   shuffle
 } from 'lodash'
@@ -26,6 +27,10 @@ export default {
   components: {
     Tip,
     Icon
+  },
+  filters: {
+    getValue,
+    getKey
   },
   mixins: [Base],
   props: {
@@ -63,6 +68,7 @@ export default {
     }
   },
   ready () {
+    this.handleChangeEvent = true
     let total = this.fill_mode ? (this.options.length + 1) : this.options.length
     if (this.max) {
       if (this.max > total) {
@@ -95,6 +101,9 @@ export default {
     valid: function () {
       return this.value.length >= this.min && this.value.length <= this.max
     },
+    isObjectList: function () {
+      return typeof this.options[0] === 'object'
+    },
     error: function () {
       let err = []
       if (this.value.length < this.min) {
@@ -108,6 +117,11 @@ export default {
   },
   data () {
     return {
+    }
+  },
+  watch: {
+    value: function (newVal) {
+      this.$dispatch('change', JSON.parse(JSON.stringify(newVal)))
     }
   }
 }
