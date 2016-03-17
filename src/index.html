@@ -7,7 +7,6 @@
     <title>Vux</title>{% for (var css in o.htmlWebpackPlugin.files.css) { %}
     <link href=".{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">{% } %}
     <script type="text/javascript" src="./static/vendors/zepto.1.1.4.min.js"></script>
-    <script type="text/javascript" src="./static/vendors/fastclick.1.0.6.min.js"></script>
   </head>
   <body>
     <div id="app"></div>{% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
