@@ -10,15 +10,7 @@
     <script type="text/javascript" src="./static/vendors/fastclick.1.0.6.min.js"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <app></app>{% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+    <div id="app"></div>{% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
     <script src=".{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>{% } %}
-    <script type="text/javascript">
-      if ('addEventListener' in document) {
-        document.addEventListener('DOMContentLoaded', function() {
-            FastClick.attach(document.body);
-        }, false);
-      }
-    </script>
   </body>
 </html>
