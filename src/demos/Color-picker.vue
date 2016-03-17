@@ -20,6 +20,7 @@
 
 <script>
 import { ColorPicker, Group, Cell } from '../components/'
+
 export default {
   components: {
     ColorPicker,

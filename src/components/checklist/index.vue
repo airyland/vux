@@ -16,8 +16,8 @@
 
 <script>
 import Base from '../../libs/base'
-import Tip from '../Tip'
-import Icon from '../Icon'
+import Tip from '../tip/'
+import Icon from '../icon/'
 import { getValue, getKey } from './object-filter'
 import shuffle from 'lodash.shuffle'
 

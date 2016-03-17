@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Base from '../libs/base'
+import Base from '../../libs/base'
 
 export default {
   mixins: [Base],

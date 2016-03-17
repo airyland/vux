@@ -92,25 +92,26 @@
 </template>
 
 <script>
-  import { Tab, TabItem, Sticky, Divider } from '../components/'
-  export default {
-    components: {
-      Tab,
-      TabItem,
-      Sticky,
-      Divider
-    },
-    data () {
-      return {
-        demo1: '未发货',
-        list2: ['精选', '美食', '电影', '酒店', '外卖'],
-        demo5: '未发货',
-        demo2: '美食',
-        list3: ['收到的消息', '发出的消息'],
-        demo3: '收到的消息',
-        list4: ['正在正映', '即将上映'],
-        demo4: '即将上映'
-      }
+import { Tab, TabItem, Sticky, Divider } from '../components/'
+
+export default {
+  components: {
+    Tab,
+    TabItem,
+    Sticky,
+    Divider
+  },
+  data () {
+    return {
+      demo1: '未发货',
+      list2: ['精选', '美食', '电影', '酒店', '外卖'],
+      demo5: '未发货',
+      demo2: '美食',
+      list3: ['收到的消息', '发出的消息'],
+      demo3: '收到的消息',
+      list4: ['正在正映', '即将上映'],
+      demo4: '即将上映'
     }
   }
+}
 </script>

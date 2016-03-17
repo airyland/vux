@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import Base from '../libs/base'
-import GroupTitle from './Group-title'
+import Base from '../../libs/base'
+import GroupTitle from '../group-title/'
+
 export default {
   minxins: [Base],
   components: {

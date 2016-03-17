@@ -9,6 +9,7 @@
 
 <script>
 import { Loading, Group, Switch } from '../components/'
+
 export default {
   components: {
     Loading,

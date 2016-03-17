@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import Shake from '../components/Shake'
+import { Shake } from '../components/'
+
 export default {
   components: {
     Shake

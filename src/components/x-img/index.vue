@@ -5,7 +5,7 @@
 <script>
 import Blazy from 'blazy'
 import webpSupport from 'webp-support'
-import Base from '../libs/base'
+import Base from '../../libs/base'
 
 export default {
   mixins: [Base],

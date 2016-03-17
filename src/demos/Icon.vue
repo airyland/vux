@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import Box from '../components/Box'
-import Icon from '../components/Icon'
+import { Box, Icon } from '../components/'
+
 export default {
   components: {
     Box,

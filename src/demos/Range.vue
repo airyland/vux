@@ -58,6 +58,7 @@
 
 <script>
 import { Range, Group, GroupTitle, Cell } from '../components/'
+
 export default {
   components: {
     Range,

@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import Base from '../libs/base'
-import Icon from './Icon'
-import InlineDesc from './Inline-desc'
+import Base from '../../libs/base'
+import Icon from '../icon/'
+import InlineDesc from '../inline-desc/'
 
 import isEmail from 'validator/lib/isEmail'
 import isIP from 'validator/lib/isIP'

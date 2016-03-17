@@ -53,6 +53,7 @@
 
 <script>
 import { Rater, Group, Cell, Range } from '../components/'
+
 export default {
   components: {
     Rater,

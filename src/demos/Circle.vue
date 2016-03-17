@@ -26,9 +26,8 @@
 </template>
 
 <script>
-import Circle from '../components/Circle/'
-import Range from '../components/range'
-import Icon from '../components/Icon'
+import { Circle, Range, Icon } from '../components/'
+
 export default {
   ready () {
     setInterval(this.update2, 2000)

@@ -15,29 +15,30 @@
 </template>
 
 <script>
-  import { Group, Checklist } from '../components/'
-  export default {
-    components: {
-      Group,
-      Checklist
-    },
-    methods: {
-      change: function (val) {
-        console.log('change', val)
-      }
-    },
-    data: function () {
-      return {
-        commonList: [ 'China', 'Japan', 'America' ],
-        checklist001: [],
-        checklist002: [ 'China', 'Japan' ],
-        checklist003: [ 'China', 'Japan' ],
-        checklist004: [],
-        checklist005: [ '01', '02', '03' ],
-        checklist005Value: [],
-        objectList: [{key: '1', value: '001 value'}, {key: '2', value: '002 value'}, {key: '3', value: '003 value'}],
-        objectListValue: ['1', '2']
-      }
+import { Group, Checklist } from '../components/'
+
+export default {
+  components: {
+    Group,
+    Checklist
+  },
+  methods: {
+    change: function (val) {
+      console.log('change', val)
+    }
+  },
+  data: function () {
+    return {
+      commonList: [ 'China', 'Japan', 'America' ],
+      checklist001: [],
+      checklist002: [ 'China', 'Japan' ],
+      checklist003: [ 'China', 'Japan' ],
+      checklist004: [],
+      checklist005: [ '01', '02', '03' ],
+      checklist005Value: [],
+      objectList: [{key: '1', value: '001 value'}, {key: '2', value: '002 value'}, {key: '3', value: '003 value'}],
+      objectListValue: ['1', '2']
     }
   }
+}
 </script>

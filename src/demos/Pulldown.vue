@@ -34,9 +34,7 @@
 </template>
 
 <script>
-import Scroller from '../components/scroller/'
-import Divider from '../components/divider/'
-import Spinner from '../components/spinner/'
+import { Scroller, Divider, Spinner } from '../components/scroller/'
 
 export default {
   components: {

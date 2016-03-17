@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import support from './flexbox/support'
+import support from './support'
 
 export default {
   created () {

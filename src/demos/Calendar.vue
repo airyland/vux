@@ -21,6 +21,7 @@
 
 <script>
 import { Group, Calendar, Cell } from '../components/'
+
 export default {
   components: {
     Calendar,

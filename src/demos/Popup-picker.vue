@@ -11,6 +11,7 @@
 
 <script>
 import { PopupPicker, Group, Picker } from '../components/'
+
 export default {
   components: {
     PopupPicker,

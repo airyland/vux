@@ -11,7 +11,8 @@
 </template>
 
 <script>
-import InlineDesc from './Inline-desc'
+import InlineDesc from '../inline-desc/'
+
 export default {
   components: {
     InlineDesc

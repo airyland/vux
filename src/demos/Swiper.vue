@@ -33,11 +33,8 @@
 </template>
 
 <script>
-import {
-  Swiper,
-  GroupTitle,
-  SwiperItem
-} from '../components/'
+import { Swiper, GroupTitle, SwiperItem} from '../components/'
+
 export default {
   components: {
     Swiper,

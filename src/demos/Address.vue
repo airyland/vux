@@ -9,6 +9,7 @@
 
 <script>
 import { Group, Address, AddressChinaData } from '../components/'
+
 export default {
   components: {
     Group,

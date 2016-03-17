@@ -10,9 +10,9 @@
 
 <script>
 import Scroller from './scroller'
-import Flexbox from '../Flexbox'
-import FlexboxItem from '../Flexbox-item'
+import { Flexbox, FlexboxItem } from '../flexbox/'
 import Manager from './chain'
+
 export default {
   components: {
     Flexbox,
