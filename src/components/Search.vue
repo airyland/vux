@@ -5,7 +5,7 @@
       <div class="vux-search-mask" @click="touch" v-show="!isFixed"></div>
       <div class="weui_search_inner">
         <i class="weui_icon_search"></i>
-        <input type="text" class="weui_search_input" id="search_input" placeholder="{{placeholder}}" autocomplete="off" required v-model="value" v-focus="isFocus" v-el:input/>
+        <input type="text" class="weui_search_input" id="search_input" placeholder="{{placeholder}}" autocomplete="off" required v-model="value" v-el:input/>
         <a href="javascript:" class="weui_icon_clear" id="search_clear" @click="clear"></a>
       </div>
       <label for="search_input" class="weui_search_text" id="search_text">
@@ -26,14 +26,7 @@
 </template>
 
 <script>
-import {
-  focus
-} from 'vue-focus'
-
 export default {
-  directives: {
-    focus
-  },
   props: {
     placeholder: {
       type: String,
@@ -63,6 +56,7 @@ export default {
     clear: function () {
       this.value = ''
       this.isFocus = true
+      this.setFocus()
     },
     cancel: function () {
       this.value = ''
@@ -79,6 +73,9 @@ export default {
       if (this.autoFixed) {
         this.isFixed = true
       }
+    },
+    setFocus: function () {
+      this.$els.input.focus()
     }
   },
   data () {
@@ -90,10 +87,10 @@ export default {
   },
   watch: {
     isFixed: function (val) {
-      var _this = this
       if (val === true) {
         this.$el.classList.add('vux-search-fixed')
-        _this.$els.input.focus()
+        this.setFocus()
+        console.log('set focus')
         this.isFocus = true
       } else {
         this.$el.classList.remove('vux-search-fixed')

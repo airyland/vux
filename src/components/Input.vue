@@ -5,7 +5,7 @@
     	<inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
     <div class="weui_cell_bd weui_cell_primary">
-      <input class="weui_input" :type="type" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur" v-focus="focus"/>
+      <input class="weui_input" :type="type" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur" v-el:input/>
     </div>
     <div class="weui_cell_ft">
       <icon type="clear" v-show="showClear && value" @click="clear"></icon>
@@ -17,10 +17,6 @@
 </template>
 
 <script>
-import {
-  focus,
-  focusAuto
-} from 'vue-focus'
 import Base from '../libs/base'
 import Icon from './Icon'
 import InlineDesc from './Inline-desc'
@@ -30,6 +26,7 @@ import {
   isURL,
   isMobilePhone
 } from 'validator'
+
 const validators = {
   'email': {
     fn: isEmail,
@@ -64,10 +61,6 @@ export default {
     if (this.equalWith) {
       this.showClear = false
     }
-  },
-  directives: {
-    focusAuto: focusAuto,
-    focus: focus
   },
   mixins: [Base],
   components: {
@@ -211,6 +204,11 @@ export default {
     return data
   },
   watch: {
+    focus: function (newVal) {
+      if (focus) {
+        this.$els.input.focus()
+      }
+    },
     valid: function () {
       this.getError()
     },
