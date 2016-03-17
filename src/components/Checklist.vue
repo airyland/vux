@@ -3,11 +3,11 @@
   <div class="weui_cells weui_cells_checkbox">
     <label class="weui_cell weui_check_label" for="checkbox_{{uuid}}_{{index}}" v-for="(index,one) in options">
       <div class="weui_cell_hd">
-        <input type="checkbox" class="weui_check" value="{{one}}" v-model="value" id="checkbox_{{uuid}}_{{index}}">
+        <input type="checkbox" class="weui_check" value="{{one | parseKey 'id'}}" v-model="value" id="checkbox_{{uuid}}_{{index}}">
         <i class="weui_icon_checked"></i>
       </div>
       <div class="weui_cell_bd weui_cell_primary">
-        <p>{{one}}</p>
+        <p>{{one | parseKey 'value'}}</p>
       </div>
     </label>
   </div>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import Base from '../libs/base'
 import Tip from './Tip'
 import Icon from './Icon'
@@ -22,6 +23,13 @@ import {
   shuffle
 } from 'lodash'
 
+Vue.filter('parseKey', (val, key) => {
+  if (typeof val === 'object') {
+    return val[key]
+  } else {
+    return val
+  }
+})
 export default {
   components: {
     Tip,
