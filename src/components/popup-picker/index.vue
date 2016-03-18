@@ -1,5 +1,5 @@
 <template>
-  <cell :title="title" primary="right">
+  <cell :title="title" primary="content">
     <span class="vux-popup-picker-value" slot="value" @click="show=true" v-if="!showName">{{value | array2string}}</span>
     <span class="vux-popup-picker-value" slot="value" @click="show=true" v-else>{{value | value2name data}}</span>
   </cell>

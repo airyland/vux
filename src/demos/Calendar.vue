@@ -1,18 +1,18 @@
 <template>
   <div>
     <group title="English">
-      <cell title="Default" primary="right">
+      <cell title="Default" primary="content">
         <calendar slot="value" :value.sync="demo1"></calendar>
       </cell>
-      <cell title="select hours" primary="right">
+      <cell title="select hours" primary="content">
         <calendar slot="value" :value.sync="demo2" hours></calendar>
       </cell>
-      <cell title="disable past date" primary="right">
+      <cell title="disable past date" primary="content">
         <calendar slot="value" :value.sync="demo3" disable-past></calendar>
       </cell>
     </group>
     <group title="中文">
-      <cell title="中文星期" primary="right">
+      <cell title="中文星期" primary="content">
         <calendar slot="value" :value.sync="demo4" :date-list=['日','一','二','三','四','五','六'] disable-past></calendar>
       </cell>
     </group>

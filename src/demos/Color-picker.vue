@@ -11,7 +11,7 @@
       </cell>
     </group>
     <group title="a cell without title">
-      <cell primary="right">
+      <cell primary="content">
         <color-picker slot="value" :colors="colors1" :value.sync="color1" size="middle"></color-picker>
       </cell>
     </group>

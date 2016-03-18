@@ -3,14 +3,14 @@
     <div class="weui_cell_hd">
       <slot name="icon"></slot>
     </div>
-  	<div class="weui_cell_bd" :class="{'weui_cell_primary':primary==='left'}">
+  	<div class="weui_cell_bd" :class="{'weui_cell_primary':primary==='title'}">
     	<p>
         {{title}}
         <slot name="after-title"></slot>
       </p>
     	<inline-desc>{{inlineDesc}}</inline-desc>
   	</div>
-  	<div class="weui_cell_ft" :class="{'weui_cell_primary':primary==='right'}">
+  	<div class="weui_cell_ft" :class="{'weui_cell_primary':primary==='content'}">
       {{{value}}}
       <slot name="value"></slot>
     </div>
@@ -19,11 +19,11 @@
     <div class="weui_cell_hd">
       <slot name="icon"></slot>
     </div>
-    <div class="weui_cell_bd" :class="{'weui_cell_primary':primary==='left'}">
+    <div class="weui_cell_bd" :class="{'weui_cell_primary':primary==='title'}">
       <p>{{title}}</p>
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
-    <div class="weui_cell_ft with_arrow" :class="{'weui_cell_primary':primary==='right'}">
+    <div class="weui_cell_ft with_arrow" :class="{'weui_cell_primary':primary==='content'}">
       {{{value}}}
       <slot name="value"></slot>
     </div>
@@ -57,7 +57,7 @@ export default {
     },
     primary: {
       type: String,
-      default: 'left'
+      default: 'title'
     }
   },
   data () {
