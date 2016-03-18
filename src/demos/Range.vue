@@ -53,6 +53,15 @@
       </cell>
     </group>
 
+    <group title="two way binding">
+      <cell title="Default" :inline-desc="'value: '+data12" primary="content">
+        <range slot="value" :value.sync="data12"></range>
+      </cell>
+      <cell title="Default" :inline-desc="'value: '+data12" primary="content">
+        <range slot="value" :value.sync="data12"></range>
+      </cell>
+    </group>
+
   </div>
 </template>
 
