@@ -5,7 +5,8 @@
 </template>
 
 <script>
-  const Powerange = require('./powerange')
+  const Powerange = require('./range/lib/powerange')
+  console.log(Powerange)
   export default {
     props: {
       decimal: {

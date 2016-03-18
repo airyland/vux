@@ -1,0 +1,18 @@
+{
+  "name": "percentage-calc",
+  "description": "Make percentage calculations with ease",
+  "version": "0.0.1",
+  "keywords": [
+    "calculate",
+    "percentage"
+  ],
+  "license": "MIT",
+  "main": "percentage-calc.js",
+  "scripts": [
+    "percentage-calc.js"
+  ],
+  "dependencies": {},
+  "development": {},
+  "repository": "abpetkov/percentage-calc",
+  "resolved": "9afec7abc0391a3d2e5e0f83fdea17a065c3a0ff"
+}

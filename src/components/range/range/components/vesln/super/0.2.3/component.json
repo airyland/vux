@@ -1,0 +1,17 @@
+{
+  "name": "super",
+  "description": "Extend, inherit and clone",
+  "version": "0.2.3",
+  "license": "MIT",
+  "main": "lib/super.js",
+  "scripts": [
+    "lib/super.js"
+  ],
+  "development": {
+    "dependencies": {
+      "chaijs/chai": "*"
+    }
+  },
+  "repository": "vesln/super",
+  "resolved": "7facc3554dc8e0a42e92a246847c53dd0c9a2b83"
+}
