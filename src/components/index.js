@@ -47,6 +47,7 @@ import Blur from './blur/'
 import Countup from './countup/'
 import Scroller from './scroller/'
 import Shake from './shake/'
+import WechatEmotion from './wechat-emotion/'
 
 const vux = {
   Radio,
@@ -97,7 +98,8 @@ const vux = {
   Blur,
   Countup,
   Scroller,
-  Shake
+  Shake,
+  WechatEmotion
 }
 
 module.exports = vux
