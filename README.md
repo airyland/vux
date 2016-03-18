@@ -99,6 +99,9 @@ npm run dev
 # build for production with minification
 npm run build
 
+# build every single component to /components
+npm run xbuild
+
 # run unit tests
 npm test
 ```
