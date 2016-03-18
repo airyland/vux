@@ -4,15 +4,15 @@
  */
 
 var mouse = require('./lib/mouse')
-  , events = require('./lib/events')
-  , classes = require('./lib/classes')
-  , percentage = require('./lib/percentage-calc');
+var events = require('./lib/events')
+var classes = require('./lib/classes')
+var percentage = require('./lib/percentage-calc')
 
 /**
  * Expose `Powerange`.
  */
 
-module.exports = Powerange;
+module.exports = Powerange
 
 /**
  * Create Powerange object.
@@ -23,14 +23,14 @@ module.exports = Powerange;
  * @api public
  */
 
-function Powerange(element, options) {
-  if (!(this instanceof Powerange)) return new Powerange(element, options);
+function Powerange (element, options) {
+  if (!(this instanceof Powerange)) return new Powerange(element, options)
 
-  this.element = element;
-  this.options = options || {};
-  this.slider = this.create('span', 'range-bar');
+  this.element = element
+  this.options = options || {}
+  this.slider = this.create('span', 'range-bar')
 
-  if (this.element !== null && this.element.type === 'text') this.init();
+  if (this.element !== null && this.element.type === 'text') this.init()
 }
 
 /**
@@ -40,14 +40,14 @@ function Powerange(element, options) {
  */
 
 Powerange.prototype.bindEvents = function () {
-  this.handle = this.slider.querySelector('.range-handle');
-  this.touch = events(this.handle, this);
-  this.touch.bind('touchstart', 'onmousedown');
-  this.touch.bind('touchmove', 'onmousemove');
-  this.touch.bind('touchend', 'onmouseup');
-  this.mouse = mouse(this.handle, this);
-  this.mouse.bind();
-};
+  this.handle = this.slider.querySelector('.range-handle')
+  this.touch = events(this.handle, this)
+  this.touch.bind('touchstart', 'onmousedown')
+  this.touch.bind('touchmove', 'onmousemove')
+  this.touch.bind('touchend', 'onmouseup')
+  this.mouse = mouse(this.handle, this)
+  this.mouse.bind()
+}
 
 /**
  * Hide the target element.
@@ -55,9 +55,9 @@ Powerange.prototype.bindEvents = function () {
  * @api private
  */
 
-Powerange.prototype.hide = function() {
-  this.element.style.display = 'none';
-};
+Powerange.prototype.hide = function () {
+  this.element.style.display = 'none'
+}
 
 /**
  * Append the target after the element.
@@ -65,10 +65,10 @@ Powerange.prototype.hide = function() {
  * @api private
  */
 
-Powerange.prototype.append = function() {
-  var slider = this.generate();
-  this.insertAfter(this.element, slider);
-};
+Powerange.prototype.append = function () {
+  var slider = this.generate()
+  this.insertAfter(this.element, slider)
+}
 
 /**
  * Generate the appropriate type of slider.
@@ -77,35 +77,35 @@ Powerange.prototype.append = function() {
  * @api private
  */
 
-Powerange.prototype.generate = function() {
+Powerange.prototype.generate = function () {
   var elems = {
-      'handle': {
-          'type': 'span'
-        , 'selector': 'range-handle'
-      }
-    , 'min': {
-          'type': 'span'
-        , 'selector': 'range-min'
-      }
-    , 'max': {
-          'type': 'span'
-        , 'selector': 'range-max'
-      }
-    , 'quantity': {
-          'type': 'span'
-        , 'selector': 'range-quantity'
-      }
-  };
-
-  for (var key in elems) {
-    if (elems.hasOwnProperty(key)) {
-      var temp = this.create(elems[key].type, elems[key].selector);
-      this.slider.appendChild(temp);
+    'handle': {
+      'type': 'span',
+      'selector': 'range-handle'
+    },
+    'min': {
+      'type': 'span',
+      'selector': 'range-min'
+    },
+    'max': {
+      'type': 'span',
+      'selector': 'range-max'
+    },
+    'quantity': {
+      'type': 'span',
+      'selector': 'range-quantity'
     }
   }
 
-  return this.slider;
-};
+  for (var key in elems) {
+    if (elems.hasOwnProperty(key)) {
+      var temp = this.create(elems[key].type, elems[key].selector)
+      this.slider.appendChild(temp)
+    }
+  }
+
+  return this.slider
+}
 
 /**
  * Create HTML element.
@@ -116,12 +116,12 @@ Powerange.prototype.generate = function() {
  * @api private
  */
 
-Powerange.prototype.create = function(type, name) {
-  var elem = document.createElement(type);
-  elem.className = name;
+Powerange.prototype.create = function (type, name) {
+  var elem = document.createElement(type)
+  elem.className = name
 
-  return elem;
-};
+  return elem
+}
 
 /**
  * Insert element after another element.
@@ -131,9 +131,9 @@ Powerange.prototype.create = function(type, name) {
  * @api private
  */
 
-Powerange.prototype.insertAfter = function(reference, target) {
-  reference.parentNode.insertBefore(target, reference.nextSibling);
-};
+Powerange.prototype.insertAfter = function (reference, target) {
+  reference.parentNode.insertBefore(target, reference.nextSibling)
+}
 
 /**
  * Add an additional class for extra customization.
@@ -142,9 +142,9 @@ Powerange.prototype.insertAfter = function(reference, target) {
  * @api private
  */
 
-Powerange.prototype.extraClass = function(klass) {
-  if (this.options.klass) classes(this.slider).add(klass);
-};
+Powerange.prototype.extraClass = function (klass) {
+  if (this.options.klass) classes(this.slider).add(klass)
+}
 
 /**
  * Set min and max values.
@@ -154,12 +154,12 @@ Powerange.prototype.extraClass = function(klass) {
  * @api private
  */
 
-Powerange.prototype.setRange = function(min, max) {
+Powerange.prototype.setRange = function (min, max) {
   if (typeof min === 'number' && typeof max === 'number' && !this.options.hideRange) {
-    this.slider.querySelector('.range-min').innerHTML = min;
-    this.slider.querySelector('.range-max').innerHTML = max;
+    this.slider.querySelector('.range-min').innerHTML = this.options.minHTML || min
+    this.slider.querySelector('.range-max').innerHTML = this.options.maxHTML || max
   }
-};
+}
 
 /**
  * Set slider current value.
@@ -171,16 +171,16 @@ Powerange.prototype.setRange = function(min, max) {
 
 Powerange.prototype.setValue = function (offset, size) {
   var part = percentage.from(parseFloat(offset), size)
-    , value = percentage.of(part, this.options.max - this.options.min) + this.options.min
-    , changed = false;
+  var value = percentage.of(part, this.options.max - this.options.min) + this.options.min
+  var changed = false
 
-  value = (this.options.decimal) ? (Math.round(value * 100) / 100) : Math.round(value);
-  changed = (this.element.value != value) ? true : false;
+  value = (this.options.decimal) ? (Math.round(value * 100) / 100) : Math.round(value)
+  changed = this.element.value !== value
 
-  this.element.value = value;
-  this.options.callback();
-  if (changed) this.changeEvent();
-};
+  this.element.value = value
+  this.options.callback()
+  if (changed) this.changeEvent()
+}
 
 /**
  * Set step.
@@ -191,20 +191,20 @@ Powerange.prototype.setValue = function (offset, size) {
  * @api private
  */
 
-Powerange.prototype.step = function(sliderSize, handleSize) {
+Powerange.prototype.step = function (sliderSize, handleSize) {
   var dimension = sliderSize - handleSize
-    , part = percentage.from(this.checkStep(this.options.step), this.options.max - this.options.min)
-    , interval = percentage.of(part, dimension)
-    , steps = [];
+  var part = percentage.from(this.checkStep(this.options.step), this.options.max - this.options.min)
+  var interval = percentage.of(part, dimension)
+  var steps = []
 
   for (var i = 0; i <= dimension; i += interval) {
-    steps.push(i);
+    steps.push(i)
   }
 
-  this.steps = steps;
+  this.steps = steps
 
-  return this.steps;
-};
+  return this.steps
+}
 
 /**
  * Check values.
@@ -213,11 +213,11 @@ Powerange.prototype.step = function(sliderSize, handleSize) {
  * @api private
  */
 
-Powerange.prototype.checkValues = function(start) {
-  if (start < this.options.min) this.options.start = this.options.min;
-  if (start > this.options.max) this.options.start = this.options.max;
-  if (this.options.min >= this.options.max) this.options.min = this.options.max;
-};
+Powerange.prototype.checkValues = function (start) {
+  if (start < this.options.min) this.options.start = this.options.min
+  if (start > this.options.max) this.options.start = this.options.max
+  if (this.options.min >= this.options.max) this.options.min = this.options.max
+}
 
 /**
  * Make sure `step` is positive.
@@ -227,11 +227,11 @@ Powerange.prototype.checkValues = function(start) {
  * @api private
  */
 
-Powerange.prototype.checkStep = function(value) {
-  if (value < 0) value = Math.abs(value);
-  this.options.step = value;
-  return this.options.step;
-};
+Powerange.prototype.checkStep = function (value) {
+  if (value < 0) value = Math.abs(value)
+  this.options.step = value
+  return this.options.step
+}
 
 /**
  * Disable range slider.
@@ -239,14 +239,14 @@ Powerange.prototype.checkStep = function(value) {
  * @api private
  */
 
-Powerange.prototype.disable = function() {
-  if (this.options.min == this.options.max || this.options.min > this.options.max || this.options.disable) {
-    this.mouse.unbind();
-    this.touch.unbind();
-    this.slider.style.opacity = this.options.disableOpacity;
-    classes(this.handle).add('range-disabled');
+Powerange.prototype.disable = function () {
+  if (this.options.min === this.options.max || this.options.min > this.options.max || this.options.disable) {
+    this.mouse.unbind()
+    this.touch.unbind()
+    this.slider.style.opacity = this.options.disableOpacity
+    classes(this.handle).add('range-disabled')
   }
-};
+}
 
 /**
  * Make element unselectable.
@@ -256,13 +256,13 @@ Powerange.prototype.disable = function() {
  * @api private
  */
 
-Powerange.prototype.unselectable = function(element, set) {
+Powerange.prototype.unselectable = function (element, set) {
   if (!classes(this.slider).has('unselectable') && set === true) {
-    classes(this.slider).add('unselectable');
+    classes(this.slider).add('unselectable')
   } else {
-    classes(this.slider).remove('unselectable');
+    classes(this.slider).remove('unselectable')
   }
-};
+}
 
 /**
  * Handle the onchange event.
@@ -271,15 +271,15 @@ Powerange.prototype.unselectable = function(element, set) {
  * @api private
  */
 
-Powerange.prototype.changeEvent = function(state) {
+Powerange.prototype.changeEvent = function (state) {
   if (typeof Event === 'function' || !document.fireEvent) {
-    var event = document.createEvent('HTMLEvents');
-    event.initEvent('change', false, true);
-    this.element.dispatchEvent(event);
+    var event = document.createEvent('HTMLEvents')
+    event.initEvent('change', false, true)
+    this.element.dispatchEvent(event)
   } else {
-    this.element.fireEvent('onchange');
+    this.element.fireEvent('onchange')
   }
-};
+}
 
 /**
  * Initialize main class.
@@ -287,12 +287,12 @@ Powerange.prototype.changeEvent = function(state) {
  * @api private
  */
 
-Powerange.prototype.init = function() {
-  this.hide();
-  this.append();
-  this.bindEvents();
-  this.extraClass(this.options.klass);
-  this.checkValues(this.options.start);
-  this.setRange(this.options.min, this.options.max);
-  this.disable();
-};
+Powerange.prototype.init = function () {
+  this.hide()
+  this.append()
+  this.bindEvents()
+  this.extraClass(this.options.klass)
+  this.checkValues(this.options.start)
+  this.setRange(this.options.min, this.options.max)
+  this.disable()
+}

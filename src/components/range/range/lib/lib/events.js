@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -22,7 +21,7 @@ module.exports = Events
  * @api public
  */
 
-function Events(el, obj) {
+function Events (el, obj) {
   if (!(this instanceof Events)) return new Events(el, obj)
   if (!el) throw new Error('element required')
   if (!obj) throw new Error('object required')
@@ -71,11 +70,11 @@ Events.prototype.bind = function (event, method) {
   var el = this.el
   var obj = this.obj
   var name = e.name
-  var method = method || 'on' + name
+  method = method || 'on' + name
   var args = [].slice.call(arguments, 2)
 
   // callback
-  function cb() {
+  var cb = function () {
     var a = [].slice.call(arguments).concat(args)
     obj[method].apply(obj, a)
   }

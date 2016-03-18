@@ -4,8 +4,8 @@
  */
 
 var inherits = require('./lib/super')
-  , closest = require('./lib/closest-num')
-  , percentage = require('./lib/percentage-calc')
+var closest = require('./lib/closest-num')
+var percentage = require('./lib/percentage-calc')
 
 /**
  * Require main class.
@@ -25,7 +25,7 @@ module.exports = Horizontal
  * @api public
  */
 
-function Horizontal() {
+function Horizontal () {
   Powerange.apply(this, arguments)
   if (this.options.step) this.step(this.slider.offsetWidth, this.handle.offsetWidth)
   this.setStart(this.options.start)
@@ -44,11 +44,11 @@ inherits(Horizontal, Powerange)
  * @api private
  */
 
-Horizontal.prototype.setStart = function(start) {
+Horizontal.prototype.setStart = function (start) {
   var begin = (start === null) ? this.options.min : start
-    , part = percentage.from(begin - this.options.min, this.options.max - this.options.min) || 0
-    , offset = percentage.of(part, this.slider.offsetWidth - this.handle.offsetWidth)
-    , position = (this.options.step) ? closest.find(offset, this.steps) : offset
+  var part = percentage.from(begin - this.options.min, this.options.max - this.options.min) || 0
+  var offset = percentage.of(part, this.slider.offsetWidth - this.handle.offsetWidth)
+  var position = (this.options.step) ? closest.find(offset, this.steps) : offset
 
   this.setPosition(position)
   this.setValue(this.handle.style.left, this.slider.offsetWidth - this.handle.offsetWidth)
@@ -61,7 +61,7 @@ Horizontal.prototype.setStart = function(start) {
  * @api private
  */
 
-Horizontal.prototype.setPosition = function(val) {
+Horizontal.prototype.setPosition = function (val) {
   this.handle.style.left = val + 'px'
   this.slider.querySelector('.range-quantity').style.width = val + 'px'
 }
@@ -73,7 +73,7 @@ Horizontal.prototype.setPosition = function(val) {
  * @api private
  */
 
-Horizontal.prototype.onmousedown = function(e) {
+Horizontal.prototype.onmousedown = function (e) {
   if (e.touches) e = e.touches[0]
   this.startX = e.clientX
   this.handleOffsetX = this.handle.offsetLeft
@@ -88,12 +88,12 @@ Horizontal.prototype.onmousedown = function(e) {
  * @api private
  */
 
-Horizontal.prototype.onmousemove = function(e) {
+Horizontal.prototype.onmousemove = function (e) {
   e.preventDefault()
   if (e.touches) e = e.touches[0]
 
   var leftOffset = this.handleOffsetX + e.clientX - this.startX
-    , position = (this.steps) ? closest.find(leftOffset, this.steps) : leftOffset
+  var position = (this.steps) ? closest.find(leftOffset, this.steps) : leftOffset
 
   if (leftOffset <= 0) {
     this.setPosition(0)
@@ -113,6 +113,6 @@ Horizontal.prototype.onmousemove = function(e) {
  * @api private
  */
 
-Horizontal.prototype.onmouseup = function(e) {
+Horizontal.prototype.onmouseup = function (e) {
   this.unselectable(this.slider, false)
 }

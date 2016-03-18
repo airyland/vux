@@ -4,9 +4,9 @@
  */
 
 var inherits = require('./lib/super')
-  , classes = require('./lib/classes')
-  , closest = require('./lib/closest-num')
-  , percentage = require('./lib/percentage-calc')
+var classes = require('./lib/classes')
+var closest = require('./lib/closest-num')
+var percentage = require('./lib/percentage-calc')
 
 /**
  * Require main class.
@@ -26,7 +26,7 @@ module.exports = Vertical
  * @api public
  */
 
-function Vertical() {
+function Vertical () {
   Powerange.apply(this, arguments)
   classes(this.slider).add('vertical')
   if (this.options.step) this.step(this.slider.offsetHeight, this.handle.offsetHeight)
@@ -46,11 +46,11 @@ inherits(Vertical, Powerange)
  * @api private
  */
 
-Vertical.prototype.setStart = function(start) {
+Vertical.prototype.setStart = function (start) {
   var begin = (start === null) ? this.options.min : start
-    , part = percentage.from(begin - this.options.min, this.options.max - this.options.min) || 0
-    , offset = percentage.of(part, this.slider.offsetHeight - this.handle.offsetHeight)
-    , position = (this.options.step) ? closest.find(offset, this.steps) : offset
+  var part = percentage.from(begin - this.options.min, this.options.max - this.options.min) || 0
+  var offset = percentage.of(part, this.slider.offsetHeight - this.handle.offsetHeight)
+  var position = (this.options.step) ? closest.find(offset, this.steps) : offset
 
   this.setPosition(position)
   this.setValue(this.handle.style.bottom, this.slider.offsetHeight - this.handle.offsetHeight)
@@ -63,7 +63,7 @@ Vertical.prototype.setStart = function(start) {
  * @api private
  */
 
-Vertical.prototype.setPosition = function(val) {
+Vertical.prototype.setPosition = function (val) {
   this.handle.style.bottom = val + 'px'
   this.slider.querySelector('.range-quantity').style.height = val + 'px'
 }
@@ -75,7 +75,7 @@ Vertical.prototype.setPosition = function(val) {
  * @api private
  */
 
-Vertical.prototype.onmousedown = function(e) {
+Vertical.prototype.onmousedown = function (e) {
   if (e.touches) e = e.touches[0]
   this.startY = e.clientY
   this.handleOffsetY = this.slider.offsetHeight - this.handle.offsetHeight - this.handle.offsetTop
@@ -90,12 +90,12 @@ Vertical.prototype.onmousedown = function(e) {
  * @api private
  */
 
-Vertical.prototype.onmousemove = function(e) {
+Vertical.prototype.onmousemove = function (e) {
   e.preventDefault()
   if (e.touches) e = e.touches[0]
 
   var bottomOffset = this.handleOffsetY + this.startY - e.clientY
-    , position = (this.steps) ? closest.find(bottomOffset, this.steps) : bottomOffset
+  var position = (this.steps) ? closest.find(bottomOffset, this.steps) : bottomOffset
 
   if (bottomOffset <= 0) {
     this.setPosition(0)
@@ -115,6 +115,6 @@ Vertical.prototype.onmousemove = function(e) {
  * @api private
  */
 
-Vertical.prototype.onmouseup = function(e) {
+Vertical.prototype.onmouseup = function (e) {
   this.unselectable(this.slider, false)
 }
