@@ -1,0 +1,19 @@
+{
+  "name": "closest-num",
+  "description": "Find the closest number in an array",
+  "version": "0.0.1",
+  "keywords": [
+    "closest",
+    "number",
+    "array"
+  ],
+  "license": "MIT",
+  "main": "closest-num.js",
+  "scripts": [
+    "closest-num.js"
+  ],
+  "dependencies": {},
+  "development": {},
+  "repository": "abpetkov/closest-num",
+  "resolved": "c0bf7f3f3ccf7a8b290148231b200ae5bb23fd2e"
+}
