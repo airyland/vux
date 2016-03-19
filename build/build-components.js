@@ -104,7 +104,7 @@ fs.readdir(p, function (err, files) {
 
     config.entry = {}
     config.entry[name] = [path.resolve(__dirname, `../src/components/${name}/index`)]
-    config.output.library = `vux${capitalizeFirstLetter(name)}`
+    config.output.library = converName(name)
     config.output.path = path.resolve(__dirname, '../components/' + name + '/')
     webpack(config, function (err, stats) {
       var jsonStats = stats.toJson()
@@ -117,6 +117,12 @@ fs.readdir(p, function (err, files) {
   })
 })
 
-function capitalizeFirstLetter(string) {
+function capitalizeFirstLetter (string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
+
+function converName(name){
+  return ('vux-' + name).split('-').map(function (one, index) {
+    return index === 0 ? one : capitalizeFirstLetter(one)
+  }).join('')
+} 
