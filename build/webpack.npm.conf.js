@@ -1,4 +1,5 @@
 var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var config = require('./webpack.npm.base.conf')
 
 // naming output files with hashes for better caching.
@@ -13,7 +14,11 @@ var SOURCE_MAP = false
 config.devtool = SOURCE_MAP ? 'source-map' : false
 
 config.vue.loaders = {
-  js: 'babel!eslint'
+  js: 'babel',
+  css: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css'])),
+  less: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'less'])),
+  sass: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'sass'])),
+  stylus: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'stylus']))
 }
 
 config.plugins = (config.plugins || []).concat([
@@ -28,7 +33,14 @@ config.plugins = (config.plugins || []).concat([
       warnings: false
     }
   }),
-  new webpack.optimize.OccurenceOrderPlugin()
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new ExtractTextPlugin('vux.css')
 ])
 
 module.exports = config
+
+function generateExtractLoaders(loaders) {
+  return loaders.map(function (loader) {
+    return loader + '-loader' + (SOURCE_MAP ? '?sourceMap' : '')
+  }).join('!')
+}
