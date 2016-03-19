@@ -56,10 +56,14 @@ export default {
     load2: function (uuid) {
       const _this = this
       setTimeout(function () {
-        _this.n2 += 10
-        setTimeout(function () {
-          _this.$broadcast('pullup:reset', uuid)
-        }, 10)
+        if (_this.n2 === 30) {
+          _this.$broadcast('pullup:done', uuid)
+        } else {
+          _this.n2 += 10
+          setTimeout(function () {
+            _this.$broadcast('pullup:reset', uuid)
+          }, 10)
+        }
       }, 2000)
     },
     load3: function (uuid) {

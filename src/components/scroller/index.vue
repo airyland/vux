@@ -187,6 +187,9 @@ export default {
         _this.pullup.complete()
         _this._xscroll.render()
       }
+    },
+    'pullup:done': function (uuid) {
+      this._xscroll.unplug(this.pullup)
     }
   },
   beforeDestroy () {
