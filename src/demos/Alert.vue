@@ -9,6 +9,7 @@
 
 <script>
 import { Alert, Group, Switch } from '../components/'
+
 export default {
   components: {
     Alert,

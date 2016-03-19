@@ -29,19 +29,7 @@
 </template>
 
 <script>
-import DevTip from './components/Dev-tip'
-import Number from './components/Number'
-import Selector from './components/Select'
-import Group from './components/Group'
-import Btn from './components/Button'
-import Tip from './components/Tip'
-import Switch from './components/Switch'
-import GroupTitle from './components/Group-title'
-import Radio from './components/Radio'
-import Checklist from './components/Checklist'
-import Textarea from './components/Textarea'
-import Cell from './components/Cell'
-import Xinput from './components/Input'
+import { DevTip, Number, Selector, Group, GroupTitle, Button as Btn, Tip, Switch, Radio, Checklist, Textarea, Cell, Xinput } from './components/'
 
 export default {
   ready: function () {

@@ -8,6 +8,15 @@
     <br/>
     <br/>
     <br/>
+    <divider>no animation</divider>
+    <tab :animate=false>
+      <tab-item :selected="demo5 === '已发货'" @click="demo5 = '已发货'">已发货</tab-item>
+      <tab-item :selected="demo5 === '未发货'" @click="demo5 = '未发货'">未发货</tab-item>
+      <tab-item :selected="demo5 === '全部订单'" @click="demo5 = '全部订单'">全部订单</tab-item>
+    </tab>
+    <br/>
+    <br/>
+    <br/>
     <tab :line-width=2 active-color='#fc378c'>
       <tab-item :selected="demo2 === item" v-for="item in list2" @click="demo2 = item">{{item}}</tab-item>
     </tab>
@@ -22,7 +31,7 @@
     <br/>
     <sticky>
       <tab :line-width=1>
-      <tab-item :selected="demo4 === item" v-for="item in list4" @click="demo4 = item">{{item}}</tab-item>
+        <tab-item :selected="demo4 === item" v-for="item in list4" @click="demo4 = item">{{item}}</tab-item>
       </tab>
     </sticky>
     <br/>
@@ -83,23 +92,26 @@
 </template>
 
 <script>
-  import { Tab, TabItem, Sticky } from '../components/'
-  export default {
-    components: {
-      Tab,
-      TabItem,
-      Sticky
-    },
-    data () {
-      return {
-        demo1: '未发货',
-        list2: ['精选', '美食', '电影', '酒店', '外卖'],
-        demo2: '美食',
-        list3: ['收到的消息', '发出的消息'],
-        demo3: '收到的消息',
-        list4: ['正在正映', '即将上映'],
-        demo4: '即将上映'
-      }
+import { Tab, TabItem, Sticky, Divider } from '../components/'
+
+export default {
+  components: {
+    Tab,
+    TabItem,
+    Sticky,
+    Divider
+  },
+  data () {
+    return {
+      demo1: '未发货',
+      list2: ['精选', '美食', '电影', '酒店', '外卖'],
+      demo5: '未发货',
+      demo2: '美食',
+      list3: ['收到的消息', '发出的消息'],
+      demo3: '收到的消息',
+      list4: ['正在正映', '即将上映'],
+      demo4: '即将上映'
     }
   }
+}
 </script>

@@ -10,33 +10,34 @@
 </template>
 
 <script>
-  import { Actionsheet, Group, Switch } from '../components/'
-  export default {
-    components: {
-      Actionsheet,
-      Group,
-      Switch
-    },
-    data () {
-      return {
-        show1: false,
-        menus1: {
-          menu1: 'Share to friends',
-          menu2: 'Share to timeline'
-        },
-        show2: false,
-        menus2: {
-          menu1: 'Take Photo',
-          menu2: 'Choose from photos'
-        }
-      }
-    },
-    methods: {
-      click: function (key) {
-        console.log(key)
+import { Actionsheet, Group, Switch } from '../components/'
+
+export default {
+  components: {
+    Actionsheet,
+    Group,
+    Switch
+  },
+  data () {
+    return {
+      show1: false,
+      menus1: {
+        menu1: 'Share to friends',
+        menu2: 'Share to timeline'
+      },
+      show2: false,
+      menus2: {
+        menu1: 'Take Photo',
+        menu2: 'Choose from photos'
       }
     }
+  },
+  methods: {
+    click: function (key) {
+      console.log(key)
+    }
   }
+}
 </script>
 
 <style>

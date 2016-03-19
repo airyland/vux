@@ -89,6 +89,7 @@
   display: -moz-box;
   display: -o-box;
   display: -ms-flexbox;
+  display: flex;
   width: 100%;
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -112,6 +113,7 @@
   display: -webkit-flex;
   display: -moz-box;
   display: -o-box;
+  display: flex;
   width: 100%;
   -webkit-box-align: center;
   -webkit-align-items: center;

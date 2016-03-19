@@ -44,13 +44,14 @@
 </template>
 
 <script>
-  import { Flexbox, FlexboxItem } from '../components/'
-  export default {
-    components: {
-      Flexbox,
-      FlexboxItem
-    }
+import { Flexbox, FlexboxItem } from '../components/'
+
+export default {
+  components: {
+    Flexbox,
+    FlexboxItem
   }
+}
 </script>
 
 <style>

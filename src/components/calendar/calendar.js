@@ -1,8 +1,4 @@
 // fork from https://github.com/rookie125/mobile-calendar
-import {
-  assign
-}
-from 'lodash'
 import * as Eventor from '../../libs/eventor'
 var mNow = 0, // 当前相对月份
   yNow = 0 // 当前相对年份
@@ -38,7 +34,7 @@ function Calendar(option) {
     startJSON: {},
     format: 'yy-mm-dd'
   }
-  _this.o = assign(defaults, option)
+  _this.o = Object.assign(defaults, option)
   var oDate = new Date()
   _this.hours = false
   _this.hoursPast = false
@@ -724,17 +720,18 @@ Calendar.prototype.createHeader = function (cb) {
  * @return {[type]}      [description]
  */
 Calendar.prototype.createWeek = function () {
+  const dateListEn = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
   var week = create('div', {
       "class": 'calendar-week'
     }),
-    weeks = '日一二三四五六'
+    weeks = this.o.dateList || dateListEn
 
   for (var i = 0; i < 7; i++) {
     var n = i + 1,
       data = {}
     if (n % 7 == 1 || n % 7 == 0) data["class"] = 'weekend'
 
-    week.appendChild(create('span', data, weeks.charAt(i)))
+    week.appendChild(create('span', data, weeks[i]))
   }
   this.oCalen.appendChild(week)
 }

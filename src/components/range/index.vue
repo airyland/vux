@@ -1,11 +1,12 @@
 <template>
-  <div class="vux-range-input-box" style="width:180px;position:relative;margin-right:20px;">
+  <div class="vux-range-input-box" style="position:relative;margin-right:30px;margin-left:50px;">
     <input class="vux-range-input" v-model="value" number>
   </div>
 </template>
 
 <script>
-  const Powerange = require('./powerange')
+  const Powerange = require('./range/lib/powerange')
+
   export default {
     props: {
       decimal: {

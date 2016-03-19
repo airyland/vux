@@ -1,1 +1,0 @@
-// address data comes from https://github.com/migijs/migi-city/blob/master/src/city.json

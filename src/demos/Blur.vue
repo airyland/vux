@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Blur from '../components/Blur'
-import { Flexbox, FlexboxItem } from '../components/'
+import { Flexbox, FlexboxItem, Blur } from '../components/'
+
 export default {
   components: {
     Blur,

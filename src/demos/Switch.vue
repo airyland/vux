@@ -1,18 +1,22 @@
 <template>
   <div>
-  	<group title="switch element">
-  	  <boolean title="default setting"></boolean>
-  	  <boolean title="default true" :value=true></boolean>
+  	<group title="default">
+  	  <switch title="default setting"></switch>
+  	  <switch title="default true" :value=true></switch>
   	</group>
+    <group title="disabled">
+      <switch title="default setting" disabled></switch>
+      <switch title="default true" :value=true disabled></switch>
+    </group>
   </div>
 </template>
 
 <script>
-import Boolean from '../components/Switch'
-import Group from '../components/Group'
+import { Switch, Group } from '../components/'
+
 export default {
   components: {
-    Boolean,
+    Switch,
     Group
   }
 }

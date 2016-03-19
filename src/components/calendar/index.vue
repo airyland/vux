@@ -10,7 +10,8 @@ export default {
     this.calendar = new Calendar({
       trigger: _this.$el,
       hours: _this.hours,
-      disablePast: _this.disablePast
+      disablePast: _this.disablePast,
+      dateList: _this.dateList
     })
     this.calendar.on('change', function (val) {
       _this.value = val
@@ -30,6 +31,9 @@ export default {
     disablePast: {
       type: Boolean,
       default: false
+    },
+    dateList: {
+      type: Array
     }
   }
 }

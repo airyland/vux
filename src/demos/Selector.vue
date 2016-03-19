@@ -28,23 +28,24 @@
 </template>
 
 <script>
-  import { Selector, Group } from '../components/'
-  export default {
-    components: {
-      Group,
-      Selector
-    },
-    data: function () {
-      return {
-        list: [{ text: '广东', value: 'gd'}, {text: '广西', value: 'gx'}],
-        selected1: '广西',
-        value1: ''
-      }
-    },
-    methods: {
-      change: function (val) {
-        console.log(val)
-      }
+import { Selector, Group } from '../components/'
+
+export default {
+  components: {
+    Group,
+    Selector
+  },
+  data: function () {
+    return {
+      list: [{ text: '广东', value: 'gd'}, {text: '广西', value: 'gx'}],
+      selected1: '广西',
+      value1: ''
+    }
+  },
+  methods: {
+    change: function (val) {
+      console.log(val)
     }
   }
+}
 </script>

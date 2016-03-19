@@ -15,6 +15,7 @@
 
 <script>
 import { Box, Icon } from '../components/'
+
 const milestones = require('../../build/milestone.json')
 export default {
   components: {

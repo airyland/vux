@@ -41,7 +41,6 @@ export default {
     }
   },
   beforeDestroy () {
-    console.log('destroyed')
     this.popup.destroy()
   }
 }
