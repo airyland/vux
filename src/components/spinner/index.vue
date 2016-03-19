@@ -31,6 +31,7 @@ export default {
 .spinner {
   stroke: #444;
   fill: #444;
+  display: flex;
 }
 
 .spinner svg {
