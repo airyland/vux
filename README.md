@@ -31,7 +31,7 @@
   <img src="https://raw.githubusercontent.com/airyland/vux/master/qr.png" width="300">
 </p>
 
-## Usage
+## Usage for new Vue Project
 
 ``` bash
 # install vue-cli
@@ -55,16 +55,57 @@ npm run dev
 </template>
 
 <script>
-import { Style, Group, Cell } from 'vux'
+import { Group, Cell } from 'vux'
+
+// or you can import the components you need
+// by this way, you can reduce webpack bundle size
+import Group from 'vux/components/group/'
+import Cell from 'vux/components/cell/'
+
 export default {
   components: {
-    Style, // style component is necessary
     Group,
     Cell
   }
 }
 </script>
+
+<style>
+@import 'vux/vux.css'
+</style>
 ```
+
+## Usage by including scripts
+
+> checkout examples/scripts.html
+
+``` html
+<!--include Vux style-->
+<link rel="stylesheet" href="vux/vux.css">
+<!--include Vue yourself-->
+<script src="vue.js"></script>
+
+<div id="demo">
+  <group>
+    <cell title="vue" value="cool"></cell>
+  </group>
+</div>
+
+<!--include the components you need-->
+<script src="vux/components/group/index.js"></script>
+<script src="vux/components/cell/index.js"></script>
+
+<script>
+// register components
+Vue.component('group', vuxGroup)
+Vue.component('cell', vuxCell)
+
+new Vue({
+  el: '#demo'
+})
+</script>
+```
+
 
 ## Remove click delays
 
