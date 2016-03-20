@@ -48,6 +48,7 @@ import Countup from './countup/'
 import Scroller from './scroller/'
 import Shake from './shake/'
 import WechatEmotion from './wechat-emotion/'
+import Search from './search'
 
 const vux = {
   Radio,
@@ -99,7 +100,8 @@ const vux = {
   Countup,
   Scroller,
   Shake,
-  WechatEmotion
+  WechatEmotion,
+  Search
 }
 
 module.exports = vux
