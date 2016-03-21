@@ -1,12 +1,1 @@
-src/components/range/range.js
-src/libs/eventor.js
-src/components/*/*.js
-src/components/picker/*.js
-src/components/datetime/*.js
-src/components/range/*.js
-src/components/clocker/*.js
-src/libs/trim.js
 src/assets/*/*.js
-src/components/progress/*.js
-src/components/range/powerange/lib/lib/*.js
-src/components/range/powerange/lib/*.js

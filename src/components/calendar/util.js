@@ -1,4 +1,4 @@
-export function toolClass(obj, sClass, type) {
+export function toolClass (obj, sClass, type) {
   if (!sClass) return
 
   var nowClass = obj.className.replace(/\s+/g, ' ')
@@ -10,23 +10,23 @@ export function toolClass(obj, sClass, type) {
   for (var i = 0; i < nowClass.length; i++) {
     switch (type) {
       case 'has':
-        if (sClass[0] == nowClass[i]) return true
+        if (sClass[0] === nowClass[i]) return true
         break
       case 'add':
       case 'remove':
         for (var x = 0; x < sClass.length; x++) {
-          if (sClass[x] == nowClass[i]) nowClass.splice(i, 1)
+          if (sClass[x] === nowClass[i]) nowClass.splice(i, 1)
         }
         break
     }
   }
 
-  if (type == 'add') nowClass = nowClass.concat(sClass)
+  if (type === 'add') nowClass = nowClass.concat(sClass)
 
   obj.className = nowClass.join(' ')
 }
 
-export function attr(obj, attr, val) {
+export function attr (obj, attr, val) {
   if (!obj) return null
   switch (arguments.length) {
     case 3:
@@ -34,11 +34,10 @@ export function attr(obj, attr, val) {
       break
     case 2:
       return obj.getAttribute(attr)
-      break
   }
 }
 
-export function getDate(str, one) {
+export function getDate (str, one) {
   str = str.replace(/[\'\s]+/g, '')
   if (!str) return
 
@@ -47,26 +46,26 @@ export function getDate(str, one) {
   var data = []
 
   for (var i = 0; i < str.length; i++) {
-    var arr = str[i].match(/\d+/g),
-      result = {}
+    var arr = str[i].match(/\d+/g)
+    var result = {}
 
-    if (arr.length == 3) {
-      result["m"] = arr[1]
+    if (arr.length === 3) {
+      result['m'] = arr[1]
 
-      if (arr[0].length == 4) {
-        result["y"] = arr[0]
-        result["d"] = arr[2]
+      if (arr[0].length === 4) {
+        result['y'] = arr[0]
+        result['d'] = arr[2]
       } else {
-        result["d"] = arr[0]
-        result["y"] = arr[2]
+        result['d'] = arr[0]
+        result['y'] = arr[2]
       }
-    } else if (arr.length == 2) {
-      if (arr[0].length == 4) {
-        result["y"] = arr[0]
-        result["m"] = arr[1]
+    } else if (arr.length === 2) {
+      if (arr[0].length === 4) {
+        result['y'] = arr[0]
+        result['m'] = arr[1]
       } else if (arr[0].length <= 2) {
-        result["m"] = arr[0]
-        result["d"] = arr[1]
+        result['m'] = arr[0]
+        result['d'] = arr[1]
       }
     }
     data.push(result)
@@ -75,28 +74,28 @@ export function getDate(str, one) {
   return data
 }
 
-export function format(str, fmat) {
+export function format (str, fmat) {
   if (!str) return false
   str = str.split('/')
   fmat = fmat || 'y/m/d'
 
-  var n = fmat.charAt(0),
-    count = 0
+  var n = fmat.charAt(0)
+  var count = 0
 
-  for (var i = 0; i < fmat.length; i++) {
-    if (n.charAt(count) != fmat.charAt(i)) {
+  for (let i = 0; i < fmat.length; i++) {
+    if (n.charAt(count) !== fmat.charAt(i)) {
       n += fmat.charAt(i)
       count++
     }
   }
 
   var data = {
-      "y": str[0],
-      "m": str[1],
-      "d": str[2]
-    },
-    symbol = '',
-    result = ''
+    y: str[0],
+    m: str[1],
+    d: str[2]
+  }
+  var symbol = ''
+  var result = ''
 
   if (/\//g.test(n)) {
     symbol = '/'
@@ -114,7 +113,7 @@ export function format(str, fmat) {
   return result
 }
 
-export function getElement(parent, str) {
+export function getElement (parent, str) {
   var result
 
   switch (str.charAt(0)) {
@@ -132,7 +131,7 @@ export function getElement(parent, str) {
   return result
 }
 
-export function create(tagname, attr, html) {
+export function create (tagname, attr, html) {
   if (!tagname) return
 
   attr = attr || {}

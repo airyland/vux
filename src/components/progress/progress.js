@@ -5,22 +5,21 @@
 
 /* MProgress  inspire from Material Design and NProgress...
  * @license MIT */
-import Utils from './utils';
+import Utils from './utils'
 
-;
-(function(root, factory) {
+(function (root, factory) {
   // UMD
-  if (typeof define === 'function' && define.amd) {
-    define(factory);
+  if (typeof define === 'function' && define.amd) { // eslint-disable-line
+    define(factory) // eslint-disable-line
   } else if (typeof exports === 'object') {
-    module.exports = factory();
+    module.exports = factory()
   } else {
-    root.Mprogress = factory();
+    root.Mprogress = factory()
   }
 
-})(typeof window !== 'undefined' ? window : this, function() {
+})(typeof window !== 'undefined' ? window : this, function () {
 
-  'use strict';
+  'use strict'
 
   var SETTINGS = {
     template: 1,
@@ -34,14 +33,14 @@ import Utils from './utils';
     trickle: true,
     trickleRate: 0.02,
     trickleSpeed: 800
-  };
+  }
 
-  var TPL_UNKOWN_ID = '99';
-  var SPEED_ANIMATION_SHOW = 500;
-  var SPEED_ANIMATION_HIDE = 1500;
-  var SELECTOR_BAR = '[role="mpbar"]';
-  var SELECTOR_BUFFER = '[role="bufferBar"]';
-  var SELECTOR_DASHED = '[role="dashed"]';
+  var TPL_UNKOWN_ID = '99'
+  var SPEED_ANIMATION_SHOW = 500
+  var SPEED_ANIMATION_HIDE = 1500
+  var SELECTOR_BAR = '[role="mpbar"]'
+  var SELECTOR_BUFFER = '[role="bufferBar"]'
+  var SELECTOR_DASHED = '[role="dashed"]'
 
   var renderTemplate = {
 
@@ -52,91 +51,89 @@ import Utils from './utils';
     indeterminate: '<div class="indeter-bar" role="mpbar3">' + '</div>' + '<div class="bar-bg"></div>',
 
     query: '<div class="query-bar" role="mpbar4">' + '<div class="peg"></div>' + '</div>' + '<div class="bar-bg"></div>'
-  };
+  }
 
-  var cacheStore = {};
+  var cacheStore = {}
 
-  var Mprogress = function(opt) {
-    var options = Utils.extend(opt, SETTINGS);
-    var idName = options.parent + options.template;
-    var data = cacheStore[idName] || '';
+  var Mprogress = function (opt) {
+    var options = Utils.extend(opt, SETTINGS)
+    var idName = options.parent + options.template
+    var data = cacheStore[idName] || ''
 
     if (!data) {
-      data = new MProgress(options);
-      cacheStore[idName] = data;
+      data = new MProgress(options)
+      cacheStore[idName] = data
     }
 
     if (typeof opt === 'string' && typeof data[opt] === 'function') {
-      // using like: Mprogress('start');
-      data[opt]();
+      // using like: Mprogress('start')
+      data[opt]()
     } else if (options['start']) {
-      data.start();
+      data.start()
     }
 
-    return data;
-  };
+    return data
+  }
 
-  var MProgress = function(options) {
-    this.options = options || {};
-    this.status = null; //Last number
-    this.bufferStatus = null;
-  };
+  var MProgress = function (options) {
+    this.options = options || {}
+    this.status = null // Last number
+    this.bufferStatus = null
+  }
 
   MProgress.prototype = {
-
     version: '0.1.0',
-
     constructor: MProgress,
 
     /**
      * Shows the progress bar.
      * This is the same as setting the status to 0%, except that it doesn't go backwards.
      *
-     *     MProgress.start();
+     *     MProgress.start()
      *
      */
-    start: function() {
-      if (!this.status && !this._isBufferStyle()) this.set(0);
+    start: function () {
+      if (!this.status && !this._isBufferStyle()) this.set(0)
 
       /**
        * indeterminate and query just have 'start' and 'end' method
        */
       if (this._isIndeterminateStyle() || this._isQueryStyle()) {
-        return this;
+        return this
       }
 
-      var that = this;
+      var that = this
       // buffer show front dashed scroll
       if (this._isBufferStyle() && !this.bufferStatus) {
 
-        var progress = this._render();
-        var dashed = progress.querySelector(SELECTOR_DASHED);
-        var bar = progress.querySelector(this._getCurrSelector());
+        var progress = this._render()
+        var dashed = progress.querySelector(SELECTOR_DASHED)
+        var bar = progress.querySelector(this._getCurrSelector())
 
-        Utils.hideEl(bar);
-        Utils.hideEl(dashed);
-        this.setBuffer(0)//.setBuffer(0.9);
+        Utils.hideEl(bar)
+        Utils.hideEl(dashed)
+        this.setBuffer(0)// .setBuffer(0.9)
 
-        setTimeout(function() {
-          Utils.showEl(dashed);
-          Utils.showEl(bar);
+        setTimeout(function () {
+          Utils.showEl(dashed)
+          Utils.showEl(bar)
 
-          that.set(0).setBuffer(0);
-        }, SPEED_ANIMATION_SHOW);
+          that.set(0).setBuffer(0)
+        }, SPEED_ANIMATION_SHOW)
       }
 
-      function work() {
-        if (that.stop) return;
-        setTimeout(function() {
-          if (!that.status) return;
-          that._trickle();
-          work();
-        }, that.options.trickleSpeed);
-      };
+      function work () {
+        if (that.stop) return
+        setTimeout(function () {
+          if (!that.status) return
+          that._trickle()
+          work()
+        }, that.options.trickleSpeed)
+      }
 
-      if (this.options.trickle) work();
+      if (this.options.trickle) work()
 
-      return this;
+      return this
     },
 
     /**
@@ -144,199 +141,199 @@ import Utils from './utils';
      * This is the *sort of* the same as setting the status to 100%, with the
      * difference being `end()` makes some placebo effect of some realistic motion.
      *
-     *     MProgress.end();
+     *     MProgress.end()
      *
      * If `true` is passed, it will show the progress bar even if its hidden.
      *
-     *     MProgress.end(true);
+     *     MProgress.end(true)
      */
-    end: function(force) {
-      if (!force && !this.status) return this;
+    end: function (force) {
+      if (!force && !this.status) return this
 
-      var that = this;
-      var speed = this.options.speed;
-      var progress = this._getRenderedId();
+      var that = this
+      var speed = this.options.speed
+      var progress = this._getRenderedId()
 
       if (this._isBufferStyle() && force) {
-        return this.set(0).set(1);
+        return this.set(0).set(1)
       }
 
       if (this._isIndeterminateStyle()) {
 
         // force end
         if (!this._isRendered() && force) {
-          this.set(0);
-          progress = this._getRenderedId();
-          speed = SPEED_ANIMATION_SHOW;
+          this.set(0)
+          progress = this._getRenderedId()
+          speed = SPEED_ANIMATION_SHOW
         }
         // Fade out
         Utils.setcss(progress, {
           transition: 'none',
           opacity: 1
-        });
-        progress.offsetWidth; /* Repaint */
+        })
+        progress.offsetWidth /* Repaint */
 
-        setTimeout(function() {
+        setTimeout(function () {
           Utils.setcss(progress, {
             transition: 'all ' + speed + 'ms linear',
             opacity: 0
-          });
-          setTimeout(function() {
-            that._remove();
-          }, speed);
-        }, speed);
+          })
+          setTimeout(function () {
+            that._remove()
+          }, speed)
+        }, speed)
 
-        return this;
+        return this
       }
 
       if (this._isQueryStyle()) {
         // add one more animation and remove it
         if (this._isRendered()) {
-          var bar = progress.querySelector(this._getCurrSelector());
-          Utils.addClass(bar, 'end');
+          var bar = progress.querySelector(this._getCurrSelector())
+          Utils.addClass(bar, 'end')
 
-          setTimeout(function() {
-            that._remove();
-          }, SPEED_ANIMATION_HIDE);
+          setTimeout(function () {
+            that._remove()
+          }, SPEED_ANIMATION_HIDE)
 
-          return this;
+          return this
         } else if (force) {
-          this.set(0);
-          progress = this._getRenderedId();
-          setTimeout(function() {
-            that._remove();
-          }, SPEED_ANIMATION_HIDE);
-          return this;
+          this.set(0)
+          progress = this._getRenderedId()
+          setTimeout(function () {
+            that._remove()
+          }, SPEED_ANIMATION_HIDE)
+          return this
         }
 
       }
 
-      return this.inc(0.3 + 0.5 * Math.random()).set(1);
+      return this.inc(0.3 + 0.5 * Math.random()).set(1)
     },
 
     /**
      * Sets the progress bar status, where `n` is a number from `0.0` to `1.0`.
      *
-     *     MProgress.set(0.4);
-     *     MProgress.set(1.0);
+     *     MProgress.set(0.4)
+     *     MProgress.set(1.0)
      */
-    set: function(n) {
-      n = Utils.clamp(n, this.options.minimum, 1);
-      this.status = (n === 1 ? null : n);
+    set: function (n) {
+      n = Utils.clamp(n, this.options.minimum, 1)
+      this.status = (n === 1 ? null : n)
 
-      this._setProgress(this._getCurrSelector(), n);
+      this._setProgress(this._getCurrSelector(), n)
 
-      return this;
+      return this
     },
 
-    setBuffer: function(n) {
-      n = Utils.clamp(n, this.options.minimum, 1);
-      this.bufferStatus = (n === 1 ? null : n);
+    setBuffer: function (n) {
+      n = Utils.clamp(n, this.options.minimum, 1)
+      this.bufferStatus = (n === 1 ? null : n)
 
-      this._setProgress(SELECTOR_BUFFER, n);
+      this._setProgress(SELECTOR_BUFFER, n)
 
-      return this;
+      return this
     },
 
     /**
      * Increments by a random amount.
      */
-    inc: function(amount) {
-      var n = this.status;
-      var bn = this.bufferStatus;
+    inc: function (amount) {
+      var n = this.status
+      var bn = this.bufferStatus
 
       if (!n) {
-        return this.start();
+        return this.start()
       } else {
-        n = this._getRandomNum(n, amount);
+        n = this._getRandomNum(n, amount)
         if (this._isBufferStyle()) {
-          bn = this._getRandomNum(bn > n ? bn : n + 0.1, amount);
-          this.setBuffer(bn);
+          bn = this._getRandomNum(bn > n ? bn : n + 0.1, amount)
+          this.setBuffer(bn)
         }
-        return this.set(n);
+        return this.set(n)
       }
     },
 
-    _trickle: function() {
-      return this.inc(Math.random() * this.options.trickleRate);
+    _trickle: function () {
+      return this.inc(Math.random() * this.options.trickleRate)
     },
     /**
      * (Internal) renders the progress bar markup based on the `template`
      *
      */
-    _render: function(noFromStart) {
+    _render: function (noFromStart) {
       if (this._isRendered()) {
-        return this._getRenderedId();
+        return this._getRenderedId()
       }
 
-      var progress = document.createElement('div');
-      var currTpl = this._getCurrTemplate() || '';
-      var MParent = document.querySelector(this.options.parent);
+      var progress = document.createElement('div')
+      var currTpl = this._getCurrTemplate() || ''
+      var MParent = document.querySelector(this.options.parent)
 
       if (!MParent) {
-        return;
+        return
       }
 
-      var fromStart;
+      var fromStart
 
-      progress.id = this._getRenderedId(true);
-      progress.className = 'ui-mprogress';
-      progress.innerHTML = currTpl;
+      progress.id = this._getRenderedId(true)
+      progress.className = 'ui-mprogress'
+      progress.innerHTML = currTpl
 
       if (!this._isIndeterminateStyle() && !this._isQueryStyle()) {
 
         // Default: fromstart
         if (!noFromStart) {
-          fromStart = !this._isStarted();
+          fromStart = !this._isStarted()
         }
 
-        var bar = progress.querySelector(this._getCurrSelector());
-        var perc = fromStart ? '-100' : Utils.toBarPerc(this.status || 0);
+        var bar = progress.querySelector(this._getCurrSelector())
+        var perc = fromStart ? '-100' : Utils.toBarPerc(this.status || 0)
 
         Utils.setcss(bar, {
           transition: 'all 0 linear',
           transform: 'translate3d(' + perc + '%,0,0)'
-        });
+        })
 
         if (this._isBufferStyle()) {
-          var buffer = progress.querySelector(SELECTOR_BUFFER),
-            bufferPerc = fromStart ? '-100' : Utils.toBarPerc(this.bufferStatus || 0);
+          var buffer = progress.querySelector(SELECTOR_BUFFER)
+          var bufferPerc = fromStart ? '-100' : Utils.toBarPerc(this.bufferStatus || 0)
           Utils.setcss(buffer, {
             transition: 'all 0 linear',
             transform: 'translate3d(' + bufferPerc + '%,0,0)'
-          });
+          })
         }
 
       }
 
-      if (MParent != document.body) {
-        Utils.addClass(MParent, 'mprogress-custom-parent');
+      if (MParent !== document.body) {
+        Utils.addClass(MParent, 'mprogress-custom-parent')
       }
-      MParent.appendChild(progress);
-      return progress;
+      MParent.appendChild(progress)
+      return progress
     },
 
     /**
      * Removes the element. Opposite of _render().
      */
-    _remove: function() {
-      var progress = this._getRenderedId(),
-        MParent = document.querySelector(this.options.parent);
+    _remove: function () {
+      var progress = this._getRenderedId()
+      var MParent = document.querySelector(this.options.parent)
 
-      if (MParent != document.body) {
-        Utils.removeClass(MParent, 'mprogress-custom-parent');
+      if (MParent !== document.body) {
+        Utils.removeClass(MParent, 'mprogress-custom-parent')
       }
 
-      // clear cache 
-      var idName = this.options.parent + this.options.template;
+      // clear cache
+      var idName = this.options.parent + this.options.template
       if (cacheStore[idName]) {
-        cacheStore[idName] = null;
+        cacheStore[idName] = null
       }
 
       if (progress) {
-        this.status = null;
-        this.bufferStatus = null;
-        Utils.removeElement(progress);
+        this.status = null
+        this.bufferStatus = null
+        Utils.removeElement(progress)
       }
     },
 
@@ -344,164 +341,164 @@ import Utils from './utils';
      * interior method
      *
      */
-    _setProgress: function(barSelector, n) {
+    _setProgress: function (barSelector, n) {
       if (this.stop) {
-        return;
+        return
       }
-      var progress = this._render();
+      var progress = this._render()
       if (!progress) {
-        return;
+        return
       }
-      var bar = progress.querySelector(barSelector);
-      var speed = this.options.speed;
-      var ease = this.options.easing;
-      var that = this;
+      var bar = progress.querySelector(barSelector)
+      var speed = this.options.speed
+      var ease = this.options.easing
+      var that = this
 
-      progress.offsetWidth; /* Repaint */
+      progress.offsetWidth /* Repaint */
 
       /**
        * indeterminate and query just has 'start' and 'end' method
        */
 
       if (this._isIndeterminateStyle() || this._isQueryStyle()) {
-        return this;
+        return this
       }
 
-      Utils.queue(function(next) {
+      Utils.queue(function (next) {
         // Set positionUsing if it hasn't already been set
-        if (that.options.positionUsing === '') that.options.positionUsing = that._getPositioningCSS();
+        if (that.options.positionUsing === '') that.options.positionUsing = that._getPositioningCSS()
 
         // Add transition
-        Utils.setcss(bar, that._barPositionCSS(n, speed, ease));
+        Utils.setcss(bar, that._barPositionCSS(n, speed, ease))
 
         if (n === 1) {
           // Fade out
           Utils.setcss(progress, {
             transition: 'none',
             opacity: 1
-          });
-          progress.offsetWidth; /* Repaint */
+          })
+          progress.offsetWidth /* Repaint */
 
-          that.timer = setTimeout(function() {
+          that.timer = setTimeout(function () {
             Utils.setcss(progress, {
               transition: 'all ' + speed + 'ms linear',
               opacity: 0
-            });
-            that.timer = setTimeout(function() {
-              that._remove();
-              next();
-            }, speed);
-          }, speed);
+            })
+            that.timer = setTimeout(function () {
+              that._remove()
+              next()
+            }, speed)
+          }, speed)
         } else {
-          that.timer = setTimeout(next, speed);
+          that.timer = setTimeout(next, speed)
         }
-      });
+      })
 
     },
 
-    _getCurrSelector: function() {
-      var tplType = this._getCurrTplId();
+    _getCurrSelector: function () {
+      var tplType = this._getCurrTplId()
 
       if (tplType !== TPL_UNKOWN_ID) {
         return '[role="mpbar' + tplType + '"]'
       } else {
-        return SELECTOR_BAR;
+        return SELECTOR_BAR
       }
     },
 
-    _isStarted: function() {
-      return typeof this.status === 'number';
+    _isStarted: function () {
+      return typeof this.status === 'number'
     },
 
-    _getRandomNum: function(n, amount) {
+    _getRandomNum: function (n, amount) {
       if (typeof amount !== 'number') {
-        amount = (1 - n) * Utils.clamp(Math.random() * n, 0.1, 0.95);
+        amount = (1 - n) * Utils.clamp(Math.random() * n, 0.1, 0.95)
       }
 
-      n = Utils.clamp(n + amount, 0, 0.994);
+      n = Utils.clamp(n + amount, 0, 0.994)
 
-      return n;
+      return n
     },
 
     /**
      * Checks if the progress bar is rendered.
      */
-    _isRendered: function() {
+    _isRendered: function () {
 
-      return !!this._getRenderedId();
+      return !!this._getRenderedId()
     },
 
-    _getRenderedId: function(getId) {
+    _getRenderedId: function (getId) {
 
-      var tplType = this._getCurrTplId();
-      var idName = 'mprogress' + tplType;
+      var tplType = this._getCurrTplId()
+      var idName = 'mprogress' + tplType
 
       if (!getId) {
-        return document.getElementById(idName);
+        return document.getElementById(idName)
       } else {
-        return idName;
+        return idName
       }
     },
 
-    _isBufferStyle: function() {
-      return this._getCurrTplId() === 2;
+    _isBufferStyle: function () {
+      return this._getCurrTplId() === 2
     },
 
-    _isIndeterminateStyle: function() {
-      return this._getCurrTplId() === 3;
+    _isIndeterminateStyle: function () {
+      return this._getCurrTplId() === 3
     },
 
-    _isQueryStyle: function() {
-      return this._getCurrTplId() === 4;
+    _isQueryStyle: function () {
+      return this._getCurrTplId() === 4
     },
 
-    _getCurrTplId: function() {
-      var tplType = ~~this.options.template || 1;
+    _getCurrTplId: function () {
+      var tplType = ~~this.options.template || 1
       if (typeof tplType === 'number') {
-        return tplType;
+        return tplType
       } else {
-        return TPL_UNKOWN_ID;
+        return TPL_UNKOWN_ID
       }
 
     },
 
-    _getCurrTemplate: function() {
-      var tplType = this.options.template || 1,
-        tplNameArr = ['determinate', 'buffer', 'indeterminate', 'query'],
-        tplKey;
+    _getCurrTemplate: function () {
+      var tplType = this.options.template || 1
+      var tplNameArr = ['determinate', 'buffer', 'indeterminate', 'query']
+      var tplKey
 
       if (typeof ~~tplType === 'number') {
-        tplKey = tplNameArr[tplType - 1];
-        return renderTemplate[tplKey] || '';
+        tplKey = tplNameArr[tplType - 1]
+        return renderTemplate[tplKey] || ''
       }
 
       if (typeof tplType === 'string') {
-        return template;
+        return tplType
       }
     },
 
     /**
      * Determine which positioning CSS rule to use.
      */
-    _getPositioningCSS: function() {
+    _getPositioningCSS: function () {
       // Sniff on document.body.style
-      var bodyStyle = document.body.style;
+      var bodyStyle = document.body.style
 
       // Sniff prefixes
-      var vendorPrefix = ('WebkitTransform' in bodyStyle) ? 'Webkit' :
-        ('MozTransform' in bodyStyle) ? 'Moz' :
-        ('msTransform' in bodyStyle) ? 'ms' :
-        ('OTransform' in bodyStyle) ? 'O' : '';
+      var vendorPrefix = ('WebkitTransform' in bodyStyle) ? 'Webkit'
+      : ('MozTransform' in bodyStyle) ? 'Moz'
+      : ('msTransform' in bodyStyle) ? 'ms'
+      : ('OTransform' in bodyStyle) ? 'O' : ''
 
       if (vendorPrefix + 'Perspective' in bodyStyle) {
         // Modern browsers with 3D support, e.g. Webkit, IE10
-        return 'translate3d';
+        return 'translate3d'
       } else if (vendorPrefix + 'Transform' in bodyStyle) {
         // Browsers without 3D support, e.g. IE9
-        return 'translate';
+        return 'translate'
       } else {
         // Browsers without translate() support, e.g. IE7-8
-        return 'margin';
+        return 'margin'
       }
     },
 
@@ -509,26 +506,26 @@ import Utils from './utils';
      * (Internal) returns the correct CSS for changing the bar's
      * position given an n percentage, and speed and ease from Settings
      */
-    _barPositionCSS: function(n, speed, ease) {
-      var barCSS;
+    _barPositionCSS: function (n, speed, ease) {
+      var barCSS
 
       if (this.options.positionUsing === 'translate3d') {
         barCSS = {
           transform: 'translate3d(' + Utils.toBarPerc(n) + '%,0,0)'
-        };
+        }
       } else if (this.options.positionUsing === 'translate') {
         barCSS = {
           transform: 'translate(' + Utils.toBarPerc(n) + '%,0)'
-        };
+        }
       } else {
         barCSS = {
           'margin-left': Utils.toBarPerc(n) + '%'
-        };
+        }
       }
 
-      barCSS.transition = 'all ' + speed + 'ms ' + ease;
+      barCSS.transition = 'all ' + speed + 'ms ' + ease
 
-      return barCSS;
+      return barCSS
     },
 
     destroy: function () {
@@ -538,46 +535,45 @@ import Utils from './utils';
       this.stop = true
     }
 
-  };
-
+  }
   /**
    * Waits for all supplied jQuery or Zepto promises and
    * increases the progress as the promises resolve.
    *
    * @param $promise jQuery or Zepto Promise
    */
-  (function() {
-    var initial = 0,
-      current = 0;
+  ;(function () {
+    var initial = 0
+    var current = 0
 
-    MProgress.prototype.promise = function($promise) {
-      if (!$promise || $promise.state() == "resolved") {
-        return this;
+    MProgress.prototype.promise = function ($promise) {
+      if (!$promise || $promise.state() === 'resolved') {
+        return this
       }
 
-      var that = this;
+      var that = this
 
-      if (current == 0) {
-        that.start();
+      if (current === 0) {
+        that.start()
       }
 
-      initial++;
-      current++;
+      initial++
+      current++
 
-      $promise.always(function() {
-        current--;
-        if (current == 0) {
-          initial = 0;
-          that.end();
+      $promise.always(function () {
+        current--
+        if (current === 0) {
+          initial = 0
+          that.end()
         } else {
-          that.set((initial - current) / initial);
+          that.set((initial - current) / initial)
         }
-      });
+      })
 
-      return this;
-    };
+      return this
+    }
 
-  })();
+  })()
 
-  return Mprogress;
-});
+  return Mprogress
+})
