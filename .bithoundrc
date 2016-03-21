@@ -1,5 +1,7 @@
-"ignore": [
-  "vux.js",
-  "components/**/**",
-  "build/**"
-]
+{
+  "ignore": [
+    "vux.js",
+    "components/**/**",
+    "build/**"
+  ]
+}
