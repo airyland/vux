@@ -14,6 +14,7 @@
 
 <script>
 import { Progress } from '../components/'
+
 export default {
   components: {
     Progress

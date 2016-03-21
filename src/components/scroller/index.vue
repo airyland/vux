@@ -2,13 +2,16 @@
   <div>
     <div class="xs-container">
       <slot></slot>
+      <slot name="pulldown"></slot>
+      <slot name="pullup"></slot>
     </div>
   </div>
 </template>
 
 <script>
-import XScroll from '../../../node_modules/xscroll/build/cmd/xscroll.js'
-import Pulldown from '../../../node_modules/xscroll/build/cmd/plugins/pulldown'
+import XScroll from 'vux-xscroll/build/cmd/xscroll.js'
+import Pulldown from 'vux-xscroll/build/cmd/plugins/pulldown'
+import Pullup from 'vux-xscroll/build/cmd/plugins/pullup'
 
 const pulldownDefaultConfig = {
   content: 'Pull Down To Refresh',
@@ -18,6 +21,16 @@ const pulldownDefaultConfig = {
   upContent: 'Release To Refresh',
   loadingContent: 'Loading...',
   clsPrefix: 'xs-plugin-pulldown-'
+}
+
+const pullupDefaultConfig = {
+  pullUpHeight: 60,
+  height: 40,
+  autoRefresh: false,
+  downContent: 'Release To Refresh',
+  upContent: 'Pull Up To Refresh',
+  loadingContent: 'Loading...',
+  clsPrefix: 'xs-plugin-pullup-'
 }
 
 export default {
@@ -54,11 +67,34 @@ export default {
       type: Boolean,
       default: false
     },
+    usePullup: {
+      type: Boolean,
+      default: false
+    },
     /**
     * refer to: http://xscroll.github.io/node_modules/xscroll/doc/PullDown.html
     */
     pulldownConfig: {
-      type: Object
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    pullupConfig: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    pulldownStatus: {
+      type: String,
+      default: 'default',
+      twoWay: true
+    },
+    pullupStatus: {
+      type: String,
+      default: 'default',
+      twoWay: true
     }
   },
   compiled () {
@@ -96,16 +132,45 @@ export default {
     })
 
     if (this.usePulldown) {
-      this.pulldown = new Pulldown(Object.assign(pulldownDefaultConfig, this.pulldownConfig))
-      this._xscroll.plug(this.pulldown)
+      // if use slot=pulldown
+      let container = this.$el.querySelector('div[slot="pulldown"]')
+      let config = Object.assign(pulldownDefaultConfig, this.pulldownConfig)
+      if (container) {
+        config.container = container
+      }
+      _this.pulldown = new Pulldown(config)
+      _this._xscroll.plug(this.pulldown)
       _this.pulldown.on('loading', function (e) {
         _this.$dispatch('pulldown:loading', _this.uuid)
       })
+      _this.pulldown.on('statuschange', function (val) {
+        _this.pulldownStatus = val.newVal
+      })
     }
+
+    if (this.usePullup) {
+      // if use slot=pullup
+      let container = this.$el.querySelector('div[slot="pullup"]')
+      let config = Object.assign(pullupDefaultConfig, _this.pullupConfig)
+      if (container) {
+        config.container = container
+      }
+      _this.pullup = new Pullup(config)
+      _this._xscroll.plug(this.pullup)
+      _this.pullup.on('loading', function (e) {
+        _this.$dispatch('pullup:loading', _this.uuid)
+      })
+      _this.pullup.on('statuschange', function (val) {
+        _this.pullupStatus = val.newVal
+      })
+    }
+
     this._xscroll.render()
   },
   events: {
     'pulldown:reset': function (uuid) {
+      // set pulldown status to default
+      this.pulldownStatus = 'default'
       const _this = this
       if (uuid === _this.uuid) {
         _this.pulldown.reset(function () {
@@ -113,6 +178,18 @@ export default {
           _this._xscroll.render()
         })
       }
+    },
+    'pullup:reset': function (uuid) {
+      // set pulldown status to default
+      this.pullupStatus = 'default'
+      const _this = this
+      if (uuid === _this.uuid) {
+        _this.pullup.complete()
+        _this._xscroll.render()
+      }
+    },
+    'pullup:done': function (uuid) {
+      this._xscroll.unplug(this.pullup)
     }
   },
   beforeDestroy () {
@@ -121,3 +198,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.xs-plugin-pullup-container {
+  text-align: center;
+}
+</style>

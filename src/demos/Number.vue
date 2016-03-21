@@ -29,17 +29,18 @@
 </template>
 
 <script>
-  import { Group, Number, Switch } from '../components/'
-  export default {
-    components: {
-      Number,
-      Group,
-      Switch
-    },
-    methods: {
-      change: function (val) {
-        console.log('change', val)
-      }
+import { Group, Number, Switch } from '../components/'
+
+export default {
+  components: {
+    Number,
+    Group,
+    Switch
+  },
+  methods: {
+    change: function (val) {
+      console.log('change', val)
     }
   }
+}
 </script>

@@ -52,11 +52,16 @@ import ColorPicker from './demos/Color-picker'
 import Blur from './demos/Blur'
 import Scroller from './demos/Scroller'
 import Comment from './demos/Comment'
+import Pulldown from './demos/Pulldown'
+import Pullup from './demos/Pullup'
+
+const FastClick = require('fastclick')
+FastClick.attach(document.body)
 
 Vue.use(Router)
 
-var router = new Router({
-  history: false, // use history=false when testing
+const router = new Router({
+  history: /vux.li/.test(location.href), // use history=false when testing
   saveScrollPosition: true
 })
 
@@ -210,13 +215,19 @@ router.map({
   },
   '/component/comment': {
     component: Comment
+  },
+  '/component/pulldown': {
+    component: Pulldown
+  },
+  '/component/pullup': {
+    component: Pullup
   }
 })
 
 router.beforeEach(function (transition) {
   if (/\/http/.test(transition.to.path)) {
     let url = transition.to.path.split('http')[1]
-    location.href = `http${url}`
+    window.location.href = `http${url}`
   } else {
     transition.next()
   }

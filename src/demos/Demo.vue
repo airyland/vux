@@ -112,6 +112,12 @@
       <cell title="Scroller" link="component/scroller">
         <span class="demo-icon" slot="icon">&#xe641;</span>
       </cell>
+      <cell title="Pulldown" link="component/pulldown">
+        <span class="demo-icon" slot="icon">&#xe64f;</span>
+      </cell>
+      <cell title="Pullup" link="component/pullup">
+        <span class="demo-icon" slot="icon">&#xe650;</span>
+      </cell>
     </group>
 
     <group title="优化" title-color="#04be02">
@@ -161,6 +167,15 @@
 
 <script>
 import { Cell, Group } from '../components/'
+
+/**
+* fix firefox cell bottom border missing
+*/
+
+if (/firefox/i.test(navigator.userAgent)) {
+  document.querySelector('body').classList.add('firefox')
+}
+
 export default {
   components: {
     Cell,
@@ -204,5 +219,8 @@ body {
 }
 .weui_cells > a {
     color: #000;
+}
+.firefox .weui_cells:after {
+  transform-origin: 50% 50%;
 }
 </style>

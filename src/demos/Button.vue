@@ -42,30 +42,31 @@
 </template>
 
 <script>
-  import { XButton, Box, GroupTitle, Group, Flexbox, FlexboxItem } from '../components/'
-  export default {
-    components: {
-      XButton,
-      Box,
-      GroupTitle,
-      Group,
-      Flexbox,
-      FlexboxItem
+import { XButton, Box, GroupTitle, Group, Flexbox, FlexboxItem } from '../components/'
+
+export default {
+  components: {
+    XButton,
+    Box,
+    GroupTitle,
+    Group,
+    Flexbox,
+    FlexboxItem
+  },
+  methods: {
+    change: function (value) {
+      console.log('change:', value)
     },
-    methods: {
-      change: function (value) {
-        console.log('change:', value)
-      },
-      processButton001: function () {
-        this.submit001 = 'processing'
-        this.disable001 = true
-      }
-    },
-    data: function () {
-      return {
-        submit001: 'click me',
-        disable001: false
-      }
+    processButton001: function () {
+      this.submit001 = 'processing'
+      this.disable001 = true
+    }
+  },
+  data: function () {
+    return {
+      submit001: 'click me',
+      disable001: false
     }
   }
+}
 </script>

@@ -7,6 +7,7 @@ export default {
   },
   created: function () {
     this.uuid = Math.random().toString(36).substring(3, 8)
+    this.handleChangeEvent = false
   },
   computed: {
     dirty: function () {
@@ -26,7 +27,9 @@ export default {
       if (this.prisine === true) {
         this.prisine = false
       }
-      this.$dispatch('change', newVal)
+      if (!this.handleChangeEvent) {
+        this.$dispatch('change', newVal)
+      }
     }
   },
   data: function () {

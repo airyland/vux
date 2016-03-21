@@ -19,11 +19,8 @@
 </template>
 
 <script>
-import {
-  Radio,
-  Group,
-  DevTip
-} from '../components/'
+import { Radio, Group, DevTip } from '../components/'
+
 export default {
   components: {
     Radio,

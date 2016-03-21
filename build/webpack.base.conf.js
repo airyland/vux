@@ -9,6 +9,9 @@ module.exports = {
     publicPath: '/static/',
     filename: '[name].js'
   },
+  stats: {
+    children: false
+  },
   resolve: {
     extensions: ['', '.js', '.vue'],
     alias: {

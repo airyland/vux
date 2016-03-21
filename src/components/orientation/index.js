@@ -8,22 +8,20 @@ export default {
     const value = this.expression
     const _value = value.toString()[0].toUpperCase() + value.toString().slice(1)
 
-    if (Orientation['is'+ _value]()) {
+    if (Orientation['is' + _value]()) {
       this.el.style.display = 'block'
     } else {
       this.el.style.display = 'none'
     }
 
-    Orientation.change(function(e) {
+    Orientation.change(function (e) {
       let info = Orientation.getInfo()
-      _this.el.style.display = info[value] ? 'block': 'none'
+      _this.el.style.display = info[value] ? 'block' : 'none'
     })
 
   },
   update: function () {
-
   },
   unbind: function () {
-    
   }
 }

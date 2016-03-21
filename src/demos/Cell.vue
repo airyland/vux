@@ -23,6 +23,7 @@
 
 <script>
 import { Cell, Group } from '../components/'
+
 export default {
   components: {
     Group,

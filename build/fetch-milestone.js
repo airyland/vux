@@ -4,7 +4,7 @@ const request = require('co-request')
 const fs = require('co-fs')
 const path = require('path')
 console.log('fetching issues')
-const getByMilestone = function*(milestone) {
+const getByMilestone = function *(milestone) {
   let rs = yield request({
     url: `https://api.github.com/repos/airyland/vux/issues?milestone=${milestone}`,
     headers: {
@@ -12,7 +12,7 @@ const getByMilestone = function*(milestone) {
     }
   })
   const body = JSON.parse(rs.body)
-  const list = body.map(function(one) {
+  const list = body.map(function (one) {
     return {
       title: one.title,
       state: one.state
@@ -22,7 +22,7 @@ const getByMilestone = function*(milestone) {
 }
 
 let result = []
-co(function*() {
+co(function *() {
   const list = ['1', '2']
   const listMap = ['0.0.1', '0.1.0(Production Ready)']
   for (let i = 0; i < list.length; i++) {

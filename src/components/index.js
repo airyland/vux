@@ -1,21 +1,22 @@
-import Radio from './Radio'
-import Group from './Group'
-import DevTip from './Dev-tip'
-import Input from './Input'
-import Number from './Number'
-import Cell from './Cell'
-import Checklist from './Checklist'
-import Switch from './Switch'
-import Textarea from './Textarea'
-import GroupTitle from './Group-title'
-import Box from './Box'
-import Tip from './Tip'
-import Selector from './Select'
-import XButton from './Button'
-import Flexbox from './Flexbox'
-import FlexboxItem from './Flexbox-item'
-import Tab from './Tab'
-import TabItem from './Tab-item'
+import Radio from './radio/'
+import DevTip from './dev-tip/'
+import Input from './input/'
+import Number from './number/'
+import Cell from './cell/'
+import InlineDesc from './inline-desc/'
+import Checklist from './checklist/'
+import Switch from './switch/'
+import Textarea from './textarea/'
+import Group from './group/'
+import GroupTitle from './group-title/'
+import Box from './box/'
+import Tip from './tip/'
+import Selector from './selector/'
+import XButton from './button/'
+import Flexbox from './flexbox/'
+import FlexboxItem from './flexbox-item/'
+import Tab from './tab/'
+import TabItem from './tab-item/'
 import Swiper from './Swiper'
 import SwiperItem from './Swiper/Swiper-item'
 import Sticky from './sticky/'
@@ -23,25 +24,31 @@ import Picker from './picker/'
 import Datetime from './datetime/'
 import Popup from './popup/'
 import Range from './range/'
-import Actionsheet from './Actionsheet'
+import Actionsheet from './actionsheet/'
 import Clocker from './clocker/'
 import Rater from './rater/'
-import PopupPicker from './Popup-picker'
+import PopupPicker from './popup-picker/'
 import Address from './address/'
-import Toast from './toast'
-import Loading from './Loading'
-import Alert from './Alert'
-import Confirm from './Confirm'
+import Toast from './toast/'
+import Loading from './loading/'
+import Alert from './alert/'
+import Confirm from './confirm/'
 import Progress from './progress/'
-import XImg from './X-img'
+import XImg from './x-img/'
 import Spinner from './spinner/'
 import Calendar from './calendar/'
-import Icon from './Icon'
-import Circle from './Circle/'
+import Icon from './icon/'
+import Circle from './circle/'
 import Style from './Style'
-import ColorPicker from './Color-picker'
+import ColorPicker from './color-picker/'
 import AddressChinaData from './address/list.json'
 import Divider from './divider/'
+import Blur from './blur/'
+import Countup from './countup/'
+import Scroller from './scroller/'
+import Shake from './shake/'
+import WechatEmotion from './wechat-emotion/'
+import Search from './search'
 
 const vux = {
   Radio,
@@ -56,6 +63,7 @@ const vux = {
   Tip,
   Selector,
   Cell,
+  InlineDesc,
   XButton,
   Textarea,
   Flexbox,
@@ -87,7 +95,13 @@ const vux = {
   Style,
   ColorPicker,
   AddressChinaData,
-  Divider
+  Divider,
+  Blur,
+  Countup,
+  Scroller,
+  Shake,
+  WechatEmotion,
+  Search
 }
 
 module.exports = vux

@@ -42,21 +42,22 @@
 </template>
 
 <script>
-  import { Input as XInput, Group } from '../components/'
-  export default {
-    components: {
-      XInput,
-      Group
-    },
-    data: function () {
-      return {
-        password: '123465'
-      }
-    },
-    methods: {
-      change: function (val) {
-        console.log(val)
-      }
+import { Input as XInput, Group } from '../components/'
+
+export default {
+  components: {
+    XInput,
+    Group
+  },
+  data: function () {
+    return {
+      password: '123465'
+    }
+  },
+  methods: {
+    change: function (val) {
+      console.log(val)
     }
   }
+}
 </script>

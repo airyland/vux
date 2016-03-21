@@ -67,12 +67,13 @@
 </template>
 
 <script>
-  import { Tab, TabItem, Sticky } from '../components/'
-  export default {
-    components: {
-      Tab,
-      TabItem,
-      Sticky
-    }
+import { Tab, TabItem, Sticky } from '../components/'
+
+export default {
+  components: {
+    Tab,
+    TabItem,
+    Sticky
   }
+}
 </script>

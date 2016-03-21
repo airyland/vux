@@ -1,9 +1,9 @@
 /* global describe, it, expect */
 
 import Vue from 'vue'
-import XInput from 'src/components/Input'
+import XInput from 'src/components/input/'
 
-describe('Hello.vue', () => {
+describe('Input.vue', () => {
   it('should render correct contents', () => {
     const vm = new Vue({
       template: '<div><x-input></x-input></div>',

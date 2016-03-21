@@ -23,20 +23,21 @@
 </template>
 
 <script>
-  import { Popup, Group, Switch } from '../components/'
-  export default {
-    components: {
-      Popup,
-      Group,
-      Switch
-    },
-    data () {
-      return {
-        show: false,
-        show1: false
-      }
+import { Popup, Group, Switch } from '../components/'
+
+export default {
+  components: {
+    Popup,
+    Group,
+    Switch
+  },
+  data () {
+    return {
+      show: false,
+      show1: false
     }
   }
+}
 </script>
 
 <style>

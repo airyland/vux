@@ -25,10 +25,8 @@
 </template>
 
 <script>
-import {
-  Picker,
-  GroupTitle
-} from '../components/'
+import { Picker, GroupTitle } from '../components/'
+
 let years = []
 for (var i = 2000; i <= 2030; i++) {
   years.push({

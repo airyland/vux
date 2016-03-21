@@ -14,12 +14,13 @@
 </template>
 
 <script>
-  import { Textarea, Group, Input as XInput } from '../components/'
-  export default {
-    components: {
-      Textarea,
-      Group,
-      XInput
-    }
+import { Textarea, Group, Input as XInput } from '../components/'
+
+export default {
+  components: {
+    Textarea,
+    Group,
+    XInput
   }
+}
 </script>

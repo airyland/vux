@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "0.0.92",
+  "version": "0.0.99",
   "description": "Mobile web UI based on Vue and Weui",
   "author": "airyland <airyland@qq.com>",
   "repository": {
@@ -13,19 +13,22 @@
     "test": "karma start build/karma.conf.js --single-run",
     "deploy": "gh-pages -d dist",
     "xdeploy": "npm run build && gh-pages -d dist",
-    "publish": "webpack --progress --hide-modules --colors --config build/webpack.npm.conf.js"
+    "xbuild": "webpack --progress --hide-modules --colors --config build/webpack.npm.conf.js && rimraf components && node build/build-components",
+    "xpublish": "npm run xbuild && npm publish && npm run xdeploy"
   },
   "main": "vux.js",
   "dependencies": {
     "blazy": "^1.5.2",
     "countup": "^1.6.1",
-    "lodash": "^4.3.0",
+    "lodash.filter": "^4.2.1",
+    "lodash.find": "^4.2.0",
+    "lodash.indexof": "^4.0.1",
+    "lodash.map": "^4.2.1",
+    "lodash.shuffle": "^4.0.0",
     "shake.js": "^1.2.2",
-    "validator": "^3.39.0",
-    "vue-focus": "^0.1.1",
-    "vue-lazyload": "^0.2.9",
-    "webp-support": "^1.0.2",
-    "xscroll": "^3.1.2"
+    "validator": "^5.1.0",
+    "vux-xscroll": "^3.1.3",
+    "webp-support": "^1.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -33,7 +36,8 @@
     "babel-plugin-transform-runtime": "^6.0.0",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-stage-2": "^6.0.0",
-    "babel-runtime": "^5.8.0",
+    "babel-runtime": "^5.8.35",
+    "cli-spinner": "^0.2.4",
     "co": "^4.6.0",
     "co-fs": "^1.2.0",
     "co-request": "^1.0.0",
@@ -46,6 +50,7 @@
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.9.1",
+    "fastclick": "^1.0.6",
     "file-loader": "^0.8.4",
     "function-bind": "^1.0.2",
     "gh-pages": "^0.10.0",

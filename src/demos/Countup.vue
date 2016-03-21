@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import Countup from '../components/Countup'
+import { Countup } from '../components/'
+
 export default {
   components: {
     Countup

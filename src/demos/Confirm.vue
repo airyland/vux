@@ -9,6 +9,7 @@
 
 <script>
 import { Confirm, Group, Switch } from '../components/'
+
 export default {
   components: {
     Confirm,
