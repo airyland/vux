@@ -136,6 +136,9 @@
       <cell title="Emotion" value="微信表情" link="component/emotion">
         <span class="demo-icon" slot="icon">&#xe63c;</span>
       </cell>
+      <cell title="Masker" link="component/masker">
+        <span class="demo-icon" slot="icon">&#xe651;</span>
+      </cell>
     </group>
 
     <group title="TODO" title-color="#04be02" v-if="showTodo">
