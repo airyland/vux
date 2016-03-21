@@ -13,8 +13,8 @@
     "test": "karma start build/karma.conf.js --single-run",
     "deploy": "gh-pages -d dist",
     "xdeploy": "npm run build && gh-pages -d dist",
-    "xbuild": "rimraf components && node build/build-components",
-    "xpublish": "webpack --progress --hide-modules --colors --config build/webpack.npm.conf.js && rimraf components && node build/build-components && npm publish && npm run xdeploy"
+    "xbuild": "webpack --progress --hide-modules --colors --config build/webpack.npm.conf.js && rimraf components && node build/build-components",
+    "xpublish": "npm run xbuild && npm publish && npm run xdeploy"
   },
   "main": "vux.js",
   "dependencies": {

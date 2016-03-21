@@ -17,6 +17,9 @@ module.exports = {
       'src': path.resolve(__dirname, '../src')
     }
   },
+  stats: {
+    children: false
+  },
   resolveLoader: {
     root: path.join(__dirname, 'node_modules')
   },
