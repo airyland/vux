@@ -66,7 +66,7 @@ config.devtool = SOURCE_MAP ? 'source-map' : false
 
 // generate loader string to be used with extract text plugin
 function generateExtractLoaders(loaders) {
-  return loaders.map(function (loader) {
+  return loaders.map(function(loader) {
     return loader + '-loader' + (SOURCE_MAP ? '?sourceMap' : '')
   }).join('!')
 }
@@ -86,43 +86,57 @@ config.plugins = (config.plugins || []).concat([
   new ExtractTextPlugin('style.css')
 ])
 
-
-var p = path.resolve(__dirname, '../src/components/')
-
-fs.readdir(p, function (err, files) {
-  if (err) {
-    throw err
+var list = ''
+process.argv.forEach(function(val, index, array) {
+  if (index === 2) {
+    list = val
   }
-  files.filter(function (file) {
-    return fs.statSync(path.join(p, file)).isDirectory()
-  }).forEach(function (file) {
+});
 
-    let name = file
-    let spinner = new Spinner(`building ${name}`)
-    spinner.setSpinnerString('←↖↑↗→↘↓↙')
-    spinner.start()
+if (list) {
+  list.split(',').forEach(function (name) {
+    build(name)
+  })
+} else {
+  var p = path.resolve(__dirname, '../src/components/')
 
-    config.entry = {}
-    config.entry[name] = [path.resolve(__dirname, `../src/components/${name}/index`)]
-    config.output.library = converName(name)
-    config.output.path = path.resolve(__dirname, '../components/' + name + '/')
-    webpack(config, function (err, stats) {
-      var jsonStats = stats.toJson()
-      spinner.setSpinnerString(stats.endTime - stats.startTime)
-      spinner.stop()
-      if (err) {
-        throw err
-      }
+  fs.readdir(p, function (err, files) {
+    if (err) {
+      throw err
+    }
+    files.filter(function(file) {
+      return fs.statSync(path.join(p, file)).isDirectory()
+    }).forEach(function(file) {
+      build(file)
     })
   })
-})
+}
+
+function build (name) {
+  let spinner = new Spinner(`building ${name}`)
+  spinner.setSpinnerString('←↖↑↗→↘↓↙')
+  spinner.start()
+
+  config.entry = {}
+  config.entry[name] = [path.resolve(__dirname, `../src/components/${name}/index`)]
+  config.output.library = converName(name)
+  config.output.path = path.resolve(__dirname, '../components/' + name + '/')
+  webpack(config, function(err, stats) {
+    var jsonStats = stats.toJson()
+    spinner.setSpinnerString(stats.endTime - stats.startTime)
+    spinner.stop()
+    if (err) {
+      throw err
+    }
+  })
+}
 
 function capitalizeFirstLetter (string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-function converName(name){
-  return ('vux-' + name).split('-').map(function (one, index) {
+function converName (name) {
+  return ('vux-' + name).split('-').map(function(one, index) {
     return index === 0 ? one : capitalizeFirstLetter(one)
   }).join('')
-} 
+}
