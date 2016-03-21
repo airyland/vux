@@ -54,6 +54,7 @@ import Scroller from './demos/Scroller'
 import Comment from './demos/Comment'
 import Pulldown from './demos/Pulldown'
 import Pullup from './demos/Pullup'
+import Masker from './demos/Masker'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -221,6 +222,9 @@ router.map({
   },
   '/component/pullup': {
     component: Pullup
+  },
+  '/component/masker': {
+    component: Masker
   }
 })
 

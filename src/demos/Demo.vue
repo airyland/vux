@@ -137,7 +137,10 @@
         <span class="demo-icon" slot="icon">&#xe63c;</span>
       </cell>
       <cell title="Comment" value="评论" link="component/comment">
-        <span class="demo-icon" slot="icon">&#xe63c;</span>
+        <span class="demo-icon" slot="icon">&#xe652;</span>
+      </cell>
+      <cell title="Masker" link="component/masker">
+        <span class="demo-icon" slot="icon">&#xe651;</span>
       </cell>
     </group>
 

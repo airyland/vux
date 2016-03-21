@@ -43,7 +43,7 @@
       <cell title="Your history score">
         <rater :value.sync="data6" active-color="#04BE02" slot="value"></rater>
       </cell>
-      <cell title="range">
+      <cell title="range" primary="content">
         <range slot="value" :value.sync="data6" :step=1 :min=0 :max=5>
       </cell>
     </group>
