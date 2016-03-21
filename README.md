@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style>
-@import '../node_modules/vux/vux.css';
+@import '~vux/vux.css';
 </style>
 ```
 
