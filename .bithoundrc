@@ -2,6 +2,8 @@
   "ignore": [
     "vux.js",
     "components/**/**",
+    "examples/**,
+    "examples/**/**",
     "build/**"
   ]
 }

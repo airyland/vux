@@ -1,12 +1,12 @@
 // fork from https://github.com/rookie125/mobile-calendar
-import * as Eventor from '../../libs/eventor'
-var mNow = 0, // 当前相对月份
-  yNow = 0 // 当前相对年份
-
+import Eventor from '../../libs/eventor'
 
 function Calendar(option) {
   var _this = this
-    // 过去的时间是否可选
+  var mNow = 0 // 当前相对月份
+  var yNow = 0 // 当前相对年份
+
+  // 过去的时间是否可选
   _this.calenTitles // 年，月标题
   _this.aMonths // 可以选择的所有月份
   _this.aYears // 可以选择的所有年份
@@ -93,11 +93,11 @@ Calendar.prototype.init = function () {
 
     // 滑动切换上下月
     _this.slideSwitch(_this.calendarList, function (obj, dir) {
-      dir > 0 ? mNow-- : mNow++
+      dir > 0 ? _this.mNow-- : _this.mNow++
 
-      _this.startJSON.prev.m = mNow - 1
-      _this.startJSON.now.m = mNow
-      _this.startJSON.next.m = mNow + 1
+      _this.startJSON.prev.m = _this.mNow - 1
+      _this.startJSON.now.m = _this.mNow
+      _this.startJSON.next.m = _this.mNow + 1
       _this.transitions(obj, dir)
     })
 
@@ -160,8 +160,8 @@ Calendar.prototype.init = function () {
       months[i].onclick = function () {
         for (var x = 0; x < months.length; x++) toolClass(months[x], 'active', 'remove')
 
-        mNow += attr(this, 'data-value') - attr(_this.monthTitle, 'data-value')
-        _this.selectDate(this, _this.selectMonthBox, "m", mNow)
+        _this.mNow += attr(this, 'data-value') - attr(_this.monthTitle, 'data-value')
+        _this.selectDate(this, _this.selectMonthBox, "m", _this.mNow)
       }
     }
   })
@@ -186,24 +186,24 @@ Calendar.prototype.init = function () {
       if (_this.startDate instanceof Array && _this.startDate.length) {
         var startDate = _this.startDate[0]
 
-        yNow = startDate.y - oDate.getFullYear()
-        mNow = startDate.m - (oDate.getMonth() + 1)
+        _this.yNow = startDate.y - oDate.getFullYear()
+        _this.mNow = startDate.m - (oDate.getMonth() + 1)
 
         for (var a in startDate) _this.fixDate[a] = startDate[a]
 
         prev = {
-          y: yNow,
-          m: mNow - 1,
+          y: _this.yNow,
+          m: _this.mNow - 1,
           d: startDate.d
         }
         now = {
-          y: yNow,
-          m: mNow,
+          y: _this.yNow,
+          m: _this.mNow,
           d: startDate.d
         }
         next = {
-          y: yNow,
-          m: mNow + 1,
+          y: _this.yNow,
+          m: _this.mNow + 1,
           d: startDate.d
         }
 
@@ -221,20 +221,20 @@ Calendar.prototype.init = function () {
       if (_this.focusObj != this) {
 
         if (!_this.startDate instanceof Array || !_this.startDate) {
-          mNow = 0
-          yNow = 0
+          _this.mNow = 0
+          _this.yNow = 0
 
           _this.startJSON.prev = {
-            y: yNow,
-            m: mNow - 1
+            y: _this.yNow,
+            m: _this.mNow - 1
           }
           _this.startJSON.now = {
-            y: yNow,
-            m: mNow
+            y: _this.yNow,
+            m: _this.mNow
           }
           _this.startJSON.next = {
-            y: yNow,
-            m: mNow + 1
+            y: _this.yNow,
+            m: _this.mNow + 1
           }
         }
 
@@ -254,8 +254,8 @@ Calendar.prototype.init = function () {
             years[k].onclick = function () {
               for (var x = 0; x < years.length; x++) toolClass(years[x], 'active', 'remove')
 
-              yNow += attr(this, 'data-value') - attr(_this.yearTitle, 'data-value')
-              _this.selectDate(this, _this.selectYearBox, "y", yNow)
+              _this.yNow += attr(this, 'data-value') - attr(_this.yearTitle, 'data-value')
+              _this.selectDate(this, _this.selectYearBox, "y", _this.yNow)
             }
           }
 
@@ -304,13 +304,10 @@ Calendar.prototype.createCalenList = function (data, setTitle) {
   var oList = document.createElement('div'),
     created = 0
 
-
   data = data || {}
   data.m = data.m || 0
   data.y = data.y || 0
-  var date = new Date()
 
-  //
   var date = new Date(),
     tDay = date.getDate()
 
@@ -335,7 +332,6 @@ Calendar.prototype.createCalenList = function (data, setTitle) {
   var lastDay = date.getDate(),
     lastMonths = []
   for (var i = lastDay; i > 0; i--) lastMonths.push(i)
-
   // 设置标题
   if (setTitle) {
     _this.yearTitle.innerHTML = tYear
@@ -347,7 +343,6 @@ Calendar.prototype.createCalenList = function (data, setTitle) {
   // 创建上月尾部分
   var lastMonthDay = dWeek + 7
   lastMonthDay = lastMonthDay >= 10 ? lastMonthDay - 7 : lastMonthDay
-
   for (var i = 0; i < lastMonthDay; i++) {
 
     var oSpan = create('span'),
@@ -419,7 +414,6 @@ Calendar.prototype.createCalenList = function (data, setTitle) {
 
   // 创建下月尾部分
   var nextMonths = 42 - oList.children.length
-
   for (var i = 0; i < nextMonths; i++) {
     var n = i + 1,
       oSpan = create('span'),
@@ -592,7 +586,7 @@ Calendar.prototype.createTime = function (obj, date, today, past) {
 
   for (var i = 0; i < child.length; i++) {
 
-    if (_this.hoursPast && ((mNow < 0 && yNow <= 0) || (today == day && child[i].time <= hours) || (mNow <= 0 && yNow <= 0 && today < day))) {
+    if (_this.hoursPast && ((_this.mNow < 0 && _this.yNow <= 0) || (today == day && child[i].time <= hours) || (_this.mNow <= 0 && _this.yNow <= 0 && today < day))) {
       toolClass(child[i].obj, 'expire pasted')
       child[i].obj.active = false
     } else {
@@ -746,16 +740,16 @@ Calendar.prototype.appendList = function (data, cb) {
   var _this = this
   data = data || {}
   data.prev = data.prev || {
-    m: mNow - 1,
-    y: yNow
+    m: _this.mNow - 1,
+    y: _this.yNow
   }
   data.now = data.now || {
-    m: mNow,
-    y: yNow
+    m: _this.mNow,
+    y: _this.yNow
   }
   data.next = data.next || {
-    m: mNow + 1,
-    y: yNow
+    m: _this.mNow + 1,
+    y: _this.yNow
   }
 
   _this.calendarList.innerHTML = ''
@@ -823,29 +817,29 @@ Calendar.prototype.switchDate = function (dir, type) {
 
   switch (type) {
     case 'month':
-      dir > 0 ? mNow++ : mNow--
+      dir > 0 ? _this.mNow++ : _this.mNow--
 
-      _this.startJSON.prev.m = mNow - 1
-      _this.startJSON.now.m = mNow
-      _this.startJSON.next.m = mNow + 1
+      _this.startJSON.prev.m = _this.mNow - 1
+      _this.startJSON.now.m = _this.mNow
+      _this.startJSON.next.m = _this.mNow + 1
 
       _this.transitions(_this.calendarList, dir > 0 ? -1 : 1)
       break
     case 'year':
       _this.appendList({
         prev: {
-          m: mNow,
-          y: yNow - 1
+          m: _this.mNow,
+          y: _this.yNow - 1
         },
         next: {
-          m: mNow,
-          y: yNow + 1
+          m: _this.mNow,
+          y: _this.yNow + 1
         }
       }, function () {
-        dir > 0 ? yNow++ : yNow--
-        _this.startJSON.prev.y = yNow
-        _this.startJSON.now.y = yNow
-        _this.startJSON.next.y = yNow
+        dir > 0 ? _this.yNow++ : _this.yNow--
+        _this.startJSON.prev.y = _this.yNow
+        _this.startJSON.now.y = _this.yNow
+        _this.startJSON.next.y = _this.yNow
         _this.transitions(_this.calendarList, dir > 0 ? -1 : 1)
       })
       break
