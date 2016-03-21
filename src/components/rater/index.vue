@@ -7,80 +7,84 @@
 </template>
 
 <script>
-  export default {
-    ready () {
-      for (var i = 0; i < this.max; i++) {
-        this.colors.push('#ccc')
-      }
-      if (this.value) {
-        this.handleClick(this.value - 1, true)
-      }
-      const _v = this.value.toString().split('.')
-      if (_v.length > 1) {
-        this.cutIndex = _v[0] * 1
-        this.cutPercent = _v[1] * 10
-      }
+export default {
+  ready () {
+    for (var i = 0; i < this.max; i++) {
+      this.colors.push('#ccc')
+    }
+    if (this.value) {
+      this.handleClick(this.value - 1, true)
+    }
+  },
+  props: {
+    max: {
+      type: Number,
+      default: 5
     },
-    props: {
-      max: {
-        type: Number,
-        default: 5
-      },
-      value: {
-        type: Number,
-        default: 0,
-        twoWay: true
-      },
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      star: {
-        type: String,
-        default: '★'
-      },
-      activeColor: {
-        type: String,
-        default: '#fc6'
-      },
-      margin: {
-        type: Number,
-        default: 2
-      },
-      fontSize: {
-        type: Number,
-        default: 25
-      }
+    value: {
+      type: Number,
+      default: 0,
+      twoWay: true
     },
-    computed: {
+    disabled: {
+      type: Boolean,
+      default: false
     },
-    methods: {
-      handleClick (i, force) {
-        if (!this.disabled || force) {
-          this.value = i + 1
-          for (var j = 0; j < this.max; j++) {
-            if (j <= i) {
-              this.colors.$set(j, this.activeColor)
-            } else {
-              this.colors.$set(j, '#ccc')
-            }
+    star: {
+      type: String,
+      default: '★'
+    },
+    activeColor: {
+      type: String,
+      default: '#fc6'
+    },
+    margin: {
+      type: Number,
+      default: 2
+    },
+    fontSize: {
+      type: Number,
+      default: 25
+    }
+  },
+  computed: {
+    sliceValue: function () {
+      return this.value.toString().split('.')
+    },
+    cutIndex: function () {
+      return this.sliceValue[0] * 1
+    },
+    cutPercent: function () {
+      return this.sliceValue[1] * 10
+    }
+  },
+  methods: {
+    handleClick (i, force) {
+      if (!this.disabled || force) {
+        this.value = i + 1
+        for (var j = 0; j < this.max; j++) {
+          if (j <= i) {
+            this.colors.$set(j, this.activeColor)
+          } else {
+            this.colors.$set(j, '#ccc')
           }
         }
       }
-    },
-    data () {
-      return {
-        colors: [],
-        cutIndex: -1,
-        cutPercent: 0
-      }
-    },
-    watch: {
-      value: function (val) {
-        this.handleClick(val - 1)
-      }
+    }
+  },
+  data () {
+    return {
+      colors: [],
+      cutIndex: -1,
+      cutPercent: 0
+    }
+  },
+  watch: {
+    value: function (val) {
+      this.handleClick(val - 1)
     }
   }
+}
 </script>
 
 <style>
