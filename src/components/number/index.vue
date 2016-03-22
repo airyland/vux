@@ -84,10 +84,10 @@ export default {
   },
   computed: {
     disabled_min: function () {
-      return !this.min ? false : this.value <= this.min
+      return typeof this.min === 'undefined' ? false : this.value <= this.min
     },
     disabled_max: function () {
-      return !this.max ? false : this.value >= this.max
+      return typeof this.max === 'undefined' ? false : this.value >= this.max
     }
   },
   ready: function () {
