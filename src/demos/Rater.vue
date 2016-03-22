@@ -13,7 +13,7 @@
       <cell title="Your history score">
         <rater :value.sync="data4" slot="value" disabled></rater>
       </cell>
-      <cell :title="'Decimal score ' + data41 " inline-desc="Only support in readonly mode">
+      <cell :title="'Decimal score ' + data41 ">
         <rater :value.sync="data41" slot="value" active-color="#04BE02" disabled></rater>
       </cell>
       <cell title="custom font-size(15px)">
@@ -43,7 +43,7 @@
       <cell title="Your history score">
         <rater :value.sync="data6" active-color="#04BE02" slot="value"></rater>
       </cell>
-      <cell title="range" primary="content">
+      <cell title="range" primary="content" :inline-desc="data6 + ''">
         <range slot="value" :value.sync="data6" :step=1 :min=0 :max=5>
       </cell>
     </group>
