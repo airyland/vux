@@ -5,7 +5,7 @@
   </div>
   <div class="weui_cell_ft" v-show="!readonly" style="font-size:0">
     <a @click="sub()" class="number-selector number-selector-sub needsclick":class="{'number-disabled':disabled_min}">-</a>
-    <input v-model="value" class="number-input" :style="{width: width+'px'}" number :readonly="!fillable" />
+    <input v-model="value" class="number-input" :style="{width: width+'px'}" number :readonly="!fillable" pattern="[0-9]*"/>
     <a @click="add()" class="number-selector number-selector-plus needsclick" :class="{'number-disabled':disabled_max}">+</a>
   </div>
   <div class="weui_cell_ft" v-else>

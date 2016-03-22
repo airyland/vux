@@ -9,12 +9,12 @@
       <x-input title="message" placeholder="I'm placeholder" :show-clear=false></x-input>
     </group>
 
-    <group title="set is-type=china_name">
-      <x-input title="姓名" placeholder="请输入姓名" is-type="china_name"></x-input>
+    <group title="set is-type=china-name">
+      <x-input title="姓名" placeholder="请输入姓名" is-type="china-name"></x-input>
     </group>
 
-    <group title="set keyboard=number and is-type=china_mobile">
-      <x-input title="手机号码" placeholder="请输入手机号码" keyboard="number" is-type="china_mobile"></x-input>
+    <group title="set keyboard=number and is-type=china-mobile">
+      <x-input title="手机号码" placeholder="请输入手机号码" keyboard="number" is-type="china-mobile"></x-input>
     </group>
 
     <group title="set is-type=email">
