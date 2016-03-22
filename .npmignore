@@ -1,9 +1,11 @@
 dist/
-src/
 build/
 demo/
 node_modules/
-src/
-!src/components
-!src/filters
-!src/libs
+examples/
+test/
+/src/*.vue
+/src/*.js
+/src/*.html
+/src/assets/
+/src/demos/
