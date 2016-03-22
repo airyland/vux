@@ -31,7 +31,7 @@
   <img src="https://raw.githubusercontent.com/airyland/vux/master/qr.png" width="300">
 </p>
 
-## Usage for new Vue Project
+## Usage by importing UMD modules
 
 ``` bash
 # install vue-cli
@@ -41,7 +41,7 @@ npm install -g vue-cli
 vue init webpack my-project
 cd my-project
 npm install
-npm install vux
+npm install vux@dev
 npm run dev
 ```
 
@@ -73,6 +73,41 @@ export default {
 <style>
 @import '~vux/vux.css';
 </style>
+```
+
+## Usage by importing .vue file
+
+> add a js loader in webpack.base.conf.js
+
+``` js
+{
+  test: /vux.src.*?js$/,
+  loader: 'babel'
+}
+```
+
+> import the components you need
+
+``` js
+import Group from 'vux/src/components/group'
+import Cell from 'vux/src/components/cell'
+```
+
+> you can use a shorter path by adding resolve.alias in webpack.base.conf.js
+
+``` js
+resolve: {
+  alias: {
+    'vux-components': 'vux/src/components/'
+  }
+}
+```
+
+> now you can import like this:
+
+``` js
+import Group from 'vux-components/group'
+import Cell from 'vux-components/cell'
 ```
 
 ## Usage by including scripts
