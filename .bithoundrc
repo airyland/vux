@@ -4,6 +4,7 @@
     "components/**/**",
     "examples/**",
     "examples/**/**",
-    "build/**"
+    "build/**",
+    "src/assets/vendors/**"
   ]
 }
