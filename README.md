@@ -41,7 +41,7 @@ npm install -g vue-cli
 vue init webpack my-project
 cd my-project
 npm install
-npm install vux
+npm install vux@dev
 npm run dev
 ```
 
