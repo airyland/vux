@@ -1,7 +1,7 @@
 <template>
   <div class="vux-rater">
     <a class="vux-rater-box" v-for="i in max" @click="handleClick(i)" :class="{'is-active':value > i}" :style="{color:colors[i],marginRight:margin+'px',fontSize: fontSize + 'px', width: fontSize + 'px', height: fontSize + 'px'}">
-      <span class="vux-rater-inner">{{star}}<span class="vux-rater-outer" :style="{color: activeColor, width: cutPercent + '%'}" v-if="disabled && cutIndex === i">{{star}}</span></span>
+      <span class="vux-rater-inner">{{star}}<span class="vux-rater-outer" :style="{color: activeColor, width: cutPercent + '%'}" v-if="disabled && cutPercent > 0 && cutIndex === i">{{star}}</span></span>
     </a>
   </div>
 </template>
@@ -49,7 +49,8 @@ export default {
   },
   computed: {
     sliceValue: function () {
-      return this.value.toString().split('.')
+      const _val = this.value.toString().split('.')
+      return _val.length === 1 ? [_val[0], 0] : _val
     },
     cutIndex: function () {
       return this.sliceValue[0] * 1
