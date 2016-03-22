@@ -5,12 +5,12 @@ export default function (str, replaceBreak) {
   var i = str.length
   while (ws.test(str.charAt(--i)))
   var rs = str.slice(0, i + 1)
-  if(!rs){
+  if (!rs) {
     return ''
   }
-  if (!replaceBreak){
+  if (!replaceBreak) {
     return rs
-  }else{
+  } else {
     return rs.replace(/(?:\r\n|\r|\n)/g, '')
   }
 }
