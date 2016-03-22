@@ -3,3 +3,7 @@ src/
 build/
 demo/
 node_modules/
+src/
+!src/components
+!src/filters
+!src/libs
