@@ -12,7 +12,7 @@
     <div class="weui_cell" v-show="fillMode">
       <div class="weui_cell_hd"><label for="" class="weui_label">{{fillLabel}}</label></div>
       <div class="weui_cell_bd weui_cell_primary">
-          <input class="weui_input needsclick" type="text" v-model="fillValue" placeholder="{{fillPlaceholder}}" @blur="isFocus=false" @focus="onFocus()">
+          <input class="weui_input needsclick" type="text" v-model="fillValue" placeholder="{{fillPlaceholder}}" @blur="isFocus=false" @focus="onFocus()" @change.stop>
       </div>
       <div class="weui_cell_ft" v-show="value==='' && !isFocus">
           <i class="weui_icon_warn"></i>
