@@ -5,7 +5,7 @@
              <p>{{one}}</p>
          </div>
          <div class="weui_cell_ft">
-             <input type="radio" class="weui_check" v-model="value" id="radio_{{uuid}}_{{index}}" value="{{one}}">
+             <input type="radio" class="weui_check" v-model="value" id="radio_{{uuid}}_{{index}}" value="{{one}}" @change.stop>
              <span class="weui_icon_checked"></span>
          </div>
     </label>
@@ -51,6 +51,9 @@ export default {
       required: false,
       default: '其他'
     }
+  },
+  ready () {
+    this.handleChangeEvent = true
   },
   methods: {
     onFocus: function () {
