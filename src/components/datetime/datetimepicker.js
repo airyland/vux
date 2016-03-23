@@ -1,7 +1,7 @@
-const Scroller = require('../picker/scroller')
-const formater = require('./format')
-const $ = window.$
+import Scroller from '../picker/scroller'
+import { each, trimZero, addZero, getMaxDay, parseRow, parseDate, getElement, toElement, removeElement } from './util'
 
+const $ = window.$
 const MASK_TEMPLATE = '<div class="dp-mask"></div>'
 
 const TEMPLATE = `<div class="dp-container">
@@ -58,82 +58,6 @@ var DEFAULT_CONFIG = {
   onHide: function () {},
   confirmText: 'ok',
   cancelText: 'cancel'
-}
-
-function each (obj, fn) {
-  for (var key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      if (fn.call(obj[key], key, obj[key]) === false) {
-        break
-      }
-    }
-  }
-}
-
-function trimZero (val) {
-  val = String(val)
-  val = val ? parseFloat(val.replace(/^0+/g, '')) : ''
-  val = val || 0
-  val = val + ''
-  return val
-}
-
-function addZero (val) {
-  val = String(val)
-  return val.length < 2 ? '0' + val : val
-}
-
-function isLeapYear (year) {
-  return year % 100 !== 0 && year % 4 === 0 || year % 400 === 0
-}
-
-function getMaxDay (year, month) {
-  year = parseFloat(year)
-  month = parseFloat(month)
-  if (month === 2) {
-    return isLeapYear(year) ? 29 : 28
-  }
-  return [4, 6, 9, 11].indexOf(month) >= 0 ? 30 : 31
-}
-
-function parseRow (tmpl, value) {
-  return tmpl.replace(/\{value\}/g, value)
-}
-
-// parse Date String
-function parseDate (format, value) {
-  var formatParts = format.split(/[^A-Z]+/)
-  var valueParts = value.split(/\D+/)
-  if (formatParts.length !== valueParts.length) {
-    // throw 'Invalid format or value'
-    // 当日期格式不对时，默认为当前日期
-    var date = formater(new Date(), format.toLowerCase())
-    valueParts = date.split(/\D+/)
-  }
-
-  var result = {}
-
-  for (var i = 0; i < formatParts.length; i++) {
-    if (formatParts[i]) {
-      result[formatParts[i]] = valueParts[i]
-    }
-  }
-  return result
-}
-
-function getElement (expr) {
-  return (typeof expr === 'string') ? document.querySelector(expr) : expr
-}
-
-// HTML to Element
-function toElement (html) {
-  var tempContainer = document.createElement('div')
-  tempContainer.innerHTML = html
-  return tempContainer.firstElementChild
-}
-
-function removeElement (el) {
-  el && el.parentNode.removeChild(el)
 }
 
 function renderScroller (el, data, value, fn) {
