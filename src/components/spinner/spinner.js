@@ -26,7 +26,7 @@ var SHORTCUTS = {
 }
 
 var SPIN_ANIMATION = {
-  v: '0,32,32360,32,32',
+  v: '0,32,32;360,32,32',
   an: 'transform',
   type: 'rotate',
   rc: INDEFINITE,
@@ -63,11 +63,11 @@ function setSvgAttribute (ele, k, v) {
 }
 
 function animationValues (strValues, i) {
-  var values = strValues.split('')
+  var values = strValues.split(';')
   var back = values.slice(i)
   var front = values.slice(0, values.length - back.length)
   values = back.concat(front).reverse()
-  return values.join('') + '' + values[0]
+  return values.join(';') + ';' + values[0]
 }
 
 var IOS_SPINNER = {
@@ -84,7 +84,7 @@ var IOS_SPINNER = {
             return {
               an: STROKE_OPACITY,
               dur: DURATION,
-              v: animationValues('0.1.15.25.35.45.55.65.7.851', i),
+              v: animationValues('0;.1;.15;.25;.35;.45;.55;.65;.7;.85;1', i),
               rc: INDEFINITE
             }
           },
@@ -127,7 +127,7 @@ var spinners = {
               return {
                 an: 'r',
                 dur: DURATION,
-                v: animationValues('12345678', i),
+                v: animationValues('1;2;3;4;5;6;7;8', i),
                 rc: INDEFINITE
               }
             },
@@ -154,7 +154,7 @@ var spinners = {
               return {
                 an: 'fill-opacity',
                 dur: DURATION,
-                v: animationValues('.3.3.3.4.7.85.91', i),
+                v: animationValues('.3;.3;.3;.4;.7;.85;.9;1', i),
                 rc: INDEFINITE
               }
             },
@@ -192,7 +192,7 @@ var spinners = {
               return {
                 an: 'fill-opacity',
                 dur: DURATION,
-                v: animationValues('.5.6.81.8.6.5', i),
+                v: animationValues('.5;.6;.8;1;.8;.6;.5', i),
                 rc: INDEFINITE
               }
             },
@@ -202,7 +202,7 @@ var spinners = {
               return {
                 an: 'r',
                 dur: DURATION,
-                v: animationValues('4565433', i),
+                v: animationValues('4;5;6;5;4;3;3', i),
                 rc: INDEFINITE
               }
             },
@@ -227,7 +227,7 @@ var spinners = {
               return {
                 an: 'y1',
                 dur: DURATION,
-                v: animationValues('1618281816', i),
+                v: animationValues('16;18;28;18;16', i),
                 rc: INDEFINITE
               }
             },
@@ -237,7 +237,7 @@ var spinners = {
               return {
                 an: 'y2',
                 dur: DURATION,
-                v: animationValues('4844364648', i),
+                v: animationValues('48;44;36;46;48', i),
                 rc: INDEFINITE
               }
             },
@@ -247,7 +247,7 @@ var spinners = {
               return {
                 an: STROKE_OPACITY,
                 dur: DURATION,
-                v: animationValues('1.8.5.41', i),
+                v: animationValues('1;.8;.5;.4;1', i),
                 rc: INDEFINITE
               }
             },
@@ -274,8 +274,8 @@ var spinners = {
                 an: 'r',
                 begin: (i * -1) + 's',
                 dur: '2s',
-                v: '024',
-                keyTimes: '01',
+                v: '0;24',
+                keyTimes: '0;1',
                 keySplines: '0.1,0.2,0.3,1',
                 calcMode: 'spline',
                 rc: INDEFINITE
@@ -288,7 +288,7 @@ var spinners = {
                 an: STROKE_OPACITY,
                 begin: (i * -1) + 's',
                 dur: '2s',
-                v: '.21.20',
+                v: '.2;1;.2;0',
                 rc: INDEFINITE
               }
             },
@@ -415,8 +415,9 @@ export default function (el, icon) {
   el.innerHTML = container.innerHTML
   start()
   function start () {
-    animations[spinnerName]
-    anim = animations[spinnerName](el)()
+    if (animations[spinnerName]) {
+      anim = animations[spinnerName](el)()
+    }
   }
   return el
 }
