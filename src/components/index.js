@@ -1,6 +1,6 @@
 import Radio from './radio/'
 import DevTip from './dev-tip/'
-import Input from './input/'
+import XInput from './x-input/'
 import Number from './number/'
 import Cell from './cell/'
 import InlineDesc from './inline-desc/'
@@ -54,7 +54,7 @@ const vux = {
   Radio,
   Group,
   DevTip,
-  Input,
+  XInput,
   GroupTitle,
   Number,
   Checklist,

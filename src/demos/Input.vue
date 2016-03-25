@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { Input as XInput, Group } from '../components/'
+import { XInput, Group } from '../components/'
 
 export default {
   components: {

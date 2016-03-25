@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { Textarea, Group, Input as XInput } from '../components/'
+import { Textarea, Group, XInput } from '../components/'
 
 export default {
   components: {
