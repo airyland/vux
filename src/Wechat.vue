@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { DevTip, Number, Selector, Group, GroupTitle, Button as Btn, Tip, Switch, Radio, Checklist, Textarea, Cell, Xinput } from './components/'
+import { DevTip, Number, Selector, Group, GroupTitle, Button as Btn, Tip, Switch, Radio, Checklist, Cell, Xinput } from './components/'
 
 export default {
   ready: function () {
@@ -45,7 +45,6 @@ export default {
     Radio,
     DevTip,
     Checklist,
-    Textarea,
     Cell,
     Xinput
   },

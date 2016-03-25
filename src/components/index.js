@@ -6,7 +6,7 @@ import Cell from './cell/'
 import InlineDesc from './inline-desc/'
 import Checklist from './checklist/'
 import Switch from './switch/'
-import Textarea from './textarea/'
+import XTextarea from './x-textarea/'
 import Group from './group/'
 import GroupTitle from './group-title/'
 import Box from './box/'
@@ -65,7 +65,7 @@ const vux = {
   Cell,
   InlineDesc,
   XButton,
-  Textarea,
+  XTextarea,
   Flexbox,
   FlexboxItem,
   Tab,
