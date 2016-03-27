@@ -5,7 +5,7 @@
     </group>
 
     <group title="with placeholder">
-      <selector placeholder="请选择省份" title="省份" :options="list" @change="change"></selector>
+      <selector placeholder="请选择省份" title="省份" :options="list" @on-change="onChange"></selector>
     </group>
 
     <group title="without title">
@@ -13,16 +13,20 @@
     </group>
     
     <group title="set value=广西">
-      <selector :selected.sync="selected1" :value.sync="value1" title="省份" :options="list"></selector>
+      <selector :value.sync="value1" title="省份" :options="list"></selector>
     </group>
 
-    <group title="readonly">
-      <selector selected="广东" :readonly=true title="省份" :options="list"></selector>
+    <group title="readonly, displays just like a cell">
+      <selector value="gd" readonly title="省份" :options="list"></selector>
+    </group>
+
+    <group title="use a plain options">
+      <selector value="C" title="Selector" :options="list1" @on-change="onChange"></selector>
     </group>
 
     <group title='multi selector'>
      <selector placeholder="请选择省份" title="省份" :options="list" type="inline"></selector>
-     <selector selected="广西" title="省份" :options="list"></selector>
+     <selector :value.sync="value2" title="省份" :options="list"></selector>
     </group>
   </div>
 </template>
@@ -38,12 +42,13 @@ export default {
   data: function () {
     return {
       list: [{ text: '广东', value: 'gd'}, {text: '广西', value: 'gx'}],
-      selected1: '广西',
-      value1: ''
+      value1: 'gx',
+      value2: 'gd',
+      list1: ['A', 'B', 'C']
     }
   },
   methods: {
-    change: function (val) {
+    onChange: function (val) {
       console.log(val)
     }
   }
