@@ -1,7 +1,6 @@
 import Scroller from '../picker/scroller'
 import { each, trimZero, addZero, getMaxDay, parseRow, parseDate, getElement, toElement, removeElement } from './util'
 
-const $ = window.$
 const MASK_TEMPLATE = '<div class="dp-mask"></div>'
 
 const TEMPLATE = `<div class="dp-container">
@@ -83,9 +82,9 @@ function showMask () {
     MASK && (MASK.style.opacity = 0.5)
   }, 0)
 
-  $(MASK).click(function () {
+  MASK.addEventListener('click', function () {
     CURRENT_PICKER && CURRENT_PICKER.hide()
-  })
+  }, false)
 }
 
 function hideMask () {
@@ -115,10 +114,10 @@ function DatetimePicker (config) {
     trigger = self.trigger = getElement(trigger)
     output = self.output = getElement(output)
 
-    $(trigger).click(function (e) {
+    trigger.addEventListener('click', function (e) {
       e.preventDefault()
       self.show(self.value)
-    })
+    }, false)
   }
 }
 
@@ -190,26 +189,26 @@ DatetimePicker.prototype = {
 
       if (!self.renderText) {
         if (self.config.confirmText) {
-          $(self.find('[data-role=confirm]')).text(self.config.confirmText)
+          self.find('[data-role=confirm]').innerText = self.config.confirmText
         }
 
         if (self.config.cancelText) {
-          $(self.find('[data-role=cancel]')).text(self.config.cancelText)
+          self.find('[data-role=cancel]').innerText = self.config.cancelText
         }
         self.renderText = true
       }
 
       this.show(value)
 
-      $(self.find('[data-role=cancel]')).click(function (e) {
+      self.find('[data-role=cancel]').addEventListener('click', function (e) {
         e.preventDefault()
         self.hide()
-      })
+      }, false)
 
-      $(self.find('[data-role=confirm]')).on('click', function (e) {
+      self.find('[data-role=confirm]').addEventListener('click', function (e) {
         e.preventDefault()
         self.confirm()
-      })
+      }, false)
     }
 
     showMask()
