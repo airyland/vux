@@ -1,7 +1,7 @@
 /* global describe, it, expect */
 
 import Vue from 'vue'
-import XInput from 'src/components/input/'
+import XInput from 'src/components/x-input/'
 
 describe('Input.vue', () => {
   it('should render correct contents', () => {
