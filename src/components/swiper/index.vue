@@ -21,19 +21,29 @@
   import Swiper from './swiper'
   export default {
     ready () {
-      const _this = this
-      this.swiper = new Swiper({
-        container: _this.$el,
-        direction: _this.direction,
-        auto: _this.auto,
-        interval: _this.interval,
-        threshold: _this.threshold,
-        duration: _this.duration,
-        height: _this.height
-      })
-      .on('swiped', function (prev, current) {
-        _this.current = current
-      })
+      if (!(this.list && this.list.length === 0)) {
+        this.render()
+      }
+    },
+    methods: {
+      render: function () {
+        const _this = this
+        this.swiper = new Swiper({
+          container: _this.$el,
+          direction: _this.direction,
+          auto: _this.auto,
+          interval: _this.interval,
+          threshold: _this.threshold,
+          duration: _this.duration,
+          height: _this.height
+        })
+        .on('swiped', function (prev, current) {
+          _this.current = current
+        })
+      },
+      destroy: function () {
+        this.swiper && this.swiper.destroy()
+      }
     },
     props: {
       list: {
@@ -74,8 +84,14 @@
         current: 0
       }
     },
+    watch: {
+      list: function (val) {
+        this.destroy()
+        this.render()
+      }
+    },
     beforeDestroy () {
-      this.swiper.destroy()
+      this.destroy()
     }
   }
 
