@@ -27,6 +27,11 @@
   </a>
 </p>
 
+## Importance notice
+
++ This is not an Official Project of Wechat.
++ :warning: Before vux@0.1.0, Components' API may `change` any time.
+
 ## Demo
 
 <p align="center">
