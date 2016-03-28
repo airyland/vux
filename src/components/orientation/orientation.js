@@ -77,7 +77,6 @@ Orientation.prototype = {
    * @public
    */
   init: function (cfg) {
-
     this._cfg = merge({
       delay: 400
     }, cfg)
@@ -125,7 +124,6 @@ Orientation.prototype = {
    * @public
    */
   getInfo: function () {
-
     // 90度为横屏
     return (EVT_ORIENTATION_CHANGE === ORIENTATION_CHANGE) ? {
       landscape: (window.orientation === 90 || window.orientation === -90),

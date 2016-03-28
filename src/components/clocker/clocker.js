@@ -150,7 +150,7 @@ var fns = {
     var self = this
     this.update()
     this.interval = setInterval(function () {
-      self.update.call(self)
+      self.update()
     }, this.PRECISION)
     return this
   },
@@ -175,7 +175,7 @@ var fns = {
     return this.start()
   },
   remove: function () {
-    this.stop.call(this)
+    this.stop()
     instances[this.instanceNumber] = null
   },
   setFinalDate: function (value) {

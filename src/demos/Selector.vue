@@ -41,7 +41,7 @@ export default {
   },
   data: function () {
     return {
-      list: [{ text: '广东', value: 'gd'}, {text: '广西', value: 'gx'}],
+      list: [{text: '广东', value: 'gd'}, {text: '广西', value: 'gx'}],
       value1: 'gx',
       value2: 'gd',
       list1: ['A', 'B', 'C']

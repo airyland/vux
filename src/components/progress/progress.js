@@ -16,11 +16,7 @@ import Utils from './utils'
   } else {
     root.Mprogress = factory()
   }
-
 })(typeof window !== 'undefined' ? window : this, function () {
-
-  'use strict'
-
   var SETTINGS = {
     template: 1,
     parent: 'body',
@@ -105,7 +101,6 @@ import Utils from './utils'
       var that = this
       // buffer show front dashed scroll
       if (this._isBufferStyle() && !this.bufferStatus) {
-
         var progress = this._render()
         var dashed = progress.querySelector(SELECTOR_DASHED)
         var bar = progress.querySelector(this._getCurrSelector())
@@ -159,7 +154,6 @@ import Utils from './utils'
       }
 
       if (this._isIndeterminateStyle()) {
-
         // force end
         if (!this._isRendered() && force) {
           this.set(0)
@@ -205,7 +199,6 @@ import Utils from './utils'
           }, SPEED_ANIMATION_HIDE)
           return this
         }
-
       }
 
       return this.inc(0.3 + 0.5 * Math.random()).set(1)
@@ -281,7 +274,6 @@ import Utils from './utils'
       progress.innerHTML = currTpl
 
       if (!this._isIndeterminateStyle() && !this._isQueryStyle()) {
-
         // Default: fromstart
         if (!noFromStart) {
           fromStart = !this._isStarted()
@@ -303,7 +295,6 @@ import Utils from './utils'
             transform: 'translate3d(' + bufferPerc + '%,0,0)'
           })
         }
-
       }
 
       if (MParent !== document.body) {
@@ -393,7 +384,6 @@ import Utils from './utils'
           that.timer = setTimeout(next, speed)
         }
       })
-
     },
 
     _getCurrSelector: function () {
@@ -424,12 +414,10 @@ import Utils from './utils'
      * Checks if the progress bar is rendered.
      */
     _isRendered: function () {
-
       return !!this._getRenderedId()
     },
 
     _getRenderedId: function (getId) {
-
       var tplType = this._getCurrTplId()
       var idName = 'mprogress' + tplType
 
@@ -459,7 +447,6 @@ import Utils from './utils'
       } else {
         return TPL_UNKOWN_ID
       }
-
     },
 
     _getCurrTemplate: function () {
@@ -572,7 +559,6 @@ import Utils from './utils'
 
       return this
     }
-
   })()
 
   return Mprogress

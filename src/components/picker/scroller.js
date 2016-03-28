@@ -90,7 +90,6 @@ var Scroller = function (container, options) {
   component.addEventListener('touchend', function (e) {
     self.__doTouchEnd(e.timeStamp)
   }, false)
-
 }
 
 var members = {
@@ -326,7 +325,6 @@ var members = {
 
       // Otherwise figure out whether we are switching into dragging mode now.
     } else {
-
       var minimumTrackingForScroll = 0
       var minimumTrackingForDrag = 5
 
@@ -347,7 +345,6 @@ var members = {
     self.__lastTouchTop = currentTouchTop
     self.__lastTouchMove = timeStamp
     self.__lastScale = scale
-
   },
 
   __doTouchEnd: function (timeStamp) {
@@ -372,14 +369,12 @@ var members = {
     // Be sure to reset the dragging flag now. Here we also detect whether
     // the finger has moved fast enough to switch into a deceleration animation.
     if (self.__isDragging) {
-
       // Reset dragging flag
       self.__isDragging = false
 
       // Start deceleration
       // Verify that the last move detected was in some relevant time frame
       if (self.__isSingleTouch && (timeStamp - self.__lastTouchMove) <= 100) {
-
         // Then figure out what the scroll position was about 100ms ago
         var positions = self.__positions
         var endPos = positions.length - 1
@@ -393,7 +388,6 @@ var members = {
         // If start and stop position is identical in a 100ms timeframe,
         // we cannot compute any useful deceleration.
         if (startPos !== endPos) {
-
           // Compute relative movement between these two points
           var timeOffset = positions[endPos] - positions[startPos]
           var movedTop = self.__scrollTop - positions[startPos - 1]
@@ -418,7 +412,6 @@ var members = {
 
     // Fully cleanup list
     self.__positions.length = 0
-
   },
 
   // Applies the scroll position to the content element
@@ -462,9 +455,7 @@ var members = {
 
       // When continuing based on previous animation we choose an ease-out animation instead of ease-in-out
       self.__isAnimating = Animate.start(step, verify, completed, animationDuration, wasAnimating ? easeOutCubic : easeInOutCubic)
-
     } else {
-
       self.__scheduledTop = self.__scrollTop = top
       // Push values out
       if (self.__callback) {
@@ -511,7 +502,6 @@ var members = {
 
     // Start animation and switch on flag
     self.__isDecelerating = Animate.start(step, verify, completed)
-
   },
 
   // Called on every step of the animation

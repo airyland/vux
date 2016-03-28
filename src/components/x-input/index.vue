@@ -204,7 +204,7 @@ export default {
   },
   watch: {
     focus: function (newVal) {
-      if (focus) {
+      if (newVal) {
         this.$els.input.focus()
       }
     },
@@ -224,6 +224,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>

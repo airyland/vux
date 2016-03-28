@@ -38,7 +38,6 @@ function createSvgElement (tagName, data, parent, spinnerName) {
   var k, x, y
 
   for (k in data) {
-
     if (Object.prototype.toString.call(data[k]) === '[object Array]') {
       for (x = 0; x < data[k].length; x++) {
         if (data[k][x].fn) {
@@ -49,7 +48,6 @@ function createSvgElement (tagName, data, parent, spinnerName) {
           createSvgElement(k, data[k][x], ele, spinnerName)
         }
       }
-
     } else {
       setSvgAttribute(ele, k, data[k])
     }
@@ -387,7 +385,6 @@ var animations = {
       run()
       return self
     }
-
   }
 
 }

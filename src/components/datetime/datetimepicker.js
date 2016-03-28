@@ -140,7 +140,6 @@ DatetimePicker.prototype = {
       each(TYPE_MAP, function (type) {
         self[type + 'Scroller'] && self[type + 'Scroller'].select(trimZero(newValueMap[type]), false)
       })
-
     } else {
       var container = self.container = toElement(config.template)
 
@@ -184,7 +183,6 @@ DatetimePicker.prototype = {
             self._setDayScroller(currentYear, currentValue, currentDay)
           }
         })
-
       })
 
       if (!self.renderText) {

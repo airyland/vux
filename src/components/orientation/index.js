@@ -18,7 +18,6 @@ export default {
       let info = Orientation.getInfo()
       _this.el.style.display = info[value] ? 'block' : 'none'
     })
-
   },
   update: function () {
   },
