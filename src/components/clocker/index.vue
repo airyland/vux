@@ -56,6 +56,7 @@ export default {
     }
   },
   beforeDestroy () {
+    this.clocker.remove()
     this.clocker = null
   }
 }
