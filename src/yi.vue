@@ -3,7 +3,7 @@
 <group title="Basic">
   <switch title="Camera" :value=true></switch>
   <cell title="Camera Name" value="小蚁智能摄像机"></cell>
-  <cell title="Settings" inline-desc="Status light, image rotation, newwork info, firmware etc." link="test"></cell>
+  <cell title="Settings" inline-desc="Status light, image rotation, newwork info, firmware etc." is-link></cell>
 </group>
 
 <group title="Security">
@@ -12,7 +12,7 @@
 
 <group title="Alerts">
   <switch title="Activity Alerts" inline-desc="Send alerts when activity is detected" :value=true></switch>
-  <cell title="Settings" inline-desc="Video alerts, frequency, more" link="test"></cell>
+  <cell title="Settings" inline-desc="Video alerts, frequency, more" is-link></cell>
   <cell title="Schedule" value="11:00-22:00"></cell>
 </group>
 
