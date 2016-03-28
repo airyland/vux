@@ -4,14 +4,14 @@
       <slot></slot>
       <div class="item" v-for="item in list">
         <a :href="item.url">
-          <div class="img" :data-x="item.img" :style="{backgroundImage:'url('+item.img+')'}"></div>
+          <div class="img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
           <p class="desc">{{item.title}}</p>
         </a>
       </div>
     </div>
     <div class="indicator" v-show="show_dots">
-      <a href="javascript:" v-for="(index,item) in list">
-        <i class="icon_dot" :class="{'active':index===current}"></i>
+      <a href="javascript:" v-for="(index, item) in list">
+        <i class="icon_dot" :class="{'active':index === current}"></i>
       </a>
     </div>
   </div>
@@ -26,6 +26,9 @@
       }
     },
     methods: {
+      buildBackgroundUrl: function (url) {
+        return `url(${url})`
+      },
       render: function () {
         const _this = this
         this.swiper = new Swiper({
