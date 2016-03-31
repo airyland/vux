@@ -1,8 +1,8 @@
 <template>
 <div class="weui_cell weui_cell_switch">
   <div class="weui_cell_hd weui_cell_primary">
-  	<label class="weui_label" :style="{width:title.length+1+'em'}">{{{title}}}</label>
-  	<span class="label_desc" v-if="inlineDesc">{{inlineDesc}}</span>
+  	<label class="weui_label" :style="labelStyle">{{{title}}}</label>
+    <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
   </div>
   <div class="weui_cell_ft">
     <input class="weui_switch" type="checkbox" :disabled="disabled" v-model="value"/>
@@ -11,11 +11,19 @@
 </template>
 
 <script>
-import InlineDesc from '../inline-desc/'
+import InlineDesc from '../inline-desc'
 
 export default {
   components: {
     InlineDesc
+  },
+  computed: {
+    labelStyle: function () {
+      var isHTML = /<\/?[^>]*>/.test(this.title)
+      return {
+        width: isHTML ? '5em' : this.title.length + 1 + 'em'
+      }
+    }
   },
   props: {
     title: {
