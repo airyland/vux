@@ -41,29 +41,25 @@ export default {
     }
 
     this.uuids = []
-    for (var i = 0; i < this.data.length; i++) {
-      var uuid = Math.random().toString(36).substring(3, 8)
+    for (let i = 0; i < this.data.length; i++) {
+      let uuid = Math.random().toString(36).substring(3, 8)
       this.uuids.push(uuid)
       this.$el.querySelector(`.vux-picker-${i}`).setAttribute('id', `vux-picker-${uuid}`)
-
-      ;
-      (function (i) {
-        _this.scroller[i] = new Scroller(`#vux-picker-${uuid}`, {
-          data: _this.data[i],
-          defaultValue: _this.value[i] || _this.data[i][0].value,
-          itemClass: _this.item_class,
-          onSelect: function (value) {
-            _this.value.$set(i, value)
-            _this.$dispatch('change', _this.getValue())
-            if (this.columns !== 999) {
-              _this.render(i + 1)
-            }
+      _this.scroller[i] = new Scroller(`#vux-picker-${uuid}`, {
+        data: _this.data[i],
+        defaultValue: _this.value[i] || _this.data[i][0].value,
+        itemClass: _this.item_class,
+        onSelect: function (value) {
+          _this.value.$set(i, value)
+          _this.$dispatch('change', _this.getValue())
+          if (this.columns !== 999) {
+            _this.render(i + 1)
           }
-        })
-        if (_this.value) {
-          _this.scroller[i].select(_this.value[i])
         }
-      })(i)
+      })
+      if (_this.value) {
+        _this.scroller[i].select(_this.value[i])
+      }
     }
   },
   props: {
@@ -109,7 +105,7 @@ export default {
       _this.render(i + 1)
     },
     getValue: function () {
-      var data = []
+      let data = []
       for (var i = 0; i < this.data.length; i++) {
         data.push(this.scroller[i].value)
       }
@@ -124,7 +120,7 @@ export default {
   },
   watch: {
     value: function (val) {
-      for (var i = 0; i < val.length; i++) {
+      for (let i = 0; i < val.length; i++) {
         if (this.scroller[i].value !== val[i]) {
           this.scroller[i].select(val[i])
         }
@@ -132,7 +128,7 @@ export default {
     }
   },
   beforeDestroy: function () {
-    for (var i = 0; i < this.count; i++) {
+    for (let i = 0; i < this.count; i++) {
       this.scroller[i].destroy()
       this.scroller[i] = null
     }
