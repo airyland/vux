@@ -1,7 +1,7 @@
 <template>
-  <div class="vux-tab">
+  <div class="vux-tab" :class="{'vux-tab-no-animate': !animate}">
     <slot></slot>
-    <div v-if="animate" class="vux-tab-ink-bar" :class="{'vux-tab-ink-bar-transition-forward': direction === 'forward', 'vux-tab-ink-bar-transition-backward': direction === 'backward'}" :style="{left: barLeft, right: barRight, display: 'block', backgroundColor: activeColor, height: lineWidth + 'px'}"></div>
+    <div v-if="animate" class="vux-tab-ink-bar" :class="barClass" :style="barStyle"></div>
   </div>
 </template>
 
@@ -46,11 +46,21 @@ export default {
     },
     barRight: function () {
       return `${(this.tabNumber - this.index - 1) * (100 / this.tabNumber)}%`
-    }
-  },
-  events: {
-    'index:change': function (index) {
-      this.index = index
+    },
+    barStyle: function () {
+      return {
+        left: this.barLeft,
+        right: this.barRight,
+        display: 'block',
+        backgroundColor: this.activeColor,
+        height: this.lineWidth + 'px'
+      }
+    },
+    barClass: function () {
+      return {
+        'vux-tab-ink-bar-transition-forward': this.direction === 'forward',
+        'vux-tab-ink-bar-transition-backward': this.direction === 'backward'
+      }
     }
   },
   watch: {
@@ -126,8 +136,11 @@ export default {
    color: #666;
 }
 .vux-tab .vux-tab-item.vux-tab-selected {
-  background: 0 0;
   color: #04be02;
   border-bottom: 3px solid #04be02;
+}
+
+.vux-tab.vux-tab-no-animate .vux-tab-item.vux-tab-selected {
+  background: 0 0;
 }
 </style>
