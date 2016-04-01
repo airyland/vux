@@ -4,21 +4,24 @@
 
 <script>
 import Countup from 'countup'
+
+const coerce2Number = function (defaultNumber) {
+  return function (val) {
+    return val ? val * 1 : defaultNumber
+  }
+}
+
 export default {
   ready () {
     this._countup = new Countup(this.$el, this.startVal, this.endVal, this.decimals, this.duration, this.options)
     this._countup.start()
   },
   props: {
-    // float or integer
     startVal: {
       type: Number,
-      coerce: function (val) {
-        return val * 1
-      },
+      coerce: coerce2Number(0),
       default: 0
     },
-    // float or integer
     endVal: {
       type: Number,
       coerce: function (val) {
@@ -28,18 +31,14 @@ export default {
     // number of decimal places in number
     decimals: {
       type: Number,
-      default: 0,
-      coerce: function (val) {
-        return val * 1
-      }
+      coerce: coerce2Number(0),
+      default: 0
     },
     // duration in seconds
     duration: {
       type: Number,
-      default: 2,
-      coerce: function (val) {
-        return val * 1
-      }
+      coerce: coerce2Number(2),
+      default: 2
     },
     options: {
       type: Object,
@@ -47,9 +46,6 @@ export default {
         return {}
       }
     }
-  },
-  beforeDestroy () {
-
   }
 }
 </script>

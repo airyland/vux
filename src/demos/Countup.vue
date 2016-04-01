@@ -2,7 +2,7 @@
   <div style="text-align:center;">
     <countup start-val=1 end-val=1388 duration=4 class="demo1"></countup>
     <br/>
-    <countup start-val=8.8 end-val=88.88 duration=3 decimals=2 class="demo1"></countup>
+    <countup end-val=88.88 duration=3 decimals=2 class="demo1"></countup>
   </div>
 </template>
 
