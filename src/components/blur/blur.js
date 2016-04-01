@@ -47,26 +47,9 @@
   z-index: 1
  }
 
- Call the plugin on the container element to add a blurred background to it:
-
- $('.container').backgroundBlur({
-   url : 'http://website.com/images/img.jpg', // URL to the image that will be used for blurring
-   blurAmount : 10, // Amount of blurrines
-   imageClass : 'bg-blur', // CSS class that will be applied to the image and to the SVG element,
-   overlayClass : 'bg-blur-overlay', // CSS class of an element that will overlay the blur background (useful for additional effects)
-   duration : 1000, // If the image needs to be faded in, how long that should take
-   endOpacity : 0.6 // Specify the final opacity that the image will have
- })
-
- Available methods of the plugin are :
-
- $('.container').backgroundBlur('string') // swap the image to another image while using initial settings for animation
- $('.container').backgroundBlur('fadeIn') // fade in
- $('.container').backgroundBlur('fadeOut') // fade out
-
  */
 
-const $ = window.$
+import Eventor from '../../libs/eventor'
 
 // Random ID generator
 var randomID = function () {
@@ -108,18 +91,21 @@ var SVG = {
 
 var Blur = function (element, options) {
   this.internalID = randomID()
-  this.$element = $(element)
-  this.$width = this.$element.width()
-  this.$height = this.$element.height()
   this.element = element
-  this.options = $.extend({}, Blur.DEFAULTS, options)
-  this.$overlayEl = this.createOverlay()
-  this.$blurredImage = []
+  this.width = element.offsetWidth
+  this.height = element.offsetHeight
+  this.element = element
+  this.parent = this.element.parentNode
+  this.options = Object.assign({}, Blur.DEFAULTS, options)
+  this.overlayEl = this.createOverlay()
+  this.blurredImage = null
   this.attachListeners()
   this.generateBlurredImage(this.options.url)
 }
 
 Blur.VERSION = '0.0.1'
+
+Eventor.mixTo(Blur)
 
 Blur.DEFAULTS = {
   url: '', // URL to the image
@@ -135,49 +121,33 @@ Blur.prototype.setBlurAmount = function (blurAmount) {
 }
 
 Blur.prototype.attachListeners = function () {
-  this.$element.on('ui.blur.loaded', $.proxy(this.fadeIn, this))
-  this.$element.on('ui.blur.unload', $.proxy(this.fadeOut, this))
+  this.on('ui.blur.loaded', this.fadeIn.bind(this))
+  this.on('ui.blur.unload', this.fadeOut.bind(this))
 }
 
 Blur.prototype.fadeIn = function () {
-  if (this.options.duration && this.options.duration > 0) {
-    this.$blurredImage
-      .animate({
-        opacity: this.options.opacity
-      }, {
-        duration: this.options.duration
-      })
-  }
 }
 
 Blur.prototype.fadeOut = function () {
-  if (this.options.duration && this.options.duration > 0) {
-    this.$blurredImage
-      .animate({
-        opacity: 0
-      }, {
-        duration: this.options.duration
-      })
-  } else {
-    this.$blurredImage.css({
-      'opacity': 0
-    })
-  }
 }
 
 Blur.prototype.generateBlurredImage = function (url) {
-  var $previousImage = this.$blurredImage
+  const previousImage = this.blurredImage
   this.internalID = randomID()
 
-  if ($previousImage.length > 0) {
-    $previousImage.remove()
+  if (previousImage) {
+    previousImage.parentNode.removeChild(previousImage)
   }
-  this.$blurredImage = this.createSVG(url, this.$width, this.$height)
+
+  this.blurredImage = this.createSVG(url, this.width, this.height)
 }
 
 Blur.prototype.createOverlay = function () {
   if (this.options.overlayClass && this.options.overlayClass !== '') {
-    return $('<div></div>').prependTo(this.$element).addClass(this.options.overlayClass)
+    const div = document.createElement('div')
+    div.classList.add(this.options.overlayClass)
+    this.parent.insertBefore(div, this.element)
+    return div
   }
 
   return false
@@ -218,41 +188,36 @@ Blur.prototype.createSVG = function (url, width, height) {
   })
 
   image.addEventListener('load', function () {
-    that.$element.trigger('ui.blur.loaded')
+    that.emit('ui.blur.loaded')
   }, true)
 
   image.addEventListener('SVGLoad', function () {
-    that.$element.trigger('ui.blur.loaded')
+    that.emit('ui.blur.loaded')
   }, true)
 
   filter.appendChild(gaussianBlur) // adding the element of blur into the element of filter
   svg.appendChild(filter) // adding the filter into the SVG
   svg.appendChild(image) // adding an element of an image into the SVG
-  var $svg = $(svg)
 
   // Ensure that the image is shown after duration + 100 msec in case the SVG load event didn't fire or took too long
   if (that.options.duration && that.options.duration > 0) {
-    $svg.css({
-      opacity: 0
-    })
+    svg.style.opacity = 0
     window.setTimeout(function () {
-      if ($svg.css('opacity') === '0') {
-        $svg.css({
-          opacity: 1
-        })
+      if (getStyle(svg, 'opacity') === '0') {
+        svg.style.opacity = 1
       }
     }, this.options.duration + 100)
   }
   this.element.insertBefore(svg, this.element.firstChild)
-  return $svg
+  return svg
 }
 
 Blur.prototype.createIMG = function (url, width, height) {
   var that = this
-  var $originalImage = this.prependImage(url)
+  var originalImage = this.prependImage(url)
   var newBlurAmount = ((this.options.blurAmount * 2) > 100) ? 100 : (this.options.blurAmount * 2)
   // apply special CSS attributes to the image to blur it
-  $originalImage.css({
+  const styles = {
     // filter property here the intensity of blur multipied by two is around equal to the intensity in common browsers.
     filter: 'progid:DXImageTransform.Microsoft.Blur(pixelradius=' + newBlurAmount + ') ',
     // aligning of the blurred image by vertical and horizontal
@@ -260,36 +225,41 @@ Blur.prototype.createIMG = function (url, width, height) {
     left: -this.options.blurAmount * 2.5,
     width: width + (this.options.blurAmount * 2.5),
     height: height + (this.options.blurAmount * 2.5)
-  })
-  .attr('id', 'blurred' + this.internalID)
+  }
+  for (var i in styles) {
+    originalImage.style[i] = styles[i]
+  }
+  originalImage.setAttribute('id', this.internalID)
 
-  $originalImage.load(function () {
-    that.$element.trigger('ui.blur.loaded')
-  })
-
+  originalImage.onload = function () {
+    that.trigger('ui.blur.loaded')
+  }
   // Ensure that the image is shown after duration + 100 msec in case the image load event didn't fire or took too long
   if (this.options.duration && this.options.duration > 0) {
     window.setTimeout(function () {
-      if ($originalImage.css('opacity') === '0') {
-        $originalImage.css({
-          opacity: 1
-        })
+      if (getStyle(originalImage, 'opacity') === '0') {
+        originalImage.style.opacity = 1
       }
     }, this.options.duration + 100)
   }
-  return $originalImage
+  return originalImage
 }
 
 Blur.prototype.prependImage = function (url) {
-  var $image
-  var $imageEl = $('<img src="' + url + '" />')
-  if (this.$overlayEl) {
-    $image = $imageEl.insertBefore(this.$overlayEl).attr('id', this.internalID).addClass(this.options.imageClass)
+  const img = document.createElement('img')
+  img.url = url
+  img.setAttribute('id', this.internalID)
+  img.classList.add(this.options.imageClass)
+  if (this.overlayEl) {
+    this.parent.insertBefore(img, this.overlayEl)
   } else {
-    $image = $imageEl.prependTo(this.$element).attr('id', this.internalID).addClass(this.options.imageClass)
+    this.parent.insertBefore(img, this.parent.firstChild)
   }
-
-  return $image
+  return img
 }
 
 export default Blur
+
+function getStyle (ele, prop) {
+  return window.getComputedStyle(ele, null).getPropertyValue(prop)
+}
