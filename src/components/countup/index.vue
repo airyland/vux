@@ -12,9 +12,7 @@ export default {
   props: {
     // float or integer
     startVal: {
-      validator: function (val) {
-        return val % 1 === 0
-      },
+      type: Number,
       coerce: function (val) {
         return val * 1
       },
@@ -22,9 +20,7 @@ export default {
     },
     // float or integer
     endVal: {
-      validator: function (val) {
-        return val % 1 === 0
-      },
+      type: Number,
       coerce: function (val) {
         return val * 1
       }
@@ -32,12 +28,18 @@ export default {
     // number of decimal places in number
     decimals: {
       type: Number,
-      default: 0
+      default: 0,
+      coerce: function (val) {
+        return val * 1
+      }
     },
     // duration in seconds
     duration: {
       type: Number,
-      default: 2
+      default: 2,
+      coerce: function (val) {
+        return val * 1
+      }
     },
     options: {
       type: Object,
