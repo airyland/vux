@@ -1,11 +1,11 @@
 <template>
-  <div class="vux-circle">
-    <svg view-box="0 0 100 100">
-      <path :d="pathString" :stroke="trailColor" :stroke-width="trailWidth" :fill-opacity="0"/>
-      <path :d="pathString" stroke-linecap="round" :stroke="strokeColor" :stroke-width="strokeWidth" fill-opacity="0" :style="pathStyle"/>
-    </svg>
-    <div class="vux-circle-content"><slot></slot></div>
-  </div>
+<div class="vux-circle">
+  <svg view-box="0 0 100 100">
+    <path :d="pathString" :stroke="trailColor" :stroke-width="trailWidth" :fill-opacity="0"/>
+    <path :d="pathString" stroke-linecap="round" :stroke="strokeColor" :stroke-width="strokeWidth" fill-opacity="0" :style="pathStyle"/>
+  </svg>
+  <div class="vux-circle-content"><slot></slot></div>
+</div>
 </template>
 
 <script>
@@ -13,9 +13,8 @@
 * Fork from https://github.com/react-component/progress
 * MIT license
 */
+
 export default {
-  ready () {
-  },
   props: {
     strokeWidth: {
       type: Number,
@@ -75,6 +74,5 @@ export default {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
 }
 </style>
