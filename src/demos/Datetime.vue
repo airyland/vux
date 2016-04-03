@@ -4,12 +4,12 @@
     <datetime :value.sync="value1" @change="change" title="Birthday"></datetime>
   </group>
 
-  <group title="YYYY-MM-DD HH:II">
-    <datetime :value.sync="value2" format="YYYY-MM-DD HH:II" @change="change" title="start time" inline-desc="select hour and minute"></datetime>
+  <group title="YYYY-MM-DD HH:mm">
+    <datetime :value.sync="value2" format="YYYY-MM-DD HH:mm" @change="change" title="start time" inline-desc="select hour and minute"></datetime>
   </group>
 
   <group title="value as placeholder">
-    <datetime :value.sync="value3" format="YYYY-MM-DD HH:II" @change="change" title="start time"></datetime>
+    <datetime :value.sync="value3" format="YYYY-MM-DD HH:mm" @change="change" title="start time"></datetime>
   </group>
 
   <group title="specified min-year and max-year">

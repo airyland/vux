@@ -1,10 +1,10 @@
 module.exports = function (date, fmt) {
   var o = {
-    'm+': date.getMonth() + 1,
-    'd+': date.getDate(),
-    'H+': date.getHours() % 12 === 0 ? 12 : date.getHours() % 12,
-    'h+': date.getHours(),
-    'i+': date.getMinutes(),
+    'M+': date.getMonth() + 1,
+    'D+': date.getDate(),
+    'h+': date.getHours() % 12 === 0 ? 12 : date.getHours() % 12,
+    'H+': date.getHours(),
+    'm+': date.getMinutes(),
     's+': date.getSeconds(),
     'q+': Math.floor((date.getMonth() + 3) / 3),
     'S': date.getMilliseconds()
@@ -18,7 +18,7 @@ module.exports = function (date, fmt) {
     '5': '/u4e94',
     '6': '/u516d'
   }
-  if (/(y+)/.test(fmt)) {
+  if (/(Y+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
   }
   if (/(E+)/.test(fmt)) {
