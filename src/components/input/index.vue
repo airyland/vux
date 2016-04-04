@@ -143,6 +143,7 @@ export default {
       if (!this.value && this.required) {
         this.valid = false
         this.errors.required = '必填哦'
+				return
       }
 
       const validator = validators[this.isType]
