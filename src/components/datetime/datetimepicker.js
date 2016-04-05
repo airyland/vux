@@ -25,7 +25,7 @@ var TYPE_MAP = {
   month: ['MM', 'M'],
   day: ['DD', 'D'],
   hour: ['HH', 'H'],
-  minute: ['II', 'I']
+  minute: ['mm', 'm']
 }
 
 var BODY = document.body
@@ -327,9 +327,5 @@ DatetimePicker.prototype = {
     self.hide()
   }
 }
-
-DatetimePicker.parseDate = parseDate
-DatetimePicker.trimZero = trimZero
-DatetimePicker.addZero = addZero
 
 export default DatetimePicker

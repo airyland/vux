@@ -55,6 +55,7 @@ import Comment from './demos/Comment'
 import Pulldown from './demos/Pulldown'
 import Pullup from './demos/Pullup'
 import Masker from './demos/Masker'
+import InlineCalendar from './demos/Inline-calendar'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -225,6 +226,9 @@ router.map({
   },
   '/component/masker': {
     component: Masker
+  },
+  '/component/inline-calendar': {
+    component: InlineCalendar
   }
 })
 

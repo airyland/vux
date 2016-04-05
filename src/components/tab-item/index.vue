@@ -5,18 +5,18 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      selected: {
-        type: Boolean,
-        required: false,
-        default: false
-      }
-    },
-    methods: {
-      tabClick: function () {
-        this.$dispatch('index:change', this.$el.getAttribute('data-index'))
-      }
+export default {
+  props: {
+    selected: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
+  methods: {
+    tabClick: function () {
+      this.$parent.index = this.$el.getAttribute('data-index')
     }
   }
+}
 </script>

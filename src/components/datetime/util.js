@@ -46,7 +46,7 @@ export function parseDate (format, value) {
   var valueParts = value.split(/\D+/)
   if (formatParts.length !== valueParts.length) {
     // if it is error date, use current date
-    var date = formater(new Date(), format.toLowerCase())
+    var date = formater(new Date(), format)
     valueParts = date.split(/\D+/)
   }
 

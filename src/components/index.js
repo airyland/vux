@@ -1,7 +1,7 @@
 import Radio from './radio/'
 import DevTip from './dev-tip/'
 import XInput from './x-input/'
-import Number from './number/'
+import XNumber from './x-number/'
 import Cell from './cell/'
 import InlineDesc from './inline-desc/'
 import Checklist from './checklist/'
@@ -12,7 +12,7 @@ import GroupTitle from './group-title/'
 import Box from './box/'
 import Tip from './tip/'
 import Selector from './selector/'
-import XButton from './button/'
+import XButton from './x-button/'
 import Flexbox from './flexbox/'
 import FlexboxItem from './flexbox-item/'
 import Tab from './tab/'
@@ -56,7 +56,7 @@ const vux = {
   DevTip,
   XInput,
   GroupTitle,
-  Number,
+  XNumber,
   Checklist,
   Switch,
   Box,
