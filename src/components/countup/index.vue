@@ -13,7 +13,6 @@ export default {
   props: {
     startVal: {
       type: Number,
-      required: true,
       default: 0
     },
     endVal: {
