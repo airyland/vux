@@ -1,7 +1,7 @@
 <template>
 <div class="weui_cell weui_cell_switch">
   <div class="weui_cell_hd weui_cell_primary">
-  	<label class="weui_label" :style="labelStyle">{{{title}}}</label>
+    <label class="weui_label" :style="labelStyle">{{{title}}}</label>
     <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
   </div>
   <div class="weui_cell_ft">
@@ -19,9 +19,10 @@ export default {
   },
   computed: {
     labelStyle: function () {
-      var isHTML = /<\/?[^>]*>/.test(this.title)
+      let isHTML = /<\/?[^>]*>/.test(this.title)
+      let width = Math.min(isHTML ? 5 : (this.title.length + 1), 14) + 'em'
       return {
-        width: isHTML ? '5em' : this.title.length + 1 + 'em'
+        width
       }
     }
   },
