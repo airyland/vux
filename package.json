@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "rimraf dist && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js && cd dist/static && mkdir vendors && cd ../../ && cp -r src/assets/* dist/static/ && cp CNAME dist/ && cp favicon.ico dist/ && node build/fetch-milestone.js && cp build/milestone.json dist/",
+    "build": "rimraf dist && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js && cd dist/static && mkdir vendors && cd ../../ && cp -r src/assets/* dist/static/ && cp CNAME dist/ && cp favicon.ico dist/",
     "test": "karma start build/karma.conf.js --single-run",
     "deploy": "gh-pages -d dist",
     "xdeploy": "npm run build && gh-pages -d dist",

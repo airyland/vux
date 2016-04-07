@@ -45,7 +45,6 @@ import Donate from './demos/Donate'
 import Thanks from './demos/Thanks'
 import Spinner from './demos/Spinner'
 import Calendar from './demos/Calendar'
-import Milestone from './demos/Milestone'
 import Circle from './demos/Circle'
 import Countup from './demos/Countup'
 import ColorPicker from './demos/Color-picker'
@@ -189,9 +188,6 @@ router.map({
   },
   '/project/thanks': {
     component: Thanks
-  },
-  '/project/milestone': {
-    component: Milestone
   },
   '/component/spinner': {
     component: Spinner

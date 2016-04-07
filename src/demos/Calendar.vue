@@ -13,7 +13,7 @@
     </group>
     <group title="中文">
       <cell title="中文星期" primary="content">
-        <calendar slot="value" :value.sync="demo4" :date-list=['日','一','二','三','四','五','六'] disable-past></calendar>
+        <calendar slot="value" :value.sync="demo4" :date-list="dateList" disable-past></calendar>
       </cell>
     </group>
   </div>
@@ -33,7 +33,8 @@ export default {
       demo1: 'Select date',
       demo2: 'date and hour',
       demo3: 'Select date',
-      demo4: '请选择'
+      demo4: '请选择',
+      dateList: ['日', '一', '二', '三', '四', '五', '六']
     }
   }
 }
