@@ -60,8 +60,8 @@ export default {
   transition: opacity linear 0.8s;
 }
 /*
-  An element with this class is added by the plugin to provide an overlay above the blurred image
-  It could drastically improve the appearance of the blurred image for content readability
+An element with this class is added by the plugin to provide an overlay above the blurred image
+It could drastically improve the appearance of the blurred image for content readability
 */
 .bg-blur-overlay {
   z-index: -1;

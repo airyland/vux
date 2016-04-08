@@ -3,4 +3,3 @@
 		<slot></slot>
 	</div>
 </template>
-

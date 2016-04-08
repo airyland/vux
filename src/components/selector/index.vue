@@ -1,16 +1,16 @@
 <template>
-<div class="weui_cell" :class="{'weui_select_after':title, 'weui_cell_select':!readonly}">
-	<div class="weui_cell_hd" v-show="title" :class="{'weui_cell_primary':readonly}">{{title}}</div>
-  <div class="weui_cell_bd weui_cell_primary" v-if="!readonly">
-    <select class="weui_select" v-model="value">
-    	<option value="" v-if="placeholder" :selected="placeholder && !value">{{placeholder}}</option>
-      <option :value="one.value" v-for="one in processOptions" :data-text="one.text" :data-value="value" :selected="one.value === value">{{one.text}}</option>
-    </select>
+  <div class="weui_cell" :class="{'weui_select_after':title, 'weui_cell_select':!readonly}">
+    <div class="weui_cell_hd" v-show="title" :class="{'weui_cell_primary':readonly}">{{title}}</div>
+    <div class="weui_cell_bd weui_cell_primary" v-if="!readonly">
+      <select class="weui_select" v-model="value">
+        <option value="" v-if="placeholder" :selected="placeholder && !value">{{placeholder}}</option>
+        <option :value="one.value" v-for="one in processOptions" :data-text="one.text" :data-value="value" :selected="one.value === value">{{one.text}}</option>
+      </select>
+    </div>
+    <div class="weui_cell_ft" v-else>
+      {{value | findByValue processOptions}}
+    </div>
   </div>
-  <div class="weui_cell_ft" v-else>
-    {{value | findByValue processOptions}}
-  </div>
-</div>
 </template>
 
 <script>

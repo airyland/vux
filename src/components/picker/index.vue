@@ -1,11 +1,11 @@
 <template>
-<div class="vux-picker">
-  <flexbox :margin-left=0>
-    <flexbox-item v-for="(index, one) in data" style="margin-left:0;">
-      <div class="vux-picker-{{index}}"></div>
-    </flexbox-item>
-  </flexbox>
-</div>
+  <div class="vux-picker">
+    <flexbox :margin-left=0>
+      <flexbox-item v-for="(index, one) in data" style="margin-left:0;">
+        <div class="vux-picker-{{index}}"></div>
+      </flexbox-item>
+    </flexbox>
+  </div>
 </template>
 
 <script>

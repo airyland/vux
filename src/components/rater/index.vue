@@ -109,7 +109,7 @@ export default {
   color: #ffdd99;
 }
 .vux-rater a.is-active {
-  
+
 }
 .vux-rater a.is-disabled {
   color: #ccc !important;
@@ -119,8 +119,8 @@ export default {
   position: relative;
 }
 .vux-rater-inner {
- position: relative;
- display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 .vux-rater-outer {
   position: absolute;

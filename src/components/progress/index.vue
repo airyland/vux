@@ -78,4 +78,3 @@ export default {
   height: 3px;
 }
 </style>
-

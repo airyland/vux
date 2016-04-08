@@ -1,20 +1,20 @@
 <template>
-<div class="weui_cell">
-  <div class="weui_cell_hd">
-    <slot name="icon"></slot>
+  <div class="weui_cell">
+    <div class="weui_cell_hd">
+      <slot name="icon"></slot>
+    </div>
+    <div class="weui_cell_bd" :class="{'weui_cell_primary':primary==='title'}">
+      <p>
+        {{title}}
+        <slot name="after-title"></slot>
+      </p>
+      <inline-desc>{{inlineDesc}}</inline-desc>
+    </div>
+    <div class="weui_cell_ft" :class="{'weui_cell_primary':primary==='content', 'with_arrow': isLink}">
+      {{{value}}}
+      <slot name="value"></slot>
+    </div>
   </div>
-	<div class="weui_cell_bd" :class="{'weui_cell_primary':primary==='title'}">
-  	<p>
-      {{title}}
-      <slot name="after-title"></slot>
-    </p>
-  	<inline-desc>{{inlineDesc}}</inline-desc>
-	</div>
-	<div class="weui_cell_ft" :class="{'weui_cell_primary':primary==='content', 'with_arrow': isLink}">
-    {{{value}}}
-    <slot name="value"></slot>
-  </div>
-</div>
 </template>
 
 <script>
