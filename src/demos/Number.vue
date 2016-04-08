@@ -3,7 +3,7 @@
     <group title="Default">
       <x-number title="Number"></x-number>
     </group>
-      
+
     <group title="listen to change events">
       <x-number title="Number" :value=0 :min=0 @change="change"></x-number>
     </group>

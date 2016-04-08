@@ -1,9 +1,9 @@
 <template>
   <div>
-  	<group title="default">
-  	  <switch title="default setting"></switch>
-  	  <switch title="default true" :value=true></switch>
-  	</group>
+    <group title="default">
+      <switch title="default setting"></switch>
+      <switch title="default true" :value=true></switch>
+    </group>
     <group title="disabled">
       <switch title="default setting" disabled></switch>
       <switch title="default true" :value=true disabled></switch>

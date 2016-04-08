@@ -29,11 +29,11 @@
       </cell>
     </group>
 
-     <group title="disabled">
+    <group title="disabled">
       <cell title="disabled=true" :inline-desc="'valus is: '+data8" primary="content">
         <range slot="value" :value.sync="data8" disabled></range>
       </cell>
-       <cell title="Opacity" :inline-desc="'valus is: '+data8" primary="content">
+      <cell title="Opacity" :inline-desc="'valus is: '+data8" primary="content">
         <range slot="value" :value.sync="data8" disabled :disabled-opacity=0.1></range>
       </cell>
     </group>
@@ -94,5 +94,5 @@ export default {
 </script>
 
 <style>
-  
+
 </style>
