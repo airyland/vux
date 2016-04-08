@@ -27,14 +27,16 @@ export default {
   },
   data () {
     return {
-      list: ['https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test1.jpg',
+      list: [
+        'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test1.jpg',
         'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test2.jpg',
         'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test0.jpg',
         'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test4.jpg',
         'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test5.jpg',
         'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test6.jpg',
         'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test7.jpg',
-        'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test8.jpg']
+        'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test8.jpg'
+      ]
     }
   }
 }

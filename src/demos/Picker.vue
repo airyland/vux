@@ -1,27 +1,27 @@
 <template>
-<div>
-  <br>
-  <group-title>默认，不设置默认值时选中第一个</group-title>
-  <picker :data='years' :value.sync='year1' @change='change'></picker>
-  <br>
-  <group-title>设置默认值时</group-title>
-  <picker :data='years' :value.sync='year2' @change='change'></picker>
-  <br>
-  <group-title>双向绑定</group-title>
-  <picker :data='years' :value.sync='year3' @change='change3'></picker>
-  <select v-model='year5'>
-    <option v-for='one in years[0]' value='{{one.value}}'>{{one.name}}</option>
-  </select>
-  <br>
-  <group-title>非联动多列</group-title>
-  <picker :data='years1' :value.sync='year4' @change='change'></picker>
-  <br>
-  <group-title>五列</group-title>
-  <picker :data='year6' :value.sync='year6Value' @change='change'></picker>
-  <br>
-  <group-title>地区联动: 当前值{{year7Value}}</group-title>
-  <picker :data='year7' :columns=3 :value.sync='year7Value' @change='change'></picker>
-</div>
+  <div>
+    <br>
+    <group-title>默认，不设置默认值时选中第一个</group-title>
+    <picker :data='years' :value.sync='year1' @change='change'></picker>
+    <br>
+    <group-title>设置默认值时</group-title>
+    <picker :data='years' :value.sync='year2' @change='change'></picker>
+    <br>
+    <group-title>双向绑定</group-title>
+    <picker :data='years' :value.sync='year3' @change='change3'></picker>
+    <select v-model='year5'>
+      <option v-for='one in years[0]' value='{{one.value}}'>{{one.name}}</option>
+    </select>
+    <br>
+    <group-title>非联动多列</group-title>
+    <picker :data='years1' :value.sync='year4' @change='change'></picker>
+    <br>
+    <group-title>五列</group-title>
+    <picker :data='year6' :value.sync='year6Value' @change='change'></picker>
+    <br>
+    <group-title>地区联动: 当前值{{year7Value}}</group-title>
+    <picker :data='year7' :columns=3 :value.sync='year7Value' @change='change'></picker>
+  </div>
 </template>
 
 <script>

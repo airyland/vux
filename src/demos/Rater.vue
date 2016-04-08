@@ -44,7 +44,7 @@
         <rater :value.sync="data6" active-color="#04BE02" slot="value"></rater>
       </cell>
       <cell title="range" primary="content" :inline-desc="data6 + ''">
-        <range slot="value" :value.sync="data6" :step=1 :min=0 :max=5>
+        <range slot="value" :value.sync="data6" :step=1 :min=0 :max=5></range>
       </cell>
     </group>
 
@@ -77,5 +77,5 @@ export default {
 </script>
 
 <style>
-  
+
 </style>

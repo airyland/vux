@@ -20,9 +20,11 @@ export default {
   },
   data () {
     return {
-      images: ['https://o3e85j0cv.qnssl.com/tulips-1083572__340.jpg',
-              'https://o3e85j0cv.qnssl.com/waterway-107810__340.jpg',
-              'https://o3e85j0cv.qnssl.com/hot-chocolate-1068703__340.jpg'],
+      images: [
+        'https://o3e85j0cv.qnssl.com/tulips-1083572__340.jpg',
+        'https://o3e85j0cv.qnssl.com/waterway-107810__340.jpg',
+        'https://o3e85j0cv.qnssl.com/hot-chocolate-1068703__340.jpg'
+      ],
       url: 'https://o3e85j0cv.qnssl.com/tulips-1083572__340.jpg'
     }
   }

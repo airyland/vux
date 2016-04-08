@@ -11,7 +11,7 @@
     <group title="without title">
       <selector placeholder="请选择省份" :options="list"></selector>
     </group>
-    
+
     <group title="set value=广西">
       <selector :value.sync="value1" title="省份" :options="list"></selector>
     </group>
@@ -25,8 +25,8 @@
     </group>
 
     <group title='multi selector'>
-     <selector placeholder="请选择省份" title="省份" :options="list" type="inline"></selector>
-     <selector :value.sync="value2" title="省份" :options="list"></selector>
+      <selector placeholder="请选择省份" title="省份" :options="list" type="inline"></selector>
+      <selector :value.sync="value2" title="省份" :options="list"></selector>
     </group>
   </div>
 </template>

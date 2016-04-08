@@ -1,21 +1,21 @@
 <template>
-<div>
-	<group title="default">
-		<radio :options="radio001" @change="change"></radio>
-	</group>
+  <div>
+    <group title="default">
+      <radio :options="radio001" @change="change"></radio>
+    </group>
 
-	<group title="preselect 'China'">
-		<radio :options="radio001" value="China"></radio>
-	</group>
+    <group title="preselect 'China'">
+      <radio :options="radio001" value="China"></radio>
+    </group>
 
-	<group :title="'fill mode value is '+radio001Value">
-		<radio fill-mode :options="radio001" :value.sync="radio001Value" @change="change"></radio>
-	</group>
-	  
-	<group title="fill mode with custom placeholder and label">
-		<radio fill-mode fill-label="Other" fill-placeholder="填写其他的哦" :options="radio001" @change="change"></radio>
-	</group>
-</div>
+    <group :title="'fill mode value is '+radio001Value">
+      <radio fill-mode :options="radio001" :value.sync="radio001Value" @change="change"></radio>
+    </group>
+
+    <group title="fill mode with custom placeholder and label">
+      <radio fill-mode fill-label="Other" fill-placeholder="填写其他的哦" :options="radio001" @change="change"></radio>
+    </group>
+  </div>
 </template>
 
 <script>

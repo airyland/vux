@@ -1,6 +1,6 @@
 /**
-* v-orientaion="landscape" v-orientaion="portrait"
-*/
+ * v-orientaion="landscape" v-orientaion="portrait"
+ */
 import Orientation from './orientation'
 export default {
   bind: function () {
