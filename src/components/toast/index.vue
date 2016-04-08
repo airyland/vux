@@ -1,9 +1,9 @@
 <template>
   <div id="toast" v-show="show">
     <div class="weui_mask_transparent"></div>
-    <div class="weui_toast">
-      <i class="weui_icon_toast"></i>
-      <p class="weui_toast_content"><slot></slot></p>
+      <div class="weui_toast" :class="{'weui_toast_forbidden': type == 'warn', 'weui_toast_cancel': type == 'cancel'}">
+        <i class="weui_icon_toast"></i>
+        <p class="weui_toast_content"><slot></slot></p>
     </div>
   </div>
 </template>
@@ -19,6 +19,10 @@ export default {
     time: {
       type: Number,
       default: 2000
+    },
+    type: {
+      type: String,
+      default: ''
     }
   },
   watch: {
@@ -34,3 +38,15 @@ export default {
   }
 }
 </script>
+<style>
+.weui_toast_forbidden {
+  color: #F76260;
+}
+.weui_toast_cancel .weui_icon_toast:before {
+  content: "\EA0D";
+}
+.weui_toast_forbidden .weui_icon_toast:before {
+  content: "\EA0B";
+  color: #F76260;
+}
+</style>
