@@ -38,15 +38,25 @@
       <x-input title="请确认6位数字" type="text" placeholder="" :equal-with="password"></x-input>
     </group>
 
+    <group title="验证码" class="weui_cells_form">
+      <x-input title="验证码" class="weui_vcode">
+        <img slot="left" src="http://weui.github.io/weui/images/vcode.jpg">
+      </x-input>
+      <x-input title="发送验证码" class="weui_vcode">
+        <x-button slot="left" type="primary">发送验证码</x-button>
+      </x-input>
+    </group>
+
   </div>
 </template>
 
 <script>
-import { XInput, Group } from '../components/'
+import { XInput, Group, XButton } from '../components/'
 
 export default {
   components: {
     XInput,
+    XButton,
     Group
   },
   data: function () {
@@ -61,3 +71,10 @@ export default {
   }
 }
 </script>
+<style scoped>
+.weui_cell_ft .weui_btn {
+  margin-left: 5px;
+  vertical-align: middle;
+  display: inline-block;
+}
+</style>

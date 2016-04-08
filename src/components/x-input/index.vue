@@ -1,5 +1,5 @@
 <template>
-  <div class="weui_cell">
+	<div class="weui_cell" :class="{'weui_cell_warn': !valid}">
     <div class="weui_cell_hd">
       <label class="weui_label" :style="{width: labelWidth + 'em'}" v-if="title">{{title}}</label>
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
@@ -12,6 +12,7 @@
       <icon type="warn" title="{{!valid ? firstError : ''}}" v-show="!equalWith && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
       <icon type="warn" v-show="hasLengthEqual && dirty && equalWith && !valid"></icon>
       <icon type="success" v-show="equalWith && equalWith===value && valid"></icon>
+      <slot name="left"><slot>
     </div>
   </div>
 </template>
@@ -143,6 +144,7 @@ export default {
       if (!this.value && this.required) {
         this.valid = false
         this.errors.required = '必填哦'
+        return
       }
 
       const validator = validators[this.isType]
