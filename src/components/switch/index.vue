@@ -1,13 +1,13 @@
 <template>
-<div class="weui_cell weui_cell_switch">
-  <div class="weui_cell_hd weui_cell_primary">
-    <label class="weui_label" :style="labelStyle">{{{title}}}</label>
-    <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+  <div class="weui_cell weui_cell_switch">
+    <div class="weui_cell_hd weui_cell_primary">
+      <label class="weui_label" :style="labelStyle">{{{title}}}</label>
+      <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+    </div>
+    <div class="weui_cell_ft">
+      <input class="weui_switch" type="checkbox" :disabled="disabled" v-model="value"/>
+    </div>
   </div>
-  <div class="weui_cell_ft">
-    <input class="weui_switch" type="checkbox" :disabled="disabled" v-model="value"/>
-  </div>
-</div>
 </template>
 
 <script>
@@ -54,6 +54,6 @@ export default {
 
 <style>
 .weui_cell_switch .weui_cell_ft {
-	font-size: 0;
+  font-size: 0;
 }
 </style>

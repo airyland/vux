@@ -3,16 +3,16 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      type: String
-    },
-    computed: {
-      className: function () {
-        return 'weui_icon weui_icon_' + this.type
-      }
+export default {
+  props: {
+    type: String
+  },
+  computed: {
+    className: function () {
+      return 'weui_icon weui_icon_' + this.type
     }
   }
+}
 </script>
 
 <style>

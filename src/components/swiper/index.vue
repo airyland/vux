@@ -18,85 +18,85 @@
 </template>
 
 <script>
-  import Swiper from './swiper'
-  export default {
-    ready () {
-      if (!(this.list && this.list.length === 0)) {
-        this.render()
-      }
-    },
-    methods: {
-      buildBackgroundUrl: function (url) {
-        return `url(${url})`
-      },
-      render: function () {
-        const _this = this
-        this.swiper = new Swiper({
-          container: _this.$el,
-          direction: _this.direction,
-          auto: _this.auto,
-          interval: _this.interval,
-          threshold: _this.threshold,
-          duration: _this.duration,
-          height: _this.height
-        })
-        .on('swiped', function (prev, current) {
-          _this.current = current
-        })
-      },
-      destroy: function () {
-        this.swiper && this.swiper.destroy()
-      }
-    },
-    props: {
-      list: {
-        type: Array,
-        required: false
-      },
-      direction: {
-        type: String,
-        default: 'horizontal'
-      },
-      show_dots: {
-        type: Boolean,
-        default: true
-      },
-      auto: {
-        type: Boolean,
-        default: false
-      },
-      interval: {
-        type: Number,
-        default: 3000
-      },
-      threshold: {
-        type: Number,
-        default: 50
-      },
-      duration: {
-        type: Number,
-        default: 300
-      },
-      height: {
-        type: Number,
-        default: 180
-      }
-    },
-    data () {
-      return {
-        current: 0
-      }
-    },
-    watch: {
-      list: function (val) {
-        this.destroy()
-        this.render()
-      }
-    },
-    beforeDestroy () {
-      this.destroy()
+import Swiper from './swiper'
+export default {
+  ready () {
+    if (!(this.list && this.list.length === 0)) {
+      this.render()
     }
+  },
+  methods: {
+    buildBackgroundUrl: function (url) {
+      return `url(${url})`
+    },
+    render: function () {
+      const _this = this
+      this.swiper = new Swiper({
+        container: _this.$el,
+        direction: _this.direction,
+        auto: _this.auto,
+        interval: _this.interval,
+        threshold: _this.threshold,
+        duration: _this.duration,
+        height: _this.height
+      })
+      .on('swiped', function (prev, current) {
+        _this.current = current
+      })
+    },
+    destroy: function () {
+      this.swiper && this.swiper.destroy()
+    }
+  },
+  props: {
+    list: {
+      type: Array,
+      required: false
+    },
+    direction: {
+      type: String,
+      default: 'horizontal'
+    },
+    show_dots: {
+      type: Boolean,
+      default: true
+    },
+    auto: {
+      type: Boolean,
+      default: false
+    },
+    interval: {
+      type: Number,
+      default: 3000
+    },
+    threshold: {
+      type: Number,
+      default: 50
+    },
+    duration: {
+      type: Number,
+      default: 300
+    },
+    height: {
+      type: Number,
+      default: 180
+    }
+  },
+  data () {
+    return {
+      current: 0
+    }
+  },
+  watch: {
+    list: function (val) {
+      this.destroy()
+      this.render()
+    }
+  },
+  beforeDestroy () {
+    this.destroy()
   }
+}
 
 </script>
 

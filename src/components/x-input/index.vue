@@ -1,8 +1,8 @@
 <template>
-	<div class="weui_cell">
+  <div class="weui_cell">
     <div class="weui_cell_hd">
-    	<label class="weui_label" :style="{width: labelWidth + 'em'}" v-if="title">{{title}}</label>
-    	<inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+      <label class="weui_label" :style="{width: labelWidth + 'em'}" v-if="title">{{title}}</label>
+      <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
     <div class="weui_cell_bd weui_cell_primary">
       <input class="weui_input" :type="type" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur" v-el:input/>
@@ -182,7 +182,7 @@ export default {
     },
     validateEqual: function () {
       let willCheck = this.dirty || this.value.length >= this.equalWith.length
-        // 只在长度符合时显示正确与否
+      // 只在长度符合时显示正确与否
       if (willCheck && this.value !== this.equalWith) {
         this.valid = false
         this.errors.equal = '输入不一致'
