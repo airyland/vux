@@ -50,6 +50,7 @@ import Shake from './shake/'
 import WechatEmotion from './wechat-emotion/'
 import Search from './search'
 import DateFormatter from './datetime/format'
+import Masker from './masker'
 
 const vux = {
   Radio,
@@ -103,7 +104,8 @@ const vux = {
   Shake,
   WechatEmotion,
   Search,
-  DateFormatter
+  DateFormatter,
+  Masker
 }
 
 module.exports = vux

@@ -1,18 +1,32 @@
 <template>
   <div class="vux-masker-box">
     <slot></slot>
-    <div class="vux-masker" :style="{backgroundColor: 'rgba(0,0,0,' + opacity +')'}">
+    <div class="vux-masker" :style="style">
       <slot name="content"></slot>
     </div>
   </div>
 </template>
 
 <script>
+import { toRGB } from './converter'
+
 export default {
   props: {
+    color: {
+      type: String,
+      default: '0, 0, 0'
+    },
     opacity: {
       type: Number,
       default: 0.5
+    }
+  },
+  computed: {
+    style: function () {
+      let color = /,/.test(this.color) ? this.color : toRGB(this.color.replace('#', '')).join(',')
+      return {
+        backgroundColor: `rgba(${color},${this.opacity})`
+      }
     }
   }
 }
