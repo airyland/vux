@@ -18,10 +18,11 @@ export default {
     this.clocker = new Clocker(_this.time)
     .on('tick', function (event) {
       _this.update(event)
+      _this.$dispatch('on-tick', event)
     })
     .on('finish', function () {
       _this.timeString = '00:00:00'
-      _this.$dispatch('finish')
+      _this.$dispatch('on-finish')
     })
     .start()
   },
@@ -61,7 +62,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

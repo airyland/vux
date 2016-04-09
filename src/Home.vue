@@ -14,9 +14,6 @@
       </cell>
     </group>
     <group>
-      <cell title="Milestone" :value="'v' + version" is-link v-link="'project/milestone'">
-        <span class="demo-icon" slot="icon">&#xe62d;</span>
-      </cell>
       <cell title="HISTORY.md" value="-">
         <span class="demo-icon" slot="icon" style="color:#666;">&#xe63a;</span>
       </cell>

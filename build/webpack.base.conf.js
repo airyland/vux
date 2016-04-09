@@ -7,7 +7,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist/static'),
-    publicPath: '/static/',
+    publicPath: 'https://o3e85j0cv.qnssl.com/static/',
     filename: '[name].js'
   },
   stats: {
