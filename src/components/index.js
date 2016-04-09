@@ -51,6 +51,7 @@ import WechatEmotion from './wechat-emotion/'
 import Search from './search'
 import DateFormatter from './datetime/format'
 import Masker from './masker'
+import Countdown from './countdown'
 
 const vux = {
   Radio,
@@ -105,7 +106,8 @@ const vux = {
   WechatEmotion,
   Search,
   DateFormatter,
-  Masker
+  Masker,
+  Countdown
 }
 
 module.exports = vux

@@ -118,6 +118,9 @@
       <cell title="Pullup" is-link v-link="'component/pullup'">
         <span class="demo-icon" slot="icon">&#xe650;</span>
       </cell>
+      <cell title="Countdown" is-link v-link="'component/countdown'">
+        <span class="demo-icon" slot="icon">&#xe653;</span>
+      </cell>
     </group>
 
     <group title="优化" title-color="#04be02">
