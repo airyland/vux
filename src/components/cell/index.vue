@@ -1,5 +1,5 @@
 <template>
-  <div class="weui_cell">
+  <div class="weui_cell" :class="{'vux-tap-active': isLink}">
     <div class="weui_cell_hd">
       <slot name="icon"></slot>
     </div>
@@ -47,4 +47,10 @@ export default {
 </script>
 
 <style>
+.vux-tap-active {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.vux-tap-active:active {
+  background-color: #ECECEC;
+}
 </style>

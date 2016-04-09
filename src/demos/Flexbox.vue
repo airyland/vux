@@ -49,7 +49,7 @@
       <flexbox-item class="ui-border-r"></flexbox-item>
       <flexbox-item>
         <flexbox orient="vertical" :margin-left=0>
-          <flexbox-item class="ui-border-b"></flexbox-item>
+          <flexbox-item class="ui-border-b" style="height: 100px;"></flexbox-item>
           <flexbox-item style="height: 100px;"><!--height: 100% doesnot work here-->
             <flexbox :margin-left=0>
               <flexbox-item class="ui-border-r"></flexbox-item>
