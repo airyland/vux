@@ -63,7 +63,6 @@ export default {
 
 .vux-flexbox-item > .vux-flexbox {
   width: 100%;
-  height: 100%;
 }
 
 .vux-flexbox .vux-flexbox-item:first-child{
