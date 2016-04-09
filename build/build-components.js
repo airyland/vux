@@ -110,15 +110,16 @@ if (list) {
       build(file)
     })
   })
+  build('date-formatter', '../src/components/datetime/format')
 }
 
-function build (name) {
+function build (name, _path) {
   let spinner = new Spinner(`building ${name}`)
   spinner.setSpinnerString('←↖↑↗→↘↓↙')
   spinner.start()
-
+  let file = _path || `../src/components/${name}/index`
   config.entry = {}
-  config.entry[name] = [path.resolve(__dirname, `../src/components/${name}/index`)]
+  config.entry[name] = [path.resolve(__dirname, file)]
   config.output.library = converName(name)
   config.output.path = path.resolve(__dirname, '../components/' + name + '/')
   webpack(config, function(err, stats) {
