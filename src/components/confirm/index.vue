@@ -36,11 +36,11 @@ export default {
   methods: {
     onConfirm: function () {
       this.show = false
-      this.$dispatch('confirm')
+      this.$dispatch('on-confirm')
     },
     onCancel: function () {
       this.show = false
-      this.$dispatch('cancel')
+      this.$dispatch('on-cancel')
     }
   },
   watch: {
