@@ -82,10 +82,10 @@ export default {
   overflow: hidden;
 }
 .rotate {
-  display: inline-block;
   transform: rotate(-180deg);
 }
 .pulldown-arrow {
+  display: inline-block;
   transition: all linear 0.2s;
   color: #666;
   font-size: 25px;
