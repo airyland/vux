@@ -86,6 +86,5 @@ export default {
 }
 .vux-popup-picker-value {
   display: inline-block;
-  width: 100%;
 }
 </style>
