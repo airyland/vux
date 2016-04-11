@@ -173,10 +173,8 @@ DatetimePicker.prototype = {
           }
           if (type === 'year') {
             var currentMonth = self.monthScroller ? self.monthScroller.value : config.currentMonth
-            if (currentMonth === 2) {
-              currentDay = self.dayScroller.value
-              self._setDayScroller(currentValue, currentMonth, currentDay)
-            }
+            currentDay = self.dayScroller.value
+            self._setDayScroller(currentValue, currentMonth, currentDay)
           } else if (type === 'month') {
             var currentYear = self.yearScroller ? self.yearScroller.value : config.currentYear
             currentDay = self.dayScroller.value
