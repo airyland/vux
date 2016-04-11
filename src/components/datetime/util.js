@@ -42,7 +42,7 @@ export function parseRow (tmpl, value) {
 
 // parse Date String
 export function parseDate (format, value) {
-  var formatParts = format.split(/[^A-Z]+/)
+  var formatParts = format.split(/[^A-Za-z]+/)
   var valueParts = value.split(/\D+/)
   if (formatParts.length !== valueParts.length) {
     // if it is error date, use current date

@@ -13,22 +13,20 @@
     </group>
 
     <group title="specified min-year and max-year">
-      <datetime :value.sync="value4" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:II" @change="change" title="years after 2000"></datetime>
+      <datetime :value.sync="value4" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:mm" @change="change" title="years after 2000"></datetime>
     </group>
 
     <group title="specified template text in Chinese">
-      <datetime :value.sync="value5" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:II" @change="change" title="Chinese" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
+      <datetime :value.sync="value5" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:mm" @change="change" title="Chinese" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
     </group>
 
   </div>
 </template>
 
 <script>
-import { Datetime, Group } from '../components/'
+import { Datetime, Group } from '../components'
 
 export default {
-  ready () {
-  },
   components: {
     Datetime,
     Group
