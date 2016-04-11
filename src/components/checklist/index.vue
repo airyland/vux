@@ -38,7 +38,6 @@ export default {
     },
     required: {
       type: Boolean,
-      required: false,
       default: true
     },
     options: {
@@ -54,14 +53,16 @@ export default {
       type: Number,
       required: false
     },
+    min: {
+      type: Number,
+      required: false
+    },
     fillMode: {
       type: Boolean,
-      required: false,
       default: false
     },
     randomOrder: {
       type: Boolean,
-      required: false,
       default: false
     }
   },
