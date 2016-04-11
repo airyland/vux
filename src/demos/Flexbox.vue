@@ -42,24 +42,7 @@
       <flexbox-item><div class="flex-demo" style="margin-left:0">1</div></flexbox-item>
       <flexbox-item><div class="flex-demo" style="margin-left:0">2</div></flexbox-item>
     </flexbox>
-
-    <br/>
-    <divider>Nested Flexbox</divider>
-    <flexbox :margin-left=0 style="height: 200px; background-color: #fff;" class="ui-border-tb">
-      <flexbox-item class="ui-border-r"></flexbox-item>
-      <flexbox-item>
-        <flexbox orient="vertical" :margin-left=0>
-          <flexbox-item class="ui-border-b" style="height: 100px;"></flexbox-item>
-          <flexbox-item style="height: 100px;"><!--height: 100% doesnot work here-->
-            <flexbox :margin-left=0>
-              <flexbox-item class="ui-border-r"></flexbox-item>
-              <flexbox-item></flexbox-item>
-            </flexbox>
-          </flexbox-item>
-        </flexbox>
-      </flexbox-item>
-    </flexbox>
-
+    
   </div>
 </template>
 
