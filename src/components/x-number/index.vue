@@ -13,45 +13,6 @@
     </div>
   </div>
 </template>
-
-<style>
-.number-input {
-  float:left;
-  height:20px;
-  font-size:20px;
-  color: #666;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border:1px solid #ececec;
-  padding:3px 0;
-  text-align:center;
-  border-radius: 1px;
-}
-.number-selector {
-  float:left;
-  height:20px;
-  font-size:25px;
-  line-height:18px;
-  color:#3cc51f;
-  border:1px solid #ececec;
-}
-.number-selector.number-disabled{
-  color:#ccc;
-}
-.number-selector-sub {
-  border-right:none;
-  padding:3px 10px;
-  border-radius:2px 0 0 2px;
-}
-.number-selector-plus {
-  border-left:none;
-  margin-right: 5px;
-  padding:3px 8px;
-  border-radius:0 2px 2px 0;
-}
-</style>
-
 <script>
 export default {
   props: {
@@ -100,7 +61,7 @@ export default {
       if (this.max && this.value > this.max) {
         this.value = this.max
       }
-      this.$dispatch('change', this.value)
+      this.$dispatch('on-change', this.value)
     }
   },
   methods: {
@@ -117,3 +78,40 @@ export default {
   }
 }
 </script>
+<style>
+.number-input {
+  float:left;
+  height:20px;
+  font-size:20px;
+  color: #666;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border:1px solid #ececec;
+  padding:3px 0;
+  text-align:center;
+  border-radius: 1px;
+}
+.number-selector {
+  float:left;
+  height:20px;
+  font-size:25px;
+  line-height:18px;
+  color:#3cc51f;
+  border:1px solid #ececec;
+}
+.number-selector.number-disabled{
+  color:#ccc;
+}
+.number-selector-sub {
+  border-right:none;
+  padding:3px 10px;
+  border-radius:2px 0 0 2px;
+}
+.number-selector-plus {
+  border-left:none;
+  margin-right: 5px;
+  padding:3px 8px;
+  border-radius:0 2px 2px 0;
+}
+</style>
