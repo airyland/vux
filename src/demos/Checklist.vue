@@ -1,16 +1,16 @@
 <template>
   <div>
-    <checklist title="default checklist" :options="commonList" :value.sync="checklist001" @change="change"></checklist>
+    <checklist title="default checklist" :options="commonList" :value.sync="checklist001" @on-change="change"></checklist>
 
-    <checklist title="preselect China and Japan" :options="commonList" :value.sync="checklist002" @change="change"></checklist>
+    <checklist title="preselect China and Japan" :options="commonList" :value.sync="checklist002" @on-change="change"></checklist>
 
-    <checklist title="set max=2" :options="commonList" :value.sync="checklist003" :max=2 @change="change"></checklist>
+    <checklist title="set max=2" :options="commonList" :value.sync="checklist003" :max=2 @on-change="change"></checklist>
 
-    <checklist title="set required=false and no min-error will show" :options="commonList" :value.sync="checklist004" :max=2 :required=false @change="change"></checklist>
+    <checklist title="set required=false and no min-error will show" :options="commonList" :value.sync="checklist004" :max=2 :required=false @on-change="change"></checklist>
 
-    <checklist title="set random order" random-order :options="checklist005" :value.sync="checklist005Value" @change="change"></checklist>
+    <checklist title="set random order" random-order :options="checklist005" :value.sync="checklist005Value" @on-change="change"></checklist>
 
-    <checklist title="Option Array with key and value(key must be string)" :options="objectList" :value.sync="objectListValue" @change="change"></checklist>
+    <checklist title="Option Array with key and value(key must be string)" :options="objectList" :value.sync="objectListValue" @on-change="change"></checklist>
   </div>
 </template>
 

@@ -16,8 +16,8 @@
 
 <script>
 import Base from '../../libs/base'
-import Tip from '../tip/'
-import Icon from '../icon/'
+import Tip from '../tip'
+import Icon from '../icon'
 import { getValue, getKey } from './object-filter'
 import shuffle from 'lodash.shuffle'
 
@@ -117,7 +117,7 @@ export default {
   },
   watch: {
     value: function (newVal) {
-      this.$dispatch('change', JSON.parse(JSON.stringify(newVal)))
+      this.$dispatch('on-change', JSON.parse(JSON.stringify(newVal)))
     }
   }
 }
