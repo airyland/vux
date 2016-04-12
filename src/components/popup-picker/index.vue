@@ -1,5 +1,5 @@
 <template>
-  <cell :title="title" primary="content">
+  <cell :title="title" primary="content" is-link>
     <span class="vux-popup-picker-value" slot="value" @click="show=true" v-if="!showName">{{value | array2string}}</span>
     <span class="vux-popup-picker-value" slot="value" @click="show=true" v-else>{{value | value2name data}}</span>
   </cell>
@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import Picker from '../picker/'
-import Cell from '../cell/'
-import Popup from '../popup/'
-import Flexbox from '../flexbox/'
-import FlexboxItem from '../flexbox-item/'
+import Picker from '../picker'
+import Cell from '../cell'
+import Popup from '../popup'
+import Flexbox from '../flexbox'
+import FlexboxItem from '../flexbox-item'
 import array2string from '../../filters/array2String'
 import value2name from '../../filters/value2name'
 import Base from '../../libs/base'
@@ -54,7 +54,7 @@ export default {
     },
     columns: {
       type: Number,
-      default: 999
+      default: 0
     },
     value: {
       type: Array,
