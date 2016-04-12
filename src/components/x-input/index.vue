@@ -113,7 +113,7 @@ export default {
       return this.title.replace(/[^x00-xff]/g, '00').length / 2 + 1
     },
     hasErrors: function () {
-      return Object.keys(this.errors).lenth > 0
+      return Object.keys(this.errors).length > 0
     }
   },
   methods: {
