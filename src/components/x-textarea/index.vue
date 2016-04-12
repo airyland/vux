@@ -9,7 +9,7 @@
 
 <script>
 import Base from '../../libs/base'
-import GroupTitle from '../group-title/'
+import GroupTitle from '../group-title'
 
 export default {
   minxins: [Base],
@@ -42,17 +42,12 @@ export default {
       if (this.max && this.value.length > this.max) {
         this.value = newVal.slice(0, this.max)
       }
-      this.$dispatch('change', this.value)
+      this.$dispatch('on-change', this.value)
     }
   },
   computed: {
     count: function () {
       return this.value.length
-    }
-  },
-  data () {
-    return {
-
     }
   }
 }

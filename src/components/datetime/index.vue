@@ -121,7 +121,7 @@ export default {
   },
   watch: {
     value: function (val) {
-      this.$dispatch('change', val)
+      this.$dispatch('on-change', val)
     }
   },
   beforeDestroy () {

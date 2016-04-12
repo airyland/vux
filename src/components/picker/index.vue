@@ -74,7 +74,7 @@ export default {
           itemClass: _this.item_class,
           onSelect: function (value) {
             _this.value.$set(i, value)
-            _this.$dispatch('change', _this.getValue())
+            _this.$dispatch('on-change', _this.getValue())
             if (_this.columns !== 0) {
               _this.renderChain(i + 1)
             }
@@ -107,7 +107,7 @@ export default {
         itemClass: _this.item_class,
         onSelect: function (value) {
           _this.value.$set(i, value)
-          _this.$dispatch('change', _this.getValue())
+          _this.$dispatch('on-change', _this.getValue())
           _this.renderChain(i + 1)
         }
       })

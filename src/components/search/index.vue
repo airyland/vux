@@ -97,7 +97,7 @@ export default {
       }
     },
     value: function (val) {
-      this.$emit('change', this.value)
+      this.$dispatch('on-change', this.value)
     }
   }
 }

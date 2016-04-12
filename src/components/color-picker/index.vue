@@ -48,7 +48,7 @@ export default {
   methods: {
     change: function (color) {
       this.value = color
-      this.$dispatch('change', color)
+      this.$dispatch('on-change', color)
     }
   }
 }
