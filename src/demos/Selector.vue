@@ -13,19 +13,19 @@
     </group>
 
     <group title="set value=广西">
-      <selector :value.sync="value1" title="省份" :options="list"></selector>
+      <selector :value.sync="value1" title="省份" :options="plainList" @on-change="onChange"></selector>
     </group>
 
     <group title="readonly, displays just like a cell">
       <selector value="gd" readonly title="省份" :options="list"></selector>
     </group>
 
-    <group title="use a plain options">
+    <group title="use plain options">
       <selector value="C" title="Selector" :options="list1" @on-change="onChange"></selector>
     </group>
 
     <group title='multi selector'>
-      <selector placeholder="请选择省份" title="省份" :options="list" type="inline"></selector>
+      <selector placeholder="请选择省份" title="省份" :options="list"></selector>
       <selector :value.sync="value2" title="省份" :options="list"></selector>
     </group>
   </div>
@@ -42,8 +42,9 @@ export default {
   data: function () {
     return {
       defaultValue: '',
-      list: [{text: '广东', value: 'gd'}, {text: '广西', value: 'gx'}],
-      value1: 'gx',
+      plainList: ['广东', '广西'],
+      list: [{key: 'gd', value: '广东'}, {key: 'gx', value: '广西'}],
+      value1: '广西',
       value2: 'gd',
       list1: ['A', 'B', 'C']
     }
