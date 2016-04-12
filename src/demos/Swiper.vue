@@ -6,7 +6,7 @@
     <br/>
     <br/>
     <group-title>自动轮播</group-title>
-    <swiper :list="list" auto></swiper>
+    <swiper :list="list" auto style="width:80%;margin:0 auto;"></swiper>
     <br/>
     <br/>
     <group-title>Async setting list data</group-title>

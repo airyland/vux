@@ -26,18 +26,19 @@ function Swiper (options) {
   this.$items = this.$container.querySelectorAll(this._options.item)
   this.count = this.$items.length
 
-  this._width = this.$container.offsetWidth
-  this._height = this._options.height === 'auto' ? this.$container.offsetHeight : this._options.height
   this.timer = null
 
-  this._auto()
+  this.updateItemWidth()
   this._init()
+  this._auto()
   this._bind()
+  this._onResize()
   return this
 }
 
 Swiper.prototype._auto = function () {
   var me = this
+  me.stop()
   if (this._options.auto) {
     me.timer = setTimeout(function () {
       me.next()
@@ -45,12 +46,14 @@ Swiper.prototype._auto = function () {
   }
 }
 
-Swiper.prototype.stop = function () {
-  clearTimeout(this.timer)
+Swiper.prototype.updateItemWidth = function () {
+  this._width = this.$box.offsetWidth
 }
 
-Swiper.prototype._init = function () {
-  var me = this
+Swiper.prototype.setStyle = function () {
+  const me = this
+  this._height = this._options.height === 'auto' ? this.$container.offsetHeight : this._options.height
+
   var width = me._width
   var height = me._height
 
@@ -74,8 +77,28 @@ Swiper.prototype._init = function () {
     $item.style.width = width + 'px'
     $item.style.height = height + 'px'
   })
+}
 
-  me._activate(0)
+Swiper.prototype._onResize = function () {
+  const _this = this
+  this.resizeHandler = function () {
+    setTimeout(function () {
+      _this.updateItemWidth()
+      _this.setStyle()
+      _this.next()
+    }, 100)
+  }
+  window.addEventListener('orientationchange', this.resizeHandler, false)
+}
+
+Swiper.prototype.stop = function () {
+  this.timer && clearTimeout(this.timer)
+}
+
+Swiper.prototype._init = function () {
+  const me = this
+  me.setStyle()
+  me._activate(this._current)
 }
 
 Swiper.prototype._bind = function () {
@@ -228,6 +251,7 @@ Swiper.prototype.destroy = function () {
   if (this.timer) {
     clearTimeout(this.timer)
   }
+  window.removeEventListener('orientationchange', this.resizeHandler, false)
   this.$container.removeEventListener('touchstart', this.touchstartHandler, false)
   this.$container.removeEventListener('touchmove', this.touchmoveHandler, false)
   this.$container.removeEventListener('touchend', this.touchendHandler, false)
