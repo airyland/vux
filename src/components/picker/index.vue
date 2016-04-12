@@ -2,7 +2,7 @@
   <div class="vux-picker">
     <flexbox :margin-left=0>
       <flexbox-item v-for="(index, one) in data" style="margin-left:0;">
-        <div class="vux-picker-{{index}}"></div>
+        <div :id="'vux-picker-' + uuid + '-' + index"></div>
       </flexbox-item>
     </flexbox>
   </div>
@@ -20,47 +20,14 @@ export default {
     FlexboxItem
   },
   created () {
-    if (this.columns !== 999) {
+    if (this.columns !== 0) {
       const length = this.columns
       this.store = new Manager(this.data, length)
       this.data = this.store.getColumns(this.value)
     }
   },
   ready () {
-    var _this = this
-    if (!this.data) {
-      return
-    }
-
-    this.count = this.data.length
-    // set first item as value
-    if (this.value.length < this.count) {
-      for (let i = 0; i < this.count; i++) {
-        _this.value.$set(i, _this.data[i][0].value || _this.data[i][0])
-      }
-    }
-
-    this.uuids = []
-    for (let i = 0; i < this.data.length; i++) {
-      let uuid = Math.random().toString(36).substring(3, 8)
-      this.uuids.push(uuid)
-      this.$el.querySelector(`.vux-picker-${i}`).setAttribute('id', `vux-picker-${uuid}`)
-      _this.scroller[i] = new Scroller(`#vux-picker-${uuid}`, {
-        data: _this.data[i],
-        defaultValue: _this.value[i] || _this.data[i][0].value,
-        itemClass: _this.item_class,
-        onSelect: function (value) {
-          _this.value.$set(i, value)
-          _this.$dispatch('change', _this.getValue())
-          if (this.columns !== 999) {
-            _this.render(i + 1)
-          }
-        }
-      })
-      if (_this.value) {
-        _this.scroller[i].select(_this.value[i])
-      }
-    }
+    this.render(this.data, this.value)
   },
   props: {
     data: {
@@ -68,7 +35,7 @@ export default {
     },
     columns: {
       type: Number,
-      default: 999
+      default: 0
     },
     value: {
       type: Array,
@@ -81,28 +48,71 @@ export default {
     }
   },
   methods: {
-    render: function (i) {
-      if (this.columns === 999) {
+    getId: function (i) {
+      return `#vux-picker-${this.uuid}-${i}`
+    },
+    render: function (data, value) {
+      this.count = this.data.length
+      const _this = this
+      if (!data) {
         return
       }
+
+      let count = this.data.length
+      // set first item as value
+      if (value.length < count) {
+        for (let i = 0; i < count; i++) {
+          _this.value.$set(i, data[i][0].value || data[i][0])
+        }
+      }
+
+      for (let i = 0; i < data.length; i++) {
+        _this.scroller[i] && _this.scroller[i].destroy()
+        _this.scroller[i] = new Scroller(_this.getId(i), {
+          data: data[i],
+          defaultValue: value[i] || data[i][0].value,
+          itemClass: _this.item_class,
+          onSelect: function (value) {
+            _this.value.$set(i, value)
+            _this.$dispatch('change', _this.getValue())
+            if (_this.columns !== 0) {
+              _this.renderChain(i + 1)
+            }
+          }
+        })
+        if (_this.value) {
+          _this.scroller[i].select(value[i])
+        }
+      }
+    },
+    renderChain: function (i) {
+      if (this.columns === 0) {
+        return
+      }
+
+      // do not render for last scroller
       if (i > this.count - 1) {
         return
       }
+
       const _this = this
-      _this.scroller[i].destroy()
-      _this.$el.querySelector(`#vux-picker-${_this.uuids[i]}`).innerHTML = ''
-      let list = _this.store.getChildren(_this.getValue()[i - 1])
-      _this.scroller[i] = new Scroller(`#vux-picker-${_this.uuids[i]}`, {
+      let ID = this.getId(i)
+      // destroy old one
+      this.scroller[i].destroy()
+      // this.$el.querySelector(ID).innerHTML = ''
+
+      let list = this.store.getChildren(_this.getValue()[i - 1])
+      this.scroller[i] = new Scroller(ID, {
         data: list,
         itemClass: _this.item_class,
         onSelect: function (value) {
           _this.value.$set(i, value)
           _this.$dispatch('change', _this.getValue())
-          _this.render(i + 1)
+          _this.renderChain(i + 1)
         }
       })
-      _this.value.$set(i, list[0].value)
-      _this.render(i + 1)
+      this.value.$set(i, list[0].value)
+      this.renderChain(i + 1)
     },
     getValue: function () {
       let data = []
@@ -115,14 +125,25 @@ export default {
   data () {
     return {
       scroller: [],
-      count: 0
+      count: 0,
+      uuid: Math.random().toString(36).substring(3, 8)
     }
   },
   watch: {
-    value: function (val) {
-      for (let i = 0; i < val.length; i++) {
-        if (this.scroller[i].value !== val[i]) {
-          this.scroller[i].select(val[i])
+    value: function (val, oldVal) {
+      // render all the scroller for chain datas
+      if (this.columns !== 0) {
+        if (val !== oldVal) {
+          this.data = this.store.getColumns(val)
+          this.$nextTick(function () {
+            this.render(this.data, val)
+          })
+        }
+      } else {
+        for (let i = 0; i < val.length; i++) {
+          if (this.scroller[i].value !== val[i]) {
+            this.scroller[i].select(val[i])
+          }
         }
       }
     }

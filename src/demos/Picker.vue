@@ -21,11 +21,13 @@
     <br>
     <group-title>地区联动: 当前值{{year7Value}}</group-title>
     <picker :data='year7' :columns=3 :value.sync='year7Value' @change='change'></picker>
+    <x-button @click="setData1" type="primary">set Value to ["USA", "usa002", "0005"]</x-button>
+    <x-button @click="setData2" type="primary">set Value to ["china", "china002", "gz"]</x-button>
   </div>
 </template>
 
 <script>
-import { Picker, GroupTitle } from '../components/'
+import { Picker, GroupTitle, XButton } from '../components/'
 
 let years = []
 for (var i = 2000; i <= 2030; i++) {
@@ -38,7 +40,8 @@ export default {
   ready () {},
   components: {
     Picker,
-    GroupTitle
+    GroupTitle,
+    XButton
   },
   methods: {
     change: function (value) {
@@ -46,6 +49,12 @@ export default {
     },
     change3: function (value) {
       this.year5 = value[0]
+    },
+    setData1: function () {
+      this.year7Value = ['USA', 'usa002', '0005']
+    },
+    setData2: function () {
+      this.year7Value = ['china', 'china002', 'gz']
     }
   },
   computed: {},
