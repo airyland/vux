@@ -1,7 +1,7 @@
 <template>
   <div>
-    <group title="no placeholder">
-      <selector title="省份" :options="list"></selector>
+    <group :title="'no placeholder, the current value is : ' + defaultValue">
+      <selector title="省份" :options="list" :value.sync="defaultValue"></selector>
     </group>
 
     <group title="with placeholder">
@@ -41,6 +41,7 @@ export default {
   },
   data: function () {
     return {
+      defaultValue: '',
       list: [{text: '广东', value: 'gd'}, {text: '广西', value: 'gx'}],
       value1: 'gx',
       value2: 'gd',

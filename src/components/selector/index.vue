@@ -63,7 +63,8 @@ export default {
       default: false
     },
     value: {
-      type: String
+      type: String,
+      twoWay: true
     }
   }
 }
