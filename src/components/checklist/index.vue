@@ -68,7 +68,7 @@ export default {
   },
   ready () {
     this.handleChangeEvent = true
-    let total = this.fill_mode ? (this.options.length + 1) : this.options.length
+    let total = this.fillMode ? (this.options.length + 1) : this.options.length
     if (this.max) {
       if (this.max > total) {
         this.max = total
