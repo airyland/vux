@@ -52,7 +52,7 @@ import Search from './search'
 import DateFormatter from './datetime/format'
 import Masker from './masker'
 import Countdown from './countdown'
-import FriendlyTime from '../filters/friend-time'
+import FriendlyTime from '../filters/friendly-time'
 
 const vux = {
   Radio,
