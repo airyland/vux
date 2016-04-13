@@ -1,28 +1,28 @@
 <template>
-<div class="vux-search-box">
-  <div class="weui_search_bar" id="search_bar" :class="{weui_search_focusing: !isCancel}">
-    <form class="weui_search_outer">
-      <div class="vux-search-mask" @click="touch" v-show="!isFixed"></div>
-      <div class="weui_search_inner">
-        <i class="weui_icon_search"></i>
-        <input type="text" class="weui_search_input" id="search_input" placeholder="{{placeholder}}" autocomplete="off" required v-model="value" v-el:input/>
-        <a href="javascript:" class="weui_icon_clear" id="search_clear" @click="clear"></a>
-      </div>
-      <label for="search_input" class="weui_search_text" id="search_text">
-        <i class="weui_icon_search"></i>
-        <span>{{placeholder}}</span>
-      </label>
-    </form>
-    <a href="javascript:" class="weui_search_cancel" id="search_cancel" @click="cancel">{{cancelText}}</a>
-  </div>
-  <div class="weui_cells weui_cells_access search_show" id="search_show" v-show="isFixed && results.length && value">
-    <div class="weui_cell" v-for="item in results" @click="handleResultClick(item)">
-      <div class="weui_cell_bd weui_cell_primary">
-        <p>{{item.title}}</p>
+  <div class="vux-search-box">
+    <div class="weui_search_bar" id="search_bar" :class="{weui_search_focusing: !isCancel}">
+      <form class="weui_search_outer">
+        <div class="vux-search-mask" @click="touch" v-show="!isFixed"></div>
+        <div class="weui_search_inner">
+          <i class="weui_icon_search"></i>
+          <input type="text" class="weui_search_input" id="search_input" placeholder="{{placeholder}}" autocomplete="off" required v-model="value" v-el:input/>
+          <a href="javascript:" class="weui_icon_clear" id="search_clear" @click="clear"></a>
+        </div>
+        <label for="search_input" class="weui_search_text" id="search_text">
+          <i class="weui_icon_search"></i>
+          <span>{{placeholder}}</span>
+        </label>
+      </form>
+      <a href="javascript:" class="weui_search_cancel" id="search_cancel" @click="cancel">{{cancelText}}</a>
+    </div>
+    <div class="weui_cells weui_cells_access search_show" id="search_show" v-show="isFixed && results.length && value">
+      <div class="weui_cell" v-for="item in results" @click="handleResultClick(item)">
+        <div class="weui_cell_bd weui_cell_primary">
+          <p>{{item.title}}</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -97,7 +97,7 @@ export default {
       }
     },
     value: function (val) {
-      this.$emit('change', this.value)
+      this.$dispatch('on-change', this.value)
     }
   }
 }

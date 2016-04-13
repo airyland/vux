@@ -1,39 +1,39 @@
 <template>
   <div>
     <group title="Default">
-      <number title="Number"></number>
+      <x-number title="Number"></x-number>
     </group>
-      
+
     <group title="listen to change events">
-      <number title="Number" :value=0 :min=0 @change="change"></number>
+      <x-number title="Number" :value=0 :min=0 @on-change="change"></x-number>
     </group>
     <group title="set width=100">
-      <number title="Number" :width=100></number>
+      <x-number title="Number" :width=100></x-number>
     </group>
     <group title="set step=0.5">
-      <number title="Number" :step=0.5></number>
+      <x-number title="Number" :step=0.5></x-number>
     </group>
 
     <group title="set value=1, min=-5 and max=8">
-      <number title="Number" :min=-5 :max=8 :value=1></number>
+      <x-number title="Number" :min=-5 :max=8 :value=1></x-number>
     </group>
     <group title="fillable = false">
-      <number :value=10 title="Number" :fillable=false></number>
+      <x-number :value=10 title="Number" :fillable=false></x-number>
     </group>
     <group title='with other element'>
-      <number title="Number" :min=-5 :max=8 :value=1 type="inline"></number>
-      <number title="Number" :min=-5 :max=8 :value=1 type="inline"></number>
-      <switch title="Other element" :value=true></switch>
+      <x-number title="Number" :min=-5 :max=8 :value=1 type="inline"></x-number>
+      <x-number title="Number" :min=-5 :max=8 :value=1 type="inline"></x-number>
+      <switch title="Other element" :value.sync=true></switch>
     </group>
   </div>
 </template>
 
 <script>
-import { Group, Number, Switch } from '../components/'
+import { Group, XNumber, Switch } from '../components/'
 
 export default {
   components: {
-    Number,
+    XNumber,
     Group,
     Switch
   },

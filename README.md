@@ -7,6 +7,9 @@
   <a href="https://gitter.im/airyland/vux?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge">
     <img src="https://badges.gitter.im/airyland/vux.svg">
   </a>
+  <a href="https://jianliao.com/page/invite/f7c555307e">
+    <img src="https://img.shields.io/badge/chat-%20on%20%E7%AE%80%E8%81%8A%20-ff69b4.svg">
+  </a>
 </p>
 <p align="center">VUX = Vue + Weui + Components </p>
 <p align="center">
@@ -24,6 +27,11 @@
   </a>
 </p>
 
+## Importance notice
+
++ This is not an Official Project of Wechat.
++ :warning: Before vux@0.1.0, Components' API may `change` any time.
+
 ## Demo
 
 <p align="center">
@@ -31,7 +39,7 @@
   <img src="https://raw.githubusercontent.com/airyland/vux/master/qr.png" width="300">
 </p>
 
-## Usage for new Vue Project
+## Usage by importing UMD modules
 
 ``` bash
 # install vue-cli
@@ -41,7 +49,7 @@ npm install -g vue-cli
 vue init webpack my-project
 cd my-project
 npm install
-npm install vux
+npm install vux@dev
 npm run dev
 ```
 
@@ -71,8 +79,43 @@ export default {
 </script>
 
 <style>
-@import 'vux/vux.css'
+@import '~vux/vux.css';
 </style>
+```
+
+## Usage by importing .vue file
+
+> add a js loader in webpack.base.conf.js
+
+``` js
+{
+  test: /vux.src.*?js$/,
+  loader: 'babel'
+}
+```
+
+> import the components you need
+
+``` js
+import Group from 'vux/src/components/group'
+import Cell from 'vux/src/components/cell'
+```
+
+> you can use a shorter path by adding resolve.alias in webpack.base.conf.js
+
+``` js
+resolve: {
+  alias: {
+    'vux-components': 'vux/src/components/'
+  }
+}
+```
+
+> now you can import like this:
+
+``` js
+import Group from 'vux-components/group'
+import Cell from 'vux-components/cell'
 ```
 
 ## Usage by including scripts
@@ -140,8 +183,11 @@ npm run dev
 # build for production with minification
 npm run build
 
-# build every single component to /components
+# build components before publishing
 npm run xbuild
+
+# publish and deploy to gh-pages
+npm run xpublish
 
 # run unit tests
 npm test

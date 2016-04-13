@@ -4,9 +4,9 @@
       <cell title="My Account" value="Protected"></cell>
     </group>
     <group>
-      <cell title="Notifications" link="test"></cell>
-      <cell title="Privacy" link="test"></cell>
-      <cell title="General" link="test"></cell>
+      <cell title="Notifications" is-link></cell>
+      <cell title="Privacy" is-link></cell>
+      <cell title="General" is-link></cell>
     </group>
     <group>
       <cell title="Notifications" value="Enabled"></cell>

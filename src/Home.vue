@@ -7,32 +7,29 @@
         <span class="demo-icon" slot="icon" style="font-size:60px;color:#35495e;display: block;">&#xe637;</span>
       </h1>
       <p class="vux-notice">Beta. Not Production Ready(v0.1).</p>
-      </div>
-      <group>
-        <cell title="Demo" link="/demo">
-          <span class="demo-icon" slot="icon" style="color:#F70968">&#xe633;</span>
-        </cell>
-      </group>
-      <group>
-        <cell title="Milestone" :value="'v' + version" link="project/milestone">
-          <span class="demo-icon" slot="icon">&#xe62d;</span>
-        </cell>
-        <cell title="HISTORY.md" value="-">
-          <span class="demo-icon" slot="icon" style="color:#666;">&#xe63a;</span>
-        </cell>
-        <cell title="Thanks" link="project/thanks">
-          <span class="demo-icon" slot="icon" style="color:#666;">&#xe62e;</span>
-        </cell>
-      </group>
-      <group>
-        <cell title="Fork me" link="http://github.com/airyland/vux">
-          <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
-        </cell>
-        <cell title="Buy me a coffee" link="project/donate">
-          <span class="demo-icon" slot="icon" style="color:red;">&#xe630;</span>
-        </cell>
-      </group>
     </div>
+    <group>
+      <cell title="Demo" is-link v-link="'/demo'">
+        <span class="demo-icon" slot="icon" style="color:#F70968">&#xe633;</span>
+      </cell>
+    </group>
+    <group>
+      <cell title="HISTORY.md" value="-">
+        <span class="demo-icon" slot="icon" style="color:#666;">&#xe63a;</span>
+      </cell>
+      <cell title="Thanks" is-link v-link="'project/thanks'">
+        <span class="demo-icon" slot="icon" style="color:#666;">&#xe62e;</span>
+      </cell>
+    </group>
+    <group>
+      <cell title="Fork me" is-link v-link="'http://github.com/airyland/vux'">
+        <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
+      </cell>
+      <cell title="Buy me a coffee" is-link v-link="'project/donate'">
+        <span class="demo-icon" slot="icon" style="color:red;">&#xe630;</span>
+      </cell>
+    </group>
+  </div>
 </template>
 
 <script>

@@ -15,7 +15,7 @@ export default {
     })
     this.calendar.on('change', function (val) {
       _this.value = val
-      _this.$dispatch('change', val)
+      _this.$dispatch('on-change', val)
     })
   },
   props: {
@@ -40,5 +40,5 @@ export default {
 </script>
 
 <style>
-@import './calendar.css'
+@import './calendar.css';
 </style>

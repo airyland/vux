@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <switch title="Toggle" :value.sync="show1" @change="show1change"></switch>
+      <switch title="Toggle" :value.sync="show1" @on-change="show1change"></switch>
     </group>
     <loading :show="show1" :text="text1"></loading>
   </div>

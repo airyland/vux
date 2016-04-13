@@ -4,30 +4,20 @@
 
 <script>
 import Countup from 'countup'
+
 export default {
   ready () {
     this._countup = new Countup(this.$el, this.startVal, this.endVal, this.decimals, this.duration, this.options)
     this._countup.start()
   },
   props: {
-    // float or integer
     startVal: {
-      validator: function (val) {
-        return val % 1 === 0
-      },
-      coerce: function (val) {
-        return val * 1
-      },
+      type: Number,
       default: 0
     },
-    // float or integer
     endVal: {
-      validator: function (val) {
-        return val % 1 === 0
-      },
-      coerce: function (val) {
-        return val * 1
-      }
+      type: Number,
+      required: true
     },
     // number of decimal places in number
     decimals: {
@@ -45,9 +35,6 @@ export default {
         return {}
       }
     }
-  },
-  beforeDestroy () {
-
   }
 }
 </script>

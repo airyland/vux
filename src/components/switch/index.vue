@@ -1,21 +1,30 @@
 <template>
-	<div class="weui_cell weui_cell_switch">
-	    <div class="weui_cell_hd weui_cell_primary">
-	    	<label class="weui_label" :style="{width:title.length+1+'em'}">{{title}}</label>
-	    	<span class="label_desc" v-if="inlineDesc">{{inlineDesc}}</span>
-	    </div>
-	    <div class="weui_cell_ft">
-	        <input class="weui_switch" type="checkbox" :disabled="disabled" v-model="value"/>
-	    </div>
-	</div>
+  <div class="weui_cell weui_cell_switch">
+    <div class="weui_cell_hd weui_cell_primary">
+      <label class="weui_label" :style="labelStyle">{{{title}}}</label>
+      <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+    </div>
+    <div class="weui_cell_ft">
+      <input class="weui_switch" type="checkbox" :disabled="disabled" v-model="value"/>
+    </div>
+  </div>
 </template>
 
 <script>
-import InlineDesc from '../inline-desc/'
+import InlineDesc from '../inline-desc'
 
 export default {
   components: {
     InlineDesc
+  },
+  computed: {
+    labelStyle: function () {
+      let isHTML = /<\/?[^>]*>/.test(this.title)
+      let width = Math.min(isHTML ? 5 : (this.title.length + 1), 14) + 'em'
+      return {
+        width
+      }
+    }
   },
   props: {
     title: {
@@ -37,7 +46,7 @@ export default {
   ready: function () {},
   watch: {
     value: function (newVal) {
-      this.$dispatch('change', newVal)
+      this.$dispatch('on-change', newVal)
     }
   }
 }
@@ -45,6 +54,6 @@ export default {
 
 <style>
 .weui_cell_switch .weui_cell_ft {
-	font-size: 0;
+  font-size: 0;
 }
 </style>

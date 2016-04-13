@@ -1,0 +1,27 @@
+.vux-fade-transition {
+  opacity: 1;
+  transition: opacity linear 0.2s
+}
+
+.vux-fade-enter, .vux-fade-leave {
+  opacity: 0;
+}
+
+.vux-dialog-transition {
+  opacity: 1;
+  transition-duration: .4s;
+  transform: translate(-50%, -50%) scale(1)!important;
+  transition-property: transform, opacity!important;
+}
+
+.vux-dialog-enter, .vux-dialog-leave {
+  opacity: 0;
+}
+
+.vux-dialog-enter {
+  transform: translate(-50%, -50%) scale(1.185)!important;
+}
+
+.vux-dialog-leave {
+  transform: translate(-50%, -50%) scale(1)!important;
+}

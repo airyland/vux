@@ -4,7 +4,7 @@
 
 <script>
 import name2value from '../../filters/name2value'
-import PopupPicker from '../popup-picker/'
+import PopupPicker from '../popup-picker'
 export default {
   components: {
     PopupPicker

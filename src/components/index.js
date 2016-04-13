@@ -1,24 +1,24 @@
 import Radio from './radio/'
 import DevTip from './dev-tip/'
-import Input from './input/'
-import Number from './number/'
+import XInput from './x-input/'
+import XNumber from './x-number/'
 import Cell from './cell/'
 import InlineDesc from './inline-desc/'
 import Checklist from './checklist/'
 import Switch from './switch/'
-import Textarea from './textarea/'
+import XTextarea from './x-textarea/'
 import Group from './group/'
 import GroupTitle from './group-title/'
 import Box from './box/'
 import Tip from './tip/'
 import Selector from './selector/'
-import XButton from './button/'
+import XButton from './x-button/'
 import Flexbox from './flexbox/'
 import FlexboxItem from './flexbox-item/'
 import Tab from './tab/'
 import TabItem from './tab-item/'
-import Swiper from './Swiper'
-import SwiperItem from './Swiper/Swiper-item'
+import Swiper from './swiper'
+import SwiperItem from './swiper/Swiper-item'
 import Sticky from './sticky/'
 import Picker from './picker/'
 import Datetime from './datetime/'
@@ -48,14 +48,19 @@ import Countup from './countup/'
 import Scroller from './scroller/'
 import Shake from './shake/'
 import WechatEmotion from './wechat-emotion/'
+import Search from './search'
+import DateFormatter from './datetime/format'
+import Masker from './masker'
+import Countdown from './countdown'
+import FriendlyTime from '../filters/friendly-time'
 
 const vux = {
   Radio,
   Group,
   DevTip,
-  Input,
+  XInput,
   GroupTitle,
-  Number,
+  XNumber,
   Checklist,
   Switch,
   Box,
@@ -64,7 +69,7 @@ const vux = {
   Cell,
   InlineDesc,
   XButton,
-  Textarea,
+  XTextarea,
   Flexbox,
   FlexboxItem,
   Tab,
@@ -99,7 +104,12 @@ const vux = {
   Countup,
   Scroller,
   Shake,
-  WechatEmotion
+  WechatEmotion,
+  Search,
+  DateFormatter,
+  Masker,
+  Countdown,
+  FriendlyTime
 }
 
 module.exports = vux

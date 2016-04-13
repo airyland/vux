@@ -1,31 +1,33 @@
 <template>
-<div>
-  <br>
-  <group-title>默认，不设置默认值时选中第一个</group-title>
-  <picker :data='years' :value.sync='year1' @change='change'></picker>
-  <br>
-  <group-title>设置默认值时</group-title>
-  <picker :data='years' :value.sync='year2' @change='change'></picker>
-  <br>
-  <group-title>双向绑定</group-title>
-  <picker :data='years' :value.sync='year3' @change='change3'></picker>
-  <select v-model='year5'>
-    <option v-for='one in years[0]' value='{{one.value}}'>{{one.name}}</option>
-  </select>
-  <br>
-  <group-title>非联动多列</group-title>
-  <picker :data='years1' :value.sync='year4' @change='change'></picker>
-  <br>
-  <group-title>五列</group-title>
-  <picker :data='year6' :value.sync='year6Value' @change='change'></picker>
-  <br>
-  <group-title>地区联动: 当前值{{year7Value}}</group-title>
-  <picker :data='year7' :columns=3 :value.sync='year7Value' @change='change'></picker>
-</div>
+  <div>
+    <br>
+    <group-title>默认，不设置默认值时选中第一个</group-title>
+    <picker :data='years' :value.sync='year1' @on-change='change'></picker>
+    <br>
+    <group-title>设置默认值时</group-title>
+    <picker :data='years' :value.sync='year2' @on-change='change'></picker>
+    <br>
+    <group-title>双向绑定</group-title>
+    <picker :data='years' :value.sync='year3' @on-change='change3'></picker>
+    <select v-model='year5'>
+      <option v-for='one in years[0]' value='{{one.value}}'>{{one.name}}</option>
+    </select>
+    <br>
+    <group-title>非联动多列</group-title>
+    <picker :data='years1' :value.sync='year4' @on-change='change'></picker>
+    <br>
+    <group-title>五列</group-title>
+    <picker :data='year6' :value.sync='year6Value' @on-change='change'></picker>
+    <br>
+    <group-title>地区联动: 当前值{{year7Value}}</group-title>
+    <picker :data='year7' :columns=3 :value.sync='year7Value' @on-change='change'></picker>
+    <x-button @click="setData1" type="primary">set Value to ["USA", "usa002", "0005"]</x-button>
+    <x-button @click="setData2" type="primary">set Value to ["china", "china002", "gz"]</x-button>
+  </div>
 </template>
 
 <script>
-import { Picker, GroupTitle } from '../components/'
+import { Picker, GroupTitle, XButton } from '../components/'
 
 let years = []
 for (var i = 2000; i <= 2030; i++) {
@@ -38,7 +40,8 @@ export default {
   ready () {},
   components: {
     Picker,
-    GroupTitle
+    GroupTitle,
+    XButton
   },
   methods: {
     change: function (value) {
@@ -46,6 +49,12 @@ export default {
     },
     change3: function (value) {
       this.year5 = value[0]
+    },
+    setData1: function () {
+      this.year7Value = ['USA', 'usa002', '0005']
+    },
+    setData2: function () {
+      this.year7Value = ['china', 'china002', 'gz']
     }
   },
   computed: {},

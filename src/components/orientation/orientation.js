@@ -6,15 +6,13 @@
  * @version 0.0.1
  */
 
-//原生不支持用resize模拟
-var ORIENTATION_CHANGE = 'orientationchange',
-  RESIZE = 'resize',
-
-  EVT_ORIENTATION_CHANGE = 'onorientationchange' in window ? ORIENTATION_CHANGE : RESIZE,
-
-  FUNCTION = 'function',
-  ON = 'on',
-  AFTER = 'after';
+// 原生不支持用resize模拟
+var ORIENTATION_CHANGE = 'orientationchange'
+var RESIZE = 'resize'
+var EVT_ORIENTATION_CHANGE = 'onorientationchange' in window ? ORIENTATION_CHANGE : RESIZE
+var FUNCTION = 'function'
+var ON = 'on'
+var AFTER = 'after'
 
 /**
  * 混入对象属性
@@ -24,19 +22,19 @@ var ORIENTATION_CHANGE = 'orientationchange',
  * @private
  */
 
-function merge(s) {
-  var r = {},
-    k;
+function merge (s) {
+  var r = {}
+  var k
 
   if (s) {
     for (k in s) {
       if (s.hasOwnProperty(k)) {
-        r[k] = s[k];
+        r[k] = s[k]
       }
     }
   }
 
-  return r;
+  return r
 }
 
 /**
@@ -48,10 +46,10 @@ function merge(s) {
  * @private
  */
 
-function bind(fn, context) {
-  return fn.bind ? fn.bind(context) : function() {
-    fn.apply(context, arguments);
-  };
+function bind (fn, context) {
+  return fn.bind ? fn.bind(context) : function () {
+    fn.apply(context, arguments)
+  }
 }
 
 /**
@@ -60,8 +58,8 @@ function bind(fn, context) {
  * @class
  */
 
-function Orientation() {
-  this.init.apply(this, arguments);
+function Orientation () {
+  this.init.apply(this, arguments)
 }
 
 Orientation.prototype = {
@@ -78,26 +76,25 @@ Orientation.prototype = {
    * @method init
    * @public
    */
-  init: function(cfg) {
-
+  init: function (cfg) {
     this._cfg = merge({
       delay: 400
-    }, cfg);
+    }, cfg)
 
-    //事件订阅数组
+    // 事件订阅数组
     this._subs = {
       on: [],
       after: []
-    };
+    }
 
-    //当前信息
-    this.info = this.getInfo();
+    // 当前信息
+    this.info = this.getInfo()
 
-    //绑定事件回调上下文
-    this._onWinOrientationChange = bind(this._onWinOrientationChange, this);
+    // 绑定事件回调上下文
+    this._onWinOrientationChange = bind(this._onWinOrientationChange, this)
 
-    //绑定窗口切换事件
-    window.addEventListener(EVT_ORIENTATION_CHANGE, this._onWinOrientationChange, false);
+    // 绑定窗口切换事件
+    window.addEventListener(EVT_ORIENTATION_CHANGE, this._onWinOrientationChange, false)
   },
 
   /**
@@ -105,9 +102,9 @@ Orientation.prototype = {
    * @method destroy
    * @public
    */
-  destroy: function() {
-    window.removeEventListener(EVT_ORIENTATION_CHANGE, this._onWinOrientationChange, false);
-    delete this._subs;
+  destroy: function () {
+    window.removeEventListener(EVT_ORIENTATION_CHANGE, this._onWinOrientationChange, false)
+    delete this._subs
   },
 
   /**
@@ -116,8 +113,8 @@ Orientation.prototype = {
    * @return {Orientation} Orientation实例对象
    * @public
    */
-  create: function(cfg) {
-    return new Orientation(cfg);
+  create: function (cfg) {
+    return new Orientation(cfg)
   },
 
   /**
@@ -126,18 +123,17 @@ Orientation.prototype = {
    * @return {Object} 横竖屏相关信息
    * @public
    */
-  getInfo: function() {
-
-    //90度为横屏
+  getInfo: function () {
+    // 90度为横屏
     return (EVT_ORIENTATION_CHANGE === ORIENTATION_CHANGE) ? {
-      landscape: (window.orientation == 90 || window.orientation == -90),
-      portrait: (window.orientation == 0 || window.orientation == -180),
+      landscape: (window.orientation === 90 || window.orientation === -90),
+      portrait: (window.orientation === 0 || window.orientation === -180),
       orientation: window.orientation
     } : {
       landscape: window.screen.width > window.screen.height,
       portrait: window.screen.width <= window.screen.height,
       orientation: window.screen.width > window.screen.height ? 90 : 0
-    };
+    }
   },
 
   /**
@@ -146,8 +142,8 @@ Orientation.prototype = {
    * @return {Boolean}
    * @public
    */
-  isLandscape: function() {
-    return this.info.landscape;
+  isLandscape: function () {
+    return this.info.landscape
   },
 
   /**
@@ -156,8 +152,8 @@ Orientation.prototype = {
    * @return {Boolean}
    * @public
    */
-  isPortrait: function() {
-    return this.info.portrait;
+  isPortrait: function () {
+    return this.info.portrait
   },
 
   /**
@@ -167,12 +163,12 @@ Orientation.prototype = {
    * @param {Boolean} after 时候绑定after事件
    * @chainable
    */
-  change: function(fn, after) {
+  change: function (fn, after) {
     if (typeof fn === FUNCTION) {
-      this._subs[after ? AFTER : ON].push(fn);
+      this._subs[after ? AFTER : ON].push(fn)
     }
 
-    return this;
+    return this
   },
 
   /**
@@ -181,29 +177,30 @@ Orientation.prototype = {
    * @param {EventFacade} e
    * @protected
    */
-  _fireChange: function(e) {
-    var self = this,
-      info = this.getInfo(),
-      subs = this._subs,
-      i, l;
+  _fireChange: function (e) {
+    var self = this
+    var info = this.getInfo()
+    var subs = this._subs
+    var i
+    var l
 
-    //如果不等于上次方向，则触发
+    // 如果不等于上次方向，则触发
     if (info.landscape !== this.info.landscape) {
-      this.info = merge(info);
-      info.originEvent = e;
-      info.originType = e.type;
+      this.info = merge(info)
+      info.originEvent = e
+      info.originType = e.type
 
-      //执行on
+      // 执行on
       for (i = 0, l = subs.on.length; i < l; i++) {
-        subs.on[i].call(self, e);
+        subs.on[i].call(self, e)
       }
 
-      //执行after
-      setTimeout(function() {
+      // 执行after
+      setTimeout(function () {
         for (i = 0, l = subs.after.length; i < l; i++) {
-          subs.after[i].call(self, e);
+          subs.after[i].call(self, e)
         }
-      }, 0);
+      }, 0)
     }
   },
 
@@ -213,17 +210,17 @@ Orientation.prototype = {
    * @param {EventFacade} e
    * @protected
    */
-  _checkChange: function(e) {
-    var self = this;
+  _checkChange: function (e) {
+    var self = this
 
     if (self._cfg.delay) {
-      //iPad打开键盘时旋转比较慢
-      clearTimeout(this._changeTimer);
-      self._changeTimer = setTimeout(function() {
-        self._fireChange(e);
-      }, self._cfg.delay);
+      // iPad打开键盘时旋转比较慢
+      clearTimeout(this._changeTimer)
+      self._changeTimer = setTimeout(function () {
+        self._fireChange(e)
+      }, self._cfg.delay)
     } else {
-      self._fireChange(e);
+      self._fireChange(e)
     }
   },
 
@@ -233,17 +230,15 @@ Orientation.prototype = {
    * @param {EventFacade} e 事件对象
    * @protected
    */
-  _onWinOrientationChange: function(e) {
-    var self = this;
-
-    if (e.type == RESIZE) {
-      this._fireChange(e);
+  _onWinOrientationChange: function (e) {
+    if (e.type === RESIZE) {
+      this._fireChange(e)
     } else {
-      this._checkChange(e);
+      this._checkChange(e)
     }
   }
 
-};
+}
 
-//返回实例
-export default Orientation.prototype.create();
+// 返回实例
+export default Orientation.prototype.create()

@@ -45,14 +45,16 @@ import Donate from './demos/Donate'
 import Thanks from './demos/Thanks'
 import Spinner from './demos/Spinner'
 import Calendar from './demos/Calendar'
-import Milestone from './demos/Milestone'
 import Circle from './demos/Circle'
 import Countup from './demos/Countup'
 import ColorPicker from './demos/Color-picker'
 import Blur from './demos/Blur'
 import Scroller from './demos/Scroller'
+import Comment from './demos/Comment'
 import Pulldown from './demos/Pulldown'
 import Pullup from './demos/Pullup'
+import Masker from './demos/Masker'
+import Countdown from './demos/Countdown'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -188,9 +190,6 @@ router.map({
   '/project/thanks': {
     component: Thanks
   },
-  '/project/milestone': {
-    component: Milestone
-  },
   '/component/spinner': {
     component: Spinner
   },
@@ -212,11 +211,20 @@ router.map({
   '/component/scroller': {
     component: Scroller
   },
+  '/component/comment': {
+    component: Comment
+  },
   '/component/pulldown': {
     component: Pulldown
   },
   '/component/pullup': {
     component: Pullup
+  },
+  '/component/masker': {
+    component: Masker
+  },
+  '/component/countdown': {
+    component: Countdown
   }
 })
 
@@ -225,7 +233,15 @@ router.beforeEach(function (transition) {
     let url = transition.to.path.split('http')[1]
     window.location.href = `http${url}`
   } else {
-    transition.next()
+    if (/\/demo\/component\/\w+/.test(transition.to.path)) {
+      router.go({
+        replace: true,
+        path: transition.to.path.replace('/demo', ''),
+        append: false
+      })
+    } else {
+      transition.next()
+    }
   }
 })
 

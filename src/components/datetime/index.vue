@@ -1,17 +1,17 @@
 <template>
-<a class="weui_cell" href="javascript:">
-  <div class="weui_cell_bd weui_cell_primary">
-    <p>{{title}}</p>
-    <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
-  </div>
-  <div class="weui_cell_ft with_arrow vux-datetime-value">{{value}}</div>
-</a>
+  <a class="weui_cell" href="javascript:">
+    <div class="weui_cell_bd weui_cell_primary">
+      <p>{{title}}</p>
+      <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+    </div>
+    <div class="weui_cell_ft with_arrow vux-datetime-value">{{value}}</div>
+  </a>
 </template>
 
 <script>
 import Picker from './datetimepicker'
-import Group from '../group/'
-import InlineDesc from '../inline-desc/'
+import Group from '../group'
+import InlineDesc from '../inline-desc'
 import Base from '../../libs/base'
 
 export default {
@@ -79,36 +79,49 @@ export default {
     this.$dispatch('group.class.add', 'weui_cells_access')
   },
   ready () {
-    var _this = this
     const uuid = this.uuid
     this.$el.setAttribute('id', 'vux-datetime-' + uuid)
-    let options = {
-      trigger: '#vux-datetime-' + uuid,
-      format: _this.format,
-      value: _this.value,
-      output: '.vux-datetime-value',
-      confirmText: _this.confirmText,
-      cancelText: _this.cancelText,
-      yearRow: _this.yearRow,
-      monthRow: _this.monthRow,
-      dayRow: _this.dayRow,
-      hourRow: _this.hourRow,
-      minuteRow: _this.minuteRow,
-      onConfirm: function (value) {
-        _this.value = value
+    this.render()
+  },
+  computed: {
+    pickerOptions: function () {
+      const _this = this
+      const options = {
+        trigger: '#vux-datetime-' + this.uuid,
+        format: this.format,
+        value: this.value,
+        output: '.vux-datetime-value',
+        confirmText: this.confirmText,
+        cancelText: _this.cancelText,
+        yearRow: this.yearRow,
+        monthRow: this.monthRow,
+        dayRow: this.dayRow,
+        hourRow: this.hourRow,
+        minuteRow: this.minuteRow,
+        onConfirm: function (value) {
+          _this.value = value
+        }
       }
+      if (this.minYear) {
+        options.minYear = this.minYear
+      }
+      if (this.maxYear) {
+        options.maxYear = this.maxYear
+      }
+      return options
     }
-    if (this.minYear) {
-      options.minYear = this.minYear
+  },
+  methods: {
+    render: function () {
+      if (this.picker) {
+        this.picker.destroy()
+      }
+      this.picker = new Picker(this.pickerOptions)
     }
-    if (this.maxYear) {
-      options.maxYear = this.maxYear
-    }
-    this.picker = new Picker(options)
   },
   watch: {
     value: function (val) {
-      this.$dispatch('change', val)
+      this.$dispatch('on-change', val)
     }
   },
   beforeDestroy () {
@@ -118,5 +131,5 @@ export default {
 </script>
 
 <style>
-@import './datetimepicker.css'
+@import './datetimepicker.css';
 </style>

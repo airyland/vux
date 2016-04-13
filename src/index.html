@@ -4,12 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <link rel="icon" href="./static/favicon.png" type="image/x-icon">
-    <title>Vux</title>{% for (var css in o.htmlWebpackPlugin.files.css) { %}
-    <link href=".{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">{% } %}
-    <script type="text/javascript" src="./static/vendors/zepto.1.1.4.min.js"></script>
+    <title>Vux</title>
   </head>
   <body>
-    <div id="app"></div>{% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
-    <script src=".{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>{% } %}
+    <div id="app"></div>
   </body>
 </html>

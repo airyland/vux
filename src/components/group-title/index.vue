@@ -1,6 +1,5 @@
 <template>
-	<div class="weui_cells_title">
-		<slot></slot>
-	</div>
+  <div class="weui_cells_title">
+    <slot></slot>
+  </div>
 </template>
-

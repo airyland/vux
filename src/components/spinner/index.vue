@@ -31,6 +31,10 @@ export default {
 .spinner {
   stroke: #444;
   fill: #444;
+  vertical-align: middle;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
 }
 
 .spinner svg {

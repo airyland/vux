@@ -3,14 +3,14 @@ var F_tap = require('./tap')
 var PickerDialog = function (option) {
   this.params = {}
   if (Object.prototype.toString.call(option) === '[object Object]') {
-    this.params = { 
-      "input": option.input || "",
-      "container": document.querySelector(option.input) || "",
-      "innerHTML": option.innerHTML || "",
-      "onOpen": option.onOpen || function () {},
-      "onClose": option.onClose || function () {},
-      "_open": option._open || function () {},
-      "_close": option._close || function () {}
+    this.params = {
+      input: option.input || '',
+      container: document.querySelector(option.input) || '',
+      innerHTML: option.innerHTML || '',
+      onOpen: option.onOpen || function () {},
+      onClose: option.onClose || function () {},
+      _open: option._open || function () {},
+      _close: option._close || function () {}
     }
   }
   if (!!document.querySelectorAll('.picker-mask').length <= 0) {
@@ -20,20 +20,18 @@ var PickerDialog = function (option) {
     document.body.appendChild(this.divMask)
   }
   var div
-  if(!option.container){
+  if (!option.container) {
     div = document.createElement('div')
-  }else{
+  } else {
     div = option.container
   }
-  
   div.className = 'picker-dialog'
 
-  if(!option.container){
+  if (!option.container) {
     document.body.appendChild(div)
   }
-   
-  this.mask = document.querySelector(".picker-mask")
-  this.container = document.querySelectorAll(".picker-dialog")
+  this.mask = document.querySelector('.picker-mask')
+  this.container = document.querySelectorAll('.picker-dialog')
   this.container = this.container[this.container.length - 1]
   this._bindEvents()
   option = null
@@ -45,16 +43,15 @@ PickerDialog.prototype.updateInputPosition = function () {
   this._hackInputFocus()
 }
 
-
 PickerDialog.prototype._bindEvents = function () {
   var _this = this
 
-  function triggerClick(e) {
+  function triggerClick (e) {
     _this.hide()
     _this.emit('close')
   }
   F_tap.tap(this.mask, triggerClick)
-  this.container.addEventListener("touchmove", function (e) {
+  this.container.addEventListener('touchmove', function (e) {
     e.stopPropagation()
     e.preventDefault()
     return false
@@ -64,7 +61,7 @@ PickerDialog.prototype._bindEvents = function () {
 
 PickerDialog.prototype.show = function () {
   var _this = this
-  _this.mask.classList.add("show")
+  _this.mask.classList.add('show')
   _this.params._open && _this.params._open(this)
   _this.params.onOpen && _this.params.onOpen(this)
   return this
@@ -72,14 +69,13 @@ PickerDialog.prototype.show = function () {
 
 PickerDialog.prototype.hide = function () {
   var _this = this
-  _this.mask.classList.remove("show")
+  _this.mask.classList.remove('show')
   _this.params._close && _this.params._close(this)
   _this.params.onClose && _this.params.onClose(this)
   return this
 }
 
 PickerDialog.prototype.html = function (html) {
-  var _this = this
   this.container.innerHTML = html
   return this
 }

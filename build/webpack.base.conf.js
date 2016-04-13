@@ -1,4 +1,5 @@
 var path = require('path')
+var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
   entry: {
@@ -6,8 +7,11 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist/static'),
-    publicPath: '/static/',
+    publicPath: 'https://o3e85j0cv.qnssl.com/static/',
     filename: '[name].js'
+  },
+  stats: {
+    children: false
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
@@ -19,6 +23,13 @@ module.exports = {
     root: path.join(__dirname, 'node_modules')
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/, 
+        loader: "eslint-loader", 
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {
         test: /\.vue$/,
@@ -26,7 +37,8 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel!eslint',
+        loader: 'babel',
+        include: projectRoot,
         exclude: /node_modules/
       },
       {
@@ -34,7 +46,11 @@ module.exports = {
         loader: 'json'
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.html$/,
+        loader: 'vue-html'
+      },
+      {
+        test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
         loader: 'url',
         query: {
           limit: 10000,

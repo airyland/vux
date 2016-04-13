@@ -4,23 +4,32 @@
       <slot></slot>
       <div class="item" v-for="item in list">
         <a :href="item.url">
-          <div class="img" :data-x="item.img" :style="{backgroundImage:'url('+item.img+')'}"></div>
+          <div class="img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
           <p class="desc">{{item.title}}</p>
         </a>
       </div>
     </div>
     <div class="indicator" v-show="show_dots">
-      <a href="javascript:" v-for="(index,item) in list">
-        <i class="icon_dot" :class="{'active':index===current}"></i>
+      <a href="javascript:" v-for="(index, item) in list">
+        <i class="icon_dot" :class="{'active':index === current}"></i>
       </a>
     </div>
   </div>
 </template>
 
 <script>
-  import Swiper from './swiper'
-  export default {
-    ready () {
+import Swiper from './swiper'
+export default {
+  ready () {
+    if (!(this.list && this.list.length === 0)) {
+      this.render()
+    }
+  },
+  methods: {
+    buildBackgroundUrl: function (url) {
+      return `url(${url})`
+    },
+    render: function () {
       const _this = this
       this.swiper = new Swiper({
         container: _this.$el,
@@ -35,49 +44,59 @@
         _this.current = current
       })
     },
-    props: {
-      list: {
-        type: Array,
-        required: false
-      },
-      direction: {
-        type: String,
-        default: 'horizontal'
-      },
-      show_dots: {
-        type: Boolean,
-        default: true
-      },
-      auto: {
-        type: Boolean,
-        default: false
-      },
-      interval: {
-        type: Number,
-        default: 3000
-      },
-      threshold: {
-        type: Number,
-        default: 50
-      },
-      duration: {
-        type: Number,
-        default: 300
-      },
-      height: {
-        type: Number,
-        default: 180
-      }
-    },
-    data () {
-      return {
-        current: 0
-      }
-    },
-    beforeDestroy () {
-      this.swiper.destroy()
+    destroy: function () {
+      this.swiper && this.swiper.destroy()
     }
+  },
+  props: {
+    list: {
+      type: Array,
+      required: false
+    },
+    direction: {
+      type: String,
+      default: 'horizontal'
+    },
+    show_dots: {
+      type: Boolean,
+      default: true
+    },
+    auto: {
+      type: Boolean,
+      default: false
+    },
+    interval: {
+      type: Number,
+      default: 3000
+    },
+    threshold: {
+      type: Number,
+      default: 50
+    },
+    duration: {
+      type: Number,
+      default: 300
+    },
+    height: {
+      type: Number,
+      default: 180
+    }
+  },
+  data () {
+    return {
+      current: 0
+    }
+  },
+  watch: {
+    list: function (val) {
+      this.destroy()
+      this.render()
+    }
+  },
+  beforeDestroy () {
+    this.destroy()
   }
+}
 
 </script>
 

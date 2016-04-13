@@ -1,34 +1,49 @@
 <template>
-	<div class="weui_cell" :class="{'weui_select_after':title, 'weui_cell_select':!readonly}">
-		<div class="weui_cell_hd" v-show="title" :class="{'weui_cell_primary':readonly}">
-      {{title}}
-    </div>
+  <div class="weui_cell" :class="{'weui_select_after':title, 'weui_cell_select':!readonly}">
+    <div class="weui_cell_hd" v-show="title" :class="{'weui_cell_primary':readonly}">{{title}}</div>
     <div class="weui_cell_bd weui_cell_primary" v-if="!readonly">
-      <select class="weui_select" name="select1" v-model="value">
-      	<option value="" v-show="placeholder" selected="{{!selected}}">{{placeholder}}</option>
-        <option value="{{one.value}}" v-for="one in options" selected="{{selected && one.text===selected}}">{{one.text}}</option>
+      <select class="weui_select" v-model="value">
+        <option value="" v-if="placeholder" :selected="placeholder && !value">{{placeholder}}</option>
+        <option :value="one.key" v-for="one in processOptions">{{one.value}}</option>
       </select>
     </div>
-	  <div class="weui_cell_ft" v-else>
-      {{selected}}
+    <div class="weui_cell_ft" v-else>
+      {{value | findByKey processOptions}}
     </div>
-	</div>
+  </div>
 </template>
 
 <script>
+import find from 'lodash.find'
+
+const findByKey = function (key, options) {
+  const _rs = find(options, function (item) {
+    return item.key === key
+  })
+  return _rs ? _rs.value : key
+}
+
 export default {
-  ready () {
-    this.value = this.selected
-  },
-  data: function () {
-    return {
-      values: null
+  computed: {
+    processOptions: function () {
+      if (this.options.length && this.options[0].key) {
+        return this.options
+      } else {
+        return this.options.map(function (item) {
+          return {
+            key: item,
+            value: item
+          }
+        })
+      }
     }
+  },
+  filters: {
+    findByKey
   },
   watch: {
     value: function (newValue) {
-      this.selected = newValue
-      this.$dispatch('change', newValue)
+      this.$dispatch('on-change', newValue)
     }
   },
   props: {
@@ -43,16 +58,13 @@ export default {
     placeholder: {
       type: String
     },
-    selected: {
-      type: String,
-      twoWay: true
-    },
     readonly: {
       type: Boolean,
       default: false
     },
     value: {
-      type: String
+      type: String,
+      twoWay: true
     }
   }
 }

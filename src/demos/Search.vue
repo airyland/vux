@@ -1,7 +1,7 @@
 <template>
   <div>
     <img src="../assets/demo/filter_bg.jpg" style="width: 100%">
-    <search @result-click="resultClick" @change="getResult" :results="results" :value.sync="value"></search>
+    <search @result-click="resultClick" @on-change="getResult" :results="results" :value.sync="value"></search>
   </div>
 </template>
 

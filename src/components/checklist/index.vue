@@ -16,8 +16,8 @@
 
 <script>
 import Base from '../../libs/base'
-import Tip from '../tip/'
-import Icon from '../icon/'
+import Tip from '../tip'
+import Icon from '../icon'
 import { getValue, getKey } from './object-filter'
 import shuffle from 'lodash.shuffle'
 
@@ -38,7 +38,6 @@ export default {
     },
     required: {
       type: Boolean,
-      required: false,
       default: true
     },
     options: {
@@ -54,20 +53,22 @@ export default {
       type: Number,
       required: false
     },
+    min: {
+      type: Number,
+      required: false
+    },
     fillMode: {
       type: Boolean,
-      required: false,
       default: false
     },
     randomOrder: {
       type: Boolean,
-      required: false,
       default: false
     }
   },
   ready () {
     this.handleChangeEvent = true
-    let total = this.fill_mode ? (this.options.length + 1) : this.options.length
+    let total = this.fillMode ? (this.options.length + 1) : this.options.length
     if (this.max) {
       if (this.max > total) {
         this.max = total
@@ -116,7 +117,7 @@ export default {
   },
   watch: {
     value: function (newVal) {
-      this.$dispatch('change', JSON.parse(JSON.stringify(newVal)))
+      this.$dispatch('on-change', JSON.parse(JSON.stringify(newVal)))
     }
   }
 }

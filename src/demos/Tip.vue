@@ -7,11 +7,11 @@
 </template>
 
 <script>
-  import { Tip, Number } from '../components/'
-  export default {
-    components: {
-      Tip,
-      Number
-    }
+import { Tip, Number } from '../components/'
+export default {
+  components: {
+    Tip,
+    Number
   }
+}
 </script>

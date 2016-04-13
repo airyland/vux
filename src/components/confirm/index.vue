@@ -1,7 +1,7 @@
 <template>
-  <div class="weui_dialog_confirm" v-show="show">
+  <div class="weui_dialog_confirm" v-show="show" :transition="maskTransition">
     <div class="weui_mask"></div>
-    <div class="weui_dialog">
+    <div class="weui_dialog" v-show="show" :transition="dialogTransition">
       <div class="weui_dialog_hd"><strong class="weui_dialog_title">{{title}}</strong></div>
       <div class="weui_dialog_bd"><slot></slot></div>
       <div class="weui_dialog_ft">
@@ -31,22 +31,30 @@ export default {
     cancelText: {
       type: String,
       default: 'cancel'
+    },
+    maskTransition: {
+      type: String,
+      default: 'vux-fade'
+    },
+    dialogTransition: {
+      type: String,
+      default: 'vux-dialog'
     }
   },
   methods: {
     onConfirm: function () {
       this.show = false
-      this.$dispatch('confirm')
+      this.$dispatch('on-confirm')
     },
     onCancel: function () {
       this.show = false
-      this.$dispatch('cancel')
+      this.$dispatch('on-cancel')
     }
   },
   watch: {
     show: function (val) {
       if (val) {
-        this.$dispatch('show')
+        this.$dispatch('on-show')
       }
     }
   }

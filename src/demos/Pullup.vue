@@ -2,40 +2,38 @@
   <div>
     <divider>Pull Up to Refresh</divider>
     <scroller lock-x scrollbar-y use-pullup style="height:200px;" @pullup:loading="load1">
-        <div class="box2">
-          <p v-for="i in n1">placeholder {{i}}</p>
-        </div>
+      <div class="box2">
+        <p v-for="i in n1">placeholder {{i}}</p>
+      </div>
     </scroller>
 
     <divider>Chinese: 上拉刷新</divider>
     <scroller lock-x scrollbar-y use-pullup :pullup-config="pullupConfig2" style="height:200px;" @pullup:loading="load2">
-        <div class="box2">
-          <p v-for="i in n2">占位 {{i}}</p>
-        </div>
+      <div class="box2">
+        <p v-for="i in n2">占位 {{i}}</p>
+      </div>
     </scroller>
 
     <divider>custom pullup html template</divider>
     <scroller lock-x scrollbar-y use-pullup style="height:200px;" :pullup-status.sync="pullupStatus" @pullup:loading="load3">
-        <!--content slot-->
-        <div class="box2">
-          <p v-for="i in n3">placeholder {{i}}</p>
-        </div>
+      <!--content slot-->
+      <div class="box2">
+        <p v-for="i in n3">placeholder {{i}}</p>
+      </div>
 
-        <!--pullup slot-->
-        <div slot="pullup" class="xs-plugin-pullup-container xs-plugin-pullup-up" style="position: absolute; width: 100%; height: 40px; bottom: -40px; text-align: center;">
-          <span v-show="pullupStatus === 'default'"></span>
-          <span class="pullup-arrow" v-show="pullupStatus === 'down' || pullupStatus === 'up'" :class="{'rotate': pullupStatus === 'up'}">↑</span>
-          <span v-show="pullupStatus === 'loading'"><spinner type="ios-small"></spinner></span>
-        </div>
+      <!--pullup slot-->
+      <div slot="pullup" class="xs-plugin-pullup-container xs-plugin-pullup-up" style="position: absolute; width: 100%; height: 40px; bottom: -40px; text-align: center;">
+        <span v-show="pullupStatus === 'default'"></span>
+        <span class="pullup-arrow" v-show="pullupStatus === 'down' || pullupStatus === 'up'" :class="{'rotate': pullupStatus === 'up'}">↑</span>
+        <span v-show="pullupStatus === 'loading'"><spinner type="ios-small"></spinner></span>
+      </div>
     </scroller>
 
   </div>
 </template>
 
 <script>
-import Scroller from '../components/scroller/'
-import Divider from '../components/divider/'
-import Spinner from '../components/spinner/'
+import { Scroller, Divider, Spinner } from '../components/'
 
 export default {
   components: {

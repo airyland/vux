@@ -1,6 +1,6 @@
 <template>
   <div>
-  	<box gap="10px 10px">
+    <box gap="10px 10px">
       <icon type="success"></icon>
       <icon type="info"></icon>
       <icon type="info_circle"></icon>

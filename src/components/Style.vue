@@ -1,6 +1,7 @@
 <style>
-@import '../assets/vendors/weui.0.4.0.min.css';
+@import '../assets/vendors/weui.0.4.1.min.css';
 @import './1px.css';
+@import './transition.css';
 
 .weui_cell_box.weui_cell {
   padding:0;
