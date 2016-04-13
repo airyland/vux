@@ -111,6 +111,7 @@ if (list) {
     })
   })
   build('date-formatter', '../src/components/datetime/format')
+  build('friendly-time', '../src/filters/friendly-time')
 }
 
 function build (name, _path) {

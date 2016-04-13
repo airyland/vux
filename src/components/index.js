@@ -52,6 +52,7 @@ import Search from './search'
 import DateFormatter from './datetime/format'
 import Masker from './masker'
 import Countdown from './countdown'
+import FriendlyTime from '../filters/friend-time'
 
 const vux = {
   Radio,
@@ -107,7 +108,8 @@ const vux = {
   Search,
   DateFormatter,
   Masker,
-  Countdown
+  Countdown,
+  FriendlyTime
 }
 
 module.exports = vux
