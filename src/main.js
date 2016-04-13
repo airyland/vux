@@ -225,6 +225,9 @@ router.map({
   },
   '/component/countdown': {
     component: Countdown
+  },
+  '/component/inview': {
+    component: require('./demos/Inview')
   }
 })
 
