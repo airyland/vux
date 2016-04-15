@@ -117,6 +117,8 @@ export default {
 }
 .search_show {
   margin-top: 0;
+  overflow-y: auto;
+  height: 100%;
 }
 .vux-search-mask {
   position: absolute;
