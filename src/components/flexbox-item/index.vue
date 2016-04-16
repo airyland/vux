@@ -15,9 +15,10 @@ export default {
   },
   computed: {
     style: function () {
-      let styles = {
-        marginLeft: this.$parent.supported ? this.$parent.marginLeft + 'px' : 0
-      }
+      let styles = {}
+      let marginName = this.$parent.orient === 'horizontal' ? 'marginLeft' : 'marginTop'
+      styles[marginName] = this.$parent.supported ? this.$parent.gutter + 'px' : 0
+
       if (this.span) {
         for (let i = 0; i < prefixList.length; i++) {
           styles[prefixList[i] + 'flex'] = `0 0 ${(this.span >= 1 ? this.span / 12 : this.span) * 100}%`

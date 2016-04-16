@@ -3,7 +3,7 @@
     <blur :blur-amount=40 :url="url">
       <p class="center"><img :src="url"></p>
     </blur>
-    <flexbox :margin-left=0>
+    <flexbox :gutter="0">
       <flexbox-item v-for="img in images"><img :src="img" style="width:100%" @click="url = img"/></flexbox-item>
     </flexbox>
   </div>
