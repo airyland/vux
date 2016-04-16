@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     cancel: function () {
-      this.$dispatch('cancel')
+      this.$dispatch('on-cancel')
     }
   },
   data () {
