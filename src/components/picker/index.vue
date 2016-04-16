@@ -1,6 +1,6 @@
 <template>
   <div class="vux-picker">
-    <flexbox :margin-left=0>
+    <flexbox :gutter="0">
       <flexbox-item v-for="(index, one) in data" style="margin-left:0;">
         <div :id="'vux-picker-' + uuid + '-' + index"></div>
       </flexbox-item>

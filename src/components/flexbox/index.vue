@@ -27,7 +27,7 @@ export default {
     }
   },
   props: {
-    marginLeft: {
+    gutter: {
       type: Number,
       default: 8
     },
@@ -65,6 +65,7 @@ export default {
 
 .vux-flexbox .vux-flexbox-item:first-child{
   margin-left: 0!important;
+  margin-top: 0!important;
 }
 .flex-col {
   box-orient: vertical;
