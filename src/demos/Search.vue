@@ -30,7 +30,7 @@ export default {
 
 function getResult (val) {
   let rs = []
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < 40; i++) {
     rs.push({
       title: `${val} result: ${i + 1} `,
       other: i
