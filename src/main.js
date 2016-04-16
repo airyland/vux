@@ -61,10 +61,7 @@ FastClick.attach(document.body)
 
 Vue.use(Router)
 
-const router = new Router({
-  history: /vux.li/.test(location.href), // use history=false when testing
-  saveScrollPosition: true
-})
+const router = new Router()
 
 router.map({
   '/': {
@@ -231,7 +228,16 @@ router.map({
   }
 })
 
+// save position for demo page
+let demoScrollTop = 0
+function saveDemoScrollTop () {
+  demoScrollTop = window.scrollY
+}
+
 router.beforeEach(function (transition) {
+  if (transition.to.fullPath !== '/demo') {
+    window.removeEventListener('scroll', saveDemoScrollTop, false)
+  }
   if (/\/http/.test(transition.to.path)) {
     let url = transition.to.path.split('http')[1]
     window.location.href = `http${url}`
@@ -251,6 +257,17 @@ router.beforeEach(function (transition) {
 router.afterEach(function (transition) {
   if (transition.to.fullPath !== '/demo') {
     window.scrollTo(0, 0)
+  } else {
+    window.removeEventListener('scroll', saveDemoScrollTop, false)
+    // if from component page
+    if (demoScrollTop && /component/.test(transition.from.fullPath)) {
+      setTimeout(function () {
+        window.scrollTo(0, demoScrollTop)
+      }, 100)
+    }
+    setTimeout(function () {
+      window.addEventListener('scroll', saveDemoScrollTop, false)
+    }, 1000)
   }
 })
 
