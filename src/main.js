@@ -55,6 +55,7 @@ import Pulldown from './demos/Pulldown'
 import Pullup from './demos/Pullup'
 import Masker from './demos/Masker'
 import Countdown from './demos/Countdown'
+import XHeader from './demos/X-header'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -222,6 +223,9 @@ router.map({
   },
   '/component/countdown': {
     component: Countdown
+  },
+  '/component/x-header': {
+    component: XHeader
   }
 })
 

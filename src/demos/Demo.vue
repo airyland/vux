@@ -121,6 +121,9 @@
       <cell title="Countdown" is-link v-link="'component/countdown'">
         <span class="demo-icon" slot="icon">&#xe653;</span>
       </cell>
+      <cell title="XHeader" is-link v-link="'component/x-header'">
+        <span class="demo-icon" slot="icon">&#xe654;</span>
+      </cell>
     </group>
 
     <group title="优化" title-color="#04be02">

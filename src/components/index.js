@@ -53,6 +53,7 @@ import DateFormatter from './datetime/format'
 import Masker from './masker'
 import Countdown from './countdown'
 import FriendlyTime from '../filters/friendly-time'
+import XHeader from './x-header'
 
 const vux = {
   Radio,
@@ -109,7 +110,8 @@ const vux = {
   DateFormatter,
   Masker,
   Countdown,
-  FriendlyTime
+  FriendlyTime,
+  XHeader
 }
 
 module.exports = vux
