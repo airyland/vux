@@ -38,9 +38,31 @@
 
     <br/>
     <divider>Vertical</divider>
-    <flexbox orient="vertical" :margin-left=0>
+    <flexbox orient="vertical" :margin-left="0">
       <flexbox-item><div class="flex-demo" style="margin-left:0">1</div></flexbox-item>
       <flexbox-item><div class="flex-demo" style="margin-left:0">2</div></flexbox-item>
+    </flexbox>
+    <br>
+    <divider>Grid support(12 columns)</divider>
+    <flexbox>
+      <flexbox-item :span="4"><div class="flex-demo">1/3</div></flexbox-item>
+      <flexbox-item><div class="flex-demo">2/3</div></flexbox-item>
+    </flexbox>
+
+    <flexbox>
+      <flexbox-item :span="6"><div class="flex-demo">6/12</div></flexbox-item>
+      <flexbox-item :span="2"><div class="flex-demo">2/12</div></flexbox-item>
+      <flexbox-item ><div class="flex-demo">rest</div></flexbox-item>
+    </flexbox>
+
+    <br>
+    <divider>flexiable grid</divider>
+    <flexbox>
+      <flexbox-item :span="1/3"><div class="flex-demo">1/3</div></flexbox-item>
+      <flexbox-item :span="1/6"><div class="flex-demo">1/6</div></flexbox-item>
+      <flexbox-item :span="1/8"><div class="flex-demo">1/8</div></flexbox-item>
+      <flexbox-item :span="1/8"><div class="flex-demo">1/8</div></flexbox-item>
+      <flexbox-item><div class="flex-demo">rest</div></flexbox-item>
     </flexbox>
     
   </div>

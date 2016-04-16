@@ -51,8 +51,7 @@ export default {
   -webkit-box-align: center;
   -webkit-align-items: center;
 }
-
-.vux-flexbox .vux-flexbox-item{
+.vux-flexbox .vux-flexbox-item {
   -moz-box-flex: 1;
   -webkit-box-flex: 1;
   -o-box-flex: 1;
@@ -60,7 +59,6 @@ export default {
   flex: 1;
   min-width: 20px;
 }
-
 .vux-flexbox-item > .vux-flexbox {
   width: 100%;
 }
@@ -68,23 +66,16 @@ export default {
 .vux-flexbox .vux-flexbox-item:first-child{
   margin-left: 0!important;
 }
-
 .flex-col {
   box-orient: vertical;
   flex-direction: column;
 }
-
 .flex-col > .vux-flexbox-item {
   width: 100%;
 }
-
 .flex-row {
   box-direction: row;
   box-orient: horizontal;
   flex-direction: row;
-}
-
-.flex-row > .vux-flexbox-item {
-  height: 100%;
 }
 </style>
