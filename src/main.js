@@ -56,6 +56,7 @@ import Pullup from './demos/Pullup'
 import Masker from './demos/Masker'
 import Countdown from './demos/Countdown'
 import XHeader from './demos/X-header'
+import InlineCalendar from './demos/Inline-calendar'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -226,6 +227,9 @@ router.map({
   },
   '/component/x-header': {
     component: XHeader
+  },
+  '/component/inline-calendar': {
+    component: InlineCalendar
   }
 })
 

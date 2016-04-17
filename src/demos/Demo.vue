@@ -19,6 +19,9 @@
       <cell title="Datetime" is-link v-link="'component/datetime'">
         <span class="demo-icon" slot="icon">&#xe60a;</span>
       </cell>
+      <cell title="inline-calendar" is-link v-link="'component/inline-calendar'">
+        <span class="demo-icon" slot="icon">&#xe62b;</span>
+      </cell>
       <cell title="Calendar" is-link v-link="'component/calendar'">
         <span class="demo-icon" slot="icon">&#xe62b;</span>
       </cell>
