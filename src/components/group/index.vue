@@ -17,11 +17,6 @@ export default {
   props: {
     title: String,
     titleColor: String
-  },
-  events: {
-    'group.class.add': function (value) {
-      this.$el.querySelector('.weui_cells').classList.add(value)
-    }
   }
 }
 </script>
