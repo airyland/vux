@@ -21,14 +21,6 @@
       <x-input title="邮箱" placeholder="请输入邮箱地址" is-type="email"></x-input>
     </group>
 
-    <group title="set is-type=url">
-      <x-input title="地址" placeholder="请输入URL地址" is-type="url"></x-input>
-    </group>
-
-    <group title="set is-type=ip and required=false">
-      <x-input title="ip地址" placeholder="请输入ip地址" is-type="ip" :required="false"></x-input>
-    </group>
-
     <group title="set min=2 and max=5">
       <x-input title="2-5个字符" placeholder="" :min="2" :max="5"></x-input>
     </group>
