@@ -32,10 +32,10 @@
 
     <group title="验证码" class="weui_cells_form">
       <x-input title="验证码" class="weui_vcode">
-        <img slot="left" src="http://weui.github.io/weui/images/vcode.jpg">
+        <img slot="right" src="http://weui.github.io/weui/images/vcode.jpg">
       </x-input>
       <x-input title="发送验证码" class="weui_vcode">
-        <x-button slot="left" type="primary">发送验证码</x-button>
+        <x-button slot="right" type="primary">发送验证码</x-button>
       </x-input>
     </group>
 
