@@ -19,26 +19,16 @@
 
 <script>
 import Base from '../../libs/base'
-import Icon from '../icon/'
-import InlineDesc from '../inline-desc/'
+import Icon from '../icon'
+import InlineDesc from '../inline-desc'
 
 import isEmail from 'validator/lib/isEmail'
-import isIP from 'validator/lib/isIP'
-import isURL from 'validator/lib/isURL'
 import isMobilePhone from 'validator/lib/isMobilePhone'
 
 const validators = {
   'email': {
     fn: isEmail,
     msg: '邮箱格式'
-  },
-  'ip': {
-    fn: isIP,
-    msg: 'ip地址格式'
-  },
-  'url': {
-    fn: isURL,
-    msg: 'URL地址'
   },
   'china-mobile': {
     fn: function (str) {
