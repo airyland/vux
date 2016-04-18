@@ -112,6 +112,7 @@ if (list) {
   })
   build('date-formatter', '../src/components/datetime/format')
   build('friendly-time', '../src/filters/friendly-time')
+  build('inview', '../src/directives/inview')
 }
 
 function build (name, _path) {
