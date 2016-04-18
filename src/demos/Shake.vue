@@ -13,7 +13,7 @@ export default {
     Shake
   },
   methods: {
-    shake: function () {
+    'on-shake': function () {
       alert('share')
     }
   }
