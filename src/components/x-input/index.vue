@@ -12,7 +12,7 @@
       <icon type="warn" title="{{!valid ? firstError : ''}}" v-show="!equalWith && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
       <icon type="warn" v-show="hasLengthEqual && dirty && equalWith && !valid"></icon>
       <icon type="success" v-show="equalWith && equalWith===value && valid"></icon>
-      <slot name="left"><slot>
+      <slot name="right"><slot>
     </div>
   </div>
 </template>
