@@ -7,8 +7,8 @@
   <a href="https://gitter.im/airyland/vux?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge">
     <img src="https://badges.gitter.im/airyland/vux.svg">
   </a>
-  <a href="https://jianliao.com/page/invite/f7c555307e">
-    <img src="https://img.shields.io/badge/chat-%20on%20%E7%AE%80%E8%81%8A%20-ff69b4.svg">
+  <a href="https://vux.bearychat.com">
+    <img src="https://img.shields.io/badge/chat-%20on%20bearychat%20-82c547.svg">
   </a>
 </p>
 <p align="center">VUX = Vue + Weui + Components </p>
