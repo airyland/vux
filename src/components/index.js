@@ -54,6 +54,8 @@ import Masker from './masker'
 import Countdown from './countdown'
 import FriendlyTime from '../filters/friendly-time'
 import XHeader from './x-header'
+import Checker from './checker'
+import CheckerItem from './checker-item'
 
 const vux = {
   Radio,
@@ -111,7 +113,9 @@ const vux = {
   Masker,
   Countdown,
   FriendlyTime,
-  XHeader
+  XHeader,
+  Checker,
+  CheckerItem
 }
 
 module.exports = vux

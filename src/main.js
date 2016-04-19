@@ -58,6 +58,7 @@ import Countdown from './demos/Countdown'
 import XHeader from './demos/X-header'
 import Inview from './demos/Inview'
 import InlineCalendar from './demos/Inline-calendar'
+import Checker from './demos/Checker'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -234,6 +235,9 @@ router.map({
   },
   '/component/inline-calendar': {
     component: InlineCalendar
+  },
+  '/component/checker': {
+    component: Checker
   }
 })
 

@@ -13,6 +13,9 @@
       <cell title="checklist" is-link v-link="'component/checklist'">
         <span class="demo-icon" slot="icon">&#xe61d;</span>
       </cell>
+      <cell title="checker" is-link v-link="'component/checker'">
+        <span class="demo-icon" slot="icon">&#xe655;</span>
+      </cell>
       <cell title="color-picker" is-link v-link="'component/color-picker'">
         <span class="demo-icon" slot="icon" style="color:#f2c400;">&#xe63f;</span>
       </cell>
