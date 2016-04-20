@@ -102,7 +102,6 @@ export default {
     this.uuid = Math.random().toString(36).substring(3, 8)
   },
   ready () {
-    console.log(this.uuid)
     this.$el.setAttribute('id', `vux-scroller-${this.uuid}`)
     let content = null
     const slotChildren = this.$el.querySelector('.xs-container').childNodes
