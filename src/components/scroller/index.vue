@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="styles">
     <div class="xs-container">
       <slot></slot>
       <slot name="pulldown"></slot>
@@ -36,6 +36,9 @@ const pullupDefaultConfig = () => ({
 
 export default {
   props: {
+    height: {
+      type: String
+    },
     lockX: Boolean,
     lockY: Boolean,
     scrollbarX: Boolean,
@@ -98,8 +101,24 @@ export default {
       twoWay: true
     }
   },
+  methods: {
+    render () {
+      this._xscroll && this._xscroll.render()
+    }
+  },
   compiled () {
     this.uuid = Math.random().toString(36).substring(3, 8)
+  },
+  computed: {
+    styles () {
+      if (!this.height && !this.$el.style.height) {
+        this.height = `${document.documentElement.clientHeight}px`
+        this.render()
+      }
+      return {
+        height: `${this.height}`
+      }
+    }
   },
   ready () {
     this.$el.setAttribute('id', `vux-scroller-${this.uuid}`)
@@ -173,7 +192,7 @@ export default {
       if (uuid === this.uuid) {
         this.pulldown.reset(() => {
           // repaint
-          this._xscroll.render()
+          this.render()
         })
       }
     },
@@ -182,7 +201,7 @@ export default {
       this.pullupStatus = 'default'
       if (uuid === this.uuid) {
         this.pullup.complete()
-        this._xscroll.render()
+        this.render()
       }
     },
     'pullup:done': function (uuid) {

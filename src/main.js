@@ -59,6 +59,7 @@ import XHeader from './demos/X-header'
 import Inview from './demos/Inview'
 import InlineCalendar from './demos/Inline-calendar'
 import Checker from './demos/Checker'
+import ScrollerFull from './demos/Scroller-full'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -238,6 +239,9 @@ router.map({
   },
   '/component/checker': {
     component: Checker
+  },
+  '/component/scroller/full': {
+    component: ScrollerFull
   }
 })
 
