@@ -60,6 +60,7 @@ import Inview from './demos/Inview'
 import InlineCalendar from './demos/Inline-calendar'
 import Checker from './demos/Checker'
 import ScrollerFull from './demos/Scroller-full'
+import NumberRoller from './demos/Number-roller'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -242,6 +243,9 @@ router.map({
   },
   '/component/scroller/full': {
     component: ScrollerFull
+  },
+  '/component/number-roller': {
+    component: NumberRoller
   }
 })
 
