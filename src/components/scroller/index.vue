@@ -102,7 +102,7 @@ export default {
     }
   },
   methods: {
-    render () {
+    reset () {
       this._xscroll && this._xscroll.render()
     }
   },
@@ -111,9 +111,9 @@ export default {
   },
   computed: {
     styles () {
-      if (!this.height && !this.$el.style.height) {
+      if (!this.height && !this.$el.style.height && this.lockX) {
         this.height = `${document.documentElement.clientHeight}px`
-        this.render()
+        this.reset()
       }
       return {
         height: `${this.height}`
@@ -192,7 +192,7 @@ export default {
       if (uuid === this.uuid) {
         this.pulldown.reset(() => {
           // repaint
-          this.render()
+          this.reset()
         })
       }
     },
@@ -201,11 +201,16 @@ export default {
       this.pullupStatus = 'default'
       if (uuid === this.uuid) {
         this.pullup.complete()
-        this.render()
+        this.reset()
       }
     },
     'pullup:done': function (uuid) {
       this._xscroll.unplug(this.pullup)
+    },
+    'scroller:reset': function (uuid) {
+      if (uuid === this.uuid) {
+        this.reset()
+      }
     }
   },
   beforeDestroy () {
