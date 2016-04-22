@@ -115,6 +115,9 @@
       <cell title="tab" is-link v-link="'component/tab'">
         <span class="demo-icon" slot="icon">&#xe615;</span>
       </cell>
+      <cell title="timeline" is-link v-link="'component/timeline'">
+        <span class="demo-icon" slot="icon">&#xe656;</span>
+      </cell>
       <cell title="toast" is-link v-link="'component/toast'">
         <span class="demo-icon" slot="icon">&#xe625;</span>
       </cell>
