@@ -13,6 +13,13 @@ export default {
       default: false
     }
   },
+  watch: {
+    selected: function (val) {
+      if (val) {
+        this.tabClick()
+      }
+    }
+  },
   methods: {
     tabClick: function () {
       this.$parent.index = this.$el.getAttribute('data-index')
