@@ -58,6 +58,7 @@ import Checker from './checker'
 import CheckerItem from './checker-item'
 import { Timeline, TimelineItem } from './timeline'
 import { Tabbar, TabbarItem } from './tabbar'
+import Panel from './panel'
 
 const vux = {
   Radio,
@@ -121,7 +122,8 @@ const vux = {
   Timeline,
   TimelineItem,
   Tabbar,
-  TabbarItem
+  TabbarItem,
+  Panel
 }
 
 module.exports = vux

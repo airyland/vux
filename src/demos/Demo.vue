@@ -88,6 +88,9 @@
       <cell title="loading" is-link v-link="'component/loading'">
         <span class="demo-icon" slot="icon">&#xe610;</span>
       </cell>
+      <cell title="panel" is-link v-link="'component/panel'">
+        <span class="demo-icon" slot="icon">&#xe658;</span>
+      </cell>
       <cell title="picker" is-link v-link="'component/picker'">
         <span class="demo-icon" slot="icon">&#xe627;</span>
       </cell>
