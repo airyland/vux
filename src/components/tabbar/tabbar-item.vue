@@ -1,5 +1,5 @@
 <template>
-  <a class="weui_tabbar_item" :class="{'weui_bar_item_on': selected}" @click.preventDefault="onClick">
+  <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': selected}" @click="onClick">
     <div class="weui_tabbar_icon">
       <slot name="icon"></slot>
     </div>
