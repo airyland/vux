@@ -62,6 +62,7 @@ import Checker from './demos/Checker'
 import ScrollerFull from './demos/Scroller-full'
 import NumberRoller from './demos/Number-roller'
 import Timeline from './demos/Timeline'
+import Tabbar from './demos/Tabbar'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -250,6 +251,9 @@ router.map({
   },
   '/component/timeline': {
     component: Timeline
+  },
+  '/component/tabbar': {
+    component: Tabbar
   }
 })
 

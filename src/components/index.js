@@ -57,6 +57,7 @@ import XHeader from './x-header'
 import Checker from './checker'
 import CheckerItem from './checker-item'
 import { Timeline, TimelineItem } from './timeline'
+import { Tabbar, TabbarItem } from './tabbar'
 
 const vux = {
   Radio,
@@ -118,7 +119,9 @@ const vux = {
   Checker,
   CheckerItem,
   Timeline,
-  TimelineItem
+  TimelineItem,
+  Tabbar,
+  TabbarItem
 }
 
 module.exports = vux
