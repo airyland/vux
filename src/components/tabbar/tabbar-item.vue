@@ -1,6 +1,6 @@
 <template>
   <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': selected}" @click="onClick">
-    <div class="weui_tabbar_icon">
+    <div class="weui_tabbar_icon" :class="{'vux-reddot': showDot}">
       <slot name="icon"></slot>
     </div>
     <p class="weui_tabbar_label">
@@ -13,6 +13,10 @@
 export default {
   props: {
     selected: {
+      type: Boolean,
+      default: false
+    },
+    showDot: {
       type: Boolean,
       default: false
     }

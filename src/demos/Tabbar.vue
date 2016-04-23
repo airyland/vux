@@ -5,7 +5,7 @@
         <img slot="icon" src="../assets/demo/icon_nav_button.png">
         <span slot="label">Wechat</span>
       </tabbar-item>
-      <tabbar-item>
+      <tabbar-item show-dot>
         <img slot="icon" src="../assets/demo/icon_nav_msg.png">
         <span slot="label">Message</span>
       </tabbar-item>
