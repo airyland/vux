@@ -103,6 +103,9 @@
       <cell title="progress" is-link v-link="'component/progress'">
         <span class="demo-icon" slot="icon">&#xe618;</span>
       </cell>
+      <cell title="reddot" is-link v-link="'component/reddot'">
+        <span class="demo-icon" slot="icon" style="color:#f74c31;">&#xe63f;</span>
+      </cell>
       <cell title="swiper" is-link v-link="'component/swiper'">
         <span class="demo-icon" slot="icon">&#xe612;</span>
       </cell>

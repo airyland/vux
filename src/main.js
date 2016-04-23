@@ -64,6 +64,7 @@ import NumberRoller from './demos/Number-roller'
 import Timeline from './demos/Timeline'
 import Tabbar from './demos/Tabbar'
 import Panel from './demos/Panel'
+import Reddot from './demos/Reddot'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -259,6 +260,9 @@ router.map({
   },
   '/component/panel': {
     component: Panel
+  },
+  '/component/reddot': {
+    component: Reddot
   }
 })
 

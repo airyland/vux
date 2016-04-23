@@ -2,6 +2,7 @@
 @import '../assets/vendors/weui.0.4.1.min.css';
 @import './1px.css';
 @import './transition.css';
+@import './reddot.css';
 
 .weui_cell_box.weui_cell {
   padding:0;
