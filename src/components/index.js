@@ -56,6 +56,9 @@ import FriendlyTime from '../filters/friendly-time'
 import XHeader from './x-header'
 import Checker from './checker'
 import CheckerItem from './checker-item'
+import { Timeline, TimelineItem } from './timeline'
+import { Tabbar, TabbarItem } from './tabbar'
+import Panel from './panel'
 
 const vux = {
   Radio,
@@ -115,7 +118,12 @@ const vux = {
   FriendlyTime,
   XHeader,
   Checker,
-  CheckerItem
+  CheckerItem,
+  Timeline,
+  TimelineItem,
+  Tabbar,
+  TabbarItem,
+  Panel
 }
 
 module.exports = vux

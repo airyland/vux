@@ -88,6 +88,9 @@
       <cell title="loading" is-link v-link="'component/loading'">
         <span class="demo-icon" slot="icon">&#xe610;</span>
       </cell>
+      <cell title="panel" is-link v-link="'component/panel'">
+        <span class="demo-icon" slot="icon">&#xe658;</span>
+      </cell>
       <cell title="picker" is-link v-link="'component/picker'">
         <span class="demo-icon" slot="icon">&#xe627;</span>
       </cell>
@@ -114,6 +117,12 @@
       </cell>
       <cell title="tab" is-link v-link="'component/tab'">
         <span class="demo-icon" slot="icon">&#xe615;</span>
+      </cell>
+      <cell title="tabbar" is-link v-link="'component/tabbar'">
+        <span class="demo-icon" slot="icon">&#xe657;</span>
+      </cell>
+      <cell title="timeline" is-link v-link="'component/timeline'">
+        <span class="demo-icon" slot="icon">&#xe656;</span>
       </cell>
       <cell title="toast" is-link v-link="'component/toast'">
         <span class="demo-icon" slot="icon">&#xe625;</span>

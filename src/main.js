@@ -61,6 +61,9 @@ import InlineCalendar from './demos/Inline-calendar'
 import Checker from './demos/Checker'
 import ScrollerFull from './demos/Scroller-full'
 import NumberRoller from './demos/Number-roller'
+import Timeline from './demos/Timeline'
+import Tabbar from './demos/Tabbar'
+import Panel from './demos/Panel'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -246,6 +249,15 @@ router.map({
   },
   '/component/number-roller': {
     component: NumberRoller
+  },
+  '/component/timeline': {
+    component: Timeline
+  },
+  '/component/tabbar': {
+    component: Tabbar
+  },
+  '/component/panel': {
+    component: Panel
   }
 })
 
