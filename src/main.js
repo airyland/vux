@@ -69,6 +69,7 @@ const FastClick = require('fastclick')
 FastClick.attach(document.body)
 
 Vue.use(Router)
+Vue.config.devtools = true
 
 const router = new Router()
 
