@@ -63,12 +63,8 @@ npm run dev
 </template>
 
 <script>
-import { Group, Cell } from 'vux'
-
-// or you can import the components you need
-// by this way, you can reduce webpack bundle size
-import Group from 'vux/components/group/'
-import Cell from 'vux/components/cell/'
+import Group from 'vux/components/group'
+import Cell from 'vux/components/cell'
 
 export default {
   components: {

@@ -1,7 +1,20 @@
 {
   "name": "vux",
-  "version": "0.0.110",
+  "version": "0.0.111",
   "description": "Mobile web UI based on Vue and Weui",
+  "keywords": [
+    "vux",
+    "vue",
+    "weui",
+    "weex",
+    "vue-components",
+    "web-components",
+    "component",
+    "components",
+    "mobile ui",
+    "framework",
+    "frontend"
+  ],
   "author": "airyland <airyland@qq.com>",
   "repository": {
     "type": "git",
