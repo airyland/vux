@@ -1,10 +1,9 @@
 <template>
   <div>
-    <flexbox>
-      <flexbox-item :span="3">
-        <scroller lock-x>
+    <div class="menu ui-border-r">
+       <scroller lock-x>
           <div class="box1">
-            <ul class="ui-border-r">
+            <ul>
               <li class="ui-border-b"><span>热搜推荐</span></li>
               <li class="ui-border-b"><span>手机数码</span></li>
               <li class="ui-border-b"><span>家用电器</span></li>
@@ -28,39 +27,79 @@
             </ul>
           </div>
         </scroller>
-      </flexbox-item>
-      <flexbox-item>
-        <scroller lock-x>
-          <div>
-            <div class="shop-item ui-border-b" v-for="i in 100"> 商品描述 {{i}} </div>
+    </div>
+    <div class="content">
+      <scroller lock-x scrollbar-y>
+        <div>
+          <div style="margin: 10px;overflow: hidden;" v-for="item in list">
+            <masker style="border-radius: 2px;">
+              <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>
+              <div slot="content" class="m-title">
+                {{item.title}}
+                <br/>
+                <span class="m-time">2016-03-18</span>
+              </div>
+            </masker>
           </div>
-        </scroller>
-      </flexbox-item>
-    </flexbox>
+        </div>
+      </scroller>
+    </div>
   </div>
 </template>
 
 <script>
-import { Scroller, Flexbox, FlexboxItem } from '../components/'
+import { Scroller, Masker } from '../components/'
 
 export default {
   components: {
     Scroller,
-    Flexbox,
-    FlexboxItem
+    Masker
+  },
+  data () {
+    return {
+      list: [{
+        title: '洗颜新潮流！人气洁面皂排行榜',
+        img: 'https://cdn.xiaotaojiang.com/uploads/82/1572ec37969ee263735262dc017975/_.jpg'
+      }, {
+        title: '美容用品 & 日用品（上）',
+        img: 'https://cdn.xiaotaojiang.com/uploads/59/b22e0e62363a4a652f28630b3233b9/_.jpg'
+      }, {
+        title: '日本车载空气净化器精选',
+        img: 'https://cdn.xiaotaojiang.com/uploads/56/4b3601364b86fdfd234ef11d8712ad/_.jpg'
+      }, {
+        title: '洗颜新潮流！人气洁面皂排行榜',
+        img: 'https://cdn.xiaotaojiang.com/uploads/82/1572ec37969ee263735262dc017975/_.jpg'
+      }, {
+        title: '美容用品 & 日用品（上）',
+        img: 'https://cdn.xiaotaojiang.com/uploads/59/b22e0e62363a4a652f28630b3233b9/_.jpg'
+      }, {
+        title: '日本车载空气净化器精选',
+        img: 'https://cdn.xiaotaojiang.com/uploads/56/4b3601364b86fdfd234ef11d8712ad/_.jpg'
+      }]
+    }
   }
 }
 </script>
 
 <style scoped>
-.box1 ul {
+.menu {
   width: 75px;
+  float: left;
+  background-color: #fff;
+}
+.box1 {
+}
+.box1 ul {
+  width: 74px;
 }
 .box1 li{
   text-align: center;
   padding: 0 5px;
   font-size: 14px;
   line-height: 40px;
+}
+.content {
+  padding-left: 20px;
 }
 .box1-item {
   width: 200px;
