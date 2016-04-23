@@ -64,6 +64,9 @@
       <cell title="blur" is-link v-link="'component/blur'">
         <span class="demo-icon" slot="icon">&#xe640;</span>
       </cell>
+      <cell title="button-tab" is-link v-link="'component/button-tab'">
+        <span class="demo-icon" slot="icon" style="font-size: 15px;vertical-align: 6px;">&#xe659;</span>
+      </cell>
       <cell title="circle" is-link v-link="'component/circle'">
         <span class="demo-icon" slot="icon">&#xe63d;</span>
       </cell>

@@ -65,6 +65,7 @@ import Timeline from './demos/Timeline'
 import Tabbar from './demos/Tabbar'
 import Panel from './demos/Panel'
 import Reddot from './demos/Reddot'
+import ButtonTab from './demos/Button-tab'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -263,6 +264,9 @@ router.map({
   },
   '/component/reddot': {
     component: Reddot
+  },
+  '/component/button-tab': {
+    component: ButtonTab
   }
 })
 
