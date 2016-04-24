@@ -30,7 +30,7 @@
     <x-button type="primary" @click="value='2020-11-11'">Set time to 2020-11-11</x-button>
     <x-button type="primary" @click="value='2020-11-22'">Set time to 2020-11-22</x-button>
     <x-button type="primary" @click="value='2016-08-09'">Set time to 2016-08-09</x-button>
-    <x-button type="primary" @click="value=''">Set time to today</x-button>
+    <x-button type="primary" @click="value='TODAY'">Set time to today</x-button>
     <x-button type="primary" @click="value='2016-06-05'">Set time to 2016-06-05</x-button>
   </div>
 </div>
@@ -44,7 +44,7 @@ module.exports = {
   data: function () {
     return {
       show: true,
-      value: '2016-06-05',
+      value: '',
       range: false,
       showLastMonth: true,
       showNextMonth: true,

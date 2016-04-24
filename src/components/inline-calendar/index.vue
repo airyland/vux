@@ -92,10 +92,12 @@ export default {
   },
   created: function () {
     this.type = 'date'
+    this.value = this.convertDate(this.value)
     this.render()
   },
   watch: {
     value: function (val) {
+      this.value = this.convertDate(val)
       this.render(null, null, val)
     },
     returnSixRows (val) {
@@ -103,6 +105,12 @@ export default {
     }
   },
   methods: {
+    convertDate: function (date) {
+      if (date === 'TODAY') {
+        return this.today
+      }
+      return date
+    },
     buildClass: function (index, child, isCurrent) {
       const className = {
         current: child.current || isCurrent,
