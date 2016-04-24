@@ -1,6 +1,6 @@
 <template>
   <div class="inline-calendar" :class="{'is-weekend-highlight': highlightWeekend}">
-    <div class="calendar-header">
+    <div class="calendar-header" v-show="!hideHeader">
       <div class="calendar-year">
         <a class="year-prev vux-prev-icon" href="javascript:" @click="go(year - 1, month)"></a>
         <a class="calendar-year-txt calendar-title" href="javascript:">{{year}}</a>
@@ -15,7 +15,7 @@
     </div>
 
     <table>
-      <thead>
+      <thead v-show="!hideWeekList">
         <tr>
           <th v-for="(index, week) in weeks" class="week is-week-list-{{index}}">{{week}}</th>
         </tr>
@@ -67,6 +67,14 @@ export default {
     returnSixRows: {
       type: Boolean,
       default: true
+    },
+    hideHeader: {
+      type: Boolean,
+      default: false
+    },
+    hideWeekList: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
@@ -270,7 +278,6 @@ export default {
   width: 100%;
   background: #fff;
   border-radius: 2px;
-  opacity:.95;
   transition: all .5s ease;
 }
 .inline-calendar td.is-today, .inline-calendar td.is-today.is-disabled {

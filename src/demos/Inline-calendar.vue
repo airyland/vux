@@ -1,22 +1,29 @@
 <template>
 <div>
   <inline-calendar
+  class="inline-calendar-demo"
   :show.sync="show"
   :value.sync="value"
-  start-date="2016-06-04"
+  start-date="2016-04-01"
   end-date="2017-06-18"
   :range="range"
   :show-last-month="showLastMonth"
   :show-next-month="showNextMonth"
   :highlight-weekend="highlightWeekend"
-  :return-six-rows="return6Rows">
+  :return-six-rows="return6Rows"
+  :hide-header="hideHeader"
+  :hide-week-list="hideWeekList">
   </inline-calendar>
-  <group>
+  <group title="control days" style="margin-top: 285px;">
     <switch :value.sync="showLastMonth" title="Show Last Month"></switch>
     <switch :value.sync="showNextMonth" title="Show Next Month"></switch>
     <switch :value.sync="return6Rows" inline-desc="if not, the calendar's height would change" title="Always show 6 rows"></switch>
     <switch :value.sync="highlightWeekend" title="highlight weekend"></switch>
     <cell title="current value" :value="value"></cell>
+  </group>
+  <group title="hide navs">
+    <switch :value.sync="hideHeader" title="Hide header"></switch>
+    <switch :value.sync="hideWeekList" title="Hide week list"></switch>
   </group>
   <br>
   <div style="margin: 15px;">
@@ -42,7 +49,9 @@ module.exports = {
       showLastMonth: true,
       showNextMonth: true,
       highlightWeekend: false,
-      return6Rows: true
+      return6Rows: true,
+      hideHeader: false,
+      hideWeekList: false
     }
   },
   components: {
@@ -55,3 +64,14 @@ module.exports = {
   }
 }
 </script>
+
+<style scoped>
+.inline-calendar-demo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(5px);
+}
+</style>
