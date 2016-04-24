@@ -140,6 +140,32 @@ export function getDays ({year, month, value, isRange = false, rangeBegin, range
     }
   }
 
+  // 2026-02, there is only 4 lines
+  if (returnSixRows && temp.length === 4) {
+    let rs = getNextTime(year, month)
+    let start = 0
+    temp[5] = []
+    temp[6] = []
+    for (let i = 0; i < 7; i++) {
+      temp[5].push({
+        year: rs.year,
+        month: rs.month,
+        month_str: rs.month + 1,
+        day: ++start,
+        disabled: true,
+        isNextMonth: true
+      })
+      temp[6].push({
+        year: rs.year,
+        month: rs.month,
+        month_str: rs.month + 1,
+        day: ++start,
+        disabled: true,
+        isNextMonth: true
+      })
+    }
+  }
+
   return {
     year: year,
     month: month,
