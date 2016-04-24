@@ -14,10 +14,10 @@
       </div>
     </div>
 
-    <table cellpadding="5">
+    <table>
       <thead>
         <tr>
-          <td v-for="(index, week) in weeks" class="week is-week-list-{{index}}">{{week}}</td>
+          <th v-for="(index, week) in weeks" class="week is-week-list-{{index}}">{{week}}</th>
         </tr>
       </thead>
       <tbody>
@@ -63,6 +63,10 @@ export default {
     highlightWeekend: {
       type: Boolean,
       default: false
+    },
+    returnSixRows: {
+      type: Boolean,
+      default: true
     }
   },
   data: function () {
@@ -85,13 +89,16 @@ export default {
   watch: {
     value: function (val) {
       this.render(null, null, val)
+    },
+    returnSixRows (val) {
+      this.render(this.year, this.month, this.value)
     }
   },
   methods: {
     buildClass: function (index, child, isCurrent) {
       const className = {
         current: child.current || isCurrent,
-        disabled: child.disabled,
+        'is-disabled': child.disabled,
         'is-today': child.isToday
       }
       className[`is-week-${index}`] = true
@@ -103,7 +110,8 @@ export default {
         month: month,
         value: this.value,
         rangeBegin: this.startDate,
-        rangeEnd: this.endDate
+        rangeEnd: this.endDate,
+        returnSixRows: this.returnSixRows
       })
       this.days = data.days
       this.year = data.year
@@ -161,7 +169,6 @@ export default {
     cancel: function () {
       this.show = false
     },
-    // 格式化输出
     output: function (args) {
       var that = this
       if (that.type === 'date') {
@@ -226,9 +233,6 @@ export default {
   text-align: center;
   overflow: hidden;
 }
-.calendar-header a:first-of-type {
-  /**float: left;**/
-}
 .calendar-header a:last-of-type {
   float: right;
   vertical-align: bottom;
@@ -262,7 +266,6 @@ export default {
   line-height: 34px;
   text-align: center;
 }
-
 .inline-calendar {
   width: 100%;
   background: #fff;
@@ -270,16 +273,13 @@ export default {
   opacity:.95;
   transition: all .5s ease;
 }
-
-.inline-calendar td.is-today {
+.inline-calendar td.is-today, .inline-calendar td.is-today.is-disabled {
   color: #04be02;
 }
- 
 .calendar-enter, .calendar-leave {
   opacity: 0;
   transform: translate3d(0,-10px, 0);
 }
-
 .calendar:before {
   position: absolute;
   left:30px;
@@ -296,7 +296,6 @@ export default {
   border:5px solid rgba(0, 0, 0, 0);
   border-bottom-color: #fff;
 }
-
 .calendar-tools{
   height:32px;
   font-size: 20px;
@@ -343,7 +342,7 @@ export default {
   pointer-events:none !important;
   cursor: default !important;
 }
-.inline-calendar td.disabled {
+.inline-calendar td.is-disabled {
   color: #c0c0c0;
   pointer-events:none !important;
   cursor: default !important;
@@ -356,6 +355,9 @@ export default {
   border-radius: 50%;
   text-align: center;
 }
+.inline-calendar td.placeholder {
+
+}
 .vux-calendar-range.inline-calendar td.current {
   background-color: #04be02;
 }
@@ -366,7 +368,7 @@ export default {
   background-color: #04be02;
   color: #fff;
 }
-.inline-calendar thead td {
+.inline-calendar thead th {
   text-transform: uppercase;
 }
 .inline-calendar .timer{
@@ -389,7 +391,6 @@ export default {
 .calendar-button{
   text-align: center;
 }
-
 .calendar-button button{
   border:none;
   cursor: pointer;
@@ -409,14 +410,5 @@ export default {
 .calendar-button button.cancel{
   background:#efefef;
   color:#666;
-}
-
-.inline-calendar .lunar{
-  font-size:11px;
-  line-height: 150%;
-  color:#aaa;
-}
-.inline-calendar td.current .lunar{
-  color:#fff;
 }
 </style>

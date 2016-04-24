@@ -52,7 +52,7 @@ function isBetween (value, start, end) {
   return isGte && isLte
 }
 
-export function getDays ({year, month, value, isRange = false, rangeBegin, rangeEnd}) {
+export function getDays ({year, month, value, isRange = false, rangeBegin, rangeEnd, returnSixRows = true}) {
   let today = format(new Date(), 'YYYY-MM-DD')
 
   let _splitValue = splitValue(value || today)
@@ -121,6 +121,22 @@ export function getDays ({year, month, value, isRange = false, rangeBegin, range
         })
         k++
       }
+    }
+  }
+
+  if (returnSixRows && temp.length === 5) {
+    let rs = getNextTime(year, month)
+    let start = temp[4][6].isNextMonth ? temp[4][6].day : 0
+    temp[6] = []
+    for (let i = 0; i < 7; i++) {
+      temp[6].push({
+        year: rs.year,
+        month: rs.month,
+        month_str: rs.month + 1,
+        day: ++start,
+        disabled: true,
+        isNextMonth: true
+      })
     }
   }
 

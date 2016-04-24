@@ -60,6 +60,7 @@ import { Timeline, TimelineItem } from './timeline'
 import { Tabbar, TabbarItem } from './tabbar'
 import Panel from './panel'
 import { ButtonTab, ButtonTabItem } from './button-tab'
+import InlineCalendar from './inline-calendar'
 
 const vux = {
   Radio,
@@ -126,7 +127,8 @@ const vux = {
   TabbarItem,
   Panel,
   ButtonTab,
-  ButtonTabItem
+  ButtonTabItem,
+  InlineCalendar
 }
 
 module.exports = vux

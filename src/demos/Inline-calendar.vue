@@ -1,9 +1,20 @@
 <template>
 <div>
-  <inline-calendar :show.sync="show" :value.sync="value" start-date="2016-06-04" end-date="2017-06-18" :range="range" :show-last-month="showLastMonth" :show-next-month="showNextMonth" :highlight-weekend="highlightWeekend"></inline-calendar>
+  <inline-calendar
+  :show.sync="show"
+  :value.sync="value"
+  start-date="2016-06-04"
+  end-date="2017-06-18"
+  :range="range"
+  :show-last-month="showLastMonth"
+  :show-next-month="showNextMonth"
+  :highlight-weekend="highlightWeekend"
+  :return-six-rows="return6Rows">
+  </inline-calendar>
   <group>
     <switch :value.sync="showLastMonth" title="Show Last Month"></switch>
     <switch :value.sync="showNextMonth" title="Show Next Month"></switch>
+    <switch :value.sync="return6Rows" inline-desc="if not, the calendar's height would change" title="Always show 6 rows"></switch>
     <switch :value.sync="highlightWeekend" title="highlight weekend"></switch>
     <cell title="current value" :value="value"></cell>
   </group>
@@ -27,10 +38,11 @@ module.exports = {
     return {
       show: true,
       value: '2016-06-05',
-      range: false, // 是否多选,
+      range: false,
       showLastMonth: true,
       showNextMonth: true,
-      highlightWeekend: false
+      highlightWeekend: false,
+      return6Rows: true
     }
   },
   components: {
