@@ -22,12 +22,14 @@
       </thead>
       <tbody>
         <tr v-for="(k1,day) in days">
-          <td :data-date="formatDate(year, month, child)"
+          <td
+          :data-date="formatDate(year, month, child)"
           :data-current="value"
           v-for="(k2,child) in day"
           :class="buildClass(k2, child, formatDate(year, month, child) === value && !child.isLastMonth && !child.isNextMonth)"
           @click="select(k1,k2,$event)">
-            <span v-show="(!child.isLastMonth && !child.isNextMonth ) || (child.isLastMonth && showLastMonth) || (child.isNextMonth && showNextMonth)">{{child.day}}</span>
+            <span
+            v-show="(!child.isLastMonth && !child.isNextMonth ) || (child.isLastMonth && showLastMonth) || (child.isNextMonth && showNextMonth)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
           </td>
         </tr>
       </tbody>
@@ -75,6 +77,12 @@ export default {
     hideWeekList: {
       type: Boolean,
       default: false
+    },
+    replaceTextList: {
+      type: Object,
+      default () {
+        return {}
+      }
     }
   },
   data: function () {
@@ -95,6 +103,15 @@ export default {
     this.value = this.convertDate(this.value)
     this.render()
   },
+  computed: {
+    _replaceTextList () {
+      const rs = {}
+      for (let i in this.replaceTextList) {
+        rs[this.convertDate(i)] = this.replaceTextList[i]
+      }
+      return rs
+    }
+  },
   watch: {
     value: function (val) {
       this.value = this.convertDate(val)
@@ -105,6 +122,10 @@ export default {
     }
   },
   methods: {
+    replaceText: function (day, formatDay) {
+      const willReplace = this._replaceTextList[formatDay]
+      return willReplace || day
+    },
     convertDate: function (date) {
       if (date === 'TODAY') {
         return this.today

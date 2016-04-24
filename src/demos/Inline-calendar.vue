@@ -12,7 +12,8 @@
   :highlight-weekend="highlightWeekend"
   :return-six-rows="return6Rows"
   :hide-header="hideHeader"
-  :hide-week-list="hideWeekList">
+  :hide-week-list="hideWeekList"
+  :replace-text-list="replaceTextList">
   </inline-calendar>
   <group title="control days" style="margin-top: 285px;">
     <switch :value.sync="showLastMonth" title="Show Last Month"></switch>
@@ -24,6 +25,9 @@
   <group title="hide navs">
     <switch :value.sync="hideHeader" title="Hide header"></switch>
     <switch :value.sync="hideWeekList" title="Hide week list"></switch>
+  </group>
+  <group title="replace text">
+    <switch :value.sync="replace" title="Replace date text"></switch>
   </group>
   <br>
   <div style="margin: 15px;">
@@ -51,7 +55,16 @@ module.exports = {
       highlightWeekend: false,
       return6Rows: true,
       hideHeader: false,
-      hideWeekList: false
+      hideWeekList: false,
+      replaceTextList: {},
+      replace: false
+    }
+  },
+  watch: {
+    replace (val) {
+      this.replaceTextList = val ? {
+        'TODAY': '今'
+      } : {}
     }
   },
   components: {
