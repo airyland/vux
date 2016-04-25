@@ -99,8 +99,6 @@ export default {
       let ID = this.getId(i)
       // destroy old one
       this.scroller[i].destroy()
-      // this.$el.querySelector(ID).innerHTML = ''
-
       let list = this.store.getChildren(_this.getValue()[i - 1])
       this.scroller[i] = new Scroller(ID, {
         data: list,

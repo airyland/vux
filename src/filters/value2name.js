@@ -9,5 +9,5 @@ export default function (value, list) {
   })
   return map(rs, function (one) {
     return one.name
-  }).join(' ')
+  }).join(' ').replace('--', '')
 }
