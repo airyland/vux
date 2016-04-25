@@ -4,7 +4,7 @@ export function toolClass (obj, sClass, type) {
   var nowClass = obj.className.replace(/\s+/g, ' ')
   nowClass = nowClass.split(' ')
 
-  sClass = sClass.replace('^\s+|\s+$').replace(/\s+/, ' ').split(' ')
+  sClass = sClass.replace('^\s+|\s+$').replace(/\s+/, ' ').split(' ') // eslint-disable-line
   type = type || 'add'
 
   for (var i = 0; i < nowClass.length; i++) {
@@ -38,7 +38,7 @@ export function attr (obj, attr, val) {
 }
 
 export function getDate (str, one) {
-  str = str.replace(/[\'\s]+/g, '')
+  str = str.replace(/[\'\s]+/g, '') // eslint-disable-line
   if (!str) return
 
   str = str.match(/(\d+[\/\-]\d+[\/\-]\d+)/g)

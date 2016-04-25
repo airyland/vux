@@ -1,5 +1,5 @@
 var Eventor = require('../../libs/eventor')
-var F_tap = require('./tap')
+var Tap = require('./tap')
 var PickerDialog = function (option) {
   this.params = {}
   if (Object.prototype.toString.call(option) === '[object Object]') {
@@ -50,7 +50,7 @@ PickerDialog.prototype._bindEvents = function () {
     _this.hide()
     _this.emit('close')
   }
-  F_tap.tap(this.mask, triggerClick)
+  Tap.tap(this.mask, triggerClick)
   this.container.addEventListener('touchmove', function (e) {
     e.stopPropagation()
     e.preventDefault()
