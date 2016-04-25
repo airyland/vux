@@ -2,7 +2,7 @@
   <div class="vux-picker">
     <flexbox :gutter="0">
       <flexbox-item v-for="(index, one) in data" style="margin-left:0;">
-        <div :id="'vux-picker-' + uuid + '-' + index"></div>
+        <div class="vux-picker-item" :id="'vux-picker-' + uuid + '-' + index"></div>
       </flexbox-item>
     </flexbox>
   </div>
@@ -157,4 +157,10 @@ export default {
 
 <style>
 @import './scroller.css';
+
+.scroller-item {
+  line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 </style>
