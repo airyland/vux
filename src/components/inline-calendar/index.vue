@@ -17,7 +17,7 @@
     <table>
       <thead v-show="!hideWeekList">
         <tr>
-          <th v-for="(index, week) in weeks" class="week is-week-list-{{index}}">{{week}}</th>
+          <th v-for="(index, week) in weeksList" class="week is-week-list-{{index}}">{{week}}</th>
         </tr>
       </thead>
       <tbody>
@@ -83,6 +83,12 @@ export default {
       default () {
         return {}
       }
+    },
+    weeksList: {
+      type: Array,
+      coerce: function (val) {
+        return val && val.length ? val : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+      }
     }
   },
   data: function () {
@@ -94,7 +100,6 @@ export default {
       today: format(new Date(), 'YYYY-MM-DD'),
       currentMonth: Number,
       sep: '-',
-      weeks: ['日', '一', '二', '三', '四', '五', '六'],
       months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
     }
   },
@@ -403,9 +408,6 @@ export default {
 .inline-calendar td.current > span {
   background-color: #04be02;
   color: #fff;
-}
-.inline-calendar thead th {
-  text-transform: uppercase;
 }
 .inline-calendar .timer{
   margin:10px 0;
