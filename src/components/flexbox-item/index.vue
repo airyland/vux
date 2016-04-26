@@ -17,7 +17,7 @@ export default {
     style: function () {
       let styles = {}
       let marginName = this.$parent.orient === 'horizontal' ? 'marginLeft' : 'marginTop'
-      styles[marginName] = this.$parent.supported ? this.$parent.gutter + 'px' : 0
+      styles[marginName] = this.$parent.gutter + 'px'
 
       if (this.span) {
         for (let i = 0; i < prefixList.length; i++) {

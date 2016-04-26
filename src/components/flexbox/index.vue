@@ -5,27 +5,7 @@
 </template>
 
 <script>
-import support from './support'
-
 export default {
-  created () {
-    this.supported = support.flex
-  },
-  ready () {
-    if (!this.supported) {
-      var list = this.$el.querySelectorAll('.vux-flexbox-item')
-      this.$el.classList.remove('vux-flexbox')
-      this.$el.classList.add('vux-flexbox-unsupport')
-      var number = list.length
-      var width = (100 / number) + '%'
-      for (var i = 0; i < number; i++) {
-        list[i].style.width = width
-        list[i].style['box-sizing'] = 'border-box'
-        list[i].style['margin-left'] = 0
-        list[i].style['float'] = 'left'
-      }
-    }
-  },
   props: {
     gutter: {
       type: Number,
