@@ -1,7 +1,7 @@
 var express = require('express')
 var webpack = require('webpack')
 var config = require('./webpack.dev.conf')
-
+var http = require('http')
 var app = express()
 var compiler = webpack(config)
 
@@ -28,5 +28,7 @@ app.listen(8080, '0.0.0.0', function (err) {
     console.log(err)
     return
   }
-  console.log('Listening at http://localhost:8080')
+  console.log('Listening at http://localhost:8080/')
+  // manully trigger bundle building to save time
+  http.get('http://localhost::8080/index.html')
 })
