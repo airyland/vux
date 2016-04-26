@@ -3,6 +3,7 @@
     <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
   </a>
 </p>
+<p align="center">Be Cool with Vue and WeUI.</p>
 <p align="center">
   <a href="https://gitter.im/airyland/vux?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge">
     <img src="https://badges.gitter.im/airyland/vux.svg">
@@ -11,7 +12,7 @@
     <img src="https://img.shields.io/badge/chat-%20on%20bearychat%20-82c547.svg">
   </a>
 </p>
-<p align="center">VUX = Vue + Weui + Components </p>
+<p align="center">Vux = Vue + WeUI + A Bunch of Components </p>
 <p align="center">
   <a href="https://circleci.com/gh/airyland/vux">
     <img src="https://circleci.com/gh/airyland/vux.svg?style=shield" alt="">
