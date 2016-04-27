@@ -12,33 +12,23 @@
       <icon type="warn" title="{{!valid ? firstError : ''}}" v-show="!equalWith && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
       <icon type="warn" v-show="hasLengthEqual && dirty && equalWith && !valid"></icon>
       <icon type="success" v-show="equalWith && equalWith===value && valid"></icon>
-      <slot name="left"><slot>
+      <slot name="right"><slot>
     </div>
   </div>
 </template>
 
 <script>
 import Base from '../../libs/base'
-import Icon from '../icon/'
-import InlineDesc from '../inline-desc/'
+import Icon from '../icon'
+import InlineDesc from '../inline-desc'
 
 import isEmail from 'validator/lib/isEmail'
-import isIP from 'validator/lib/isIP'
-import isURL from 'validator/lib/isURL'
 import isMobilePhone from 'validator/lib/isMobilePhone'
 
 const validators = {
   'email': {
     fn: isEmail,
     msg: '邮箱格式'
-  },
-  'ip': {
-    fn: isIP,
-    msg: 'ip地址格式'
-  },
-  'url': {
-    fn: isURL,
-    msg: 'URL地址'
   },
   'china-mobile': {
     fn: function (str) {

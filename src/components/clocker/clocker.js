@@ -105,7 +105,7 @@ function pluralize (format, count) {
   var plural = 's'
   var singular = ''
   if (format) {
-    format = format.replace(/(:||\s)/gi, '').split(/\,/)
+    format = format.replace(/(:||\s)/gi, '').split(/,/)
     if (format.length === 1) {
       plural = format[0]
     } else {

@@ -1,7 +1,7 @@
 export default function (time) {
   let date = (typeof time === 'number') ? new Date(time) : new Date((time || '').replace(/-/g, '/').replace(/[TZ]/g, ' '))
   let diff = (((new Date()).getTime() - date.getTime()) / 1000)
-  let day_diff = Math.floor(diff / 86400)
+  let dayDiff = Math.floor(diff / 86400)
 
   let isValidDate = Object.prototype.toString.call(date) === '[object Date]' && !isNaN(date.getTime())
 
@@ -19,17 +19,17 @@ export default function (time) {
     return `${year}-${month}-${day} ${hour}:${minute}:${second}`
   }
 
-  if (isNaN(day_diff) || day_diff < 0 || day_diff >= 31) {
+  if (isNaN(dayDiff) || dayDiff < 0 || dayDiff >= 31) {
     return formatDate(date)
   }
 
-  return day_diff === 0 && (
+  return dayDiff === 0 && (
       diff < 60 && '刚刚' ||
       diff < 120 && '1分钟前' ||
       diff < 3600 && Math.floor(diff / 60) + '分钟前' ||
       diff < 7200 && '1小时前' ||
       diff < 86400 && Math.floor(diff / 3600) + '小时前') ||
-    day_diff === 1 && '昨天' ||
-    day_diff < 7 && day_diff + '天前' ||
-    day_diff < 31 && Math.ceil(day_diff / 7) + '周前'
+    dayDiff === 1 && '昨天' ||
+    dayDiff < 7 && dayDiff + '天前' ||
+    dayDiff < 31 && Math.ceil(dayDiff / 7) + '周前'
 }

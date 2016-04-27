@@ -75,9 +75,6 @@ export default {
       default: '{value}'
     }
   },
-  created () {
-    this.$dispatch('group.class.add', 'weui_cells_access')
-  },
   ready () {
     const uuid = this.uuid
     this.$el.setAttribute('id', 'vux-datetime-' + uuid)

@@ -1,21 +1,21 @@
 <template>
   <div>
     <divider>Pull Up to Refresh</divider>
-    <scroller lock-x scrollbar-y use-pullup style="height:200px;" @pullup:loading="load1">
+    <scroller lock-x scrollbar-y use-pullup height="200px" @pullup:loading="load1">
       <div class="box2">
         <p v-for="i in n1">placeholder {{i}}</p>
       </div>
     </scroller>
 
     <divider>Chinese: 上拉刷新</divider>
-    <scroller lock-x scrollbar-y use-pullup :pullup-config="pullupConfig2" style="height:200px;" @pullup:loading="load2">
+    <scroller lock-x scrollbar-y use-pullup :pullup-config="pullupConfig2" height="200px" @pullup:loading="load2">
       <div class="box2">
         <p v-for="i in n2">占位 {{i}}</p>
       </div>
     </scroller>
 
     <divider>custom pullup html template</divider>
-    <scroller lock-x scrollbar-y use-pullup style="height:200px;" :pullup-status.sync="pullupStatus" @pullup:loading="load3">
+    <scroller lock-x scrollbar-y use-pullup height="200px" :pullup-status.sync="pullupStatus" @pullup:loading="load3">
       <!--content slot-->
       <div class="box2">
         <p v-for="i in n3">placeholder {{i}}</p>

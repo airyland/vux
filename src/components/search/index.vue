@@ -90,7 +90,6 @@ export default {
       if (val === true) {
         this.$el.classList.add('vux-search-fixed')
         this.setFocus()
-        console.log('set focus')
         this.isFocus = true
       } else {
         this.$el.classList.remove('vux-search-fixed')
@@ -117,6 +116,8 @@ export default {
 }
 .search_show {
   margin-top: 0;
+  overflow-y: auto;
+  height: 100%;
 }
 .vux-search-mask {
   position: absolute;

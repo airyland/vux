@@ -182,7 +182,7 @@ var members = {
   },
 
   destroy: function () {
-    this.__component.parentNode.removeChild(this.__component)
+    this.__component.parentNode && this.__component.parentNode.removeChild(this.__component)
   },
 
   __selectItem: function (selectedItem) {

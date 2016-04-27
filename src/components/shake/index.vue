@@ -27,7 +27,7 @@ export default {
     })
     this._handler = function () {
       if (!_this.stop) {
-        _this.$dispatch('shake')
+        _this.$dispatch('on-shake')
       }
     }
     window.addEventListener('shake', this._handler, false)

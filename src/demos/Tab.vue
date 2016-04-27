@@ -8,6 +8,15 @@
     <br/>
     <br/>
     <br/>
+    <divider>diff active class</divider>
+    <tab animate="false">
+      <tab-item active-class="active-6-1" :selected="demo6 === '已发货'" @click="demo6 = '已发货'">已发货</tab-item>
+      <tab-item active-class="active-6-2" :selected="demo6 === '未发货'" @click="demo6 = '未发货'">未发货</tab-item>
+      <tab-item active-class="active-6-3" :selected="demo6 === '全部订单'" @click="demo6 = '全部订单'">全部订单</tab-item>
+    </tab>
+    <br/>
+    <br/>
+    <br/>
     <divider>no animation</divider>
     <tab :animate=false>
       <tab-item :selected="demo5 === '已发货'" @click="demo5 = '已发货'">已发货</tab-item>
@@ -24,7 +33,7 @@
     <br/>
     <br/>
     <tab :line-width=2>
-      <tab-item :selected="demo3 === item" v-for="item in list3" @click="demo3 = item">{{item}}</tab-item>
+      <tab-item :selected="demo3 === item" v-for="(index, item) in list3" :class="{'ui-border-r': index===0}" @click="demo3 = item">{{item}}</tab-item>
     </tab>
     <br/>
     <br/>
@@ -110,8 +119,24 @@ export default {
       list3: ['收到的消息', '发出的消息'],
       demo3: '收到的消息',
       list4: ['正在正映', '即将上映'],
-      demo4: '即将上映'
+      demo4: '即将上映',
+      demo6: '未发货'
     }
   }
 }
 </script>
+
+<style>
+  .active-6-1 {
+    color: rgb(252, 55, 140) !important;
+    border-color: rgb(252, 55, 140) !important;
+  }
+  .active-6-2 {
+    color: #04be02 !important;
+    border-color: #04be02 !important;
+  }
+  .active-6-3 {
+    color: rgb(55, 174, 252) !important;
+    border-color: rgb(55, 174, 252) !important;
+  }
+</style>

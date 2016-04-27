@@ -2,7 +2,6 @@
 
 var path = require('path')
 var fs = require('fs')
-var Spinner = require('cli-spinner').Spinner
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -112,21 +111,31 @@ if (list) {
   })
   build('date-formatter', '../src/components/datetime/format')
   build('friendly-time', '../src/filters/friendly-time')
+  build('inview', '../src/directives/inview')
+
+  // multi entry
+  var list = require('./components')
+  list.multi_entry.forEach(function (one) {
+    build(one, `../src/components/${one}/${one}`)
+    build(`${one}-item`, `../src/components/${one}/${one}-item`)
+  })
 }
 
+var number = 0
 function build (name, _path) {
-  let spinner = new Spinner(`building ${name}`)
-  spinner.setSpinnerString('←↖↑↗→↘↓↙')
-  spinner.start()
+  let _name = name
   let file = _path || `../src/components/${name}/index`
+  let _start = new Date().getTime()
   config.entry = {}
   config.entry[name] = [path.resolve(__dirname, file)]
   config.output.library = converName(name)
   config.output.path = path.resolve(__dirname, '../components/' + name + '/')
   webpack(config, function(err, stats) {
     var jsonStats = stats.toJson()
-    spinner.setSpinnerString(stats.endTime - stats.startTime)
-    spinner.stop()
+    var assets = jsonStats.assets[0]
+    var offset = Math.round((new Date().getTime() - _start)/1000)
+    var index = ++number
+    console.log(`[${index < 10 ? ('0' + index) : index}]  `, addWhiteSpace(`${offset}s`, 10), addWhiteSpace(_name, 18), `${(_name, assets.size/1024).toFixed(2)}k`)
     if (err) {
       throw err
     }
@@ -141,4 +150,15 @@ function converName (name) {
   return ('vux-' + name).split('-').map(function(one, index) {
     return index === 0 ? one : capitalizeFirstLetter(one)
   }).join('')
+}
+
+function addWhiteSpace (str, number) {
+  if (str.length < number) {
+    var rs = str
+    for( var i = 0; i < number - str.length; i++) {
+      rs += ' '
+    }
+    return rs
+  }
+  return str
 }

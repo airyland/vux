@@ -22,14 +22,14 @@
     </scroller>
 
     <divider>A Vertical Scroller</divider>
-    <scroller lock-x style="height:200px;">
+    <scroller lock-x height="200px">
       <div class="box2">
         <p v-for="i in 80">placeholder {{i}}</p>
       </div>
     </scroller>
 
     <divider>A Vertical Scroller with scrollbar y</divider>
-    <scroller lock-x scrollbar-y style="height:200px;">
+    <scroller lock-x scrollbar-y height="200px">
       <div class="box2">
         <p v-for="i in 80">placeholder {{i}}</p>
       </div>

@@ -55,16 +55,25 @@ import Pulldown from './demos/Pulldown'
 import Pullup from './demos/Pullup'
 import Masker from './demos/Masker'
 import Countdown from './demos/Countdown'
+import XHeader from './demos/X-header'
+import Inview from './demos/Inview'
+import InlineCalendar from './demos/Inline-calendar'
+import Checker from './demos/Checker'
+import ScrollerFull from './demos/Scroller-full'
+import NumberRoller from './demos/Number-roller'
+import Timeline from './demos/Timeline'
+import Tabbar from './demos/Tabbar'
+import Panel from './demos/Panel'
+import Reddot from './demos/Reddot'
+import ButtonTab from './demos/Button-tab'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
 
 Vue.use(Router)
+Vue.config.devtools = true
 
-const router = new Router({
-  history: /vux.li/.test(location.href), // use history=false when testing
-  saveScrollPosition: true
-})
+const router = new Router()
 
 router.map({
   '/': {
@@ -225,10 +234,52 @@ router.map({
   },
   '/component/countdown': {
     component: Countdown
+  },
+  '/component/inview': {
+    component: Inview
+  },
+  '/component/x-header': {
+    component: XHeader
+  },
+  '/component/inline-calendar': {
+    component: InlineCalendar
+  },
+  '/component/checker': {
+    component: Checker
+  },
+  '/component/scroller/full': {
+    component: ScrollerFull
+  },
+  '/component/number-roller': {
+    component: NumberRoller
+  },
+  '/component/timeline': {
+    component: Timeline
+  },
+  '/component/tabbar': {
+    component: Tabbar
+  },
+  '/component/panel': {
+    component: Panel
+  },
+  '/component/reddot': {
+    component: Reddot
+  },
+  '/component/button-tab': {
+    component: ButtonTab
   }
 })
 
+// save position for demo page
+let demoScrollTop = 0
+function saveDemoScrollTop () {
+  demoScrollTop = window.scrollY
+}
+
 router.beforeEach(function (transition) {
+  if (transition.to.fullPath !== '/demo') {
+    window.removeEventListener('scroll', saveDemoScrollTop, false)
+  }
   if (/\/http/.test(transition.to.path)) {
     let url = transition.to.path.split('http')[1]
     window.location.href = `http${url}`
@@ -248,6 +299,17 @@ router.beforeEach(function (transition) {
 router.afterEach(function (transition) {
   if (transition.to.fullPath !== '/demo') {
     window.scrollTo(0, 0)
+  } else {
+    window.removeEventListener('scroll', saveDemoScrollTop, false)
+    // if from component page
+    if (demoScrollTop && /component/.test(transition.from.fullPath)) {
+      setTimeout(function () {
+        window.scrollTo(0, demoScrollTop)
+      }, 100)
+    }
+    setTimeout(function () {
+      window.addEventListener('scroll', saveDemoScrollTop, false)
+    }, 1000)
   }
 })
 

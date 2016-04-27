@@ -3,15 +3,16 @@
     <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
   </a>
 </p>
+<p align="center">Be Cool with Vue and WeUI.</p>
 <p align="center">
   <a href="https://gitter.im/airyland/vux?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge">
     <img src="https://badges.gitter.im/airyland/vux.svg">
   </a>
-  <a href="https://jianliao.com/page/invite/f7c555307e">
-    <img src="https://img.shields.io/badge/chat-%20on%20%E7%AE%80%E8%81%8A%20-ff69b4.svg">
+  <a href="https://vux.bearychat.com">
+    <img src="https://img.shields.io/badge/chat-%20on%20bearychat%20-82c547.svg">
   </a>
 </p>
-<p align="center">VUX = Vue + Weui + Components </p>
+<p align="center">Vux = Vue + WeUI + A Bunch of Components </p>
 <p align="center">
   <a href="https://circleci.com/gh/airyland/vux">
     <img src="https://circleci.com/gh/airyland/vux.svg?style=shield" alt="">
@@ -49,7 +50,7 @@ npm install -g vue-cli
 vue init webpack my-project
 cd my-project
 npm install
-npm install vux@dev
+npm install vux
 npm run dev
 ```
 
@@ -63,12 +64,8 @@ npm run dev
 </template>
 
 <script>
-import { Group, Cell } from 'vux'
-
-// or you can import the components you need
-// by this way, you can reduce webpack bundle size
-import Group from 'vux/components/group/'
-import Cell from 'vux/components/cell/'
+import Group from 'vux/components/group'
+import Cell from 'vux/components/cell'
 
 export default {
   components: {

@@ -1,6 +1,6 @@
 <template>
   <div class="vux-picker">
-    <flexbox :margin-left=0>
+    <flexbox :gutter="0">
       <flexbox-item v-for="(index, one) in data" style="margin-left:0;">
         <div :id="'vux-picker-' + uuid + '-' + index"></div>
       </flexbox-item>
@@ -99,8 +99,6 @@ export default {
       let ID = this.getId(i)
       // destroy old one
       this.scroller[i].destroy()
-      // this.$el.querySelector(ID).innerHTML = ''
-
       let list = this.store.getChildren(_this.getValue()[i - 1])
       this.scroller[i] = new Scroller(ID, {
         data: list,

@@ -18,7 +18,7 @@ import FlexboxItem from './flexbox-item/'
 import Tab from './tab/'
 import TabItem from './tab-item/'
 import Swiper from './swiper'
-import SwiperItem from './swiper/Swiper-item'
+import SwiperItem from './swiper-item'
 import Sticky from './sticky/'
 import Picker from './picker/'
 import Datetime from './datetime/'
@@ -53,6 +53,14 @@ import DateFormatter from './datetime/format'
 import Masker from './masker'
 import Countdown from './countdown'
 import FriendlyTime from '../filters/friendly-time'
+import XHeader from './x-header'
+import Checker from './checker'
+import CheckerItem from './checker-item'
+import { Timeline, TimelineItem } from './timeline'
+import { Tabbar, TabbarItem } from './tabbar'
+import Panel from './panel'
+import { ButtonTab, ButtonTabItem } from './button-tab'
+import InlineCalendar from './inline-calendar'
 
 const vux = {
   Radio,
@@ -109,7 +117,18 @@ const vux = {
   DateFormatter,
   Masker,
   Countdown,
-  FriendlyTime
+  FriendlyTime,
+  XHeader,
+  Checker,
+  CheckerItem,
+  Timeline,
+  TimelineItem,
+  Tabbar,
+  TabbarItem,
+  Panel,
+  ButtonTab,
+  ButtonTabItem,
+  InlineCalendar
 }
 
 module.exports = vux
