@@ -30,6 +30,7 @@
           @click="select(k1,k2,$event)">
             <span
             v-show="(!child.isLastMonth && !child.isNextMonth ) || (child.isLastMonth && showLastMonth) || (child.isNextMonth && showNextMonth)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
+            {{{customSlotFn(k1, k2, child)}}}
           </td>
         </tr>
       </tbody>
@@ -89,6 +90,10 @@ export default {
       coerce: function (val) {
         return val && val.length ? val : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
       }
+    },
+    customSlotFn: {
+      type: Function,
+      default: () => ''
     }
   },
   data: function () {
@@ -378,6 +383,7 @@ export default {
   text-align: center;
   vertical-align: middle;
   font-size:16px;
+  position: relative;
 }
 .inline-calendar td.week{
   pointer-events:none !important;

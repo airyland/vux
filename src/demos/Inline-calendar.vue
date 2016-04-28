@@ -14,9 +14,10 @@
   :hide-header="hideHeader"
   :hide-week-list="hideWeekList"
   :replace-text-list="replaceTextList"
-  :weeks-list="weeksList">
+  :weeks-list="weeksList"
+  :custom-slot-fn="buildSlotFn">
   </inline-calendar>
-  <group title="control days" style="margin-top: 285px;">
+  <group title="control days" style="margin-top: 350px;">
     <switch :value.sync="showLastMonth" title="Show Last Month"></switch>
     <switch :value.sync="showNextMonth" title="Show Next Month"></switch>
     <switch :value.sync="return6Rows" inline-desc="if not, the calendar's height would change" title="Always show 6 rows"></switch>
@@ -39,6 +40,10 @@
     <x-button type="primary" @click="value='TODAY'">Set time to today</x-button>
     <x-button type="primary" @click="value='2016-06-05'">Set time to 2016-06-05</x-button>
   </div>
+  <br>
+  <group title="custom every day cell">
+    <switch :value.sync="useCustomFn" inline-desc="Add red dot for dates with 8" title="add custom contents in day cell"></switch>
+  </group>
 </div>
 </template>
 
@@ -61,7 +66,9 @@ module.exports = {
       replaceTextList: {},
       replace: false,
       changeWeeksList: false,
-      weeksList: []
+      weeksList: [],
+      useCustomFn: false,
+      buildSlotFn: () => ''
     }
   },
   watch: {
@@ -69,6 +76,11 @@ module.exports = {
       this.replaceTextList = val ? {
         'TODAY': '今'
       } : {}
+    },
+    useCustomFn (val) {
+      this.buildSlotFn = val ? (line, index, data) => {
+        return /8/.test(data.day) ? '<div style="font-size:12px;text-align:center;"><span style="display:inline-block;width:5px;height:5px;background-color:red;border-radius:50%;"></span></div>' : ''
+      } : () => ''
     },
     changeWeeksList (val) {
       this.weeksList = val ? ['日', '一', '二', '三', '四', '五', '六 '] : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
