@@ -30,8 +30,8 @@ export default {
       return `url(${url})`
     },
     render: function () {
+      const _this = this
       this.swiper = new Swiper({
-<<<<<<< 855c579b214c80c24141f3e7b93eee4394f6d0e2
         container: _this.$el,
         direction: _this.direction,
         auto: _this.auto,
@@ -40,15 +40,6 @@ export default {
         duration: _this.duration,
         height: _this.height,
         minMovingDistance: _this.minMovingDistance
-=======
-        container: this.$el,
-        direction: this.direction,
-        auto: this.auto,
-        interval: this.interval,
-        threshold: this.threshold,
-        duration: this.duration,
-        height: this.height
->>>>>>> Swiper: change prop:height's type from number to string close #134
       })
       .on('swiped', (prev, current) => {
         this.current = current
@@ -97,7 +88,7 @@ export default {
     },
     minMovingDistance: {
       type: Number,
-      default: 0    
+      default: 0
     }
   },
   data () {
