@@ -12,6 +12,7 @@ function Swiper (options) {
     height: 'auto'
   }
   this._options = extend(this._default, options)
+  this._options.height = this._options.height.replace('px', '')
   this._start = {}
   this._move = {}
   this._end = {}
@@ -25,6 +26,9 @@ function Swiper (options) {
   this.$container = this._options.container.querySelector('.swiper')
   this.$items = this.$container.querySelectorAll(this._options.item)
   this.count = this.$items.length
+  if (!this.count) {
+    return
+  }
 
   this.timer = null
 
@@ -71,11 +75,15 @@ Swiper.prototype.setStyle = function () {
   }
 
   me.$container.style.width = w + 'px'
-  me.$container.style.height = h + 'px'
+  if (h > 0) {
+    me.$container.style.height = h + 'px'
+  }
 
   Array.prototype.forEach.call(me.$items, function ($item, key) {
     $item.style.width = width + 'px'
-    $item.style.height = height + 'px'
+    if (height > 0) {
+      $item.style.height = height + 'px'
+    }
   })
 }
 

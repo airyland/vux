@@ -1,6 +1,6 @@
 <template>
   <div class="slider">
-    <div class="swiper" :style="{height: height+'px'}">
+    <div class="swiper" :style="swiperStyle">
       <slot></slot>
       <div class="item" v-for="item in list">
         <a :href="item.url">
@@ -30,19 +30,22 @@ export default {
       return `url(${url})`
     },
     render: function () {
-      const _this = this
       this.swiper = new Swiper({
-        container: _this.$el,
-        direction: _this.direction,
-        auto: _this.auto,
-        interval: _this.interval,
-        threshold: _this.threshold,
-        duration: _this.duration,
-        height: _this.height
+        container: this.$el,
+        direction: this.direction,
+        auto: this.auto,
+        interval: this.interval,
+        threshold: this.threshold,
+        duration: this.duration,
+        height: this.height
       })
-      .on('swiped', function (prev, current) {
-        _this.current = current
+      .on('swiped', (prev, current) => {
+        this.current = current
       })
+    },
+    rerender: function () {
+      this.destroy()
+      this.render()
     },
     destroy: function () {
       this.swiper && this.swiper.destroy()
@@ -78,8 +81,8 @@ export default {
       default: 300
     },
     height: {
-      type: Number,
-      default: 180
+      type: String,
+      default: 'auto'
     }
   },
   data () {
@@ -87,14 +90,25 @@ export default {
       current: 0
     }
   },
+  computed: {
+    swiperStyle () {
+      return {
+        height: this.height || 'auto'
+      }
+    }
+  },
   watch: {
     list: function (val) {
-      this.destroy()
-      this.render()
+      this.rerender()
     }
   },
   beforeDestroy () {
     this.destroy()
+  },
+  events: {
+    'swiper-item:created' () {
+      this.rerender()
+    }
   }
 }
 
@@ -112,6 +126,7 @@ export default {
 .swiper .item {
   float: left;
   position: relative;
+  height: 100%;
 }
 .swiper .item a {
   display: block;
