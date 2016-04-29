@@ -8,8 +8,8 @@
     <br/>
     <br/>
     <br/>
-    <divider>diff active class</divider>
-    <tab animate="false">
+    <divider>different active class</divider>
+    <tab :animate="false">
       <tab-item active-class="active-6-1" :selected="demo6 === '已发货'" @click="demo6 = '已发货'">已发货</tab-item>
       <tab-item active-class="active-6-2" :selected="demo6 === '未发货'" @click="demo6 = '未发货'">未发货</tab-item>
       <tab-item active-class="active-6-3" :selected="demo6 === '全部订单'" @click="demo6 = '全部订单'">全部订单</tab-item>
