@@ -1,5 +1,5 @@
 "use strict"
-const list = require('./raw')
+const list = require('china-area-data')
 let rs = []
 
 for (var i in list) {
