@@ -9,7 +9,8 @@ function Swiper (options) {
     duration: 300,
     auto: false,
     interval: 3000,
-    height: 'auto'
+    height: 'auto',
+    minMovingDistance: 0
   }
   this._options = extend(this._default, options)
   this._start = {}
@@ -124,8 +125,10 @@ Swiper.prototype._bind = function () {
       transform = 'translate3d(' + (distance - me._offset) + 'px, 0, 0)'
     }
 
-    me.$container.style['-webkit-transform'] = transform
-    me.$container.style.transform = transform
+    if (distance >= me._options.minMovingDistance) {
+      me.$container.style['-webkit-transform'] = transform
+      me.$container.style.transform = transform
+    }
 
     e.preventDefault()
   }

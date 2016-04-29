@@ -38,7 +38,8 @@ export default {
         interval: _this.interval,
         threshold: _this.threshold,
         duration: _this.duration,
-        height: _this.height
+        height: _this.height,
+        minMovingDistance: _this.minMovingDistance
       })
       .on('swiped', function (prev, current) {
         _this.current = current
@@ -80,6 +81,10 @@ export default {
     height: {
       type: Number,
       default: 180
+    },
+    minMovingDistance: {
+      type: Number,
+      default: 0
     }
   },
   data () {
