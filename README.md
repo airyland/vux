@@ -32,6 +32,7 @@
 
 + This is not an Official Project of Wechat.
 + :warning: Before vux@0.1.0, Components' API may `change` any time.
++ If you are interested in improving vux, just email me to join [Vux@Teambition](https://www.teambition.com/project/56f37e966d3fb3142656b764/tasks/scrum/56f37e969aff544c264e23ec)
 
 ## Demo
 
