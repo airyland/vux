@@ -42,7 +42,7 @@
 
 ## Component List
 
-> If you need a new component, don't hesitate to raise a issue.
+> If you need a new component, don't hesitate to raise an issue.
 
 <p align="center">
 	<img src="https://raw.githubusercontent.com/airyland/vux/master/assets/components.png" width="980">
