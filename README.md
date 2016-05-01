@@ -5,8 +5,8 @@
 </p>
 <p align="center">Be Cool with Vue and WeUI.</p>
 <p align="center">
-  <a href="https://gitter.im/airyland/vux?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge">
-    <img src="https://badges.gitter.im/airyland/vux.svg">
+  <a href="https://www.google.com/">
+    <img src="https://img.shields.io/badge/Fuck%20-Baidu-ff0000.svg">
   </a>
   <a href="https://vux.bearychat.com">
     <img src="https://img.shields.io/badge/chat-%20on%20bearychat%20-82c547.svg">
