@@ -67,6 +67,7 @@ import Panel from './demos/Panel'
 import Reddot from './demos/Reddot'
 import ButtonTab from './demos/Button-tab'
 import ScrollerSwiper from './demos/Scroller-swiper'
+import Qrcode from './demos/Qrcode'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -271,6 +272,9 @@ router.map({
   },
   '/component/scroller-swiper': {
     component: ScrollerSwiper
+  },
+  '/component/qrcode': {
+    component: Qrcode
   }
 })
 

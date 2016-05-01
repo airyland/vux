@@ -82,6 +82,9 @@
       <cell title="clocker" is-link v-link="'component/clocker'">
         <span class="demo-icon" slot="icon">&#xe620;</span>
       </cell>
+      <cell title="qrcode" is-link v-link="'component/qrcode'">
+        <span class="demo-icon" slot="icon">&#xe65a;</span>
+      </cell>
       <cell title="flexbox" is-link v-link="'component/flexbox'">
         <span class="demo-icon" slot="icon">&#xe61f;</span>
       </cell>
