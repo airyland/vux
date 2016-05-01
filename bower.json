@@ -1,0 +1,34 @@
+{
+  "name": "vux",
+  "description": "Mobile web UI based on Vue and Weui",
+  "main": "vux.js",
+  "authors": [
+    "airyland <airyland@qq.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "vux",
+    "vue",
+    "weui",
+    "weex",
+    "vue-components",
+    "web-components",
+    "component",
+    "components",
+    "mobile",
+    "ui",
+    "framework",
+    "frontend"
+  ],
+  "homepage": "https://github.com/airyland/vux",
+  "ignore": [
+    "src",
+    "assets",
+    ".github",
+    "build",
+    "examples",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+}

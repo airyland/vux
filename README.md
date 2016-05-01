@@ -126,6 +126,11 @@ import Cell from 'vux-components/cell'
 
 ## Usage by including scripts
 
+> You can download vux from the [releases](https://github.com/airyland/vux/releases)
+
+> or  install from bower `bower install vux`
+
+
 > checkout examples/scripts.html
 
 ``` html
