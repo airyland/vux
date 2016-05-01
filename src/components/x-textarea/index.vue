@@ -22,10 +22,7 @@ export default {
       default: true
     },
     max: {
-      type: Number,
-      coerce: function (val) {
-        return val * 1
-      }
+      type: Number
     },
     value: {
       type: String,
