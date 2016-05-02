@@ -103,8 +103,6 @@ export default {
       days: [],
       current: [],
       today: format(new Date(), 'YYYY-MM-DD'),
-      currentMonth: Number,
-      sep: '-',
       months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
     }
   },
@@ -132,14 +130,10 @@ export default {
   },
   methods: {
     replaceText: function (day, formatDay) {
-      const willReplace = this._replaceTextList[formatDay]
-      return willReplace || day
+      return this._replaceTextList[formatDay] || day
     },
     convertDate: function (date) {
-      if (date === 'TODAY') {
-        return this.today
-      }
-      return date
+      return date === 'TODAY' ? this.today : date
     },
     buildClass: function (index, child, isCurrent) {
       const className = {
@@ -163,11 +157,10 @@ export default {
       this.year = data.year
       this.month = data.month
     },
-    formatDate: function (year, month, child) {
-      return year + '-' + zero(month + 1) + '-' + zero(child.day)
+    formatDate: (year, month, child) => {
+      return [year, zero(month + 1), zero(child.day)].join('-')
     },
-    prev: function (e) {
-      e.stopPropagation()
+    prev: function () {
       if (this.month === 0) {
         this.month = 11
         this.year = this.year - 1
@@ -176,8 +169,7 @@ export default {
       }
       this.render(this.year, this.month)
     },
-    next: function (e) {
-      e.stopPropagation()
+    next: function () {
       if (this.month === 11) {
         this.month = 0
         this.year = this.year + 1
@@ -195,11 +187,7 @@ export default {
       }
       this.days[k1][k2].current = true
       this.current = [k1, k2]
-      this.value = this.year + this.sep + zero(this.month + 1) + this.sep + zero(this.days[k1][k2].day)
-      this.show = false
-    },
-    output: function (args) {
-      return args[0] + this.sep + zero(args[1] + 1) + this.sep + zero(args[2])
+      this.value = [this.year, zero(this.month + 1), zero(this.days[k1][k2].day)].join('-')
     }
   }
 }
