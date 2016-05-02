@@ -49,6 +49,12 @@ export default {
       twoWay: true,
       default: ''
     },
+    renderMonth: {
+      type: Array, // [2018, 8]
+      default () {
+        return [null, null]
+      }
+    },
     startDate: {
       type: String
     },
@@ -94,6 +100,10 @@ export default {
     customSlotFn: {
       type: Function,
       default: () => ''
+    },
+    renderOnValueChange: {
+      type: Boolean,
+      default: true
     }
   },
   data: function () {
@@ -106,9 +116,9 @@ export default {
       months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
     }
   },
-  created: function () {
+  ready: function () {
     this.value = this.convertDate(this.value)
-    this.render()
+    this.render(this.renderMonth[0], this.renderMonth[1] - 1)
   },
   computed: {
     _replaceTextList () {
@@ -122,7 +132,11 @@ export default {
   watch: {
     value: function (val) {
       this.value = this.convertDate(val)
-      this.render(null, null, val)
+      if (this.renderOnValueChange) {
+        this.render(null, null, val)
+      } else {
+        this.render(this.year, this.month, this.value)
+      }
     },
     returnSixRows (val) {
       this.render(this.year, this.month, this.value)

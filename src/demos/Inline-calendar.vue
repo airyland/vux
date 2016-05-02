@@ -44,18 +44,37 @@
   <group title="custom every day cell">
     <switch :value.sync="useCustomFn" inline-desc="Add red dot for dates with 8" title="add custom contents in day cell"></switch>
   </group>
+
+  <br>
+  <divider>We can render a list of calendars order by month</divider>
+  <group>
+    <cell title="current value" :value="listValue"></cell>
+  </group>
+  <br>
+  <div v-for="i in 5" v-if="i >= 1">
+    <divider>2016 / {{i}}</divider>
+    <inline-calendar
+    :render-month="[2016, i]"
+    hide-header
+    :return-six-rows="false"
+    :value.sync="listValue"
+    :show-last-month="false"
+    :show-next-month="false"
+    :render-on-value-change="false"></inline-calendar>
+  </div>
 </div>
 </template>
 
 <script>
 import InlineCalendar from '../components/inline-calendar'
-import { Group, Switch, Radio, XButton, Cell } from '../components'
+import { Group, Switch, Radio, XButton, Cell, Divider } from '../components'
 
 module.exports = {
   data: function () {
     return {
       show: true,
       value: '',
+      listValue: '',
       range: false,
       showLastMonth: true,
       showNextMonth: true,
@@ -92,7 +111,8 @@ module.exports = {
     Switch,
     Radio,
     XButton,
-    Cell
+    Cell,
+    Divider
   }
 }
 </script>

@@ -58,7 +58,7 @@ export function getDays ({year, month, value, isRange = false, rangeBegin, range
   let _splitValue = splitValue(value || today)
 
   // if year or month is not specified, get them from value
-  if (typeof year !== 'number' || typeof month !== 'number') {
+  if (typeof year !== 'number' || typeof month !== 'number' || month < 0) {
     year = _splitValue.year
     month = _splitValue.month
   }
