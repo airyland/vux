@@ -40,7 +40,7 @@
 
 <script>
 import format from '../datetime/format'
-import {getDays} from './util'
+import { getDays, zero } from './util'
 
 export default {
   props: {
@@ -109,7 +109,6 @@ export default {
     }
   },
   created: function () {
-    this.type = 'date'
     this.value = this.convertDate(this.value)
     this.render()
   },
@@ -164,33 +163,28 @@ export default {
       this.year = data.year
       this.month = data.month
     },
-    zero: function (n) {
-      return n < 10 ? '0' + n : n
-    },
     formatDate: function (year, month, child) {
-      return year + '-' + this.zero(month + 1) + '-' + this.zero(child.day)
+      return year + '-' + zero(month + 1) + '-' + zero(child.day)
     },
     prev: function (e) {
       e.stopPropagation()
-      var that = this
-      if (that.month === 0) {
-        that.month = 11
-        that.year = that.year - 1
+      if (this.month === 0) {
+        this.month = 11
+        this.year = this.year - 1
       } else {
-        that.month = that.month - 1
+        this.month = this.month - 1
       }
-      that.render(that.year, that.month)
+      this.render(this.year, this.month)
     },
     next: function (e) {
       e.stopPropagation()
-      var that = this
-      if (that.month === 11) {
-        that.month = 0
-        that.year = that.year + 1
+      if (this.month === 11) {
+        this.month = 0
+        this.year = this.year + 1
       } else {
-        that.month = that.month + 1
+        this.month = this.month + 1
       }
-      this.render(that.year, that.month)
+      this.render(this.year, this.month)
     },
     go: function (year, month) {
       this.render(year, month)
@@ -201,26 +195,11 @@ export default {
       }
       this.days[k1][k2].current = true
       this.current = [k1, k2]
-      this.value = this.year + this.sep + this.zero(this.month + 1) + this.sep + this.zero(this.days[k1][k2].day)
-      this.show = false
-    },
-    ok: function () {
-      var that = this
-      if (that.range) {
-        that.value = that.output(that.rangeBegin) + ' ~ ' + that.output(that.rangeEnd)
-      } else {
-        that.value = that.output([that.year, that.month, that.day])
-      }
-      that.show = false
-    },
-    cancel: function () {
+      this.value = this.year + this.sep + zero(this.month + 1) + this.sep + zero(this.days[k1][k2].day)
       this.show = false
     },
     output: function (args) {
-      var that = this
-      if (that.type === 'date') {
-        return args[0] + that.sep + that.zero(args[1] + 1) + that.sep + that.zero(args[2])
-      }
+      return args[0] + this.sep + zero(args[1] + 1) + this.sep + zero(args[2])
     }
   }
 }
