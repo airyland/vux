@@ -95,7 +95,7 @@ export default {
   },
   computed: {
     pattern: function () {
-      if (this.keyboard === 'number') {
+      if (this.keyboard === 'number' || this.isType === 'china-mobile') {
         return '[0-9]*'
       }
     },
