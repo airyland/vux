@@ -31,7 +31,6 @@ export default {
   & {
     display: box;
     display: flex;
-    padding: 6px 10px;
   }
 
   & > a  {
