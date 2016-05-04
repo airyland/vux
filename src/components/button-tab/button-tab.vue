@@ -6,6 +6,11 @@
 
 <script>
 export default {
+  props: {
+    height: {
+      type: Number
+    }
+  },
   ready () {
     const tabList = this.$el.querySelectorAll('.vux-button-tab-item')
     this.tabNumber = tabList.length
