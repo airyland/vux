@@ -1,5 +1,5 @@
 <template>
-  <cell :title="title" primary="content" is-link>
+  <cell :title="title" primary="content" is-link :inline-desc="inlineDesc">
     <span class="vux-popup-picker-value" slot="value" @click="show=true" v-if="!showName">{{value | array2string}}</span>
     <span class="vux-popup-picker-value" slot="value" @click="show=true" v-else>{{value | value2name data}}</span>
   </cell>
@@ -40,8 +40,6 @@ export default {
     array2string,
     value2name
   },
-  ready () {
-  },
   props: {
     title: {
       type: String
@@ -66,7 +64,8 @@ export default {
     showName: {
       type: Boolean,
       default: false
-    }
+    },
+    inlineDesc: String
   },
   data () {
     return {
