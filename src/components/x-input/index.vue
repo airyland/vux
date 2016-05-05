@@ -5,7 +5,7 @@
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
     <div class="weui_cell_bd weui_cell_primary">
-      <input class="weui_input" :type="type" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur" v-el:input/>
+      <input class="weui_input" :style="inputStyle" :type="type" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur" v-el:input/>
     </div>
     <div class="weui_cell_ft">
       <icon type="clear" v-show="showClear && value" @click="clear"></icon>
@@ -91,7 +91,8 @@ export default {
     type: {
       type: String,
       default: 'text'
-    }
+    },
+    textAlign: String
   },
   computed: {
     pattern: function () {
@@ -104,6 +105,13 @@ export default {
     },
     hasErrors: function () {
       return Object.keys(this.errors).length > 0
+    },
+    inputStyle: function () {
+      if (this.textAlign) {
+        return {
+          textAlign: this.textAlign
+        }
+      }
     }
   },
   methods: {
