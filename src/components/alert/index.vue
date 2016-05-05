@@ -39,13 +39,13 @@ export default {
   methods: {
     onHide: function () {
       this.show = false
-      this.$dispatch('on-hide')
+      this.$emit('on-hide')
     }
   },
   watch: {
     show: function (val) {
       if (val) {
-        this.$dispatch('on-show')
+        this.$emit('on-show')
       }
     }
   }
