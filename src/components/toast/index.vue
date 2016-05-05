@@ -13,8 +13,7 @@ export default {
   props: {
     show: {
       type: Boolean,
-      default: false,
-      twoWay: true
+      default: false
     },
     time: {
       type: Number,
