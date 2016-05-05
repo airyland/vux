@@ -14,9 +14,10 @@
   :hide-header="hideHeader"
   :hide-week-list="hideWeekList"
   :replace-text-list="replaceTextList"
-  :weeks-list="weeksList">
+  :weeks-list="weeksList"
+  :custom-slot-fn="buildSlotFn">
   </inline-calendar>
-  <group title="control days" style="margin-top: 285px;">
+  <group title="control days" style="margin-top: 350px;">
     <switch :value.sync="showLastMonth" title="Show Last Month"></switch>
     <switch :value.sync="showNextMonth" title="Show Next Month"></switch>
     <switch :value.sync="return6Rows" inline-desc="if not, the calendar's height would change" title="Always show 6 rows"></switch>
@@ -39,18 +40,41 @@
     <x-button type="primary" @click="value='TODAY'">Set time to today</x-button>
     <x-button type="primary" @click="value='2016-06-05'">Set time to 2016-06-05</x-button>
   </div>
+  <br>
+  <group title="custom every day cell">
+    <switch :value.sync="useCustomFn" inline-desc="Add red dot for dates with 8" title="add custom contents in day cell"></switch>
+  </group>
+
+  <br>
+  <divider>We can render a list of calendars order by month</divider>
+  <group>
+    <cell title="current value" :value="listValue"></cell>
+  </group>
+  <br>
+  <div v-for="i in 5" v-if="i >= 1">
+    <divider>2016 / {{i}}</divider>
+    <inline-calendar
+    :render-month="[2016, i]"
+    hide-header
+    :return-six-rows="false"
+    :value.sync="listValue"
+    :show-last-month="false"
+    :show-next-month="false"
+    :render-on-value-change="false"></inline-calendar>
+  </div>
 </div>
 </template>
 
 <script>
 import InlineCalendar from '../components/inline-calendar'
-import { Group, Switch, Radio, XButton, Cell } from '../components'
+import { Group, Switch, Radio, XButton, Cell, Divider } from '../components'
 
 module.exports = {
   data: function () {
     return {
       show: true,
       value: '',
+      listValue: '',
       range: false,
       showLastMonth: true,
       showNextMonth: true,
@@ -61,7 +85,9 @@ module.exports = {
       replaceTextList: {},
       replace: false,
       changeWeeksList: false,
-      weeksList: []
+      weeksList: [],
+      useCustomFn: false,
+      buildSlotFn: () => ''
     }
   },
   watch: {
@@ -69,6 +95,11 @@ module.exports = {
       this.replaceTextList = val ? {
         'TODAY': '今'
       } : {}
+    },
+    useCustomFn (val) {
+      this.buildSlotFn = val ? (line, index, data) => {
+        return /8/.test(data.day) ? '<div style="font-size:12px;text-align:center;"><span style="display:inline-block;width:5px;height:5px;background-color:red;border-radius:50%;"></span></div>' : ''
+      } : () => ''
     },
     changeWeeksList (val) {
       this.weeksList = val ? ['日', '一', '二', '三', '四', '五', '六 '] : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
@@ -80,7 +111,8 @@ module.exports = {
     Switch,
     Radio,
     XButton,
-    Cell
+    Cell,
+    Divider
   }
 }
 </script>

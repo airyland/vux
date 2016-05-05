@@ -151,6 +151,9 @@
       <cell title="multi full-height scroller" is-link v-link="'component/scroller/full'">
         <span class="demo-icon" slot="icon">&#xe641;</span>
       </cell>
+      <cell title="Swiper within Scroller" is-link v-link="'component/scroller-swiper'">
+        <span class="demo-icon" slot="icon">&#xe641;</span>
+      </cell>
     </group>
 
     <group title="Other" title-color="#04be02">

@@ -66,6 +66,7 @@ import Tabbar from './demos/Tabbar'
 import Panel from './demos/Panel'
 import Reddot from './demos/Reddot'
 import ButtonTab from './demos/Button-tab'
+import ScrollerSwiper from './demos/Scroller-swiper'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -267,6 +268,9 @@ router.map({
   },
   '/component/button-tab': {
     component: ButtonTab
+  },
+  '/component/scroller-swiper': {
+    component: ScrollerSwiper
   }
 })
 

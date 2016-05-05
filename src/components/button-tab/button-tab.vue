@@ -6,6 +6,11 @@
 
 <script>
 export default {
+  props: {
+    height: {
+      type: Number
+    }
+  },
   ready () {
     const tabList = this.$el.querySelectorAll('.vux-button-tab-item')
     this.tabNumber = tabList.length
@@ -31,7 +36,6 @@ export default {
   & {
     display: box;
     display: flex;
-    padding: 6px 10px;
   }
 
   & > a  {

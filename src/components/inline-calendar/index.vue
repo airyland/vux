@@ -30,6 +30,7 @@
           @click="select(k1,k2,$event)">
             <span
             v-show="(!child.isLastMonth && !child.isNextMonth ) || (child.isLastMonth && showLastMonth) || (child.isNextMonth && showNextMonth)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
+            {{{customSlotFn(k1, k2, child)}}}
           </td>
         </tr>
       </tbody>
@@ -39,7 +40,7 @@
 
 <script>
 import format from '../datetime/format'
-import {getDays} from './util'
+import { getDays, zero } from './util'
 
 export default {
   props: {
@@ -47,6 +48,12 @@ export default {
       type: String,
       twoWay: true,
       default: ''
+    },
+    renderMonth: {
+      type: Array, // [2018, 8]
+      default () {
+        return [null, null]
+      }
     },
     startDate: {
       type: String
@@ -89,6 +96,14 @@ export default {
       coerce: function (val) {
         return val && val.length ? val : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
       }
+    },
+    customSlotFn: {
+      type: Function,
+      default: () => ''
+    },
+    renderOnValueChange: {
+      type: Boolean,
+      default: true
     }
   },
   data: function () {
@@ -98,15 +113,12 @@ export default {
       days: [],
       current: [],
       today: format(new Date(), 'YYYY-MM-DD'),
-      currentMonth: Number,
-      sep: '-',
       months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
     }
   },
-  created: function () {
-    this.type = 'date'
+  ready: function () {
     this.value = this.convertDate(this.value)
-    this.render()
+    this.render(this.renderMonth[0], this.renderMonth[1] - 1)
   },
   computed: {
     _replaceTextList () {
@@ -120,7 +132,11 @@ export default {
   watch: {
     value: function (val) {
       this.value = this.convertDate(val)
-      this.render(null, null, val)
+      if (this.renderOnValueChange) {
+        this.render(null, null, val)
+      } else {
+        this.render(this.year, this.month, this.value)
+      }
     },
     returnSixRows (val) {
       this.render(this.year, this.month, this.value)
@@ -128,14 +144,10 @@ export default {
   },
   methods: {
     replaceText: function (day, formatDay) {
-      const willReplace = this._replaceTextList[formatDay]
-      return willReplace || day
+      return this._replaceTextList[formatDay] || day
     },
     convertDate: function (date) {
-      if (date === 'TODAY') {
-        return this.today
-      }
-      return date
+      return date === 'TODAY' ? this.today : date
     },
     buildClass: function (index, child, isCurrent) {
       const className = {
@@ -159,33 +171,26 @@ export default {
       this.year = data.year
       this.month = data.month
     },
-    zero: function (n) {
-      return n < 10 ? '0' + n : n
+    formatDate: (year, month, child) => {
+      return [year, zero(month + 1), zero(child.day)].join('-')
     },
-    formatDate: function (year, month, child) {
-      return year + '-' + this.zero(month + 1) + '-' + this.zero(child.day)
-    },
-    prev: function (e) {
-      e.stopPropagation()
-      var that = this
-      if (that.month === 0) {
-        that.month = 11
-        that.year = that.year - 1
+    prev: function () {
+      if (this.month === 0) {
+        this.month = 11
+        this.year = this.year - 1
       } else {
-        that.month = that.month - 1
+        this.month = this.month - 1
       }
-      that.render(that.year, that.month)
+      this.render(this.year, this.month)
     },
-    next: function (e) {
-      e.stopPropagation()
-      var that = this
-      if (that.month === 11) {
-        that.month = 0
-        that.year = that.year + 1
+    next: function () {
+      if (this.month === 11) {
+        this.month = 0
+        this.year = this.year + 1
       } else {
-        that.month = that.month + 1
+        this.month = this.month + 1
       }
-      this.render(that.year, that.month)
+      this.render(this.year, this.month)
     },
     go: function (year, month) {
       this.render(year, month)
@@ -196,26 +201,7 @@ export default {
       }
       this.days[k1][k2].current = true
       this.current = [k1, k2]
-      this.value = this.year + this.sep + this.zero(this.month + 1) + this.sep + this.zero(this.days[k1][k2].day)
-      this.show = false
-    },
-    ok: function () {
-      var that = this
-      if (that.range) {
-        that.value = that.output(that.rangeBegin) + ' ~ ' + that.output(that.rangeEnd)
-      } else {
-        that.value = that.output([that.year, that.month, that.day])
-      }
-      that.show = false
-    },
-    cancel: function () {
-      this.show = false
-    },
-    output: function (args) {
-      var that = this
-      if (that.type === 'date') {
-        return args[0] + that.sep + that.zero(args[1] + 1) + that.sep + that.zero(args[2])
-      }
+      this.value = [this.year, zero(this.month + 1), zero(this.days[k1][k2].day)].join('-')
     }
   }
 }
@@ -378,6 +364,7 @@ export default {
   text-align: center;
   vertical-align: middle;
   font-size:16px;
+  position: relative;
 }
 .inline-calendar td.week{
   pointer-events:none !important;

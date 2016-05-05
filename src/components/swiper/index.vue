@@ -1,6 +1,6 @@
 <template>
   <div class="slider">
-    <div class="swiper" :style="{height: height+'px'}">
+    <div class="swiper" :style="swiperStyle">
       <slot></slot>
       <div class="item" v-for="item in list">
         <a :href="item.url">
@@ -38,11 +38,16 @@ export default {
         interval: _this.interval,
         threshold: _this.threshold,
         duration: _this.duration,
-        height: _this.height
+        height: _this.height,
+        minMovingDistance: _this.minMovingDistance
       })
-      .on('swiped', function (prev, current) {
-        _this.current = current
+      .on('swiped', (prev, current) => {
+        this.current = current
       })
+    },
+    rerender: function () {
+      this.destroy()
+      this.render()
     },
     destroy: function () {
       this.swiper && this.swiper.destroy()
@@ -78,8 +83,12 @@ export default {
       default: 300
     },
     height: {
+      type: String,
+      default: 'auto'
+    },
+    minMovingDistance: {
       type: Number,
-      default: 180
+      default: 0
     }
   },
   data () {
@@ -87,14 +96,25 @@ export default {
       current: 0
     }
   },
+  computed: {
+    swiperStyle () {
+      return {
+        height: this.height || 'auto'
+      }
+    }
+  },
   watch: {
     list: function (val) {
-      this.destroy()
-      this.render()
+      this.rerender()
     }
   },
   beforeDestroy () {
     this.destroy()
+  },
+  events: {
+    'swiper-item:created' () {
+      this.rerender()
+    }
   }
 }
 
@@ -112,6 +132,7 @@ export default {
 .swiper .item {
   float: left;
   position: relative;
+  height: 100%;
 }
 .swiper .item a {
   display: block;

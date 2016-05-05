@@ -10,7 +10,20 @@ const prefixList = ['-moz-box-', '-webkit-box-', '']
 export default {
   props: {
     span: {
-      type: Number
+      type: [Number, String]
+    }
+  },
+  methods: {
+    buildWidth (width) {
+      if (typeof width === 'number') {
+        if (width < 1) {
+          return width
+        } else {
+          return width / 12
+        }
+      } else if (typeof width === 'string') {
+        return width.replace('px', '') / this.bodyWidth
+      }
     }
   },
   computed: {
@@ -21,10 +34,15 @@ export default {
 
       if (this.span) {
         for (let i = 0; i < prefixList.length; i++) {
-          styles[prefixList[i] + 'flex'] = `0 0 ${(this.span >= 1 ? this.span / 12 : this.span) * 100}%`
+          styles[prefixList[i] + 'flex'] = `0 0 ${this.buildWidth(this.span) * 100}%`
         }
       }
       return styles
+    }
+  },
+  data () {
+    return {
+      bodyWidth: document.documentElement.offsetWidth
     }
   }
 }

@@ -5,8 +5,8 @@
 </p>
 <p align="center">Be Cool with Vue and WeUI.</p>
 <p align="center">
-  <a href="https://gitter.im/airyland/vux?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge">
-    <img src="https://badges.gitter.im/airyland/vux.svg">
+  <a href="https://www.google.com/">
+    <img src="https://img.shields.io/badge/Fuck%20-Baidu-ff0000.svg">
   </a>
   <a href="https://vux.bearychat.com">
     <img src="https://img.shields.io/badge/chat-%20on%20bearychat%20-82c547.svg">
@@ -32,12 +32,21 @@
 
 + This is not an Official Project of Wechat.
 + :warning: Before vux@0.1.0, Components' API may `change` any time.
++ If you are interested in improving vux, just email me to join [Vux@Teambition](https://www.teambition.com/project/56f37e966d3fb3142656b764/tasks/scrum/56f37e969aff544c264e23ec)
 
 ## Demo
 
 <p align="center">
   <a href="https://vux.li/?x-page=github_readme">https://vux.li</a><br/>
   <img src="https://raw.githubusercontent.com/airyland/vux/master/qr.png" width="300">
+</p>
+
+## Component List
+
+> If you need a new component, don't hesitate to raise an issue.
+
+<p align="center">
+	<img src="https://raw.githubusercontent.com/airyland/vux/master/assets/components.png" width="980">
 </p>
 
 ## Usage by importing UMD modules
@@ -116,6 +125,11 @@ import Cell from 'vux-components/cell'
 ```
 
 ## Usage by including scripts
+
+> You can download vux from the [releases](https://github.com/airyland/vux/releases)
+
+> or  install from bower `bower install vux`
+
 
 > checkout examples/scripts.html
 
