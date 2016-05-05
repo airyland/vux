@@ -29,7 +29,7 @@ export default {
     class () {
       return {
         'vux-button-group-current': this.selected, 
-        'no-border-right': this.shouldRemoveBorder,
+        'no-border-right': this.shouldRemoveBorder
       }
     },
     style () {
