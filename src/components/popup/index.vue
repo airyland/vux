@@ -13,6 +13,10 @@ export default {
       default: false,
       twoWay: true
     },
+    hasFirstShow: {
+      type: Boolean,
+      default: false
+    },
     height: {
       type: String,
       default: 'auto'
@@ -35,6 +39,10 @@ export default {
     show: function (val) {
       if (val) {
         this.popup.show()
+        if (!this.hasFirstShow) {
+          this.$emit('on-first-show')
+          this.hasFirstShow = true
+        }
       } else {
         this.popup.hide()
       }
