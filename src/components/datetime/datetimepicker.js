@@ -19,6 +19,7 @@ const TEMPLATE = `<div class="dp-container">
 </div>`
 
 var SHOW_ANIMATION_TIME = 100 // ms
+var SHOW_CONTAINER_TIME = 300
 
 var TYPE_MAP = {
   year: ['YYYY'],
@@ -69,22 +70,20 @@ function renderScroller (el, data, value, fn) {
 }
 
 function showMask () {
-  if (MASK) {
-    MASK.style.display = 'block'
-    MASK.style.opacity = 0.5
-    return
+  if (!MASK) {
+    MASK = toElement(MASK_TEMPLATE)
+    BODY.appendChild(MASK)
+
+    MASK.addEventListener('click', function () {
+      CURRENT_PICKER && CURRENT_PICKER.hide()
+    }, false)
   }
 
-  MASK = toElement(MASK_TEMPLATE)
-  BODY.appendChild(MASK)
+  MASK.style.display = 'block'
 
   setTimeout(function () {
     MASK && (MASK.style.opacity = 0.5)
   }, 0)
-
-  MASK.addEventListener('click', function () {
-    CURRENT_PICKER && CURRENT_PICKER.hide()
-  }, false)
 }
 
 function hideMask () {
@@ -123,6 +122,19 @@ function DatetimePicker (config) {
 
 DatetimePicker.prototype = {
 
+  _show: function (newValueMap) {
+    var self = this
+
+    self.container.style.display = 'block'
+
+    each(TYPE_MAP, function (type) {
+      self[type + 'Scroller'] && self[type + 'Scroller'].select(trimZero(newValueMap[type]), false)
+    })
+
+    setTimeout(function () {
+      self.container.style.transform = 'translateY(0)'
+    }, 0)
+  },
   show: function (value) {
     var self = this
     var config = self.config
@@ -135,11 +147,7 @@ DatetimePicker.prototype = {
     })
 
     if (self.container) {
-      self.container.style.display = 'block'
-
-      each(TYPE_MAP, function (type) {
-        self[type + 'Scroller'] && self[type + 'Scroller'].select(trimZero(newValueMap[type]), false)
-      })
+      self._show(newValueMap)
     } else {
       var container = self.container = toElement(config.template)
 
@@ -194,7 +202,7 @@ DatetimePicker.prototype = {
         self.renderText = true
       }
 
-      this.show(value)
+      this._show(newValueMap)
 
       self.find('[data-role=cancel]').addEventListener('click', function (e) {
         e.preventDefault()
@@ -269,7 +277,11 @@ DatetimePicker.prototype = {
 
   hide: function () {
     var self = this
-    self.container.style.display = 'none'
+    self.container.style.removeProperty('transform')
+
+    setTimeout(function () {
+      self.container.style.display = 'none'
+    }, SHOW_CONTAINER_TIME)
 
     hideMask()
 
