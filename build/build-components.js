@@ -6,6 +6,7 @@ var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var webpack = require("webpack")
+var buildConfig = require(path.resolve(__dirname, './components'))
 
 var config = {
   entry: {},
@@ -114,8 +115,7 @@ if (list) {
   build('inview', '../src/directives/inview')
 
   // multi entry
-  var list = require('./components')
-  list.multi_entry.forEach(function (one) {
+  buildConfig.multi_entry.forEach(function (one) {
     build(one, `../src/components/${one}/${one}`)
     build(`${one}-item`, `../src/components/${one}/${one}-item`)
   })
@@ -123,6 +123,12 @@ if (list) {
 
 var number = 0
 function build (name, _path) {
+  if (buildConfig.multi_entry.indexOf(name) > -1 || buildConfig.multi_entry.indexOf(name.replace('-item', '')) > -1) {
+    return
+  }
+  if (buildConfig.ignore.indexOf(name) > -1) {
+    return
+  }
   let _name = name
   let file = _path || `../src/components/${name}/index`
   let _start = new Date().getTime()
