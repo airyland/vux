@@ -2,7 +2,7 @@
   <div class="slider">
     <div class="swiper" :style="swiperStyle">
       <slot></slot>
-      <div class="item" v-for="item in list">
+      <div class="item" v-for="item in list" @click="clickListItem(item)">
         <a :href="item.url">
           <div class="img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
           <p class="desc">{{item.title}}</p>
@@ -26,6 +26,9 @@ export default {
     }
   },
   methods: {
+    clickListItem: function (item) {
+      this.$emit('on-click-list-item', JSON.parse(JSON.stringify(item)))
+    },
     buildBackgroundUrl: function (url) {
       return `url(${url})`
     },
