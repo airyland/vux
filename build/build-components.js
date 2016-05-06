@@ -116,19 +116,23 @@ if (list) {
 
   // multi entry
   buildConfig.multi_entry.forEach(function (one) {
-    build(one, `../src/components/${one}/${one}`)
-    build(`${one}-item`, `../src/components/${one}/${one}-item`)
+    build(one, `../src/components/${one}/${one}`, true)
+    build(`${one}-item`, `../src/components/${one}/${one}-item`, true)
   })
 }
 
 var number = 0
-function build (name, _path) {
-  if (buildConfig.multi_entry.indexOf(name) > -1 || buildConfig.multi_entry.indexOf(name.replace('-item', '')) > -1) {
-    return
+function build (name, _path, isMulti) {
+  if (isMulti) {
+    if (buildConfig.multi_entry.indexOf(name) > -1 || buildConfig.multi_entry.indexOf(name.replace('-item', '')) > -1) {
+      return
+    }
   }
+
   if (buildConfig.ignore.indexOf(name) > -1) {
     return
   }
+
   let _name = name
   let file = _path || `../src/components/${name}/index`
   let _start = new Date().getTime()
