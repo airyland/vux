@@ -123,7 +123,7 @@ if (list) {
 
 var number = 0
 function build (name, _path, isMulti) {
-  if (isMulti) {
+  if (!isMulti) {
     if (buildConfig.multi_entry.indexOf(name) > -1 || buildConfig.multi_entry.indexOf(name.replace('-item', '')) > -1) {
       return
     }
