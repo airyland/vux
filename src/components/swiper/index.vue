@@ -9,7 +9,7 @@
         </a>
       </div>
     </div>
-    <div class="indicator" v-show="show_dots">
+    <div class="indicator" v-show="show_dots && list.length > 1">
       <a href="javascript:" v-for="(index, item) in list">
         <i class="icon_dot" :class="{'active':index === current}"></i>
       </a>

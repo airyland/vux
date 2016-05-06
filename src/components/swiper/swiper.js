@@ -133,7 +133,7 @@ Swiper.prototype._bind = function () {
       transform = 'translate3d(' + (distance - me._offset) + 'px, 0, 0)'
     }
 
-    if (distance >= me._options.minMovingDistance) {
+    if ((me._options.minMovingDistance && distance >= me._options.minMovingDistance) || !me._options.minMovingDistance) {
       me.$container.style['-webkit-transform'] = transform
       me.$container.style.transform = transform
     }
