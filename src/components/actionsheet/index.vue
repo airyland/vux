@@ -38,10 +38,10 @@ export default {
   },
   methods: {
     dispatchEvent (event, menu) {
-      if (event === 'menu-click') {
+      if (event === 'menu-click' && menu !== 'cancel') {
         this.$dispatch(event, menu)
-        this.show = false
       }
+      this.show = false
     }
   }
 }
