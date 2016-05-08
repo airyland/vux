@@ -1,3 +1,5 @@
+<h2 align="center">v0.1 will be released on 0601.</h2>
+
 <p align="center">
   <a href="http://vux.li">
     <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
