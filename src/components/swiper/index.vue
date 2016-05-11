@@ -33,16 +33,15 @@ export default {
       return `url(${url})`
     },
     render: function () {
-      const _this = this
       this.swiper = new Swiper({
-        container: _this.$el,
-        direction: _this.direction,
-        auto: _this.auto,
-        interval: _this.interval,
-        threshold: _this.threshold,
-        duration: _this.duration,
-        height: _this.height,
-        minMovingDistance: _this.minMovingDistance
+        container: this.$el,
+        direction: this.direction,
+        auto: this.auto,
+        interval: this.interval,
+        threshold: this.threshold,
+        duration: this.duration,
+        height: this.height,
+        minMovingDistance: this.minMovingDistance
       })
       .on('swiped', (prev, current) => {
         this.current = current
@@ -59,7 +58,10 @@ export default {
   props: {
     list: {
       type: Array,
-      required: false
+      required: false,
+      default () {
+        return []
+      }
     },
     direction: {
       type: String,
