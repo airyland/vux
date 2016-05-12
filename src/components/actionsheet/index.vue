@@ -19,7 +19,7 @@ export default {
     show: {
       type: Boolean,
       required: true,
-      defalt: false,
+      default: false,
       twoWay: true
     },
     showCancel: {
