@@ -178,6 +178,9 @@
       <cell title="1px" value="1px解决方案(FrozenUI)" is-link v-link="'component/1px'">
         <span class="demo-icon" slot="icon">&#xe621;</span>
       </cell>
+      <cell title="qrcode" is-link v-link="'component/qrcode'">
+        <span class="demo-icon" slot="icon">&#xe65a;</span>
+      </cell>
     </group>
 
     <group title="TODO" title-color="#04be02" v-if="showTodo">
