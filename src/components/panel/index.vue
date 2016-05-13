@@ -1,6 +1,6 @@
 <template>
   <div class="weui_panel weui_panel_access">
-    <div class="weui_panel_hd" v-if="header" @click="onClickHeader">{{{header}}}</div>
+    <div class="weui_panel_hd" v-if="header" @click="onClickHeader" v-html="header"></div>
     <div class="weui_panel_bd">
       <!--type==='1'-->
       <a href="javascript:;" v-for="item in list" @click="onItemClick(item)" class="weui_media_box weui_media_appmsg" v-if="type === '1'">
@@ -32,7 +32,7 @@
           </div>
       </div>
     </div>
-    <a class="weui_panel_ft" href="javascript:void(0);" v-if="footer && type !== '3'" @click="onClickFooter">{{{footer}}}</a>
+    <a class="weui_panel_ft" href="javascript:void(0);" v-if="footer && type !== '3'" @click="onClickFooter" v-html="footer"></a>
   </div>
 </template>
 
