@@ -51,6 +51,9 @@ export default {
     if (this.equalWith) {
       this.showClear = false
     }
+    if (this.required && !this.value) {
+      this.valid = false
+    }
   },
   mixins: [Base],
   components: {
