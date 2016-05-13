@@ -44,17 +44,17 @@ export default {
   methods: {
     onConfirm: function () {
       this.show = false
-      this.$dispatch('on-confirm')
+      this.$emit('on-confirm')
     },
     onCancel: function () {
       this.show = false
-      this.$dispatch('on-cancel')
+      this.$emit('on-cancel')
     }
   },
   watch: {
     show: function (val) {
       if (val) {
-        this.$dispatch('on-show')
+        this.$emit('on-show')
       }
     }
   }
