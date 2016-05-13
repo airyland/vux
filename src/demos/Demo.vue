@@ -82,9 +82,6 @@
       <cell title="clocker" is-link v-link="'component/clocker'">
         <span class="demo-icon" slot="icon">&#xe620;</span>
       </cell>
-      <cell title="qrcode" is-link v-link="'component/qrcode'">
-        <span class="demo-icon" slot="icon">&#xe65a;</span>
-      </cell>
       <cell title="flexbox" is-link v-link="'component/flexbox'">
         <span class="demo-icon" slot="icon">&#xe61f;</span>
       </cell>
@@ -180,6 +177,9 @@
       </cell>
       <cell title="1px" value="1px解决方案(FrozenUI)" is-link v-link="'component/1px'">
         <span class="demo-icon" slot="icon">&#xe621;</span>
+      </cell>
+      <cell title="qrcode" is-link v-link="'component/qrcode'">
+        <span class="demo-icon" slot="icon">&#xe65a;</span>
       </cell>
     </group>
 
