@@ -104,6 +104,10 @@ export default {
     renderOnValueChange: {
       type: Boolean,
       default: true
+    },
+    disablePast: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
@@ -140,6 +144,9 @@ export default {
     },
     returnSixRows (val) {
       this.render(this.year, this.month, this.value)
+    },
+    disablePast () {
+      this.render(this.year, this.month, this.value)
     }
   },
   methods: {
@@ -165,7 +172,8 @@ export default {
         value: this.value,
         rangeBegin: this.startDate,
         rangeEnd: this.endDate,
-        returnSixRows: this.returnSixRows
+        returnSixRows: this.returnSixRows,
+        disablePast: this.disablePast
       })
       this.days = data.days
       this.year = data.year
