@@ -16,7 +16,8 @@
     <br>
     <group-title>Async setting list data</group-title>
     <swiper :list="list1" auto height="180px"></swiper>
-    <x-button @click="setData" type="primary" style="margin: 15px;" :disabled="disableLoadData">Load data</x-button>
+    <x-button @click="setData(1)" type="primary" style="margin: 10px 0;">Load list1</x-button>
+    <x-button @click="setData(2)" type="primary" style="margin: 10px 0;">Load list2</x-button>
     <br/>
     <br/>
     <group-title>引入swiper-item自定义item内容，用height定义高度</group-title>
@@ -47,18 +48,24 @@ import { Swiper, GroupTitle, SwiperItem, XButton, Divider } from '../components/
 
 const demoList =
 [{
-  url: 'http://mp.weixin.qq.com/s?__biz=MzAxNjU0MDYxMg==&ampmid=400385458&ampidx=1&ampsn=78f6b8d99715384bdcc7746596d88359&ampscene=19#wechat_redirect',
+  url: 'javascript:',
   img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
   title: '如何手制一份秋意的茶？'
 }, {
-  url: 'http://mp.weixin.qq.com/s?__biz=MzAxNjU0MDYxMg==&ampmid=400160890&ampidx=1&ampsn=29ef02af25793a11a3f6aec92bfb46c1&ampscene=19#wechat_redirect',
+  url: 'javascript:',
   img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
   title: '茶包VS原叶茶'
 }, {
-  url: 'http://mp.weixin.qq.com/s?__biz=MzAxNjU0MDYxMg==&ampmid=400094682&ampidx=1&ampsn=8231a2053b772b2108784fccc254d28c&ampscene=19#wechat_redirect',
+  url: 'javascript:',
   img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
   title: '播下茶籽，明春可发芽？'
 }]
+
+const demoList2 = [
+  'http://placeholder.qiniudn.com/800x300/FF3B3B/ffffff',
+  'http://placeholder.qiniudn.com/800x300/FFEF7D/ffffff',
+  'http://placeholder.qiniudn.com/800x300/8AEEB1/ffffff'
+]
 
 export default {
   components: {
@@ -70,17 +77,16 @@ export default {
   },
   ready () {
     setTimeout(() => {
-      this.imgList = [
-        'http://placeholder.qiniudn.com/800x300/FF3B3B/ffffff',
-        'http://placeholder.qiniudn.com/800x300/FFEF7D/ffffff',
-        'http://placeholder.qiniudn.com/800x300/8AEEB1/ffffff'
-      ]
+      this.imgList = demoList2
     }, 5000)
   },
   methods: {
-    setData: function () {
-      this.list1 = demoList
-      this.disableLoadData = true
+    setData: function (id) {
+      this.list1 = id === 1 ? demoList : demoList2.map((one, index) => ({
+        url: 'javascript:',
+        img: one,
+        title: `image ${index}`
+      }))
     }
   },
   data: function () {

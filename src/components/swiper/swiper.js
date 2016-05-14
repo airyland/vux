@@ -57,8 +57,7 @@ Swiper.prototype.updateItemWidth = function () {
 
 Swiper.prototype.setStyle = function () {
   const me = this
-  this._height = this._options.height === 'auto' ? this.$container.offsetHeight : this._options.height
-
+  this._height = this._options.height === 'auto' ? 'auto' : this._options.height
   var width = me._width
   var height = me._height
 
@@ -160,15 +159,7 @@ Swiper.prototype._bind = function () {
     me._show(me._current)
   }
 
-  this.$container.addEventListener('touchstart', this.touchstartHandler, false)
-
-  this.$container.addEventListener('touchmove', this.touchmoveHandler, false)
-
-  this.$container.addEventListener('touchend', this.touchendHandler, false)
-
-  this.$container.addEventListener('transitionEnd', function (e) {}, false)
-
-  this.$container.addEventListener('webkitTransitionEnd', function (e) {
+  this.transitionEndHandler = function (e) {
     if (e.target !== me.$container) {
       return false
     }
@@ -185,7 +176,17 @@ Swiper.prototype._bind = function () {
     }
 
     e.preventDefault()
-  }, false)
+  }
+
+  this.$container.addEventListener('touchstart', this.touchstartHandler, false)
+
+  this.$container.addEventListener('touchmove', this.touchmoveHandler, false)
+
+  this.$container.addEventListener('touchend', this.touchendHandler, false)
+
+  this.$container.addEventListener('transitionEnd', function (e) {}, false)
+
+  this.$container.addEventListener('webkitTransitionEnd', this.transitionEndHandler, false)
 }
 
 Swiper.prototype._show = function (index) {
@@ -262,10 +263,14 @@ Swiper.prototype.destroy = function () {
   if (this.timer) {
     clearTimeout(this.timer)
   }
+  this._current = 0
+  this.$container.style['-webkit-transform'] = this.$container.style.transform = 'translate3d(0, 0, 0)'
+
   window.removeEventListener('orientationchange', this.resizeHandler, false)
   this.$container.removeEventListener('touchstart', this.touchstartHandler, false)
   this.$container.removeEventListener('touchmove', this.touchmoveHandler, false)
   this.$container.removeEventListener('touchend', this.touchendHandler, false)
+  this.$container.removeEventListener('webkitTransitionEnd', this.transitionEndHandler, false)
 }
 
 function extend (target, source) {

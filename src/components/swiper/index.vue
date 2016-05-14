@@ -48,8 +48,11 @@ export default {
       })
     },
     rerender: function () {
-      this.destroy()
-      this.render()
+      this.$nextTick(() => {
+        this.current = 0
+        this.destroy()
+        this.render()
+      })
     },
     destroy: function () {
       this.swiper && this.swiper.destroy()
