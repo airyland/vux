@@ -112,8 +112,11 @@ export default {
     }
   },
   watch: {
-    list: function (val) {
+    list (val) {
       this.rerender()
+    },
+    current (index) {
+      this.$emit('on-index-change', index)
     }
   },
   beforeDestroy () {

@@ -15,7 +15,8 @@
     </swiper>
     <br>
     <group-title>Async setting list data</group-title>
-    <swiper :list="list1" auto height="180px"></swiper>
+    <swiper :list="list1" auto height="180px" @on-index-change="onIndexChange"></swiper>
+    <p> current index: {{currentIndex}}</p>
     <x-button @click="setData(1)" type="primary" style="margin: 10px 0;">Load list1</x-button>
     <x-button @click="setData(2)" type="primary" style="margin: 10px 0;">Load list2</x-button>
     <br/>
@@ -87,6 +88,9 @@ export default {
         img: one,
         title: `image ${index}`
       }))
+    },
+    onIndexChange: function (index) {
+      this.currentIndex = index
     }
   },
   data: function () {
@@ -94,7 +98,8 @@ export default {
       list: demoList,
       list1: [],
       disableLoadData: false,
-      imgList: []
+      imgList: [],
+      currentIndex: 0
     }
   }
 }
