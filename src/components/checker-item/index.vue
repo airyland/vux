@@ -18,7 +18,9 @@ export default {
   },
   computed: {
     classNames: function () {
-      const names = {}
+      const names = {
+        'vux-tap-active': !this.disabled
+      }
       if (this.$parent.defaultItemClass) {
         names[this.$parent.defaultItemClass] = true
       }

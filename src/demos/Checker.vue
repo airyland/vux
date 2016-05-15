@@ -141,7 +141,9 @@ export default {
   height: 26px;
   line-height: 26px;
   text-align: center;
+  border-radius: 3px;
   border: 1px solid #ccc;
+  background-color: #fff;
   margin-right: 6px;
 }
 .demo5-item-selected {
