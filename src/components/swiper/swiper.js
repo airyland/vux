@@ -1,8 +1,8 @@
 class Swiper {
   constructor (options) {
     this._default = {
-      container: '.swiper',
-      item: '.item',
+      container: '.vux-swiper',
+      item: '.vux-swiper-item',
       direction: 'vertical',
       activeClass: 'active',
       threshold: 50,
@@ -20,7 +20,7 @@ class Swiper {
     this._eventHandlers = {}
     this._prev = this._current = this._offset = this._goto = 0
     this.$box = this._options.container
-    this.$container = this._options.container.querySelector('.swiper')
+    this.$container = this._options.container.querySelector('.vux-swiper')
     this.$items = this.$container.querySelectorAll(this._options.item)
     this.count = this.$items.length
     if (!this.count) {
