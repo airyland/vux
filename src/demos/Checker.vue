@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 15px 0;">
-    <divider>no default</divider>
+    <divider>no default value</divider>
     <checker :value.sync="demo1" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
       <checker-item value="1">1</checker-item>
       <checker-item value="2">2</checker-item>
@@ -53,6 +53,15 @@
         </checker>
       </div>
     </popup>
+
+    <divider>A real world example {{demo5}}</divider>
+    <checker
+    :value.sync="demo5"
+    default-item-class="demo5-item"
+    selected-item-class="demo5-item-selected"
+    >
+      <checker-item v-for="i in [1, 2, 3]" :value="i">￥{{i*300}}</checker-item>
+    </checker>
   </div>
 </template>
 
@@ -74,7 +83,8 @@ export default {
       demo2: '2',
       demo3: '',
       demo4: '花跟叶',
-      showPopup: false
+      showPopup: false,
+      demo5: 1
     }
   }
 }
@@ -125,5 +135,17 @@ export default {
 }
 .demo4-item-disabled {
   color: #999;
+}
+.demo5-item {
+  width: 100px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  border: 1px solid #ccc;
+  margin-right: 6px;
+}
+.demo5-item-selected {
+  background: #ffffff url(../assets/demo/checker/active.png) no-repeat right bottom;
+  border-color: #ff4a00;
 }
 </style>
