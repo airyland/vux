@@ -278,6 +278,10 @@ router.map({
   }
 })
 
+router.on('/component/center', {
+  component: require('./demos/Center')
+})
+
 // save position for demo page
 let demoScrollTop = 0
 function saveDemoScrollTop () {
