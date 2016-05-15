@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { PopupPicker, Group, Picker } from '../components/'
+import { PopupPicker, Group, Picker } from '../components'
 
 export default {
   components: {
