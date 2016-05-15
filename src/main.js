@@ -68,6 +68,7 @@ import Reddot from './demos/Reddot'
 import ButtonTab from './demos/Button-tab'
 import ScrollerSwiper from './demos/Scroller-swiper'
 import Qrcode from './demos/Qrcode'
+import Badge from './demos/Badge'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -275,6 +276,9 @@ router.map({
   },
   '/component/qrcode': {
     component: Qrcode
+  },
+  '/component/badge': {
+    component: Badge
   }
 })
 

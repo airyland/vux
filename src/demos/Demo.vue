@@ -61,6 +61,9 @@
       <cell title="actionsheet" link="component/actionsheet">
         <span class="demo-icon" slot="icon">&#xe624;</span>
       </cell>
+      <cell title="badge" link="component/badge">
+        <span class="demo-icon" slot="icon" style="color:#f74c31;">&#xe65b;</span>
+      </cell>
       <cell title="blur" link="component/blur">
         <span class="demo-icon" slot="icon">&#xe640;</span>
       </cell>
