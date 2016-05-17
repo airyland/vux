@@ -1,19 +1,26 @@
 <template>
-  <div class="weui_dialog_confirm" v-show="show" :transition="maskTransition">
-    <div class="weui_mask"></div>
-    <div class="weui_dialog" v-show="show" :transition="dialogTransition">
-      <div class="weui_dialog_hd"><strong class="weui_dialog_title">{{title}}</strong></div>
-      <div class="weui_dialog_bd"><slot></slot></div>
-      <div class="weui_dialog_ft">
-        <a href="javascript:;" class="weui_btn_dialog default" @click="onCancel">{{cancelText}}</a>
-        <a href="javascript:;" class="weui_btn_dialog primary" @click="onConfirm">{{confirmText}}</a>
-      </div>
+  <dialog class="weui_dialog_confirm"
+  :show="show"
+  :mask-transition="maskTransition"
+  :dialog-transition="dialogTransition"
+  @on-hide="$emit('on-hide')"
+  @on-show="$emit('on-show')">
+    <div class="weui_dialog_hd"><strong class="weui_dialog_title">{{title}}</strong></div>
+    <div class="weui_dialog_bd"><slot></slot></div>
+    <div class="weui_dialog_ft">
+      <a href="javascript:;" class="weui_btn_dialog default" @click="onCancel">{{cancelText}}</a>
+      <a href="javascript:;" class="weui_btn_dialog primary" @click="onConfirm">{{confirmText}}</a>
     </div>
-  </div>
+  </dialog>
 </template>
 
 <script>
+import Dialog from '../dialog'
+
 export default {
+  components: {
+    Dialog
+  },
   props: {
     show: {
       type: Boolean,
