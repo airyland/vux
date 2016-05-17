@@ -40,7 +40,7 @@
       <cell title="switch" link="component/switch">
         <span class="demo-icon" slot="icon">&#xe61c;</span>
       </cell>
-      <cell title="x-button" link="component/button">
+      <cell title="x-button" link="component/x-button">
         <span class="demo-icon" slot="icon">&#xe616;</span>
       </cell>
       <cell title="x-input" link="component/input">

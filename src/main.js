@@ -13,7 +13,7 @@ import Number from './demos/Number'
 import Checklist from './demos/Checklist'
 import Selector from './demos/Selector'
 import Tip from './demos/Tip'
-import Button from './demos/Button'
+import XButton from './demos/X-button'
 import Textarea from './demos/Textarea'
 import Flexbox from './demos/Flexbox'
 import Tab from './demos/Tab'
@@ -112,8 +112,8 @@ router.map({
   '/component/tip': {
     component: Tip
   },
-  '/component/button': {
-    component: Button
+  '/component/x-button': {
+    component: XButton
   },
   '/component/textarea': {
     component: Textarea

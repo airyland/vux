@@ -1,20 +1,32 @@
 <template>
   <div>
-    <group-title>types: default, primary, warn</group-title>
+    <divider>default</divider>
     <box gap="10px 10px">
       <x-button>submit</x-button>
       <x-button type="primary">primary</x-button>
       <x-button type="warn">Delete</x-button>
+      
+      <divider>mini</divider>
+      <x-button mini>submit</x-button>
+      <x-button mini type="primary">primary</x-button>
+      <x-button mini type="warn">Delete</x-button>
+      <br>
+      <x-button mini plain>submit</x-button>
+      <x-button mini plain type="primary">primary</x-button>
 
-      <group-title>disabled</group-title>
+      <divider>plain</divider>
+      <x-button plain>submit</x-button>
+      <x-button plain type="primary">primary</x-button>
+      
+      <divider>disabled</divider>
       <x-button disabled>disable submit</x-button>
       <x-button type="primary" disabled>disable primary</x-button>
       <x-button type="warn" disabled>disable Delete</x-button>
 
-      <group-title>use :text and :disabled</group-title>
+      <divider>use :text and :disabled</divider>
       <x-button :text="submit001" :disabled="disable001" @click="processButton001" type="primary"></x-button>
 
-      <group-title>combined with flexbox</group-title>
+      <divider>combined with flexbox</divider>
       <flexbox>
         <flexbox-item>
           <x-button type="primary">primary</x-button>
@@ -23,7 +35,7 @@
           <x-button type="warn">Delete</x-button>
         </flexbox-item>
       </flexbox>
-      <group-title>combined with flexbox</group-title>
+      <divider>combined with flexbox</divider>
       <flexbox>
         <flexbox-item>
           <x-button type="default">default</x-button>
@@ -42,7 +54,7 @@
 </template>
 
 <script>
-import { XButton, Box, GroupTitle, Group, Flexbox, FlexboxItem } from '../components/'
+import { XButton, Box, GroupTitle, Group, Flexbox, FlexboxItem, Divider } from '../components/'
 
 export default {
   components: {
@@ -51,7 +63,8 @@ export default {
     GroupTitle,
     Group,
     Flexbox,
-    FlexboxItem
+    FlexboxItem,
+    Divider
   },
   methods: {
     change: function (value) {
@@ -70,3 +83,4 @@ export default {
   }
 }
 </script>
+
