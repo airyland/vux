@@ -7,7 +7,7 @@
     <br/>
     <br/>
     <group-title>设置aspect-ratio, 将自动根据宽度计算高度</group-title>
-    <swiper :list="list3" style="width:85%;margin:0 auto;" :aspect-ratio="300/800"></swiper>
+    <swiper :list="list3" style="width:85%;margin:0 auto;" :aspect-ratio="300/800" dots-position="center"></swiper>
     <br/>
     <br/>
     <group-title>自动轮播</group-title>
@@ -75,8 +75,7 @@ const demoList2 = [
 
 const demoList3 = demoList2.map((one, index) => ({
   url: 'javascript:',
-  img: one,
-  title: `image ${index}`
+  img: one
 }))
 
 export default {

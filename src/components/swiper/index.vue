@@ -9,7 +9,7 @@
         </a>
       </div>
     </div>
-    <div class="vux-indicator" v-show="show_dots && list.length > 1">
+    <div :class="['vux-indicator', 'vux-indicator-' + dotsPosition]" v-show="showDots && list.length > 1">
       <a href="javascript:" v-for="(index, item) in list">
         <i class="vux-icon-dot" :class="{'active':index === current}"></i>
       </a>
@@ -87,9 +87,13 @@ export default {
       type: String,
       default: 'horizontal'
     },
-    show_dots: {
+    showDots: {
       type: Boolean,
       default: true
+    },
+    dotsPosition: {
+      type: String,
+      default: 'right'
     },
     auto: {
       type: Boolean,
@@ -151,8 +155,8 @@ export default {
 .@{pre}-slider {
   overflow: hidden;
   position: relative;
-
-  > .@{pre}-indicator {
+  
+  > .@{pre}-indicator, .@{pre}-indicator-right {
     position: absolute;
     right: 15px;
     bottom: 10px;
@@ -174,6 +178,16 @@ export default {
       }
 
     }
+  }
+
+  > .@{pre}-indicator-center {
+    right: 50%;
+    transform: translateX(50%)
+  }
+
+  > .@{pre}-indicator-left {
+    left: 15px;
+    right: auto;
   }
   
   > .@{pre}-swiper {
