@@ -1,8 +1,13 @@
 <template>
   <div>
     <group-title>THX to: https://github.com/wechatui/swiper</group-title>
+    <group-title>list模式下，默认高度为180px, 如果设置aspect-ratio会根据宽度自动计算高度</group-title>
     <group-title>默认设置</group-title>
-    <swiper :list="list" height="180px"></swiper>
+    <swiper :list="list"></swiper>
+    <br/>
+    <br/>
+    <group-title>设置aspect-ratio, 将自动根据宽度计算高度</group-title>
+    <swiper :list="list3" style="width:85%;margin:0 auto;" :aspect-ratio="300/800"></swiper>
     <br/>
     <br/>
     <group-title>自动轮播</group-title>
@@ -68,6 +73,12 @@ const demoList2 = [
   'http://placeholder.qiniudn.com/800x300/8AEEB1/ffffff'
 ]
 
+const demoList3 = demoList2.map((one, index) => ({
+  url: 'javascript:',
+  img: one,
+  title: `image ${index}`
+}))
+
 export default {
   components: {
     Swiper,
@@ -83,11 +94,7 @@ export default {
   },
   methods: {
     setData: function (id) {
-      this.list1 = id === 1 ? demoList : demoList2.map((one, index) => ({
-        url: 'javascript:',
-        img: one,
-        title: `image ${index}`
-      }))
+      this.list1 = id === 1 ? demoList : demoList3
     },
     onIndexChange: function (index) {
       this.currentIndex = index
@@ -97,6 +104,7 @@ export default {
     return {
       list: demoList,
       list1: [],
+      list3: demoList3,
       disableLoadData: false,
       imgList: [],
       currentIndex: 0

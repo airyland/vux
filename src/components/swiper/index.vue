@@ -1,6 +1,6 @@
 <template>
   <div class="vux-slider">
-    <div class="vux-swiper" :style="swiperStyle">
+    <div class="vux-swiper" :style="{height: xheight}">
       <slot></slot>
       <div class="vux-swiper-item" v-for="item in list" @click="clickListItem(item)">
         <a :href="item.url">
@@ -24,15 +24,16 @@ export default {
     if (!(this.list && this.list.length === 0)) {
       this.render()
     }
+    this.xheight = this.getHeight()
   },
   methods: {
-    clickListItem: function (item) {
+    clickListItem (item) {
       this.$emit('on-click-list-item', JSON.parse(JSON.stringify(item)))
     },
-    buildBackgroundUrl: function (url) {
+    buildBackgroundUrl (url) {
       return `url(${url})`
     },
-    render: function () {
+    render () {
       this.swiper = new Swiper({
         container: this.$el,
         direction: this.direction,
@@ -40,22 +41,38 @@ export default {
         interval: this.interval,
         threshold: this.threshold,
         duration: this.duration,
-        height: this.height,
+        height: this.height || this._height,
         minMovingDistance: this.minMovingDistance
       })
       .on('swiped', (prev, current) => {
         this.current = current
       })
     },
-    rerender: function () {
+    rerender () {
       this.$nextTick(() => {
         this.current = 0
         this.destroy()
         this.render()
       })
     },
-    destroy: function () {
+    destroy () {
       this.swiper && this.swiper.destroy()
+    },
+    getHeight () {
+      // when list.length > 0, it's better to set height or ratio
+      const hasHeight = parseInt(this.height, 10)
+      if (hasHeight) return this.height
+      if (!hasHeight) {
+        if (this.list.length) {
+          if (this.aspectRatio) {
+            return this.$el.offsetWidth * this.aspectRatio + 'px'
+          } else {
+            return '180px'
+          }
+        } else {
+          return 'auto'
+        }
+      }
     }
   },
   props: {
@@ -94,6 +111,9 @@ export default {
       type: String,
       default: 'auto'
     },
+    aspectRatio: {
+      type: Number
+    },
     minMovingDistance: {
       type: Number,
       default: 0
@@ -101,14 +121,8 @@ export default {
   },
   data () {
     return {
-      current: 0
-    }
-  },
-  computed: {
-    swiperStyle () {
-      return {
-        height: this.height || 'auto'
-      }
+      current: 0,
+      xheight: 'auto'
     }
   },
   watch: {
