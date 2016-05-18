@@ -1,8 +1,13 @@
 <template>
   <div>
     <group-title>THX to: https://github.com/wechatui/swiper</group-title>
+    <group-title>list模式下，默认高度为180px, 如果设置aspect-ratio会根据宽度自动计算高度</group-title>
     <group-title>默认设置</group-title>
-    <swiper :list="list" height="180px"></swiper>
+    <swiper :list="list"></swiper>
+    <br/>
+    <br/>
+    <group-title>设置aspect-ratio, 将自动根据宽度计算高度</group-title>
+    <swiper :list="list3" style="width:85%;margin:0 auto;" :aspect-ratio="300/800" dots-position="center"></swiper>
     <br/>
     <br/>
     <group-title>自动轮播</group-title>
@@ -15,8 +20,10 @@
     </swiper>
     <br>
     <group-title>Async setting list data</group-title>
-    <swiper :list="list1" auto height="180px"></swiper>
-    <x-button @click="setData" type="primary" style="margin: 15px;" :disabled="disableLoadData">Load data</x-button>
+    <swiper :list="list1" auto height="180px" @on-index-change="onIndexChange"></swiper>
+    <p> current index: {{currentIndex}}</p>
+    <x-button @click="setData(1)" type="primary" style="margin: 10px 0;">Load list1</x-button>
+    <x-button @click="setData(2)" type="primary" style="margin: 10px 0;">Load list2</x-button>
     <br/>
     <br/>
     <group-title>引入swiper-item自定义item内容，用height定义高度</group-title>
@@ -47,18 +54,29 @@ import { Swiper, GroupTitle, SwiperItem, XButton, Divider } from '../components/
 
 const demoList =
 [{
-  url: 'http://mp.weixin.qq.com/s?__biz=MzAxNjU0MDYxMg==&ampmid=400385458&ampidx=1&ampsn=78f6b8d99715384bdcc7746596d88359&ampscene=19#wechat_redirect',
+  url: 'javascript:',
   img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
   title: '如何手制一份秋意的茶？'
 }, {
-  url: 'http://mp.weixin.qq.com/s?__biz=MzAxNjU0MDYxMg==&ampmid=400160890&ampidx=1&ampsn=29ef02af25793a11a3f6aec92bfb46c1&ampscene=19#wechat_redirect',
+  url: 'javascript:',
   img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
   title: '茶包VS原叶茶'
 }, {
-  url: 'http://mp.weixin.qq.com/s?__biz=MzAxNjU0MDYxMg==&ampmid=400094682&ampidx=1&ampsn=8231a2053b772b2108784fccc254d28c&ampscene=19#wechat_redirect',
+  url: 'javascript:',
   img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
   title: '播下茶籽，明春可发芽？'
 }]
+
+const demoList2 = [
+  'http://placeholder.qiniudn.com/800x300/FF3B3B/ffffff',
+  'http://placeholder.qiniudn.com/800x300/FFEF7D/ffffff',
+  'http://placeholder.qiniudn.com/800x300/8AEEB1/ffffff'
+]
+
+const demoList3 = demoList2.map((one, index) => ({
+  url: 'javascript:',
+  img: one
+}))
 
 export default {
   components: {
@@ -70,25 +88,25 @@ export default {
   },
   ready () {
     setTimeout(() => {
-      this.imgList = [
-        'http://placeholder.qiniudn.com/800x300/FF3B3B/ffffff',
-        'http://placeholder.qiniudn.com/800x300/FFEF7D/ffffff',
-        'http://placeholder.qiniudn.com/800x300/8AEEB1/ffffff'
-      ]
+      this.imgList = demoList2
     }, 5000)
   },
   methods: {
-    setData: function () {
-      this.list1 = demoList
-      this.disableLoadData = true
+    setData: function (id) {
+      this.list1 = id === 1 ? demoList : demoList3
+    },
+    onIndexChange: function (index) {
+      this.currentIndex = index
     }
   },
   data: function () {
     return {
       list: demoList,
       list1: [],
+      list3: demoList3,
       disableLoadData: false,
-      imgList: []
+      imgList: [],
+      currentIndex: 0
     }
   }
 }

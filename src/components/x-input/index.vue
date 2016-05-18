@@ -5,7 +5,7 @@
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
     <div class="weui_cell_bd weui_cell_primary">
-      <input class="weui_input" :style="inputStyle" :type="type" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" @blur="blur" v-el:input/>
+      <input class="weui_input" :style="inputStyle" :type="type" :pattern="pattern" placeholder="{{placeholder}}" v-model="value" :readonly="readonly" @blur="blur" v-el:input/>
     </div>
     <div class="weui_cell_ft">
       <icon type="clear" v-show="showClear && value" @click="clear"></icon>
@@ -51,6 +51,12 @@ export default {
     if (this.equalWith) {
       this.showClear = false
     }
+    if (this.required && !this.value) {
+      this.valid = false
+    }
+    if (this.isType === 'email') {
+      this.type = 'email'
+    }
   },
   mixins: [Base],
   components: {
@@ -69,6 +75,10 @@ export default {
       type: String,
       default: '',
       twoWay: true
+    },
+    readonly: {
+      type: Boolean,
+      default: false
     },
     keyboard: {
       type: String

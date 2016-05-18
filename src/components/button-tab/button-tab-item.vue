@@ -28,8 +28,8 @@ export default {
   computed: {
     class () {
       return {
-        'vux-button-group-current': this.selected, 
-        'no-border-right': this.shouldRemoveBorder,
+        'vux-button-group-current': this.selected,
+        'no-border-right': this.shouldRemoveBorder
       }
     },
     style () {

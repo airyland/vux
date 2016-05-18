@@ -6,7 +6,7 @@
     </div>
     <h1 class="x-header-title"><slot></slot></h1>
     <div class="x-header-right">
-      <a class="x-header-more" @click.preventDefault @click="$dispatch('on-click-more')" v-if="rightOptions.showMore"></a>
+      <a class="x-header-more" @click.preventDefault @click="$emit('on-click-more')" v-if="rightOptions.showMore"></a>
       <slot name="right"></slot>
     </div>
   </div>
@@ -37,7 +37,7 @@ export default {
   methods: {
     onClickBack: function () {
       if (this.leftOptions.preventGoBack) {
-        this.$dispatch('on-click-back')
+        this.$emit('on-click-back')
       } else {
         history.back()
       }

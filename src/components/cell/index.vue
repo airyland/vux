@@ -1,5 +1,5 @@
 <template>
-  <div class="weui_cell" :class="{'vux-tap-active': isLink}">
+  <div class="weui_cell" :class="{'vux-tap-active': isLink || !!link}" @click="onClick">
     <div class="weui_cell_hd">
       <slot name="icon"></slot>
     </div>
@@ -10,15 +10,16 @@
       </p>
       <inline-desc>{{inlineDesc}}</inline-desc>
     </div>
-    <div class="weui_cell_ft" :class="{'weui_cell_primary':primary==='content', 'with_arrow': isLink}">
-      {{{value}}}
+    <div class="weui_cell_ft vux-center-v" :class="{'weui_cell_primary':primary==='content', 'with_arrow': isLink || !!link}">
+      {{value}}
       <slot name="value"></slot>
     </div>
   </div>
 </template>
 
 <script>
-import InlineDesc from '../inline-desc/'
+import InlineDesc from '../inline-desc'
+import { go } from '../../libs/router'
 
 export default {
   components: {
@@ -31,22 +32,29 @@ export default {
     value: {
       type: String
     },
-    isLink: {
-      type: Boolean,
-      default: false
-    },
+    isLink: Boolean,
     inlineDesc: {
       type: String
     },
     primary: {
       type: String,
       default: 'title'
+    },
+    link: {
+      type: [String, Object]
+    }
+  },
+  methods: {
+    onClick () {
+      go(this.link, this.$router)
     }
   }
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/center.less';
+
 .vux-tap-active {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }

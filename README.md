@@ -1,3 +1,5 @@
+<h2 align="center">v0.1 will be released on 0601.</h2>
+
 <p align="center">
   <a href="http://vux.li">
     <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
@@ -216,5 +218,10 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 MIT
 
+## Donate
 
+It takes much time and energy to maintain and improve this project. It Vux helps you, you may want to buy me a coffee :).
 
+<p align="center">
+  <img src="https://o3e85j0cv.qnssl.com/vux_pay.png" width="450">
+</p>
