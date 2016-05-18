@@ -61,6 +61,7 @@ import { Tabbar, TabbarItem } from './tabbar'
 import Panel from './panel'
 import { ButtonTab, ButtonTabItem } from './button-tab'
 import InlineCalendar from './inline-calendar'
+import Badge from './badge'
 
 const vux = {
   Radio,
@@ -128,7 +129,8 @@ const vux = {
   Panel,
   ButtonTab,
   ButtonTabItem,
-  InlineCalendar
+  InlineCalendar,
+  Badge
 }
 
 module.exports = vux

@@ -1,7 +1,7 @@
 <template>
   <div class="weui_cell">
     <div class="weui_cell_bd weui_cell_primary">
-      <textarea class="weui_textarea" placeholder="{{placeholder}}" rows="3" v-model="value"></textarea>
+      <textarea class="weui_textarea" placeholder="{{placeholder}}" :rows="rows" :cols="cols" v-model="value" :style="textareaStyle"></textarea>
       <div class="weui_textarea_counter" v-show="showCounter && max"><span>{{count}}</span>/{{max}}</div>
     </div>
   </div>
@@ -22,10 +22,7 @@ export default {
       default: true
     },
     max: {
-      type: Number,
-      coerce: function (val) {
-        return val * 1
-      }
+      type: Number
     },
     value: {
       type: String,
@@ -35,7 +32,16 @@ export default {
     placeholder: {
       type: String,
       default: ''
-    }
+    },
+    rows: {
+      type: Number,
+      default: 3
+    },
+    cols: {
+      type: Number,
+      default: 30
+    },
+    height: Number
   },
   watch: {
     value: function (newVal) {
@@ -48,6 +54,13 @@ export default {
   computed: {
     count: function () {
       return this.value.length
+    },
+    textareaStyle () {
+      if (this.height) {
+        return {
+          height: `${this.height}px`
+        }
+      }
     }
   }
 }

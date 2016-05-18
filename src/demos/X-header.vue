@@ -2,6 +2,8 @@
   <div>
     <x-header>This is the page title.</x-header>
     <br>
+    <x-header :left-options="{showBack: false}">do not show Back</x-header>
+    <br>
     <x-header :right-options="{showMore: true}" @on-click-more="showMenus = true">with more menu</x-header>
     <br>
     <x-header>with right link<a slot="right">Feedback</a></x-header>
@@ -23,25 +25,6 @@ export default {
   components: {
     XHeader,
     Actionsheet
-  },
-  props: {
-    leftOptions: {
-      type: Object,
-      default () {
-        return {
-          showBackArrow: true,
-          backText: 'Back'
-        }
-      }
-    },
-    rightOptions: {
-      type: Object,
-      default () {
-        return {
-          showMore: false
-        }
-      }
-    }
   },
   data () {
     return {

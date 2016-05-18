@@ -1,5 +1,5 @@
 <template>
-  <div class="vux-tab-item" :class="[selected?activeClass:'', {'vux-tab-selected':selected}]" :style="{borderWidth:$parent.lineWidth+'px',borderColor:$parent.activeColor,color:selected ? $parent.activeColor : $parent.defaultColor, 'border': $parent.animate ? 'none' : 'auto'}" @click="tabClick()">
+  <div class="vux-tab-item" :class="[selected ? activeClass : '', {'vux-tab-selected': selected}]" :style="style" @click="tabClick">
     <slot></slot>
   </div>
 </template>
@@ -12,9 +12,7 @@ export default {
       required: false,
       default: false
     },
-    'activeClass': {
-      type: String
-    }
+    'activeClass': String
   },
   watch: {
     selected: function (val) {
@@ -26,6 +24,16 @@ export default {
   methods: {
     tabClick: function () {
       this.$parent.index = this.$el.getAttribute('data-index')
+    }
+  },
+  computed: {
+    style () {
+      return {
+        borderWidth: this.$parent.lineWidth + 'px',
+        borderColor: this.$parent.activeColor,
+        color: this.selected ? this.$parent.activeColor : this.$parent.defaultColor,
+        border: this.$parent.animate ? 'none' : 'auto'
+      }
     }
   }
 }

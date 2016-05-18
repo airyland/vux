@@ -99,6 +99,10 @@ export default {
       type: String,
       default: 'default',
       twoWay: true
+    },
+    enableHorizontalSwiping: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -180,6 +184,24 @@ export default {
       })
       this.pullup.on('statuschange', (val) => {
         this.pullupStatus = val.newVal
+      })
+    }
+
+    if (this.enableHorizontalSwiping) {
+      this._xscroll.on('panstart', (e) => {
+        if (e.direction === 2 || e.direction === 4) {
+          e.preventDefault()
+          if (this.scrollbarY) {
+            this._xscroll.userConfig.scrollbarY = false
+          }
+          this._xscroll.userConfig.lockY = true
+        }
+      })
+      this._xscroll.on('panend', () => {
+        if (this.scrollbarY) {
+          this._xscroll.userConfig.scrollbarY = true
+        }
+        this._xscroll.userConfig.lockY = false
       })
     }
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="weui_cells_title" v-if="title" :style="{color:titleColor}">{{title}}</div>
+    <div class="weui_cells_title" v-if="title" :style="{color:titleColor}" v-html="title"></div>
     <div class="weui_cells" :class="{'no_group_title':!title}">
       <slot></slot>
     </div>

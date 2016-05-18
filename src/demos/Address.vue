@@ -2,6 +2,7 @@
   <div>
     <group>
       <address :title="title" :value.sync="value" :list="addressData"></address>
+      <cell title="上面value值" :value="value | json"></cell>
       <address :title="title2" :value.sync="value2" raw-value :list="addressData"></address>
       <address title="二级省市" :value.sync="value3" raw-value :list="addressData"></address>
     </group>
@@ -11,13 +12,14 @@
 </template>
 
 <script>
-import { Group, Address, AddressChinaData, XButton } from '../components/'
+import { Group, Address, AddressChinaData, XButton, Cell } from '../components/'
 
 export default {
   components: {
     Group,
     Address,
-    XButton
+    XButton,
+    Cell
   },
   data () {
     return {

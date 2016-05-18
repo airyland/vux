@@ -3,5 +3,9 @@
     "button-tab",
     "timeline",
     "tabbar"
+  ],
+  "ignore": [
+    "style",
+    "test"
   ]
 }

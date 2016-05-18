@@ -13,7 +13,7 @@ import Number from './demos/Number'
 import Checklist from './demos/Checklist'
 import Selector from './demos/Selector'
 import Tip from './demos/Tip'
-import Button from './demos/Button'
+import XButton from './demos/X-button'
 import Textarea from './demos/Textarea'
 import Flexbox from './demos/Flexbox'
 import Tab from './demos/Tab'
@@ -66,6 +66,9 @@ import Tabbar from './demos/Tabbar'
 import Panel from './demos/Panel'
 import Reddot from './demos/Reddot'
 import ButtonTab from './demos/Button-tab'
+import ScrollerSwiper from './demos/Scroller-swiper'
+import Qrcode from './demos/Qrcode'
+import Badge from './demos/Badge'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -109,8 +112,8 @@ router.map({
   '/component/tip': {
     component: Tip
   },
-  '/component/button': {
-    component: Button
+  '/component/x-button': {
+    component: XButton
   },
   '/component/textarea': {
     component: Textarea
@@ -267,7 +270,20 @@ router.map({
   },
   '/component/button-tab': {
     component: ButtonTab
+  },
+  '/component/scroller-swiper': {
+    component: ScrollerSwiper
+  },
+  '/component/qrcode': {
+    component: Qrcode
+  },
+  '/component/badge': {
+    component: Badge
   }
+})
+
+router.on('/component/center', {
+  component: require('./demos/Center')
 })
 
 // save position for demo page

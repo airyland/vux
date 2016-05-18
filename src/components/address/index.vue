@@ -1,5 +1,5 @@
 <template>
-  <popup-picker :columns=3 :data="list" :title="title" :value.sync="value" show-name></popup-picker>
+  <popup-picker :columns=3 :data="list" :title="title" :value.sync="value" show-name :inline-desc="inlineDesc"></popup-picker>
 </template>
 
 <script>
@@ -28,7 +28,8 @@ export default {
     list: {
       type: Array,
       required: true
-    }
+    },
+    inlineDesc: String
   },
   beforeCompile () {
     if (this.value.length && this.rawValue) {

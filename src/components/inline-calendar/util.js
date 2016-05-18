@@ -42,7 +42,10 @@ export function getNextTime (year, month) {
 }
 
 function getTime (str) {
-  return new Date(str.replace(/-/g, '/')).getTime()
+  if (typeof str === 'number') {
+    return str
+  }
+  return typeof str === 'string' ? new Date(str.replace(/-/g, '/')).getTime() : str.getTime()
 }
 
 function isBetween (value, start, end) {
@@ -52,15 +55,24 @@ function isBetween (value, start, end) {
   return isGte && isLte
 }
 
-export function getDays ({year, month, value, isRange = false, rangeBegin, rangeEnd, returnSixRows = true}) {
+export function getDays ({year, month, value, isRange = false, rangeBegin, rangeEnd, returnSixRows = true, disablePast = false}) {
   let today = format(new Date(), 'YYYY-MM-DD')
 
   let _splitValue = splitValue(value || today)
 
   // if year or month is not specified, get them from value
-  if (typeof year !== 'number' || typeof month !== 'number') {
+  if (typeof year !== 'number' || typeof month !== 'number' || month < 0) {
     year = _splitValue.year
     month = _splitValue.month
+  }
+
+  // if disablePast === true
+  if (disablePast) {
+    if (!rangeBegin) {
+      rangeBegin = new Date()
+    } else {
+      rangeBegin = Math.max(new Date().getTime(), getTime(rangeBegin))
+    }
   }
 
   var firstDayOfMonth = new Date(year, month, 1).getDay()

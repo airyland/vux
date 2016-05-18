@@ -1,7 +1,7 @@
 <template>
   <div class="weui_cell weui_cell_switch">
     <div class="weui_cell_hd weui_cell_primary">
-      <label class="weui_label" :style="labelStyle">{{{title}}}</label>
+      <label class="weui_label" :style="labelStyle" v-html="title"></label>
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
     <div class="weui_cell_ft">

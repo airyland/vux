@@ -31,10 +31,19 @@ export default {
       }
     })
   },
+  data () {
+    return {
+      hasFirstShow: false
+    }
+  },
   watch: {
     show: function (val) {
       if (val) {
         this.popup.show()
+        if (!this.hasFirstShow) {
+          this.$emit('on-first-show')
+          this.hasFirstShow = true
+        }
       } else {
         this.popup.hide()
       }

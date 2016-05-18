@@ -1,17 +1,17 @@
 <template>
-  <div class="slider">
-    <div class="swiper" :style="{height: height+'px'}">
+  <div class="vux-slider">
+    <div class="vux-swiper" :style="{height: xheight}">
       <slot></slot>
-      <div class="item" v-for="item in list">
+      <div class="vux-swiper-item" v-for="item in list" @click="clickListItem(item)">
         <a :href="item.url">
-          <div class="img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
-          <p class="desc">{{item.title}}</p>
+          <div class="vux-img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
+          <p class="vux-swiper-desc">{{item.title}}</p>
         </a>
       </div>
     </div>
-    <div class="indicator" v-show="show_dots">
+    <div :class="['vux-indicator', 'vux-indicator-' + dotsPosition]" v-show="showDots && list.length > 1">
       <a href="javascript:" v-for="(index, item) in list">
-        <i class="icon_dot" :class="{'active':index === current}"></i>
+        <i class="vux-icon-dot" :class="{'active':index === current}"></i>
       </a>
     </div>
   </div>
@@ -24,42 +24,76 @@ export default {
     if (!(this.list && this.list.length === 0)) {
       this.render()
     }
+    this.xheight = this.getHeight()
   },
   methods: {
-    buildBackgroundUrl: function (url) {
+    clickListItem (item) {
+      this.$emit('on-click-list-item', JSON.parse(JSON.stringify(item)))
+    },
+    buildBackgroundUrl (url) {
       return `url(${url})`
     },
-    render: function () {
-      const _this = this
+    render () {
       this.swiper = new Swiper({
-        container: _this.$el,
-        direction: _this.direction,
-        auto: _this.auto,
-        interval: _this.interval,
-        threshold: _this.threshold,
-        duration: _this.duration,
-        height: _this.height
+        container: this.$el,
+        direction: this.direction,
+        auto: this.auto,
+        interval: this.interval,
+        threshold: this.threshold,
+        duration: this.duration,
+        height: this.height || this._height,
+        minMovingDistance: this.minMovingDistance
       })
-      .on('swiped', function (prev, current) {
-        _this.current = current
+      .on('swiped', (prev, current) => {
+        this.current = current
       })
     },
-    destroy: function () {
+    rerender () {
+      this.$nextTick(() => {
+        this.current = 0
+        this.destroy()
+        this.render()
+      })
+    },
+    destroy () {
       this.swiper && this.swiper.destroy()
+    },
+    getHeight () {
+      // when list.length > 0, it's better to set height or ratio
+      const hasHeight = parseInt(this.height, 10)
+      if (hasHeight) return this.height
+      if (!hasHeight) {
+        if (this.list.length) {
+          if (this.aspectRatio) {
+            return this.$el.offsetWidth * this.aspectRatio + 'px'
+          } else {
+            return '180px'
+          }
+        } else {
+          return 'auto'
+        }
+      }
     }
   },
   props: {
     list: {
       type: Array,
-      required: false
+      required: false,
+      default () {
+        return []
+      }
     },
     direction: {
       type: String,
       default: 'horizontal'
     },
-    show_dots: {
+    showDots: {
       type: Boolean,
       default: true
+    },
+    dotsPosition: {
+      type: String,
+      default: 'right'
     },
     auto: {
       type: Boolean,
@@ -78,89 +112,127 @@ export default {
       default: 300
     },
     height: {
+      type: String,
+      default: 'auto'
+    },
+    aspectRatio: {
+      type: Number
+    },
+    minMovingDistance: {
       type: Number,
-      default: 180
+      default: 0
     }
   },
   data () {
     return {
-      current: 0
+      current: 0,
+      xheight: 'auto'
     }
   },
   watch: {
-    list: function (val) {
-      this.destroy()
-      this.render()
+    list (val) {
+      this.rerender()
+    },
+    current (index) {
+      this.$emit('on-index-change', index)
     }
   },
   beforeDestroy () {
     this.destroy()
+  },
+  events: {
+    'swiper-item:created' () {
+      this.rerender()
+    }
   }
 }
 
 </script>
 
-<style type="text/css">
-.slider {
+<style lang="less">
+@pre: vux;
+
+.@{pre}-slider {
   overflow: hidden;
   position: relative;
-}
-.swiper {
-  overflow: hidden;
-  position: relative;
-}
-.swiper .item {
-  float: left;
-  position: relative;
-}
-.swiper .item a {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.swiper .item .img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: center center no-repeat;
-  background-size: cover;
-}
-.swiper .item .desc {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1.4em;
-  font-size: 16px;
-  padding: 20px 50px 12px 13px;
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .7) 100%);
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .7) 100%);
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-wrap: normal;
-}
-.indicator {
-  position: absolute;
-  right: 15px;
-  bottom: 10px;
-}
-.indicator a {
-  float: left;
-  margin-left: 6px;
-}
-.icon_dot {
-  display: inline-block;
-  vertical-align: middle;
-  width: 6px;
-  height: 6px;
-  border-radius: 3px;
-  background-color: #d0cdd1;
-}
-.icon_dot.active {
-  background-color: #04BE02;
+  
+  > .@{pre}-indicator, .@{pre}-indicator-right {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+
+    > a {
+      float: left;
+      margin-left: 6px;
+
+      > .@{pre}-icon-dot {
+        display: inline-block;
+        vertical-align: middle;
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        background-color: #d0cdd1;
+      }
+      > .@{pre}-icon-dot.active {
+        background-color: #04BE02;
+      }
+
+    }
+  }
+
+  > .@{pre}-indicator-center {
+    right: 50%;
+    transform: translateX(50%)
+  }
+
+  > .@{pre}-indicator-left {
+    left: 15px;
+    right: auto;
+  }
+  
+  > .@{pre}-swiper {
+    overflow: hidden;
+    position: relative;
+
+    > .@{pre}-swiper-item {
+      float: left;
+      position: relative;
+      height: 100%;
+
+      > a {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        > .@{pre}-img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: center center no-repeat;
+          background-size: cover;
+        }
+
+        > .@{pre}-swiper-desc {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 1.4em;
+          font-size: 16px;
+          padding: 20px 50px 12px 13px;
+          background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .7) 100%);
+          background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .7) 100%);
+          color: #fff;
+          text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
+          width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-wrap: normal;
+        }
+
+      }
+    }
+  }
 }
 </style>

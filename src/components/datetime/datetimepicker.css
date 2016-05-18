@@ -68,6 +68,10 @@
   z-index: 10000;
   background-color: #fff;
   display: none;
+  -webkit-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
 }
 
 .dp-mask {
