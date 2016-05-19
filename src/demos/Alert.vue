@@ -3,7 +3,7 @@
     <group>
       <switch title="Toggle" :value.sync="show"></switch>
     </group>
-    <alert :show.sync="show" title="congratulations">Message is sent successfully~</alert>
+    <alert :show.sync="show" title="congratulations" @on-show="onShow" @on-hide="onHide">Message is sent successfully~</alert>
   </div>
 </template>
 
@@ -19,6 +19,14 @@ export default {
   data () {
     return {
       show: false
+    }
+  },
+  methods: {
+    onHide () {
+      console.log('on hide')
+    },
+    onShow () {
+      console.log('on show')
     }
   }
 }

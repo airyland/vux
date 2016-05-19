@@ -1,15 +1,14 @@
 <template>
-  <cell :title="title" primary="content" is-link :inline-desc="inlineDesc">
-    <span class="vux-popup-picker-value" slot="value" @click="show=true" v-if="!showName">{{value | array2string}}</span>
-    <span class="vux-popup-picker-value" slot="value" @click="show=true" v-else>{{value | value2name data}}</span>
+  <cell :title="title" primary="content" is-link :inline-desc="inlineDesc" @click="onClick">
+    <span class="vux-popup-picker-value" slot="value" v-if="!showName">{{value | array2string}}</span>
+    <span class="vux-popup-picker-value" slot="value" v-else>{{value | value2name data}}</span>
   </cell>
-
   <popup :show.sync="show" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid">
     <div class="vux-container">
       <div class="vux-header">
         <flexbox>
-          <flexbox-item style="text-align:left;padding-left:15px;line-height:44px;" @click="show=false">取消</flexbox-item>
-          <flexbox-item style="text-align:right;padding-right:15px;line-height:44px;" @click="show=false">完成</flexbox-item>
+          <flexbox-item style="text-align:left;padding-left:15px;line-height:44px;" @click="onHide(false)">取消</flexbox-item>
+          <flexbox-item style="text-align:right;padding-right:15px;line-height:44px;" @click="onHide(true)">完成</flexbox-item>
         </flexbox>
       </div>
       <picker :data="data" :value.sync="value" :columns="columns" :container="'#vux-popup-picker-'+uuid"></picker>
@@ -25,10 +24,10 @@ import Flexbox from '../flexbox'
 import FlexboxItem from '../flexbox-item'
 import array2string from '../../filters/array2String'
 import value2name from '../../filters/value2name'
-import Base from '../../libs/base'
+import uuidMixin from '../../libs/mixin_uuid'
 
 export default {
-  mixins: [Base],
+  mixins: [uuidMixin],
   components: {
     Picker,
     Cell,
@@ -66,6 +65,14 @@ export default {
       default: false
     },
     inlineDesc: String
+  },
+  methods: {
+    onClick () {
+      this.show = true
+    },
+    onHide (type) {
+      this.show = false
+    }
   },
   data () {
     return {

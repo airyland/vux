@@ -39,17 +39,28 @@
       </x-input>
     </group>
 
+    <group title="check if value is valid when required===true">
+      <x-input title="message" placeholder="I'm placeholder" v-ref:input></x-input>
+      <cell title="get valid value" :value="'$valid value:' + $refs.input.valid"></cell>
+    </group>
+
+     <group title="check if value is valid when required===false">
+      <x-input title="message" placeholder="I'm placeholder" :required="false" v-ref:input02></x-input>
+      <cell title="get valid value" :value="'$valid value:' + $refs.input02.valid"></cell>
+    </group>
+
   </div>
 </template>
 
 <script>
-import { XInput, Group, XButton } from '../components/'
+import { XInput, Group, XButton, Cell } from '../components/'
 
 export default {
   components: {
     XInput,
     XButton,
-    Group
+    Group,
+    Cell
   },
   data: function () {
     return {

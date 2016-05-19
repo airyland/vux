@@ -1,5 +1,5 @@
 <template>
-  <div class="item"><slot></slot></div>
+  <div class="vux-swiper-item"><slot></slot></div>
 </template>
 
 <script>

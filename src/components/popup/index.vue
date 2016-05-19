@@ -13,10 +13,6 @@ export default {
       default: false,
       twoWay: true
     },
-    hasFirstShow: {
-      type: Boolean,
-      default: false
-    },
     height: {
       type: String,
       default: 'auto'
@@ -34,6 +30,11 @@ export default {
         _this.show = false
       }
     })
+  },
+  data () {
+    return {
+      hasFirstShow: false
+    }
   },
   watch: {
     show: function (val) {

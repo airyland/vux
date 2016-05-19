@@ -14,8 +14,33 @@
 				<p>2016-04-15 9:00:00</p>
 			</timeline-item>
 		</timeline>
+		<timeline>
+			<timeline-item v-for="i in count">
+				<h4 :class="[i === 0 ? 'recent' : '']">Timeline Node {{i + 1}}</h4>
+				<p :class="[i === 0 ? 'recent' : '']">index {{i + 1}}</p>
+			</timeline-item>
+		</timeline>
+    <x-button type="primary" @click="count = 6"> Set to 6 nodes</x-button>
+    <x-button type="primary" @click="count = 3"> Set to 3 nodes</x-button>
 	</div>
 </template>
+
+<script>
+import { Timeline, TimelineItem, XButton } from '../components'
+
+export default {
+  components: {
+    Timeline,
+    TimelineItem,
+    XButton
+  },
+  data () {
+    return {
+      count: 3
+    }
+  }
+}
+</script>
 
 <style lang="less">
 	.timeline-demo {
@@ -31,20 +56,8 @@
 		}
 
 		.recent {
-			color: #008DBC;
+			color: rgb(4, 190, 2)
 		}
 
 	}
 </style>
-
-<script>
-import { Timeline, TimelineItem } from '../components/timeline'
-
-export default {
-  components: {
-    Timeline,
-    TimelineItem
-  }
-}
-</script>
-

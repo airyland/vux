@@ -51,11 +51,6 @@ PickerDialog.prototype._bindEvents = function () {
     _this.emit('close')
   }
   Tap.tap(this.mask, triggerClick)
-  this.container.addEventListener('touchmove', function (e) {
-    e.stopPropagation()
-    e.preventDefault()
-    return false
-  }, false)
   return this
 }
 
@@ -84,4 +79,4 @@ PickerDialog.prototype.destroy = function () {
   this.mask && this.mask.parentNode && this.mask.parentNode.removeChild(this.mask)
 }
 
-module.exports = PickerDialog
+export default PickerDialog

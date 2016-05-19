@@ -1,33 +1,40 @@
 <template>
-  <a href="javascript:" class="weui_btn" :class="{'weui_btn_disabled':disabled, 'weui_btn_mini': mini, 'weui_btn_primary':type==='primary', 'weui_btn_warn':type==='warn', 'weui_btn_default':type==='default'}">
+  <button class="weui_btn" :class="classes" :disabled="disabled">
     {{text}}<slot></slot>
-  </a>
+  </button>
 </template>
 
 <script>
 export default {
   props: {
     type: {
-      required: false,
       default: 'default'
     },
     disabled: {
       type: Boolean,
-      required: false,
       default: false
     },
     mini: {
       type: Boolean,
-      required: false,
       default: false
     },
-    text: {
-      type: String,
-      required: false
+    plain: {
+      type: Boolean,
+      default: false
+    },
+    text: String
+  },
+  computed: {
+    classes () {
+      return [
+        {
+          weui_btn_disabled: this.disabled,
+          weui_btn_mini: this.mini
+        },
+        `weui_btn_${this.type}`,
+        this.plain ? `weui_btn_plain_${this.type}` : ''
+      ]
     }
   }
 }
 </script>
-
-<style>
-</style>

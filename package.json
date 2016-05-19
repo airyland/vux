@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "0.0.116",
+  "version": "0.0.117",
   "description": "Mobile web UI based on Vue and Weui",
   "keywords": [
     "vux",
@@ -39,6 +39,7 @@
     "lodash.indexof": "^4.0.1",
     "lodash.map": "^4.2.1",
     "lodash.shuffle": "^4.0.0",
+    "qr.js": "0.0.0",
     "shake.js": "^1.2.2",
     "validator": "^5.1.0",
     "vux-xscroll": "^3.1.4",
