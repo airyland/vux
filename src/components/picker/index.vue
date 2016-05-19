@@ -59,7 +59,6 @@ export default {
       if (!data || !data.length) {
         return
       }
-
       let count = this.data.length
       // set first item as value
       if (value.length < count) {
@@ -148,13 +147,21 @@ export default {
       }
     },
     data (newData) {
-      this.$nextTick(() => {
-        this.render(newData, this.value)
-        // emit on-change after rerender
+      if (Object.prototype.toString.call(newData[0]) === '[object Array]') {
         this.$nextTick(() => {
-          this.$emit('on-change', this.getValue())
+          this.render(newData, this.value)
+          // emit on-change after rerender
+          this.$nextTick(() => {
+            this.$emit('on-change', this.getValue())
+          })
         })
-      })
+      } else {
+        if (this.columns !== 0) {
+          const length = this.columns
+          this.store = new Manager(newData, length)
+          this.data = this.store.getColumns(this.value)
+        }
+      }
     }
   },
   beforeDestroy () {

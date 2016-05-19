@@ -29,6 +29,7 @@
     <picker :data='year7' :columns=3 :value.sync='year7Value' @on-change='change'></picker>
     <x-button @click="setData1" type="primary">set Value to ["USA", "usa002", "0005"]</x-button>
     <x-button @click="setData2" type="primary">set Value to ["china", "china002", "gz"]</x-button>
+    <x-button @click="setList" type="primary">set List</x-button>
   </div>
 </template>
 
@@ -64,6 +65,13 @@ export default {
     },
     setData2: function () {
       this.year7Value = ['china', 'china002', 'gz']
+    },
+    setList () {
+      this.year7.push({
+        name: '美国002_003',
+        value: '0007',
+        parent: 'usa002'
+      })
     }
   },
   computed: {},
