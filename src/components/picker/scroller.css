@@ -58,3 +58,9 @@
   background-size: 100% 1px;
   background-repeat: no-repeat;
 }
+.scroller-item {
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
