@@ -1,44 +1,58 @@
 <template>
-  <div>{{value}}</div>
+  <cell :title="title" primary="content" :value="value" @click="onClick" is-link></cell>
+  <popup :show.sync="show">
+    <inline-calendar
+    :value.sync="value"
+    @on-change="onSelect"
+    :render-month="renderMonth"
+    :start-date="startDate",
+    :end-date="endDate"
+    :show-last-month="showLastMonth"
+    :show-next-month="showNextMonth"
+    :highlight-weekend="highlightWeekend"
+    :return-six-rows="returnSixRows"
+    :hide-header="hideHeader"
+    :hideWeek-list="hideWeekList"
+    :replace-text-list="replaceTextList"
+    :weeks-list="weeksList"
+    :custom-slot-fn="customSlotFn"
+    :render-on-value-change="renderOnValueChange"
+    :disable-past="disablePast"
+    ></inline-calendar>
+  </popup>
 </template>
 
 <script>
-import Calendar from './calendar.js'
+import InlineCalendar from '../inline-calendar'
+import Popup from '../popup'
+import Cell from '../cell'
+import props from '../inline-calendar/props'
+
+const Props = props()
+Props.title = {
+  type: String,
+  required: true
+}
+
 export default {
-  ready () {
-    const _this = this
-    this.calendar = new Calendar({
-      trigger: _this.$el,
-      hours: _this.hours,
-      disablePast: _this.disablePast,
-      dateList: _this.dateList
-    })
-    this.calendar.on('change', function (val) {
-      _this.value = val
-      _this.$dispatch('on-change', val)
-    })
+  components: {
+    InlineCalendar,
+    Popup,
+    Cell
   },
-  props: {
-    value: {
-      type: String,
-      required: true,
-      twoWay: true
+  props: Props,
+  methods: {
+    onClick () {
+      this.show = true
     },
-    hours: {
-      type: Boolean,
-      default: false
-    },
-    disablePast: {
-      type: Boolean,
-      default: false
-    },
-    dateList: {
-      type: Array
+    onSelect () {
+      this.show = false
+    }
+  },
+  data () {
+    return {
+      show: false
     }
   }
 }
 </script>
-
-<style>
-@import './calendar.css';
-</style>

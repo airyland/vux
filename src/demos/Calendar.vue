@@ -1,20 +1,10 @@
 <template>
   <div>
-    <group title="English">
-      <cell title="Default" primary="content">
-        <calendar slot="value" :value.sync="demo1"></calendar>
-      </cell>
-      <cell title="select hours" primary="content">
-        <calendar slot="value" :value.sync="demo2" hours></calendar>
-      </cell>
-      <cell title="disable past date" primary="content">
-        <calendar slot="value" :value.sync="demo3" disable-past></calendar>
-      </cell>
+    <group title="default">
+      <calendar :value.sync="demo1" title="Calendar" disable-past></calendar>
     </group>
-    <group title="中文">
-      <cell title="中文星期" primary="content">
-        <calendar slot="value" :value.sync="demo4" :date-list="dateList" disable-past></calendar>
-      </cell>
+    <group title="set value as TODAY">
+      <calendar :value.sync="demo2" title="Calendar" disable-past></calendar>
     </group>
   </div>
 </template>
@@ -30,11 +20,8 @@ export default {
   },
   data () {
     return {
-      demo1: 'Select date',
-      demo2: 'date and hour',
-      demo3: 'Select date',
-      demo4: '请选择',
-      dateList: ['日', '一', '二', '三', '四', '五', '六']
+      demo1: '',
+      demo2: 'TODAY'
     }
   }
 }
