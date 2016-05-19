@@ -1,22 +1,58 @@
 <template>
   <div>
-    <group>
+    <group title="single column">
       <popup-picker :title="title1" :data="list1" :value.sync="value1"></popup-picker>
+    </group>
+    <br>
+    <div class="picker-buttons">
+      <x-button type="primary" @click="changeList10">重新赋值列表</x-button>
+      <x-button type="primary" @click="changeList11">push方式更改列表</x-button>
+    </div>
+    <group title="double columns">
       <popup-picker :title="title2" :data="list2" :value.sync="value2"></popup-picker>
+    </group>
+    <br>
+
+    <group title="chained columns">
       <popup-picker :title="title3" :data="list3" :columns="3" :value.sync="value3"></popup-picker>
       <popup-picker :title="title4" :data="list3" :columns="3" :value.sync="value4" show-name></popup-picker>
     </group>
+
+    <br>
+    <div class="picker-buttons">
+      <x-button type="primary" @click="changeList21">push方式更改列表</x-button>
+    </div>
+
   </div>
 </template>
 
 <script>
-import { PopupPicker, Group, Picker } from '../components'
+import { PopupPicker, Group, Picker, XButton } from '../components'
 
 export default {
   components: {
     PopupPicker,
     Group,
-    Picker
+    Picker,
+    XButton
+  },
+  methods: {
+    changeList10 () {
+      this.list1 = [['小米1', 'iPhone1', '华为1', '情怀1', '三星1', '其他1', '不告诉你1']]
+    },
+    changeList11 () {
+      this.list1[0].push('我是push条目')
+    },
+    changeList20 () {
+
+    },
+    changeList21 () {
+      this.list3.push({
+        name: '美国002_007',
+        value: '0007',
+        parent: 'usa002'
+      })
+    }
   },
   data () {
     return {
@@ -91,3 +127,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.picker-buttons {
+  margin: 0 15px;
+}
+</style>
+
