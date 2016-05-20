@@ -9,7 +9,9 @@
 <script>
 </script>
 
-<style>
+<style lang="less">
+@import 'styles/index.less';
+
 body {
   font-family: Helvetica, sans-serif;
   background-color: #fbf9fe;

@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../variable.less';
+@import '../../styles/variable.less';
 
 .vux-button-group {
   & {

@@ -100,8 +100,8 @@ export default {
 }
 </script>
 
-<style>
-@import '../components/1px.css';
+<style lang="less">
+@import '../styles/1px.less';
 
 .flex-demo {
   text-align: center;
