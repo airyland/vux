@@ -174,6 +174,7 @@ export default {
       // if use slot=pullup
       let container = this.$el.querySelector('div[slot="pullup"]')
       let config = Object.assign(pullupDefaultConfig(), this.pullupConfig)
+
       if (container) {
         config.container = container
       }
@@ -227,7 +228,9 @@ export default {
       }
     },
     'pullup:done': function (uuid) {
-      this._xscroll.unplug(this.pullup)
+      if (uuid === this.uuid) {
+        this._xscroll.unplug(this.pullup)
+      }
     },
     'scroller:reset': function (uuid) {
       if (uuid === this.uuid) {
