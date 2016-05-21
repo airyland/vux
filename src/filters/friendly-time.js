@@ -1,5 +1,5 @@
 export default function (time) {
-  let date = (typeof time === 'number') ? new Date(time) : new Date((time || '').replace(/-/g, '/').replace(/[TZ]/g, ' '))
+  let date = (typeof time === 'number') ? new Date(time) : new Date((time || '').replace(/-/g, '/'))
   let diff = (((new Date()).getTime() - date.getTime()) / 1000)
   let dayDiff = Math.floor(diff / 86400)
 
@@ -8,7 +8,7 @@ export default function (time) {
   if (!isValidDate) {
     console.error('not a valid date')
   }
-  var formatDate = function (date) {
+  const formatDate = function (date) {
     let today = new Date(date)
     let year = today.getFullYear()
     let month = ('0' + (today.getMonth() + 1)).slice(-2)

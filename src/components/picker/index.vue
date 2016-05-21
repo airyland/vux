@@ -27,7 +27,9 @@ export default {
     }
   },
   ready () {
-    this.render(this.data, this.value)
+    this.$nextTick(() => {
+      this.render(this.data, this.value)
+    })
   },
   props: {
     data: {
@@ -48,16 +50,15 @@ export default {
     }
   },
   methods: {
-    getId: function (i) {
+    getId (i) {
       return `#vux-picker-${this.uuid}-${i}`
     },
-    render: function (data, value) {
+    render (data, value) {
       this.count = this.data.length
       const _this = this
-      if (!data) {
+      if (!data || !data.length) {
         return
       }
-
       let count = this.data.length
       // set first item as value
       if (value.length < count) {
@@ -72,9 +73,9 @@ export default {
           data: data[i],
           defaultValue: value[i] || data[i][0].value,
           itemClass: _this.item_class,
-          onSelect: function (value) {
+          onSelect (value) {
             _this.value.$set(i, value)
-            _this.$dispatch('on-change', _this.getValue())
+            _this.$emit('on-change', _this.getValue())
             if (_this.columns !== 0) {
               _this.renderChain(i + 1)
             }
@@ -85,7 +86,7 @@ export default {
         }
       }
     },
-    renderChain: function (i) {
+    renderChain (i) {
       if (this.columns === 0) {
         return
       }
@@ -103,7 +104,7 @@ export default {
       this.scroller[i] = new Scroller(ID, {
         data: list,
         itemClass: _this.item_class,
-        onSelect: function (value) {
+        onSelect (value) {
           _this.value.$set(i, value)
           _this.$dispatch('on-change', _this.getValue())
           _this.renderChain(i + 1)
@@ -112,7 +113,7 @@ export default {
       this.value.$set(i, list[0].value)
       this.renderChain(i + 1)
     },
-    getValue: function () {
+    getValue () {
       let data = []
       for (var i = 0; i < this.data.length; i++) {
         data.push(this.scroller[i].value)
@@ -128,7 +129,7 @@ export default {
     }
   },
   watch: {
-    value: function (val, oldVal) {
+    value (val, oldVal) {
       // render all the scroller for chain datas
       if (this.columns !== 0) {
         if (val !== oldVal) {
@@ -144,9 +145,26 @@ export default {
           }
         }
       }
+    },
+    data (newData) {
+      if (Object.prototype.toString.call(newData[0]) === '[object Array]') {
+        this.$nextTick(() => {
+          this.render(newData, this.value)
+          // emit on-change after rerender
+          this.$nextTick(() => {
+            this.$emit('on-change', this.getValue())
+          })
+        })
+      } else {
+        if (this.columns !== 0) {
+          const length = this.columns
+          this.store = new Manager(newData, length)
+          this.data = this.store.getColumns(this.value)
+        }
+      }
     }
   },
-  beforeDestroy: function () {
+  beforeDestroy () {
     for (let i = 0; i < this.count; i++) {
       this.scroller[i].destroy()
       this.scroller[i] = null
@@ -157,10 +175,5 @@ export default {
 
 <style>
 @import './scroller.css';
-
-.scroller-item {
-  line-clamp: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 </style>
+

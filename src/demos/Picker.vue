@@ -1,8 +1,14 @@
 <template>
   <div>
-    <br>
     <group-title>默认，不设置默认值时选中第一个</group-title>
     <picker :data='years' :value.sync='year1' @on-change='change'></picker>
+    <br>
+    <group-title>异步加载及动态改变数据</group-title>
+    <picker :data='years001' :value.sync='year001' @on-change='change'></picker>
+    <br>
+    <x-button type="primary" @click="changeValue([[1,3,5,7,9,11],[2,3,4,5],['a','b','c']])">Set Data1</x-button>
+    <x-button type="primary" @click="changeValue([[1,3,5,7,9,11],[2,3,4,5]])">Set Data1</x-button>
+    <x-button type="primary" @click="changeValue([[2,4,6,8,10,11]])">Set Data2</x-button>
     <br>
     <group-title>设置默认值时</group-title>
     <picker :data='years' :value.sync='year2' @on-change='change'></picker>
@@ -23,6 +29,7 @@
     <picker :data='year7' :columns=3 :value.sync='year7Value' @on-change='change'></picker>
     <x-button @click="setData1" type="primary">set Value to ["USA", "usa002", "0005"]</x-button>
     <x-button @click="setData2" type="primary">set Value to ["china", "china002", "gz"]</x-button>
+    <x-button @click="setList" type="primary">set List</x-button>
   </div>
 </template>
 
@@ -44,6 +51,9 @@ export default {
     XButton
   },
   methods: {
+    changeValue: function (value) {
+      this.years001 = value
+    },
     change: function (value) {
       console.log('new Value', value)
     },
@@ -55,6 +65,13 @@ export default {
     },
     setData2: function () {
       this.year7Value = ['china', 'china002', 'gz']
+    },
+    setList () {
+      this.year7.push({
+        name: '美国002_003',
+        value: '0007',
+        parent: 'usa002'
+      })
     }
   },
   computed: {},
@@ -73,6 +90,8 @@ export default {
   data: function () {
     return {
       years: [years],
+      years001: [],
+      year001: [''],
       years1: [years, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]],
       year1: [''],
       year2: ['2002'],

@@ -36,10 +36,9 @@ import Confirm from './confirm/'
 import Progress from './progress/'
 import XImg from './x-img/'
 import Spinner from './spinner/'
-import Calendar from './calendar/'
+import Calendar from './calendar'
 import Icon from './icon/'
 import Circle from './circle/'
-import Style from './Style'
 import ColorPicker from './color-picker/'
 import AddressChinaData from './address/list.json'
 import Divider from './divider/'
@@ -105,7 +104,6 @@ const vux = {
   Calendar,
   Icon,
   Circle,
-  Style,
   ColorPicker,
   AddressChinaData,
   Divider,

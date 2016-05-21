@@ -41,75 +41,10 @@
 <script>
 import format from '../datetime/format'
 import { getDays, zero } from './util'
+import props from './props'
 
 export default {
-  props: {
-    value: {
-      type: String,
-      twoWay: true,
-      default: ''
-    },
-    renderMonth: {
-      type: Array, // [2018, 8]
-      default () {
-        return [null, null]
-      }
-    },
-    startDate: {
-      type: String
-    },
-    endDate: {
-      type: String
-    },
-    showLastMonth: {
-      type: Boolean,
-      default: true
-    },
-    showNextMonth: {
-      type: Boolean,
-      default: true
-    },
-    highlightWeekend: {
-      type: Boolean,
-      default: false
-    },
-    returnSixRows: {
-      type: Boolean,
-      default: true
-    },
-    hideHeader: {
-      type: Boolean,
-      default: false
-    },
-    hideWeekList: {
-      type: Boolean,
-      default: false
-    },
-    replaceTextList: {
-      type: Object,
-      default () {
-        return {}
-      }
-    },
-    weeksList: {
-      type: Array,
-      coerce: function (val) {
-        return val && val.length ? val : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
-      }
-    },
-    customSlotFn: {
-      type: Function,
-      default: () => ''
-    },
-    renderOnValueChange: {
-      type: Boolean,
-      default: true
-    },
-    disablePast: {
-      type: Boolean,
-      default: false
-    }
-  },
+  props: props(),
   data: function () {
     return {
       year: 0,
@@ -141,6 +76,7 @@ export default {
       } else {
         this.render(this.year, this.month, this.value)
       }
+      this.$emit('on-change', val)
     },
     returnSixRows (val) {
       this.render(this.year, this.month, this.value)

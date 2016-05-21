@@ -132,6 +132,7 @@ DatetimePicker.prototype = {
     })
 
     setTimeout(function () {
+      self.container.style['-webkit-transform'] = 'translateY(0)'
       self.container.style.transform = 'translateY(0)'
     }, 0)
   },
