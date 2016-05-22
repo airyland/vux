@@ -6,3 +6,4 @@ npm-debug.log
 dist/
 build/milestone.json
 examples/webpack/
+.idea
