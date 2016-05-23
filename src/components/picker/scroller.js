@@ -71,7 +71,7 @@ var Scroller = function (container, options) {
   self.__setDimensions(component.clientHeight, content.offsetHeight)
 
   if (component.clientHeight === 0) {
-    self.__setDimensions(238, 204)
+    self.__setDimensions(parseInt(getComputedStyle(component, 'height'), 10), 204)
   }
   self.select(self.options.defaultValue, false)
 
