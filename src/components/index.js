@@ -47,6 +47,7 @@ import Countup from './countup/'
 import Scroller from './scroller/'
 import Shake from './shake/'
 import WechatEmotion from './wechat-emotion/'
+import WechatShare from './wechat-share/'
 import Search from './search'
 import DateFormatter from './datetime/format'
 import Masker from './masker'
@@ -112,6 +113,7 @@ const vux = {
   Scroller,
   Shake,
   WechatEmotion,
+  WechatShare,
   Search,
   DateFormatter,
   Masker,
