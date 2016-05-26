@@ -194,6 +194,12 @@
       <cell title="Calendar" link="component/calendar"></cell>
     </group>
 
+    <group title="Wechat" title-color="#04be02">
+      <cell title="微信分享页面" is-link v-link="'component/wechat-share'">
+        <span class="demo-icon" slot="icon">&#xe600;</span>
+      </cell>
+    </group>
+
     <group title="Demo" title-color="#04be02">
       <cell title="微信设置页面" link="demo/wechat">
         <span class="demo-icon" slot="icon">&#xe600;</span>

@@ -32,6 +32,8 @@
   "main": "vux.js",
   "dependencies": {
     "blazy": "^1.5.2",
+    "co": "^4.6.0",
+    "co-wechat-api": "^2.3.2",
     "countup": "^1.6.1",
     "eslint": "^2.5.1",
     "lodash.filter": "^4.2.1",
@@ -43,7 +45,8 @@
     "shake.js": "^1.2.2",
     "validator": "^5.1.0",
     "vux-xscroll": "^3.1.4",
-    "webp-support": "^1.0.3"
+    "webp-support": "^1.0.3",
+    "weixin-js-sdk": "^1.0.7"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
