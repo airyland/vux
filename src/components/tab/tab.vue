@@ -6,26 +6,15 @@
 </template>
 
 <script>
+import { parentMixin } from '../../mixins/multi-items'
+
 export default {
+  mixins: [parentMixin],
   ready () {
-    this.updateIndex()
     // stop bar anmination on first loading
     setTimeout(() => {
       this.hasReady = true
     }, 0)
-  },
-  methods: {
-    updateIndex () {
-      if (!this.$children) return
-      this.number = this.$children.length
-      let children = this.$children
-      for (let i = 0; i < children.length; i++) {
-        children[i].index = i
-        if (children[i].selected) {
-          this.index = i
-        }
-      }
-    }
   },
   props: {
     lineWidth: {
@@ -78,9 +67,7 @@ export default {
     return {
       direction: 'forward',
       right: '100%',
-      index: -1,
-      hasReady: false,
-      number: this.$children.length
+      hasReady: false
     }
   }
 }
