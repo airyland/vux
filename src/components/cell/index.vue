@@ -27,16 +27,10 @@ export default {
     InlineDesc
   },
   props: {
-    title: {
-      type: String
-    },
-    value: {
-      type: String
-    },
+    title: String,
+    value: String,
     isLink: Boolean,
-    inlineDesc: {
-      type: String
-    },
+    inlineDesc: String,
     primary: {
       type: String,
       default: 'title'
@@ -54,10 +48,5 @@ export default {
 </script>
 
 <style lang="less">
-.vux-tap-active {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-.vux-tap-active:active {
-  background-color: #ECECEC;
-}
+@import '../../styles/tap.less';
 </style>
