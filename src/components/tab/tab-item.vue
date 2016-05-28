@@ -13,6 +13,18 @@ export default {
     },
     activeClass: String
   },
+  ready () {
+    this.$parent.updateIndex()
+    if (this.selected) {
+      this.tabClick()
+    }
+  },
+  beforeDestroy () {
+    const $parent = this.$parent
+    this.$nextTick(() => {
+      $parent.updateIndex()
+    })
+  },
   watch: {
     selected (val) {
       if (val) {
@@ -22,7 +34,7 @@ export default {
   },
   methods: {
     tabClick () {
-      this.$parent.index = this.$el.getAttribute('data-index')
+      this.$parent.index = this.index
     }
   },
   computed: {
@@ -33,6 +45,11 @@ export default {
         color: this.selected ? this.$parent.activeColor : this.$parent.defaultColor,
         border: this.$parent.animate ? 'none' : 'auto'
       }
+    }
+  },
+  data () {
+    return {
+      index: -1
     }
   }
 }

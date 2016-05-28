@@ -1,5 +1,5 @@
 <template>
-  <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': selected}" @click="onClick">
+  <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': $parent.index === index}" @click="onClick">
     <div class="weui_tabbar_icon" :class="{'vux-reddot': showDot}">
       <slot name="icon"></slot>
     </div>
@@ -21,15 +21,24 @@ export default {
       default: false
     }
   },
+  ready () {
+    this.$parent.updateIndex()
+  },
+  beforeDestroy () {
+    const $parent = this.$parent
+    this.$nextTick(() => {
+      $parent.updateIndex()
+    })
+  },
   methods: {
     onClick () {
-      this.$emit('on-item-click', this.$el.getAttribute('data-index'))
       this.selected = true
+      this.$parent.index = this.index
     }
   },
-  events: {
-    'on-item-click' (dataIndex) {
-      this.selected = this.$el.getAttribute('data-index') === dataIndex
+  data () {
+    return {
+      index: -1
     }
   }
 }

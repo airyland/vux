@@ -7,18 +7,24 @@
 <script>
 export default {
   ready () {
-    const tabList = this.$el.querySelectorAll('.weui_tabbar_item')
-    this.tabNumber = tabList.length
-    let n = 0
-    for (let i of tabList) {
-      i.setAttribute('data-index', n)
-      n++
+    this.updateIndex()
+  },
+  methods: {
+    updateIndex () {
+      if (!this.$children) return
+      this.number = this.$children.length
+      let children = this.$children
+      for (let i = 0; i < children.length; i++) {
+        children[i].index = i
+        if (children[i].selected) {
+          this.index = i
+        }
+      }
     }
   },
-  events: {
-    'on-item-click' (index) {
-      this.$broadcast('on-item-click', index)
-      return true
+  data () {
+    return {
+      index: 0
     }
   }
 }

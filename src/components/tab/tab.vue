@@ -8,20 +8,24 @@
 <script>
 export default {
   ready () {
-    const tabList = this.$el.querySelectorAll('.vux-tab-item')
-    this.tabNumber = tabList.length
-    let n = 0
-    for (let i of tabList) {
-      if (i.classList.contains('vux-tab-selected')) {
-        this.index = n
-      }
-      i.setAttribute('data-index', n)
-      n++
-    }
+    this.updateIndex()
     // stop bar anmination on first loading
     setTimeout(() => {
       this.hasReady = true
     }, 0)
+  },
+  methods: {
+    updateIndex () {
+      if (!this.$children) return
+      this.number = this.$children.length
+      let children = this.$children
+      for (let i = 0; i < children.length; i++) {
+        children[i].index = i
+        if (children[i].selected) {
+          this.index = i
+        }
+      }
+    }
   },
   props: {
     lineWidth: {
@@ -43,10 +47,10 @@ export default {
   },
   computed: {
     barLeft () {
-      return `${this.index * (100 / this.tabNumber)}%`
+      return `${this.index * (100 / this.number)}%`
     },
     barRight () {
-      return `${(this.tabNumber - this.index - 1) * (100 / this.tabNumber)}%`
+      return `${(this.number - this.index - 1) * (100 / this.number)}%`
     },
     barStyle () {
       return {
@@ -75,7 +79,8 @@ export default {
       direction: 'forward',
       right: '100%',
       index: -1,
-      hasReady: false
+      hasReady: false,
+      number: this.$children.length
     }
   }
 }
