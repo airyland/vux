@@ -11,7 +11,7 @@ var buildConfig = require(path.resolve(__dirname, './components'))
 var config = {
   entry: {},
   output: {
-    path: path.resolve(__dirname, '../components/'),
+    path: path.resolve(__dirname, '../dist/components/'),
     filename: 'index.js',
     libraryTarget: 'umd'
   },
@@ -139,7 +139,7 @@ function build (name, _path, isMulti) {
   config.entry = {}
   config.entry[name] = [path.resolve(__dirname, file)]
   config.output.library = converName(name)
-  config.output.path = path.resolve(__dirname, '../components/' + name + '/')
+  config.output.path = path.resolve(__dirname, '../dist/components/' + name.toLowerCase() + '/')
   webpack(config, function(err, stats) {
     var jsonStats = stats.toJson()
     var assets = jsonStats.assets[0]
