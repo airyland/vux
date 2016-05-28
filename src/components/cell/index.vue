@@ -13,6 +13,7 @@
     <div class="weui_cell_ft" :class="{'weui_cell_primary':primary==='content', 'with_arrow': isLink || !!link}">
       {{value}}
       <slot name="value"></slot>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -53,8 +54,6 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/center.less';
-
 .vux-tap-active {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
