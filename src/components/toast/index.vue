@@ -1,7 +1,7 @@
 <template>
   <div id="toast" v-show="show">
     <div class="weui_mask_transparent"></div>
-      <div class="weui_toast" :class="{'weui_toast_forbidden': type == 'warn', 'weui_toast_cancel': type == 'cancel'}">
+      <div class="weui_toast" :class="{'weui_toast_forbidden': type === 'warn', 'weui_toast_cancel': type === 'cancel'}">
         <i class="weui_icon_toast"></i>
         <p class="weui_toast_content"><slot></slot></p>
     </div>

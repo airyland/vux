@@ -1,5 +1,5 @@
 <template>
-  <div class="vux-flexbox" :class="{'flex-col': orient == 'vertical', 'flex-row': orient == 'horizontal'}">
+  <div class="vux-flexbox" :class="{'flex-col': orient === 'vertical', 'flex-row': orient === 'horizontal'}">
     <slot></slot>
   </div>
 </template>
