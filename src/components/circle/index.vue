@@ -1,6 +1,6 @@
 <template>
   <div class="vux-circle">
-    <svg view-box="0 0 100 100">
+    <svg viewBox="0 0 100 100">
       <path :d="pathString" :stroke="trailColor" :stroke-width="trailWidth" :fill-opacity="0"/>
       <path :d="pathString" stroke-linecap="round" :stroke="strokeColor" :stroke-width="strokeWidth" fill-opacity="0" :style="pathStyle"/>
     </svg>
@@ -63,9 +63,8 @@ export default {
 <style>
 .vux-circle {
   position: relative;
-  width: 101%;
-  height: 101%;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 .vux-circle-content {
   width: 100%;
