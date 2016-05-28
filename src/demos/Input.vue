@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { XInput, Group, XButton, Cell } from '../components/'
+import { XInput, Group, XButton, Cell } from '../components'
 
 export default {
   components: {
@@ -62,13 +62,13 @@ export default {
     Group,
     Cell
   },
-  data: function () {
+  data () {
     return {
       password: '123465'
     }
   },
   methods: {
-    change: function (val) {
+    change (val) {
       console.log(val)
     }
   }

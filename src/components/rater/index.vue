@@ -48,14 +48,14 @@ export default {
     }
   },
   computed: {
-    sliceValue: function () {
+    sliceValue () {
       const _val = this.value.toString().split('.')
       return _val.length === 1 ? [_val[0], 0] : _val
     },
-    cutIndex: function () {
+    cutIndex () {
       return this.sliceValue[0] * 1
     },
-    cutPercent: function () {
+    cutPercent () {
       return this.sliceValue[1] * 10
     }
   },
@@ -81,7 +81,7 @@ export default {
     }
   },
   watch: {
-    value: function (val) {
+    value (val) {
       this.handleClick(val - 1)
     }
   }

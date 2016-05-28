@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { Cell, Group } from '../components/'
+import { Cell, Group } from '../components'
 
 export default {
   components: {

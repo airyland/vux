@@ -4,9 +4,9 @@
       <p>{{title}}</p>
     </div>
     <div class="weui_cell_ft" v-show="!readonly" style="font-size:0">
-      <a @click="sub()" class="number-selector number-selector-sub needsclick":class="{'number-disabled':disabled_min}">-</a>
-      <input v-model="value" class="number-input" :style="{width: width+'px'}" number :readonly="!fillable" pattern="[0-9]*"/>
-      <a @click="add()" class="number-selector number-selector-plus needsclick" :class="{'number-disabled':disabled_max}">+</a>
+      <a @click="sub()" class="vux-number-selector vux-number-selector-sub needsclick":class="{'vux-number-disabled':disabledMin}">-</a>
+      <input v-model="value" class="vux-number-input" :style="{width: width+'px'}" number :readonly="!fillable" pattern="[0-9]*"/>
+      <a @click="add()" class="vux-number-selector vux-number-selector-plus needsclick" :class="{'vux-number-disabled':disabledMax}">+</a>
     </div>
     <div class="weui_cell_ft" v-else>
       {{value}}
@@ -26,9 +26,7 @@ export default {
       type: Number,
       default: 0
     },
-    title: {
-      type: String
-    },
+    title: String,
     fillable: {
       type: Boolean,
       default: true
@@ -38,61 +36,55 @@ export default {
       default: 50
     }
   },
-  data: function () {
-    return {
-
-    }
-  },
   computed: {
-    disabled_min: function () {
+    disabledMin () {
       return typeof this.min === 'undefined' ? false : this.value <= this.min
     },
-    disabled_max: function () {
+    disabledMax () {
       return typeof this.max === 'undefined' ? false : this.value >= this.max
     }
   },
-  ready: function () {
+  ready () {
   },
   watch: {
-    value: function (newValue, old) {
+    value (newValue, old) {
       if (this.min && this.value < this.min) {
         this.value = this.min
       }
       if (this.max && this.value > this.max) {
         this.value = this.max
       }
-      this.$dispatch('on-change', this.value)
+      this.$emit('on-change', this.value)
     }
   },
   methods: {
-    add: function () {
-      if (!this.disabled_max) {
+    add () {
+      if (!this.disabledMax) {
         this.value += this.step
       }
     },
-    sub: function () {
-      if (!this.disabled_min) {
+    sub () {
+      if (!this.disabledMin) {
         this.value -= this.step
       }
     }
   }
 }
 </script>
-<style>
-.number-input {
+
+<style lang="less">
+.vux-number-input {
   float:left;
   height:20px;
   font-size:20px;
   color: #666;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border:1px solid #ececec;
   padding:3px 0;
   text-align:center;
   border-radius: 1px;
 }
-.number-selector {
+.vux-number-selector {
   float:left;
   height:20px;
   font-size:25px;
@@ -100,15 +92,15 @@ export default {
   color:#3cc51f;
   border:1px solid #ececec;
 }
-.number-selector.number-disabled{
+.vux-number-selector.vux-number-disabled{
   color:#ccc;
 }
-.number-selector-sub {
+.vux-number-selector-sub {
   border-right:none;
   padding:3px 10px;
   border-radius:2px 0 0 2px;
 }
-.number-selector-plus {
+.vux-number-selector-plus {
   border-left:none;
   margin-right: 5px;
   padding:3px 8px;

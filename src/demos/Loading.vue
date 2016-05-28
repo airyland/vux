@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { Loading, Group, Switch } from '../components/'
+import { Loading, Group, Switch } from '../components'
 
 export default {
   components: {
@@ -23,7 +23,7 @@ export default {
     }
   },
   methods: {
-    show1change: function (val) {
+    show1change (val) {
       const _this = this
       if (val) {
         tick(0, function (percent) {

@@ -69,7 +69,7 @@ export default {
     }
   },
   methods: {
-    praise: function (item) {
+    praise (item) {
       if (!item.has_praised) {
         item.like_num++
         item.has_praised = true

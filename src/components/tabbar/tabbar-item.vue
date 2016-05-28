@@ -22,13 +22,13 @@ export default {
     }
   },
   methods: {
-    onClick: function () {
-      this.$dispatch('on-item-click', this.$el.getAttribute('data-index'))
+    onClick () {
+      this.$emit('on-item-click', this.$el.getAttribute('data-index'))
       this.selected = true
     }
   },
   events: {
-    'on-item-click': function (dataIndex) {
+    'on-item-click' (dataIndex) {
       this.selected = this.$el.getAttribute('data-index') === dataIndex
     }
   }

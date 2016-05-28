@@ -9,20 +9,19 @@ export default {
   props: {
     selected: {
       type: Boolean,
-      required: false,
       default: false
     },
-    'activeClass': String
+    activeClass: String
   },
   watch: {
-    selected: function (val) {
+    selected (val) {
       if (val) {
         this.tabClick()
       }
     }
   },
   methods: {
-    tabClick: function () {
+    tabClick () {
       this.$parent.index = this.$el.getAttribute('data-index')
     }
   },

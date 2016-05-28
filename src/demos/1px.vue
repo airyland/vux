@@ -89,7 +89,7 @@
 </template>
 
 <script>
-import { Flexbox, FlexboxItem } from '../components/'
+import { Flexbox, FlexboxItem } from '../components'
 export default {
   components: {
     Flexbox,

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { Popup, Group, Switch, Scroller } from '../components/'
+import { Popup, Group, Switch, Scroller } from '../components'
 
 export default {
   components: {

@@ -7,9 +7,7 @@ import Roller from './lib'
 
 export default {
   props: {
-    number: {
-      type: Number
-    },
+    number: Number,
     width: {
       type: Number,
       default: 3

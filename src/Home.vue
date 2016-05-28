@@ -33,14 +33,14 @@
 </template>
 
 <script>
-import { Cell, Group } from './components/'
+import { Cell, Group } from './components'
 const version = require('../package.json').version
 export default {
   components: {
     Cell,
     Group
   },
-  data: function () {
+  data () {
     return {
       version: version
     }

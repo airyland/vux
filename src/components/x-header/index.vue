@@ -35,7 +35,7 @@ export default {
     }
   },
   methods: {
-    onClickBack: function () {
+    onClickBack () {
       if (this.leftOptions.preventGoBack) {
         this.$emit('on-click-back')
       } else {

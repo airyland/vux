@@ -11,7 +11,7 @@ var Horizontal = require('./horizontal')
  */
 
 var defaults = {
-  callback: function () {},
+  callback () {},
   decimal: false,
   disable: false,
   disableOpacity: 0.5,

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { Progress } from '../components/'
+import { Progress } from '../components'
 
 export default {
   components: {

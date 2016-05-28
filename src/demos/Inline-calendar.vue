@@ -72,7 +72,7 @@ import InlineCalendar from '../components/inline-calendar'
 import { Group, Switch, Radio, XButton, Cell, Divider } from '../components'
 
 module.exports = {
-  data: function () {
+  data () {
     return {
       show: true,
       value: '',
@@ -120,7 +120,7 @@ module.exports = {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .inline-calendar-demo {
   position: fixed;
   top: 0;

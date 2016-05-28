@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { Scroller, Divider, Spinner } from '../components/'
+import { Scroller, Divider, Spinner } from '../components'
 
 export default {
   components: {
@@ -42,34 +42,31 @@ export default {
     Spinner
   },
   methods: {
-    load1: function (uuid) {
-      const _this = this
-      setTimeout(function () {
-        _this.n1 += 10
-        setTimeout(function () {
-          _this.$broadcast('pullup:reset', uuid)
+    load1 (uuid) {
+      setTimeout(() => {
+        this.n1 += 10
+        setTimeout(() => {
+          this.$broadcast('pullup:reset', uuid)
         }, 10)
       }, 2000)
     },
-    load2: function (uuid) {
-      const _this = this
-      setTimeout(function () {
-        if (_this.n2 === 30) {
-          _this.$broadcast('pullup:done', uuid)
+    load2 (uuid) {
+      setTimeout(() => {
+        if (this.n2 === 30) {
+          this.$broadcast('pullup:done', uuid)
         } else {
-          _this.n2 += 10
-          setTimeout(function () {
-            _this.$broadcast('pullup:reset', uuid)
+          this.n2 += 10
+          setTimeout(() => {
+            this.$broadcast('pullup:reset', uuid)
           }, 10)
         }
       }, 2000)
     },
-    load3: function (uuid) {
-      const _this = this
-      setTimeout(function () {
-        _this.n3 += 10
-        setTimeout(function () {
-          _this.$broadcast('pullup:reset', uuid)
+    load3 (uuid) {
+      setTimeout(() => {
+        this.n3 += 10
+        setTimeout(() => {
+          this.$broadcast('pullup:reset', uuid)
         }, 10)
       }, 2000)
     }
@@ -91,7 +88,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .box1 {
   height: 100px;
   position: relative;

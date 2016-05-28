@@ -40,12 +40,10 @@ export default {
     value2name
   },
   props: {
-    title: {
-      type: String
-    },
+    title: String,
     data: {
       type: Array,
-      default: function () {
+      default () {
         return []
       }
     },
@@ -55,7 +53,7 @@ export default {
     },
     value: {
       type: Array,
-      default: function () {
+      default () {
         return []
       },
       twoWay: true

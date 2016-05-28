@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { Flexbox, FlexboxItem, Blur } from '../components/'
+import { Flexbox, FlexboxItem, Blur } from '../components'
 
 export default {
   components: {

@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import Icon from '../icon/'
-import Flexbox from '../flexbox/'
-import FlexboxItem from '../flexbox-item/'
+import Icon from '../icon'
+import Flexbox from '../flexbox'
+import FlexboxItem from '../flexbox-item'
 
 const sizeMap = {
   'large': 40,
@@ -41,14 +41,14 @@ export default {
     }
   },
   computed: {
-    width: function () {
+    width () {
       return sizeMap[this.size]
     }
   },
   methods: {
-    change: function (color) {
+    change (color) {
       this.value = color
-      this.$dispatch('on-change', color)
+      this.$emit('on-change', color)
     }
   }
 }

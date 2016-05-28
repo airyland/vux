@@ -213,7 +213,7 @@
 </template>
 
 <script>
-import { Cell, Group } from '../components/'
+import { Cell, Group } from '../components'
 
 /**
 * fix firefox cell bottom border missing
@@ -228,7 +228,7 @@ export default {
     Cell,
     Group
   },
-  data: function () {
+  data () {
     return {
     }
   }

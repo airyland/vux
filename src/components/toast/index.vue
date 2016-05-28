@@ -25,13 +25,12 @@ export default {
     }
   },
   watch: {
-    show: function (val) {
-      const _this = this
+    show (val) {
       if (val) {
         clearTimeout(this.timeout)
-        this.timeout = setTimeout(function () {
-          _this.show = false
-        }, _this.time)
+        this.timeout = setTimeout(() => {
+          this.show = false
+        }, this.time)
       }
     }
   }

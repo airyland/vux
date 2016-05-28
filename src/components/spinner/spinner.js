@@ -72,13 +72,13 @@ var IOS_SPINNER = {
   sw: 4,
   lc: ROUND,
   line: [{
-    fn: function (i, spinnerName) {
+    fn (i, spinnerName) {
       return {
         y1: spinnerName === 'ios' ? 17 : 12,
         y2: spinnerName === 'ios' ? 29 : 20,
         t: TRANSLATE32 + ' rotate(' + (30 * i + (i < 6 ? 180 : -180)) + ')',
         a: [{
-          fn: function () {
+          fn () {
             return {
               an: STROKE_OPACITY,
               dur: DURATION,
@@ -115,13 +115,13 @@ var spinners = {
   bubbles: {
     sw: 0,
     c: [{
-      fn: function (i) {
+      fn (i) {
         return {
           cx: 24 * Math.cos(2 * Math.PI * i / 8),
           cy: 24 * Math.sin(2 * Math.PI * i / 8),
           t: TRANSLATE32,
           a: [{
-            fn: function () {
+            fn () {
               return {
                 an: 'r',
                 dur: DURATION,
@@ -140,7 +140,7 @@ var spinners = {
   circles: {
 
     c: [{
-      fn: function (i) {
+      fn (i) {
         return {
           r: 5,
           cx: 24 * Math.cos(2 * Math.PI * i / 8),
@@ -148,7 +148,7 @@ var spinners = {
           t: TRANSLATE32,
           sw: 0,
           a: [{
-            fn: function () {
+            fn () {
               return {
                 an: 'fill-opacity',
                 dur: DURATION,
@@ -180,13 +180,13 @@ var spinners = {
   dots: {
 
     c: [{
-      fn: function (i) {
+      fn (i) {
         return {
           cx: 16 + (16 * i),
           cy: 32,
           sw: 0,
           a: [{
-            fn: function () {
+            fn () {
               return {
                 an: 'fill-opacity',
                 dur: DURATION,
@@ -196,7 +196,7 @@ var spinners = {
             },
             t: 1
           }, {
-            fn: function () {
+            fn () {
               return {
                 an: 'r',
                 dur: DURATION,
@@ -216,12 +216,12 @@ var spinners = {
     sw: 7,
     lc: ROUND,
     line: [{
-      fn: function (i) {
+      fn (i) {
         return {
           x1: 10 + (i * 14),
           x2: 10 + (i * 14),
           a: [{
-            fn: function () {
+            fn () {
               return {
                 an: 'y1',
                 dur: DURATION,
@@ -231,7 +231,7 @@ var spinners = {
             },
             t: 1
           }, {
-            fn: function () {
+            fn () {
               return {
                 an: 'y2',
                 dur: DURATION,
@@ -241,7 +241,7 @@ var spinners = {
             },
             t: 1
           }, {
-            fn: function () {
+            fn () {
               return {
                 an: STROKE_OPACITY,
                 dur: DURATION,
@@ -262,12 +262,12 @@ var spinners = {
     'fill-rule': 'evenodd',
     sw: 3,
     circle: [{
-      fn: function (i) {
+      fn (i) {
         return {
           cx: 32,
           cy: 32,
           a: [{
-            fn: function () {
+            fn () {
               return {
                 an: 'r',
                 begin: (i * -1) + 's',
@@ -281,7 +281,7 @@ var spinners = {
             },
             t: 1
           }, {
-            fn: function () {
+            fn () {
               return {
                 an: STROKE_OPACITY,
                 begin: (i * -1) + 's',
@@ -334,7 +334,7 @@ var spinners = {
 
 var animations = {
 
-  android: function (ele) {
+  android (ele) {
     var self = this
 
     this.stop = false

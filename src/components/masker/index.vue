@@ -22,7 +22,7 @@ export default {
     }
   },
   computed: {
-    style: function () {
+    style () {
       let color = /,/.test(this.color) ? this.color : toRGB(this.color.replace('#', '')).join(',')
       return {
         backgroundColor: `rgba(${color},${this.opacity})`

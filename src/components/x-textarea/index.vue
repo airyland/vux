@@ -21,9 +21,7 @@ export default {
       type: Boolean,
       default: true
     },
-    max: {
-      type: Number
-    },
+    max: Number,
     value: {
       type: String,
       default: '',
@@ -44,15 +42,15 @@ export default {
     height: Number
   },
   watch: {
-    value: function (newVal) {
+    value (newVal) {
       if (this.max && this.value.length > this.max) {
         this.value = newVal.slice(0, this.max)
       }
-      this.$dispatch('on-change', this.value)
+      this.$emit('on-change', this.value)
     }
   },
   computed: {
-    count: function () {
+    count () {
       return this.value.length
     },
     textareaStyle () {

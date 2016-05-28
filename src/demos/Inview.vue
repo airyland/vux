@@ -19,10 +19,10 @@ export default {
     }
   },
   events: {
-    'on-view-enter': function (id) {
+    'on-view-enter' (id) {
       console.log(id, 'in view')
     },
-    'on-view-leave': function (id) {
+    'on-view-leave' (id) {
       console.log(id, 'not in view')
     }
   }

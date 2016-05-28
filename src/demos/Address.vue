@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { Group, Address, AddressChinaData, XButton, Cell } from '../components/'
+import { Group, Address, AddressChinaData, XButton, Cell } from '../components'
 
 export default {
   components: {
@@ -32,7 +32,7 @@ export default {
     }
   },
   methods: {
-    changeData: function () {
+    changeData () {
       this.value2 = ['430000', '430400', '430407']
     }
   }

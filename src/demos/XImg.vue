@@ -2,24 +2,24 @@
   <div>
     <div v-for="src in list" style="background-color:yellow;text-align:center;">
       <span style="font-size:20px;">Loading</span>
-      <x-img :src="src" @success="success" @error="error" class="ximg-demo" error-class="ximg-error" :offset=-300></x-img>
+      <x-img :src="src" @success="success" @error="error" class="ximg-demo" error-class="ximg-error" :offset="-300"></x-img>
     </div>
   </div>
 </template>
 
 <script>
-import { XImg } from '../components/'
+import { XImg } from '../components'
 export default {
   components: {
     XImg
   },
   methods: {
-    success: function (src, ele) {
+    success (src, ele) {
       console.log('success load', src)
       const span = ele.parentNode.querySelector('span')
       ele.parentNode.removeChild(span)
     },
-    error: function (src, ele, msg) {
+    error (src, ele, msg) {
       console.log('error load', msg, src)
       const span = ele.parentNode.querySelector('span')
       span.innerText = 'load error'

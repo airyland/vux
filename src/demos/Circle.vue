@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { Circle, Range, Icon } from '../components/'
+import { Circle, Range, Icon } from '../components'
 
 export default {
   ready () {
@@ -57,7 +57,7 @@ export default {
     }
   },
   methods: {
-    update2: function () {
+    update2 () {
       const colorMap = ['#3FC7FA', '#85D262', '#FE8C6A']
       this.percent2 = parseInt(Math.random() * 100, 10)
       this.strokeColor2 = colorMap[parseInt(Math.random() * 3, 10)]

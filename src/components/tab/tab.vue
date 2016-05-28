@@ -22,17 +22,14 @@ export default {
   props: {
     lineWidth: {
       type: Number,
-      required: false,
       default: 3
     },
     activeColor: {
       type: String,
-      required: false,
       default: '#04be02'
     },
     defaultColor: {
       type: String,
-      required: false,
       default: '#666'
     },
     animate: {
@@ -41,13 +38,13 @@ export default {
     }
   },
   computed: {
-    barLeft: function () {
+    barLeft () {
       return `${this.index * (100 / this.tabNumber)}%`
     },
-    barRight: function () {
+    barRight () {
       return `${(this.tabNumber - this.index - 1) * (100 / this.tabNumber)}%`
     },
-    barStyle: function () {
+    barStyle () {
       return {
         left: this.barLeft,
         right: this.barRight,
@@ -56,7 +53,7 @@ export default {
         height: this.lineWidth + 'px'
       }
     },
-    barClass: function () {
+    barClass () {
       return {
         'vux-tab-ink-bar-transition-forward': this.direction === 'forward',
         'vux-tab-ink-bar-transition-backward': this.direction === 'backward'
@@ -64,7 +61,7 @@ export default {
     }
   },
   watch: {
-    index: function (newIndex, oldIndex) {
+    index (newIndex, oldIndex) {
       this.direction = newIndex > oldIndex ? 'forward' : 'backward'
     }
   },

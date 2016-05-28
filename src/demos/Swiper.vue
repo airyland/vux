@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { Swiper, GroupTitle, SwiperItem, XButton, Divider } from '../components/'
+import { Swiper, GroupTitle, SwiperItem, XButton, Divider } from '../components'
 
 const demoList =
 [{
@@ -92,14 +92,14 @@ export default {
     }, 5000)
   },
   methods: {
-    setData: function (id) {
+    setData (id) {
       this.list1 = id === 1 ? demoList : demoList3
     },
-    onIndexChange: function (index) {
+    onIndexChange (index) {
       this.currentIndex = index
     }
   },
-  data: function () {
+  data () {
     return {
       list: demoList,
       list1: [],

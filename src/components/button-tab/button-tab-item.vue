@@ -13,13 +13,13 @@ export default {
     }
   },
   methods: {
-    onClick: function () {
-      this.$dispatch('on-item-click', this.$el.getAttribute('data-index'))
+    onClick () {
+      this.$emit('on-item-click', this.$el.getAttribute('data-index'))
       this.selected = true
     }
   },
   events: {
-    'on-item-click': function (dataIndex) {
+    'on-item-click' (dataIndex) {
       const domIndex = this.$el.getAttribute('data-index')
       this.selected = domIndex === dataIndex
       this.shouldRemoveBorder = (dataIndex - 1) === domIndex - 0

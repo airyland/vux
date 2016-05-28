@@ -101,7 +101,7 @@
 </template>
 
 <script>
-import { Tab, TabItem, Sticky, Divider } from '../components/'
+import { Tab, TabItem, Sticky, Divider } from '../components'
 
 export default {
   components: {

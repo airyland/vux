@@ -78,7 +78,6 @@ export default {
   props: {
     list: {
       type: Array,
-      required: false,
       default () {
         return []
       }
@@ -115,9 +114,7 @@ export default {
       type: String,
       default: 'auto'
     },
-    aspectRatio: {
-      type: Number
-    },
+    aspectRatio: Number,
     minMovingDistance: {
       type: Number,
       default: 0

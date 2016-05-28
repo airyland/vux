@@ -5,7 +5,7 @@
         <rater :value.sync="data3" slot="value"></rater>
       </cell>
       <cell title="change color">
-        <rater :value.sync="data3" slot="value" :max=6 active-color="#04BE02"></rater>
+        <rater :value.sync="data3" slot="value" :max="6" active-color="#04BE02"></rater>
       </cell>
     </group>
 
@@ -17,7 +17,7 @@
         <rater :value.sync="data41" slot="value" active-color="#04BE02" disabled></rater>
       </cell>
       <cell title="custom font-size(15px)">
-        <rater :value.sync="data42" slot="value" active-color="#04BE02" :font-size=15 disabled></rater>
+        <rater :value.sync="data42" slot="value" active-color="#04BE02" :font-size="15" disabled></rater>
       </cell>
     </group>
 
@@ -44,7 +44,7 @@
         <rater :value.sync="data6" active-color="#04BE02" slot="value"></rater>
       </cell>
       <cell title="range" primary="content" :inline-desc="data6 + ''">
-        <range slot="value" :value.sync="data6" :step=1 :min=0 :max=5></range>
+        <range slot="value" :value.sync="data6" :step="1" :min="0" :max="5"></range>
       </cell>
     </group>
 
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { Rater, Group, Cell, Range } from '../components/'
+import { Rater, Group, Cell, Range } from '../components'
 
 export default {
   components: {
@@ -75,7 +75,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

@@ -5,6 +5,7 @@
 <script>
 import Spinner from './spinner'
 const types = ['android', 'ios', 'ios-small', 'bubbles', 'circles', 'crescent', 'dots', 'lines', 'ripple', 'spiral']
+
 export default {
   ready () {
     Spinner(this.$el, this.type)
@@ -16,7 +17,7 @@ export default {
     }
   },
   computed: {
-    className: function () {
+    className () {
       let rs = {}
       for (let i = 0; i < types.length; i++) {
         rs[`spinner-${types[i]}`] = this.type === types[i]

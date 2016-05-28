@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Masker from '../components/masker/'
+import Masker from '../components/masker'
 
 export default {
   components: {
@@ -47,7 +47,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 .m-img {
   padding-bottom: 33%;
   display: block;
@@ -62,7 +62,7 @@ export default {
 .m-title {
   color: #fff;
   text-align: center;
-  text-shadow: 0 0 2px rgba(0,0,0,.5);
+  text-shadow: 0 0 2px rgba(0, 0, 0, .5);
   font-weight: 500;
   font-size: 16px;
   position: absolute;

@@ -8,8 +8,8 @@ export default {
     type: String
   },
   computed: {
-    className: function () {
-      return 'weui_icon weui_icon_' + this.type
+    className () {
+      return `weui_icon weui_icon_${this.type}`
     }
   }
 }

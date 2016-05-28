@@ -2,7 +2,8 @@
   "multi_entry": [
     "button-tab",
     "timeline",
-    "tabbar"
+    "tabbar",
+    "tab"
   ],
   "ignore": [
     "style",

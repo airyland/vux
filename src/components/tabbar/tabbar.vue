@@ -16,7 +16,7 @@ export default {
     }
   },
   events: {
-    'on-item-click': function (index) {
+    'on-item-click' (index) {
       this.$broadcast('on-item-click', index)
       return true
     }

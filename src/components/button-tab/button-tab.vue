@@ -7,9 +7,7 @@
 <script>
 export default {
   props: {
-    height: {
-      type: Number
-    }
+    height: Number
   },
   ready () {
     const tabList = this.$el.querySelectorAll('.vux-button-tab-item')
@@ -21,7 +19,7 @@ export default {
     }
   },
   events: {
-    'on-item-click': function (index) {
+    'on-item-click' (index) {
       this.$broadcast('on-item-click', index)
       return true
     }

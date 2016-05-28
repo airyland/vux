@@ -25,7 +25,7 @@ const findByKey = function (key, options) {
 
 export default {
   computed: {
-    processOptions: function () {
+    processOptions () {
       if (this.options.length && this.options[0].key) {
         return this.options
       } else {
@@ -42,22 +42,17 @@ export default {
     findByKey
   },
   watch: {
-    value: function (newValue) {
-      this.$dispatch('on-change', newValue)
+    value (newValue) {
+      this.$emit('on-change', newValue)
     }
   },
   props: {
-    title: {
-      type: String,
-      required: false
-    },
+    title: String,
     options: {
       type: Array,
       required: true
     },
-    placeholder: {
-      type: String
-    },
+    placeholder: String,
     readonly: {
       type: Boolean,
       default: false

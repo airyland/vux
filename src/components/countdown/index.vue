@@ -15,7 +15,7 @@ export default {
     }
   },
   methods: {
-    tick: function () {
+    tick () {
       let _this = this
       this.interval = setInterval(function () {
         if (_this.time > 0) {
@@ -23,16 +23,16 @@ export default {
         } else {
           _this.stop()
           _this.index++
-          _this.$dispatch('on-finish', _this.index)
+          _this.$emit('on-finish', _this.index)
         }
       }, 1000)
     },
-    stop: function () {
+    stop () {
       clearInterval(this.interval)
     }
   },
   watch: {
-    start: function (newVal, oldVal) {
+    start (newVal, oldVal) {
       if (newVal === true && oldVal === false && this.time > 0) {
         this.tick()
       }
