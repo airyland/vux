@@ -18,6 +18,10 @@ export default {
       i.setAttribute('data-index', n)
       n++
     }
+    // stop bar anmination on first loading
+    setTimeout(() => {
+      this.hasReady = true
+    }, 0)
   },
   props: {
     lineWidth: {
@@ -50,7 +54,8 @@ export default {
         right: this.barRight,
         display: 'block',
         backgroundColor: this.activeColor,
-        height: this.lineWidth + 'px'
+        height: this.lineWidth + 'px',
+        transition: !this.hasReady ? 'none' : null
       }
     },
     barClass () {
@@ -69,7 +74,8 @@ export default {
     return {
       direction: 'forward',
       right: '100%',
-      index: -1
+      index: -1,
+      hasReady: false
     }
   }
 }
