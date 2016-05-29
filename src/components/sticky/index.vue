@@ -4,9 +4,8 @@
 
 <script>
 import sticky from './sticky'
+
 export default {
-  props: {
-  },
   ready () {
     sticky(this.$el)
   }
@@ -26,3 +25,4 @@ export default {
   top: 0;
 }
 </style>
+

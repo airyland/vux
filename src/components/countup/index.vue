@@ -31,7 +31,7 @@ export default {
     },
     options: {
       type: Object,
-      default: function () {
+      default () {
         return {}
       }
     }

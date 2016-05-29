@@ -40,7 +40,7 @@
 
 <p align="center">
   <a href="https://vux.li/?x-page=github_readme">https://vux.li</a><br/>
-  <img src="https://raw.githubusercontent.com/airyland/vux/master/qr.png" width="300">
+  <img src="https://raw.githubusercontent.com/airyland/vux/master/assets/qr.png" width="300">
 </p>
 
 ## Component List
@@ -75,8 +75,8 @@ npm run dev
 </template>
 
 <script>
-import Group from 'vux/components/group'
-import Cell from 'vux/components/cell'
+import Group from 'vux/dist/components/group'
+import Cell from 'vux/dist/components/cell'
 
 export default {
   components: {
@@ -87,7 +87,7 @@ export default {
 </script>
 
 <style>
-@import '~vux/vux.css';
+@import '~vux/dist/vux.css';
 </style>
 ```
 
@@ -148,8 +148,8 @@ import Cell from 'vux-components/cell'
 </div>
 
 <!--include the components you need-->
-<script src="vux/components/group/index.js"></script>
-<script src="vux/components/cell/index.js"></script>
+<script src="vux/components/dist/group/index.js"></script>
+<script src="vux/components/dist/cell/index.js"></script>
 
 <script>
 // register components
@@ -211,7 +211,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 ## Components
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/airyland/vux/master/vux.png" width="600">
+  <img src="https://raw.githubusercontent.com/airyland/vux/master/assets/vux.png" width="600">
 </p>
 
 ## Liscence

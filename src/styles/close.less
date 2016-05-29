@@ -1,0 +1,37 @@
+.vux-close {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  color: #ccc;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    background: #98979d;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+/**
+--------custom line width and color----------
+.vux-close-2px{
+  &::before,
+  &::after {
+    height: 2px;
+    margin-top: -1px;
+    background-color: green;
+  }
+}
+*/

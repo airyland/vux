@@ -56,7 +56,7 @@ export default {
       maxHTML: _this.maxHTML,
       disable: _this.disabled,
       disabledOpacity: _this.disabledOpacity,
-      callback: function () {
+      callback () {
 
       }
     }
@@ -69,7 +69,7 @@ export default {
     this.$el.querySelector('.range-bar').style.height = `${this.rangeBarHeight}px`
   },
   watch: {
-    value: function (val) {
+    value (val) {
       this.range.setStart(val)
     }
   },

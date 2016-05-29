@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { Scroller, Divider, Spinner } from '../components/'
+import { Scroller, Divider, Spinner } from '../components'
 
 export default {
   components: {
@@ -43,10 +43,9 @@ export default {
     Spinner
   },
   methods: {
-    load: function (uuid) {
-      const _this = this
-      setTimeout(function () {
-        _this.$broadcast('pulldown:reset', uuid)
+    load (uuid) {
+      setTimeout(() => {
+        this.$broadcast('pulldown:reset', uuid)
       }, 2000)
     }
   },
@@ -58,7 +57,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .box1 {
   height: 100px;
   position: relative;

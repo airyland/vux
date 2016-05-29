@@ -143,7 +143,7 @@ Eventor.mixTo(Countdown)
 var pro = Countdown.prototype
 
 var fns = {
-  start: function () {
+  start () {
     if (this.interval !== null) {
       clearInterval(this.interval)
     }
@@ -154,13 +154,13 @@ var fns = {
     }, this.PRECISION)
     return this
   },
-  stop: function () {
+  stop () {
     clearInterval(this.interval)
     this.interval = null
     this._dispatchEvent('stoped')
     return this
   },
-  toggle: function () {
+  toggle () {
     if (this.interval) {
       this.stop()
     } else {
@@ -168,21 +168,21 @@ var fns = {
     }
     return this
   },
-  pause: function () {
+  pause () {
     return this.stop()
   },
-  resume: function () {
+  resume () {
     return this.start()
   },
-  remove: function () {
+  remove () {
     this.stop()
     instances[this.instanceNumber] = null
   },
-  setFinalDate: function (value) {
+  setFinalDate (value) {
     this.finalDate = parseDateString(value) // Cast the given date
     return this
   },
-  getOffset: function () {
+  getOffset () {
     this.totalSecsLeft = this.finalDate.getTime() - new Date().getTime() // In miliseconds
     this.totalSecsLeft = Math.ceil(this.totalSecsLeft / 1000)
     this.totalSecsLeft = this.totalSecsLeft < 0 ? 0 : this.totalSecsLeft
@@ -197,7 +197,7 @@ var fns = {
       years: Math.floor(this.totalSecsLeft / 60 / 60 / 24 / 365)
     }
   },
-  update: function () {
+  update () {
     // Calculate the offsets
     this.offset = this.getOffset()
     // split offset only for days, hours, minutes, seconds and two number like 45, do not support 100
@@ -219,7 +219,7 @@ var fns = {
     }
     return this
   },
-  _dispatchEvent: function (eventName) {
+  _dispatchEvent (eventName) {
     var event = {}
     event.finalDate = this.finalDate
     event.offset = this.offset

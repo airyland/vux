@@ -23,10 +23,10 @@ export default {
     this.popup = new Popup({
       container: _this.$el,
       innerHTML: '',
-      onOpen: function (dialog) {
+      onOpen (dialog) {
         _this.show = true
       },
-      onClose: function (dialog) {
+      onClose (dialog) {
         _this.show = false
       }
     })
@@ -37,7 +37,7 @@ export default {
     }
   },
   watch: {
-    show: function (val) {
+    show (val) {
       if (val) {
         this.popup.show()
         if (!this.hasFirstShow) {

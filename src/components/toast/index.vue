@@ -1,7 +1,7 @@
 <template>
-  <div id="toast" v-show="show">
+  <div v-show="show" class="vux-toast">
     <div class="weui_mask_transparent"></div>
-      <div class="weui_toast" :class="{'weui_toast_forbidden': type == 'warn', 'weui_toast_cancel': type == 'cancel'}">
+      <div class="weui_toast" :class="{'weui_toast_forbidden': type === 'warn', 'weui_toast_cancel': type === 'cancel'}">
         <i class="weui_icon_toast"></i>
         <p class="weui_toast_content"><slot></slot></p>
     </div>
@@ -25,13 +25,12 @@ export default {
     }
   },
   watch: {
-    show: function (val) {
-      const _this = this
+    show (val) {
       if (val) {
         clearTimeout(this.timeout)
-        this.timeout = setTimeout(function () {
-          _this.show = false
-        }, _this.time)
+        this.timeout = setTimeout(() => {
+          this.show = false
+        }, this.time)
       }
     }
   }
@@ -43,6 +42,9 @@ export default {
 }
 .weui_toast_cancel .weui_icon_toast:before {
   content: "\EA0D";
+}
+.weui_toast {
+  z-index: 200;
 }
 .weui_toast_forbidden .weui_icon_toast:before {
   content: "\EA0B";

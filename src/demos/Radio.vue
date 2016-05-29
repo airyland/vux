@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { Radio, Group, DevTip } from '../components/'
+import { Radio, Group, DevTip } from '../components'
 
 export default {
   components: {
@@ -31,7 +31,7 @@ export default {
     Group,
     DevTip
   },
-  data: function () {
+  data () {
     return {
       radio001: [ 'China', 'Japan' ],
       radio001Value: 'China',
@@ -46,7 +46,7 @@ export default {
     }
   },
   methods: {
-    change: function (value) {
+    change (value) {
       console.log('change:', value)
     }
   }

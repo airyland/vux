@@ -2,7 +2,7 @@
  * Helpers
  */
 var Utils = {
-  extend: function (newObj, targetObj) {
+  extend (newObj, targetObj) {
     targetObj = JSON.parse(JSON.stringify(targetObj))
     if (typeof newObj === 'string') {
       return targetObj
@@ -97,7 +97,7 @@ var Utils = {
     }
   })(),
 
-  clamp: function (n, min, max) {
+  clamp (n, min, max) {
     if (n < min) return min
     if (n > max) return max
     return n
@@ -107,11 +107,11 @@ var Utils = {
    * converts a percentage (`0..1`) to a bar translateX
    * percentage (`-100%..0%`).
    */
-  toBarPerc: function (n) {
+  toBarPerc (n) {
     return (-1 + n) * 100
   },
 
-  hasClass: function (element, name) {
+  hasClass (element, name) {
     if (!element) {
       return false
     }
@@ -119,7 +119,7 @@ var Utils = {
     return list.indexOf(' ' + name + ' ') >= 0
   },
 
-  addClass: function (element, name) {
+  addClass (element, name) {
     if (!element) {
       return
     }
@@ -132,7 +132,7 @@ var Utils = {
     element.className = newList.substring(1)
   },
 
-  removeClass: function (element, name) {
+  removeClass (element, name) {
     if (!element) return
     var oldList = Utils.classList(element)
     var newList
@@ -146,19 +146,19 @@ var Utils = {
     element.className = newList.substring(1, newList.length - 1)
   },
 
-  showEl: function (element) {
+  showEl (element) {
     Utils.setcss(element, {
       display: 'block'
     })
   },
 
-  hideEl: function (element) {
+  hideEl (element) {
     Utils.setcss(element, {
       display: 'none'
     })
   },
 
-  classList: function (element) {
+  classList (element) {
     if (!element) {
       return
     }
@@ -168,7 +168,7 @@ var Utils = {
   /**
    * Removes an element from the DOM.
    */
-  removeElement: function (element) {
+  removeElement (element) {
     element && element.parentNode && element.parentNode.removeChild(element)
   }
 }

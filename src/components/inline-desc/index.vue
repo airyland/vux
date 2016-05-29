@@ -1,9 +1,9 @@
 <template>
-  <span class="label_desc"><slot></slot></span>
+  <span class="vux-label-desc"><slot></slot></span>
 </template>
 
-<style type="text/css">
-.label_desc {
+<style>
+.vux-label-desc {
   font-size:14px;
   color:#666;
 }

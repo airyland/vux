@@ -18,7 +18,7 @@ export default {
   })(),
 
   // Stops the given animation.
-  stop: function (id) {
+  stop (id) {
     var cleared = running[id] != null
     if (cleared) {
       running[id] = null
@@ -27,12 +27,12 @@ export default {
   },
 
   // Whether the given animation is still running.
-  isRunning: function (id) {
+  isRunning (id) {
     return running[id] != null
   },
 
   // Start the animation.
-  start: function (stepCallback, verifyCallback, completedCallback, duration, easingMethod, root) {
+  start (stepCallback, verifyCallback, completedCallback, duration, easingMethod, root) {
     var _this = this
     var start = time()
     var lastFrame = start

@@ -4,7 +4,7 @@
     <br/>
     <br/>
     <sticky>
-      <tab :line-width=1>
+      <tab :line-width="1">
         <tab-item selected>正在正映</tab-item>
         <tab-item>即将上映</tab-item>
       </tab>
@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import { Tab, TabItem, Sticky } from '../components/'
+import { Tab, TabItem, Sticky } from '../components'
 
 export default {
   components: {

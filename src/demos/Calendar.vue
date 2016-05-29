@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { Group, Calendar, Cell } from '../components/'
+import { Group, Calendar, Cell } from '../components'
 
 export default {
   components: {

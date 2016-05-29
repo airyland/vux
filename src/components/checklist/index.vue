@@ -46,17 +46,10 @@ export default {
     },
     value: {
       type: Array,
-      required: false,
       twoWay: true
     },
-    max: {
-      type: Number,
-      required: false
-    },
-    min: {
-      type: Number,
-      required: false
-    },
+    max: Number,
+    min: Number,
     fillMode: {
       type: Boolean,
       default: false
@@ -97,10 +90,10 @@ export default {
     }
   },
   computed: {
-    valid: function () {
+    valid () {
       return this.value.length >= this.min && this.value.length <= this.max
     },
-    error: function () {
+    error () {
       let err = []
       if (this.value.length < this.min) {
         err.push(this.$interpolate('最少要选择{{min}}个哦'))
@@ -116,8 +109,8 @@ export default {
     }
   },
   watch: {
-    value: function (newVal) {
-      this.$dispatch('on-change', JSON.parse(JSON.stringify(newVal)))
+    value (newVal) {
+      this.$emit('on-change', JSON.parse(JSON.stringify(newVal)))
     }
   }
 }

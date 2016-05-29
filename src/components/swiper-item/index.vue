@@ -5,7 +5,7 @@
 <script>
 export default {
   ready () {
-    this.$dispatch('swiper-item:created')
+    this.$emit('swiper-item:created')
   }
 }
 </script>

@@ -6,17 +6,17 @@
 </template>
 
 <script>
-import { Search } from '../components/'
+import { Search } from '../components'
 
 export default {
   components: {
     Search
   },
   methods: {
-    resultClick: function (item) {
+    resultClick (item) {
       alert('you click the result item: ' + JSON.stringify(item))
     },
-    getResult: function (val) {
+    getResult (val) {
       this.results = getResult(this.value)
     }
   },

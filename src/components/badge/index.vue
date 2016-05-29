@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 .vux-badge {
   display: inline-block;
   text-align: center;

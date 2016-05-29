@@ -10,9 +10,9 @@ export default {
     vm.$nextTick(function () {
       _this._inview = Inview(_this.el, function (isInView, data) {
         if (isInView) {
-          vm.$dispatch('on-view-enter', id)
+          vm.$emit('on-view-enter', id)
         } else {
-          vm.$dispatch('on-view-leave', id)
+          vm.$emit('on-view-leave', id)
         }
       })
     })

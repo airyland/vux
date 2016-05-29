@@ -25,21 +25,17 @@ export default {
       offset: _this.offset,
       errorClass: _this.errorClass,
       successClass: _this.successClass,
-      success: function (ele) {
+      success (ele) {
         _this.$dispatch('success', _this.src, ele)
       },
-      error: function (ele, msg) {
+      error (ele, msg) {
         _this.$dispatch('error', _this.src, ele, msg)
       }
     })
   },
   props: {
-    src: {
-      type: String
-    },
-    webpSrc: {
-      type: String
-    },
+    src: String,
+    webpSrc: String,
     defaultSrc: {
       type: String,
       default: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='

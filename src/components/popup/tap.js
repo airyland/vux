@@ -1,29 +1,29 @@
 var Event = {
-  tap: function (element, callback) {
+  tap (element, callback) {
     if (!element) return console.error('tap对象不能为空')
     element.__tap = {}
     element.__tap.event = {
-      start: function (e) {
+      start (e) {
         e.stopPropagation()
         element.__tap.clickabled = true
         element.__tap.starttime = e.timeStamp
         element.__tap.startPageX = e.changedTouches[0].pageX
         element.__tap.startPageY = e.changedTouches[0].pageY
       },
-      move: function (e) {
+      move (e) {
         if (Math.abs(e.changedTouches[0].pageX - element.__tap.startPageX) >= 5 ||
           Math.abs(e.changedTouches[0].pageY - element.__tap.startPageY) >= 5) {
           element.__tap.clickabled = false
         }
       },
-      end: function (e) {
+      end (e) {
         e.stopPropagation()
         e.preventDefault()
         if (e.timeStamp - element.__tap.starttime > 30 && e.timeStamp - element.__tap.starttime < 300 && element.__tap.clickabled) {
           callback && callback(e)
         }
       },
-      click: function (e) {
+      click (e) {
         e.stopPropagation()
         callback && callback(e)
       }
@@ -37,7 +37,7 @@ var Event = {
     }
     return element
   },
-  untap: function (element) {
+  untap (element) {
     if (!element) return console.error('untap对象不能为空')
     element.__tap = element.__tap || {}
     if (/AppleWebKit.*Mobile.*/.test(navigator.userAgent.match()) && !!element.__tap.event) {

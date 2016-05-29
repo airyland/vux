@@ -23,7 +23,7 @@ var Scroller = function (container, options) {
 
   self.options = {
     itemClass: 'scroller-item',
-    onSelect: function () {},
+    onSelect () {},
     defaultValue: 0,
     data: []
   }
@@ -117,7 +117,7 @@ var members = {
   __maxDecelerationScrollTop: null,
   __decelerationVelocityY: null,
 
-  __setDimensions: function (clientHeight, contentHeight) {
+  __setDimensions (clientHeight, contentHeight) {
     var self = this
 
     self.__clientHeight = clientHeight
@@ -130,7 +130,7 @@ var members = {
     self.__maxScrollTop = self.__minScrollTop + totalItemCount * self.__itemHeight - 0.1
   },
 
-  selectByIndex: function (index, animate) {
+  selectByIndex (index, animate) {
     var self = this
     if (index < 0 || index > self.__content.childElementCount - 1) {
       return
@@ -142,7 +142,7 @@ var members = {
     self.__selectItem(self.__content.children[index])
   },
 
-  select: function (value, animate) {
+  select (value, animate) {
     var self = this
 
     var children = self.__content.children
@@ -156,11 +156,11 @@ var members = {
     self.selectByIndex(0, animate)
   },
 
-  getValue: function () {
+  getValue () {
     return this.value
   },
 
-  scrollTo: function (top, animate) {
+  scrollTo (top, animate) {
     var self = this
 
     animate = (animate === undefined) ? true : animate
@@ -181,11 +181,11 @@ var members = {
     self.__publish(top, 250)
   },
 
-  destroy: function () {
+  destroy () {
     this.__component.parentNode && this.__component.parentNode.removeChild(this.__component)
   },
 
-  __selectItem: function (selectedItem) {
+  __selectItem (selectedItem) {
     var self = this
 
     var selectedItemClass = self.options.itemClass + '-selected'
@@ -202,7 +202,7 @@ var members = {
     self.value = selectedItem.dataset.value
   },
 
-  __scrollingComplete: function () {
+  __scrollingComplete () {
     var self = this
 
     var index = Math.round((self.__scrollTop - self.__minScrollTop - self.__itemHeight / 2) / self.__itemHeight)
@@ -214,7 +214,7 @@ var members = {
     }
   },
 
-  __doTouchStart: function (touches, timeStamp) {
+  __doTouchStart (touches, timeStamp) {
     var self = this
 
     if (touches.length == null) {
@@ -262,7 +262,7 @@ var members = {
     self.__positions = []
   },
 
-  __doTouchMove: function (touches, timeStamp, scale) {
+  __doTouchMove (touches, timeStamp, scale) {
     var self = this
 
     if (touches.length == null) {
@@ -347,7 +347,7 @@ var members = {
     self.__lastScale = scale
   },
 
-  __doTouchEnd: function (timeStamp) {
+  __doTouchEnd (timeStamp) {
     var self = this
 
     if (timeStamp instanceof Date) {
@@ -415,7 +415,7 @@ var members = {
   },
 
   // Applies the scroll position to the content element
-  __publish: function (top, animationDuration) {
+  __publish (top, animationDuration) {
     var self = this
 
     // Remember whether we had an animation, then we try to continue based on the current "drive" of the animation
@@ -465,7 +465,7 @@ var members = {
   },
 
   // Called when a touch sequence end and the speed of the finger was high enough to switch into deceleration mode.
-  __startDeceleration: function (timeStamp) {
+  __startDeceleration (timeStamp) {
     var self = this
 
     self.__minDecelerationScrollTop = self.__minScrollTop
@@ -505,7 +505,7 @@ var members = {
   },
 
   // Called on every step of the animation
-  __stepThroughDeceleration: function (render) {
+  __stepThroughDeceleration (render) {
     var self = this
 
     var scrollTop = self.__scrollTop + self.__decelerationVelocityY

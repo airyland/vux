@@ -8,33 +8,33 @@ export default {
       default: true
     }
   },
-  created: function () {
+  created () {
     this.handleChangeEvent = false
   },
   computed: {
-    dirty: function () {
+    dirty () {
       return !this.prisine
     },
-    invalid: function () {
+    invalid () {
       return !this.valid
     }
   },
   methods: {
-    setTouched: function () {
+    setTouched () {
       this.touched = true
     }
   },
   watch: {
-    value: function (newVal) {
+    value (newVal) {
       if (this.prisine === true) {
         this.prisine = false
       }
       if (!this.handleChangeEvent) {
-        this.$dispatch('change', newVal)
+        this.$emit('change', newVal)
       }
     }
   },
-  data: function () {
+  data () {
     return {
       errors: {},
       prisine: true,

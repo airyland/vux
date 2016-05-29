@@ -89,7 +89,7 @@
 </template>
 
 <script>
-import { Flexbox, FlexboxItem, Divider } from '../components/'
+import { Flexbox, FlexboxItem, Divider } from '../components'
 
 export default {
   components: {
@@ -107,10 +107,7 @@ export default {
   text-align: center;
   color: #fff;
   background-color: #20b907;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  -webkit-background-clip: padding-box;
+  border-radius: 4px;
+  background-clip: padding-box;
 }
 </style>

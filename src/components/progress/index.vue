@@ -37,8 +37,8 @@ export default {
     }
   },
   methods: {
-    cancel: function () {
-      this.$dispatch('on-cancel')
+    cancel () {
+      this.$emit('on-cancel')
     }
   },
   data () {

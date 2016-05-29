@@ -1,4 +1,4 @@
-<template>
+w<template>
   <div>
     <group>
       <cell v-for="type in types" :title="type">
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { Spinner, Group, Cell } from '../components/'
+import { Spinner, Group, Cell } from '../components'
 
 export default {
   components: {

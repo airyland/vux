@@ -34,18 +34,10 @@ export default {
       default: '',
       twoWay: true
     },
-    inlineDesc: {
-      type: String
-    },
-    placeholder: {
-      type: String
-    },
-    minYear: {
-      type: Number
-    },
-    maxYear: {
-      type: Number
-    },
+    inlineDesc: String,
+    placeholder: String,
+    minYear: Number,
+    maxYear: Number,
     confirmText: {
       type: String,
       default: 'ok'
@@ -81,7 +73,7 @@ export default {
     this.render()
   },
   computed: {
-    pickerOptions: function () {
+    pickerOptions () {
       const _this = this
       const options = {
         trigger: '#vux-datetime-' + this.uuid,
@@ -95,7 +87,7 @@ export default {
         dayRow: this.dayRow,
         hourRow: this.hourRow,
         minuteRow: this.minuteRow,
-        onConfirm: function (value) {
+        onConfirm (value) {
           _this.value = value
         }
       }
@@ -109,7 +101,7 @@ export default {
     }
   },
   methods: {
-    render: function () {
+    render () {
       if (this.picker) {
         this.picker.destroy()
       }
@@ -117,8 +109,8 @@ export default {
     }
   },
   watch: {
-    value: function (val) {
-      this.$dispatch('on-change', val)
+    value (val) {
+      this.$emit('on-change', val)
     }
   },
   beforeDestroy () {

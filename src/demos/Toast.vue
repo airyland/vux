@@ -9,12 +9,12 @@
     <toast :show.sync="show">处理成功</toast>
     <toast :show.sync="show2" type="cancel">取消操作</toast>
     <toast :show.sync="show3" type="warn">禁止操作</toast>
-    <toast :show.sync="show1" :time=1000>1s关闭</toast>
+    <toast :show.sync="show1" :time="1000">1s关闭</toast>
   </div>
 </template>
 
 <script>
-import { Toast, Group, Switch } from '../components/'
+import { Toast, Group, Switch } from '../components'
 export default {
   components: {
     Toast,

@@ -3,7 +3,6 @@ node_modules/
 bower_components/
 npm-debug.log
 /demo
-dist/
 build/milestone.json
 examples/webpack/
 .idea

@@ -41,7 +41,6 @@ export default {
     },
     value: {
       type: Array,
-      required: false,
       twoWay: true
     },
     itemClass: {
@@ -106,7 +105,7 @@ export default {
         itemClass: _this.item_class,
         onSelect (value) {
           _this.value.$set(i, value)
-          _this.$dispatch('on-change', _this.getValue())
+          _this.$emit('on-change', _this.getValue())
           _this.renderChain(i + 1)
         }
       })

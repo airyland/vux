@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { Picker, GroupTitle, XButton } from '../components/'
+import { Picker, GroupTitle, XButton } from '../components'
 
 let years = []
 for (var i = 2000; i <= 2030; i++) {
@@ -51,19 +51,19 @@ export default {
     XButton
   },
   methods: {
-    changeValue: function (value) {
+    changeValue (value) {
       this.years001 = value
     },
-    change: function (value) {
+    change (value) {
       console.log('new Value', value)
     },
-    change3: function (value) {
+    change3 (value) {
       this.year5 = value[0]
     },
-    setData1: function () {
+    setData1 () {
       this.year7Value = ['USA', 'usa002', '0005']
     },
-    setData2: function () {
+    setData2 () {
       this.year7Value = ['china', 'china002', 'gz']
     },
     setList () {
@@ -77,17 +77,17 @@ export default {
   computed: {},
   watch: {
     year5: {
-      handler: function (val) {
+      handler (val) {
         this.year3[0] = val
         this.year3.$set(0, val)
       },
       deep: true
     },
-    change3: function (value) {
+    change3 (value) {
       this.year5 = value[0]
     }
   },
-  data: function () {
+  data () {
     return {
       years: [years],
       years001: [],

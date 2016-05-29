@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { XButton, Box, GroupTitle, Group, Flexbox, FlexboxItem, Divider } from '../components/'
+import { XButton, Box, GroupTitle, Group, Flexbox, FlexboxItem, Divider } from '../components'
 
 export default {
   components: {
@@ -67,15 +67,15 @@ export default {
     Divider
   },
   methods: {
-    change: function (value) {
+    change (value) {
       console.log('change:', value)
     },
-    processButton001: function () {
+    processButton001 () {
       this.submit001 = 'processing'
       this.disable001 = true
     }
   },
-  data: function () {
+  data () {
     return {
       submit001: 'click me',
       disable001: false

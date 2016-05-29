@@ -31,7 +31,7 @@ export default {
     Datetime,
     Group
   },
-  data: function () {
+  data () {
     return {
       value1: '2016-02-11',
       value2: '',
@@ -41,13 +41,9 @@ export default {
     }
   },
   methods: {
-    change: function (value) {
+    change (value) {
       console.log('change', value)
     }
   }
 }
 </script>
-
-<style>
-
-</style>

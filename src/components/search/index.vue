@@ -43,7 +43,7 @@ export default {
     },
     results: {
       type: Array,
-      default: function () {
+      default () {
         return []
       }
     },
@@ -53,28 +53,28 @@ export default {
     }
   },
   methods: {
-    clear: function () {
+    clear () {
       this.value = ''
       this.isFocus = true
       this.setFocus()
     },
-    cancel: function () {
+    cancel () {
       this.value = ''
       this.isCancel = true
       this.isFixed = false
     },
-    handleResultClick: function (item) {
-      this.$dispatch('result-click', item)
+    handleResultClick (item) {
+      this.$emit('result-click', item)
       this.isCancel = true
       this.isFixed = false
     },
-    touch: function () {
+    touch () {
       this.isCancel = false
       if (this.autoFixed) {
         this.isFixed = true
       }
     },
-    setFocus: function () {
+    setFocus () {
       this.$els.input.focus()
     }
   },
@@ -86,7 +86,7 @@ export default {
     }
   },
   watch: {
-    isFixed: function (val) {
+    isFixed (val) {
       if (val === true) {
         this.$el.classList.add('vux-search-fixed')
         this.setFocus()
@@ -95,8 +95,8 @@ export default {
         this.$el.classList.remove('vux-search-fixed')
       }
     },
-    value: function (val) {
-      this.$dispatch('on-change', this.value)
+    value (val) {
+      this.$emit('on-change', this.value)
     }
   }
 }

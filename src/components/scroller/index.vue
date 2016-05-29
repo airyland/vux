@@ -36,9 +36,7 @@ const pullupDefaultConfig = () => ({
 
 export default {
   props: {
-    height: {
-      type: String
-    },
+    height: String,
     lockX: Boolean,
     lockY: Boolean,
     scrollbarX: Boolean,
@@ -163,7 +161,7 @@ export default {
       this.pulldown = new Pulldown(config)
       this._xscroll.plug(this.pulldown)
       this.pulldown.on('loading', (e) => {
-        this.$dispatch('pulldown:loading', this.uuid)
+        this.$emit('pulldown:loading', this.uuid)
       })
       this.pulldown.on('statuschange', (val) => {
         this.pulldownStatus = val.newVal
@@ -181,7 +179,7 @@ export default {
       this.pullup = new Pullup(config)
       this._xscroll.plug(this.pullup)
       this.pullup.on('loading', (e) => {
-        this.$dispatch('pullup:loading', this.uuid)
+        this.$emit('pullup:loading', this.uuid)
       })
       this.pullup.on('statuschange', (val) => {
         this.pullupStatus = val.newVal
@@ -209,7 +207,7 @@ export default {
     this._xscroll.render()
   },
   events: {
-    'pulldown:reset': function (uuid) {
+    'pulldown:reset' (uuid) {
       // set pulldown status to default
       this.pulldownStatus = 'default'
       if (uuid === this.uuid) {
@@ -219,7 +217,7 @@ export default {
         })
       }
     },
-    'pullup:reset': function (uuid) {
+    'pullup:reset' (uuid) {
       // set pulldown status to default
       this.pullupStatus = 'default'
       if (uuid === this.uuid) {
@@ -227,12 +225,12 @@ export default {
         this.reset()
       }
     },
-    'pullup:done': function (uuid) {
+    'pullup:done' (uuid) {
       if (uuid === this.uuid) {
         this._xscroll.unplug(this.pullup)
       }
     },
-    'scroller:reset': function (uuid) {
+    'scroller:reset' (uuid) {
       if (uuid === this.uuid) {
         this.reset()
       }
