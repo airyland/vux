@@ -33,7 +33,7 @@
     <br/>
     <br/>
     <tab :line-width=2>
-      <tab-item :selected="demo3 === item" v-for="(index, item) in list3" :class="{'ui-border-r': index===0}" @click="demo3 = item">{{item}}</tab-item>
+      <tab-item :selected="demo3 === item" v-for="(index, item) in list3" :class="{'vux-1px-r': index===0}" @click="demo3 = item">{{item}}</tab-item>
     </tab>
     <br/>
     <br/>
