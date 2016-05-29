@@ -9,9 +9,12 @@
       <div class="popup0">
         <group>
           <switch title="Another Switcher" :value.sync="show"></switch>
+          <switch title="Show Toast" :value.sync="showToast"></switch>
         </group>
       </div>
     </popup>
+
+    <toast :show.sync="showToast">You did it!</toast>
 
     <popup :show.sync="show1" height="100%">
       <div class="popup1">
@@ -33,20 +36,22 @@
 </template>
 
 <script>
-import { Popup, Group, Switch, Scroller } from '../components'
+import { Popup, Group, Switch, Scroller, Toast } from '../components'
 
 export default {
   components: {
     Popup,
     Group,
     Switch,
-    Scroller
+    Scroller,
+    Toast
   },
   data () {
     return {
       show: false,
       show1: false,
-      show2: false
+      show2: false,
+      showToast: false
     }
   },
   methods: {
