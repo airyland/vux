@@ -54,10 +54,25 @@
       </cell>
     </group>
 
-    <group title="UI" title-color="#04be02">
-      <cell title="alert" link="component/alert">
+    <group title="Message && Tip" title-color="#04be02">
+      <cell title="alert" link="component/alert" value="Based on Dialog">
         <span class="demo-icon" slot="icon">&#xe603;</span>
       </cell>
+      <cell title="confirm" link="component/confirm" value="Based on Dialog">
+        <span class="demo-icon" slot="icon">&#xe608;</span>
+      </cell>
+      <cell title="dialog" link="component/dialog">
+        <span class="demo-icon" slot="icon">&#xe608;</span>
+      </cell>
+      <cell title="loading" link="component/loading">
+        <span class="demo-icon" slot="icon">&#xe610;</span>
+      </cell>
+      <cell title="toast" link="component/toast">
+        <span class="demo-icon" slot="icon">&#xe625;</span>
+      </cell>
+    </group>
+
+    <group title="UI" title-color="#04be02">
       <cell title="actionsheet" link="component/actionsheet">
         <span class="demo-icon" slot="icon">&#xe624;</span>
       </cell>
@@ -79,9 +94,6 @@
       <cell title="countdown" link="component/countdown">
         <span class="demo-icon" slot="icon">&#xe653;</span>
       </cell>
-      <cell title="confirm" link="component/confirm">
-        <span class="demo-icon" slot="icon">&#xe608;</span>
-      </cell>
       <cell title="clocker" link="component/clocker">
         <span class="demo-icon" slot="icon">&#xe620;</span>
       </cell>
@@ -90,9 +102,6 @@
       </cell>
       <cell title="icon" link="component/icon">
         <span class="demo-icon" slot="icon">&#xe619;</span>
-      </cell>
-      <cell title="loading" link="component/loading">
-        <span class="demo-icon" slot="icon">&#xe610;</span>
       </cell>
       <cell title="panel" link="component/panel">
         <span class="demo-icon" slot="icon">&#xe658;</span>
@@ -132,9 +141,6 @@
       </cell>
       <cell title="timeline" link="component/timeline">
         <span class="demo-icon" slot="icon">&#xe656;</span>
-      </cell>
-      <cell title="toast" link="component/toast">
-        <span class="demo-icon" slot="icon">&#xe625;</span>
       </cell>
       <cell title="x-header" link="component/x-header">
         <span class="demo-icon" slot="icon">&#xe654;</span>

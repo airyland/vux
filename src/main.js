@@ -70,6 +70,7 @@ import ScrollerSwiper from './demos/Scroller-swiper'
 import Qrcode from './demos/Qrcode'
 import Badge from './demos/Badge'
 import Close from './demos/Close'
+import Dialog from './demos/Dialog'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -283,6 +284,9 @@ router.map({
   },
   '/component/close': {
     component: Close
+  },
+  '/component/dialog': {
+    component: Dialog
   }
 })
 
