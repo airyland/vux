@@ -38,7 +38,6 @@
     "blazy": "^1.5.2",
     "countup": "^1.6.1",
     "eslint": "^2.5.1",
-    "lodash.indexof": "^4.0.1",
     "qr.js": "0.0.0",
     "shake.js": "^1.2.2",
     "validator": "^5.1.0",
