@@ -185,7 +185,8 @@
 
     <group title="CSS Utils" title-color="#04be02">
       <cell title="1px" value="1px解决方案(FrozenUI)" link="component/1px"></cell>
-      <cell title="center(Based on Flexbox)" value="水平垂直居中" link="component/center"></cell>
+      <cell title="Center(Based on Flexbox)" value="水平垂直居中" link="component/center"></cell>
+      <cell title="Close icon" value="关闭字符" link="component/close"></cell>
     </group>
 
     <group title="TODO" title-color="#04be02" v-if="showTodo">
