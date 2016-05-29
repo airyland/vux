@@ -1,5 +1,5 @@
 <template>
-  <div class="vux-flexbox" :class="{'flex-col': orient === 'vertical', 'flex-row': orient === 'horizontal'}">
+  <div class="vux-flexbox" :class="{'vux-flex-col': orient === 'vertical', 'vux-flex-row': orient === 'horizontal'}">
     <slot></slot>
   </div>
 </template>
@@ -39,14 +39,14 @@ export default {
   margin-left: 0!important;
   margin-top: 0!important;
 }
-.flex-col {
+.vux-flex-col {
   box-orient: vertical;
   flex-direction: column;
 }
-.flex-col > .vux-flexbox-item {
+.vux-flex-col > .vux-flexbox-item {
   width: 100%;
 }
-.flex-row {
+.vux-flex-row {
   box-direction: row;
   box-orient: horizontal;
   flex-direction: row;
