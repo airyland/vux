@@ -1,4 +1,4 @@
-import filter from 'lodash.filter'
+import filter from 'array-filter'
 
 const Manager = class {
   constructor (data, count) {
@@ -7,13 +7,13 @@ const Manager = class {
   }
 
   getChildren (value) {
-    return filter(this.data, function (one) {
+    return filter(this.data, one => {
       return one.parent === value
     })
   }
 
   getFirstColumn () {
-    return filter(this.data, function (one) {
+    return filter(this.data, one => {
       return !one.parent || one.parent === 0
     })
   }
@@ -35,7 +35,6 @@ const Manager = class {
     }
     return datas
   }
-
 }
 
 export default Manager
