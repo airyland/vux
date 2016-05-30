@@ -133,22 +133,18 @@ export default {
 }
 
 .animated {
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
   }
 
   100% {
     opacity: 1;
-    -webkit-transform: none;
     transform: none;
   }
 }
@@ -156,19 +152,16 @@ export default {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
   }
 
   100% {
     opacity: 1;
-    -webkit-transform: none;
     transform: none;
   }
 }
 
 .fadeInUp {
-  -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
 }
 

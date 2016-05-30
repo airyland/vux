@@ -145,9 +145,6 @@ export default {
   width: 100%;
   z-index: 3;
   background-image:
-    -webkit-linear-gradient(top, rgba(255,255,255,0.95), rgba(255,255,255,0.6)),
-    -webkit-linear-gradient(bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.6));
-  background-image:
     linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.6)),
     linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0.6));
   background-position: top, bottom;
@@ -170,9 +167,6 @@ export default {
   left: 0;
   top: 102px;
   z-index: 3;
-  background-image:
-    -webkit-linear-gradient(top, #d0d0d0, #d0d0d0, transparent, transparent),
-    -webkit-linear-gradient(bottom, #d0d0d0, #d0d0d0, transparent, transparent);
   background-image:
     linear-gradient(to bottom, #d0d0d0, #d0d0d0, transparent, transparent),
     linear-gradient(to top, #d0d0d0, #d0d0d0, transparent, transparent);
@@ -209,9 +203,8 @@ export default {
 .dp-header {
   display: flex;
   width: 100%;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  background-image: -webkit-linear-gradient(top, #e7e7e7, #e7e7e7, transparent, transparent);
+  box-align: center;
+  align-items: center;
   background-image: linear-gradient(to bottom, #e7e7e7, #e7e7e7, transparent, transparent);
   background-position: bottom;
   background-size: 100% 1px;
