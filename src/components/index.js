@@ -58,7 +58,7 @@ import XHeader from './x-header'
 import Checker from './checker'
 import CheckerItem from './checker-item'
 import { Timeline, TimelineItem } from './timeline'
-import { VSteps, VStep } from './steps'
+import { Step, StepItem } from './steps'
 import { Tabbar, TabbarItem } from './tabbar'
 import Panel from './panel'
 import { ButtonTab, ButtonTabItem } from './button-tab'
@@ -126,8 +126,8 @@ const vux = {
   CheckerItem,
   Timeline,
   TimelineItem,
-  VSteps,
-  VStep,
+  Step,
+  StepItem,
   Tabbar,
   TabbarItem,
   Panel,

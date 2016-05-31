@@ -1,7 +1,7 @@
-import VSteps from './Steps'
-import VStep from './Step'
+import Step from './step'
+import StepItem from './step-item'
 
 module.exports = {
-  VSteps,
-  VStep
+  Step,
+  StepItem
 }

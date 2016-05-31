@@ -1,19 +1,19 @@
 <template>
   <div>
     <div>
-      <v-steps :current="step1">
-        <v-step title="步骤1" icon="cloud"></v-step>
-        <v-step title="步骤2"></v-step>
-        <v-step title="步骤3"></v-step>
-      </v-steps>
+      <step :current="step1">
+        <step-item title="步骤1" icon="cloud"></step-item>
+        <step-item title="步骤2"></step-item>
+        <step-item title="步骤3"></step-item>
+      </step>
     </div>
     <divider>切换到下一步</divider>
     <div>
-      <v-steps :current.sync="step2">
-        <v-step title="已完成"></v-step>
-        <v-step title="进行中"></v-step>
-        <v-step title="待完成"></v-step>
-      </v-steps>
+      <step :current.sync="step2">
+        <step-item title="已完成"></step-item>
+        <step-item title="进行中"></step-item>
+        <step-item title="待完成"></step-item>
+      </step>
       <div class="btn_wrap">
         <x-button type="primary" @click="nextStep">下一步</x-button>
       </div>
@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import { VSteps, VStep, XButton, Divider } from '../components'
+import { Step, StepItem, XButton, Divider } from '../components'
 
 export default {
   components: {
-    VSteps,
-    VStep,
+    Step,
+    StepItem,
     XButton,
     Divider
   },
