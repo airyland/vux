@@ -17,7 +17,7 @@
 <p align="center">Vux = Vue + WeUI + A Bunch of Components </p>
 <p align="center">
   <a href="https://circleci.com/gh/airyland/vux">
-    <img src="https://circleci.com/gh/airyland/vux.svg?style=flat-square" alt="">
+    <img src="https://img.shields.io/circleci/project/airyland/vux/master.svg?style=flat-square" alt="">
   </a>
   <a href="https://www.npmjs.com/package/vux">
     <img src="https://img.shields.io/npm/v/vux.svg?style=flat-square" alt="">
