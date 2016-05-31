@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "0.0.117",
+  "version": "0.0.118-rc3",
   "description": "Mobile web UI based on Vue and Weui",
   "keywords": [
     "vux",
@@ -37,7 +37,6 @@
     "array-shuffle": "^1.0.0",
     "blazy": "^1.5.2",
     "countup": "^1.6.1",
-    "eslint": "^2.5.1",
     "qr.js": "0.0.0",
     "shake.js": "^1.2.2",
     "validator": "^5.1.0",
@@ -59,6 +58,7 @@
     "connect-history-api-fallback": "^1.1.0",
     "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.0",
+    "eslint": "^2.5.1",
     "eslint-config-standard": "^5.1.0",
     "eslint-friendly-formatter": "^1.2.2",
     "eslint-loader": "^1.2.0",
