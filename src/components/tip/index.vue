@@ -1,5 +1,5 @@
 <template>
-  <div class="group-tip" :style="{'text-align':align}">
+  <div class="vux-group-tip" :style="{'text-align':align}">
     <slot></slot>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style>
-.group-tip, .group-tip p {
+.vux-group-tip, .vux-group-tip p {
   font-size:14px;
   color:#888;
   text-align:center;
@@ -24,7 +24,7 @@ export default {
   padding-left:10px;
   padding-right:5px;
 }
-.group-tip .weui_icon {
+.vux-group-tip .weui_icon {
   padding-right: 3px;
 }
 </style>
