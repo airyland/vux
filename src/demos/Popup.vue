@@ -4,6 +4,7 @@
       <switch title="Default popup" :value.sync="show"></switch>
       <switch title="Full popup" :value.sync="show1"></switch>
       <switch title="with a Scroller" :value.sync="show2"></switch>
+      <switch title="Multi popup (first)" :value.sync="show3"></switch>
     </group>
     <popup :show.sync="show">
       <div class="popup0">
@@ -32,6 +33,25 @@
       </scroller>
     </popup>
 
+    <popup :show.sync="show3">
+      <div class="popup2">
+        <group>
+          <switch title="Multi Popup (first)" :value.sync="show3"></switch>
+          <switch title="Multi Popup (second)" :value.sync="show4"></switch>
+        </group>
+        this is the first popup
+      </div>
+    </popup>
+
+    <popup :show.sync="show4">
+      <div class="popup2">
+        <group>
+          <switch title="Multi Popup (second)" :value.sync="show4"></switch>
+        </group>
+        this is the second popup
+      </div>
+    </popup>
+
   </div>
 </template>
 
@@ -51,6 +71,8 @@ export default {
       show: false,
       show1: false,
       show2: false,
+      show3: false,
+      show4: false,
       showToast: false
     }
   },
@@ -70,5 +92,9 @@ export default {
 .popup1 {
   width:100%;
   height:100%;
+}
+.popup2 {
+  padding-bottom:15px;
+  height:400px;
 }
 </style>
