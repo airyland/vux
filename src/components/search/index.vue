@@ -15,7 +15,7 @@
       </form>
       <a href="javascript:" class="weui_search_cancel" id="search_cancel" @click="cancel">{{cancelText}}</a>
     </div>
-    <div class="weui_cells weui_cells_access search_show" id="search_show" v-show="isFixed && results.length && value">
+    <div class="weui_cells weui_cells_access vux-search_show" id="search_show" v-show="isFixed && results.length && value">
       <div class="weui_cell" v-for="item in results" @click="handleResultClick(item)">
         <div class="weui_cell_bd weui_cell_primary">
           <p>{{item.title}}</p>
@@ -114,7 +114,7 @@ export default {
 .vux-search-box {
   width: 100%;
 }
-.search_show {
+.vux-search_show {
   margin-top: 0;
   overflow-y: auto;
   height: 100%;
