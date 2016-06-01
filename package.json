@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "0.0.118-rc3",
+  "version": "0.1.0-rc1",
   "description": "Mobile web UI based on Vue and Weui",
   "keywords": [
     "vux",
