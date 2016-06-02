@@ -1,5 +1,3 @@
-<h2 align="center">v0.1 will be released on 0601.</h2>
-
 <p align="center">
   <a href="http://vux.li">
     <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
@@ -30,10 +28,13 @@
   </a>
 </p>
 
+## Docs
+
++ [中文文档](https://vuxjs.gitbooks.io/vux/content/)
+
 ## Importance notice
 
 + This is not an Official Project of Wechat.
-+ :warning: Before vux@0.1.0, Components' API may `change` any time.
 + If you are interested in improving vux, just email me to join [Vux@Teambition](https://www.teambition.com/project/56f37e966d3fb3142656b764/tasks/scrum/56f37e969aff544c264e23ec)
 
 ## Demo
@@ -179,10 +180,6 @@ const Countup = function (resolve) {
   require(['./demos/Countup'], resolve) // webpack will do the rest things
 }
 ```
-
-## Work in Progress
- 
-This project is still in progress, so do not rely on this for anything important before production-ready version released. And pull requests are welcome.
 
 ## Development Setup
 
