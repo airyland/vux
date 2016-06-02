@@ -8,7 +8,6 @@
 
 <script>
 import { DateFormatter } from '../components'
-console.log(DateFormatter)
 
 export default {
   filters: {
