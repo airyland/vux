@@ -5,24 +5,12 @@
 </template>
 
 <script>
+import { parentMixin } from '../../mixins/multi-items'
+
 export default {
+  mixins: [parentMixin],
   props: {
     height: Number
-  },
-  ready () {
-    const tabList = this.$el.querySelectorAll('.vux-button-tab-item')
-    this.tabNumber = tabList.length
-    let n = 0
-    for (let i of tabList) {
-      i.setAttribute('data-index', n)
-      n++
-    }
-  },
-  events: {
-    'on-item-click' (index) {
-      this.$broadcast('on-item-click', index)
-      return true
-    }
   }
 }
 </script>
