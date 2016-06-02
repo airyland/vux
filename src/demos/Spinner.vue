@@ -1,4 +1,4 @@
-w<template>
+<template>
   <div>
     <group>
       <cell v-for="type in types" :title="type">
