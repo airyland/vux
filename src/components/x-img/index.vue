@@ -46,9 +46,7 @@ export default {
       type: Number,
       defaut: 100
     },
-    class: {
-      type: String
-    }
+    class: String
   },
   beforeDestroy () {
     this.blazy && this.blazy.destroy()
@@ -58,13 +56,11 @@ export default {
 
 <style>
 .b-lazy {
-  -webkit-transition: opacity 500ms ease-in-out;
-  -moz-transition: opacity 500ms ease-in-out;
-  -o-transition: opacity 500ms ease-in-out;
   transition: opacity 500ms ease-in-out;
   max-width: 100%;
   opacity: 0;
 }
+
 .b-lazy.b-loaded {
   opacity: 1;
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="vux-rater">
-    <a class="vux-rater-box" v-for="i in max" @click="handleClick(i)" :class="{'is-active':value > i}" :style="{color:colors[i],marginRight:margin+'px',fontSize: fontSize + 'px', width: fontSize + 'px', height: fontSize + 'px'}">
+    <a class="vux-rater-box" v-for="i in max" @click="handleClick(i)" :class="{'is-active':value > i}" :style="{color: colors && colors[i] ? colors[i] : '#ccc',marginRight:margin+'px',fontSize: fontSize + 'px', width: fontSize + 'px', height: fontSize + 'px'}">
       <span class="vux-rater-inner">{{star}}<span class="vux-rater-outer" :style="{color: activeColor, width: cutPercent + '%'}" v-if="cutPercent > 0 && cutIndex === i">{{star}}</span></span>
     </a>
   </div>
@@ -9,12 +9,7 @@
 <script>
 export default {
   ready () {
-    for (var i = 0; i < this.max; i++) {
-      this.colors.push('#ccc')
-    }
-    if (this.value) {
-      this.handleClick(this.value - 1, true)
-    }
+    this.updateStyle()
   },
   props: {
     max: {
@@ -62,13 +57,20 @@ export default {
   methods: {
     handleClick (i, force) {
       if (!this.disabled || force) {
-        this.value = i + 1
-        for (var j = 0; j < this.max; j++) {
-          if (j <= i) {
-            this.colors.$set(j, this.activeColor)
-          } else {
-            this.colors.$set(j, '#ccc')
-          }
+        if (this.value === i + 1) {
+          this.value = i
+          this.updateStyle()
+        } else {
+          this.value = i + 1
+        }
+      }
+    },
+    updateStyle () {
+      for (var j = 0; j < this.max; j++) {
+        if (j <= this.value - 1) {
+          this.colors.$set(j, this.activeColor)
+        } else {
+          this.colors.$set(j, '#ccc')
         }
       }
     }
@@ -82,7 +84,7 @@ export default {
   },
   watch: {
     value (val) {
-      this.handleClick(val - 1)
+      this.updateStyle()
     }
   }
 }

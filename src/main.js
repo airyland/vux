@@ -62,6 +62,7 @@ import Checker from './demos/Checker'
 import ScrollerFull from './demos/Scroller-full'
 import NumberRoller from './demos/Number-roller'
 import Timeline from './demos/Timeline'
+import Steps from './demos/Steps'
 import Tabbar from './demos/Tabbar'
 import Panel from './demos/Panel'
 import Reddot from './demos/Reddot'
@@ -260,6 +261,9 @@ router.map({
   },
   '/component/timeline': {
     component: Timeline
+  },
+  '/component/steps': {
+    component: Steps
   },
   '/component/tabbar': {
     component: Tabbar

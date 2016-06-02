@@ -39,9 +39,7 @@ export default {
       type: Boolean,
       twoWay: true
     },
-    inlineDesc: {
-      type: String
-    }
+    inlineDesc: String
   },
   ready () {},
   watch: {

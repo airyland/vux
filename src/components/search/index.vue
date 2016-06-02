@@ -1,7 +1,7 @@
 <template>
   <div class="vux-search-box">
     <div class="weui_search_bar" id="search_bar" :class="{weui_search_focusing: !isCancel}">
-      <form class="weui_search_outer">
+      <form class="weui_search_outer" @submit.prevent="@emit('on-submit', value)">
         <div class="vux-search-mask" @click="touch" v-show="!isFixed"></div>
         <div class="weui_search_inner">
           <i class="weui_icon_search"></i>
@@ -15,7 +15,7 @@
       </form>
       <a href="javascript:" class="weui_search_cancel" id="search_cancel" @click="cancel">{{cancelText}}</a>
     </div>
-    <div class="weui_cells weui_cells_access search_show" id="search_show" v-show="isFixed && results.length && value">
+    <div class="weui_cells weui_cells_access vux-search_show" id="search_show" v-show="isFixed && results.length && value">
       <div class="weui_cell" v-for="item in results" @click="handleResultClick(item)">
         <div class="weui_cell_bd weui_cell_primary">
           <p>{{item.title}}</p>
@@ -108,13 +108,14 @@ export default {
   height: 100%;
   left: 0;
   top: 0;
+  z-index: 5;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(5px);
 }
 .vux-search-box {
   width: 100%;
 }
-.search_show {
+.vux-search_show {
   margin-top: 0;
   overflow-y: auto;
   height: 100%;

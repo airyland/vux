@@ -6,3 +6,4 @@ npm-debug.log
 build/milestone.json
 examples/webpack/
 .idea
+dist/components-commonjs/

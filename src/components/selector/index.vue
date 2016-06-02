@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import find from 'lodash.find'
+import find from 'array-find'
 
 const findByKey = function (key, options) {
   const _rs = find(options, function (item) {

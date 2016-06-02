@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     onClick () {
-      this.$emit('on-item-click', this.$el.getAttribute('data-index'))
+      this.$dispatch('on-item-click', this.$el.getAttribute('data-index'))
       this.selected = true
     }
   },

@@ -279,6 +279,7 @@ DatetimePicker.prototype = {
   hide () {
     var self = this
     self.container.style.removeProperty('transform')
+    self.container.style.removeProperty('-webkit-transform')
 
     setTimeout(function () {
       self.container.style.display = 'none'

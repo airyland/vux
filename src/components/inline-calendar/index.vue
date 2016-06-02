@@ -189,7 +189,7 @@ export default {
 }
 .inline-calendar a {
   text-decoration: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .calendar-year, .calendar-month {
   position: relative;

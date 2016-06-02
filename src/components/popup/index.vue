@@ -66,9 +66,7 @@ export default {
   width: 100%;
   background: #eee;
   z-index: 101;
-  -webkit-transition-property: -webkit-transform;
   transition-property: transform;
-  -webkit-transition-duration: 300ms;
   transition-duration: 300ms;
 }
 .picker-mask {
@@ -81,8 +79,7 @@ export default {
   background: rgba(0, 0, 0, 0.5);
   z-index: 1;
   opacity: 0;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-transition: all 0.2s;
+  tap-highlight-color: rgba(0,0,0,0);
   transition: all 0.2s;
   z-index: -1;
 }
@@ -94,11 +91,9 @@ export default {
 }
 .popup-enter {
   background-color:red;
-  -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0);
 }
 .popup-leave {
-  -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0);
 }
 </style>
