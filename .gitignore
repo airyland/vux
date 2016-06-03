@@ -7,3 +7,4 @@ build/milestone.json
 examples/webpack/
 .idea
 dist/components-commonjs/
+/site
