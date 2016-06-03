@@ -26,10 +26,10 @@ export default {
       errorClass: _this.errorClass,
       successClass: _this.successClass,
       success (ele) {
-        _this.$dispatch('success', _this.src, ele)
+        _this.$emit('on-success', _this.src, ele)
       },
       error (ele, msg) {
-        _this.$dispatch('error', _this.src, ele, msg)
+        _this.$emit('on-error', _this.src, ele, msg)
       }
     })
   },
