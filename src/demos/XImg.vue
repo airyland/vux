@@ -2,7 +2,7 @@
   <div>
     <div v-for="src in list" style="background-color:yellow;text-align:center;">
       <span style="font-size:20px;">Loading</span>
-      <x-img :src="src" @success="success" @error="error" class="ximg-demo" error-class="ximg-error" :offset="-300"></x-img>
+      <x-img :src="src" @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-300"></x-img>
     </div>
   </div>
 </template>
