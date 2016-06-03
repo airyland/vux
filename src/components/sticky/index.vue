@@ -4,9 +4,8 @@
 
 <script>
 import sticky from './sticky'
+
 export default {
-  props: {
-  },
   ready () {
     sticky(this.$el)
   }
@@ -16,7 +15,6 @@ export default {
 <style>
 .vux-sticky {
   width: 100%;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }
@@ -26,3 +24,4 @@ export default {
   top: 0;
 }
 </style>
+

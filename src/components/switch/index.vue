@@ -18,7 +18,7 @@ export default {
     InlineDesc
   },
   computed: {
-    labelStyle: function () {
+    labelStyle () {
       let isHTML = /<\/?[^>]*>/.test(this.title)
       let width = Math.min(isHTML ? 5 : (this.title.length + 1), 14) + 'em'
       return {
@@ -39,14 +39,12 @@ export default {
       type: Boolean,
       twoWay: true
     },
-    inlineDesc: {
-      type: String
-    }
+    inlineDesc: String
   },
-  ready: function () {},
+  ready () {},
   watch: {
-    value: function (newVal) {
-      this.$dispatch('on-change', newVal)
+    value (newVal) {
+      this.$emit('on-change', newVal)
     }
   }
 }

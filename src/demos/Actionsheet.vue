@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { Actionsheet, Group, Switch } from '../components/'
+import { Actionsheet, Group, Switch } from '../components'
 
 export default {
   components: {
@@ -33,7 +33,7 @@ export default {
     }
   },
   methods: {
-    click: function (key) {
+    click (key) {
       console.log(key)
     }
   }

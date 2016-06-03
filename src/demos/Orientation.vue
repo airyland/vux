@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Orientation from '../components/orientation/'
+import Orientation from '../components/orientation'
 
 export default {
   directives: {

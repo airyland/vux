@@ -3,9 +3,9 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      gap: String
-    }
+export default {
+  props: {
+    gap: String
   }
+}
 </script>

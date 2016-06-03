@@ -17,7 +17,7 @@ export default {
     }
   },
   computed: {
-    classNames: function () {
+    classNames () {
       const names = {
         'vux-tap-active': !this.disabled
       }
@@ -34,10 +34,10 @@ export default {
     }
   },
   methods: {
-    select: function () {
+    select () {
       if (!this.disabled) {
         this.$parent.$set('value', this.value)
-        this.$dispatch('on-item-click', this.value, this.disabled)
+        this.$emit('on-item-click', this.value, this.disabled)
       }
     }
   }

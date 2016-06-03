@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { Group, Checklist } from '../components/'
+import { Group, Checklist } from '../components'
 
 export default {
   components: {
@@ -23,11 +23,11 @@ export default {
     Checklist
   },
   methods: {
-    change: function (val) {
+    change (val) {
       console.log('change', val)
     }
   },
-  data: function () {
+  data () {
     return {
       commonList: [ 'China', 'Japan', 'America' ],
       checklist001: [],

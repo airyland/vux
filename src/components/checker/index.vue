@@ -7,23 +7,17 @@
 <script>
 export default {
   props: {
-    defaultItemClass: {
-      type: String
-    },
-    selectedItemClass: {
-      type: String
-    },
-    disabledItemClass: {
-      type: String
-    },
+    defaultItemClass: String,
+    selectedItemClass: String,
+    disabledItemClass: String,
     value: {
       type: [String, Number],
       twoWay: true
     }
   },
   watch: {
-    value: function (newValue) {
-      this.$dispatch('on-change', newValue)
+    value (newValue) {
+      this.$emit('on-change', newValue)
     }
   }
 }

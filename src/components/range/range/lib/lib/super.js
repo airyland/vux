@@ -46,7 +46,7 @@ function super_ () {
  *     Bar.extend = inherits.extend
  *
  *     var Fu = Bar.extend({
- *       initialize: function () {
+ *       initialize () {
  *         this._initialized = true
  *       }
  *     })

@@ -13,19 +13,19 @@
     </group>
     <group title="min and max">
       <cell title="min=8" :inline-desc="'value is: '+data4" primary="content">
-        <range slot="value" :value.sync="data4" :min=8></range>
+        <range slot="value" :value.sync="data4" :min="8"></range>
       </cell>
       <cell title="max=88" :inline-desc="'value is: '+data5" primary="content">
-        <range slot="value" :value.sync="data5" :max=88></range>
+        <range slot="value" :value.sync="data5" :max="88"></range>
       </cell>
       <cell title="min and max" :inline-desc="'value is: '+data6" primary="content">
-        <range slot="value" :value.sync="data6" :min=7 :max=77></range>
+        <range slot="value" :value.sync="data6" :min="7" :max="77"></range>
       </cell>
     </group>
 
     <group title="Step">
       <cell title="step=10" :inline-desc="'valus is: '+data7" primary="content">
-        <range slot="value" :value.sync="data7" :min=7 :max=77 :step=10></range>
+        <range slot="value" :value.sync="data7" :min="7" :max="77" :step="10"></range>
       </cell>
     </group>
 
@@ -34,13 +34,13 @@
         <range slot="value" :value.sync="data8" disabled></range>
       </cell>
       <cell title="Opacity" :inline-desc="'valus is: '+data8" primary="content">
-        <range slot="value" :value.sync="data8" disabled :disabled-opacity=0.1></range>
+        <range slot="value" :value.sync="data8" disabled :disabled-opacity="0.1"></range>
       </cell>
     </group>
 
     <group title="bar height">
       <cell title="Line width" :inline-desc="'value is: '+data9" primary="content">
-        <range slot="value" :value.sync="data9" :range-bar-height=4></range>
+        <range slot="value" :value.sync="data9" :range-bar-height="4"></range>
       </cell>
     </group>
 
@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import { Range, Group, GroupTitle, Cell } from '../components/'
+import { Range, Group, GroupTitle, Cell } from '../components'
 
 export default {
   components: {
@@ -92,7 +92,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

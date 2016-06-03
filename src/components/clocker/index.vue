@@ -9,25 +9,24 @@
 const Clocker = require('./clocker')
 export default {
   ready () {
-    let _this = this
-    _this.slot = this.$el.querySelector('.vux-clocker-tpl')
-    _this.slotString = _this.slot.innerHTML
-    if (_this.slotString !== '') {
-      _this.showTimeString = false
+    this.slot = this.$el.querySelector('.vux-clocker-tpl')
+    this.slotString = this.slot.innerHTML
+    if (this.slotString !== '') {
+      this.showTimeString = false
     }
-    this.clocker = new Clocker(_this.time)
-    .on('tick', function (event) {
-      _this.update(event)
-      _this.$dispatch('on-tick', event)
+    this.clocker = new Clocker(this.time)
+    .on('tick', event => {
+      this.update(event)
+      this.$emit('on-tick', event)
     })
-    .on('finish', function () {
-      _this.timeString = '00:00:00'
-      _this.$dispatch('on-finish')
+    .on('finish', () => {
+      this.timeString = '00:00:00'
+      this.$emit('on-finish')
     })
     .start()
   },
   methods: {
-    update: function (event) {
+    update (event) {
       if (this.showTimeString) {
         this.timeString = event.strftime(this.format)
       } else {

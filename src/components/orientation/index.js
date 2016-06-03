@@ -3,7 +3,7 @@
  */
 import Orientation from './orientation'
 export default {
-  bind: function () {
+  bind () {
     const _this = this
     const value = this.expression
     const _value = value.toString()[0].toUpperCase() + value.toString().slice(1)
@@ -19,8 +19,8 @@ export default {
       _this.el.style.display = info[value] ? 'block' : 'none'
     })
   },
-  update: function () {
+  update () {
   },
-  unbind: function () {
+  unbind () {
   }
 }

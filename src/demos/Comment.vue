@@ -69,7 +69,7 @@ export default {
     }
   },
   methods: {
-    praise: function (item) {
+    praise (item) {
       if (!item.has_praised) {
         item.like_num++
         item.has_praised = true
@@ -140,8 +140,6 @@ export default {
   vertical-align: top;
   margin-top: 0;
   border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px
 }
 
 .discuss_item .discuss_message {
@@ -216,9 +214,7 @@ export default {
   width: 100%;
   height: 1px;
   border-top: 1px solid #dadada;
-  -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
-  -webkit-transform: scaleY(0.5);
   transform: scaleY(0.5)
 }
 
@@ -244,7 +240,7 @@ export default {
 
 
 .meta_praise {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  tap-highlight-color: rgba(0,0,0,0);
   outline: 0;
   min-width: 3.5em
 }
@@ -261,7 +257,6 @@ export default {
   height: 13px;
   vertical-align: middle;
   display: inline-block;
-  -webkit-background-size: 100% auto;
   background-size: 100% auto
 }
 
@@ -272,5 +267,4 @@ export default {
 .praised .icon_praise_gray {
   background-position: 0 -18px
 }
-
 </style>

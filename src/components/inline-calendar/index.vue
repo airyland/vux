@@ -45,7 +45,7 @@ import props from './props'
 
 export default {
   props: props(),
-  data: function () {
+  data () {
     return {
       year: 0,
       month: 0,
@@ -55,7 +55,7 @@ export default {
       months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
     }
   },
-  ready: function () {
+  ready () {
     this.value = this.convertDate(this.value)
     this.render(this.renderMonth[0], this.renderMonth[1] - 1)
   },
@@ -69,7 +69,7 @@ export default {
     }
   },
   watch: {
-    value: function (val) {
+    value (val) {
       this.value = this.convertDate(val)
       if (this.renderOnValueChange) {
         this.render(null, null, val)
@@ -86,13 +86,13 @@ export default {
     }
   },
   methods: {
-    replaceText: function (day, formatDay) {
+    replaceText (day, formatDay) {
       return this._replaceTextList[formatDay] || day
     },
-    convertDate: function (date) {
+    convertDate (date) {
       return date === 'TODAY' ? this.today : date
     },
-    buildClass: function (index, child, isCurrent) {
+    buildClass (index, child, isCurrent) {
       const className = {
         current: child.current || isCurrent,
         'is-disabled': child.disabled,
@@ -101,7 +101,7 @@ export default {
       className[`is-week-${index}`] = true
       return className
     },
-    render: function (year, month) {
+    render (year, month) {
       let data = getDays({
         year: year,
         month: month,
@@ -118,7 +118,7 @@ export default {
     formatDate: (year, month, child) => {
       return [year, zero(month + 1), zero(child.day)].join('-')
     },
-    prev: function () {
+    prev () {
       if (this.month === 0) {
         this.month = 11
         this.year = this.year - 1
@@ -127,7 +127,7 @@ export default {
       }
       this.render(this.year, this.month)
     },
-    next: function () {
+    next () {
       if (this.month === 11) {
         this.month = 0
         this.year = this.year + 1
@@ -136,10 +136,10 @@ export default {
       }
       this.render(this.year, this.month)
     },
-    go: function (year, month) {
+    go (year, month) {
       this.render(year, month)
     },
-    select: function (k1, k2) {
+    select (k1, k2) {
       if (this.current.length > 0) {
         this.days[this.current[0]][this.current[1]].isCurrent = false
       }
@@ -189,7 +189,7 @@ export default {
 }
 .inline-calendar a {
   text-decoration: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .calendar-year, .calendar-month {
   position: relative;

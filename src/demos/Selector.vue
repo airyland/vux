@@ -32,14 +32,14 @@
 </template>
 
 <script>
-import { Selector, Group } from '../components/'
+import { Selector, Group } from '../components'
 
 export default {
   components: {
     Group,
     Selector
   },
-  data: function () {
+  data () {
     return {
       defaultValue: '',
       plainList: ['广东', '广西'],
@@ -50,7 +50,7 @@ export default {
     }
   },
   methods: {
-    onChange: function (val) {
+    onChange (val) {
       console.log(val)
     }
   }

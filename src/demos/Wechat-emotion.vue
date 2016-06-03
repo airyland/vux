@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { WechatEmotion as Emotion } from '../components/'
+import { WechatEmotion as Emotion } from '../components'
 export default {
   components: {
     Emotion

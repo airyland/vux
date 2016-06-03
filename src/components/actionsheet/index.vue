@@ -1,5 +1,5 @@
 <template>
-  <div class="actionsheet_wrap">
+  <div>
     <div class="weui_mask_transition" :class="{'weui_fade_toggle': show}" :style="{display: show ? 'block' : 'none'}" @click="show=false"></div>
     <div class="weui_actionsheet" :class="{'weui_actionsheet_toggle': show}">
       <div class="weui_actionsheet_menu">
@@ -18,7 +18,7 @@ export default {
     show: {
       type: Boolean,
       required: true,
-      defalt: false,
+      default: false,
       twoWay: true
     },
     showCancel: {
@@ -31,7 +31,6 @@ export default {
     },
     menus: {
       type: Object,
-      required: false,
       default: {}
     }
   },

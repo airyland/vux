@@ -43,7 +43,7 @@ export default {
     }
   },
   methods: {
-    onHide: function () {
+    onHide () {
       this.show = false
     }
   }

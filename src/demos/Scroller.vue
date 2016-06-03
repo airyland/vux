@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { Scroller, Divider, Spinner } from '../components/'
+import { Scroller, Divider, Spinner } from '../components'
 
 export default {
   components: {

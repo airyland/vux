@@ -16,9 +16,7 @@
       <icon type="cancel"></icon>
       <icon type="search"></icon>
       <icon type="clear"></icon>
-
       <br/>
-
       <icon type="success" class="icon_big"></icon>
       <icon type="info" class="icon_big"></icon>
       <icon type="safe_success" class="icon_big"></icon>
@@ -28,7 +26,7 @@
 </template>
 
 <script>
-import { Box, Icon } from '../components/'
+import { Box, Icon } from '../components'
 
 export default {
   components: {

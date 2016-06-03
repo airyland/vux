@@ -35,7 +35,7 @@ export default {
     }
   },
   methods: {
-    onClickBack: function () {
+    onClickBack () {
       if (this.leftOptions.preventGoBack) {
         this.$emit('on-click-back')
       } else {
@@ -50,7 +50,7 @@ export default {
 .x-header {
   position: relative;
   padding: 3px 0;
-  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   background-color: #35495e;
 }
 .x-header .x-header-title,.x-header h1 {

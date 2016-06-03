@@ -18,7 +18,7 @@ export default {
     Swiper
   },
   methods: {
-    load: function (uuid) {
+    load (uuid) {
       const _this = this
       setTimeout(function () {
         _this.$broadcast('pulldown:reset', uuid)

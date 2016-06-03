@@ -52,10 +52,10 @@ var DEFAULT_CONFIG = {
   minuteRow: '{value}',
   format: 'YYYY-MM-DD',
   value: NOW.getFullYear() + '-' + (NOW.getMonth() + 1) + '-' + NOW.getDate(),
-  onSelect: function () {},
-  onConfirm: function () {},
-  onShow: function () {},
-  onHide: function () {},
+  onSelect () {},
+  onConfirm () {},
+  onShow () {},
+  onHide () {},
   confirmText: 'ok',
   cancelText: 'cancel'
 }
@@ -122,7 +122,7 @@ function DatetimePicker (config) {
 
 DatetimePicker.prototype = {
 
-  _show: function (newValueMap) {
+  _show (newValueMap) {
     var self = this
 
     self.container.style.display = 'block'
@@ -136,7 +136,7 @@ DatetimePicker.prototype = {
       self.container.style.transform = 'translateY(0)'
     }, 0)
   },
-  show: function (value) {
+  show (value) {
     var self = this
     var config = self.config
     CURRENT_PICKER = self
@@ -220,7 +220,7 @@ DatetimePicker.prototype = {
     config.onShow.call(self)
   },
 
-  _makeData: function (type, year, month) {
+  _makeData (type, year, month) {
     var config = this.config
     var valueMap = this.valueMap
     var list = TYPE_MAP[type]
@@ -259,7 +259,7 @@ DatetimePicker.prototype = {
     return data
   },
 
-  _setDayScroller: function (year, month, day) {
+  _setDayScroller (year, month, day) {
     var self = this
     var maxDay = getMaxDay(year, month)
     if (day > maxDay) {
@@ -272,13 +272,14 @@ DatetimePicker.prototype = {
     })
   },
 
-  find: function (selector) {
+  find (selector) {
     return this.container.querySelector(selector)
   },
 
-  hide: function () {
+  hide () {
     var self = this
     self.container.style.removeProperty('transform')
+    self.container.style.removeProperty('-webkit-transform')
 
     setTimeout(function () {
       self.container.style.display = 'none'
@@ -289,11 +290,11 @@ DatetimePicker.prototype = {
     self.config.onHide.call(self)
   },
 
-  select: function (type, value) {
+  select (type, value) {
     this[type + 'Scroller'].select(value, false)
   },
 
-  destroy: function () {
+  destroy () {
     var self = this
     removeElement(MASK)
     removeElement(self.container)
@@ -301,7 +302,7 @@ DatetimePicker.prototype = {
     self.container = null
   },
 
-  getValue: function () {
+  getValue () {
     var self = this
     var config = self.config
 
@@ -326,7 +327,7 @@ DatetimePicker.prototype = {
     return value
   },
 
-  confirm: function () {
+  confirm () {
     var self = this
     var value = self.getValue()
     this.value = value

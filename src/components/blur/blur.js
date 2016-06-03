@@ -64,7 +64,7 @@ var SVG = {
   xlink: 'http://www.w3.org/1999/xlink',
 
   // creating of SVG element
-  createElement: function (name, attrs) {
+  createElement (name, attrs) {
     var element = document.createElementNS(SVG.svgns, name)
 
     if (attrs) {
@@ -74,7 +74,7 @@ var SVG = {
   },
 
   // setting attributes
-  setAttr: function (element, attrs) {
+  setAttr (element, attrs) {
     for (var i in attrs) {
       if (i === 'href') { // path of an image should be stored as xlink:href attribute
         element.setAttributeNS(SVG.xlink, i, attrs[i])

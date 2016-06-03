@@ -31,13 +31,13 @@ const validators = {
     msg: '邮箱格式'
   },
   'china-mobile': {
-    fn: function (str) {
+    fn (str) {
       return isMobilePhone(str, 'zh-CN')
     },
     msg: '手机号码'
   },
   'china-name': {
-    fn: function (str) {
+    fn (str) {
       return str.length >= 2 && str.length <= 6
     },
     msg: '中文姓名'
@@ -68,9 +68,7 @@ export default {
       type: String,
       default: ''
     },
-    placeholder: {
-      type: String
-    },
+    placeholder: String,
     value: {
       type: String,
       default: '',
@@ -80,24 +78,16 @@ export default {
       type: Boolean,
       default: false
     },
-    keyboard: {
-      type: String
-    },
-    inlineDesc: {
-      type: String
-    },
-    isType: {
-      type: String
-    },
+    keyboard: String,
+    inlineDesc: String,
+    isType: String,
     min: Number,
     max: Number,
     showClear: {
       type: Boolean,
       default: true
     },
-    equalWith: {
-      type: String
-    },
+    equalWith: String,
     type: {
       type: String,
       default: 'text'
@@ -105,18 +95,18 @@ export default {
     textAlign: String
   },
   computed: {
-    pattern: function () {
+    pattern () {
       if (this.keyboard === 'number' || this.isType === 'china-mobile') {
         return '[0-9]*'
       }
     },
-    labelWidth: function () {
+    labelWidth () {
       return this.title.replace(/[^x00-xff]/g, '00').length / 2 + 1
     },
-    hasErrors: function () {
+    hasErrors () {
       return Object.keys(this.errors).length > 0
     },
-    inputStyle: function () {
+    inputStyle () {
       if (this.textAlign) {
         return {
           textAlign: this.textAlign
@@ -125,19 +115,19 @@ export default {
     }
   },
   methods: {
-    clear: function () {
+    clear () {
       this.value = ''
       this.focus = true
     },
-    blur: function () {
+    blur () {
       this.setTouched()
       this.validate()
     },
-    getError: function () {
+    getError () {
       let key = Object.keys(this.errors)[0]
       this.firstError = this.errors[key]
     },
-    validate: function () {
+    validate () {
       if (this.equalWith) {
         this.validateEqual()
         return
@@ -190,7 +180,7 @@ export default {
 
       this.valid = true
     },
-    validateEqual: function () {
+    validateEqual () {
       let willCheck = this.dirty || this.value.length >= this.equalWith.length
       // 只在长度符合时显示正确与否
       if (willCheck && this.value !== this.equalWith) {
@@ -203,7 +193,7 @@ export default {
       }
     }
   },
-  data: function () {
+  data () {
     let data = {
       firstError: '',
       forceShowError: false,
@@ -213,15 +203,15 @@ export default {
     return data
   },
   watch: {
-    focus: function (newVal) {
+    focus (newVal) {
       if (newVal) {
         this.$els.input.focus()
       }
     },
-    valid: function () {
+    valid () {
       this.getError()
     },
-    value: function (newVal) {
+    value (newVal) {
       if (this.equalWith) {
         if (newVal.length === this.equalWith.length) {
           this.hasLengthEqual = true

@@ -24,12 +24,8 @@ export default {
     }
   },
   watch: {
-    show: function (val) {
-      if (val) {
-        this.$emit('on-show')
-      } else {
-        this.$emit('on-hide')
-      }
+    show (val) {
+      this.$emit(val ? 'on-show' : 'on-hide')
     }
   }
 }

@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { Clocker, Cell, Group } from '../components/'
+import { Clocker, Cell, Group } from '../components'
 
 export default {
   components: {

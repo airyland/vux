@@ -5,7 +5,7 @@ module.exports = {
     vux: './src/components/index.js'
   },
   output: {
-    path: path.resolve(__dirname, '../'),
+    path: path.resolve(__dirname, '../dist'),
     publicPath: './',
     filename: 'vux.js',
     library: 'vux',

@@ -1,43 +1,43 @@
 <template>
   <div class="vux-demo">
     <br/>
-    <flexbox class="ui-border-tb" :gutter="0">
-      <flexbox-item class="ui-border-r test"><div>北京</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>上海</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>广州</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>深圳</div></flexbox-item>
+    <flexbox class="vux-1px-tb" :gutter="0">
+      <flexbox-item class="vux-1px-r test"><div>北京</div></flexbox-item>
+      <flexbox-item class="vux-1px-r test"><div>上海</div></flexbox-item>
+      <flexbox-item class="vux-1px-r test"><div>广州</div></flexbox-item>
+      <flexbox-item class="vux-1px-r test"><div>深圳</div></flexbox-item>
       <flexbox-item class="test"><div>其他</div></flexbox-item>
     </flexbox>
-    <flexbox class="ui-border-b" :gutter="0">
-      <flexbox-item class="ui-border-r test"><div>天津</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>西安</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>重庆</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>杭州</div></flexbox-item>
+    <flexbox class="vux-1px-b" :gutter="0">
+      <flexbox-item class="vux-1px-r test"><div>天津</div></flexbox-item>
+      <flexbox-item class="vux-1px-r test"><div>西安</div></flexbox-item>
+      <flexbox-item class="vux-1px-r test"><div>重庆</div></flexbox-item>
+      <flexbox-item class="vux-1px-r test"><div>杭州</div></flexbox-item>
       <flexbox-item class="test"><div>其他</div></flexbox-item>
     </flexbox>
-    <flexbox class="ui-border-b" :gutter="0">
-      <flexbox-item class="ui-border-r test"><div>南京</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>武汉</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div>成都</div></flexbox-item>
-      <flexbox-item class="ui-border-r test"><div></div></flexbox-item>
+    <flexbox class="vux-1px-b" :gutter="0">
+      <flexbox-item class="vux-1px-r test"><div>南京</div></flexbox-item>
+      <flexbox-item class="vux-1px-r test"><div>武汉</div></flexbox-item>
+      <flexbox-item class="vux-1px-r test"><div>成都</div></flexbox-item>
+      <flexbox-item class="vux-1px-r test"><div></div></flexbox-item>
       <flexbox-item class="test"><div>其他</div></flexbox-item>
     </flexbox>
     <br/>
     <br/>
-    <flexbox class="ui-border-tb" :gutter="0">
-      <flexbox-item class="ui-border-r">
+    <flexbox class="vux-1px-tb" :gutter="0">
+      <flexbox-item class="vux-1px-r">
         <a class="item item1" href="/gz/326/0-0/0-0-0-0-0" mon="position=1&content=美食">
           <div class="img meishi"></div>
           <div class="text">美食</div>
         </a>
       </flexbox-item>
-      <flexbox-item class="ui-border-r">
+      <flexbox-item class="vux-1px-r">
         <a class="item item2" href="/gz/326/0-0/0-0-0-0-0" mon="position=1&content=美食">
           <div class="img dianying"></div>
           <div class="text">电影</div>
         </a>
       </flexbox-item>
-      <flexbox-item class="ui-border-r">
+      <flexbox-item class="vux-1px-r">
         <a class="item item3" href="/gz/326/0-0/0-0-0-0-0" mon="position=1&content=美食">
           <div class="img jiudian"></div>
           <div class="text">酒店</div>
@@ -50,20 +50,20 @@
         </a>
       </flexbox-item>
     </flexbox>
-    <flexbox class="ui-border-b" :gutter="0">
-      <flexbox-item class="ui-border-r">
+    <flexbox class="vux-1px-b" :gutter="0">
+      <flexbox-item class="vux-1px-r">
         <a class="item item5" href="/gz/326/0-0/0-0-0-0-0" mon="position=1&content=美食">
           <div class="img huoguo"></div>
           <div class="text">火锅</div>
         </a>
       </flexbox-item>
-      <flexbox-item class="ui-border-r">
+      <flexbox-item class="vux-1px-r">
         <a class="item item6" href="/gz/326/0-0/0-0-0-0-0" mon="position=1&content=美食">
           <div class="img lvyou"></div>
           <div class="text">旅游</div>
         </a>
       </flexbox-item>
-      <flexbox-item class="ui-border-r">
+      <flexbox-item class="vux-1px-r">
         <a class="item item7" href="/gz/326/0-0/0-0-0-0-0" mon="position=1&content=美食">
           <div class="img daijinquan"></div>
           <div class="text">代金券</div>
@@ -89,7 +89,7 @@
 </template>
 
 <script>
-import { Flexbox, FlexboxItem } from '../components/'
+import { Flexbox, FlexboxItem } from '../components'
 export default {
   components: {
     Flexbox,

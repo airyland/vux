@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { ColorPicker, Group, Cell } from '../components/'
+import { ColorPicker, Group, Cell } from '../components'
 
 export default {
   components: {

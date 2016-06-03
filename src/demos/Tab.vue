@@ -18,7 +18,7 @@
     <br/>
     <br/>
     <divider>no animation</divider>
-    <tab :animate=false>
+    <tab :animate="false">
       <tab-item :selected="demo5 === '已发货'" @click="demo5 = '已发货'">已发货</tab-item>
       <tab-item :selected="demo5 === '未发货'" @click="demo5 = '未发货'">未发货</tab-item>
       <tab-item :selected="demo5 === '全部订单'" @click="demo5 = '全部订单'">全部订单</tab-item>
@@ -30,10 +30,12 @@
       <tab-item :selected="demo2 === item" v-for="item in list2" @click="demo2 = item">{{item}}</tab-item>
     </tab>
     <br/>
+    <x-button @click="addTab" :disabled="list2.length === 5" type="primary">Add tab item</x-button>
+    <x-button @click="removeTab" :disabled="list2.length <= 2" type="primary">Remove tab item</x-button>
     <br/>
     <br/>
     <tab :line-width=2>
-      <tab-item :selected="demo3 === item" v-for="(index, item) in list3" :class="{'ui-border-r': index===0}" @click="demo3 = item">{{item}}</tab-item>
+      <tab-item :selected="demo3 === item" v-for="(index, item) in list3" :class="{'vux-1px-r': index===0}" @click="demo3 = item">{{item}}</tab-item>
     </tab>
     <br/>
     <br/>
@@ -101,19 +103,21 @@
 </template>
 
 <script>
-import { Tab, TabItem, Sticky, Divider } from '../components/'
+import { Tab, TabItem, Sticky, Divider, XButton } from '../components'
+const list = () => ['精选', '美食', '电影', '酒店', '外卖']
 
 export default {
   components: {
     Tab,
     TabItem,
     Sticky,
-    Divider
+    Divider,
+    XButton
   },
   data () {
     return {
       demo1: '未发货',
-      list2: ['精选', '美食', '电影', '酒店', '外卖'],
+      list2: list(),
       demo5: '未发货',
       demo2: '美食',
       list3: ['收到的消息', '发出的消息'],
@@ -121,6 +125,18 @@ export default {
       list4: ['正在正映', '即将上映'],
       demo4: '即将上映',
       demo6: '未发货'
+    }
+  },
+  methods: {
+    addTab () {
+      if (this.list2.length < 5) {
+        this.list2 = list().slice(0, this.list2.length + 1)
+      }
+    },
+    removeTab () {
+      if (this.list2.length > 1) {
+        this.list2 = list().slice(0, this.list2.length - 1)
+      }
     }
   }
 }

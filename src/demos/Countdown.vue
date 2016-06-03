@@ -25,12 +25,12 @@ export default {
     Switch
   },
   methods: {
-    finish: function (index) {
+    finish (index) {
       this.show = false
       this.value = 'completed'
       console.log('current index', index)
     },
-    finish2: function (index) {
+    finish2 (index) {
       this.start = false
       this.time = 20
     }

@@ -78,7 +78,6 @@ export default {
   props: {
     list: {
       type: Array,
-      required: false,
       default () {
         return []
       }
@@ -115,9 +114,7 @@ export default {
       type: String,
       default: 'auto'
     },
-    aspectRatio: {
-      type: Number
-    },
+    aspectRatio: Number,
     minMovingDistance: {
       type: Number,
       default: 0
@@ -220,7 +217,6 @@ export default {
           height: 1.4em;
           font-size: 16px;
           padding: 20px 50px 12px 13px;
-          background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .7) 100%);
           background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .7) 100%);
           color: #fff;
           text-shadow: 0 1px 0 rgba(0, 0, 0, .5);

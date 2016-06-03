@@ -49,17 +49,17 @@ export default {
     }
   },
   methods: {
-    onConfirm: function () {
+    onConfirm () {
       this.show = false
       this.$emit('on-confirm')
     },
-    onCancel: function () {
+    onCancel () {
       this.show = false
       this.$emit('on-cancel')
     }
   },
   watch: {
-    show: function (val) {
+    show (val) {
       if (val) {
         this.$emit('on-show')
       }

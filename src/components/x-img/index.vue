@@ -25,21 +25,17 @@ export default {
       offset: _this.offset,
       errorClass: _this.errorClass,
       successClass: _this.successClass,
-      success: function (ele) {
-        _this.$dispatch('success', _this.src, ele)
+      success (ele) {
+        _this.$emit('on-success', _this.src, ele)
       },
-      error: function (ele, msg) {
-        _this.$dispatch('error', _this.src, ele, msg)
+      error (ele, msg) {
+        _this.$emit('on-error', _this.src, ele, msg)
       }
     })
   },
   props: {
-    src: {
-      type: String
-    },
-    webpSrc: {
-      type: String
-    },
+    src: String,
+    webpSrc: String,
     defaultSrc: {
       type: String,
       default: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
@@ -50,9 +46,7 @@ export default {
       type: Number,
       defaut: 100
     },
-    class: {
-      type: String
-    }
+    class: String
   },
   beforeDestroy () {
     this.blazy && this.blazy.destroy()
@@ -62,13 +56,11 @@ export default {
 
 <style>
 .b-lazy {
-  -webkit-transition: opacity 500ms ease-in-out;
-  -moz-transition: opacity 500ms ease-in-out;
-  -o-transition: opacity 500ms ease-in-out;
   transition: opacity 500ms ease-in-out;
   max-width: 100%;
   opacity: 0;
 }
+
 .b-lazy.b-loaded {
   opacity: 1;
 }

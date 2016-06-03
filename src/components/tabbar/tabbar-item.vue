@@ -1,5 +1,5 @@
 <template>
-  <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': selected}" @click="onClick">
+  <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': $parent.index === index}" @click="onItemClick">
     <div class="weui_tabbar_icon" :class="{'vux-reddot': showDot}">
       <slot name="icon"></slot>
     </div>
@@ -10,26 +10,14 @@
 </template>
 
 <script>
+import { childMixin } from '../../mixins/multi-items'
+
 export default {
+  mixins: [childMixin],
   props: {
-    selected: {
-      type: Boolean,
-      default: false
-    },
     showDot: {
       type: Boolean,
       default: false
-    }
-  },
-  methods: {
-    onClick: function () {
-      this.$dispatch('on-item-click', this.$el.getAttribute('data-index'))
-      this.selected = true
-    }
-  },
-  events: {
-    'on-item-click': function (dataIndex) {
-      this.selected = this.$el.getAttribute('data-index') === dataIndex
     }
   }
 }

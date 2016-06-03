@@ -1,10 +1,10 @@
 <template>
-  <div id="toast" v-show="show">
+  <div v-show="show" class="vux-toast" :transition="transition">
     <div class="weui_mask_transparent"></div>
-      <div class="weui_toast" :class="{'weui_toast_forbidden': type == 'warn', 'weui_toast_cancel': type == 'cancel'}">
-        <i class="weui_icon_toast"></i>
+      <div class="weui_toast" :style="{width: width}" :class="toastClass">
+        <i class="weui_icon_toast" v-show="type !== 'text'"></i>
         <p class="weui_toast_content"><slot></slot></p>
-    </div>
+      </div>
   </div>
 </template>
 
@@ -21,25 +21,59 @@ export default {
     },
     type: {
       type: String,
-      default: ''
+      default: 'success'
+    },
+    transition: {
+      type: String,
+      default: 'vux-fade'
+    },
+    width: {
+      type: String,
+      default: '7.6em'
+    }
+  },
+  computed: {
+    toastClass () {
+      return {
+        'weui_toast_forbidden': this.type === 'warn',
+        'weui_toast_cancel': this.type === 'cancel',
+        'weui_toast_success': this.type === 'success',
+        'weui_toast_text': this.type === 'text'
+      }
     }
   },
   watch: {
-    show: function (val) {
-      const _this = this
+    show (val) {
       if (val) {
         clearTimeout(this.timeout)
-        this.timeout = setTimeout(function () {
-          _this.show = false
-        }, _this.time)
+        this.timeout = setTimeout(() => {
+          this.show = false
+        }, this.time)
       }
     }
   }
 }
 </script>
 <style>
+.weui_toast {
+  z-index: 200;
+  transform: translateX(-50%);
+  margin-left: 0;
+}
 .weui_toast_forbidden {
   color: #F76260;
+}
+.weui_toast.weui_toast_text{
+  min-height: auto;
+}
+.weui_toast_text .weui_toast_content {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+}
+.weui_toast_success .weui_icon_toast:before {
+  content: "\EA08";
 }
 .weui_toast_cancel .weui_icon_toast:before {
   content: "\EA0D";

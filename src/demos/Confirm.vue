@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { Confirm, Group, Switch } from '../components/'
+import { Confirm, Group, Switch } from '../components'
 
 export default {
   components: {

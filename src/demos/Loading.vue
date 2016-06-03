@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { Loading, Group, Switch } from '../components/'
+import { Loading, Group, Switch } from '../components'
 
 export default {
   components: {
@@ -23,16 +23,15 @@ export default {
     }
   },
   methods: {
-    show1change: function (val) {
-      const _this = this
+    show1change (val) {
       if (val) {
-        tick(0, function (percent) {
+        tick(0, (percent) => {
           if (percent === 100) {
-            _this.show1 = false
-            _this.text1 = 'Start processing'
+            this.show1 = false
+            this.text1 = 'Start processing'
             return
           }
-          _this.text1 = `${percent}% completed`
+          this.text1 = `${percent}% completed`
         })
       }
     }

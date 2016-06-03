@@ -62,6 +62,7 @@ import Checker from './demos/Checker'
 import ScrollerFull from './demos/Scroller-full'
 import NumberRoller from './demos/Number-roller'
 import Timeline from './demos/Timeline'
+import Steps from './demos/Steps'
 import Tabbar from './demos/Tabbar'
 import Panel from './demos/Panel'
 import Reddot from './demos/Reddot'
@@ -69,6 +70,9 @@ import ButtonTab from './demos/Button-tab'
 import ScrollerSwiper from './demos/Scroller-swiper'
 import Qrcode from './demos/Qrcode'
 import Badge from './demos/Badge'
+import Close from './demos/Close'
+import Dialog from './demos/Dialog'
+import DateFormatter from './demos/Date-formatter'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -259,6 +263,9 @@ router.map({
   '/component/timeline': {
     component: Timeline
   },
+  '/component/steps': {
+    component: Steps
+  },
   '/component/tabbar': {
     component: Tabbar
   },
@@ -279,6 +286,15 @@ router.map({
   },
   '/component/badge': {
     component: Badge
+  },
+  '/component/close': {
+    component: Close
+  },
+  '/component/dialog': {
+    component: Dialog
+  },
+  '/component/date-formatter': {
+    component: DateFormatter
   }
 })
 

@@ -88,7 +88,7 @@ import Utils from './utils'
      *     MProgress.start()
      *
      */
-    start: function () {
+    start () {
       if (!this.status && !this._isBufferStyle()) this.set(0)
 
       /**
@@ -142,7 +142,7 @@ import Utils from './utils'
      *
      *     MProgress.end(true)
      */
-    end: function (force) {
+    end (force) {
       if (!force && !this.status) return this
 
       var that = this
@@ -210,7 +210,7 @@ import Utils from './utils'
      *     MProgress.set(0.4)
      *     MProgress.set(1.0)
      */
-    set: function (n) {
+    set (n) {
       n = Utils.clamp(n, this.options.minimum, 1)
       this.status = (n === 1 ? null : n)
 
@@ -219,7 +219,7 @@ import Utils from './utils'
       return this
     },
 
-    setBuffer: function (n) {
+    setBuffer (n) {
       n = Utils.clamp(n, this.options.minimum, 1)
       this.bufferStatus = (n === 1 ? null : n)
 
@@ -231,7 +231,7 @@ import Utils from './utils'
     /**
      * Increments by a random amount.
      */
-    inc: function (amount) {
+    inc (amount) {
       var n = this.status
       var bn = this.bufferStatus
 
@@ -247,14 +247,14 @@ import Utils from './utils'
       }
     },
 
-    _trickle: function () {
+    _trickle () {
       return this.inc(Math.random() * this.options.trickleRate)
     },
     /**
      * (Internal) renders the progress bar markup based on the `template`
      *
      */
-    _render: function (noFromStart) {
+    _render (noFromStart) {
       if (this._isRendered()) {
         return this._getRenderedId()
       }
@@ -307,7 +307,7 @@ import Utils from './utils'
     /**
      * Removes the element. Opposite of _render().
      */
-    _remove: function () {
+    _remove () {
       var progress = this._getRenderedId()
       var MParent = document.querySelector(this.options.parent)
 
@@ -332,7 +332,7 @@ import Utils from './utils'
      * interior method
      *
      */
-    _setProgress: function (barSelector, n) {
+    _setProgress (barSelector, n) {
       if (this.stop) {
         return
       }
@@ -386,7 +386,7 @@ import Utils from './utils'
       })
     },
 
-    _getCurrSelector: function () {
+    _getCurrSelector () {
       var tplType = this._getCurrTplId()
 
       if (tplType !== TPL_UNKOWN_ID) {
@@ -396,11 +396,11 @@ import Utils from './utils'
       }
     },
 
-    _isStarted: function () {
+    _isStarted () {
       return typeof this.status === 'number'
     },
 
-    _getRandomNum: function (n, amount) {
+    _getRandomNum (n, amount) {
       if (typeof amount !== 'number') {
         amount = (1 - n) * Utils.clamp(Math.random() * n, 0.1, 0.95)
       }
@@ -413,11 +413,11 @@ import Utils from './utils'
     /**
      * Checks if the progress bar is rendered.
      */
-    _isRendered: function () {
+    _isRendered () {
       return !!this._getRenderedId()
     },
 
-    _getRenderedId: function (getId) {
+    _getRenderedId (getId) {
       var tplType = this._getCurrTplId()
       var idName = 'mprogress' + tplType
 
@@ -428,19 +428,19 @@ import Utils from './utils'
       }
     },
 
-    _isBufferStyle: function () {
+    _isBufferStyle () {
       return this._getCurrTplId() === 2
     },
 
-    _isIndeterminateStyle: function () {
+    _isIndeterminateStyle () {
       return this._getCurrTplId() === 3
     },
 
-    _isQueryStyle: function () {
+    _isQueryStyle () {
       return this._getCurrTplId() === 4
     },
 
-    _getCurrTplId: function () {
+    _getCurrTplId () {
       var tplType = ~~this.options.template || 1
       if (typeof tplType === 'number') {
         return tplType
@@ -449,7 +449,7 @@ import Utils from './utils'
       }
     },
 
-    _getCurrTemplate: function () {
+    _getCurrTemplate () {
       var tplType = this.options.template || 1
       var tplNameArr = ['determinate', 'buffer', 'indeterminate', 'query']
       var tplKey
@@ -467,7 +467,7 @@ import Utils from './utils'
     /**
      * Determine which positioning CSS rule to use.
      */
-    _getPositioningCSS: function () {
+    _getPositioningCSS () {
       // Sniff on document.body.style
       var bodyStyle = document.body.style
 
@@ -493,7 +493,7 @@ import Utils from './utils'
      * (Internal) returns the correct CSS for changing the bar's
      * position given an n percentage, and speed and ease from Settings
      */
-    _barPositionCSS: function (n, speed, ease) {
+    _barPositionCSS (n, speed, ease) {
       var barCSS
 
       if (this.options.positionUsing === 'translate3d') {
@@ -515,7 +515,7 @@ import Utils from './utils'
       return barCSS
     },
 
-    destroy: function () {
+    destroy () {
       if (this.timer) {
         clearTimeout(this.timer)
       }

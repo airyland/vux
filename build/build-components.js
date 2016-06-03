@@ -8,12 +8,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var webpack = require("webpack")
 var buildConfig = require(path.resolve(__dirname, './components'))
 
-var config = {
+var getConfig = function () {
+  var config = {
   entry: {},
   output: {
-    path: path.resolve(__dirname, '../components/'),
-    filename: 'index.js',
-    libraryTarget: 'umd'
+    path: path.resolve(__dirname, '../dist/components/'),
+    filename: 'index.js'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
@@ -76,15 +76,12 @@ config.plugins = (config.plugins || []).concat([
     'process.env': {
       NODE_ENV: '"production"'
     }
-  }),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false
-    }
-  }),
-  new webpack.optimize.OccurenceOrderPlugin(),
-  new ExtractTextPlugin('style.css')
+  })
 ])
+return config
+}
+
+
 
 var list = ''
 process.argv.forEach(function(val, index, array) {
@@ -123,6 +120,15 @@ if (list) {
 
 var number = 0
 function build (name, _path, isMulti) {
+  let _config = getConfig()
+  _config.plugins = _config.plugins.concat([new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  }),
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new ExtractTextPlugin('style.css')])
+
   if (!isMulti) {
     if (buildConfig.multi_entry.indexOf(name) > -1 || buildConfig.multi_entry.indexOf(name.replace('-item', '')) > -1) {
       return
@@ -136,16 +142,67 @@ function build (name, _path, isMulti) {
   let _name = name
   let file = _path || `../src/components/${name}/index`
   let _start = new Date().getTime()
-  config.entry = {}
-  config.entry[name] = [path.resolve(__dirname, file)]
-  config.output.library = converName(name)
-  config.output.path = path.resolve(__dirname, '../components/' + name + '/')
-  webpack(config, function(err, stats) {
+  _config.output.libraryTarget = 'umd'
+  _config.entry = {}
+  _config.entry[name] = [path.resolve(__dirname, file)]
+  _config.output.library = converName(name)
+  _config.output.path = path.resolve(__dirname, '../dist/components/' + name.toLowerCase() + '/')
+
+  webpack(_config, function(err, stats) {
     var jsonStats = stats.toJson()
     var assets = jsonStats.assets[0]
     var offset = Math.round((new Date().getTime() - _start)/1000)
     var index = ++number
-    console.log(`[${index < 10 ? ('0' + index) : index}]  `, addWhiteSpace(`${offset}s`, 10), addWhiteSpace(_name, 18), `${(_name, assets.size/1024).toFixed(2)}k`)
+    console.log(`[${index < 10 ? ('0' + index) : index}]  `, addWhiteSpace(`${offset}s`, 10), addWhiteSpace('umd ' + _name, 25), `${(_name, assets.size/1024).toFixed(2)}k`)
+    if (err) {
+      throw err
+    }
+  })
+  setTimeout(function(){
+    buildCommon(name, _path, isMulti)
+  })
+}
+
+function buildCommon (name, _path, isMulti) {
+  let _config = getConfig()
+
+  _config.plugins = _config.plugins.concat([new webpack.optimize.UglifyJsPlugin({
+    compress: false,
+    mangle: false,
+    beautify: {
+      beautify: true,
+      'indent-level': 2,
+      'quote_style': 1,
+      semicolons: false
+    }
+  }),
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new ExtractTextPlugin('style.css')])
+
+  if (!isMulti) {
+    if (buildConfig.multi_entry.indexOf(name) > -1 || buildConfig.multi_entry.indexOf(name.replace('-item', '')) > -1) {
+      return
+    }
+  }
+
+  if (buildConfig.ignore.indexOf(name) > -1) {
+    return
+  }
+
+  let _name = name
+  let file = _path || `../src/components/${name}/index`
+  let _start = new Date().getTime()
+  _config.entry = {}
+  _config.entry[name] = [path.resolve(__dirname, file)]
+  _config.output.libraryTarget = 'commonjs2'
+  _config.output.filename = 'index.js'
+  _config.output.path = path.resolve(__dirname, '../dist/components-commonjs/' + name.toLowerCase() + '/')
+  webpack(_config, function(err, stats) {
+    var jsonStats = stats.toJson()
+    var assets = jsonStats.assets[0]
+    var offset = Math.round((new Date().getTime() - _start)/1000)
+    var index = ++number
+    console.log(`[${index < 10 ? ('0' + index) : index}]  `, addWhiteSpace(`${offset}s`, 10), addWhiteSpace('commonjs ' + _name , 25), `${(_name, assets.size/1024).toFixed(2)}k`)
     if (err) {
       throw err
     }

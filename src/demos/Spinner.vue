@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { Spinner, Group, Cell } from '../components/'
+import { Spinner, Group, Cell } from '../components'
 
 export default {
   components: {

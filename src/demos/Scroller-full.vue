@@ -1,29 +1,29 @@
 <template>
   <div>
-    <div class="menu ui-border-r">
+    <div class="menu vux-1px-r">
        <scroller lock-x>
           <div class="box1">
             <ul>
-              <li class="ui-border-b"><span>热搜推荐</span></li>
-              <li class="ui-border-b"><span>手机数码</span></li>
-              <li class="ui-border-b"><span>家用电器</span></li>
-              <li class="ui-border-b"><span>女装内衣</span></li>
-              <li class="ui-border-b"><span>男装内衣</span></li>
-              <li class="ui-border-b"><span>鞋靴箱包</span></li>
-              <li class="ui-border-b"><span>电脑办公</span></li>
-              <li class="ui-border-b"><span>运动户外</span></li>
-              <li class="ui-border-b"><span>个护化妆</span></li>
-              <li class="ui-border-b"><span>家具建材</span></li>
-              <li class="ui-border-b"><span>家居家纺</span></li>
-              <li class="ui-border-b"><span>母婴玩具</span></li>
-              <li class="ui-border-b"><span>食品生鲜</span></li>
-              <li class="ui-border-b"><span>酒水饮料</span></li>
-              <li class="ui-border-b"><span>钟表奢品</span></li>
-              <li class="ui-border-b"><span>汽车用品</span></li>
-              <li class="ui-border-b"><span>医药保健</span></li>
-              <li class="ui-border-b"><span>珠宝饰品</span></li>
-              <li class="ui-border-b"><span>图书音像</span></li>
-              <li class="ui-border-b"><span>全球购</span></li>
+              <li class="vux-1px-b"><span>热搜推荐</span></li>
+              <li class="vux-1px-b"><span>手机数码</span></li>
+              <li class="vux-1px-b"><span>家用电器</span></li>
+              <li class="vux-1px-b"><span>女装内衣</span></li>
+              <li class="vux-1px-b"><span>男装内衣</span></li>
+              <li class="vux-1px-b"><span>鞋靴箱包</span></li>
+              <li class="vux-1px-b"><span>电脑办公</span></li>
+              <li class="vux-1px-b"><span>运动户外</span></li>
+              <li class="vux-1px-b"><span>个护化妆</span></li>
+              <li class="vux-1px-b"><span>家具建材</span></li>
+              <li class="vux-1px-b"><span>家居家纺</span></li>
+              <li class="vux-1px-b"><span>母婴玩具</span></li>
+              <li class="vux-1px-b"><span>食品生鲜</span></li>
+              <li class="vux-1px-b"><span>酒水饮料</span></li>
+              <li class="vux-1px-b"><span>钟表奢品</span></li>
+              <li class="vux-1px-b"><span>汽车用品</span></li>
+              <li class="vux-1px-b"><span>医药保健</span></li>
+              <li class="vux-1px-b"><span>珠宝饰品</span></li>
+              <li class="vux-1px-b"><span>图书音像</span></li>
+              <li class="vux-1px-b"><span>全球购</span></li>
             </ul>
           </div>
         </scroller>
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { Scroller, Masker } from '../components/'
+import { Scroller, Masker } from '../components'
 
 export default {
   components: {
