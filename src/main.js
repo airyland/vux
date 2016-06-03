@@ -53,6 +53,7 @@ import Scroller from './demos/Scroller'
 import Comment from './demos/Comment'
 import Pulldown from './demos/Pulldown'
 import Pullup from './demos/Pullup'
+import PulldownPullup from './demos/PulldownPullup'
 import Masker from './demos/Masker'
 import Countdown from './demos/Countdown'
 import XHeader from './demos/X-header'
@@ -235,6 +236,9 @@ router.map({
   },
   '/component/pullup': {
     component: Pullup
+  },
+  '/component/pulldown-pullup': {
+    component: PulldownPullup
   },
   '/component/masker': {
     component: Masker
