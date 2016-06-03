@@ -28,14 +28,14 @@ export default {
   data () {
     return {
       list: [
-        'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test1.jpg',
-        'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test2.jpg',
-        'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test0.jpg',
-        'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test4.jpg',
-        'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test5.jpg',
-        'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test6.jpg',
-        'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test7.jpg',
-        'https://cdn.rawgit.com/vux-components/vue-lazyload/gh-pages/dist/test8.jpg'
+        'https://o5omsejde.qnssl.com/demo/test1.jpg',
+        'https://o5omsejde.qnssl.com/demo/test2.jpg',
+        'https://o5omsejde.qnssl.com/demo/test0.jpg',
+        'https://o5omsejde.qnssl.com/demo/test4.jpg',
+        'https://o5omsejde.qnssl.com/demo/test5.jpg',
+        'https://o5omsejde.qnssl.com/demo/test6.jpg',
+        'https://o5omsejde.qnssl.com/demo/test7.jpg',
+        'https://o5omsejde.qnssl.com/demo/test8.jpg'
       ]
     }
   }
