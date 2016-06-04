@@ -26,6 +26,9 @@
   <a href="http://issuestats.com/github/airyland/vux">
     <img src="http://issuestats.com/github/airyland/vux/badge/issue?style=flat-square" alt="">
   </a>
+  <a href="http://issuestats.com/github/airyland/vux">
+    <img src="http://issuestats.com/github/airyland/vux/badge/pr?style=flat-square" alt="">
+  </a>
 </p>
 
 ## Docs
