@@ -5,7 +5,13 @@
 <script>
 export default {
   ready () {
-    this.$emit('swiper-item:created')
+    this.$parent.rerender()
+  },
+  beforeDestroy () {
+    const $parent = this.$parent
+    this.$nextTick(() => {
+      $parent.rerender()
+    })
   }
 }
 </script>
