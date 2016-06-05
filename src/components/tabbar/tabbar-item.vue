@@ -11,6 +11,7 @@
 
 <script>
 import { childMixin } from '../../mixins/multi-items'
+import { go } from '../../libs/router'
 
 export default {
   mixins: [childMixin],
@@ -18,6 +19,12 @@ export default {
     showDot: {
       type: Boolean,
       default: false
+    },
+    link: [String, Object]
+  },
+  events: {
+    'on-item-click': function () {
+      go(this.link, this.$router)
     }
   }
 }

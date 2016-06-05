@@ -53,6 +53,7 @@ import Scroller from './demos/Scroller'
 import Comment from './demos/Comment'
 import Pulldown from './demos/Pulldown'
 import Pullup from './demos/Pullup'
+import PulldownPullup from './demos/PulldownPullup'
 import Masker from './demos/Masker'
 import Countdown from './demos/Countdown'
 import XHeader from './demos/X-header'
@@ -64,6 +65,7 @@ import NumberRoller from './demos/Number-roller'
 import Timeline from './demos/Timeline'
 import Steps from './demos/Steps'
 import Tabbar from './demos/Tabbar'
+import TabbarLink from './demos/TabbarLink'
 import Panel from './demos/Panel'
 import Reddot from './demos/Reddot'
 import ButtonTab from './demos/Button-tab'
@@ -236,6 +238,9 @@ router.map({
   '/component/pullup': {
     component: Pullup
   },
+  '/component/pulldown-pullup': {
+    component: PulldownPullup
+  },
   '/component/masker': {
     component: Masker
   },
@@ -268,6 +273,9 @@ router.map({
   },
   '/component/tabbar': {
     component: Tabbar
+  },
+  '/component/tabbar-link': {
+    component: TabbarLink
   },
   '/component/panel': {
     component: Panel

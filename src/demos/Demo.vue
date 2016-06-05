@@ -139,6 +139,9 @@
       <cell title="tabbar" link="component/tabbar">
         <span class="demo-icon" slot="icon">&#xe657;</span>
       </cell>
+      <cell title="tabbar with link" link="component/tabbar-link">
+        <span class="demo-icon" slot="icon">&#xe657;</span>
+      </cell>
       <cell title="timeline" link="component/timeline">
         <span class="demo-icon" slot="icon">&#xe656;</span>
       </cell>
@@ -153,6 +156,9 @@
       </cell>
       <cell title="pullup" link="component/pullup">
         <span class="demo-icon" slot="icon">&#xe650;</span>
+      </cell>
+      <cell title="pulldown & pullup" link="component/pulldown-pullup">
+        <span class="demo-icon" slot="icon">&#xe64f;</span>
       </cell>
       <cell title="scroller" link="component/scroller">
         <span class="demo-icon" slot="icon">&#xe641;</span>

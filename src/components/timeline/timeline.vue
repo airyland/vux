@@ -36,9 +36,9 @@ export default {
     list-style: none;
   }
 
-  @timeline: ~"timeline";
+  @vux-timeline: ~"vux-timeline";
 
-  .@{timeline} {
+  .@{vux-timeline} {
     &-item {
       position:relative;
     }
