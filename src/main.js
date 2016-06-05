@@ -65,6 +65,7 @@ import NumberRoller from './demos/Number-roller'
 import Timeline from './demos/Timeline'
 import Steps from './demos/Steps'
 import Tabbar from './demos/Tabbar'
+import TabbarLink from './demos/TabbarLink'
 import Panel from './demos/Panel'
 import Reddot from './demos/Reddot'
 import ButtonTab from './demos/Button-tab'
@@ -272,6 +273,9 @@ router.map({
   },
   '/component/tabbar': {
     component: Tabbar
+  },
+  '/component/tabbar-link': {
+    component: TabbarLink
   },
   '/component/panel': {
     component: Panel

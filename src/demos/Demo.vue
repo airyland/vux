@@ -139,6 +139,9 @@
       <cell title="tabbar" link="component/tabbar">
         <span class="demo-icon" slot="icon">&#xe657;</span>
       </cell>
+      <cell title="tabbar with link" link="component/tabbar-link">
+        <span class="demo-icon" slot="icon">&#xe657;</span>
+      </cell>
       <cell title="timeline" link="component/timeline">
         <span class="demo-icon" slot="icon">&#xe656;</span>
       </cell>
