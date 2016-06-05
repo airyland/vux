@@ -4,8 +4,8 @@
     <span class="vux-popup-picker-value" slot="value" v-else>{{value | value2name data}}</span>
   </cell>
   <popup :show.sync="show" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid">
-    <div class="vux-container">
-      <div class="vux-header">
+    <div class="vux-popup-picker-container">
+      <div class="vux-popup-picker-header">
         <flexbox>
           <flexbox-item style="text-align:left;padding-left:15px;line-height:44px;" @click="onHide(false)">取消</flexbox-item>
           <flexbox-item style="text-align:right;padding-right:15px;line-height:44px;" @click="onHide(true)">完成</flexbox-item>
@@ -84,7 +84,7 @@ export default {
 .vux-popup-picker {
   border-top: 1px solid #04BE02;
 }
-.vux-header {
+.vux-popup-picker-header {
   height: 44px;
   color: #04BE02;
 }
