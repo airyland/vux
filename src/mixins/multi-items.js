@@ -43,6 +43,7 @@ const childMixin = {
     onItemClick () {
       this.selected = true
       this.$parent.index = this.index
+      this.$emit('on-item-click')
     }
   },
   watch: {

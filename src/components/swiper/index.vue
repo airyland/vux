@@ -49,6 +49,9 @@ export default {
       })
     },
     rerender () {
+      if (!this.$el) {
+        return
+      }
       this.$nextTick(() => {
         this.current = 0
         this.destroy()
@@ -136,11 +139,6 @@ export default {
   },
   beforeDestroy () {
     this.destroy()
-  },
-  events: {
-    'swiper-item:created' () {
-      this.rerender()
-    }
   }
 }
 
