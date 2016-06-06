@@ -57,54 +57,46 @@
   }
 }
 
-@media screen and (min-device-pixel-ratio: 2) {
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
   .vux-1px {
     position: relative;
     border: 0;
   }
 
-  .vux-1px-t,
-    .vux-1px-b,
-    .vux-1px-l,
-    .vux-1px-r,
-    .vux-1px-tb {
+  .vux-1px-t, .vux-1px-b, .vux-1px-l, .vux-1px-r, .vux-1px-tb {
     border: 0;
   }
 
   .vux-1px-t {
     background-position: left top;
-    background-image: gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
-  }
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)); }
 
   .vux-1px-b {
     background-position: left bottom;
-    background-image: gradient(linear, left top, left bottom, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
-  }
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)); }
 
   .vux-1px-t,
-    .vux-1px-b,
-    .vux-1px-tb {
+  .vux-1px-b,
+  .vux-1px-tb {
     background-repeat: repeat-x;
-    background-size: 100% 1px;
+    -webkit-background-size: 100% 1px;
   }
 
   .vux-1px-tb {
-    background-image: gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), gradient(linear, left top, left bottom, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), -webkit-gradient(linear, left top, left bottom, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
     background-position: top, bottom;
   }
 
   .vux-1px-l {
     background-position: left top;
-    background-image: gradient(linear, right top, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
-  }
+    background-image: -webkit-gradient(linear, right top, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)); }
 
   .vux-1px-r {
     background-position: right top;
-    background-image: gradient(linear, left top, right top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
-  }
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)); }
 
   .vux-1px-l,
-    .vux-1px-r {
+  .vux-1px-r {
     background-repeat: repeat-y;
     background-size: 1px 100%;
   }
@@ -116,8 +108,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-image: gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), gradient(linear, left top, right top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), gradient(linear, left top, left bottom, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), gradient(linear, right top, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
-    background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), -webkit-gradient(linear, left top, right top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), -webkit-gradient(linear, left top, left bottom, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0)), -webkit-gradient(linear, right top, left top, color-stop(0.5, transparent), color-stop(0.5, #e0e0e0));
+    background-size: 100% 1px,1px 100% ,100% 1px, 1px 100%;
     background-repeat: no-repeat;
     background-position: top, right, bottom, left;
     padding: 1px;
