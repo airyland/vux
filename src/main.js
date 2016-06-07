@@ -75,6 +75,7 @@ import Badge from './demos/Badge'
 import Close from './demos/Close'
 import Dialog from './demos/Dialog'
 import DateFormatter from './demos/Date-formatter'
+import Card from './demos/Card'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -303,6 +304,9 @@ router.map({
   },
   '/component/date-formatter': {
     component: DateFormatter
+  },
+  '/component/card': {
+    component: Card
   }
 })
 

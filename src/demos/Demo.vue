@@ -106,6 +106,9 @@
       <cell title="panel" link="component/panel">
         <span class="demo-icon" slot="icon">&#xe658;</span>
       </cell>
+      <cell title="card" link="component/card">
+        <span class="demo-icon" slot="icon">&#xe658;</span>
+      </cell>
       <cell title="picker" link="component/picker">
         <span class="demo-icon" slot="icon">&#xe627;</span>
       </cell>
