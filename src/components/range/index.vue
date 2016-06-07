@@ -9,31 +9,29 @@ const Powerange = require('./range/lib/powerange')
 
 export default {
   props: {
-    decimal: {
-      type: Boolean,
-      default: false
-    },
+    decimal: Boolean,
     value: {
       default: 0,
       type: Number,
       twoWay: true
     },
     min: {
+      type: Number,
       default: 0
     },
     minHTML: String,
     maxHTML: String,
     max: {
+      type: Number,
       default: 100
     },
     step: {
+      type: Number,
       default: 0
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
+    disabled: Boolean,
     disabledOpacity: {
+      type: Number,
       default: 0.75
     },
     rangeBarHeight: {
@@ -46,22 +44,18 @@ export default {
     }
   },
   ready () {
-    const _this = this
     let options = {
-      decimal: _this.decimal,
-      start: _this.value,
-      min: _this.min,
-      max: _this.max,
-      minHTML: _this.minHTML,
-      maxHTML: _this.maxHTML,
-      disable: _this.disabled,
-      disabledOpacity: _this.disabledOpacity,
-      callback () {
-
-      }
+      decimal: this.decimal,
+      start: this.value,
+      min: this.min,
+      max: this.max,
+      minHTML: this.minHTML,
+      maxHTML: this.maxHTML,
+      disable: this.disabled,
+      disabledOpacity: this.disabledOpacity
     }
-    if (_this.step !== 0) {
-      options.step = _this.step
+    if (this.step !== 0) {
+      options.step = this.step
     }
     this.range = new Powerange(this.$el.querySelector('.vux-range-input'), options)
     const handleTop = (this.rangeHandleHeight - this.rangeBarHeight) / 2
@@ -72,9 +66,6 @@ export default {
     value (val) {
       this.range.setStart(val)
     }
-  },
-  beforeDestroy () {
-    // @todo
   }
 }
 </script>
