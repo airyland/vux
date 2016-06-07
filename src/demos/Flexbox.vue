@@ -84,6 +84,18 @@
       <flexbox-item :span="1/8"><div class="flex-demo">1/8</div></flexbox-item>
       <flexbox-item><div class="flex-demo">rest</div></flexbox-item>
     </flexbox>
+    <br>
+    <divider>flex-wrap</divider>
+    <flexbox :gutter="0" class="flexbox-demo-wrap">
+      <flexbox-item :span="1/3"><div class="flex-demo">1/3</div></flexbox-item>
+      <flexbox-item :span="1/3"><div class="flex-demo">1/3</div></flexbox-item>
+      <flexbox-item :span="1/3"><div class="flex-demo">1/3</div></flexbox-item>
+      <flexbox-item :span="1/3"><div class="flex-demo">1/3</div></flexbox-item>
+      <flexbox-item :span="1/3"><div class="flex-demo">1/3</div></flexbox-item>
+      <flexbox-item :span="1/3"><div class="flex-demo">1/3</div></flexbox-item>
+      <flexbox-item :span="1/3"><div class="flex-demo">1/3</div></flexbox-item>
+      <flexbox-item :span="1/3"><div class="flex-demo">1/3</div></flexbox-item>
+    </flexbox>
     
   </div>
 </template>
@@ -109,5 +121,8 @@ export default {
   background-color: #20b907;
   border-radius: 4px;
   background-clip: padding-box;
+}
+.flexbox-demo-wrap {
+  flex-wrap: wrap;
 }
 </style>
