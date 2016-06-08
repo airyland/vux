@@ -50,62 +50,60 @@ export default {
     },
     max: Number,
     min: Number,
-    fillMode: {
-      type: Boolean,
-      default: false
-    },
-    randomOrder: {
-      type: Boolean,
-      default: false
-    }
+    fillMode: Boolean,
+    randomOrder: Boolean
   },
   ready () {
     this.handleChangeEvent = true
-    let total = this.fillMode ? (this.options.length + 1) : this.options.length
-    if (this.max) {
-      if (this.max > total) {
-        this.max = total
-      }
-    } else {
-      this.max = total
-    }
-
-    if (this.min) {
-      if (this.min < 0) {
-        this.min = 1
-      }
-      if (this.min >= total) {
-        this.min = total
-      }
-    } else {
-      this.min = 1
-    }
-
-    if (!this.required) {
-      this.min = 0
-    }
-
     if (this.randomOrder) {
       this.options = shuffle(this.options)
     }
   },
   computed: {
+    _total () {
+      return this.fillMode ? (this.options.length + 1) : this.options.length
+    },
+    _min () {
+      if (!this.required) {
+        return 0
+      }
+      if (this.min) {
+        if (this.min < 0) {
+          return 1
+        }
+        if (this.min >= this._total) {
+          return this._total
+        }
+        return this.min
+      } else {
+        return 1
+      }
+    },
+    _max () {
+      if (!this.required) {
+        return this._total
+      }
+      if (this.max) {
+        if (this.max > this._total) {
+          return this._total
+        }
+        return this.max
+      } else {
+        return this._total
+      }
+    },
     valid () {
-      return this.value.length >= this.min && this.value.length <= this.max
+      return this.value.length >= this._min && this.value.length <= this._max
     },
     error () {
       let err = []
-      if (this.value.length < this.min) {
-        err.push(this.$interpolate('最少要选择{{min}}个哦'))
+      if (this.value.length < this._min) {
+        err.push(this.$interpolate('最少要选择{{_min}}个哦'))
       }
-      if (this.value.length > this.max) {
-        err.push(this.$interpolate('最多只能选择{{max}}个哦'))
+      if (this.value.length > this._max) {
+        err.push(this.$interpolate('最多只能选择{{_max}}个哦'))
       }
       return err
-    }
-  },
-  data () {
-    return {
     }
   },
   watch: {
