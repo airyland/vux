@@ -4,7 +4,7 @@
       <cell title="address" link="component/address">
         <span class="demo-icon" slot="icon">&#xe61b;</span>
       </cell>
-      <cell title="calendar" value="deprecated" link="component/calendar">
+      <cell title="calendar" link="component/calendar">
         <span class="demo-icon" slot="icon">&#xe62b;</span>
       </cell>
       <cell title="cell" link="component/cell">
