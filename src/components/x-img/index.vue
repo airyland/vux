@@ -1,14 +1,14 @@
 <template>
-  <img :src="defaultSrc" :class="class"/>
+  <img :src="defaultSrc" class="vux-x-img" :class="class"/>
 </template>
 
 <script>
-import Blazy from 'blazy'
+import Blazy from 'vux-blazy'
 import webpSupport from 'webp-support'
-import Base from '../../libs/base'
+import uuidMixin from '../../libs/mixin_uuid'
 
 export default {
-  mixins: [Base],
+  mixins: [uuidMixin],
   compiled () {
     // use webp or default
     if (webpSupport() && this.src && this.webpSrc) {
@@ -21,6 +21,7 @@ export default {
     this.$el.setAttribute('id', id)
     this.$el.setAttribute('data-src', this.src)
     this.blazy = new Blazy({
+      scroller: this.scroller,
       selector: `#${id}`,
       offset: _this.offset,
       errorClass: _this.errorClass,
@@ -46,7 +47,8 @@ export default {
       type: Number,
       defaut: 100
     },
-    class: String
+    class: String,
+    scroller: Object
   },
   beforeDestroy () {
     this.blazy && this.blazy.destroy()

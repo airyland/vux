@@ -1,17 +1,22 @@
 <template>
   <div>
-    <div v-for="src in list" style="background-color:yellow;text-align:center;">
-      <span style="font-size:20px;">Loading</span>
-      <x-img :src="src" @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-100"></x-img>
-    </div>
+    <scroller :lock-x :scrollbar-y height="600px" v-ref:scroller style="border-bottom:1px solid green">
+      <div>
+        <div v-for="src in list" style="background-color:yellow;text-align:center;">
+          <span style="font-size:20px;">Loading</span>
+          <x-img :src="src" :scroller="$refs.scroller" @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="300"></x-img>
+        </div>
+      </div>
+    </scroller>
   </div>
 </template>
 
 <script>
-import { XImg } from '../components'
+import { XImg, Scroller } from '../components'
 export default {
   components: {
-    XImg
+    XImg,
+    Scroller
   },
   methods: {
     success (src, ele) {

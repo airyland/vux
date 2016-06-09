@@ -34,6 +34,7 @@ import Alert from './demos/Alert'
 import Confirm from './demos/Confirm'
 import Progress from './demos/Progress'
 import XImg from './demos/XImg'
+import XImgScroller from './demos/X-img-scroller'
 import Onepx from './demos/1px'
 import Orientation from './demos/Orientation'
 import Shake from './demos/Shake'
@@ -181,6 +182,9 @@ router.map({
   },
   '/component/x-img': {
     component: XImg
+  },
+  '/component/x-img-scroller': {
+    component: XImgScroller
   },
   '/component/1px': {
     component: Onepx
