@@ -8,6 +8,10 @@
     </group>
     <br/>
     <x-button type="primary" @click="changeData">改变数据</x-button>
+    <br/>
+    <group>
+      <address title="只显示省市" :value.sync="value4" raw-value :list="addressData" hide-district></address>
+    </group>
   </div>
 </template>
 
@@ -28,7 +32,8 @@ export default {
       title2: '手动设定',
       value2: ['广东省', '深圳市', '南山区'],
       value3: ['海南省', '儋州市', '--'],
-      addressData: AddressChinaData
+      addressData: AddressChinaData,
+      value4: []
     }
   },
   methods: {

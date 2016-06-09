@@ -1,5 +1,5 @@
 <template>
-  <popup-picker :columns=3 :data="list" :title="title" :value.sync="value" show-name :inline-desc="inlineDesc" :placeholder="placeholder"></popup-picker>
+  <popup-picker :columns="hideDistrict ? 2 : 3" :data="list" :title="title" :value.sync="value" show-name :inline-desc="inlineDesc" :placeholder="placeholder"></popup-picker>
 </template>
 
 <script>
@@ -30,7 +30,8 @@ export default {
       required: true
     },
     inlineDesc: String,
-    placeholder: String
+    placeholder: String,
+    hideDistrict: Boolean
   },
   beforeCompile () {
     if (this.value.length && this.rawValue) {
