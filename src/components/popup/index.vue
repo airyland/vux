@@ -1,5 +1,5 @@
 <template>
-  <div v-show="show" transition="popup" :style="{height:height}" class="vux-popup">
+  <div v-show="show" transition="vux-popup" :style="{height:height}" class="vux-popup">
     <slot></slot>
   </div>
 </template>
@@ -40,12 +40,15 @@ export default {
     show (val) {
       if (val) {
         this.popup.show()
+        this.$emit('on-show')
         if (!this.hasFirstShow) {
           this.$emit('on-first-show')
           this.hasFirstShow = true
         }
       } else {
-        this.popup.hide()
+        this.$emit('on-hide')
+        this.show = false
+        this.popup.hide(false)
       }
     }
   },
@@ -59,7 +62,7 @@ export default {
 .vux-popup {
   border-top: 2px solid #04BE02;
 }
-.picker-dialog {
+.vux-popup-dialog {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -69,7 +72,7 @@ export default {
   transition-property: transform;
   transition-duration: 300ms;
 }
-.picker-mask {
+.vux-popup-mask {
   display: block;
   position: fixed;
   top: 0;
@@ -83,17 +86,17 @@ export default {
   transition: all 0.2s;
   z-index: -1;
 }
-.picker-mask.show {
+.vux-popup-mask.vux-popup-show {
   opacity: 1;
   z-index: 100;
 }
-.popup-transiton {
+.vux-popup-transiton {
 }
-.popup-enter {
+.vux-popup-enter {
   background-color:red;
   transform: translate3d(0, 100%, 0);
 }
-.popup-leave {
+.vux-popup-leave {
   transform: translate3d(0, 100%, 0);
 }
 </style>
