@@ -3,8 +3,13 @@
     <group-title>THX to: https://github.com/wechatui/swiper</group-title>
     <group-title>list模式下，默认高度为180px, 如果设置aspect-ratio会根据宽度自动计算高度</group-title>
     <group-title>默认设置</group-title>
-    <swiper :list="list"></swiper>
+    <swiper :list="list" :index="demo01Index" @on-index-change="onIndexChange1"></swiper>
     <br/>
+    current index: {{currentIndex1}}
+    <br/>
+    <x-button @click="demo01Index = 0">go to 0</x-button>
+    <x-button @click="demo01Index = 1">go to 1</x-button>
+    <x-button @click="demo01Index = 2">go to 2</x-button>
     <br/>
     <group-title>设置aspect-ratio, 将自动根据宽度计算高度</group-title>
     <swiper :list="list3" style="width:85%;margin:0 auto;" :aspect-ratio="300/800" dots-position="center"></swiper>
@@ -97,16 +102,21 @@ export default {
     },
     onIndexChange (index) {
       this.currentIndex = index
+    },
+    onIndexChange1 (index) {
+      this.currentIndex1 = index
     }
   },
   data () {
     return {
+      demo01Index: 0,
       list: demoList,
       list1: [],
       list3: demoList3,
       disableLoadData: false,
       imgList: [],
-      currentIndex: 0
+      currentIndex: 0,
+      currentIndex1: 0
     }
   }
 }

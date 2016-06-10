@@ -35,7 +35,7 @@
     "array-find": "^1.0.0",
     "array-map": "^0.0.0",
     "array-shuffle": "^1.0.0",
-    "vux-blazy": "^1.6.3",
+    "vux-blazy": "^1.6.4",
     "countup": "^1.6.1",
     "qr.js": "0.0.0",
     "shake.js": "^1.2.2",

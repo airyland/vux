@@ -10,8 +10,8 @@
       </div>
     </div>
     <div :class="['vux-indicator', 'vux-indicator-' + dotsPosition]" v-show="showDots && list.length > 1">
-      <a href="javascript:" v-for="(index, item) in list">
-        <i class="vux-icon-dot" :class="{'active':index === current}"></i>
+      <a href="javascript:" v-for="(key, item) in list">
+        <i class="vux-icon-dot" :class="{'active': key === current}"></i>
       </a>
     </div>
   </div>
@@ -44,8 +44,8 @@ export default {
         height: this.height || this._height,
         minMovingDistance: this.minMovingDistance
       })
-      .on('swiped', (prev, current) => {
-        this.current = current
+      .on('swiped', (prev, index) => {
+        this.current = index
       })
     },
     rerender () {
@@ -53,6 +53,7 @@ export default {
         return
       }
       this.$nextTick(() => {
+        this.index = 0
         this.current = 0
         this.destroy()
         this.render()
@@ -121,6 +122,10 @@ export default {
     minMovingDistance: {
       type: Number,
       default: 0
+    },
+    index: {
+      type: Number,
+      default: 0
     }
   },
   data () {
@@ -133,8 +138,13 @@ export default {
     list (val) {
       this.rerender()
     },
-    current (index) {
-      this.$emit('on-index-change', index)
+    current (currentIndex) {
+      this.$emit('on-index-change', currentIndex)
+    },
+    index (val) {
+      if (val !== this.current) {
+        this.swiper.go(val)
+      }
     }
   },
   beforeDestroy () {
