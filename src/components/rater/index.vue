@@ -18,8 +18,7 @@ export default {
     },
     value: {
       type: Number,
-      default: 0,
-      twoWay: true
+      default: 0
     },
     disabled: {
       type: Boolean,
