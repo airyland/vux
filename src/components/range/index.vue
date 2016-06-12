@@ -12,8 +12,7 @@ export default {
     decimal: Boolean,
     value: {
       default: 0,
-      type: Number,
-      twoWay: true
+      type: Number
     },
     min: {
       type: Number,
@@ -71,5 +70,6 @@ export default {
 </script>
 
 <style>
-@import './powerange.css'
+@import './powerange.css';
 </style>
+
