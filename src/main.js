@@ -71,6 +71,7 @@ import Panel from './demos/Panel'
 import Reddot from './demos/Reddot'
 import ButtonTab from './demos/Button-tab'
 import ScrollerSwiper from './demos/Scroller-swiper'
+import ScrollerHeader from './demos/Scroller-header'
 import Qrcode from './demos/Qrcode'
 import Badge from './demos/Badge'
 import Close from './demos/Close'
@@ -266,6 +267,9 @@ router.map({
   },
   '/component/scroller/full': {
     component: ScrollerFull
+  },
+  '/component/scroller/header': {
+    component: ScrollerHeader
   },
   '/component/number-roller': {
     component: NumberRoller

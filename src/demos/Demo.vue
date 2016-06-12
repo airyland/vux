@@ -172,6 +172,9 @@
       <cell title="Swiper within Scroller" link="component/scroller-swiper">
         <span class="demo-icon" slot="icon">&#xe641;</span>
       </cell>
+      <cell title="Scroller with XHeader" link="component/scroller/header">
+        <span class="demo-icon" slot="icon">&#xe641;</span>
+      </cell>
     </group>
 
     <group title="Other" title-color="#04be02">
