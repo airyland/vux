@@ -16,7 +16,6 @@ export default {
     },
     value: {
       type: Array,
-      twoWay: true,
       default () {
         return []
       }

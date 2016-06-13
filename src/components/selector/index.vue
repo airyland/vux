@@ -60,8 +60,7 @@ export default {
       default: false
     },
     value: {
-      type: String,
-      twoWay: true
+      type: String
     }
   }
 }
