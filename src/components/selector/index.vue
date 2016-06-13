@@ -1,6 +1,6 @@
 <template>
   <div class="weui_cell" :class="{'weui_select_after':title, 'weui_cell_select':!readonly}">
-    <div class="weui_cell_hd" v-show="title" :class="{'weui_cell_primary':readonly}">
+    <div class="weui_cell_hd" v-if="title" :class="{'weui_cell_primary':readonly}">
       <label for="" class="weui_label">{{title}}</label>
     </div>
     <div class="weui_cell_bd weui_cell_primary" v-if="!readonly">
