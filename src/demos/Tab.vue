@@ -27,8 +27,13 @@
     <br/>
     <br/>
     <tab :line-width=2 active-color='#fc378c' :index.sync="index">
-      <tab-item :selected="demo2 === item" v-for="item in list2" @click="demo2 = item">{{item}}</tab-item>
+      <tab-item class="vux-center" :selected="demo2 === item" v-for="item in list2" @click="demo2 = item">{{item}}</tab-item>
     </tab>
+    <swiper :index.sync="index">
+      <swiper-item v-for="item in list2">
+        <div class="tab-swiper vux-center">{{item}} Container</div>
+      </swiper-item>
+    </swiper>
     <br/>
     <x-button @click="addTab" :disabled="list2.length === 5" type="primary">Add tab item</x-button>
     <x-button @click="removeTab" :disabled="list2.length <= 2" type="primary">Remove tab item</x-button>
@@ -162,16 +167,20 @@ export default {
 </script>
 
 <style>
-  .active-6-1 {
-    color: rgb(252, 55, 140) !important;
-    border-color: rgb(252, 55, 140) !important;
-  }
-  .active-6-2 {
-    color: #04be02 !important;
-    border-color: #04be02 !important;
-  }
-  .active-6-3 {
-    color: rgb(55, 174, 252) !important;
-    border-color: rgb(55, 174, 252) !important;
-  }
+.active-6-1 {
+  color: rgb(252, 55, 140) !important;
+  border-color: rgb(252, 55, 140) !important;
+}
+.active-6-2 {
+  color: #04be02 !important;
+  border-color: #04be02 !important;
+}
+.active-6-3 {
+  color: rgb(55, 174, 252) !important;
+  border-color: rgb(55, 174, 252) !important;
+}
+.tab-swiper {
+  background-color: #fff;
+  height: 100px;
+}
 </style>

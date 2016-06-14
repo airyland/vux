@@ -46,6 +46,7 @@ export default {
       })
       .on('swiped', (prev, index) => {
         this.current = index
+        this.index = index
       })
     },
     rerender () {
@@ -143,7 +144,9 @@ export default {
     },
     index (val) {
       if (val !== this.current) {
-        this.swiper.go(val)
+        this.$nextTick(() => {
+          this.swiper.go(val)
+        })
       }
     }
   },

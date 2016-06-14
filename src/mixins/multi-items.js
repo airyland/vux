@@ -21,6 +21,12 @@ const parentMixin = {
       default: 0
     }
   },
+  watch: {
+    index (val, oldVal) {
+      this.$children[oldVal].selected = false
+      this.$children[val].selected = true
+    }
+  },
   data () {
     return {
       number: this.$children.length
