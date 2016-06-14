@@ -15,10 +15,15 @@ const parentMixin = {
       }
     }
   },
+  props: {
+    index: {
+      type: Number,
+      default: 0
+    }
+  },
   data () {
     return {
-      number: this.$children.length,
-      index: 0
+      number: this.$children.length
     }
   }
 }
