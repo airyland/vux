@@ -9,13 +9,9 @@
 
 <script>
 import Base from '../../libs/base'
-import GroupTitle from '../group-title'
 
 export default {
   minxins: [Base],
-  components: {
-    GroupTitle
-  },
   props: {
     showCounter: {
       type: Boolean,
