@@ -4,7 +4,7 @@
     <span class="vux-popup-picker-value" v-else="showName && value.length">{{value | value2name data}}</span>
     <span v-if="!value.length && placeholder" v-html="placeholder"></span>
   </cell>
-  <popup :show.sync="show" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid" @on-hide="onPopupHide">
+  <popup :show.sync="show" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid" @on-hide="onPopupHide" @on-show="$emit('on-show')">
     <div class="vux-popup-picker-container">
       <div class="vux-popup-picker-header">
         <flexbox>
@@ -61,13 +61,9 @@ export default {
       type: Array,
       default () {
         return []
-      },
-      twoWay: true
+      }
     },
-    showName: {
-      type: Boolean,
-      default: false
-    },
+    showName: Boolean,
     inlineDesc: String
   },
   methods: {
@@ -82,6 +78,7 @@ export default {
       if (!type) {
         this.tempValue = getObject(this.value)
       }
+      this.$emit('on-hide', type)
     },
     onPopupHide () {
       this.tempValue = getObject(this.value)
