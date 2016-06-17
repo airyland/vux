@@ -11,12 +11,15 @@
     <br/>
     <group>
       <address title="只显示省市" :value.sync="value4" raw-value :list="addressData" hide-district></address>
+      <cell title="value值" :value="value4 | json"></cell>
+      <cell title="转换成文字值" :value="getName(value4)"></cell>
     </group>
   </div>
 </template>
 
 <script>
 import { Group, Address, AddressChinaData, XButton, Cell } from '../components'
+import value2name from '../filters/value2name'
 
 export default {
   components: {
@@ -39,6 +42,9 @@ export default {
   methods: {
     changeData () {
       this.value2 = ['430000', '430400', '430407']
+    },
+    getName (value) {
+      return value2name(value, AddressChinaData)
     }
   }
 }
