@@ -5,6 +5,7 @@
 <script>
 import name2value from '../../filters/name2value'
 import PopupPicker from '../popup-picker'
+
 export default {
   components: {
     PopupPicker
@@ -34,7 +35,13 @@ export default {
   },
   beforeCompile () {
     if (this.value.length && this.rawValue) {
-      this.value = name2value(this.value, this.list).split(' ')
+      const parsedVal = name2value(this.value, this.list)
+      if (/__/.test(parsedVal)) {
+        console.error('Vux: Wrong address value', this.value)
+        this.value = []
+      } else {
+        this.value = parsedVal.split(' ')
+      }
     }
   }
 }

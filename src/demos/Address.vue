@@ -14,6 +14,11 @@
       <cell title="value值" :value="value4 | json"></cell>
       <cell title="转换成文字值" :value="getName(value4)"></cell>
     </group>
+
+    <br/>
+    <group title="错误的地址将不能正确渲染">
+      <address title="广东省, 深圳 市, 南山区" :value.sync="value5" raw-value :list="addressData"></address>
+    </group>
   </div>
 </template>
 
@@ -36,7 +41,8 @@ export default {
       value2: ['广东省', '深圳市', '南山区'],
       value3: ['海南省', '儋州市', '--'],
       addressData: AddressChinaData,
-      value4: []
+      value4: [],
+      value5: ['广东省', '深圳 市', '南山区']
     }
   },
   methods: {
