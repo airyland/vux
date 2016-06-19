@@ -109,6 +109,9 @@
       <cell title="card" link="component/card">
         <span class="demo-icon" slot="icon">&#xe658;</span>
       </cell>
+      <cell title="previewer" link="component/previewer">
+        <span class="demo-icon" slot="icon">&#xe65c;</span>
+      </cell>
       <cell title="picker" link="component/picker">
         <span class="demo-icon" slot="icon">&#xe627;</span>
       </cell>
