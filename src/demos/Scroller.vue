@@ -29,9 +29,10 @@
     </scroller>
 
     <divider>A Vertical Scroller with scrollbar y</divider>
-    <scroller lock-x scrollbar-y height="200px">
+    <scroller lock-x scrollbar-y height="200px" :prevent-default="false">
       <div class="box2">
         <p v-for="i in 80">placeholder {{i}}</p>
+        <x-button style="margin:10px 0;" type="primary">Button</x-button>
       </div>
     </scroller>
 
@@ -39,13 +40,14 @@
 </template>
 
 <script>
-import { Scroller, Divider, Spinner } from '../components'
+import { Scroller, Divider, Spinner, XButton } from '../components'
 
 export default {
   components: {
     Scroller,
     Divider,
-    Spinner
+    Spinner,
+    XButton
   }
 }
 </script>

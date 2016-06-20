@@ -1,10 +1,11 @@
 <template>
-  <popup-picker :columns=3 :data="list" :title="title" :value.sync="value" show-name :inline-desc="inlineDesc"></popup-picker>
+  <popup-picker :columns="hideDistrict ? 2 : 3" :data="list" :title="title" :value.sync="value" show-name :inline-desc="inlineDesc" :placeholder="placeholder"></popup-picker>
 </template>
 
 <script>
 import name2value from '../../filters/name2value'
 import PopupPicker from '../popup-picker'
+
 export default {
   components: {
     PopupPicker
@@ -16,7 +17,6 @@ export default {
     },
     value: {
       type: Array,
-      twoWay: true,
       default () {
         return []
       }
@@ -29,11 +29,19 @@ export default {
       type: Array,
       required: true
     },
-    inlineDesc: String
+    inlineDesc: String,
+    placeholder: String,
+    hideDistrict: Boolean
   },
   beforeCompile () {
     if (this.value.length && this.rawValue) {
-      this.value = name2value(this.value, this.list).split(' ')
+      const parsedVal = name2value(this.value, this.list)
+      if (/__/.test(parsedVal)) {
+        console.error('Vux: Wrong address value', this.value)
+        this.value = []
+      } else {
+        this.value = parsedVal.split(' ')
+      }
     }
   }
 }

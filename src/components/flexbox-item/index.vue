@@ -9,9 +9,8 @@ const prefixList = ['-moz-box-', '-webkit-box-', '']
 
 export default {
   props: {
-    span: {
-      type: [Number, String]
-    }
+    span: [Number, String],
+    order: [Number, String]
   },
   methods: {
     buildWidth (width) {
@@ -36,6 +35,9 @@ export default {
         for (let i = 0; i < prefixList.length; i++) {
           styles[prefixList[i] + 'flex'] = `0 0 ${this.buildWidth(this.span) * 100}%`
         }
+      }
+      if (typeof this.order !== 'undefined') {
+        styles.order = this.order
       }
       return styles
     }

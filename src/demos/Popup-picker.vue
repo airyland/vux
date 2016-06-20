@@ -1,7 +1,7 @@
 <template>
   <div>
     <group title="single column">
-      <popup-picker :title="title1" :data="list1" :value.sync="value1"></popup-picker>
+      <popup-picker :title="title1" :data="list1" :value.sync="value1" @on-show="onShow" @on-hide="onHide"></popup-picker>
     </group>
     <br>
     <div class="picker-buttons">
@@ -52,6 +52,12 @@ export default {
         value: '0007',
         parent: 'usa002'
       })
+    },
+    onShow () {
+      console.log('on show')
+    },
+    onHide (type) {
+      console.log('on hide', type)
     }
   },
   data () {

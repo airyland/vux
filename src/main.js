@@ -34,6 +34,7 @@ import Alert from './demos/Alert'
 import Confirm from './demos/Confirm'
 import Progress from './demos/Progress'
 import XImg from './demos/XImg'
+import XImgScroller from './demos/X-img-scroller'
 import Onepx from './demos/1px'
 import Orientation from './demos/Orientation'
 import Shake from './demos/Shake'
@@ -70,12 +71,15 @@ import Panel from './demos/Panel'
 import Reddot from './demos/Reddot'
 import ButtonTab from './demos/Button-tab'
 import ScrollerSwiper from './demos/Scroller-swiper'
+import ScrollerHeader from './demos/Scroller-header'
 import Qrcode from './demos/Qrcode'
 import Badge from './demos/Badge'
 import Close from './demos/Close'
 import Dialog from './demos/Dialog'
 import DateFormatter from './demos/Date-formatter'
 import Card from './demos/Card'
+import Previewer from './demos/Previewer'
+
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -182,6 +186,9 @@ router.map({
   '/component/x-img': {
     component: XImg
   },
+  '/component/x-img-scroller': {
+    component: XImgScroller
+  },
   '/component/1px': {
     component: Onepx
   },
@@ -263,6 +270,9 @@ router.map({
   '/component/scroller/full': {
     component: ScrollerFull
   },
+  '/component/scroller/header': {
+    component: ScrollerHeader
+  },
   '/component/number-roller': {
     component: NumberRoller
   },
@@ -307,6 +317,9 @@ router.map({
   },
   '/component/card': {
     component: Card
+  },
+  '/component/previewer': {
+    component: Previewer
   }
 })
 

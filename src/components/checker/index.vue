@@ -11,8 +11,7 @@ export default {
     selectedItemClass: String,
     disabledItemClass: String,
     value: {
-      type: [String, Number],
-      twoWay: true
+      type: [String, Number]
     }
   },
   watch: {

@@ -175,6 +175,9 @@ Powerange.prototype.setValue = function (offset, size) {
   var changed = false
 
   value = (this.options.decimal) ? (Math.round(value * 100) / 100) : Math.round(value)
+  if (value > this.options.max) {
+    value = this.options.max
+  }
   changed = this.element.value !== value
 
   this.element.value = value

@@ -11,6 +11,8 @@
     <checklist title="set random order" random-order :options="checklist005" :value.sync="checklist005Value" @on-change="change"></checklist>
 
     <checklist title="Option Array with key and value(key must be string)" :options="objectList" :value.sync="objectListValue" @on-change="change"></checklist>
+
+    <checklist title="Async list" :max="3" :options="asyncList" :value.sync="asyncListValue" @on-change="change"></checklist>
   </div>
 </template>
 
@@ -18,6 +20,11 @@
 import { Group, Checklist } from '../components'
 
 export default {
+  ready () {
+    setTimeout(() => {
+      this.asyncList = ['A', 'B', 'C', 'D']
+    }, 3000)
+  },
   components: {
     Group,
     Checklist
@@ -37,7 +44,9 @@ export default {
       checklist005: [ '01', '02', '03' ],
       checklist005Value: [],
       objectList: [{key: '1', value: '001 value'}, {key: '2', value: '002 value'}, {key: '3', value: '003 value'}],
-      objectListValue: ['1', '2']
+      objectListValue: ['1', '2'],
+      asyncList: [],
+      asyncListValue: []
     }
   }
 }

@@ -4,7 +4,7 @@
       <cell title="address" link="component/address">
         <span class="demo-icon" slot="icon">&#xe61b;</span>
       </cell>
-      <cell title="calendar" value="deprecated" link="component/calendar">
+      <cell title="calendar" link="component/calendar">
         <span class="demo-icon" slot="icon">&#xe62b;</span>
       </cell>
       <cell title="cell" link="component/cell">
@@ -109,6 +109,9 @@
       <cell title="card" link="component/card">
         <span class="demo-icon" slot="icon">&#xe658;</span>
       </cell>
+      <cell title="previewer" link="component/previewer">
+        <span class="demo-icon" slot="icon">&#xe65c;</span>
+      </cell>
       <cell title="picker" link="component/picker">
         <span class="demo-icon" slot="icon">&#xe627;</span>
       </cell>
@@ -170,6 +173,9 @@
         <span class="demo-icon" slot="icon">&#xe641;</span>
       </cell>
       <cell title="Swiper within Scroller" link="component/scroller-swiper">
+        <span class="demo-icon" slot="icon">&#xe641;</span>
+      </cell>
+      <cell title="Scroller with XHeader" link="component/scroller/header">
         <span class="demo-icon" slot="icon">&#xe641;</span>
       </cell>
     </group>

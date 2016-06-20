@@ -31,8 +31,7 @@ export default {
     },
     value: {
       type: String,
-      default: '',
-      twoWay: true
+      default: ''
     },
     inlineDesc: String,
     placeholder: String,

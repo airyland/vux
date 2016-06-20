@@ -8,7 +8,7 @@ export default function (name, list) {
       // 可能存在区名一样的情况，比如南山区
       parent = find(list, item => {
         return item.name === name[1]
-      })
+      }) || { value: '__' }
       return find(list, item => {
         return item.name === one && item.parent === parent.value
       })
@@ -19,6 +19,6 @@ export default function (name, list) {
     }
   })
   return map(rs, one => {
-    return one.value
+    return one ? one.value : '__'
   }).join(' ')
 }
