@@ -79,7 +79,7 @@ import Dialog from './demos/Dialog'
 import DateFormatter from './demos/Date-formatter'
 import Card from './demos/Card'
 import Previewer from './demos/Previewer'
-
+import Danmaku from './demos/Danmaku'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -320,6 +320,9 @@ router.map({
   },
   '/component/previewer': {
     component: Previewer
+  },
+  '/component/danmaku': {
+    component: Danmaku
   }
 })
 

@@ -202,6 +202,9 @@
       <cell title="qrcode" link="component/qrcode">
         <span class="demo-icon" slot="icon">&#xe65a;</span>
       </cell>
+      <cell title="danmaku" link="component/danmaku" value='ヾ(๑╹◡╹)ﾉ"弹幕'>
+        <span class="demo-icon" slot="icon">&#xe652;</span>
+      </cell>
     </group>
 
     <group title="CSS Utils" title-color="#04be02">

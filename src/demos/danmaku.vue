@@ -1,5 +1,5 @@
 <template>
-  <danmaku-bullet v-for="item in list" :item="item" track-by="_key"></danmaku-bullet>
+    <danmaku v-for="item in list" :item="item" track-by="_key"></danmaku>
 </template>
 
 <script lang="babel">
@@ -58,7 +58,6 @@
   }
 
   export default {
-
     data () {
       return {
         input: {
@@ -75,7 +74,7 @@
       }
     },
     components: {
-      danmakuBullet: danmaku
+      danmaku: danmaku
     },
     created () {
       this.timer = setInterval(() => {
@@ -103,7 +102,6 @@
           this.list.$remove(item)
           if (this.list.length < MaxCount && this.preList.length > 0) {
             let preItem = this.preList.shift()
-            console.log(`preItem ${JSON.stringify(preItem)}`)
             this.list.push(preItem)
             this.$nextTick(function () {
               this.render(preItem, false)
