@@ -80,7 +80,6 @@ import DateFormatter from './demos/Date-formatter'
 import Card from './demos/Card'
 import Previewer from './demos/Previewer'
 
-
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
 
