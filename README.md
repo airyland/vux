@@ -100,6 +100,8 @@ export default {
 
 ## Usage by importing .vue file
 
+> make sure less and less-loader are installed
+
 > add a js loader in webpack.base.conf.js
 
 ``` js
@@ -216,6 +218,24 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 <p align="center">
   <img src="https://raw.githubusercontent.com/airyland/vux/master/assets/vux.png" width="600">
 </p>
+
+## Main contributors
++ [airyland](https://github.com/airyland)
++ [lichunqiang](https://github.com/lichunqiang)
++ [graysheeep](https://github.com/graysheeep)
++ [unclay](https://github.com/unclay)
+
+## Vux is Inspired or Powered By:
++ [Vue](https://github.com/vuejs/vue)
++ [WeUI](https://github.com/weui/weui)
++ [FrozenUI](https://github.com/frozenui/frozenui)
++ [Ant Design](https://github.com/ant-design/ant-design)
++ Ant UI
++ [XScroll](https://github.com/huxiaoqi567/xscroll)
++ [Ionic](https://github.com/driftyco/ionic)
++ [SUI Mobile](https://github.com/sdc-alibaba/SUI-Mobile)
++ [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe)
++ Spmjs.io (off service)
 
 ## Liscence
 
