@@ -64,7 +64,7 @@ export default {
   color: #F76260;
 }
 .weui_toast.weui_toast_text{
-  min-height: auto;
+  min-height: 0;
 }
 .weui_toast_text .weui_toast_content {
   margin: 0;
