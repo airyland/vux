@@ -41,7 +41,7 @@
     "shake.js": "^1.2.2",
     "validator": "^5.1.0",
     "vux-blazy": "^1.6.4",
-    "vux-xscroll": "^3.1.4",
+    "vux-xscroll": "^3.1.5",
     "webp-support": "^1.0.3"
   },
   "devDependencies": {

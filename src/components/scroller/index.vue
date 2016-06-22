@@ -239,6 +239,16 @@ export default {
       if (uuid === this.uuid) {
         this.reset()
       }
+    },
+    'pullup:disable' (uuid) {
+      if (uuid === this.uuid) {
+        this.pullup.stop()
+      }
+    },
+    'pullup:enable' (uuid) {
+      if (uuid === this.uuid) {
+        this.pullup.restart()
+      }
     }
   },
   beforeDestroy () {
