@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Previewer from '../components/previewer'
+import { Previewer } from '../components'
 
 export default {
   components: {

@@ -66,6 +66,7 @@ import InlineCalendar from './inline-calendar'
 import Badge from './badge'
 import Dialog from './dialog'
 import Card from './card'
+import Previewer from './previewer'
 
 const vux = {
   Radio,
@@ -137,7 +138,8 @@ const vux = {
   InlineCalendar,
   Badge,
   Dialog,
-  Card
+  Card,
+  Previewer
 }
 
 module.exports = vux
