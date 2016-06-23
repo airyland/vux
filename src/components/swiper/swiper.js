@@ -119,17 +119,17 @@ class Swiper {
       let distance = me._move.y - me._start.y
       let transform = 'translate3d(0, ' + (distance - me._offset) + 'px, 0)'
 
-      if (me._options.direction === 'horizontal') {
+      if (me._options.direction === 'horizontal' && Math.abs(me._move.x) > Math.abs(me._move.y)) {
         distance = me._move.x - me._start.x
         transform = 'translate3d(' + (distance - me._offset) + 'px, 0, 0)'
       }
 
-      if ((me._options.minMovingDistance && distance >= me._options.minMovingDistance) || !me._options.minMovingDistance) {
+      if (((me._options.minMovingDistance && distance >= me._options.minMovingDistance) || !me._options.minMovingDistance) && Math.abs(me._move.x) > Math.abs(me._move.y)) {
         me.$container.style['-webkit-transform'] = transform
         me.$container.style.transform = transform
       }
 
-      e.preventDefault()
+      Math.abs(me._move.x) > Math.abs(me._move.y) && e.preventDefault()
     }
 
     this.touchendHandler = (e) => {
