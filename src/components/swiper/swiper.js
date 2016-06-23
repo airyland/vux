@@ -129,7 +129,7 @@ class Swiper {
         me.$container.style.transform = transform
       }
 
-      e.preventDefault()
+      Math.abs(me._move.x) > Math.abs(me._move.y) && e.preventDefault();
     }
 
     this.touchendHandler = (e) => {
