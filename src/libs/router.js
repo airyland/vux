@@ -1,6 +1,6 @@
 export function go (url, $router) {
   if (/^javas/.test(url) || !url) return
-  const useRouter = typeof url === 'object' || (typeof url === 'string' && !/http/.test(url))
+  const useRouter = typeof url === 'object' || ($router && typeof url === 'string' && !/http/.test(url))
   if (useRouter) {
     $router.go(url)
   } else {
