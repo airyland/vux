@@ -6,27 +6,19 @@
       <h1 class="vux-title" style="display:none;">
         <span class="demo-icon" slot="icon" style="font-size:60px;color:#35495e;display: block;">&#xe637;</span>
       </h1>
-      <p class="vux-notice">Beta. Not Production Ready(v0.1).</p>
+      <p class="vux-notice">v{{version}}</p>
     </div>
     <group>
-      <cell title="Demo" link="/demo">
+      <cell title="Demo" link="/demo" value="演示">
         <span class="demo-icon" slot="icon" style="color:#F70968">&#xe633;</span>
       </cell>
     </group>
     <group>
-      <cell title="HISTORY.md" value="-">
-        <span class="demo-icon" slot="icon" style="color:#666;">&#xe63a;</span>
-      </cell>
-      <cell title="Thanks" link="project/thanks">
-        <span class="demo-icon" slot="icon" style="color:#666;">&#xe62e;</span>
-      </cell>
-    </group>
-    <group>
-      <cell title="Fork me" link="http://github.com/airyland/vux">
-        <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
-      </cell>
-      <cell title="Buy me a coffee" link="project/donate">
+      <cell title="Buy me a coffee" link="project/donate" value="捐赠">
         <span class="demo-icon" slot="icon" style="color:red;">&#xe630;</span>
+      </cell>
+      <cell title="Github" link="http://github.com/airyland/vux" value="Star me">
+        <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
       </cell>
     </group>
   </div>

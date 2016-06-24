@@ -88,7 +88,7 @@
     <divider>flexiable grid</divider>
     <flexbox :gutter="0">
       <flexbox-item :span="1/3" :order="4"><div class="flex-demo">1</div></flexbox-item>
-      <flexbox-item :span="1/6" order"3"><div class="flex-demo">2</div></flexbox-item>
+      <flexbox-item :span="1/6" :order="3"><div class="flex-demo">2</div></flexbox-item>
       <flexbox-item :span="1/8" :order="2"><div class="flex-demo">3</div></flexbox-item>
       <flexbox-item :span="1/8" :order="1"><div class="flex-demo">4</div></flexbox-item>
       <flexbox-item :order="-99"><div class="flex-demo">5</div></flexbox-item>
