@@ -10,9 +10,14 @@ export default {
     defaultItemClass: String,
     selectedItemClass: String,
     disabledItemClass: String,
+    type: {
+      type: String,
+      default: 'radio'
+    },
     value: {
-      type: [String, Number]
-    }
+      type: [String, Number, Array]
+    },
+    max: Number
   },
   watch: {
     value (newValue) {

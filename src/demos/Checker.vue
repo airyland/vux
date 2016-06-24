@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 15px 0;">
-    <divider>no default value</divider>
+    <divider>radio:no default value</divider>
     <checker :value.sync="demo1" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
       <checker-item value="1">1</checker-item>
       <checker-item value="2">2</checker-item>
@@ -9,6 +9,27 @@
     <br>
     <span>current value is: {{demo1}}</span>
     <br>
+
+    <divider>checkbox</divider>
+    <checker :value.sync="demo1Checkbox" type="checkbox" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
+      <checker-item :value="1">1</checker-item>
+      <checker-item :value="2">2</checker-item>
+      <checker-item :value="3">3</checker-item>
+    </checker>
+    <br>
+    <span>current value is: {{demo1Checkbox | json}}</span>
+    <br>
+
+    <divider>checkbox with max limit</divider>
+    <checker :value.sync="demo1CheckboxMax" :max="2" type="checkbox" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
+      <checker-item value="1">1</checker-item>
+      <checker-item value="2">2</checker-item>
+      <checker-item value="3">3</checker-item>
+    </checker>
+    <br>
+    <span>current value is: {{demo1CheckboxMax | json}}</span>
+    <br>
+
     <divider>default value 2</divider>
     <checker :value.sync="demo2" default-item-class="demo2-item" selected-item-class="demo2-item-selected">
       <checker-item value="1">1</checker-item>
@@ -54,13 +75,23 @@
       </div>
     </popup>
 
-    <divider>A real world example {{demo5}}</divider>
+    <divider>A real world radio example {{demo5}}</divider>
     <checker
     :value.sync="demo5"
     default-item-class="demo5-item"
     selected-item-class="demo5-item-selected"
     >
       <checker-item v-for="i in [1, 2, 3]" :value="i">￥{{i*300}}</checker-item>
+    </checker>
+    <br/>
+    <divider>A real world checkbox example {{demo6 | json}}</divider>
+    <checker
+    :value.sync="demo6"
+    type="checkbox"
+    default-item-class="demo5-item"
+    selected-item-class="demo5-item-selected"
+    >
+      <checker-item v-for="i in [1, 2, 3]" :value="i">{{['good', 'nice','awesome'][i - 1]}}</checker-item>
     </checker>
   </div>
 </template>
@@ -80,11 +111,14 @@ export default {
   data () {
     return {
       demo1: '',
+      demo1Checkbox: [2, 1],
+      demo1CheckboxMax: ['2', '3'],
       demo2: '2',
       demo3: '',
       demo4: '花跟叶',
       showPopup: false,
-      demo5: 1
+      demo5: 1,
+      demo6: [2, 3]
     }
   }
 }

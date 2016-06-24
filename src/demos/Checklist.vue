@@ -13,11 +13,16 @@
     <checklist title="Option Array with key and value(key must be string)" :options="objectList" :value.sync="objectListValue" @on-change="change"></checklist>
 
     <checklist title="Async list" :max="3" :options="asyncList" :value.sync="asyncListValue" @on-change="change"></checklist>
+
+    <divider>Reference</divider>
+    <group title="See also">
+      <cell title="Checker" value="with which you can custom any style" is-link link="/component/checker"></cell>
+    </group>
   </div>
 </template>
 
 <script>
-import { Group, Checklist } from '../components'
+import { Group, Checklist, Cell, Divider } from '../components'
 
 export default {
   ready () {
@@ -27,7 +32,9 @@ export default {
   },
   components: {
     Group,
-    Checklist
+    Checklist,
+    Cell,
+    Divider
   },
   methods: {
     change (val) {
