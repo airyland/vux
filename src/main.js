@@ -79,6 +79,7 @@ import Dialog from './demos/Dialog'
 import DateFormatter from './demos/Date-formatter'
 import Card from './demos/Card'
 import Previewer from './demos/Previewer'
+import IconLoading from './demos/Icon-loading'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -319,6 +320,9 @@ router.map({
   },
   '/component/previewer': {
     component: Previewer
+  },
+  '/component/icon-loading': {
+    component: IconLoading
   }
 })
 

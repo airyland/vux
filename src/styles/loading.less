@@ -1,0 +1,24 @@
+.vux-loading {
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  animation-name: vux-loading;
+  animation-timing-function: linear;
+  border-radius: 99em;
+  border: 3px solid #DDD;
+  border-left-color: #666;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  display:table-cell;
+  vertical-align:middle;
+}
+
+@keyframes vux-loading {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
