@@ -1,5 +1,5 @@
 <template>
-  <popup-picker :columns="hideDistrict ? 2 : 3" :data="list" :title="title" :value.sync="value" show-name :inline-desc="inlineDesc" :placeholder="placeholder"></popup-picker>
+  <popup-picker :columns="hideDistrict ? 2 : 3" :data="list" :title="title" :value.sync="value" show-name :inline-desc="inlineDesc" :placeholder="placeholder" @on-hide="emitHide" @on-show="$emit('on-show')"></popup-picker>
 </template>
 
 <script>
@@ -42,6 +42,11 @@ export default {
       } else {
         this.value = parsedVal.split(' ')
       }
+    }
+  },
+  methods: {
+    emitHide (val) {
+      this.$emit('on-hide', val)
     }
   }
 }

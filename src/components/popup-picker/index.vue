@@ -73,15 +73,17 @@ export default {
     onHide (type) {
       this.show = false
       if (type) {
+        this.closeType = true
         this.value = getObject(this.tempValue)
       }
       if (!type) {
+        this.closeType = false
         this.tempValue = getObject(this.value)
       }
-      this.$emit('on-hide', type)
     },
-    onPopupHide () {
+    onPopupHide (val) {
       this.tempValue = getObject(this.value)
+      this.$emit('on-hide', this.closeType)
     }
   },
   watch: {
@@ -94,7 +96,8 @@ export default {
   data () {
     return {
       show: false,
-      tempValue: getObject(this.value)
+      tempValue: getObject(this.value),
+      closeType: false
     }
   }
 }

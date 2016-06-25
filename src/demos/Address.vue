@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <address :title="title" :value.sync="value" :list="addressData" placeholder="请选择地址" inline-desc="可以设置placeholder"></address>
+      <address @on-hide="logHide" @on-show="logShow" :title="title" :value.sync="value" :list="addressData" placeholder="请选择地址" inline-desc="可以设置placeholder"></address>
       <cell title="上面value值" :value="value | json"></cell>
       <address :title="title2" :value.sync="value2" raw-value :list="addressData"></address>
       <address title="二级省市" :value.sync="value3" raw-value :list="addressData"></address>
@@ -51,6 +51,12 @@ export default {
     },
     getName (value) {
       return value2name(value, AddressChinaData)
+    },
+    logHide (str) {
+      console.log('on-hide', str)
+    },
+    logShow (str) {
+      console.log('on-show')
     }
   }
 }

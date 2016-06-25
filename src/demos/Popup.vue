@@ -6,7 +6,7 @@
       <switch title="with a Scroller" :value.sync="show2"></switch>
       <switch title="Multi popup (first)" :value.sync="show3"></switch>
     </group>
-    <popup :show.sync="show">
+    <popup :show.sync="show" @on-hide="log('hide')" @on-show="log('show')">
       <div class="popup0">
         <group>
           <switch title="Another Switcher" :value.sync="show"></switch>
@@ -79,6 +79,9 @@ export default {
   methods: {
     resetScroller () {
       this.$refs.scroller.reset()
+    },
+    log (str) {
+      console.log(str)
     }
   }
 }
