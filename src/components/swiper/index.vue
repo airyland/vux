@@ -3,7 +3,7 @@
     <div class="vux-swiper" :style="{height: xheight}">
       <slot></slot>
       <div class="vux-swiper-item" v-for="item in list" @click="clickListItem(item)">
-        <a :href="item.url">
+        <a href="javascript:">
           <div class="vux-img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
           <p class="vux-swiper-desc">{{item.title}}</p>
         </a>
@@ -19,6 +19,8 @@
 
 <script>
 import Swiper from './swiper'
+import { go } from '../../libs/router'
+
 export default {
   ready () {
     if (!(this.list && this.list.length === 0)) {
@@ -28,6 +30,7 @@ export default {
   },
   methods: {
     clickListItem (item) {
+      go(item.url, this.$router)
       this.$emit('on-click-list-item', JSON.parse(JSON.stringify(item)))
     },
     buildBackgroundUrl (url) {
@@ -163,7 +166,7 @@ export default {
 .@{pre}-slider {
   overflow: hidden;
   position: relative;
-  
+
   > .@{pre}-indicator, .@{pre}-indicator-right {
     position: absolute;
     right: 15px;
@@ -197,7 +200,7 @@ export default {
     left: 15px;
     right: auto;
   }
-  
+
   > .@{pre}-swiper {
     overflow: hidden;
     position: relative;
