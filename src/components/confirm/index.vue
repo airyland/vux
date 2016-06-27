@@ -57,13 +57,6 @@ export default {
       this.show = false
       this.$emit('on-cancel')
     }
-  },
-  watch: {
-    show (val) {
-      if (val) {
-        this.$emit('on-show')
-      }
-    }
   }
 }
 </script>

@@ -3,7 +3,7 @@
     <group>
       <switch title="Toggle" :value.sync="show"></switch>
     </group>
-    <confirm :show.sync="show" title="confirm deleting the item" @on-cancel="onCancel" @on-confirm="onConfirm">
+    <confirm :show.sync="show" title="confirm deleting the item" @on-cancel="onCancel" @on-confirm="onConfirm" @on-show="onShow" @on-hide="onHide">
       <p style="text-align:center;">Are you sure?</p>
     </confirm>
   </div>
@@ -29,6 +29,12 @@ export default {
     },
     onConfirm () {
       console.log('on confirm')
+    },
+    onHide () {
+      console.log('on hide')
+    },
+    onShow () {
+      console.log('on show')
     }
   }
 }
