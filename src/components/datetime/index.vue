@@ -4,7 +4,7 @@
       <p>{{title}}</p>
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
-    <div class="weui_cell_ft with_arrow vux-datetime-value">{{value}}</div>
+    <div class="weui_cell_ft with_arrow vux-datetime-value">{{value || placeholder}}</div>
   </a>
 </template>
 
