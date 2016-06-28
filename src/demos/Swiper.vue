@@ -16,7 +16,7 @@
     <br/>
     <br/>
     <group-title>自动轮播</group-title>
-    <swiper :list="list" auto style="width:80%;margin:0 auto;" height="180px"></swiper>
+    <swiper :list="list" auto style="width:80%;margin:0 auto;" height="180px" dots-class="custom-bottom" dots-position="center"></swiper>
     <br/>
     <br/>
     <divider>use swiper-item for image list</divider>
@@ -122,7 +122,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .text-scroll {
   border: 1px solid #ddd;
   border-left: none;
@@ -141,40 +141,36 @@ export default {
   text-align: center;
   color: #fff;
 }
-
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
 }
-
+.vux-indicator.custom-bottom {
+  bottom: 30px;
+}
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translate3d(0, 100%, 0);
   }
-
   100% {
     opacity: 1;
     transform: none;
   }
 }
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translate3d(0, 100%, 0);
   }
-
   100% {
     opacity: 1;
     transform: none;
   }
 }
-
 .fadeInUp {
   animation-name: fadeInUp;
 }
-
 .swiper-img img {
   width: 100%;
   display: block;

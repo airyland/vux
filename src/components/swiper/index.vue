@@ -9,7 +9,7 @@
         </a>
       </div>
     </div>
-    <div :class="['vux-indicator', 'vux-indicator-' + dotsPosition]" v-show="showDots && list.length > 1">
+    <div :class="[dotsClass, 'vux-indicator', 'vux-indicator-' + dotsPosition]" v-show="showDots && list.length > 1">
       <a href="javascript:" v-for="(key, item) in list">
         <i class="vux-icon-dot" :class="{'active': key === current}"></i>
       </a>
@@ -102,10 +102,8 @@ export default {
       type: String,
       default: 'right'
     },
-    auto: {
-      type: Boolean,
-      default: false
-    },
+    dotsClass: String,
+    auto: Boolean,
     interval: {
       type: Number,
       default: 3000
