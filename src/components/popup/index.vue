@@ -102,6 +102,7 @@ export default {
 .vux-popup-mask.vux-popup-show {
   opacity: 1;
   z-index: 100;
+  transition: opacity 0.3s;
 }
 .vux-popup-transiton {}
 .vux-popup-enter {
