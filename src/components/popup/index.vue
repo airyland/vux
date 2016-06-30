@@ -6,11 +6,11 @@
 
 <script>
 import Popup from './popup'
+
 export default {
   props: {
     show: {
       type: Boolean,
-      default: false,
       twoWay: true
     },
     height: {
@@ -19,17 +19,32 @@ export default {
     }
   },
   ready () {
-    var _this = this
+    const _this = this
     this.popup = new Popup({
       container: _this.$el,
       innerHTML: '',
       onOpen (dialog) {
+        _this.fixSafariOverflowScrolling('auto')
         _this.show = true
       },
       onClose (dialog) {
+        _this.fixSafariOverflowScrolling('touch')
         _this.show = false
       }
     })
+    this.$overflowScrollingList = document.querySelectorAll('.vux-fix-safari-overflow-scrolling')
+  },
+  methods: {
+    /**
+    * https://github.com/airyland/vux/issues/311
+    * https://benfrain.com/z-index-stacking-contexts-experimental-css-and-ios-safari/
+    */
+    fixSafariOverflowScrolling (type) {
+      if (!this.$overflowScrollingList.length) return
+      for (var i = 0; i < this.$overflowScrollingList.length; i++) {
+        this.$overflowScrollingList[i].style.webkitOverflowScrolling = type
+      }
+    }
   },
   data () {
     return {
