@@ -41,7 +41,7 @@ export default {
     */
     fixSafariOverflowScrolling (type) {
       if (!this.$overflowScrollingList.length) return
-      for (var i = 0; i < this.$overflowScrollingList.length; i++) {
+      for (let i = 0; i < this.$overflowScrollingList.length; i++) {
         this.$overflowScrollingList[i].style.webkitOverflowScrolling = type
       }
     }
@@ -95,18 +95,15 @@ export default {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
   opacity: 0;
   tap-highlight-color: rgba(0,0,0,0);
-  transition: all 0.2s;
   z-index: -1;
 }
 .vux-popup-mask.vux-popup-show {
   opacity: 1;
   z-index: 100;
 }
-.vux-popup-transiton {
-}
+.vux-popup-transiton {}
 .vux-popup-enter {
   background-color:red;
   transform: translate3d(0, 100%, 0);
