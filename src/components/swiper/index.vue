@@ -9,8 +9,8 @@
         </a>
       </div>
     </div>
-    <div :class="[dotsClass, 'vux-indicator', 'vux-indicator-' + dotsPosition]" v-show="showDots && list.length > 1">
-      <a href="javascript:" v-for="(key, item) in list">
+    <div :class="[dotsClass, 'vux-indicator', 'vux-indicator-' + dotsPosition]" v-show="showDots">
+      <a href="javascript:" v-for="key in length">
         <i class="vux-icon-dot" :class="{'active': key === current}"></i>
       </a>
     </div>
@@ -61,6 +61,7 @@ export default {
       this.$nextTick(() => {
         this.index = 0
         this.current = 0
+        this.length = this.list.length || this.$children.length
         this.destroy()
         this.render()
       })

@@ -29,7 +29,7 @@
     <tab :line-width=2 active-color='#fc378c' :index.sync="index">
       <tab-item class="vux-center" :selected="demo2 === item" v-for="item in list2" @click="demo2 = item">{{item}}</tab-item>
     </tab>
-    <swiper :index.sync="index">
+    <swiper :index.sync="index" height="100px" :show-dots="false">
       <swiper-item v-for="item in list2">
         <div class="tab-swiper vux-center">{{item}} Container</div>
       </swiper-item>

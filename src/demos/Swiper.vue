@@ -60,7 +60,7 @@
     <divider>华丽的分割线</divider>
 
     <group-title>垂直方向文字滚动</group-title>
-    <swiper auto height="30px" direction="vertical" :interval=2000 class="text-scroll">
+    <swiper auto height="30px" direction="vertical" :interval=2000 class="text-scroll" :show-dots="false">
       <swiper-item><p>义务爱了 完成传奇世界H5-王者归来任务 获得20金币</p></swiper-item>
       <swiper-item><p>基本世神 兑换《传奇世界H5》畅玩级礼包 消耗30金币</p></swiper-item>
       <swiper-item><p>零哥章魚 完成传奇世界H5-王者归来任务 获得30金币</p></swiper-item>
