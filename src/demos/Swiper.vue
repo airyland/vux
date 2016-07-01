@@ -27,8 +27,8 @@
     <divider>华丽的分割线</divider>
 
     <group-title>use swiper-item for image list</group-title>
-    <swiper :img-list=true>
-      <swiper-item class="swiper-img" v-for="item in demo04_list"><img :src="item"></swiper-item>
+    <swiper :aspect-ratio="300/800">
+      <swiper-item class="swiper-demo-img" v-for="item in demo04_list"><img :src="item"></swiper-item>
     </swiper>
 
     <br/>
@@ -198,8 +198,7 @@ export default {
 .fadeInUp {
   animation-name: fadeInUp;
 }
-.swiper-img img {
+.swiper-demo-img img {
   width: 100%;
-  display: block;
 }
 </style>

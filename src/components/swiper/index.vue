@@ -1,6 +1,6 @@
 <template>
   <div class="vux-slider">
-    <div :class="['vux-swiper', {'vux-swiper-img': imgList}]" :style="{height: xheight}">
+    <div class="vux-swiper" :style="{height: xheight}">
       <slot></slot>
       <div class="vux-swiper-item" v-for="item in list" @click="clickListItem(item)">
         <a href="javascript:">
@@ -37,24 +37,22 @@ export default {
       return `url(${url})`
     },
     render () {
-      if (!this.imgList) {
-        this.swiper = new Swiper({
-          container: this.$el,
-          direction: this.direction,
-          auto: this.auto,
-          loop: this.loop,
-          interval: this.interval,
-          threshold: this.threshold,
-          duration: this.duration,
-          height: this.height || this._height,
-          minMovingDistance: this.minMovingDistance,
-          imgList: this.imgList
-        })
-        .on('swiped', (prev, index) => {
-          this.current = index
-          this.index = index
-        })
-      }
+      this.swiper = new Swiper({
+        container: this.$el,
+        direction: this.direction,
+        auto: this.auto,
+        loop: this.loop,
+        interval: this.interval,
+        threshold: this.threshold,
+        duration: this.duration,
+        height: this.height || this._height,
+        minMovingDistance: this.minMovingDistance,
+        imgList: this.imgList
+      })
+      .on('swiped', (prev, index) => {
+        this.current = index
+        this.index = index
+      })
     },
     rerender () {
       if (!this.$el) {
@@ -75,12 +73,11 @@ export default {
       const hasHeight = parseInt(this.height, 10)
       if (hasHeight) return this.height
       if (!hasHeight) {
+        if (this.aspectRatio) {
+          return this.$el.offsetWidth * this.aspectRatio + 'px'
+        }
         if (this.list.length) {
-          if (this.aspectRatio) {
-            return this.$el.offsetWidth * this.aspectRatio + 'px'
-          } else {
-            return '180px'
-          }
+          return '180px'
         } else {
           return 'auto'
         }
@@ -139,10 +136,6 @@ export default {
     index: {
       type: Number,
       default: 0
-    },
-    imgList: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
@@ -257,12 +250,6 @@ export default {
         }
 
       }
-    }
-  }
-
-  .@{pre}-swiper-img {
-    .@{pre}-swiper-item {
-      position: static;
     }
   }
 }
