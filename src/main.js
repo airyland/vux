@@ -80,6 +80,7 @@ import DateFormatter from './demos/Date-formatter'
 import Card from './demos/Card'
 import Previewer from './demos/Previewer'
 import IconLoading from './demos/Icon-loading'
+import XSwiper from './demos/x-swiper'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -323,6 +324,9 @@ router.map({
   },
   '/component/icon-loading': {
     component: IconLoading
+  },
+  '/component/x-swiper': {
+    component: XSwiper
   }
 })
 
