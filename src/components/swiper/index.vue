@@ -1,6 +1,6 @@
 <template>
   <div class="vux-slider">
-    <div class="vux-swiper" :style="{height: xheight}">
+    <div :class="['vux-swiper', {'vux-swiper-img': imgList}]" :style="{height: xheight}">
       <slot></slot>
       <div class="vux-swiper-item" v-for="item in list" @click="clickListItem(item)">
         <a href="javascript:">
@@ -37,20 +37,24 @@ export default {
       return `url(${url})`
     },
     render () {
-      this.swiper = new Swiper({
-        container: this.$el,
-        direction: this.direction,
-        auto: this.auto,
-        interval: this.interval,
-        threshold: this.threshold,
-        duration: this.duration,
-        height: this.height || this._height,
-        minMovingDistance: this.minMovingDistance
-      })
-      .on('swiped', (prev, index) => {
-        this.current = index
-        this.index = index
-      })
+      if (!this.imgList) {
+        this.swiper = new Swiper({
+          container: this.$el,
+          direction: this.direction,
+          auto: this.auto,
+          loop: this.loop,
+          interval: this.interval,
+          threshold: this.threshold,
+          duration: this.duration,
+          height: this.height || this._height,
+          minMovingDistance: this.minMovingDistance,
+          imgList: this.imgList
+        })
+        .on('swiped', (prev, index) => {
+          this.current = index
+          this.index = index
+        })
+      }
     },
     rerender () {
       if (!this.$el) {
@@ -103,7 +107,14 @@ export default {
       default: 'right'
     },
     dotsClass: String,
-    auto: Boolean,
+    auto: {
+      type: Boolean,
+      default: false
+    },
+    loop: {
+      type: Boolean,
+      default: false
+    },
     interval: {
       type: Number,
       default: 3000
@@ -128,12 +139,17 @@ export default {
     index: {
       type: Number,
       default: 0
+    },
+    imgList: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
     return {
-      current: 0,
-      xheight: 'auto'
+      current: this.index,
+      xheight: 'auto',
+      length: this.list.length
     }
   },
   watch: {
@@ -204,8 +220,10 @@ export default {
     position: relative;
 
     > .@{pre}-swiper-item {
-      float: left;
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
       height: 100%;
 
       > a {
@@ -232,7 +250,6 @@ export default {
           background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .7) 100%);
           color: #fff;
           text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
-          width: 100%;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -240,6 +257,12 @@ export default {
         }
 
       }
+    }
+  }
+
+  .@{pre}-swiper-img {
+    .@{pre}-swiper-item {
+      position: static;
     }
   }
 }

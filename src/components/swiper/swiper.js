@@ -8,27 +8,29 @@ class Swiper {
       threshold: 50,
       duration: 300,
       auto: false,
+      loop: false,
       interval: 3000,
       height: 'auto',
       minMovingDistance: 0
     }
-    this._options = extend(this._default, options)
+    this._options = Object.assign(this._default, options)
     this._options.height = this._options.height.replace('px', '')
     this._start = {}
     this._move = {}
     this._end = {}
     this._eventHandlers = {}
-    this._prev = this._current = this._offset = this._goto = 0
+    this._prev = this._current = this._goto = 0
+    this._width = this._height = this._distance = 0
+    this._offset = []
     this.$box = this._options.container
     this.$container = this._options.container.querySelector('.vux-swiper')
     this.$items = this.$container.querySelectorAll(this._options.item)
     this.count = this.$items.length
+    this._position = [] // used by go event
+    this._firstItemIndex = 0
     if (!this.count) {
       return
     }
-
-    this.timer = null
-    this.updateItemWidth()
     this._init()
     this._auto()
     this._bind()
@@ -39,7 +41,7 @@ class Swiper {
   _auto () {
     let me = this
     me.stop()
-    if (this._options.auto) {
+    if (me._options.auto) {
       me.timer = setTimeout(() => {
         me.next()
       }, me._options.interval)
@@ -48,91 +50,124 @@ class Swiper {
 
   updateItemWidth () {
     this._width = this.$box.offsetWidth
-  }
-
-  setStyle () {
-    this._height = this._options.height === 'auto' ? 'auto' : this._options.height
-    let width = this._width
-    let height = this._height
-
-    let w = width
-    let h = height * this.count
-
-    if (this._options.direction === 'horizontal') {
-      w = width * this.count
-      h = height
-    }
-
-    if (this._options.direction === 'vertical') {
-      h = height * this.count
-      this.$box.style.height = height + 'px'
-    }
-
-    this.$container.style.width = w + 'px'
-    if (h > 0) {
-      this.$container.style.height = h + 'px'
-    }
-
-    Array.prototype.forEach.call(this.$items, ($item, key) => {
-      $item.style.width = width + 'px'
-      if (height > 0) {
-        $item.style.height = height + 'px'
-      }
-    })
-  }
-
-  _onResize () {
-    this.resizeHandler = () => {
-      setTimeout(() => {
-        this.updateItemWidth()
-        this.setStyle()
-        this.next()
-      }, 100)
-    }
-    window.addEventListener('orientationchange', this.resizeHandler, false)
+    this._distance = this._options.direction === 'horizontal' ? this._width : this._height
   }
 
   stop () {
     this.timer && clearTimeout(this.timer)
   }
 
+  _loop () {
+    return this._options.loop && this.count >= 3
+  }
+
+  _onResize () {
+    let me = this
+    this.resizeHandler = () => {
+      setTimeout(() => {
+        me.updateItemWidth()
+        let firstItemIndex = me._getZeroIndexByPosition()
+        me._initOffset(firstItemIndex)
+        me._setTransfrom()
+      }, 100)
+    }
+    window.addEventListener('orientationchange', this.resizeHandler, false)
+  }
+
   _init () {
-    this.setStyle()
+    this._height = this._options.height === 'auto' ? 'auto' : this._options.height - 0
+    this.updateItemWidth()
+    this._initPosition()
     this._activate(this._current)
+    this._initOffset()
+    this._setTransfrom()
+    // loop下，首次进入时需先loop一次
+    if (this._loop()) {
+      this._loopRender()
+    }
+  }
+
+  _initPosition () {
+    for (let i = 0; i < this.count; i++) {
+      this._position.push(i)
+    }
+  }
+
+  _movePosition (position) {
+    let me = this
+    if (position > 0) {
+      let firstIndex = me._position.splice(0, 1)
+      me._position.push(firstIndex[0])
+    } else if (position < 0) {
+      let lastIndex = me._position.pop()
+      me._position.unshift(lastIndex)
+    }
+  }
+
+  _initOffset (position) {
+    position = position || 0
+    for (let i = 0; i < this.count; i++) {
+      this._offset[i] = (i - position) * this._distance
+    }
+  }
+
+  _moveOffset (position) {
+    position = position || 0
+    for (let i = 0; i < this.count; i++) {
+      this._offset[i] = this._offset[i] + position * this._distance
+    }
+  }
+
+  _setTransition (duration) {
+    duration = duration || (this._options.duration || 'none')
+    let transition = duration === 'none' ? 'none' : duration + 'ms'
+    Array.from(this.$items).forEach(function ($item, key) {
+      $item.style.webkitTransition = transition
+      $item.style.transition = transition
+    })
+  }
+
+  _setTransfrom (offset) {
+    let me = this
+    offset = offset || 0
+    Array.from(me.$items).forEach(function ($item, key) {
+      let distance = me._offset[key] + offset
+      let transform = `translate3d(${distance}px, 0, 0)`
+      if (me._options.direction === 'vertical') {
+        transform = `translate3d(0, ${distance}px, 0)`
+      }
+      $item.style.webkitTransform = transform
+      $item.style.transform = transform
+    })
   }
 
   _bind () {
     let me = this
-    this.touchstartHandler = (e) => {
+    me.touchstartHandler = (e) => {
       me.stop()
       me._start.x = e.changedTouches[0].pageX
       me._start.y = e.changedTouches[0].pageY
-
-      me.$container.style['-webkit-transition'] = 'none'
-      me.$container.style.transition = 'none'
+      me._setTransition('none')
+      // me._loopRender()
     }
-
-    this.touchmoveHandler = (e) => {
+    me.touchmoveHandler = (e) => {
       me._move.x = e.changedTouches[0].pageX
       me._move.y = e.changedTouches[0].pageY
-
-      let distance = me._move.y - me._start.y
-      let transform = 'translate3d(0, ' + (distance - me._offset) + 'px, 0)'
-
-      if (me._options.direction === 'horizontal' && Math.abs(me._move.x) > Math.abs(me._move.y)) {
-        distance = me._move.x - me._start.x
-        transform = 'translate3d(' + (distance - me._offset) + 'px, 0, 0)'
+      let distanceX = me._move.x - me._start.x
+      let distanceY = me._move.y - me._start.y
+      let distance = distanceY
+      let noScrollerY = Math.abs(distanceX) > Math.abs(distanceY)
+      if (me._options.direction === 'horizontal' && noScrollerY) {
+        distance = distanceX
+      }
+      if (((me._options.minMovingDistance && distance >= me._options.minMovingDistance) || !me._options.minMovingDistance) && noScrollerY) {
+        me._setTransfrom(distance)
       }
 
-      if (((me._options.minMovingDistance && distance >= me._options.minMovingDistance) || !me._options.minMovingDistance) && Math.abs(me._move.x) > Math.abs(me._move.y)) {
-        me.$container.style['-webkit-transform'] = transform
-        me.$container.style.transform = transform
-      }
-
-      Math.abs(me._move.x) > Math.abs(me._move.y) && e.preventDefault()
+      noScrollerY && e.preventDefault()
     }
 
-    this.touchendHandler = (e) => {
+    me.touchendHandler = (e) => {
       me._end.x = e.changedTouches[0].pageX
       me._end.y = e.changedTouches[0].pageY
 
@@ -141,114 +176,186 @@ class Swiper {
         distance = me._end.x - me._start.x
       }
 
-      me._prev = me._current
+      distance = me.getDistance(distance)
       if (distance > me._options.threshold) {
-        me._current = me._current === 0 ? 0 : --me._current
+        me.move(-1)
       } else if (distance < -me._options.threshold) {
-        me._current = me._current < (me.count - 1) ? ++me._current : me._current
+        me.move(1)
+      } else {
+        me.move(0)
       }
 
-      me._show(me._current)
+      me._loopRender()
     }
 
-    this.transitionEndHandler = (e) => {
-      if (e.target !== me.$container) {
-        return false
-      }
-
-      if (me._current !== me._prev || me._goto > -1) {
-        me._activate(me._current)
-        let cb = me._eventHandlers.swiped
-        cb && cb.apply(me, [me._prev, me._current])
-        me._goto = -1
-      }
-
-      if (me._options.auto) {
-        me._auto()
-      }
-
+    me.transitionEndHandler = (e) => {
+      me._activate(me._current)
+      let cb = me._eventHandlers.swiped
+      cb && cb.apply(me, [me._prev, me._current])
+      me._auto()
+      me._loopRender()
       e.preventDefault()
     }
-
-    this.$container.addEventListener('touchstart', this.touchstartHandler, false)
-    this.$container.addEventListener('touchmove', this.touchmoveHandler, false)
-    this.$container.addEventListener('touchend', this.touchendHandler, false)
-    this.$container.addEventListener('transitionEnd', (e) => {}, false)
-    this.$container.addEventListener('webkitTransitionEnd', this.transitionEndHandler, false)
+    me.$container.addEventListener('touchstart', me.touchstartHandler, false)
+    me.$container.addEventListener('touchmove', me.touchmoveHandler, false)
+    me.$container.addEventListener('touchend', me.touchendHandler, false)
+    me.$items[1] && me.$items[1].addEventListener('webkitTransitionEnd', me.transitionEndHandler, false)
   }
 
-  _show (index) {
-    this._offset = index * this._height
-    let transform = 'translate3d(0, -' + this._offset + 'px, 0)'
-
-    if (this._options.direction === 'horizontal') {
-      this._offset = index * this._width
-      transform = 'translate3d(-' + this._offset + 'px, 0, 0)'
+  _loopRender () {
+    let me = this
+    if (me._loop()) {
+      if (me._offset[me._offset.length - 1] === 0) {
+        // 第一个元素移动到最后一个
+        let firstChild = me.$items[0].cloneNode(true)
+        me.$container.appendChild(firstChild)
+        me.$container.removeChild(me.$items[0])
+        me._loopEvent(1)
+      } else if (me._offset[0] === 0) {
+        // 最后一个元素移动到第一个
+        let lastChild = me.$items[me.$items.length - 1].cloneNode(true)
+        me.$container.insertBefore(lastChild, me.$container.firstChild)
+        me.$container.removeChild(me.$items[me.$items.length - 1])
+        me._loopEvent(-1)
+      }
     }
+  }
 
-    let duration = this._options.duration + 'ms'
+  // 循环下，重置items对象及其事件
+  _loopEvent (num) {
+    let me = this
+    me._itemDestoy()
+    me.$items = me.$container.querySelectorAll(me._options.item)
+    me.$items[1] && me.$items[1].addEventListener('webkitTransitionEnd', me.transitionEndHandler, false)
+    me._movePosition(num)
+    me._moveOffset(num)
+    me._setTransfrom()
+  }
 
-    this.$container.style['-webkit-transition'] = duration
-    this.$container.style.transition = duration
-    this.$container.style['-webkit-transform'] = transform
-    this.$container.style.transform = transform
+  getDistance (distance) {
+    if (this._loop()) {
+      return distance
+    } else {
+      // 非循环，左右边界限定
+      if (distance > 0 && this._current === 0) {
+        return 0
+      } else if (distance < 0 && this._current === this.count - 1) {
+        return 0
+      } else {
+        return distance
+      }
+    }
+  }
+
+  // move index
+  _moveIndex (num) {
+    let me = this
+    me._prev = me._current
+    me._current += num
+    me._current %= this.count
+    me._current = me._current < 0 ? this.count + me._current : me._current
   }
 
   _activate (index) {
     let clazz = this._options.activeClass
     Array.prototype.forEach.call(this.$items, ($item, key) => {
       $item.classList.remove(clazz)
-      if (index === key) {
+      if (index === this._position[key]) {
         $item.classList.add(clazz)
       }
     })
   }
 
+  _getZeroIndexByPosition () {
+    for (let i = 0; i < this._position.length; i++) {
+      if (this._position[i] === 0) {
+        return i
+      } else if (i === this._position.length - 1) {
+        return -1
+      }
+    }
+  }
+
+  // loop下，获取相对的移动为止
+  _goOffset (index) {
+    index = index || 0
+    index = index % this.count
+    let me = this
+    let firstItemIndex = me._getZeroIndexByPosition()
+    for (let i = 0; i < me._offset.length; i++) {
+      if (me._offset[i] === 0) {
+        return firstItemIndex - i
+      }
+    }
+  }
+
   go (index) {
-    if (index < 0 || index > this.count - 1 || index === this._current) {
-      return
-    }
-
-    if (index === 0) {
-      this._current = 0
-      this._prev = 0
+    let me = this
+    me.stop()
+    if (me._loop()) {
+      let goOffset = me._goOffset(index)
+      me._moveOffset(-goOffset)
+      me._moveIndex(goOffset)
+      me._setTransition()
+      me._setTransfrom()
     } else {
-      this._current = index
-      this._prev = index - 1
+      if (index < 0 || index > me.count - 1 || index === me._current) {
+        return
+      }
+
+      me._prev = me._current
+      me._current = index
+
+      let distance = -(index - me._prev) * me._distance
+      for (let i = 0; i < me._offset.length; i++) {
+        me._offset[i] = me._offset[i] + distance
+      }
+      me._setTransition()
+      me._setTransfrom()
     }
-
-    this._goto = index
-    this._show(this._current)
-
+    me._auto()
     return this
   }
 
   next () {
-    if (this._current >= this.count - 1) {
-      this._current = 0
-      this._show(0)
-      return this
+    let me = this
+    if (me._loop()) {
+      me.move(1)
+    } else {
+      let index = me._current
+      index = index === me.count - 1 ? 0 : index + 1
+      me.go(index)
     }
-    this._prev = this._current
-    this._show(++this._current)
+    return this
+  }
+
+  // 移动num个
+  move (num, noAnimate) {
+    let me = this
+    me._moveOffset(-num)
+    me._movePosition(-num)
+    me._moveIndex(num)
+    me._setTransition(!noAnimate ? undefined : 'none')
+    me._setTransfrom()
     return this
   }
 
   on (event, callback) {
     if (this._eventHandlers[event]) {
-      console.error('event ' + event + ' is already register')
+      console.error(`[swiper] event ${event} is already register`)
     }
     if (typeof callback !== 'function') {
-      console.error('parameter callback must be a function')
+      console.error('[swiper] parameter callback must be a function')
     }
     this._eventHandlers[event] = callback
     return this
   }
 
-  _setTransfrom (x = 0) {
-    this.$container.style['-webkit-transform'] = this.$container.style.transform = `translate3d(${x}px, 0, 0)`
+  _itemDestoy () {
+    for (let item of this.$items) {
+      item.removeEventListener('webkitTransitionEnd', this.transitionEndHandler, false)
+    }
   }
-
   destroy () {
     this.stop()
     this._current = 0
@@ -257,16 +364,9 @@ class Swiper {
     this.$container.removeEventListener('touchstart', this.touchstartHandler, false)
     this.$container.removeEventListener('touchmove', this.touchmoveHandler, false)
     this.$container.removeEventListener('touchend', this.touchendHandler, false)
-    this.$container.removeEventListener('webkitTransitionEnd', this.transitionEndHandler, false)
+    // this.$container.removeEventListener('webkitTransitionEnd', this.transitionEndHandler, false)
+    this._itemDestoy()
   }
-
-}
-
-function extend (target, source) {
-  for (let key in source) {
-    target[key] = source[key]
-  }
-  return target
 }
 
 export default Swiper
