@@ -1,5 +1,5 @@
 <template>
-	<div class="swiper-slide">
+	<div class="vux-swiper-slide">
 		<slot></slot>
 	</div>
 </template>

@@ -1,12 +1,11 @@
 <template>
   <div class="x-swiper-demo">
-    <group-title>THX to: https://github.com/nolimits4web/Swiper</group-title>
+    <group-title>THX to: <a href="https://github.com/nolimits4web/Swiper" target="_blank">https://github.com/nolimits4web/Swiper</a></group-title>
     <group-title>
-    你可以使用和swiper差不多所有的属性和事件：
-    相比swiper去掉了以下插件：
+    你可以使用和nolimits4web/Swiper差不多所有的属性和事件：
+    相比nolimits4web/Swiper去掉了以下插件：
         effects,scroller,controller,hashnav,keyboard,mousewheel,parallax,plugins,ally，
-    所以和以上插件相关的设置将不支持。
-    如果你的项目中已经引入了DOM操作库，像Dom7,Zepto,jQuery，你可以使用swiper.js替换swiper.dom.js。
+    所以和以上插件相关的设置将不被支持。
     </group-title>
 
     <x-swiper v-ref:xswiper style="height: 250px;"
@@ -18,8 +17,11 @@
     @tap="onTap"
     @slide-next-end="onSlideNextEnd">
       <x-swiper-item v-for="item in list">
-        <img :src="item.img" alt="">
+        <img :src="item.img">
       </x-swiper-item>
+      <!-- <div v-for="item in list" class="vux-swiper-slide">
+        <img :src="item.img">
+      </div> -->
     </x-swiper>
   </div>
 </template>
@@ -78,22 +80,26 @@ export default {
     .weui_cells_title {
         word-break: break-all;
     }
-    img {
-        width: 100%;
-        height: 100%;
-    }
-    .swiper-pagination {
-        bottom: 0!important;
-        background-image: linear-gradient(180deg,transparent 0,rgba(51,51,51,.3));
+    .vux-swiper-container {
+        img {
+            width: 100%;
+            height: 100%;
+        }
 
-        .swiper-pagination-bullet {
-            width: 20px;
-            height: 20px;
+        .vux-swiper-pagination {
+            bottom: 0!important;
+            background-image: linear-gradient(180deg,transparent 0,rgba(51,51,51,.3));
 
-            &.swiper-pagination-bullet-active {
-                background-color: #E84A01;
+            .vux-swiper-pagination-bullet {
+                width: 20px;
+                height: 20px;
+
+                &.vux-swiper-pagination-bullet-active {
+                    background-color: #E84A01;
+                }
             }
         }
     }
+    
 }
 </style>

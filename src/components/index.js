@@ -67,7 +67,7 @@ import Badge from './badge'
 import Dialog from './dialog'
 import Card from './card'
 import Previewer from './previewer'
-import { Swiper as XSwiper, Slide as XSwiperItem } from './x-swiper'
+import { XSwiper, XSwiperItem } from './x-swiper'
 
 const vux = {
   Radio,

@@ -1,24 +1,24 @@
 <template>
 <!-- Slider main container -->
-<div class="swiper-container">
+<div class="vux-swiper-container">
   <!-- Additional required wrapper -->
-  <div class="swiper-wrapper">
-  <!-- Slides -->
-  <slot></slot>
+  <div class="vux-swiper-wrapper">
+    <!-- Slides -->
+    <slot></slot>
   </div>
   <!-- If we need pagination -->
-  <div v-if="pagination" class="swiper-pagination"></div>
+  <div v-if="pagination" class="vux-swiper-pagination"></div>
   
   <!-- If we need navigation buttons -->
-  <div v-if="prevButton" class="swiper-button-prev"></div>
-  <div v-if="nextButton" class="swiper-button-next"></div>
+  <div v-if="prevButton" class="vux-swiper-button-prev"></div>
+  <div v-if="nextButton" class="vux-swiper-button-next"></div>
 
 </div>
 </template>
 
 <script>
-// import Swiper from './swiper'
-import Swiper from './swiper.dom' // no dom lib
+// import Swiper from './swiper' // use this if you have global import dom lib like Doom7,Zepto,jQuery
+import Swiper from './swiper.dom' // no dom lib imported
 
 export default {
   props: {
@@ -345,7 +345,7 @@ export default {
     },
     noSwipingClass: {
       type: String,
-      default: 'swiper-no-swiping'
+      default: 'vux-swiper-no-swiping'
     },
     // NS
     // Observer
@@ -426,7 +426,7 @@ export default {
       // Unique Navigation Elements
       uniqueNavElements: this.uniqueNavElements,
       // Pagination
-      pagination: this.pagination && this.$el.querySelector('.swiper-pagination'),
+      pagination: this.pagination && this.$el.querySelector('.vux-swiper-pagination'),
       paginationElement: this.paginationElement,
       paginationClickable: this.paginationClickable,
       paginationHide: this.paginationHide,
@@ -439,8 +439,8 @@ export default {
       resistance: this.resistance,
       resistanceRatio: this.resistanceRatio,
       // Next/prev buttons
-      nextButton: this.nextButton && this.$el.querySelector('.swiper-button-next'),
-      prevButton: this.nextButton && this.$el.querySelector('.swiper-button-prev'),
+      nextButton: this.nextButton && this.$el.querySelector('.vux-swiper-button-next'),
+      prevButton: this.nextButton && this.$el.querySelector('.vux-swiper-button-prev'),
       // Progress
       watchSlidesProgress: this.watchSlidesProgress,
       watchSlidesVisibility: this.watchSlidesVisibility,
@@ -500,7 +500,7 @@ export default {
 </script>
 
 <style lang="less">
-.swiper-container {
+.vux-swiper-container {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -508,17 +508,17 @@ export default {
   z-index: 1;
 }
 
-.swiper-container-no-flexbox .swiper-slide {
+.vux-swiper-container-no-flexbox .vux-swiper-slide {
   float: left;
 }
 
-.swiper-container-vertical > .swiper-wrapper {
+.vux-swiper-container-vertical > .vux-swiper-wrapper {
   -webkit-box-orient: vertical;
   -webkit-flex-direction: column;
   flex-direction: column;
 }
 
-.swiper-wrapper {
+.vux-swiper-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
@@ -532,25 +532,25 @@ export default {
   box-sizing: content-box;
 }
 
-.swiper-container-android .swiper-slide,
-.swiper-wrapper {
+.vux-swiper-container-android .vux-swiper-slide,
+.vux-swiper-wrapper {
   -webkit-transform: translate3d(0px,0,0);
   transform: translate3d(0px,0,0);
 }
 
-.swiper-container-multirow > .swiper-wrapper {
+.vux-swiper-container-multirow > .vux-swiper-wrapper {
   -webkit-box-lines: multiple;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
-.swiper-container-free-mode > .swiper-wrapper {
+.vux-swiper-container-free-mode > .vux-swiper-wrapper {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
   margin: 0 auto;
 }
 
-.swiper-slide {
+.vux-swiper-slide {
   -webkit-flex-shrink: 0;
   flex-shrink: 0;
   width: 100%;
@@ -561,12 +561,12 @@ export default {
 
 /* Auto Height */
 
-.swiper-container-autoheight,
-.swiper-container-autoheight .swiper-slide {
+.vux-swiper-container-autoheight,
+.vux-swiper-container-autoheight .vux-swiper-slide {
   height: auto;
 }
 
-.swiper-container-autoheight .swiper-wrapper {
+.vux-swiper-container-autoheight .vux-swiper-wrapper {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
   align-items: flex-start;
@@ -576,8 +576,8 @@ export default {
 
 
 /* Arrows */
-.swiper-button-prev,
-.swiper-button-next {
+.vux-swiper-button-prev,
+.vux-swiper-button-next {
   position: absolute;
   top: 50%;
   width: 27px;
@@ -591,50 +591,50 @@ export default {
   background-repeat: no-repeat;
 }
 
-.swiper-button-prev.swiper-button-disabled,
-.swiper-button-next.swiper-button-disabled {
+.vux-swiper-button-prev.vux-swiper-button-disabled,
+.vux-swiper-button-next.vux-swiper-button-disabled {
   opacity: 0.35;
   cursor: auto;
   pointer-events: none;
 }
 
-.swiper-button-prev,
-.swiper-container-rtl .swiper-button-next {
+.vux-swiper-button-prev,
+.vux-swiper-container-rtl .vux-swiper-button-next {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");
   left: 10px;
   right: auto;
 }
 
-.swiper-button-prev.swiper-button-black,
-.swiper-container-rtl .swiper-button-next.swiper-button-black {
+.vux-swiper-button-prev.vux-swiper-button-black,
+.vux-swiper-container-rtl .vux-swiper-button-next.vux-swiper-button-black {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
 }
 
-.swiper-button-prev.swiper-button-white,
-.swiper-container-rtl .swiper-button-next.swiper-button-white {
+.vux-swiper-button-prev.vux-swiper-button-white,
+.vux-swiper-container-rtl .vux-swiper-button-next.vux-swiper-button-white {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
 }
 
-.swiper-button-next,
-.swiper-container-rtl .swiper-button-prev {
+.vux-swiper-button-next,
+.vux-swiper-container-rtl .vux-swiper-button-prev {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");
   right: 10px;
   left: auto;
 }
 
-.swiper-button-next.swiper-button-black,
-.swiper-container-rtl .swiper-button-prev.swiper-button-black {
+.vux-swiper-button-next.vux-swiper-button-black,
+.vux-swiper-container-rtl .vux-swiper-button-prev.vux-swiper-button-black {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
 }
 
-.swiper-button-next.swiper-button-white,
-.swiper-container-rtl .swiper-button-prev.swiper-button-white {
+.vux-swiper-button-next.vux-swiper-button-white,
+.vux-swiper-container-rtl .vux-swiper-button-prev.vux-swiper-button-white {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
 }
 
 
 /* Pagination Styles */
-.swiper-pagination {
+.vux-swiper-pagination {
   position: absolute;
   text-align: center;
   -webkit-transition: 300ms;
@@ -644,15 +644,15 @@ export default {
   z-index: 10;
 }
 
-.swiper-pagination.swiper-pagination-hidden {
+.vux-swiper-pagination.vux-swiper-pagination-hidden {
   opacity: 0;
 }
 
 
 /* Common Styles */
-.swiper-pagination-fraction,
-.swiper-pagination-custom,
-.swiper-container-horizontal > .swiper-pagination-bullets {
+.vux-swiper-pagination-fraction,
+.vux-swiper-pagination-custom,
+.vux-swiper-container-horizontal > .vux-swiper-pagination-bullets {
   bottom: 10px;
   left: 0;
   width: 100%;
@@ -660,7 +660,7 @@ export default {
 
 
 /* Bullets */
-.swiper-pagination-bullet {
+.vux-swiper-pagination-bullet {
   width: 8px;
   height: 8px;
   display: inline-block;
@@ -669,7 +669,7 @@ export default {
   opacity: 0.2;
 }
 
-button.swiper-pagination-bullet {
+button.vux-swiper-pagination-bullet {
   border: none;
   margin: 0;
   padding: 0;
@@ -678,51 +678,51 @@ button.swiper-pagination-bullet {
   appearance: none;
 }
 
-.swiper-pagination-clickable .swiper-pagination-bullet {
+.vux-swiper-pagination-clickable .vux-swiper-pagination-bullet {
   cursor: pointer;
 }
 
-.swiper-pagination-white .swiper-pagination-bullet {
+.vux-swiper-pagination-white .vux-swiper-pagination-bullet {
   background: #fff;
 }
 
-.swiper-pagination-bullet-active {
+.vux-swiper-pagination-bullet-active {
   opacity: 1;
   background: #007aff;
 }
 
-.swiper-pagination-white .swiper-pagination-bullet-active {
+.vux-swiper-pagination-white .vux-swiper-pagination-bullet-active {
   background: #fff;
 }
 
-.swiper-pagination-black .swiper-pagination-bullet-active {
+.vux-swiper-pagination-black .vux-swiper-pagination-bullet-active {
   background: #000;
 }
 
-.swiper-container-vertical > .swiper-pagination-bullets {
+.vux-swiper-container-vertical > .vux-swiper-pagination-bullets {
   right: 10px;
   top: 50%;
   -webkit-transform: translate3d(0px,-50%,0);
   transform: translate3d(0px,-50%,0);
 }
 
-.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+.vux-swiper-container-vertical > .vux-swiper-pagination-bullets .vux-swiper-pagination-bullet {
   margin: 5px 0;
   display: block;
 }
 
-.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+.vux-swiper-container-horizontal > .vux-swiper-pagination-bullets .vux-swiper-pagination-bullet {
   margin: 0 5px;
 }
 
 
 /* Progress */
-.swiper-pagination-progress {
+.vux-swiper-pagination-progress {
   background: rgba(0,0,0,0.25);
   position: absolute;
 }
 
-.swiper-pagination-progress .swiper-pagination-progressbar {
+.vux-swiper-pagination-progress .vux-swiper-pagination-progressbar {
   background: #007aff;
   position: absolute;
   left: 0;
@@ -735,39 +735,39 @@ button.swiper-pagination-bullet {
   transform-origin: left top;
 }
 
-.swiper-container-rtl .swiper-pagination-progress .swiper-pagination-progressbar {
+.vux-swiper-container-rtl .vux-swiper-pagination-progress .vux-swiper-pagination-progressbar {
   -webkit-transform-origin: right top;
   transform-origin: right top;
 }
 
-.swiper-container-horizontal > .swiper-pagination-progress {
+.vux-swiper-container-horizontal > .vux-swiper-pagination-progress {
   width: 100%;
   height: 4px;
   left: 0;
   top: 0;
 }
 
-.swiper-container-vertical > .swiper-pagination-progress {
+.vux-swiper-container-vertical > .vux-swiper-pagination-progress {
   width: 4px;
   height: 100%;
   left: 0;
   top: 0;
 }
 
-.swiper-pagination-progress.swiper-pagination-white {
+.vux-swiper-pagination-progress.vux-swiper-pagination-white {
   background: rgba(255,255,255,0.5);
 }
 
-.swiper-pagination-progress.swiper-pagination-white .swiper-pagination-progressbar {
+.vux-swiper-pagination-progress.vux-swiper-pagination-white .vux-swiper-pagination-progressbar {
   background: #fff;
 }
 
-.swiper-pagination-progress.swiper-pagination-black .swiper-pagination-progressbar {
+.vux-swiper-pagination-progress.vux-swiper-pagination-black .vux-swiper-pagination-progressbar {
   background: #000;
 }
 
 /* Preloader */
-.swiper-lazy-preloader {
+.vux-swiper-lazy-preloader {
   width: 42px;
   height: 42px;
   position: absolute;
@@ -778,11 +778,11 @@ button.swiper-pagination-bullet {
   z-index: 10;
   -webkit-transform-origin: 50%;
   transform-origin: 50%;
-  -webkit-animation: swiper-preloader-spin 1s steps(12,end) infinite;
-  animation: swiper-preloader-spin 1s steps(12,end) infinite;
+  -webkit-animation: vux-swiper-preloader-spin 1s steps(12,end) infinite;
+  animation: vux-swiper-preloader-spin 1s steps(12,end) infinite;
 }
 
-.swiper-lazy-preloader:after {
+.vux-swiper-lazy-preloader:after {
   display: block;
   content: "";
   width: 100%;
@@ -794,17 +794,17 @@ button.swiper-pagination-bullet {
   background-repeat: no-repeat;
 }
 
-.swiper-lazy-preloader-white:after {
+.vux-swiper-lazy-preloader-white:after {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%23fff'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
 }
 
-@-webkit-keyframes swiper-preloader-spin {
+@-webkit-keyframes vux-swiper-preloader-spin {
   100% {
     -webkit-transform: rotate(360deg);
   }
 }
 
-@keyframes swiper-preloader-spin {
+@keyframes vux-swiper-preloader-spin {
   100% {
     transform: rotate(360deg);
   }

@@ -79,7 +79,7 @@
             virtualTranslate: false,
             // Effects
             effect: 'slide', // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
-            coverflow: {
+            /*coverflow: {
                 rotate: 50,
                 stretch: 0,
                 depth: 100,
@@ -98,24 +98,24 @@
             },
             fade: {
                 crossFade: false
-            },
+            },*/
             // Parallax
-            parallax: false,
+            // parallax: false,
             // Scrollbar
-            scrollbar: null,
+            /*scrollbar: null,
             scrollbarHide: true,
             scrollbarDraggable: false,
-            scrollbarSnapOnRelease: false,
+            scrollbarSnapOnRelease: false,*/
             // Keyboard Mousewheel
-            keyboardControl: false,
+            /*keyboardControl: false,
             mousewheelControl: false,
             mousewheelReleaseOnEdges: false,
             mousewheelInvert: false,
             mousewheelForceToAxis: false,
-            mousewheelSensitivity: 1,
+            mousewheelSensitivity: 1,*/
             // Hash Navigation
-            hashnav: false,
-            hashnavReplaceState: false,
+            /*hashnav: false,
+            hashnavReplaceState: false,*/
             // Breakpoints
             breakpoints: undefined,
             // Slides grid
@@ -189,33 +189,33 @@
             allowSwipeToNext: true,
             swipeHandler: null, //'.swipe-handler',
             noSwiping: true,
-            noSwipingClass: 'swiper-no-swiping',
+            noSwipingClass: 'vux-swiper-no-swiping',
             // NS
-            slideClass: 'swiper-slide',
-            slideActiveClass: 'swiper-slide-active',
-            slideVisibleClass: 'swiper-slide-visible',
-            slideDuplicateClass: 'swiper-slide-duplicate',
-            slideNextClass: 'swiper-slide-next',
-            slidePrevClass: 'swiper-slide-prev',
-            wrapperClass: 'swiper-wrapper',
-            bulletClass: 'swiper-pagination-bullet',
-            bulletActiveClass: 'swiper-pagination-bullet-active',
-            buttonDisabledClass: 'swiper-button-disabled',
-            paginationCurrentClass: 'swiper-pagination-current',
-            paginationTotalClass: 'swiper-pagination-total',
-            paginationHiddenClass: 'swiper-pagination-hidden',
-            paginationProgressbarClass: 'swiper-pagination-progressbar',
-            lazyLoadingClass: 'swiper-lazy',
+            slideClass: 'vux-swiper-slide',
+            slideActiveClass: 'vux-swiper-slide-active',
+            slideVisibleClass: 'vux-swiper-slide-visible',
+            slideDuplicateClass: 'vux-swiper-slide-duplicate',
+            slideNextClass: 'vux-swiper-slide-next',
+            slidePrevClass: 'vux-swiper-slide-prev',
+            wrapperClass: 'vux-swiper-wrapper',
+            bulletClass: 'vux-swiper-pagination-bullet',
+            bulletActiveClass: 'vux-swiper-pagination-bullet-active',
+            buttonDisabledClass: 'vux-swiper-button-disabled',
+            paginationCurrentClass: 'vux-swiper-pagination-current',
+            paginationTotalClass: 'vux-swiper-pagination-total',
+            paginationHiddenClass: 'vux-swiper-pagination-hidden',
+            paginationProgressbarClass: 'vux-swiper-pagination-progressbar',
+            lazyLoadingClass: 'vux-swiper-lazy',
             // Observer
             observer: false,
             observeParents: false,
             // Accessibility
-            a11y: false,
+            /*a11y: false,
             prevSlideMessage: 'Previous slide',
             nextSlideMessage: 'Next slide',
             firstSlideMessage: 'This is the first slide',
             lastSlideMessage: 'This is the last slide',
-            paginationBulletMessage: 'Go to slide {{index}}',
+            paginationBulletMessage: 'Go to slide {{index}}',*/
             // Callbacks
             runCallbacksOnInit: true
             /*
@@ -363,19 +363,19 @@
         
         // Save instance in container HTML Element and in data
         s.container[0].swiper = s;
-        s.container.data('swiper', s);
+        s.container.data('vux-swiper', s);
         
-        s.classNames.push('swiper-container-' + s.params.direction);
+        s.classNames.push('vux-swiper-container-' + s.params.direction);
         
         if (s.params.freeMode) {
-            s.classNames.push('swiper-container-free-mode');
+            s.classNames.push('vux-swiper-container-free-mode');
         }
         if (!s.support.flexbox) {
-            s.classNames.push('swiper-container-no-flexbox');
+            s.classNames.push('vux-swiper-container-no-flexbox');
             s.params.slidesPerColumn = 1;
         }
         if (s.params.autoHeight) {
-            s.classNames.push('swiper-container-autoheight');
+            s.classNames.push('vux-swiper-container-autoheight');
         }
         // Enable slides progress when required
         if (s.params.parallax || s.params.watchSlidesVisibility) {
@@ -385,14 +385,14 @@
         if (['cube', 'coverflow', 'flip'].indexOf(s.params.effect) >= 0) {
             if (s.support.transforms3d) {
                 s.params.watchSlidesProgress = true;
-                s.classNames.push('swiper-container-3d');
+                s.classNames.push('vux-swiper-container-3d');
             }
             else {
                 s.params.effect = 'slide';
             }
         }
         if (s.params.effect !== 'slide') {
-            s.classNames.push('swiper-container-' + s.params.effect);
+            s.classNames.push('vux-swiper-container-' + s.params.effect);
         }
         if (s.params.effect === 'cube') {
             s.params.resistanceRatio = 0;
@@ -432,12 +432,12 @@
             }
         
             if (s.params.paginationType === 'bullets' && s.params.paginationClickable) {
-                s.paginationContainer.addClass('swiper-pagination-clickable');
+                s.paginationContainer.addClass('vux-swiper-pagination-clickable');
             }
             else {
                 s.params.paginationClickable = false;
             }
-            s.paginationContainer.addClass('swiper-pagination-' + s.params.paginationType);
+            s.paginationContainer.addClass('vux-swiper-pagination-' + s.params.paginationType);
         }
         // Next/Prev Buttons
         if (s.params.nextButton || s.params.prevButton) {
@@ -464,7 +464,7 @@
         // RTL
         s.rtl = s.isHorizontal() && (s.container[0].dir.toLowerCase() === 'rtl' || s.container.css('direction') === 'rtl');
         if (s.rtl) {
-            s.classNames.push('swiper-container-rtl');
+            s.classNames.push('vux-swiper-container-rtl');
         }
         
         // Wrong RTL support
@@ -474,12 +474,12 @@
         
         // Columns
         if (s.params.slidesPerColumn > 1) {
-            s.classNames.push('swiper-container-multirow');
+            s.classNames.push('vux-swiper-container-multirow');
         }
         
         // Check for Android
         if (s.device.android) {
-            s.classNames.push('swiper-container-android');
+            s.classNames.push('vux-swiper-container-android');
         }
         
         // Add classes
@@ -783,8 +783,8 @@
                         .css({
                             'margin-top': (row !== 0 && s.params.spaceBetween) && (s.params.spaceBetween + 'px')
                         })
-                        .attr('data-swiper-column', column)
-                        .attr('data-swiper-row', row);
+                        .attr('data-vux-swiper-column', column)
+                        .attr('data-vux-swiper-row', row);
         
                 }
                 if (slide.css('display') === 'none') continue;
@@ -975,7 +975,7 @@
             s.updateRealIndex();
         };
         s.updateRealIndex = function(){
-            s.realIndex = s.slides.eq(s.activeIndex).attr('data-swiper-slide-index') || s.activeIndex;
+            s.realIndex = s.slides.eq(s.activeIndex).attr('data-vux-swiper-slide-index') || s.activeIndex;
         };
         
         /*=========================
@@ -1239,7 +1239,7 @@
         
         // WP8 Touch Events Fix
         if (window.navigator.pointerEnabled || window.navigator.msPointerEnabled) {
-            (s.params.touchEventsTarget === 'container' ? s.container : s.wrapper).addClass('swiper-wp8-' + s.params.direction);
+            (s.params.touchEventsTarget === 'container' ? s.container : s.wrapper).addClass('vux-swiper-wp8-' + s.params.direction);
         }
         
         // Attach/detach events
@@ -1374,11 +1374,11 @@
                     duplicatedSlides;
                 if (s.params.loop) {
                     if (s.animating) return;
-                    realIndex = $(s.clickedSlide).attr('data-swiper-slide-index');
+                    realIndex = $(s.clickedSlide).attr('data-vux-swiper-slide-index');
                     if (s.params.centeredSlides) {
                         if ((slideToIndex < s.loopedSlides - s.params.slidesPerView/2) || (slideToIndex > s.slides.length - s.loopedSlides + s.params.slidesPerView/2)) {
                             s.fixLoop();
-                            slideToIndex = s.wrapper.children('.' + s.params.slideClass + '[data-swiper-slide-index="' + realIndex + '"]:not(.swiper-slide-duplicate)').eq(0).index();
+                            slideToIndex = s.wrapper.children('.' + s.params.slideClass + '[data-vux-swiper-slide-index="' + realIndex + '"]:not(.vux-swiper-slide-duplicate)').eq(0).index();
                             setTimeout(function () {
                                 s.slideTo(slideToIndex);
                             }, 0);
@@ -1390,7 +1390,7 @@
                     else {
                         if (slideToIndex > s.slides.length - s.params.slidesPerView) {
                             s.fixLoop();
-                            slideToIndex = s.wrapper.children('.' + s.params.slideClass + '[data-swiper-slide-index="' + realIndex + '"]:not(.swiper-slide-duplicate)').eq(0).index();
+                            slideToIndex = s.wrapper.children('.' + s.params.slideClass + '[data-vux-swiper-slide-index="' + realIndex + '"]:not(.vux-swiper-slide-duplicate)').eq(0).index();
                             setTimeout(function () {
                                 s.slideTo(slideToIndex);
                             }, 0);
@@ -2243,7 +2243,7 @@
                 var slide = $(this);
                 if (index < s.loopedSlides) appendSlides.push(el);
                 if (index < slides.length && index >= slides.length - s.loopedSlides) prependSlides.push(el);
-                slide.attr('data-swiper-slide-index', index);
+                slide.attr('data-vux-swiper-slide-index', index);
             });
             for (i = 0; i < appendSlides.length; i++) {
                 s.wrapper.append($(appendSlides[i].cloneNode(true)).addClass(s.params.slideDuplicateClass));
@@ -2254,7 +2254,7 @@
         };
         s.destroyLoop = function () {
             s.wrapper.children('.' + s.params.slideClass + '.' + s.params.slideDuplicateClass).remove();
-            s.slides.removeAttr('data-swiper-slide-index');
+            s.slides.removeAttr('data-vux-swiper-slide-index');
         };
         s.reLoop = function (updatePosition) {
             var oldIndex = s.activeIndex - s.loopedSlides;
@@ -2382,15 +2382,15 @@
                 if (s.slides.length === 0) return;
         
                 var slide = s.slides.eq(index);
-                var img = slide.find('.' + s.params.lazyLoadingClass + ':not(.swiper-lazy-loaded):not(.swiper-lazy-loading)');
-                if (slide.hasClass(s.params.lazyLoadingClass) && !slide.hasClass('swiper-lazy-loaded') && !slide.hasClass('swiper-lazy-loading')) {
+                var img = slide.find('.' + s.params.lazyLoadingClass + ':not(.vux-swiper-lazy-loaded):not(.vux-swiper-lazy-loading)');
+                if (slide.hasClass(s.params.lazyLoadingClass) && !slide.hasClass('vux-swiper-lazy-loaded') && !slide.hasClass('vux-swiper-lazy-loading')) {
                     img = img.add(slide[0]);
                 }
                 if (img.length === 0) return;
         
                 img.each(function () {
                     var _img = $(this);
-                    _img.addClass('swiper-lazy-loading');
+                    _img.addClass('vux-swiper-lazy-loading');
                     var background = _img.attr('data-background');
                     var src = _img.attr('data-src'),
                         srcset = _img.attr('data-srcset');
@@ -2411,16 +2411,16 @@
         
                         }
         
-                        _img.addClass('swiper-lazy-loaded').removeClass('swiper-lazy-loading');
-                        slide.find('.swiper-lazy-preloader, .preloader').remove();
+                        _img.addClass('vux-swiper-lazy-loaded').removeClass('vux-swiper-lazy-loading');
+                        slide.find('.vux-swiper-lazy-preloader, .preloader').remove();
                         if (s.params.loop && loadInDuplicate) {
-                            var slideOriginalIndex = slide.attr('data-swiper-slide-index');
+                            var slideOriginalIndex = slide.attr('data-vux-swiper-slide-index');
                             if (slide.hasClass(s.params.slideDuplicateClass)) {
-                                var originalSlide = s.wrapper.children('[data-swiper-slide-index="' + slideOriginalIndex + '"]:not(.' + s.params.slideDuplicateClass + ')');
+                                var originalSlide = s.wrapper.children('[data-vux-swiper-slide-index="' + slideOriginalIndex + '"]:not(.' + s.params.slideDuplicateClass + ')');
                                 s.lazy.loadImageInSlide(originalSlide.index(), false);
                             }
                             else {
-                                var duplicatedSlide = s.wrapper.children('.' + s.params.slideDuplicateClass + '[data-swiper-slide-index="' + slideOriginalIndex + '"]');
+                                var duplicatedSlide = s.wrapper.children('.' + s.params.slideDuplicateClass + '[data-vux-swiper-slide-index="' + slideOriginalIndex + '"]');
                                 s.lazy.loadImageInSlide(duplicatedSlide.index(), false);
                             }
                         }
@@ -2621,8 +2621,8 @@
                       s.params.slidePrevClass
                     ].join(' '))
                     .removeAttr('style')
-                    .removeAttr('data-swiper-column')
-                    .removeAttr('data-swiper-row');
+                    .removeAttr('data-vux-swiper-column')
+                    .removeAttr('data-vux-swiper-row');
             }
         
             // Pagination/Bullets
@@ -3512,4 +3512,3 @@ else if (typeof define === 'function' && define.amd) {
         return window.Swiper;
     });
 }
-//# sourceMappingURL=maps/swiper.js.map
