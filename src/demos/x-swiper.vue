@@ -9,9 +9,11 @@
     </group-title>
 
     <x-swiper v-ref:xswiper style="height: 250px;"
+    direction="horizontal"
     :pagination="true" :prev-button="true" :next-button="true" :loop="true"
     :autoplay="list.length>1 ? 3000 : false"
     :autoplay-disable-on-Interaction="false"
+    :pagination-clickable="true"
     :pagination-bullet-render="paginationBulletRender"
     @init="onSwiperInit"
     @tap="onTap"
@@ -56,6 +58,7 @@ export default {
     }
   },
   ready () {
+    // you can reference swiper as below
     console.log('ready', this.$refs.xswiper.swiper)
   },
   methods: {
@@ -64,13 +67,13 @@ export default {
       return '<span class="' + className + '">' + (index + 1) + '</span>'
     },
     onSwiperInit (swiper) {
-      console.log('Swiper初始化了：')
+      console.log('Swiper初始化了')
     },
     onTap (swiper, event) {
-      console.log('onTap', event)
+      // console.log('onTap', event)
     },
     onSlideNextEnd (swiper) {
-      console.log('onSlideNextEnd')
+      // console.log('onSlideNextEnd')
     }
   }
 }

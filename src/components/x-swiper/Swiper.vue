@@ -20,89 +20,70 @@
 // import Swiper from './swiper' // use this if you have global import dom lib like Doom7,Zepto,jQuery
 import Swiper from './swiper.dom' // no dom lib imported
 
-export default {
-  props: {
+const getProps = () => {
+  return {
     direction: {
-      type: String,
-      default: 'horizontal'
+      type: String
     },
     touchEventsTarget: {
-      type: String,
-      default: 'container'
+      type: String
     },
     initialSlide: {
-      type: Number,
-      default: 0
+      type: Number
     },
     speed: {
-      type: Number,
-      default: 300
+      type: Number
     },
     // autoplay
     autoplay: {
-      type: [Boolean, Number],
-      default: false
+      type: [Boolean, Number]
     },
     autoplayDisableOnInteraction: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     autoplayStopOnLast: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     // To support iOS's swipe-to-go-back gesture (when being used in-app,with UIWebView).
     iOSEdgeSwipeDetection: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     iOSEdgeSwipeThreshold: {
-      type: Number,
-      default: 20
+      type: Number
     },
     // Free mode
     freeMode: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     freeModeMomentum: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     freeModeMomentumRatio: {
-      type: Number,
-      default: 1
+      type: Number
     },
     freeModeMomentumBounce: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     freeModeMomentumBounceRatio: {
-      type: Number,
-      default: 1
+      type: Number
     },
     freeModeSticky: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     freeModeMinimumVelocity: {
-      type: Number,
-      default: 0.02
+      type: Number
     },
     // Autoheight
     autoHeight: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     // Set wrapper width
     setWrapperSize: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     // Virtual Translate
     virtualTranslate: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     // Effects
     // Parallax
@@ -111,376 +92,224 @@ export default {
     // Hash Navigation
     // Breakpoints
     breakpoints: {
-      type: Object,
-      default: undefined
+      type: Object
     },
     // Slides grid
     spaceBetween: {
-      type: Number,
-      default: 0
+      type: Number
     },
     slidesPerView: {
-      type: [Number, String],
-      default: 1
+      type: [Number, String]
     },
     slidesPerColumn: {
-      type: Number,
-      default: 1
+      type: Number
     },
     slidesPerColumnFill: {
-      type: String,
-      default: 'column'
+      type: String
     },
     slidesPerGroup: {
-      type: Number,
-      default: 1
+      type: Number
     },
     centeredSlides: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     slidesOffsetBefore: {
-      type: Number,
-      default: 0
+      type: Number
     }, // in px
     slidesOffsetAfter: {
-      type: Number,
-      default: 0
+      type: Number
     }, // in px
     // Round length
     roundLengths: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     // Touches
     touchRatio: {
-      type: Number,
-      default: 1
+      type: Number
     },
     touchAngle: {
-      type: Number,
-      default: 45
+      type: Number
     },
     simulateTouch: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     shortSwipes: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     longSwipes: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     longSwipesRatio: {
-      type: Number,
-      default: 0.5
+      type: Number
     },
     longSwipesMs: {
-      type: Number,
-      default: 300
+      type: Number
     },
     followFinger: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     onlyExternal: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     threshold: {
-      type: Number,
-      default: 0
+      type: Number
     },
     touchMoveStopPropagation: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     // Unique Navigation Elements
     uniqueNavElements: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     // Pagination
     pagination: {
-      type: Boolean,
-      default: false
+      type: Boolean // Whether or not show pagination, default false
     },
     paginationElement: {
-      type: String,
-      default: 'span'
+      type: String
     },
     paginationClickable: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     paginationHide: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     paginationBulletRender: {
-      type: Function,
-      default: null
+      type: Function
     },
     paginationProgressRender: {
-      type: Function,
-      default: null
+      type: Function
     },
     paginationFractionRender: {
-      type: Function,
-      default: null
+      type: Function
     },
     paginationCustomRender: {
-      type: Function,
-      default: null
+      type: Function
     },
     paginationType: {
-      type: String,
-      default: 'bullets'
+      type: String
     }, // 'bullets' or 'progress' or 'fraction' or 'custom'
     // Resistance
     resistance: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     resistanceRatio: {
-      type: Number,
-      default: 0.85
+      type: Number
     },
     // Next/prev buttons
     nextButton: {
       // type: [String,Object],
-      type: Boolean,
-      default: false
+      type: Boolean // Whether or not show nextButton, default false
     },
     prevButton: {
       // type: [String,Object],
-      type: Boolean,
-      default: false
+      type: Boolean // Whether or not show prevButton, default false
     },
     // Progress
     watchSlidesProgress: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     watchSlidesVisibility: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     // Cursor
     grabCursor: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     // Clicks
     preventClicks: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     preventClicksPropagation: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     slideToClickedSlide: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     // Lazy Loading
     lazyLoading: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     lazyLoadingInPrevNext: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     lazyLoadingInPrevNextAmount: {
-      type: Number,
-      default: 1
+      type: Number
     },
     lazyLoadingOnTransitionStart: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     // Images
     preloadImages: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     updateOnImagesReady: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     // loop
     loop: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     loopAdditionalSlides: {
-      type: Number,
-      default: null
+      type: Number
     },
     loopedSlides: {
-      type: Number,
-      default: null
+      type: Number
     },
     // Control
     // Swiping/no swiping
     allowSwipeToPrev: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     allowSwipeToNext: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     swipeHandler: {
-      type: String,
-      default: null
+      type: String
     }, // '.swipe-handler',
     noSwiping: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     noSwipingClass: {
-      type: String,
-      default: 'vux-swiper-no-swiping'
+      type: String
     },
     // NS
     // Observer
     observer: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     observeParents: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     // Accessibility
     // Callbacks
     runCallbacksOnInit: {
-      type: Boolean,
-      default: true
+      type: Boolean
     }
     // Callbacks:
-  },
+  }
+}
+
+export default {
+  props: getProps(),
   ready () {
-    // console.log(this._events.ooo)
-    this.swiper = new Swiper(this.$el, {
-      direction: this.direction,
-      touchEventsTarget: this.touchEventsTarget,
-      initialSlide: this.initialSlide,
-      speed: this.speed,
-      // autoplay
-      autoplay: this.autoplay,
-      autoplayDisableOnInteraction: this.autoplayDisableOnInteraction,
-      autoplayStopOnLast: this.autoplayStopOnLast,
-      // To support iOS's swipe-to-go-back gesture (when being used in-app,with UIWebView).
-      iOSEdgeSwipeDetection: this.iOSEdgeSwipeDetection,
-      iOSEdgeSwipeThreshold: this.iOSEdgeSwipeThreshold,
-      // Free mode
-      freeMode: this.freeMode,
-      freeModeMomentum: this.freeModeMomentum,
-      freeModeMomentumRatio: this.freeModeMomentumRatio,
-      freeModeMomentumBounce: this.freeModeMomentumBounce,
-      freeModeMomentumBounceRatio: this.freeModeMomentumBounceRatio,
-      freeModeSticky: this.freeModeSticky,
-      freeModeMinimumVelocity: this.freeModeMinimumVelocity,
-      // Autoheight
-      autoHeight: this.autoHeight,
-      // Set wrapper width
-      setWrapperSize: this.setWrapperSize,
-      // Virtual Translate
-      virtualTranslate: this.virtualTranslate,
-      // Effects
-      // Parallax
-      // Scrollbar
-      // Keyboard Mousewheel
-      // Hash Navigation
-      // Breakpoints
-      breakpoints: this.breakpoints,
-      // Slides grid
-      spaceBetween: this.spaceBetween,
-      slidesPerView: this.slidesPerView,
-      slidesPerColumn: this.slidesPerColumn,
-      slidesPerColumnFill: this.slidesPerColumnFill,
-      slidesPerGroup: this.slidesPerGroup,
-      centeredSlides: this.centeredSlides,
-      slidesOffsetBefore: this.slidesOffsetBefore, // in px
-      slidesOffsetAfter: this.slidesOffsetAfter, // in px
-      // Round length
-      roundLengths: this.roundLengths,
-      // Touches
-      touchRatio: this.touchRatio,
-      touchAngle: this.touchAngle,
-      simulateTouch: this.simulateTouch,
-      shortSwipes: this.shortSwipes,
-      longSwipes: this.longSwipes,
-      longSwipesRatio: this.longSwipesRatio,
-      longSwipesMs: this.longSwipesMs,
-      followFinger: this.followFinger,
-      onlyExternal: this.onlyExternal,
-      threshold: this.threshold,
-      touchMoveStopPropagation: this.touchMoveStopPropagation,
-      // Unique Navigation Elements
-      uniqueNavElements: this.uniqueNavElements,
-      // Pagination
-      pagination: this.pagination && this.$el.querySelector('.vux-swiper-pagination'),
-      paginationElement: this.paginationElement,
-      paginationClickable: this.paginationClickable,
-      paginationHide: this.paginationHide,
-      paginationBulletRender: this.paginationBulletRender,
-      paginationProgressRender: this.paginationProgressRender,
-      paginationFractionRender: this.paginationFractionRender,
-      paginationCustomRender: this.paginationCustomRender,
-      paginationType: this.paginationType, // 'bullets' or 'progress' or 'fraction' or 'custom'
-      // Resistance
-      resistance: this.resistance,
-      resistanceRatio: this.resistanceRatio,
-      // Next/prev buttons
-      nextButton: this.nextButton && this.$el.querySelector('.vux-swiper-button-next'),
-      prevButton: this.nextButton && this.$el.querySelector('.vux-swiper-button-prev'),
-      // Progress
-      watchSlidesProgress: this.watchSlidesProgress,
-      watchSlidesVisibility: this.watchSlidesVisibility,
-      // Cursor
-      grabCursor: this.grabCursor,
-      // Clicks
-      preventClicks: this.preventClicks,
-      preventClicksPropagation: this.preventClicksPropagation,
-      slideToClickedSlide: this.slideToClickedSlide,
-      // Lazy Loading
-      lazyLoading: this.lazyLoading,
-      lazyLoadingInPrevNext: this.lazyLoadingInPrevNext,
-      lazyLoadingInPrevNextAmount: this.lazyLoadingInPrevNextAmount,
-      lazyLoadingOnTransitionStart: this.lazyLoadingOnTransitionStart,
-      // Images
-      preloadImages: this.preloadImages,
-      updateOnImagesReady: this.updateOnImagesReady,
-      // loop
-      loop: this.loop,
-      loopAdditionalSlides: this.loopAdditionalSlides,
-      loopedSlides: this.loopedSlides,
-      // Control
-      // Swiping/no swiping
-      allowSwipeToPrev: this.allowSwipeToPrev,
-      allowSwipeToNext: this.allowSwipeToNext,
-      swipeHandler: this.swipeHandler, // '.swipe-handler',
-      noSwiping: this.noSwiping,
-      noSwipingClass: this.noSwipingClass,
-      // NS
-      // Observer
-      observer: this.observer,
-      observeParents: this.observeParents,
-      // Accessibility
-      // Callbacks
-      runCallbacksOnInit: this.runCallbacksOnInit,
-      // Callbacks:
+    let keys = Object.keys(getProps())
+    let _props = {}
+    keys.forEach((item) => {
+      this[item] && (_props[item] = this[item])
+    })
+    Object.assign(_props, {
+      // Use Boolean type
+      pagination: _props.pagination && this.$el.querySelector('.vux-swiper-pagination'),
+      nextButton: _props.nextButton && this.$el.querySelector('.vux-swiper-button-next'),
+      prevButton: _props.prevButton && this.$el.querySelector('.vux-swiper-button-prev'),
+      // init callback
       onInit: this._events['init'] && ((swiper) => { // fixd onInit
         this.$emit('init', swiper)
       })
     })
+    // init
+    this.swiper = new Swiper(this.$el, _props)
     // bind callbacks event
     for (let k in this._events) {
       if (k && !k.startsWith('hook')) {
@@ -494,7 +323,7 @@ export default {
     }
   },
   beforeDestroy () {
-    this.swiper.destroy(true, true)
+    this.swiper && this.swiper.destroy(true, true)
   }
 }
 </script>
@@ -513,8 +342,6 @@ export default {
 }
 
 .vux-swiper-container-vertical > .vux-swiper-wrapper {
-  -webkit-box-orient: vertical;
-  -webkit-flex-direction: column;
   flex-direction: column;
 }
 
@@ -523,35 +350,26 @@ export default {
   width: 100%;
   height: 100%;
   z-index: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-transition-property: -webkit-transform;
   transition-property: transform;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 
 .vux-swiper-container-android .vux-swiper-slide,
 .vux-swiper-wrapper {
-  -webkit-transform: translate3d(0px,0,0);
   transform: translate3d(0px,0,0);
 }
 
 .vux-swiper-container-multirow > .vux-swiper-wrapper {
-  -webkit-box-lines: multiple;
-  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
 .vux-swiper-container-free-mode > .vux-swiper-wrapper {
-  -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
   margin: 0 auto;
 }
 
 .vux-swiper-slide {
-  -webkit-flex-shrink: 0;
   flex-shrink: 0;
   width: 100%;
   height: 100%;
@@ -567,10 +385,7 @@ export default {
 }
 
 .vux-swiper-container-autoheight .vux-swiper-wrapper {
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
   align-items: flex-start;
-  -webkit-transition-property: -webkit-transform,height;
   transition-property: transform,height;
 }
 
@@ -585,7 +400,6 @@ export default {
   margin-top: -22px;
   z-index: 10;
   cursor: pointer;
-  -webkit-background-size: 27px 44px;
   background-size: 27px 44px;
   background-position: center;
   background-repeat: no-repeat;
@@ -637,9 +451,7 @@ export default {
 .vux-swiper-pagination {
   position: absolute;
   text-align: center;
-  -webkit-transition: 300ms;
   transition: 300ms;
-  -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
   z-index: 10;
 }
@@ -674,7 +486,6 @@ button.vux-swiper-pagination-bullet {
   margin: 0;
   padding: 0;
   box-shadow: none;
-  -webkit-appearance: none;
   appearance: none;
 }
 
@@ -702,7 +513,6 @@ button.vux-swiper-pagination-bullet {
 .vux-swiper-container-vertical > .vux-swiper-pagination-bullets {
   right: 10px;
   top: 50%;
-  -webkit-transform: translate3d(0px,-50%,0);
   transform: translate3d(0px,-50%,0);
 }
 
@@ -729,14 +539,11 @@ button.vux-swiper-pagination-bullet {
   top: 0;
   width: 100%;
   height: 100%;
-  -webkit-transform: scale(0);
   transform: scale(0);
-  -webkit-transform-origin: left top;
   transform-origin: left top;
 }
 
 .vux-swiper-container-rtl .vux-swiper-pagination-progress .vux-swiper-pagination-progressbar {
-  -webkit-transform-origin: right top;
   transform-origin: right top;
 }
 
@@ -776,9 +583,7 @@ button.vux-swiper-pagination-bullet {
   margin-left: -21px;
   margin-top: -21px;
   z-index: 10;
-  -webkit-transform-origin: 50%;
   transform-origin: 50%;
-  -webkit-animation: vux-swiper-preloader-spin 1s steps(12,end) infinite;
   animation: vux-swiper-preloader-spin 1s steps(12,end) infinite;
 }
 
@@ -789,19 +594,12 @@ button.vux-swiper-pagination-bullet {
   height: 100%;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%236c6c6c'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
   background-position: 50%;
-  -webkit-background-size: 100%;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .vux-swiper-lazy-preloader-white:after {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%23fff'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-}
-
-@-webkit-keyframes vux-swiper-preloader-spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
 }
 
 @keyframes vux-swiper-preloader-spin {
