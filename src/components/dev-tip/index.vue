@@ -1,11 +1,11 @@
 <template>
-  <div class="dev-tip">
+  <div class="vux-dev-tip">
     <slot></slot>
   </div>
 </template>
 
 <style>
-.dev-tip {
+.vux-dev-tip {
   padding:5px 10px;
   background-color: #FFCC00;
   color:#000;
