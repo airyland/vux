@@ -16,7 +16,7 @@ export default {
     this.backgroundPositionX = -this.index * 24
     let imgHTML = ''
     if (!this.isGif) {
-      imgHTML = this.$interpolate('<span class="static-emotion" style="background:url(https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/default218877.gif) {{backgroundPositionX}}px 0;"></span>')
+      imgHTML = this.$interpolate('<span class="vux-static-emotion" style="background:url(https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/default218877.gif) {{backgroundPositionX}}px 0;"></span>')
     } else {
       imgHTML = this.$interpolate('<img src="https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/{{index}}.gif">')
     }
@@ -41,7 +41,7 @@ export default {
 .vux-emotion {
   display: inline-block;
 }
-.static-emotion {
+.vux-static-emotion {
   width: 24px;
   height: 24px;
   display: inline-block;
