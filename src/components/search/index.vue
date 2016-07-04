@@ -62,6 +62,7 @@ export default {
       this.value = ''
       this.isCancel = true
       this.isFixed = false
+      this.$emit('on-cancel')
     },
     handleResultClick (item) {
       this.$emit('result-click', item)
