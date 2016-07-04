@@ -1,11 +1,11 @@
 <template>
   <div>
     <group title="Default">
-      <x-number title="Number"></x-number>
+      <x-number name="number" title="Number"></x-number>
     </group>
 
     <group title="listen to change events">
-      <x-number title="Number" :value="0" :min="0" @on-change="change"></x-number>
+      <x-number name="listen" title="Number" :value="0" :min="0" @on-change="change"></x-number>
     </group>
 
     <group title="set width=100">
