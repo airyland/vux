@@ -4,7 +4,7 @@
       <label for="" class="weui_label">{{title}}</label>
     </div>
     <div class="weui_cell_bd weui_cell_primary" v-if="!readonly">
-      <select class="weui_select" v-model="value">
+      <select class="weui_select" :name="name" v-model="value">
         <option value="" v-if="placeholder" :selected="placeholder && !value">{{placeholder}}</option>
         <option :value="one.key" v-for="one in processOptions">{{one.value}}</option>
       </select>
@@ -54,6 +54,7 @@ export default {
       type: Array,
       required: true
     },
+    name: String,
     placeholder: String,
     readonly: {
       type: Boolean,
