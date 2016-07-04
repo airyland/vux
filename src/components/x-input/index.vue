@@ -74,6 +74,7 @@ export default {
       default: '',
       twoWay: true
     },
+    name: String,
     readonly: {
       type: Boolean,
       default: false
