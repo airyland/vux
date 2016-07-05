@@ -1,7 +1,7 @@
-import Swiper from './Swiper.vue'
-import Slide from './Slide.vue'
+import XSwiper from './xswiper.vue'
+import XSwiperItem from './xswiper-item.vue'
 
 export {
-	Swiper as XSwiper,
-	Slide as XSwiperItem
+	XSwiper,
+	XSwiperItem
 }

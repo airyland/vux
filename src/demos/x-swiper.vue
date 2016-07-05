@@ -21,9 +21,6 @@
       <x-swiper-item v-for="item in list">
         <img :src="item.img">
       </x-swiper-item>
-      <!-- <div v-for="item in list" class="vux-swiper-slide">
-        <img :src="item.img">
-      </div> -->
     </x-swiper>
   </div>
 </template>
@@ -103,6 +100,6 @@ export default {
             }
         }
     }
-    
+
 }
 </style>
