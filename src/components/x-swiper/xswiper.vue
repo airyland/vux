@@ -16,276 +16,116 @@
 </template>
 
 <script>
-// import Swiper from './swiper' // use this if you have global import dom lib like Doom7,Zepto,jQuery
-import Swiper from './swiper.dom' // no dom lib imported
+import Swiper from './swiper.dom'
 
 const getProps = () => {
   return {
-    direction: {
-      type: String
-    },
-    touchEventsTarget: {
-      type: String
-    },
-    initialSlide: {
-      type: Number
-    },
-    speed: {
-      type: Number
-    },
+    direction: String,
+    touchEventsTarget: String,
+    initialSlide: Number,
+    speed: Number,
     // autoplay
-    autoplay: {
-      type: [Boolean, Number]
-    },
-    autoplayDisableOnInteraction: {
-      type: Boolean
-    },
-    autoplayStopOnLast: {
-      type: Boolean
-    },
+    autoplay: [Boolean, Number],
+    autoplayDisableOnInteraction: Boolean,
+    autoplayStopOnLast: Boolean,
     // To support iOS's swipe-to-go-back gesture (when being used in-app,with UIWebView).
-    iOSEdgeSwipeDetection: {
-      type: Boolean
-    },
-    iOSEdgeSwipeThreshold: {
-      type: Number
-    },
+    iOSEdgeSwipeDetection: Boolean,
+    iOSEdgeSwipeThreshold: Number,
     // Free mode
-    freeMode: {
-      type: Boolean
-    },
-    freeModeMomentum: {
-      type: Boolean
-    },
-    freeModeMomentumRatio: {
-      type: Number
-    },
-    freeModeMomentumBounce: {
-      type: Boolean
-    },
-    freeModeMomentumBounceRatio: {
-      type: Number
-    },
-    freeModeSticky: {
-      type: Boolean
-    },
-    freeModeMinimumVelocity: {
-      type: Number
-    },
+    freeMode: Boolean,
+    freeModeMomentum: Boolean,
+    freeModeMomentumRatio: Number,
+    freeModeMomentumBounce: Boolean,
+    freeModeMomentumBounceRatio: Number,
+    freeModeSticky: Boolean,
+    freeModeMinimumVelocity: Number,
     // Autoheight
-    autoHeight: {
-      type: Boolean
-    },
+    autoHeight: Boolean,
     // Set wrapper width
-    setWrapperSize: {
-      type: Boolean
-    },
+    setWrapperSize: Boolean,
     // Virtual Translate
-    virtualTranslate: {
-      type: Boolean
-    },
+    virtualTranslate: Boolean,
     // Effects
     // Parallax
     // Scrollbar
     // Keyboard Mousewheel
     // Hash Navigation
     // Breakpoints
-    breakpoints: {
-      type: Object
-    },
+    breakpoints: Object,
     // Slides grid
-    spaceBetween: {
-      type: Number
-    },
-    slidesPerView: {
-      type: [Number, String]
-    },
-    slidesPerColumn: {
-      type: Number
-    },
-    slidesPerColumnFill: {
-      type: String
-    },
-    slidesPerGroup: {
-      type: Number
-    },
-    centeredSlides: {
-      type: Boolean
-    },
-    slidesOffsetBefore: {
-      type: Number
-    }, // in px
-    slidesOffsetAfter: {
-      type: Number
-    }, // in px
+    spaceBetween: Number,
+    slidesPerView: [Number, String],
+    slidesPerColumn: Number,
+    slidesPerColumnFill: String,
+    slidesPerGroup: Number,
+    centeredSlides: Boolean,
+    slidesOffsetBefore: Number, // in px
+    slidesOffsetAfter: Number, // in px
     // Round length
-    roundLengths: {
-      type: Boolean
-    },
+    roundLengths: Boolean,
     // Touches
-    touchRatio: {
-      type: Number
-    },
-    touchAngle: {
-      type: Number
-    },
-    simulateTouch: {
-      type: Boolean
-    },
-    shortSwipes: {
-      type: Boolean
-    },
-    longSwipes: {
-      type: Boolean
-    },
-    longSwipesRatio: {
-      type: Number
-    },
-    longSwipesMs: {
-      type: Number
-    },
-    followFinger: {
-      type: Boolean
-    },
-    onlyExternal: {
-      type: Boolean
-    },
-    threshold: {
-      type: Number
-    },
-    touchMoveStopPropagation: {
-      type: Boolean
-    },
+    touchRatio: Number,
+    touchAngle: Number,
+    simulateTouch: Boolean,
+    shortSwipes: Boolean,
+    longSwipes: Boolean,
+    longSwipesRatio: Number,
+    longSwipesMs: Number,
+    followFinger: Boolean,
+    onlyExternal: Boolean,
+    threshold: Number,
+    touchMoveStopPropagation: Boolean,
     // Unique Navigation Elements
-    uniqueNavElements: {
-      type: Boolean
-    },
+    uniqueNavElements: Boolean,
     // Pagination
-    pagination: {
-      type: Boolean // Whether or not show pagination, default false
-    },
-    paginationElement: {
-      type: String
-    },
-    paginationClickable: {
-      type: Boolean
-    },
-    paginationHide: {
-      type: Boolean
-    },
-    paginationBulletRender: {
-      type: Function
-    },
-    paginationProgressRender: {
-      type: Function
-    },
-    paginationFractionRender: {
-      type: Function
-    },
-    paginationCustomRender: {
-      type: Function
-    },
-    paginationType: {
-      type: String
-    }, // 'bullets' or 'progress' or 'fraction' or 'custom'
+    pagination: Boolean, // Whether or not show pagination, default false
+    paginationElement: String,
+    paginationClickable: Boolean,
+    paginationHide: Boolean,
+    paginationBulletRender: Function,
+    paginationProgressRender: Function,
+    paginationFractionRender: Function,
+    paginationCustomRender: Function,
+    paginationType: String, // 'bullets' or 'progress' or 'fraction' or 'custom'
     // Resistance
-    resistance: {
-      type: Boolean
-    },
-    resistanceRatio: {
-      type: Number
-    },
+    resistance: Boolean,
+    resistanceRatio: Number,
     // Next/prev buttons
-    nextButton: {
-      // type: [String,Object],
-      type: Boolean // Whether or not show nextButton, default false
-    },
-    prevButton: {
-      // type: [String,Object],
-      type: Boolean // Whether or not show prevButton, default false
-    },
+    nextButton: Boolean, // Whether or not show nextButton, default false
+    prevButton: Boolean, // Whether or not show prevButton, default false,
     // Progress
-    watchSlidesProgress: {
-      type: Boolean
-    },
-    watchSlidesVisibility: {
-      type: Boolean
-    },
+    watchSlidesProgress: Boolean,
+    watchSlidesVisibility: Boolean,
     // Cursor
-    grabCursor: {
-      type: Boolean
-    },
+    grabCursor: Boolean,
     // Clicks
-    preventClicks: {
-      type: Boolean
-    },
-    preventClicksPropagation: {
-      type: Boolean
-    },
-    slideToClickedSlide: {
-      type: Boolean
-    },
+    preventClicks: Boolean,
+    preventClicksPropagation: Boolean,
+    slideToClickedSlide: Boolean,
     // Lazy Loading
-    lazyLoading: {
-      type: Boolean
-    },
-    lazyLoadingInPrevNext: {
-      type: Boolean
-    },
-    lazyLoadingInPrevNextAmount: {
-      type: Number
-    },
-    lazyLoadingOnTransitionStart: {
-      type: Boolean
-    },
+    lazyLoading: Boolean,
+    lazyLoadingInPrevNext: Boolean,
+    lazyLoadingInPrevNextAmount: Number,
+    lazyLoadingOnTransitionStart: Boolean,
     // Images
-    preloadImages: {
-      type: Boolean
-    },
-    updateOnImagesReady: {
-      type: Boolean
-    },
+    preloadImages: Boolean,
+    updateOnImagesReady: Boolean,
     // loop
-    loop: {
-      type: Boolean
-    },
-    loopAdditionalSlides: {
-      type: Number
-    },
-    loopedSlides: {
-      type: Number
-    },
+    loop: Boolean,
+    loopAdditionalSlides: Number,
+    loopedSlides: Number,
     // Control
     // Swiping/no swiping
-    allowSwipeToPrev: {
-      type: Boolean
-    },
-    allowSwipeToNext: {
-      type: Boolean
-    },
-    swipeHandler: {
-      type: String
-    }, // '.swipe-handler',
-    noSwiping: {
-      type: Boolean
-    },
-    noSwipingClass: {
-      type: String
-    },
-    // NS
+    allowSwipeToPrev: Boolean,
+    allowSwipeToNext: Boolean,
+    swipeHandler: String,
+    noSwiping: Boolean,
+    noSwipingClass: String,
     // Observer
-    observer: {
-      type: Boolean
-    },
-    observeParents: {
-      type: Boolean
-    },
+    observer: Boolean,
+    observeParents: Boolean,
     // Accessibility
-    // Callbacks
-    runCallbacksOnInit: {
-      type: Boolean
-    }
-    // Callbacks:
+    runCallbacksOnInit: Boolean
   }
 }
 
