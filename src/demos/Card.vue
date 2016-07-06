@@ -55,7 +55,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+@import '../styles/1px.less';
 .card-demo-flex {
   display: flex;
 }

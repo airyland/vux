@@ -49,4 +49,19 @@ export default {
 
 <style lang="less">
 @import '../../styles/tap.less';
+@import '../../styles/weui/widget/weui_cell/weui_cell_global';
+
+.weui_cell_ft.with_arrow:after {
+  content: " ";
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  position: relative;
+  top: -1px;
+  margin-left: .3em;
+}
 </style>

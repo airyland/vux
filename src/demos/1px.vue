@@ -98,7 +98,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 @import '../styles/1px.less';
 
 .vux-demo .test{

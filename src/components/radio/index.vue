@@ -95,7 +95,10 @@ function contains (a, obj) {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/weui/widget/weui_cell/weui_check';
+@import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
+@import '../../styles/weui/icon/weui_icon_font';
 .weui_cell_radio > * {
   pointer-events: none;
 }

@@ -1,0 +1,17 @@
+.vux-center-v, .vux-center-h, .vux-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.vux-center-v, .vux-center {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+
+.vux-center-h, .vux-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}

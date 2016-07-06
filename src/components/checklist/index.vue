@@ -114,8 +114,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/weui/widget/weui_cell/weui_cell_global';
+@import '../../styles/weui/widget/weui_cell/weui_check';
+
 .weui_cells_checkbox > label > * {
   pointer-events: none;
+}
+.weui_cells > a {
+  color:#000;
 }
 </style>

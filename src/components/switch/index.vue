@@ -49,7 +49,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
+@import '../../styles/weui/widget/weui_cell/weui_switch';
+
 .weui_cell_switch .weui_cell_ft {
   font-size: 0;
 }

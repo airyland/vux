@@ -54,7 +54,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/weui/icon/weui_icon_font';
+
 .vux-color-box {
   text-align: center;
 }
@@ -67,7 +69,7 @@ export default {
   box-sizing: border-box;
   position: relative
 }
-.vux-color-checked:before {
+.vux-color-checked.weui_icon_success_no_circle:before {
   color: #fff;
 }
 .vux-color-checked {

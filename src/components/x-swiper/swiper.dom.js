@@ -2823,6 +2823,7 @@
         Dom7.prototype = {
             // Classes and attriutes
             addClass: function (className) {
+                console.log('classname', className)
                 if (typeof className === 'undefined') {
                     return this;
                 }

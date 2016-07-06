@@ -13,10 +13,7 @@
 <script>
 export default {
   props: {
-    show: {
-      type: Boolean,
-      default: false
-    },
+    show: Boolean,
     text: {
       type: String,
       default: 'Loading'
@@ -24,3 +21,7 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+@import '../../styles/weui/widget/weui_tips/weui_toast';
+</style>

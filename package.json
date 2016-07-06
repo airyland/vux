@@ -26,7 +26,7 @@
     "test": "karma start build/karma.conf.js --single-run",
     "deploy": "gh-pages -d site",
     "xdeploy": "npm run build && gh-pages -d site",
-    "xbuild": "webpack --progress --hide-modules --colors --config build/webpack.npm.conf.js && rimraf dist/components && node build/build-components",
+    "xbuild": "webpack --progress --hide-modules --colors --config build/webpack.npm.conf.js && rimraf dist/components && node build/build-components && node build/build-styles",
     "xpublish": "npm run xbuild && npm publish && npm run xdeploy"
   },
   "main": "dist/vux.js",
@@ -84,7 +84,7 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-spec-reporter": "0.0.24",
     "karma-webpack": "^1.7.0",
-    "less": "^2.6.1",
+    "less": "^2.7.1",
     "less-loader": "^2.2.2",
     "rimraf": "^2.5.0",
     "url-loader": "^0.5.7",
@@ -96,6 +96,9 @@
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
-    "webpack-hot-middleware": "^2.6.0"
+    "webpack-hot-middleware": "^2.6.0",
+    "postcss": "^5.0.21",
+    "autoprefixer": "^6.3.7",
+    "postcss-less": "^0.14.0"
   }
 }

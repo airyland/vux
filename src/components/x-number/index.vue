@@ -74,6 +74,8 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../styles/weui/widget/weui_cell/weui_cell_global';
+
 .vux-number-input {
   float:left;
   height:20px;

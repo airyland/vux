@@ -54,11 +54,15 @@ export default {
   }
 }
 </script>
-<style>
+
+<style lang="less">
+@import '../../styles/weui/icon/weui_icon_font';
+@import '../../styles/weui/widget/weui_tips/weui_toast';
+
 .weui_toast {
   z-index: 200;
   transform: translateX(-50%);
-  margin-left: 0;
+  margin-left: 0!important;
 }
 .weui_toast_forbidden {
   color: #F76260;

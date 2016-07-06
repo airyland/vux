@@ -67,3 +67,8 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+@import '../../styles/weui/widget/weui_panel/weui_panel';
+@import '../../styles/weui/widget/weui_media_box/weui_media_box';
+</style>

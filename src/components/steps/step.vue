@@ -12,17 +12,14 @@ export default {
       type: Number
     }
   },
-
   ready () {
     this._mapPropsToChildComponent()
   },
-
   watch: {
     current () {
       this._mapPropsToChildComponent()
     }
   },
-
   methods: {
     _mapPropsToChildComponent () {
       const _this = this

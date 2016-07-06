@@ -109,10 +109,7 @@ export default {
       type: Boolean,
       default: false
     },
-    loop: {
-      type: Boolean,
-      default: false
-    },
+    loop: Boolean,
     interval: {
       type: Number,
       default: 3000

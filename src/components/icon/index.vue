@@ -15,7 +15,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/weui/icon/weui_icon_font';
+
 .icon_big:before {
   font-size: 104px;
 }

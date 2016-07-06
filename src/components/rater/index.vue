@@ -20,10 +20,7 @@ export default {
       type: Number,
       default: 0
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
+    disabled: Boolean,
     star: {
       type: String,
       default: '★'
@@ -108,9 +105,6 @@ export default {
 .vux-rater a:hover {
   color: #ffdd99;
 }
-.vux-rater a.is-active {
-
-}
 .vux-rater a.is-disabled {
   color: #ccc !important;
   cursor: not-allowed;
@@ -130,3 +124,4 @@ export default {
   overflow: hidden;
 }
 </style>
+

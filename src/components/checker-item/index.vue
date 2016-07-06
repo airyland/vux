@@ -11,10 +11,7 @@ export default {
       type: [String, Number],
       required: true
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
+    disabled: Boolean
   },
   computed: {
     classNames () {
@@ -63,3 +60,7 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+@import '../../styles/tap.less';
+</style>
