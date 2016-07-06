@@ -10,14 +10,17 @@
 
     <x-swiper v-ref:xswiper style="height: 250px;"
     direction="horizontal"
-    :pagination="true" :prev-button="true" :next-button="true" :loop="true"
+    pagination
+    :prev-button="false"
+    :next-button="false"
+    loop
     :autoplay="list.length>1 ? 3000 : false"
     :autoplay-disable-on-Interaction="false"
-    :pagination-clickable="true"
+    pagination-clickable
     :pagination-bullet-render="paginationBulletRender"
-    @init="onSwiperInit"
-    @tap="onTap"
-    @slide-next-end="onSlideNextEnd">
+    @on-init="onSwiperInit"
+    @on-tap="onTap"
+    @on-slide-next-end="onSlideNextEnd">
       <x-swiper-item v-for="item in list">
         <img :src="item.img">
       </x-swiper-item>
@@ -56,21 +59,20 @@ export default {
   },
   ready () {
     // you can reference swiper as below
-    console.log('ready', this.$refs.xswiper.swiper)
+    console.log('on Ready', this.$refs.xswiper.swiper)
   },
   methods: {
     paginationBulletRender (index, className) {
-      // console.log(index, className)
       return '<span class="' + className + '">' + (index + 1) + '</span>'
     },
     onSwiperInit (swiper) {
-      console.log('Swiper初始化了')
+      console.log('on Init')
     },
     onTap (swiper, event) {
-      // console.log('onTap', event)
+      console.log('on Tap', event)
     },
     onSlideNextEnd (swiper) {
-      // console.log('onSlideNextEnd')
+      console.log('on SlideNextEnd')
     }
   }
 }
@@ -93,6 +95,7 @@ export default {
             .vux-swiper-pagination-bullet {
                 width: 20px;
                 height: 20px;
+                color: #fff;
 
                 &.vux-swiper-pagination-bullet-active {
                     background-color: #E84A01;

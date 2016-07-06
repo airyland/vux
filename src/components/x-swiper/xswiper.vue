@@ -144,7 +144,7 @@ export default {
       prevButton: _props.prevButton && this.$el.querySelector('.vux-swiper-button-prev'),
       // init callback
       onInit: this._events['init'] && ((swiper) => { // fixd onInit
-        this.$emit('init', swiper)
+        this.$emit('on-init', swiper)
       })
     })
     // init
