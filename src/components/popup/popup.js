@@ -1,10 +1,12 @@
 const popupDialog = function (option) {
+  this.uuid = Math.random().toString(36).substring(3, 8)
   this.params = {}
   if (Object.prototype.toString.call(option) === '[object Object]') {
     this.params = {
       input: option.input || '',
       container: document.querySelector(option.input) || '',
       innerHTML: option.innerHTML || '',
+      hideOnBlur: option.hideOnBlur,
       onOpen: option.onOpen || function () {},
       onClose: option.onClose || function () {}
     }
@@ -21,14 +23,13 @@ const popupDialog = function (option) {
   } else {
     div = option.container
   }
-  div.className = 'vux-popup-dialog'
+  div.className = 'vux-popup-dialog vux-popup-dialog-' + this.uuid
 
   if (!option.container) {
     document.body.appendChild(div)
   }
   this.mask = document.querySelector('.vux-popup-mask')
-  this.container = document.querySelectorAll('.vux-popup-dialog')
-  this.container = this.container[this.container.length - 1]
+  this.container = document.querySelector('.vux-popup-dialog-' + this.uuid)
   this._bindEvents()
   option = null
   return this
@@ -39,7 +40,7 @@ popupDialog.prototype.onClickMask = function () {
 }
 
 popupDialog.prototype._bindEvents = function () {
-  this.mask.addEventListener('click', this.onClickMask.bind(this), false)
+  this.params.hideOnBlur && this.mask.addEventListener('click', this.onClickMask.bind(this), false)
 }
 
 popupDialog.prototype.show = function () {

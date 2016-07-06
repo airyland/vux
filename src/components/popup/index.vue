@@ -16,6 +16,10 @@ export default {
     height: {
       type: String,
       default: 'auto'
+    },
+    hideOnBlur: {
+      type: Boolean,
+      default: true
     }
   },
   ready () {
@@ -23,6 +27,7 @@ export default {
     this.popup = new Popup({
       container: _this.$el,
       innerHTML: '',
+      hideOnBlur: _this.hideOnBlur,
       onOpen (dialog) {
         _this.fixSafariOverflowScrolling('auto')
         _this.show = true

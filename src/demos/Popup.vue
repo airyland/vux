@@ -5,6 +5,8 @@
       <switch title="Full popup" :value.sync="show1"></switch>
       <switch title="with a Scroller" :value.sync="show2"></switch>
       <switch title="Multi popup (first)" :value.sync="show3"></switch>
+      <switch title="Mask disable" :value.sync="show5"></switch>
+      <switch title="Popup address" :value.sync="show6"></switch>
     </group>
     <popup :show.sync="show" @on-hide="log('hide')" @on-show="log('show')">
       <div class="popup0">
@@ -52,11 +54,31 @@
       </div>
     </popup>
 
+    <popup :show.sync="show5" :hide-on-blur=false>
+      <div class="popup2">
+        <group>
+          <switch title="Mask disable" :value.sync="show5"></switch>
+        </group>
+        The mask cannot be clicked!
+      </div>
+    </popup>
+
+    <popup :show.sync="show6">
+      <div class="popup1">
+        <group>
+          <switch title="Popup address" :value.sync="show6"></switch>
+        </group>
+        <group>
+          <address :title="title6" :value.sync="value6" :list="addressData" placeholder="请选择地址" inline-desc="可以设置placeholder"></address>
+        </group>
+      </div>
+    </popup>
+
   </div>
 </template>
 
 <script>
-import { Popup, Group, Switch, Scroller, Toast } from '../components'
+import { Popup, Group, Switch, Scroller, Toast, Address, AddressChinaData } from '../components'
 
 export default {
   components: {
@@ -64,15 +86,21 @@ export default {
     Group,
     Switch,
     Scroller,
-    Toast
+    Toast,
+    Address
   },
   data () {
     return {
+      addressData: AddressChinaData,
       show: false,
       show1: false,
       show2: false,
       show3: false,
       show4: false,
+      show5: false,
+      show6: false,
+      title6: '默认空的',
+      value6: [],
       showToast: false
     }
   },
