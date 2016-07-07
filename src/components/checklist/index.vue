@@ -1,5 +1,5 @@
 <template>
-  <div class="weui_cells_title">{{title}}</div>
+  <div v-show="title" class="weui_cells_title">{{title}}</div>
   <div class="weui_cells weui_cells_checkbox">
     <label class="weui_cell weui_check_label" for="checkbox_{{uuid}}_{{index}}" v-for="(index,one) in options">
       <div class="weui_cell_hd">
