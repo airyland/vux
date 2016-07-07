@@ -225,3 +225,10 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+@import '../../styles/weui/widget/weui_cell/weui_access';
+@import '../../styles/weui/widget/weui_cell/weui_cell_global';
+@import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
+@import '../../styles/weui/widget/weui_cell/weui_form/weui_vcode';
+</style>

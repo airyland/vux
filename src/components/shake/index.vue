@@ -6,10 +6,7 @@
 import Shake from 'shake.js'
 export default {
   props: {
-    stop: {
-      type: Boolean,
-      default: false
-    },
+    stop: Boolean,
     threshold: {
       type: Number,
       default: 15

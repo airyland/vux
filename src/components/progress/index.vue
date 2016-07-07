@@ -62,7 +62,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/weui/widget/weui_progress/weui_progress';
 @import './style.css';
 
 .ui-mprogress .indeter-bar, .ui-mprogress .query-bar, .ui-mprogress .deter-bar {

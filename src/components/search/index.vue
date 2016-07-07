@@ -103,7 +103,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/weui/icon/weui_icon_font';
+@import '../../styles/weui/widget/weui_searchbar/weui_searchbar';
+
 .vux-search-fixed {
   position: fixed;
   height: 100%;

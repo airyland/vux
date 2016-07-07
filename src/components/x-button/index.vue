@@ -10,18 +10,9 @@ export default {
     type: {
       default: 'default'
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    mini: {
-      type: Boolean,
-      default: false
-    },
-    plain: {
-      type: Boolean,
-      default: false
-    },
+    disabled: Boolean,
+    mini: Boolean,
+    plain: Boolean,
     text: String
   },
   computed: {
@@ -38,3 +29,7 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+@import '../../styles/weui/widget/weui_button/weui_button.less';
+</style>

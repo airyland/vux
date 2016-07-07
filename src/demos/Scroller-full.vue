@@ -81,7 +81,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lange="less">
+@import '../styles/1px.less';
 .menu {
   width: 75px;
   float: left;

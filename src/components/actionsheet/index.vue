@@ -18,13 +18,9 @@ export default {
     show: {
       type: Boolean,
       required: true,
-      default: false,
       twoWay: true
     },
-    showCancel: {
-      type: Boolean,
-      default: false
-    },
+    showCancel: Boolean,
     cancelText: {
       type: String,
       default: 'cancel'
@@ -46,7 +42,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/weui/widget/weui_tips/weui_mask';
+@import '../../styles/weui/widget/weui_tips/weui_actionsheet';
+
 .vux-actionsheet-gap {
   height: 8px;
   width: 100%;

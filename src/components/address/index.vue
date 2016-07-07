@@ -21,10 +21,7 @@ export default {
         return []
       }
     },
-    rawValue: {
-      type: Boolean,
-      default: false
-    },
+    rawValue: Boolean,
     list: {
       type: Array,
       required: true

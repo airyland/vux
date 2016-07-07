@@ -2,7 +2,7 @@
   <canvas
   :style="{height: size, width: size}"
   :height="size"
-  width="size"></canvas>
+  :width="size"></canvas>
 </template>
 
 <script>

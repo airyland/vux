@@ -11,3 +11,7 @@ export default {
   mixins: [parentMixin]
 }
 </script>
+
+<style lang="less">
+@import '../../styles/weui/widget/weui_tab/weui_tab_tabbar';
+</style>

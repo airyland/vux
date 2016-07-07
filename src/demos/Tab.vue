@@ -166,7 +166,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../styles/1px.less';
 .active-6-1 {
   color: rgb(252, 55, 140) !important;
   border-color: rgb(252, 55, 140) !important;

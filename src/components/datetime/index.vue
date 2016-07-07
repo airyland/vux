@@ -119,6 +119,19 @@ export default {
 </script>
 
 <style>
+.weui_cell_ft.with_arrow:after {
+  content: " ";
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  position: relative;
+  top: -1px;
+  margin-left: .3em;
+}
 .scroller-component {
   display: block;
   position: relative;
