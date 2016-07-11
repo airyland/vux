@@ -37,6 +37,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../styles/close';
 .dialog-demo {
   .weui_dialog{
     border-radius: 8px;
