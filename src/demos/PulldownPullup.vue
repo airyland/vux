@@ -1,9 +1,15 @@
 <template>
   <div>
     <divider>下拉刷新和上拉加载更多组合</divider>
-    <scroller lock-x scrollbar-y use-pullup use-pulldown height="200px" @pullup:loading="loadMore" @pulldown:loading="refresh" v-ref:scroller>
+    <scroller lock-x scrollbar-y use-pullup use-pulldown height="200px" @pullup:loading="loadMore" @pulldown:loading="refresh" :pullup-status.sync="pullupStatus" v-ref:scroller>
       <div class="box2">
         <p v-for="i in n">placeholder {{i}}</p>
+      </div>
+      <!--pullup slot-->
+      <div slot="pullup" class="xs-plugin-pullup-container xs-plugin-pullup-up" style="position: absolute; width: 100%; height: 40px; bottom: -40px; text-align: center;">
+        <span v-show="pullupStatus === 'default'"></span>
+        <span class="pullup-arrow" v-show="pullupStatus === 'down' || pullupStatus === 'up'" :class="{'rotate': pullupStatus === 'up'}">↑</span>
+        <span v-show="pullupStatus === 'loading'"><spinner type="ios-small"></spinner></span>
       </div>
     </scroller>
     <group>
@@ -20,14 +26,15 @@
 </template>
 
 <script>
-import { Scroller, Divider, Switch, Group } from '../components'
+import { Scroller, Divider, Switch, Group, Spinner } from '../components'
 
 export default {
   components: {
     Scroller,
     Divider,
     Switch,
-    Group
+    Group,
+    Spinner
   },
   methods: {
     loadMore (uuid) {
@@ -72,8 +79,24 @@ export default {
     return {
       n: 10,
       n1: 10,
-      pullupEnabled: true
+      pullupEnabled: true,
+      pullupStatus: 'default'
     }
   }
 }
 </script>
+<style lang="less" scoped>
+.box2-wrap {
+  height: 300px;
+  overflow: hidden;
+}
+.rotate {
+  display: inline-block;
+  transform: rotate(-180deg);
+}
+.pullup-arrow {
+  transition: all linear 0.2s;
+  color: #666;
+  font-size: 25px;
+}
+</style>
