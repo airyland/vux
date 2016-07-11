@@ -1,6 +1,6 @@
 <template>
   <div class="weui_dialog_alert" v-show="show" :transition="maskTransition">
-    <div class="weui_mask" @click="hideOnBlur && show=false"></div>
+    <div class="weui_mask" @click="hideOnBlur && (show = false)"></div>
     <div class="weui_dialog" v-show="show" :transition="dialogTransition">
       <slot></slot>
     </div>
@@ -33,6 +33,7 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../styles/close';
 @import '../../styles/weui/widget/weui_tips/weui_mask';
 @import '../../styles/weui/widget/weui_tips/weui_dialog';
 </style>
