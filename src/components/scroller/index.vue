@@ -118,7 +118,7 @@ export default {
         this.reset()
       }
 
-      if (this.height.indexOf('-') === 0) {
+      if (this.height && this.height.indexOf('-') === 0) {
         this.height = `${document.documentElement.clientHeight + parseInt(this.height)}px`
       }
 
