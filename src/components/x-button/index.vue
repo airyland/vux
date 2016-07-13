@@ -1,7 +1,9 @@
 <template>
-  <button class="weui_btn" :class="classes" :disabled="disabled">
-    {{text}}<slot></slot>
-  </button>
+  <div class="weui_btn_area">
+    <button class="weui_btn" :class="classes" :disabled="disabled">
+      {{text}}<slot></slot>
+    </button>
+  </div>
 </template>
 
 <script>
