@@ -2,18 +2,18 @@
   <div>
     <p style="padding:15px;">
       <span>Normal Usage</span>
-      <clocker time="2016-04-01"></clocker>
+      <clocker :time="time1"></clocker>
     </p>
 
     <group title="Use in cell">
-      <cell title="Date:0401">
-        <clocker time="2016-04-01" slot="value"></clocker>
+      <cell title="Date:0801">
+        <clocker time="2016-08-01" slot="value"></clocker>
       </cell>
     </group>
 
     <group title="custom template">
-      <cell title="Date:0501">
-        <clocker time="2016-05-01" slot="value">
+      <cell title="Date:0801">
+        <clocker time="2016-08-01" slot="value">
           <span style="color:red">%D 天</span>
           <span style="color:green">%H 小时</span>
           <span style="color:blue">%M 分 %S 秒</span>
@@ -44,6 +44,16 @@ export default {
     Clocker,
     Cell,
     Group
+  },
+  ready () {
+    setTimeout(() => {
+      this.time1 = '2016-08-13 22:54'
+    }, 5000)
+  },
+  data () {
+    return {
+      time1: '2016-07-13 21:54'
+    }
   }
 }
 </script>
