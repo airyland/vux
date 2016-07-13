@@ -78,10 +78,10 @@ export default {
       n2: 10,
       n3: 10,
       pullupConfig2: {
-        content: '下拉刷新',
-        downContent: '下拉刷新',
-        upContent: '释放刷新',
-        loadingContent: '加载中'
+        content: '上拉加载更多',
+        downContent: '松开进行加载',
+        upContent: '上拉加载更多',
+        loadingContent: '加载中...'
       }
     }
   }
