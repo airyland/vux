@@ -104,8 +104,18 @@ export default {
     }
   },
   methods: {
-    reset () {
-      this._xscroll && this._xscroll.render()
+    reset (scrollPosition) {
+      if (scrollPosition) {
+        if (typeof scrollPosition.left !== 'undefined') {
+          this._xscroll.scrollLeft(scrollPosition.left)
+        }
+        if (typeof scrollPosition.top !== 'undefined') {
+          this._xscroll.scrollTop(scrollPosition.top)
+        }
+      }
+      setTimeout(() => {
+        this._xscroll && this._xscroll.render()
+      })
     }
   },
   compiled () {
