@@ -6,7 +6,7 @@
     </group>
 
     <group title="不显示清除按钮">
-      <x-input title="message" placeholder="I'm placeholder" :show-clear="false"></x-input>
+      <x-input title="message" placeholder="I'm placeholder" :show-clear="false" autocapitalize="characters"></x-input>
     </group>
 
     <group title="set is-type=china-name">

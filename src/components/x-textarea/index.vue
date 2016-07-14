@@ -1,7 +1,19 @@
 <template>
   <div class="weui_cell">
     <div class="weui_cell_bd weui_cell_primary">
-      <textarea class="weui_textarea" placeholder="{{placeholder}}" :name="name" :rows="rows" :cols="cols" v-model="value" :style="textareaStyle" :maxlength="max"></textarea>
+      <textarea
+      class="weui_textarea"
+      :autocomplete="autocomplete"
+      :autocapitalize="autocapitalize"
+      :autocorrect="autocorrect"
+      :spellcheck="spellcheck"
+      :placeholder="placeholder"
+      :name="name"
+      :rows="rows"
+      :cols="cols"
+      v-model="value"
+      :style="textareaStyle"
+      :maxlength="max"></textarea>
       <div class="weui_textarea_counter" v-show="showCounter && max"><span>{{count}}</span>/{{max}}</div>
     </div>
   </div>
@@ -36,7 +48,12 @@ export default {
       type: Number,
       default: 30
     },
-    height: Number
+    height: Number,
+    // https://github.com/yisibl/blog/issues/3
+    autocomplete: 'off',
+    autocapitalize: 'off',
+    autocorrect: 'off',
+    spellcheck: 'false'
   },
   watch: {
     value (newVal) {
