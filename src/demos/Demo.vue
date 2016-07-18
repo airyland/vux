@@ -213,6 +213,10 @@
       <cell title="Close icon" value="关闭字符" link="component/close"></cell>
     </group>
 
+     <group title="Plugins" title-color="#04be02">
+      <cell title="Device" value="简单设备信息检测" link="plugin/device"></cell>
+    </group>
+
     <group title="TODO" title-color="#04be02" v-if="showTodo">
       <cell title="短信验证组件" link="component/address"></cell>
       <cell title="图片验证码" link="component/rater"></cell>

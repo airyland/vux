@@ -82,11 +82,18 @@ import Previewer from './demos/Previewer'
 import IconLoading from './demos/Icon-loading'
 import XSwiper from './demos/x-swiper'
 
+// plugins
+import Device from './plugins/device'
+import DeviceDemo from './demos/device'
+
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
 
 Vue.use(Router)
 Vue.config.devtools = true
+
+// $device
+Vue.use(Device)
 
 const router = new Router()
 
@@ -327,6 +334,9 @@ router.map({
   },
   '/component/x-swiper': {
     component: XSwiper
+  },
+  '/plugin/device': {
+    component: DeviceDemo
   }
 })
 
