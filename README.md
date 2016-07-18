@@ -41,7 +41,7 @@
 ## Importance notice
 
 + This is not an Official Project of Wechat.
-+ If you are interested in improving vux, just email me to join [Vux@Teambition](https://www.teambition.com/project/56f37e966d3fb3142656b764/tasks/scrum/56f37e969aff544c264e23ec)
++ [For 中文开发者]提问题时若使用`不能用`,`没效果`,`有问题`,`报错`此类模糊表达，但又没给出任何代码截图报错的，将**绝对**不会有任何反馈。([参阅 《提问的智慧》](https://github.com/tvvocold/How-To-Ask-Questions-The-Smart-Way))
 
 ## Demo
 

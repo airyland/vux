@@ -8,12 +8,7 @@
 </template>
 
 <script>
-import GroupTitle from '../group-title'
-
 export default {
-  components: {
-    GroupTitle
-  },
   props: {
     title: String,
     titleColor: String

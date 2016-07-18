@@ -44,6 +44,7 @@ export default {
 .vux-flexbox .vux-flexbox-item {
   flex: 1;
   min-width: 20px;
+  width: 0%;
 }
 .vux-flexbox-item > .vux-flexbox {
   width: 100%;

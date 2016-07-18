@@ -29,13 +29,14 @@
     </scroller>
 
     <divider>A Vertical Scroller with scrollbar y</divider>
-    <scroller lock-x scrollbar-y height="200px" :prevent-default="false">
+    <scroller lock-x scrollbar-y height="200px" :prevent-default="false" v-ref:scroller>
       <div class="box2">
-        <p v-for="i in 80">placeholder {{i}}</p>
+        <p v-for="i in 80" v-if="showList1">placeholder {{i}}</p>
+        <p v-for="i in 10" v-if="!showList1">placeholder {{i}}</p>
         <x-button style="margin:10px 0;" type="primary">Button</x-button>
       </div>
     </scroller>
-
+    <x-button @click="changeList" type="primary">show another list</x-button>
   </div>
 </template>
 
@@ -48,6 +49,21 @@ export default {
     Divider,
     Spinner,
     XButton
+  },
+  data () {
+    return {
+      showList1: true
+    }
+  },
+  methods: {
+    changeList () {
+      this.showList1 = false
+      this.$nextTick(() => {
+        this.$refs.scroller.reset({
+          top: 0
+        })
+      })
+    }
   }
 }
 </script>

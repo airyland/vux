@@ -14,18 +14,21 @@ export default {
     if (this.slotString !== '') {
       this.showTimeString = false
     }
-    this.clocker = new Clocker(this.time)
-    .on('tick', event => {
-      this.update(event)
-      this.$emit('on-tick', event)
-    })
-    .on('finish', () => {
-      this.timeString = '00:00:00'
-      this.$emit('on-finish')
-    })
-    .start()
+    this.render()
   },
   methods: {
+    render () {
+      this.clocker = new Clocker(this.time)
+      .on('tick', event => {
+        this.update(event)
+        this.$emit('on-tick', event)
+      })
+      .on('finish', () => {
+        this.timeString = '00:00:00'
+        this.$emit('on-finish')
+      })
+      .start()
+    },
     update (event) {
       if (this.showTimeString) {
         this.timeString = event.strftime(this.format)
@@ -45,6 +48,12 @@ export default {
     format: {
       type: String,
       default: '%D 天 %H 小时 %M 分 %S 秒'
+    }
+  },
+  watch: {
+    time () {
+      this.clocker.remove()
+      this.render()
     }
   },
   data () {
