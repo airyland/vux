@@ -1,14 +1,24 @@
 <template>
-  <div>
+  <div style="height: 1000px">
     <group>
       <switch :value.sync="show" title="Toggle"></switch>
     </group>
+    <group style="padding-top: 300px">
+      <switch :value.sync="showNoScroll" title="背景不可滚动"></switch>
+    </group>
     <dialog :show.sync="show" class="dialog-demo">
-      <p class="dialog-title">I'm a Dialog.</p>
+      <p class="dialog-title">I'm a bg scroll Dialog.</p>
       <div class="img-box">
         <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
       </div>
       <span class="vux-close" @click="show=false"></span>
+    </dialog>
+    <dialog :show.sync="showNoScroll" class="dialog-demo" :scroll="false">
+      <p class="dialog-title">I'm a no scroll Dialog.</p>
+      <div class="img-box">
+        <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
+      </div>
+      <span class="vux-close" @click="showNoScroll=false"></span>
     </dialog>
   </div>
 </template>
@@ -30,7 +40,8 @@ export default {
   },
   data () {
     return {
-      show: false
+      show: false,
+      showNoScroll: false
     }
   }
 }
