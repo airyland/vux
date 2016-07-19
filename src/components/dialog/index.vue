@@ -1,5 +1,5 @@
 <template>
-  <div class="weui_dialog_alert" v-show="show" :transition="maskTransition">
+  <div class="weui_dialog_alert" v-show="show" :transition="maskTransition" @touchmove="!this.scroll && $event.preventDefault()">
     <div class="weui_mask" @click="hideOnBlur && (show = false)"></div>
     <div class="weui_dialog" v-show="show" :transition="dialogTransition">
       <slot></slot>
@@ -22,7 +22,11 @@ export default {
       type: String,
       default: 'vux-dialog'
     },
-    hideOnBlur: Boolean
+    hideOnBlur: Boolean,
+    scroll: {
+      type: Boolean,
+      default: true
+    }
   },
   watch: {
     show (val) {
