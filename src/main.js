@@ -84,7 +84,7 @@ import XSwiper from './demos/x-swiper'
 
 // plugins
 import Device from './plugins/device'
-import DeviceDemo from './demos/device'
+import DeviceDemo from './demos/Device'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
