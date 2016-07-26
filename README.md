@@ -47,6 +47,7 @@
 
 <p align="center">
   <a href="https://vux.li/?x-page=github_readme">https://vux.li</a><br/>
+  (You can view the demos' codes in <a href="https://github.com/airyland/vux/tree/master/src/demos"><strong>/src/demos</strong></a>)<br/>
   <img src="https://raw.githubusercontent.com/airyland/vux/master/assets/qr.png" width="300">
 </p>
 
