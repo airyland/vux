@@ -220,12 +220,11 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 + [WeUI](https://github.com/weui/weui)
 + [FrozenUI](https://github.com/frozenui/frozenui)
 + [Ant Design](https://github.com/ant-design/ant-design)
-+ Ant UI
++ [Ant Design Mobile](http://github.com/ant-design/ant-design-mobile)
 + [XScroll](https://github.com/huxiaoqi567/xscroll)
 + [Ionic](https://github.com/driftyco/ionic)
 + [SUI Mobile](https://github.com/sdc-alibaba/SUI-Mobile)
 + [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe)
-+ Spmjs.io (off service)
 
 ## License
 
