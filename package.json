@@ -26,7 +26,7 @@
     "test": "karma start build/karma.conf.js --single-run",
     "deploy": "gh-pages -d site",
     "xdeploy": "npm run build && gh-pages -d site",
-    "xbuild": "webpack --progress --hide-modules --colors --config build/webpack.npm.conf.js && rimraf dist/components && node build/build-components && node build/build-styles && node build/nano-css",
+    "xbuild": "mkdirp dist/styles && webpack --progress --hide-modules --colors --config build/webpack.npm.conf.js && rimraf dist/components && node build/build-components && node build/build-styles && node build/nano-css",
     "xpublish": "npm run xbuild && npm publish && npm run xdeploy"
   },
   "main": "dist/vux.js",
@@ -100,6 +100,7 @@
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
-    "webpack-hot-middleware": "^2.6.0"
+    "webpack-hot-middleware": "^2.6.0",
+    "mkdirp": "^0.5.1"
   }
 }
