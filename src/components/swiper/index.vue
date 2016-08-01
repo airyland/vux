@@ -77,11 +77,7 @@ export default {
         if (this.aspectRatio) {
           return this.$el.offsetWidth * this.aspectRatio + 'px'
         }
-        if (this.list.length) {
-          return '180px'
-        } else {
-          return 'auto'
-        }
+        return '180px'
       }
     }
   },
