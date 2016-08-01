@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "rimraf site && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js && cd site/static && mkdir vendors && cd ../../ && cp -r src/assets/* site/static/ && cp CNAME site/ && cp favicon.ico site/",
+    "build": "rimraf site && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js && cd site/static && mkdir vendors && cd ../../ && cp -r src/assets/* site/static/ && cp CNAME site/ && cp favicon.ico site/ && node build/common-nano-css.js site/static",
     "test": "karma start build/karma.conf.js --single-run",
     "deploy": "gh-pages -d site",
     "xdeploy": "npm run build && gh-pages -d site",
