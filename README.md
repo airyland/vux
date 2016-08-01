@@ -188,6 +188,9 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 
+# you can also custom host and port
+npm run dev -- --host 127.0.0.1 --port 8085
+
 # build for production with minification
 npm run build
 
