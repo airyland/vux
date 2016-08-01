@@ -3,12 +3,13 @@
 * node build/common-nano-css.js dist/static
 * if you want to run after `npm run build`, add `&& node build/common-nano-css.js dist/static` to the end of  build command.
 */
+'use strict'
 
 const cssnano = require('cssnano')
 const fs = require('fs')
 const path = require('path')
 
-let PATH = path.join(__dirname, '../', process.argv[2]) || 'dist/static'
+let PATH = path.join(__dirname, '../', process.argv[2]) || 'dist/static/css'
 
 fs.readdir(PATH, function(err, files) {
   if (err) {
