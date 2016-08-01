@@ -21,8 +21,12 @@ export default {
     this._roller.roll(this.number)
   },
   watch: {
-    number (val) {
-      this._roller.roll(val)
+    number (newVal, oldVal) {
+      if (newVal.toString().length !== oldVal.toString().length) {
+        this._roller.width = newVal.toString().length
+        this._roller.setWidth()
+      }
+      this._roller.roll(newVal)
     }
   }
 }
