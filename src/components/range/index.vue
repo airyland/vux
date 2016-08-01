@@ -51,7 +51,8 @@ export default {
       minHTML: this.minHTML,
       maxHTML: this.maxHTML,
       disable: this.disabled,
-      disabledOpacity: this.disabledOpacity
+      disabledOpacity: this.disabledOpacity,
+      initialBarWidth: getComputedStyle(this.$el.parentNode).width.replace('px', '') - 80
     }
     if (this.step !== 0) {
       options.step = this.step

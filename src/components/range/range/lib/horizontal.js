@@ -25,9 +25,19 @@ module.exports = Horizontal
  * @api public
  */
 
+function getWidth (el) {
+  let width = getComputedStyle(el, null)['width']
+  if (width === '100%' || width === 'auto') {
+    return 0
+  }
+  return parseInt(width, 10)
+}
+
 function Horizontal () {
   Powerange.apply(this, arguments)
-  if (this.options.step) this.step(this.slider.offsetWidth, this.handle.offsetWidth)
+  if (this.options.step) {
+    this.step(getWidth(this.slider) || this.options.initialBarWidth, getWidth(this.handle))
+  }
   this.setStart(this.options.start)
 }
 

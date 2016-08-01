@@ -54,11 +54,17 @@
     </group>
 
     <group title="two way binding">
-      <cell title="Default" :inline-desc="'value: '+data12" primary="content">
+      <cell title="Default" primary="content">
         <range slot="value" :value.sync="data12"></range>
       </cell>
-      <cell title="Default" :inline-desc="'value: '+data12" primary="content">
+      <cell title="Default" primary="content">
         <range slot="value" :value.sync="data12"></range>
+      </cell>
+    </group>
+
+    <group :title="'use v-show ' + 'data: ' + data13">
+      <cell title="Default" primary="content">
+        <range slot="value" :step="10" :value.sync="data13" v-show="showData13"></range>
       </cell>
     </group>
 
@@ -75,6 +81,11 @@ export default {
     GroupTitle,
     Cell
   },
+  ready () {
+    setTimeout(() => {
+      this.showData13 = true
+    }, 2000)
+  },
   data () {
     return {
       data1: 0,
@@ -87,7 +98,10 @@ export default {
       data8: 25,
       data9: 50,
       data10: 14,
-      data11: 30
+      data11: 30,
+      data12: 0,
+      data13: 10,
+      showData13: false
     }
   }
 }
