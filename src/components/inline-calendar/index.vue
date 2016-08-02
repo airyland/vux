@@ -83,6 +83,9 @@ export default {
     },
     disablePast () {
       this.render(this.year, this.month, this.value)
+    },
+    disableFuture () {
+      this.render(this.year, this.month, this.value)
     }
   },
   methods: {
@@ -109,7 +112,8 @@ export default {
         rangeBegin: this.startDate,
         rangeEnd: this.endDate,
         returnSixRows: this.returnSixRows,
-        disablePast: this.disablePast
+        disablePast: this.disablePast,
+        disableFuture: this.disableFuture
       })
       this.days = data.days
       this.year = data.year

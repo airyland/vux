@@ -63,5 +63,9 @@ export default () => ({
   disablePast: {
     type: Boolean,
     default: false
+  },
+  disableFuture: {
+    type: Boolean,
+    default: false
   }
 })

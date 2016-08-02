@@ -55,7 +55,7 @@ function isBetween (value, start, end) {
   return isGte && isLte
 }
 
-export function getDays ({year, month, value, isRange = false, rangeBegin, rangeEnd, returnSixRows = true, disablePast = false}) {
+export function getDays ({year, month, value, isRange = false, rangeBegin, rangeEnd, returnSixRows = true, disablePast = false, disableFuture = false}) {
   let today = format(new Date(), 'YYYY-MM-DD')
   let startOfToday = new Date()
   startOfToday.setHours(0, 0, 0, 0)
@@ -74,6 +74,15 @@ export function getDays ({year, month, value, isRange = false, rangeBegin, range
       rangeBegin = startOfToday
     } else {
       rangeBegin = Math.max(startOfToday.getTime(), getTime(rangeBegin))
+    }
+  }
+
+  // if disableFuture === true
+  if (disableFuture) {
+    if (!rangeEnd) {
+      rangeEnd = startOfToday
+    } else {
+      rangeEnd = Math.min(startOfToday.getTime(), getTime(rangeEnd))
     }
   }
 

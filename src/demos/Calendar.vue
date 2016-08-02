@@ -6,6 +6,9 @@
     <group title="set value as TODAY">
       <calendar :value.sync="demo2" title="Calendar" disable-past></calendar>
     </group>
+    <group title="disable future">
+      <calendar :value.sync="demo3" title="Calendar" disable-future></calendar>
+    </group>
   </div>
 </template>
 
@@ -21,7 +24,8 @@ export default {
   data () {
     return {
       demo1: '',
-      demo2: 'TODAY'
+      demo2: 'TODAY',
+      demo3: 'TODAY'
     }
   }
 }
