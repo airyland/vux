@@ -109,8 +109,8 @@ export default {
         year: year,
         month: month,
         value: this.value,
-        rangeBegin: this.startDate,
-        rangeEnd: this.endDate,
+        rangeBegin: this.convertDate(this.startDate),
+        rangeEnd: this.convertDate(this.endDate),
         returnSixRows: this.returnSixRows,
         disablePast: this.disablePast,
         disableFuture: this.disableFuture

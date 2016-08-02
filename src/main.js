@@ -60,6 +60,7 @@ import Countdown from './demos/Countdown'
 import XHeader from './demos/X-header'
 import Inview from './demos/Inview'
 import InlineCalendar from './demos/Inline-calendar'
+import InlineCalendarStartDate from './demos/Inline-calendar-start-date'
 import Checker from './demos/Checker'
 import ScrollerFull from './demos/Scroller-full'
 import NumberRoller from './demos/Number-roller'
@@ -271,6 +272,9 @@ router.map({
   },
   '/component/inline-calendar': {
     component: InlineCalendar
+  },
+  '/component/inline-calendar-start-date': {
+    component: InlineCalendarStartDate
   },
   '/component/checker': {
     component: Checker
