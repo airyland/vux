@@ -65,7 +65,7 @@ import Checker from './demos/Checker'
 import ScrollerFull from './demos/Scroller-full'
 import NumberRoller from './demos/Number-roller'
 import Timeline from './demos/Timeline'
-import Steps from './demos/Steps'
+import Step from './demos/Step'
 import Tabbar from './demos/Tabbar'
 import TabbarLink from './demos/TabbarLink'
 import Panel from './demos/Panel'
@@ -291,8 +291,8 @@ router.map({
   '/component/timeline': {
     component: Timeline
   },
-  '/component/steps': {
-    component: Steps
+  '/component/step': {
+    component: Step
   },
   '/component/tabbar': {
     component: Tabbar

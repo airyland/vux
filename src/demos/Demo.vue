@@ -233,7 +233,7 @@
     </group>
 
     <group title="Todo" title-color="#04be02" style="display: none;">
-      <cell title="Step" link="component/radio">
+      <cell title="Step" link="component/step">
         <span class="demo-icon" slot="icon">&#xe62c;</span>
       </cell>
     </group>
