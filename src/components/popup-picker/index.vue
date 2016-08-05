@@ -12,7 +12,7 @@
           <flexbox-item style="text-align:right;padding-right:15px;line-height:44px;" @click="onHide(true)">完成</flexbox-item>
         </flexbox>
       </div>
-      <picker :data="data" :value.sync="tempValue" :columns="columns" :container="'#vux-popup-picker-'+uuid" @on-change="onPickerChange"></picker>
+      <picker :data="data" :value.sync="tempValue" :columns="columns" :container="'#vux-popup-picker-'+uuid"></picker>
     </div>
   </popup>
 </template>
@@ -84,9 +84,6 @@ export default {
     onPopupHide (val) {
       this.tempValue = getObject(this.value)
       this.$emit('on-hide', this.closeType)
-    },
-    onPickerChange (val) {
-      this.value = getObject(val)
     }
   },
   watch: {
