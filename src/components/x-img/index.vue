@@ -21,7 +21,7 @@ export default {
     this.$el.setAttribute('id', id)
     this.$el.setAttribute('data-src', this.src)
     this.blazy = new Blazy({
-      scroller: this.scroller,
+      container: this.container,
       selector: `#${id}`,
       offset: _this.offset,
       errorClass: _this.errorClass,
@@ -48,7 +48,10 @@ export default {
       defaut: 100
     },
     class: String,
-    scroller: Object
+    container: {
+      type: String,
+      default: 'window'
+    }
   },
   beforeDestroy () {
     this.blazy && this.blazy.destroy()
