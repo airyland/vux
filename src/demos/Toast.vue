@@ -8,7 +8,7 @@
       <switch title="设置出现时间1s" :value.sync="show5"></switch>
       <switch title="long text" :value.sync="show6"></switch>
     </group>
-    <toast :show.sync="show1" >默认提示</toast>
+    <toast :show.sync="show1" @on-hide="onHide">默认提示</toast>
     <toast :show.sync="show2" type="text">处理成功</toast>
     <toast :show.sync="show3" type="cancel">取消操作</toast>
     <toast :show.sync="show4" type="warn">禁止操作</toast>
@@ -24,6 +24,11 @@ export default {
     Toast,
     Group,
     Switch
+  },
+  methods: {
+    onHide () {
+      console.log('on hide')
+    }
   },
   data () {
     return {

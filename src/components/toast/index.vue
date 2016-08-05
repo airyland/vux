@@ -48,6 +48,7 @@ export default {
         clearTimeout(this.timeout)
         this.timeout = setTimeout(() => {
           this.show = false
+          this.$emit('on-hide')
         }, this.time)
       }
     }
