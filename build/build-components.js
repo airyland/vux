@@ -5,6 +5,8 @@ var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var buildConfig = require(path.resolve(__dirname, './components'))
 
+var pkg = require(path.join(__dirname, '../package.json'))
+
 var getConfig = function () {
   var config = {
     entry: {},
@@ -73,7 +75,11 @@ var getConfig = function () {
       'process.env': {
         NODE_ENV: '"production"'
       }
-    })
+    }),
+    new webpack.BannerPlugin(`Vux v${pkg.version} (https://vux.li)
+Licensed under the ${pkg.license} license`, {
+    entryOnly: false
+    }),
   ])
   return config
 }

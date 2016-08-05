@@ -2,6 +2,9 @@ var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var config = require('./webpack.npm.base.conf')
 
+var path = require('path')
+var pkg = require(path.join(__dirname, '../package.json'))
+
 // naming output files with hashes for better caching.
 // dist/index.html will be auto-generated with correct URLs.
 config.output.filename = '[name].js'
@@ -27,6 +30,10 @@ config.plugins = (config.plugins || []).concat([
     'process.env': {
       NODE_ENV: '"production"'
     }
+  }),
+  new webpack.BannerPlugin(`Vux v${pkg.version} (https://vux.li)
+Licensed under the ${pkg.license} license`, {
+    entryOnly: false
   }),
   new webpack.optimize.UglifyJsPlugin({
     compress: {
