@@ -18,6 +18,10 @@
   width: 100%;
 }
 
+.range-bar-disabled {
+  opacity: @range-opacity-disabled;
+}
+
 .range-quantity {
   background-color: @range-color-bar-active;
   border-radius: 15px;
@@ -58,43 +62,6 @@
 }
 
 /**
- * Vertical slider style.
- */
-
-.vertical {
-  height: 100%;
-  width: 4px;
-}
-
-.vertical .range-quantity {
-  bottom: 0;
-  height: 0;
-  position: absolute;
-  width: 100%;
-}
-
-.vertical .range-handle {
-  bottom: 0;
-  left: -13px;
-  top: auto;
-}
-
-.vertical .range-min,
-.vertical .range-max {
-  left: -10px;
-  right: auto;
-  top: auto;
-}
-
-.vertical .range-min {
-  bottom: -30px;
-}
-
-.vertical .range-max {
-  top: -30px;
-}
-
-/**
  * Style for disabling text selection on handle move.
  */
 
@@ -108,5 +75,4 @@
 
 .range-disabled {
   cursor: default;
-  opacity: @range-opacity-disabled;
 }

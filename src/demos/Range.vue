@@ -21,7 +21,15 @@
       <cell title="min and max" :inline-desc="'value is: '+data6" primary="content">
         <range :value.sync="data6" :min="7" :max="77"></range>
       </cell>
+      <cell title="change min and max" primary="content">
+        <range :value.sync="dynamiValue" :min="min" :max="max"></range>
+      </cell>
+      <cell title="current value" :value="dynamiValue + ''"></cell>
     </group>
+    <br>
+    <div style="margin:0 10px;">
+      <x-button type="primary" @click="update">update min and max</x-button>
+    </div>
 
     <group title="Step">
       <cell title="step=10" :inline-desc="'valus is: '+data7" primary="content">
@@ -72,14 +80,15 @@
 </template>
 
 <script>
-import { Range, Group, GroupTitle, Cell } from '../components'
+import { XButton, Range, Group, GroupTitle, Cell } from '../components'
 
 export default {
   components: {
     Range,
     Group,
     GroupTitle,
-    Cell
+    Cell,
+    XButton
   },
   ready () {
     setTimeout(() => {
@@ -101,7 +110,16 @@ export default {
       data11: 30,
       data12: 0,
       data13: 10,
-      showData13: false
+      showData13: false,
+      min: 0,
+      max: 100,
+      dynamiValue: 0
+    }
+  },
+  methods: {
+    update () {
+      this.min = Math.floor(Math.random() * 30)
+      this.max = Math.floor(50 + Math.random() * 100)
     }
   }
 }

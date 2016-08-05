@@ -62,6 +62,18 @@ export default {
   watch: {
     value (val) {
       this.range.setStart(val)
+    },
+    'min + max': function () {
+      let value = this.value
+      if (value < this.min) {
+        value = this.min
+      }
+      if (value > this.max) {
+        value = this.max
+      }
+      this.range.reInit({min: this.min, max: this.max, value: value})
+      this.value = value
+      this.range.setStart(this.value)
     }
   }
 }
