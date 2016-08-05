@@ -171,13 +171,19 @@ Powerange.prototype.setRange = function (min, max) {
 
 Powerange.prototype.setValue = function (offset, size) {
   var part = percentage.from(parseFloat(offset), size)
-  var value = percentage.of(part, this.options.max - this.options.min) + this.options.min
+  if (offset === '0px' || size === 0) {
+    value = 0
+  } else {
+    var value = percentage.of(part, this.options.max - this.options.min) + this.options.min
+    value = (this.options.decimal) ? (Math.round(value * 100) / 100) : Math.round(value)
+
+    if (value > this.options.max) {
+      value = this.options.max
+    }
+  }
+
   var changed = false
 
-  value = (this.options.decimal) ? (Math.round(value * 100) / 100) : Math.round(value)
-  if (value > this.options.max) {
-    value = this.options.max
-  }
   changed = this.element.value !== value
 
   this.element.value = value
