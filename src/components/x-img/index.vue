@@ -50,10 +50,7 @@ export default {
     },
     class: String,
     scroller: Object,
-    container: {
-      type: String,
-      default: 'window'
-    }
+    container: String
   },
   beforeDestroy () {
     this.blazy && this.blazy.destroy()
