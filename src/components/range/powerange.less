@@ -10,7 +10,7 @@
  */
 
 .range-bar {
-  background-color: #a9acb1;
+  background-color: @range-color-bar-default;
   border-radius: 15px;
   display: block;
   height: 1px;
@@ -19,8 +19,7 @@
 }
 
 .range-quantity {
-  background-color: #017afd;
-  background-color: #04BE02;
+  background-color: @range-color-bar-active;
   border-radius: 15px;
   display: block;
   height: 100%;
@@ -36,7 +35,6 @@
   top: -13px;
   position: absolute;
   width: 30px;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
@@ -48,7 +46,6 @@
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
   width: 24px;
 }
 
@@ -102,11 +99,6 @@
  */
 
 .unselectable {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -116,4 +108,5 @@
 
 .range-disabled {
   cursor: default;
+  opacity: @range-opacity-disabled;
 }

@@ -29,10 +29,7 @@ export default {
       default: 0
     },
     disabled: Boolean,
-    disabledOpacity: {
-      type: Number,
-      default: 0.75
-    },
+    disabledOpacity: Number,
     rangeBarHeight: {
       type: Number,
       default: 1
@@ -70,7 +67,8 @@ export default {
 }
 </script>
 
-<style>
-@import './powerange.css';
+<style lang="less">
+@import '../../styles/variable.less';
+@import './powerange.less';
 </style>
 

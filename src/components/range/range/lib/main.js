@@ -252,7 +252,9 @@ Powerange.prototype.disable = function () {
   if (this.options.min === this.options.max || this.options.min > this.options.max || this.options.disable) {
     this.mouse.unbind()
     this.touch.unbind()
-    this.slider.style.opacity = this.options.disableOpacity
+    if (this.options.disableOpacity) {
+      this.slider.style.opacity = this.options.disableOpacity
+    }
     classes(this.handle).add('range-disabled')
   }
 }
