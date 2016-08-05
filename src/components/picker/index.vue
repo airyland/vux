@@ -152,6 +152,9 @@ export default {
           // emit on-change after rerender
           this.$nextTick(() => {
             this.$emit('on-change', this.getValue())
+            if (JSON.stringify(this.getValue()) !== JSON.stringify(this.value)) {
+              this.value = this.getValue()
+            }
           })
         })
       } else {
