@@ -1,7 +1,7 @@
 <template>
   <div>
     <group title="textarea">
-      <x-textarea :max="200" placeholder="请填写详细信息"></x-textarea>
+      <x-textarea :max="20" placeholder="请填写详细信息"></x-textarea>
     </group>
     <group title="和input一起使用">
       <x-input placeholder="标题"></x-input>

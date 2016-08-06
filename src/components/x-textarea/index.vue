@@ -65,7 +65,7 @@ export default {
   },
   computed: {
     count () {
-      let len = this.value.replace('\n', 'aa').length
+      let len = this.value.replace(/\n/g, 'aa').length
       return len > this.max ? this.max : len
     },
     textareaStyle () {
