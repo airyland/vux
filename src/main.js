@@ -82,6 +82,7 @@ import Card from './demos/Card'
 import Previewer from './demos/Previewer'
 import IconLoading from './demos/Icon-loading'
 import XSwiper from './demos/x-swiper'
+import Test from './demos/Test'
 
 // plugins
 import Device from './plugins/device'
@@ -341,6 +342,9 @@ router.map({
   },
   '/plugin/device': {
     component: DeviceDemo
+  },
+  '/test': {
+    component: Test
   }
 })
 
