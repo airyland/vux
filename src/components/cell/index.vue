@@ -28,7 +28,7 @@ export default {
   },
   props: {
     title: String,
-    value: String,
+    value: [String, Number],
     isLink: Boolean,
     inlineDesc: String,
     primary: {
