@@ -1,5 +1,5 @@
 <template>
-  <popup-picker :columns="hideDistrict ? 2 : 3" :data="list" :title="title" :value.sync="value" show-name :inline-desc="inlineDesc" :placeholder="placeholder" @on-hide="emitHide" @on-show="$emit('on-show')"></popup-picker>
+  <popup-picker :fixed-columns="hideDistrict ? 2 : 0" :columns="3" :data="list" :title="title" :value.sync="value" show-name :inline-desc="inlineDesc" :placeholder="placeholder" @on-hide="emitHide" @on-show="$emit('on-show')"></popup-picker>
 </template>
 
 <script>

@@ -33,6 +33,9 @@
     <x-button @click="setData1" type="primary">set Value to ["USA", "usa002", "0005"]</x-button>
     <x-button @click="setData2" type="primary">set Value to ["china", "china002", "gz"]</x-button>
     <x-button @click="setList" type="primary">set List</x-button>
+    <br>
+    <group-title>3列的数据，只显示两列</group-title>
+    <picker :data='year7' :fixed-columns="2" :columns=3 :value.sync='year8Value' @on-change='change'></picker>
   </div>
 </template>
 
@@ -168,7 +171,8 @@ export default {
         value: '0006',
         parent: 'usa002'
       }],
-      year7Value: []
+      year7Value: [],
+      year8Value: []
     }
   }
 }

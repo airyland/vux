@@ -1,9 +1,12 @@
 import filter from 'array-filter'
 
 const Manager = class {
-  constructor (data, count) {
+  constructor (data, count, fixedColumns) {
     this.data = data
     this.count = count
+    if (fixedColumns) {
+      this.fixedColumns = fixedColumns
+    }
   }
 
   getChildren (value) {
@@ -33,7 +36,8 @@ const Manager = class {
       }
     }
     var datas = []
-    for (var i = 0; i < 8; i++) {
+    const max = this.fixedColumns || 8
+    for (var i = 0; i < max; i++) {
       if (i === 0) {
         datas.push(this.getFirstColumn())
       } else {

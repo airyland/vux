@@ -22,7 +22,7 @@ export default {
   created () {
     if (this.columns !== 0) {
       const length = this.columns
-      this.store = new Manager(this.data, length)
+      this.store = new Manager(this.data, length, this.fixedColumns)
       this.data = this.store.getColumns(this.value)
     }
   },
@@ -36,6 +36,10 @@ export default {
       type: Array
     },
     columns: {
+      type: Number,
+      default: 0
+    },
+    fixedColumns: {
       type: Number,
       default: 0
     },
@@ -183,7 +187,7 @@ export default {
       } else {
         if (this.columns !== 0) {
           const length = this.columns
-          this.store = new Manager(newData, length)
+          this.store = new Manager(newData, length, this.fixedColumns)
           this.data = this.store.getColumns(this.value)
         }
       }

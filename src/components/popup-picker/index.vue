@@ -12,7 +12,13 @@
           <flexbox-item style="text-align:right;padding-right:15px;line-height:44px;" @click="onHide(true)">完成</flexbox-item>
         </flexbox>
       </div>
-      <picker :data="data" :value.sync="tempValue" @on-change="onPickerChange" :columns="columns" :container="'#vux-popup-picker-'+uuid"></picker>
+      <picker
+      :data="data"
+      :value.sync="tempValue"
+      @on-change="onPickerChange"
+      :columns="columns"
+      :fixed-columns="fixedColumns"
+      :container="'#vux-popup-picker-'+uuid"></picker>
     </div>
   </popup>
 </template>
@@ -54,6 +60,10 @@ export default {
     },
     placeholder: String,
     columns: {
+      type: Number,
+      default: 0
+    },
+    fixedColumns: {
       type: Number,
       default: 0
     },
@@ -108,6 +118,13 @@ export default {
         }
       }
       this.$emit('on-shadow-change', getObject(val))
+    }
+  },
+  watch: {
+    value (val) {
+      if (JSON.stringify(val) !== JSON.stringify(this.tempValue)) {
+        this.tempValue = getObject(val)
+      }
     }
   },
   data () {
