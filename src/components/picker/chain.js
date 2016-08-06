@@ -33,7 +33,9 @@ const Manager = class {
         }
       }
     }
-    return datas
+    return datas.filter((item) => {
+      return item.length > 0
+    })
   }
 }
 

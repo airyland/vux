@@ -83,6 +83,7 @@ import Previewer from './demos/Previewer'
 import IconLoading from './demos/Icon-loading'
 import XSwiper from './demos/x-swiper'
 import Test from './demos/Test'
+import Issue189 from './demos/Issue189'
 
 // plugins
 import Device from './plugins/device'
@@ -345,6 +346,9 @@ router.map({
   },
   '/test': {
     component: Test
+  },
+  '/issue/189': {
+    component: Issue189
   }
 })
 
