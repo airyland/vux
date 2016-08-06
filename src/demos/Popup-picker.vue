@@ -23,18 +23,28 @@
       <x-button type="primary" @click="changeList21">push方式更改列表</x-button>
     </div>
 
+    <br>
+    <divider>Control the visibility of popup-picker</divider>
+    <div style="margin: 0 15px;">
+      <x-button @click="showPopupPicker = true" type="primary">Show PopupPicker. value: {{value5 | json}}</x-button>
+    </div>
+    <group>
+      <popup-picker :show.sync="showPopupPicker" :show-cell="false" title="TEST" :data="[['1', '2', '3', '4', '5']]" :value.sync="value5"></popup-picker>
+    </group>
+
   </div>
 </template>
 
 <script>
-import { PopupPicker, Group, Picker, XButton } from '../components'
+import { PopupPicker, Group, Picker, XButton, Divider } from '../components'
 
 export default {
   components: {
     PopupPicker,
     Group,
     Picker,
-    XButton
+    XButton,
+    Divider
   },
   methods: {
     changeList10 () {
@@ -128,7 +138,9 @@ export default {
       value1: ['iPhone'],
       value2: ['iPhone', '华为3'],
       value3: [],
-      value4: []
+      value4: [],
+      showPopupPicker: false,
+      value5: ['2']
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <cell :title="title" primary="content" is-link :inline-desc="inlineDesc" @click="onClick">
+  <cell v-show="showCell" :title="title" primary="content" is-link :inline-desc="inlineDesc" @click="onClick">
     <span class="vux-popup-picker-value" v-if="!showName && value.length">{{value | array2string}}</span>
     <span class="vux-popup-picker-value" v-else="showName && value.length">{{value | value2name data}}</span>
     <span v-if="!value.length && placeholder" v-html="placeholder"></span>
@@ -64,7 +64,12 @@ export default {
       }
     },
     showName: Boolean,
-    inlineDesc: String
+    inlineDesc: String,
+    showCell: {
+      type: Boolean,
+      default: true
+    },
+    show: Boolean
   },
   methods: {
     onClick () {
@@ -107,7 +112,6 @@ export default {
   },
   data () {
     return {
-      show: false,
       tempValue: getObject(this.value),
       closeType: false,
       currentData: JSON.stringify(this.data) // used for detecting if it is after data change
