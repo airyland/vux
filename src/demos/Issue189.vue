@@ -2,7 +2,11 @@
   <div>
     <divider>issue 189</divider>
     <group>
-      <popup-picker title="test" :data="list3" :columns="3" :value.sync="value3"></popup-picker>
+      <popup-picker title="test" :data="list3" :columns="3" :value.sync="value3" @on-shadow-change="onShadowChange" placeholder="Please select"></popup-picker>
+    </group>
+    <picker v-if="fuck" :data="list3" :columns="3" :value.sync="value3"></picker>
+    <group>
+      <cell title="value" :value="value3 | json"></cell>
     </group>
     <br>
     <div style="margin: 0 10px;">
@@ -13,7 +17,7 @@
 </template>
 
 <script>
-import { Group, PopupPicker, XButton, Divider } from '../components'
+import { Cell, Group, Picker, PopupPicker, XButton, Divider } from '../components'
 const list =
 [{
   name: '中国',
@@ -75,12 +79,17 @@ const list =
 
 export default {
   components: {
+    Cell,
     PopupPicker,
     Group,
     XButton,
-    Divider
+    Divider,
+    Picker
   },
   methods: {
+    onShadowChange (val) {
+      console.log('on-shadow-change', val)
+    },
     update () {
       this.list3 = [{
         name: 'a',

@@ -12,7 +12,7 @@
           <flexbox-item style="text-align:right;padding-right:15px;line-height:44px;" @click="onHide(true)">完成</flexbox-item>
         </flexbox>
       </div>
-      <picker :data="data" :value.sync="tempValue" @on-change="onChange" :columns="columns" :container="'#vux-popup-picker-'+uuid"></picker>
+      <picker :data="data" :value.sync="tempValue" @on-change="onPickerChange" :columns="columns" :container="'#vux-popup-picker-'+uuid"></picker>
     </div>
   </popup>
 </template>
@@ -78,31 +78,39 @@ export default {
       }
       if (!type) {
         this.closeType = false
-        this.tempValue = getObject(this.value)
+        if (this.value.length > 0) {
+          this.tempValue = getObject(this.value)
+        }
       }
     },
     onPopupHide (val) {
-      this.tempValue = getObject(this.value)
+      if (this.value.length > 0) {
+        this.tempValue = getObject(this.value)
+      }
       this.$emit('on-hide', this.closeType)
     },
-    onChange (val, oldVal) {
-      if (JSON.stringify(this.tempValue) !== JSON.stringify(val)) {
-        this.value = getObject(val)
+    onPickerChange (val) {
+      if (JSON.stringify(this.value) !== JSON.stringify(val)) {
+        // if has value, replace it
+        if (this.value.length) {
+          const nowData = JSON.stringify(this.data)
+          if (nowData !== this.currentData) {
+            this.value = getObject(val)
+          }
+          this.currentData = nowData
+        } else { // if no value, stay quiet
+          // if set to auto update, do update the value
+        }
       }
-    }
-  },
-  watch: {
-    value (val) {
-      if (JSON.stringify(val) !== JSON.stringify(this.tempValue)) {
-        this.tempValue = getObject(val)
-      }
+      this.$emit('on-shadow-change', getObject(val))
     }
   },
   data () {
     return {
       show: false,
       tempValue: getObject(this.value),
-      closeType: false
+      closeType: false,
+      currentData: JSON.stringify(this.data) // used for detecting if it is after data change
     }
   }
 }

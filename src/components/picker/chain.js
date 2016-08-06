@@ -18,24 +18,44 @@ const Manager = class {
     })
   }
 
+  getPure (obj) {
+    return JSON.parse(JSON.stringify(obj))
+  }
+
   getColumns (value) {
+    // check is data contains the values
+    if (value.length > 0) {
+      const matchCount = this.getPure(this.data).filter((item) => {
+        return this.getPure(value).indexOf(item.value) > -1
+      }).length
+      if (matchCount < this.getPure(value).length) {
+        value = []
+      }
+    }
     var datas = []
-    for (var i = 0; i < this.count; i++) {
+    for (var i = 0; i < 8; i++) {
       if (i === 0) {
         datas.push(this.getFirstColumn())
       } else {
         // 没有数据时，取得上一级的第一个
         if (!value[i]) {
-          var topValue = datas[i - 1][0].value
-          datas.push(this.getChildren(topValue))
+          if (typeof datas[i - 1][0] === 'undefined') {
+            break
+          } else {
+            const topValue = datas[i - 1][0].value
+            datas.push(this.getChildren(topValue))
+          }
         } else {
           datas.push(this.getChildren(value[i - 1]))
         }
       }
     }
-    return datas.filter((item) => {
+    const list = datas.filter((item) => {
       return item.length > 0
     })
+    // correct the column
+    this.count = list.length
+    return list
   }
 }
 

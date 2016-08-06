@@ -81,7 +81,9 @@ export default {
           itemClass: _this.item_class,
           onSelect (value) {
             _this.value.$set(i, value)
-            _this.$emit('on-change', _this.getValue())
+            if (!this.columns || (this.columns && _this.getValue().length === _this.store.count)) {
+              _this.$emit('on-change', _this.getValue())
+            }
             if (_this.columns !== 0) {
               _this.renderChain(i + 1)
             }
@@ -93,7 +95,7 @@ export default {
       }
     },
     renderChain (i) {
-      if (this.columns === 0) {
+      if (!this.columns) {
         return
       }
 
@@ -129,6 +131,11 @@ export default {
         }
       }
       return data
+    },
+    emitValueChange (val) {
+      if (!this.columns || (this.columns && val.length === this.store.count)) {
+        this.$emit('on-change', val)
+      }
     }
   },
   data () {
@@ -164,9 +171,10 @@ export default {
           this.render(newData, this.value)
           // emit on-change after rerender
           this.$nextTick(() => {
-            this.$emit('on-change', this.getValue())
+            this.emitValueChange(this.getValue())
+
             if (JSON.stringify(this.getValue()) !== JSON.stringify(this.value)) {
-              if (this.getValue().length > 0) {
+              if (!this.columns || (this.columns && this.getValue().length === this.store.count)) {
                 this.value = this.getValue()
               }
             }
