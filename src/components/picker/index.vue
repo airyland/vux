@@ -67,6 +67,13 @@ export default {
       }
 
       for (let i = 0; i < data.length; i++) {
+        /**
+        * Still don't know why this happens
+        */
+        if (!document.querySelector(_this.getId(i))) {
+          return
+        }
+
         _this.scroller[i] && _this.scroller[i].destroy()
         _this.scroller[i] = new Scroller(_this.getId(i), {
           data: data[i],
@@ -114,8 +121,12 @@ export default {
     },
     getValue () {
       let data = []
-      for (var i = 0; i < this.data.length; i++) {
-        data.push(this.scroller[i].value)
+      for (let i = 0; i < this.data.length; i++) {
+        if (this.scroller[i]) {
+          data.push(this.scroller[i].value)
+        } else {
+          return []
+        }
       }
       return data
     }
@@ -131,11 +142,13 @@ export default {
     value (val, oldVal) {
       // render all the scroller for chain datas
       if (this.columns !== 0) {
-        if (val !== oldVal) {
-          this.data = this.store.getColumns(val)
-          this.$nextTick(function () {
-            this.render(this.data, val)
-          })
+        if (val.length > 0) {
+          if (JSON.stringify(val) !== JSON.stringify(oldVal)) {
+            this.data = this.store.getColumns(val)
+            this.$nextTick(function () {
+              this.render(this.data, val)
+            })
+          }
         }
       } else {
         for (let i = 0; i < val.length; i++) {
@@ -153,7 +166,9 @@ export default {
           this.$nextTick(() => {
             this.$emit('on-change', this.getValue())
             if (JSON.stringify(this.getValue()) !== JSON.stringify(this.value)) {
-              this.value = this.getValue()
+              if (this.getValue().length > 0) {
+                this.value = this.getValue()
+              }
             }
           })
         })
