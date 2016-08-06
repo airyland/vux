@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div class="weui_tab">
+    <div class="weui_tab_bd">
+      <p v-for="i in 100">{{i}}</p>
+    </div>
     <tabbar>
       <!--use v-link-->
       <tabbar-item v-link="{path:'/component/cell'}">
@@ -29,6 +32,11 @@
 import { Tabbar, TabbarItem } from '../components'
 
 export default {
+  ready () {
+    document.querySelector('body').style.height = '100%'
+    document.querySelector('html').style.height = '100%'
+    document.querySelector('#app').style.height = '100%'
+  },
   components: {
     Tabbar,
     TabbarItem
