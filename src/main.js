@@ -85,6 +85,7 @@ import XSwiper from './demos/x-swiper'
 import Test from './demos/Test'
 import Issue189 from './demos/Issue189'
 import Issue461 from './demos/Issue461'
+import Issue414 from './demos/Issue414'
 
 // plugins
 import Device from './plugins/device'
@@ -357,6 +358,9 @@ router.map({
   },
   '/issue/461': {
     component: Issue461
+  },
+  '/issue/414': {
+    component: Issue414
   }
 })
 
