@@ -20,6 +20,9 @@
     </group>
     <toast :show.sync="show7" text="Hello World"></toast>
     <toast :show.sync="show8" type="text" text="Hello World"></toast>
+    <group title="As a plugin(>v1.3.0)">
+      <switch title="default" :value.sync="show9" @on-change="onChange"></switch>
+    </group>
   </div>
 </template>
 
@@ -34,6 +37,23 @@ export default {
   methods: {
     onHide () {
       console.log('on hide')
+    },
+    onChange (val) {
+      const _this = this
+      if (val) {
+        this.$vux.toast.show({
+          text: 'Hello World',
+          onShow () {
+            console.log('Plugin: I\'m showing')
+          },
+          onHide () {
+            console.log('Plugin: I\'m hiding')
+            _this.show9 = false
+          }
+        })
+      } else {
+        this.$vux.toast.hide()
+      }
     }
   },
   data () {
@@ -45,7 +65,8 @@ export default {
       show5: false,
       show6: false,
       show7: false,
-      show8: false
+      show8: false,
+      show9: false
     }
   }
 }
