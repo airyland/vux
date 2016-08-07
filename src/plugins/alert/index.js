@@ -1,28 +1,29 @@
-import ToastComponent from '../../components/toast'
+import AlertComponent from '../../components/alert'
 
 let $vm
 let watcher
 
 export default {
-  install (vue, options) {
-    const Toast = vue.extend(ToastComponent)
-
+  install (vue) {
     if (!$vm) {
-      $vm = new Toast({
+      const Alert = vue.extend(AlertComponent)
+      $vm = new Alert({
         el: document.createElement('div')
       })
       document.body.appendChild($vm.$el)
     }
 
-    const toast = {
+    const alert = {
       show (options) {
         // destroy watcher
         watcher && watcher()
-        if (typeof options === 'string') {
-          $vm.text = options
-        } else if (typeof options === 'object') {
+        if (typeof options === 'object') {
           for (let i in options) {
-            $vm[i] = options[i]
+            if (i !== 'content') {
+              $vm[i] = options[i]
+            } else {
+              $vm.$el.querySelector('.weui_dialog_bd').innerHTML = options['content']
+            }
           }
         }
         if (options.onShow || options.onHide) {
@@ -41,10 +42,10 @@ export default {
     // all Vux's plugins are included in this.$vux
     if (!vue.$vux) {
       vue.$vux = {
-        toast
+        alert
       }
     } else {
-      vue.$vux.toast = toast
+      vue.$vux.alert = alert
     }
 
     vue.mixin({

@@ -90,6 +90,7 @@ import Issue461 from './demos/Issue461'
 import Device from './plugins/device'
 import DeviceDemo from './demos/Device'
 import ToastPlugin from './plugins/toast'
+import AlertPlugin from './plugins/alert'
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
@@ -100,6 +101,7 @@ Vue.config.devtools = true
 // $device
 Vue.use(Device)
 Vue.use(ToastPlugin)
+Vue.use(AlertPlugin)
 
 const router = new Router()
 

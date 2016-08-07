@@ -20,7 +20,7 @@
     </group>
     <toast :show.sync="show7" text="Hello World"></toast>
     <toast :show.sync="show8" type="text" text="Hello World"></toast>
-    <group title="As a plugin(>v1.3.0)">
+    <group title="As a plugin(>=v0.1.3)">
       <switch title="default" :value.sync="show9" @on-change="onChange"></switch>
     </group>
   </div>
