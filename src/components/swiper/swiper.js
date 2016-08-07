@@ -161,7 +161,7 @@ class Swiper {
       if (me._options.direction === 'horizontal' && noScrollerY) {
         distance = distanceX
       }
-      if (((me._options.minMovingDistance && distance >= me._options.minMovingDistance) || !me._options.minMovingDistance) && noScrollerY) {
+      if (((me._options.minMovingDistance && Math.abs(distance) >= me._options.minMovingDistance) || !me._options.minMovingDistance) && noScrollerY) {
         me._setTransfrom(distance)
       }
 
@@ -178,6 +178,9 @@ class Swiper {
       }
 
       distance = me.getDistance(distance)
+      if (distance !== 0 && me._options.minMovingDistance && Math.abs(distance) < me._options.minMovingDistance) {
+        return
+      }
       if (distance > me._options.threshold) {
         me.move(-1)
       } else if (distance < -me._options.threshold) {
