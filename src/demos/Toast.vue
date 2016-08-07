@@ -14,6 +14,12 @@
     <toast :show.sync="show4" type="warn">禁止操作</toast>
     <toast :show.sync="show5" :time="1000">1s关闭</toast>
     <toast :show.sync="show6" type="text" width="20em">Talk is cheap, show me the code.</toast>
+    <group title="prop:text">
+      <switch title="default" :value.sync="show7"></switch>
+      <switch title="text" :value.sync="show8"></switch>
+    </group>
+    <toast :show.sync="show7" text="Hello World"></toast>
+    <toast :show.sync="show8" type="text" text="Hello World"></toast>
   </div>
 </template>
 
@@ -37,7 +43,9 @@ export default {
       show3: false,
       show4: false,
       show5: false,
-      show6: false
+      show6: false,
+      show7: false,
+      show8: false
     }
   }
 }

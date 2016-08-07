@@ -3,7 +3,8 @@
     <div class="weui_mask_transparent"></div>
       <div class="weui_toast" :style="{width: width}" :class="toastClass">
         <i class="weui_icon_toast" v-show="type !== 'text'"></i>
-        <p class="weui_toast_content"><slot></slot></p>
+        <p class="weui_toast_content" v-if="text" v-html="text"></p>
+        <p class="weui_toast_content" v-else><slot></slot></p>
       </div>
   </div>
 </template>
@@ -30,7 +31,8 @@ export default {
     width: {
       type: String,
       default: '7.6em'
-    }
+    },
+    text: String
   },
   computed: {
     toastClass () {
