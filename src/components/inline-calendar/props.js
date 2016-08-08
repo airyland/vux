@@ -48,9 +48,7 @@ export default () => ({
   },
   weeksList: {
     type: Array,
-    coerce (val) {
-      return val && val.length ? val : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
-    }
+    default: () => ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
   },
   customSlotFn: {
     type: Function,
