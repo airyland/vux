@@ -1,7 +1,7 @@
 <template>
-  <div v-show="show" class="vux-toast" :transition="transition">
-    <div class="weui_mask_transparent"></div>
-      <div class="weui_toast" :style="{width: width}" :class="toastClass">
+  <div class="vux-toast">
+    <div class="weui_mask_transparent" v-show="show"></div>
+      <div class="weui_toast" :style="{width: width}" :class="toastClass" v-show="show" :transition="transition">
         <i class="weui_icon_toast" v-show="type !== 'text'"></i>
         <p class="weui_toast_content" v-if="text" v-html="text"></p>
         <p class="weui_toast_content" v-else><slot></slot></p>
@@ -65,7 +65,6 @@ export default {
 @import '../../styles/weui/widget/weui_tips/weui_toast';
 
 .weui_toast {
-  z-index: 200;
   transform: translateX(-50%);
   margin-left: 0!important;
 }
