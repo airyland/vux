@@ -29,8 +29,6 @@ var TYPE_MAP = {
   minute: ['mm', 'm']
 }
 
-var BODY = document.body
-
 var MASK = null
 
 var CURRENT_PICKER
@@ -72,7 +70,7 @@ function renderScroller (el, data, value, fn) {
 function showMask () {
   if (!MASK) {
     MASK = toElement(MASK_TEMPLATE)
-    BODY.appendChild(MASK)
+    document.body.appendChild(MASK)
 
     MASK.addEventListener('click', function () {
       CURRENT_PICKER && CURRENT_PICKER.hide()
@@ -151,8 +149,7 @@ DatetimePicker.prototype = {
       self._show(newValueMap)
     } else {
       var container = self.container = toElement(config.template)
-
-      BODY.appendChild(container)
+      document.body.appendChild(container)
 
       self.container.style.display = 'block'
 
