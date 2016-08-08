@@ -7,7 +7,6 @@ var buildConfig = require(path.resolve(__dirname, './components'))
 var mkdirp = require('mkdirp')
 
 var touch = function (filePath) {
-  console.log(filePath)
   mkdirp(filePath, function () {
     fs.open(filePath + '/style.css', 'w', function (err) {})
   })
