@@ -186,6 +186,9 @@ export default {
         })
       } else {
         if (this.columns !== 0) {
+          if (!newData.length) {
+            return
+          }
           const length = this.columns
           this.store = new Manager(newData, length, this.fixedColumns)
           this.data = this.store.getColumns(this.value)
