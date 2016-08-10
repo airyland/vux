@@ -46,12 +46,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/variable.less';
+
 .vux-header {
   position: relative;
   padding: 3px 0;
   box-sizing: border-box;
-  background-color: #35495e;
+  background-color: @x-header-background-color;
 }
 .vux-header .vux-header-title,.vux-header h1 {
   margin: 0 88px;
@@ -65,10 +67,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: #fff
-}
-.vux-header .vux-header-title a,.vux-header .vux-header-title a:active,.vux-header h1 a,.vux-header h1 a:active {
-  color: #fff
+  color: @x-header-title-color
 }
 .vux-header .vux-header-left,.vux-header .vux-header-right {
   position: absolute;
@@ -76,12 +75,12 @@ export default {
   display: block;
   font-size: 14px;
   line-height: 21px;
-  color: #ccc
+  color: @x-header-text-color;
 }
 .vux-header .vux-header-left a,.vux-header .vux-header-left button,.vux-header .vux-header-right a,.vux-header .vux-header-right button {
   float: left;
   margin-right: 8px;
-  color: #ccc
+  color: @x-header-text-color;
 }
 .vux-header .vux-header-left a:active,.vux-header .vux-header-left button:active,.vux-header .vux-header-right a:active,.vux-header .vux-header-right button:active {
   opacity: .5
@@ -100,7 +99,7 @@ export default {
   left: 0;
   width: 12px;
   height: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid @x-header-arrow-color;
   border-width: 1px 0 0 1px;
   margin-left: 3px;
   margin-top: 1px;
