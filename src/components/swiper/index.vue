@@ -5,7 +5,7 @@
       <div class="vux-swiper-item" v-for="item in list" @click="clickListItem(item)">
         <a href="javascript:">
           <div class="vux-img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
-          <p class="vux-swiper-desc">{{item.title}}</p>
+          <p class="vux-swiper-desc" v-if="showDescMask">{{item.title}}</p>
         </a>
       </div>
     </div>
@@ -93,6 +93,10 @@ export default {
       default: 'horizontal'
     },
     showDots: {
+      type: Boolean,
+      default: true
+    },
+    showDescMask: {
       type: Boolean,
       default: true
     },
