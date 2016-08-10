@@ -10,8 +10,7 @@
 
 <script>
 import Scroller from './scroller'
-import Flexbox from '../flexbox'
-import FlexboxItem from '../flexbox-item'
+import { Flexbox, FlexboxItem } from '../flexbox'
 import Manager from './chain'
 
 export default {

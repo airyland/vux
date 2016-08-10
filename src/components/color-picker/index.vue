@@ -12,8 +12,7 @@
 
 <script>
 import Icon from '../icon'
-import Flexbox from '../flexbox'
-import FlexboxItem from '../flexbox-item'
+import { Flexbox, FlexboxItem } from '../flexbox'
 
 const sizeMap = {
   'large': 40,
