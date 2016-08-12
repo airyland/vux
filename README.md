@@ -48,135 +48,18 @@
 	<img src="https://raw.githubusercontent.com/airyland/vux/master/assets/components.png" width="980">
 </p>
 
-## Usage by importing UMD modules
+## Quick Start
 
 ``` bash
 # install vue-cli
 npm install -g vue-cli
 
-# init a webpack project
-vue init webpack my-project
+# init a webpack project with vuxjs/template
+vue init vuxjs/webpack my-project
 cd my-project
+# or cnpm install
 npm install
-npm install vux
 npm run dev
-```
-
-``` html
-<template>
-  <div>
-    <group>
-      <cell title="vue" value="cool"></cell>
-    </group>
-  </div>
-</template>
-
-<script>
-import Group from 'vux/dist/components/group'
-import Cell from 'vux/dist/components/cell'
-
-export default {
-  components: {
-    Group,
-    Cell
-  }
-}
-</script>
-
-<style>
-@import '~vux/dist/vux.css';
-</style>
-```
-
-## Usage by importing .vue file
-
-> make sure less and less-loader are installed
-
-> add a js loader in webpack.base.conf.js
-
-``` js
-{
-  test: /vux.src.*?js$/,
-  loader: 'babel'
-}
-```
-
-> import the components you need
-
-``` js
-import Group from 'vux/src/components/group'
-import Cell from 'vux/src/components/cell'
-```
-
-> you can use a shorter path by adding resolve.alias in webpack.base.conf.js
-
-``` js
-resolve: {
-  alias: {
-    'vux-components': 'vux/src/components/'
-  }
-}
-```
-
-> now you can import like this:
-
-``` js
-import Group from 'vux-components/group'
-import Cell from 'vux-components/cell'
-```
-
-## Usage by including scripts
-
-> You can download vux from the [releases](https://github.com/airyland/vux/releases)
-
-> or  install from bower `bower install vux`
-
-
-> checkout examples/scripts.html
-
-``` html
-<!--include Vux style-->
-<link rel="stylesheet" href="vux/vux.css">
-<!--include Vue yourself-->
-<script src="vue.js"></script>
-
-<div id="demo">
-  <group>
-    <cell title="vue" value="cool"></cell>
-  </group>
-</div>
-
-<!--include the components you need-->
-<script src="vux/components/dist/group/index.js"></script>
-<script src="vux/components/dist/cell/index.js"></script>
-
-<script>
-// register components
-Vue.component('group', vuxGroup)
-Vue.component('cell', vuxCell)
-
-new Vue({
-  el: '#demo'
-})
-</script>
-```
-
-
-## Remove click delays
-
-``` js
-const FastClick = require('fastclick')
-FastClick.attach(document.body)
-```
-
-## Async loading Components
-
-``` js
-// import Countup from './demos/Countup'
-
-const Countup = function (resolve) {
-  require(['./demos/Countup'], resolve) // webpack will do the rest things
-}
 ```
 
 ## Development Setup
