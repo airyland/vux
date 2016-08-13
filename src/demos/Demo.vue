@@ -103,6 +103,9 @@
       <cell title="icon" link="component/icon">
         <span class="demo-icon" slot="icon">&#xe619;</span>
       </cell>
+      <cell title="divider" link="component/divider">
+        <span class="demo-icon" slot="icon">&#xe65d;</span>
+      </cell>
       <cell title="panel" link="component/panel">
         <span class="demo-icon" slot="icon">&#xe658;</span>
       </cell>

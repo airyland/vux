@@ -86,6 +86,7 @@ import Test from './demos/Test'
 import Issue189 from './demos/Issue189'
 import Issue461 from './demos/Issue461'
 import Issue414 from './demos/Issue414'
+import Divider from './demos/Divider'
 
 // plugins
 import Device from './plugins/device'
@@ -361,6 +362,9 @@ router.map({
   },
   '/issue/414': {
     component: Issue414
+  },
+  '/component/divider': {
+    component: Divider
   }
 })
 

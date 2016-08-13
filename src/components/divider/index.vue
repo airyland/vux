@@ -5,11 +5,13 @@
 </template>
 
 <style>
+/**
+* http://www.daqianduan.com/4258.html
+*/
 .vux-divider {
   display: table;
   white-space: nowrap;
   height: auto;
-  margin: '';
   overflow: hidden;
   line-height: 1;
   text-align: center;
