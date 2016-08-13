@@ -1,6 +1,6 @@
 <template>
   <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': $parent.index === index}" @click="onItemClick">
-    <div class="weui_tabbar_icon" :class="{'vux-reddot': showDot}">
+    <div class="weui_tabbar_icon" :class="[iconClass || $parent.iconClass, {'vux-reddot': showDot}]">
       <slot name="icon"></slot>
     </div>
     <p class="weui_tabbar_label">
@@ -20,7 +20,8 @@ export default {
       type: Boolean,
       default: false
     },
-    link: [String, Object]
+    link: [String, Object],
+    iconClass: String
   },
   events: {
     'on-item-click': function () {

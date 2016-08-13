@@ -8,7 +8,10 @@
 import { parentMixin } from '../../mixins/multi-items'
 
 export default {
-  mixins: [parentMixin]
+  mixins: [parentMixin],
+  props: {
+    iconClass: String
+  }
 }
 </script>
 
