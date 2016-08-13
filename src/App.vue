@@ -1,37 +1,41 @@
 <template>
-  <div class="weui_tab">
-    <loading :show="isLoading"></loading>
-    <div class="weui_tab_bd vux-fix-safari-overflow-scrolling">
+  <div style="height:100%;">
+    <view-box>
+      <!--top slot-->
+      <loading :show="isLoading" slot="top"></loading>
+      <!--default slot-->
       <router-view
       transition
       transition-mode="out-in"></router-view>
-    </div>
-    <tabbar class="vux-demo-tabbar" icon-class="vux-center" v-show="!isTabbarDemo">
-      <tabbar-item v-link="{path:'/'}" :selected="route.path === '/'">
-        <span class="demo-icon-22 vux-demo-tabbar-icon-home" slot="icon">&#xe637;</span>
-        <span slot="label">Home</span>
-      </tabbar-item>
-      <tabbar-item v-link="{path:'/demo'}" :selected="isDemo">
-        <span class="demo-icon-22" slot="icon">&#xe633;</span>
-        <span slot="label"><span v-if="componentName" class="vux-demo-tabbar-component">{{componentName}}</span><span v-else>Demos</span></span>
-      </tabbar-item>
-      <tabbar-item v-link="{path:'/project/donate'}" :selected="route.path === '/project/donate'" show-dot>
-        <span class="demo-icon-22" slot="icon">&#xe630;</span>
-        <span slot="label">Donate</span>
-      </tabbar-item>
-    </tabbar>
+      <!--bottom slot-->
+      <tabbar class="vux-demo-tabbar" icon-class="vux-center" v-show="!isTabbarDemo" slot="bottom">
+        <tabbar-item v-link="{path:'/'}" :selected="route.path === '/'">
+          <span class="demo-icon-22 vux-demo-tabbar-icon-home" slot="icon">&#xe637;</span>
+          <span slot="label">Home</span>
+        </tabbar-item>
+        <tabbar-item v-link="{path:'/demo'}" :selected="isDemo">
+          <span class="demo-icon-22" slot="icon">&#xe633;</span>
+          <span slot="label"><span v-if="componentName" class="vux-demo-tabbar-component">{{componentName}}</span><span v-else>Demos</span></span>
+        </tabbar-item>
+        <tabbar-item v-link="{path:'/project/donate'}" :selected="route.path === '/project/donate'" show-dot>
+          <span class="demo-icon-22" slot="icon">&#xe630;</span>
+          <span slot="label">Donate</span>
+        </tabbar-item>
+      </tabbar>
+    </view-box>
   </div>
 </template>
 
 <script>
 import store from './vuex/store'
-import { Tabbar, TabbarItem, Loading } from './components'
+import { Tabbar, TabbarItem, Loading, ViewBox } from './components'
 
 export default {
   components: {
     Tabbar,
     TabbarItem,
-    Loading
+    Loading,
+    ViewBox
   },
   store: store,
   vuex: {

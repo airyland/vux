@@ -68,6 +68,7 @@ import Card from './card'
 import Previewer from './previewer'
 import { XSwiper, XSwiperItem } from './x-swiper'
 import NumberRoller from './number-roller'
+import ViewBox from './view-box'
 
 const vux = {
   Radio,
@@ -143,7 +144,8 @@ const vux = {
   Previewer,
   XSwiper,
   XSwiperItem,
-  NumberRoller
+  NumberRoller,
+  ViewBox
 }
 
 module.exports = vux
