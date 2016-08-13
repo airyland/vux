@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import App from './App'
 
 import Wechat from './Wechat'
-import Home from './Home'
 import Yi from './yi'
 import Icon from './demos/Icon'
 import Switch from './demos/Switch'
@@ -27,7 +26,6 @@ import Actionsheet from './demos/Actionsheet'
 import Clocker from './demos/Clocker'
 import Rater from './demos/Rater'
 import PopupPicker from './demos/Popup-picker'
-import Address from './demos/Address'
 import Toast from './demos/Toast'
 import Loading from './demos/Loading'
 import Alert from './demos/Alert'
@@ -107,9 +105,31 @@ Vue.use(AlertPlugin)
 
 const router = new Router()
 
+/**
+* sync router params
+*/
+import { sync } from 'vuex-router-sync'
+import store from './vuex/store'
+
+/**
+* sync router loading status
+*/
+const commit = store.commit || store.dispatch
+router.beforeEach(({ next }) => {
+  commit('UPDATE_LOADING', true)
+  setTimeout(next, 200)
+})
+router.afterEach(() => {
+  commit('UPDATE_LOADING', false)
+})
+
+sync(store, router)
+
 router.map({
   '/': {
-    component: Home
+    component: function (resolve) {
+      require(['./Home'], resolve)
+    }
   },
   '/demo/wechat': {
     component: Wechat
@@ -184,7 +204,9 @@ router.map({
     component: PopupPicker
   },
   '/component/address': {
-    component: Address
+    component: function (resolve) {
+      require(['./demos/Address'], resolve)
+    }
   },
   '/component/toast': {
     component: Toast

@@ -89,6 +89,7 @@
     "karma-webpack": "^1.7.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.2",
+    "mkdirp": "^0.5.1",
     "postcss": "^5.0.21",
     "postcss-less": "^0.14.0",
     "rimraf": "^2.5.0",
@@ -99,10 +100,11 @@
     "vue-loader": "^8.5.3",
     "vue-router": "^0.7.11",
     "vue-style-loader": "^1.0.0",
+    "vuex": "^0.8.2",
+    "vuex-router-sync": "^2.1.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
-    "mkdirp": "^0.5.1",
     "yargs": "^4.8.1"
   }
 }
