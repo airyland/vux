@@ -5,7 +5,7 @@
         <div class="vux-search-mask" @click="touch" v-show="!isFixed"></div>
         <div class="weui_search_inner">
           <i class="weui_icon_search"></i>
-          <input type="text" class="weui_search_input" id="search_input" placeholder="{{placeholder}}" autocomplete="off" required v-model="value" v-el:input/>
+          <input type="search" class="weui_search_input" id="search_input" placeholder="{{placeholder}}" autocomplete="off" required v-model="value" v-el:input/>
           <a href="javascript:" class="weui_icon_clear" id="search_clear" @click="clear"></a>
         </div>
         <label for="search_input" class="weui_search_text" id="search_text">
