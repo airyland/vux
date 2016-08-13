@@ -18,12 +18,12 @@ const parentMixin = {
   props: {
     index: {
       type: Number,
-      default: 0
+      default: -1
     }
   },
   watch: {
     index (val, oldVal) {
-      this.$children[oldVal].selected = false
+      oldVal > -1 && (this.$children[oldVal].selected = false)
       this.$children[val].selected = true
     }
   },
