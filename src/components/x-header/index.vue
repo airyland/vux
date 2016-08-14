@@ -1,10 +1,10 @@
 <template>
   <div class="vux-header">
     <div class="vux-header-left">
-      <a class="vux-header-back" @click.preventDefault v-show="leftOptions.showBack" @click="onClickBack">{{leftOptions.backText}}</a>
+      <a class="vux-header-back" @click.preventDefault v-show="leftOptions.showBack" :transition="transition" @click="onClickBack">{{leftOptions.backText}}</a>
       <slot name="left"></slot>
     </div>
-    <h1 class="vux-header-title"><slot></slot></h1>
+    <h1 class="vux-header-title"><span v-show="title" :transition="transition">{{title}}</span><slot></slot></h1>
     <div class="vux-header-right">
       <a class="vux-header-more" @click.preventDefault @click="$emit('on-click-more')" v-if="rightOptions.showMore"></a>
       <slot name="right"></slot>
@@ -25,6 +25,8 @@ export default {
         }
       }
     },
+    title: String,
+    transition: String,
     rightOptions: {
       type: Object,
       default () {
@@ -67,7 +69,10 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: @x-header-title-color
+  color: @x-header-title-color;
+}
+.vux-header .vux-header-title > span {
+  display: inline-block;
 }
 .vux-header .vux-header-left,.vux-header .vux-header-right {
   position: absolute;
@@ -115,5 +120,19 @@ export default {
 .vux-header .vux-header-right .vux-header-more:after {
   content: "\2022\0020\2022\0020\2022\0020";
   font-size: 16px;
+}
+.vux-header-fade-in-right-enter {
+  animation: fadeinR .5s;
+}
+.vux-header-fade-in-left-enter {
+  animation: fadeinL .5s;
+}
+@keyframes fadeinR{
+  0%{opacity:0;transform:translateX(30px);}
+  100%{opacity:1;transform:translateX(0);}
+}
+@keyframes fadeinL{
+  0%{opacity:0;transform:translateX(-30px);}
+  100%{opacity:1;transform:translateX(0);}
 }
 </style>
