@@ -20,7 +20,6 @@ export default {
   },
   ready () {
     this._mapPropsToChildComponent()
-    console.log(this.backgroundColor, this.current)
   },
   watch: {
     current () {
@@ -120,7 +119,6 @@ export default {
   color: #888;
 }
 
-
 .vux-step-item-main {
   display: inline-block;
   position: relative;
@@ -132,9 +130,5 @@ export default {
 .vux-step-item-main-process {
   font-weight: bold;
   color: #666;
-}
-
-.vux-step-item-icon {
-  
 }
 </style>

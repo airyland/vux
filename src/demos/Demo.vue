@@ -157,6 +157,9 @@
       <cell title="timeline" link="component/timeline">
         <span class="demo-icon" slot="icon">&#xe656;</span>
       </cell>
+      <cell title="step" link="component/step">
+        <span class="demo-icon" slot="icon">&#xe65e;</span>
+      </cell>
       <cell title="x-header" link="component/x-header">
         <span class="demo-icon" slot="icon">&#xe654;</span>
       </cell>

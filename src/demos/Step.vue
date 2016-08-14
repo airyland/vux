@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div style="width: 95%;margin: 0 auto;">
+    <br>
     <div>
       <step :current="step1" background-color='#fbf9fe'>
         <step-item title="步骤1" description="step 1"></step-item>
