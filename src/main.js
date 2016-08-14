@@ -40,6 +40,7 @@ import Cell from './demos/Cell'
 import Demo from './demos/Demo'
 import Emotion from './demos/Wechat-emotion'
 import Search from './demos/Search'
+import SearchStatic from './demos/Search-static'
 import Donate from './demos/Donate'
 import Thanks from './demos/Thanks'
 import Spinner from './demos/Spinner'
@@ -271,6 +272,9 @@ router.map({
   },
   '/component/search': {
     component: Search
+  },
+  '/component/search-static': {
+    component: SearchStatic
   },
   '/project/donate': {
     component: Donate

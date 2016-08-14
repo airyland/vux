@@ -1,22 +1,20 @@
 <template>
   <div>
     <img src="../assets/demo/filter_bg.jpg" style="width: 100%">
-    <search @result-click="resultClick" @on-change="getResult" :results="results" :value.sync="value" top="46px"></search>
     <br>
-    <group>
-      <cell title="static position demo" is-link link="/component/search-static"></cell>
-    </group>
+    <search @on-submit="onSubmit" :auto-fixed="autoFixed"></search>
+    <divider>set value</divider>
+    <search @on-submit="onSubmit" :auto-fixed="false" :value.sync="value2"></search>
   </div>
 </template>
 
 <script>
-import { Search, Group, Cell } from '../components'
+import { Search, Divider } from '../components'
 
 export default {
   components: {
     Search,
-    Group,
-    Cell
+    Divider
   },
   methods: {
     resultClick (item) {
@@ -24,12 +22,18 @@ export default {
     },
     getResult (val) {
       this.results = val ? getResult(this.value) : []
+    },
+    onSubmit (val) {
+      alert('on submit' + val)
     }
   },
   data () {
     return {
       results: [],
-      value: ''
+      autoFixed: false,
+      value: '',
+      value1: 'hello',
+      value2: 'vux'
     }
   }
 }
@@ -45,3 +49,11 @@ function getResult (val) {
   return rs
 }
 </script>
+
+<style scoped>
+p {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #888;
+}
+</style>
