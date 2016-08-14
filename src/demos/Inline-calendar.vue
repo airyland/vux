@@ -19,7 +19,7 @@
   :disable-past="disablePast"
   :disable-future="disableFuture">
   </inline-calendar>
-  <group title="control days" style="margin-top: 350px;">
+  <group title="control days" style="margin-top: 30px;">
     <switch :value.sync="disablePast" title="Disable Past"></switch>
     <switch :value.sync="disableFuture" title="Disable Future"></switch>
     <switch :value.sync="showLastMonth" title="Show Last Month"></switch>
@@ -48,7 +48,7 @@
   <group title="custom every day cell">
     <switch :value.sync="useCustomFn" inline-desc="Add red dot for dates with 8" title="add custom contents in day cell"></switch>
   </group>
- 
+
   <br>
 
   <divider>We can render a list of calendars order by month</divider>
@@ -126,11 +126,6 @@ module.exports = {
 
 <style lang="less" scoped>
 .inline-calendar-demo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
   background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(5px);
 }
 </style>
