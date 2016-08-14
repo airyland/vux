@@ -1,6 +1,9 @@
+// not a good way but works well
+window.__$vuxPopups = window.__$vuxPopups || {}
 const popupDialog = function (option) {
   this.uuid = Math.random().toString(36).substring(3, 8)
   this.params = {}
+  this.isShow = false
   if (Object.prototype.toString.call(option) === '[object Object]') {
     this.params = {
       input: option.input || '',
@@ -36,7 +39,9 @@ const popupDialog = function (option) {
 }
 
 popupDialog.prototype.onClickMask = function () {
-  this.hide(false)
+  if (this.params.hideOnBlur && this.isShow) {
+    this.hide(false)
+  }
 }
 
 popupDialog.prototype._bindEvents = function () {
@@ -47,6 +52,8 @@ popupDialog.prototype.show = function () {
   this.mask.classList.add('vux-popup-show')
   this.container.classList.add('vux-popup-show')
   this.params.onOpen && this.params.onOpen(this)
+  this.isShow = true
+  window.__$vuxPopups[this.uuid] = 1
 }
 
 popupDialog.prototype.hide = function (shouldCallback = true) {
@@ -55,6 +62,8 @@ popupDialog.prototype.hide = function (shouldCallback = true) {
     this.mask.classList.remove('vux-popup-show')
   }
   shouldCallback === false && this.params.onClose && this.params.hideOnBlur && this.params.onClose(this)
+  this.isShow = false
+  delete window.__$vuxPopups[this.uuid]
 }
 
 popupDialog.prototype.html = function (html) {
@@ -64,6 +73,7 @@ popupDialog.prototype.html = function (html) {
 popupDialog.prototype.destroy = function () {
   this.mask.removeEventListener('click', this.onClickMask.bind(this), false)
   this.mask && this.mask.parentNode && this.mask.parentNode.removeChild(this.mask)
+  delete window.__$vuxPopups[this.uuid]
 }
 
 export default popupDialog
