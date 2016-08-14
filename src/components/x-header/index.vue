@@ -128,11 +128,11 @@ export default {
   animation: fadeinL .5s;
 }
 @keyframes fadeinR{
-  0%{opacity:0;transform:translateX(30px);}
+  0%{opacity:0;transform:translateX(80px);}
   100%{opacity:1;transform:translateX(0);}
 }
 @keyframes fadeinL{
-  0%{opacity:0;transform:translateX(-30px);}
+  0%{opacity:0;transform:translateX(-80px);}
   100%{opacity:1;transform:translateX(0);}
 }
 </style>
