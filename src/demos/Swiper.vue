@@ -149,7 +149,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .text-scroll {
   border: 1px solid #ddd;
   border-left: none;
