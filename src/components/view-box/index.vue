@@ -1,6 +1,6 @@
 <template>
   <div class="weui_tab">
-    <slot name="top"></slot>
+    <slot name="header"></slot>
     <div class="weui_tab_bd vux-fix-safari-overflow-scrolling">
       <slot></slot>
     </div>
