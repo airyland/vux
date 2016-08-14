@@ -1,7 +1,7 @@
 <template>
   <div class="weui_tab">
     <slot name="header"></slot>
-    <div class="weui_tab_bd vux-fix-safari-overflow-scrolling">
+    <div class="weui_tab_bd vux-fix-safari-overflow-scrolling" v-el:view-box-body>
       <slot></slot>
     </div>
     <slot name="bottom"></slot>

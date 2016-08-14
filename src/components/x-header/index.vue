@@ -4,7 +4,7 @@
       <a class="vux-header-back" @click.preventDefault v-show="leftOptions.showBack" :transition="transition" @click="onClickBack">{{leftOptions.backText}}</a>
       <slot name="left"></slot>
     </div>
-    <h1 class="vux-header-title"><span v-show="title" :transition="transition">{{title}}</span><slot></slot></h1>
+    <h1 class="vux-header-title" @click="$emit('on-click-title')"><span v-show="title" :transition="transition">{{title}}</span><slot></slot></h1>
     <div class="vux-header-right">
       <a class="vux-header-more" @click.preventDefault @click="$emit('on-click-more')" v-if="rightOptions.showMore"></a>
       <slot name="right"></slot>
