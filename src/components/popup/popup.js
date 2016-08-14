@@ -54,7 +54,7 @@ popupDialog.prototype.hide = function (shouldCallback = true) {
   if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
     this.mask.classList.remove('vux-popup-show')
   }
-  shouldCallback === false && this.params.onClose && this.params.onClose(this)
+  shouldCallback === false && this.params.onClose && this.params.hideOnBlur && this.params.onClose(this)
 }
 
 popupDialog.prototype.html = function (html) {
