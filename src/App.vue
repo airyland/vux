@@ -160,12 +160,12 @@ body {
   animation-duration: 0.5s;
   animation-fill-mode: both;
   backface-visibility: hidden;
-  will-change: transform;
 }
 .vux-pop-out-enter,
 .vux-pop-out-leave,
 .vux-pop-in-enter,
 .vux-pop-in-leave {
+  will-change: transform;
   position: absolute;
   left: 0;
 }
