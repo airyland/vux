@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="../assets/demo/wechat_pay_10_24.jpg" style="display:block;"/>
+    <img src="../assets/demo/wechat_pay_10_24.jpg">
     <divider>Proudly sponsored by </divider>
   </div>
 </template>
