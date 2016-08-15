@@ -5,7 +5,7 @@
         <div class="vux-search-mask" @click="touch" v-show="!isFixed && autoFixed"></div>
         <div class="weui_search_inner">
           <i class="weui_icon_search"></i>
-          <input type="search" class="weui_search_input" id="search_input" :placeholder="placeholder" autocomplete="off" required v-model="value" v-el:input
+          <input type="search" class="weui_search_input" id="search_input" :placeholder="placeholder" autocomplete="off" :required="required" v-model="value" v-el:input
           @focus="isFocus = true"
           @blur="isFocus = false"/>
           <a href="javascript:" class="weui_icon_clear" id="search_clear" @click="clear"></a>
@@ -31,6 +31,10 @@
 <script>
 export default {
   props: {
+    required: {
+      type: Boolean,
+      default: true
+    },
     placeholder: {
       type: String,
       default: 'Search'
@@ -123,7 +127,7 @@ export default {
 .vux-search-box {
   width: 100%;
 }
-.vux-search_show {
+.weui_cells.vux-search_show {
   margin-top: 0;
   overflow-y: auto;
 }
