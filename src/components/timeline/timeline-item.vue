@@ -1,6 +1,6 @@
 <template>
 	<li class="vux-timeline-item">
-		<div :class=" {'vux-timeline-item-head': !isFirst,'vux-timeline-item-head-first': isFirst }" :style="headStyle">
+		<div :class="['vux-timeline-item-color', {'vux-timeline-item-head': !isFirst,'vux-timeline-item-head-first': isFirst }]" :style="headStyle">
 			<icon v-show="isFirst" type="success_no_circle" class="vux-timeline-item-checked"></icon>
 		</div>
 		<div class="vux-timeline-item-tail" :style="tailStyle"></div>
