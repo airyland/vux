@@ -11,7 +11,10 @@
 export default {
   props: {
     title: String,
-    titleColor: String
+    titleColor: String,
+    labelWidth: String,
+    labelAlign: String,
+    labelMarginRight: String
   }
 }
 </script>
