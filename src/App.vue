@@ -166,6 +166,7 @@ body {
 .vux-pop-in-enter,
 .vux-pop-in-leave {
   will-change: transform;
+  height: 100%;
   position: absolute;
   left: 0;
 }
