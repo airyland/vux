@@ -21,12 +21,8 @@ import Icon from '../icon'
 
 export default {
   props: {
-    title: {
-      type: String
-    },
-    description: {
-      type: String
-    },
+    title: String,
+    description: String,
     stepNumber: {
       type: Number
     },
@@ -34,12 +30,8 @@ export default {
       type: Boolean,
       default: false
     },
-    icon: {
-      type: String
-    },
-    status: {
-      type: String
-    },
+    icon: String,
+    status: String,
     tailWidth: {
       type: Object
     }

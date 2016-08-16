@@ -58,9 +58,7 @@ export default {
     name: String,
     placeholder: String,
     readonly: Boolean,
-    value: {
-      type: String
-    }
+    value: String
   }
 }
 </script>
