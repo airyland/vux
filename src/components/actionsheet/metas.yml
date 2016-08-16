@@ -1,0 +1,23 @@
+props:
+  show:
+    en: if show the component
+    zh-CN: 是否显示
+  show-cancel:
+    en: if show the cancel menu
+    zh-CN: 是否显示取消菜单
+  cancel-text:
+    en: text of cancel menu
+    zh-CN: 取消菜单文字
+  menus:
+    en: "menu items, for example: `{menu1: 'some text'}`, menu name with `.noop` will not trigger click events"
+    zh-CN: "菜单项列表，举例：`{menu1: '删除'}`，如果名字上带有`.noop`表明这是纯文本展示，不会触发事件，用于展示描述"
+events:
+  on-click-menu:
+    en: triggers when clicking on the menu
+    zh-CN: 点击菜单时触发，参数为当前菜单项对象
+  on-click-menu-{menuName}:
+    en: shortcut event for easily listening, you can listen on `on-click-menu-delete` if you have a menu named `delete`
+    zh-CN: 点击事件的快捷方式, 如果你有一个菜单名字为`delete`, 那么你可以监听 `on-click-menu-delete`
+  on-click-menu-cancel:
+    en: triggers when click on cancel menu
+    zh-CN: 点击取消菜单时触发
