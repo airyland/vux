@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="weui_cells_title" v-if="title" :style="{color:titleColor}" v-html="title"></div>
-    <div class="weui_cells" :class="{'vux-no-group-title':!title}">
+    <div class="weui_cells" :class="{'vux-no-group-title':!title}" :style="{marginTop: gutter}">
       <slot></slot>
     </div>
   </div>
@@ -14,7 +14,8 @@ export default {
     titleColor: String,
     labelWidth: String,
     labelAlign: String,
-    labelMarginRight: String
+    labelMarginRight: String,
+    gutter: String
   }
 }
 </script>
