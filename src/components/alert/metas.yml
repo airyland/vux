@@ -1,0 +1,22 @@
+extends:
+  - Dialog
+when:
+  -
+    - en: Show some information that user should pay attention to and should be closed only after user has clicked the close button
+    - zh-CN: 显示一个用户必须注意到并且必须点击按钮确认才能关闭的信息
+props:
+  show:
+    en: visibility of the component
+    zh-CN: 是否显示
+  title:
+    en: title
+    zh-CN: 弹窗标题
+  button-text:
+    en: button text
+    zh-CN: 按钮文字
+  mask-transition:
+    en: mask transition
+    zh-CN: 遮罩动画
+  dialog-transition:
+    en: dialog transition
+    zh-CN: 弹窗主体动画
