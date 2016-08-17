@@ -11,10 +11,12 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../styles/variable.less';
+
 .vux-badge {
   display: inline-block;
   text-align: center;
-  background: #f74c31;
+  background: @badge-bg-color;
   color: #fff;
   font-size: 12px;
   height: 16px;

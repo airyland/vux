@@ -16,7 +16,7 @@
           <span class="demo-icon-22 vux-demo-tabbar-icon-home" slot="icon">&#xe637;</span>
           <span slot="label">Home</span>
         </tabbar-item>
-        <tabbar-item v-link="{path:'/demo'}" :selected="isDemo">
+        <tabbar-item v-link="{path:'/demo'}" :selected="isDemo" badge="9">
           <span class="demo-icon-22" slot="icon">&#xe633;</span>
           <span slot="label"><span v-if="componentName" class="vux-demo-tabbar-component">{{componentName}}</span><span v-else>Demos</span></span>
         </tabbar-item>

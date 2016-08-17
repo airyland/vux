@@ -1,0 +1,34 @@
+tabbar:
+  props:
+    icon-class:
+      en: icon's classname
+      zh-CN: 图标的class名
+  slots:
+    default:
+      en: main content for tabbar items
+      zh-CN: tabbar主体内容，只允许tabbar-item
+tabbar-item:
+  props:
+    badge:
+      en: badge text, if not specified, the badge will not show
+      zh-CN: 徽标文字，不指定则不显示
+    show-dot:
+      en: if show the red dot
+      zh-CN: 是否显示红点
+    link:
+      en: the url for current tabbar item, can be a url or a `v-link` value
+      zh-CN: 链接，可以为普通url或者用`v-link`写法
+    icon-class:
+      en: the classname for current icon, if tabbar and tabbar-item both specify icon-class, tabbar-item's will be usePulldown
+      zh-CN: 图标类名，如果tabbar也同时定义了icon-class, 会使用tabbar-item的
+  slots:
+    icon:
+      en: icon area
+      zh-CN: 图标区域
+    label:
+      en: label text
+      zh-CN: 图标下方文字
+  events:
+    on-item-click:
+      en: triggers when tabbar item is click
+      zh-CN: 点击菜单项时触发
