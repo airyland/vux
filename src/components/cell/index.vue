@@ -15,6 +15,7 @@
       <slot name="value"></slot>
       <slot></slot>
     </div>
+    <slot name="child"></slot>
   </div>
 </template>
 
