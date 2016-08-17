@@ -59,7 +59,7 @@ const validators = {
 }
 export default {
   ready () {
-    if (!this.title && !this.placeholder) {
+    if (!this.title && !this.placeholder && !this.value) {
       console.warn('no title and no placeholder?')
     }
     if (this.equalWith) {
