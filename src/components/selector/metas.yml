@@ -1,0 +1,4 @@
+tips:
+  -
+    - en: key should be a `String` if you use key=>value
+    - zh-CN: 选项的key必须是字符串，使用数字会出现问题
