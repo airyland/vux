@@ -36,10 +36,7 @@ export default {
       twoWay: true
     },
     name: String,
-    placeholder: {
-      type: String,
-      default: ''
-    },
+    placeholder: String,
     rows: {
       type: Number,
       default: 3

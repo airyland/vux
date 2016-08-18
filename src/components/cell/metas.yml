@@ -19,7 +19,7 @@ slots:
     en: right area, you can use default slot instead of prop:value so you can use complexed layout
     zh-CN: 右侧内容，相比于value的优点是可以用复杂的样式或者调用组件
   value:
-    en: [deprecated] the same as default
+    en: [deprecated] the same as default slot
     zh-CN: [废弃] 同默认slot
   icon:
     en: icon area before title
