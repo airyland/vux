@@ -1,9 +1,12 @@
 {
   "multi_entry": [
     "button-tab",
-    "timeline",
+    "checker",
+    "flexbox",
+    "step",
     "tabbar",
-    "tab"
+    "tab",
+    "timeline"
   ],
   "ignore": [
     "style",
