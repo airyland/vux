@@ -81,6 +81,9 @@ export default {
     show: Boolean
   },
   methods: {
+    getNameValues () {
+      return value2name(this.value, this.data)
+    },
     onClick () {
       this.show = true
     },

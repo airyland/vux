@@ -14,7 +14,8 @@
     <br>
 
     <group title="chained columns">
-      <popup-picker :title="title3" :data="list3" :columns="3" :value.sync="value3"></popup-picker>
+      <popup-picker :title="title3" :data="list3" :columns="3" :value.sync="value3" v-ref:picker3></popup-picker>
+      <cell title="获取值对应的文字" :value="$refs.picker3.getNameValues()"></cell>
       <popup-picker :title="title4" :data="list3" :columns="3" :value.sync="value4" show-name></popup-picker>
     </group>
 
@@ -36,7 +37,7 @@
 </template>
 
 <script>
-import { PopupPicker, Group, Picker, XButton, Divider } from '../components'
+import { PopupPicker, Group, Cell, Picker, XButton, Divider } from '../components'
 
 export default {
   components: {
@@ -44,7 +45,8 @@ export default {
     Group,
     Picker,
     XButton,
-    Divider
+    Divider,
+    Cell
   },
   methods: {
     changeList10 () {
