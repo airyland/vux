@@ -1,0 +1,14 @@
+props:
+  show:
+    en: visibility of the component
+    zh-CN: 显示状态
+  text:
+    en: loading text
+    zh-CN: 提示文字
+  position:
+    en: position, default is `fixed`, you can use `absolute`
+    zh-CN: 定位方式，默认为`fixed`，在100%的布局下用`absolute`可以避免抖动
+slots:
+  default:
+    en: content area
+    zh-CN: 提示文字区域

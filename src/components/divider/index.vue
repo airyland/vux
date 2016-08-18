@@ -5,9 +5,6 @@
 </template>
 
 <style>
-/**
-* http://www.daqianduan.com/4258.html
-*/
 .vux-divider {
   display: table;
   white-space: nowrap;
