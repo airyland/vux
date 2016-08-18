@@ -1,0 +1,19 @@
+props:
+  header.title:
+    zh-CN: 头部标题，不指定则不显示
+  footer.title:
+    zh-CN: 底部标题，不指定则不显示
+  footer.link:
+    zh-CN: 底部链接，普通url或者v-link参数
+events:
+  on-click-footer:
+    zh-CN: 点击底部时触发
+  on-click-header:
+    zh-CN: 点击头部时触发
+slots:
+  header:
+    zh-CN: 头部位置
+  content:
+    zh-CN: 中间主体位置
+  footer:
+    zh-CN: 底部位置
