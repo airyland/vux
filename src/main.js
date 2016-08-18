@@ -80,7 +80,6 @@ import DateFormatter from './demos/Date-formatter'
 import Card from './demos/Card'
 import Previewer from './demos/Previewer'
 import IconLoading from './demos/Icon-loading'
-import XSwiper from './demos/x-swiper'
 import Test from './demos/Test'
 import Issue189 from './demos/Issue189'
 import Issue461 from './demos/Issue461'
@@ -392,9 +391,6 @@ router.map({
   },
   '/component/icon-loading': {
     component: IconLoading
-  },
-  '/component/x-swiper': {
-    component: XSwiper
   },
   '/plugin/device': {
     component: DeviceDemo

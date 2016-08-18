@@ -133,9 +133,6 @@
       <cell title="swiper" link="component/swiper">
         <span class="demo-icon" slot="icon">&#xe612;</span>
       </cell>
-      <cell title="x-swiper" link="component/x-swiper">
-        <span class="demo-icon" slot="icon">&#xe612;</span>
-      </cell>
       <cell title="sticky" link="component/sticky">
         <span class="demo-icon" slot="icon">&#xe623;</span>
       </cell>

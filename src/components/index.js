@@ -65,7 +65,6 @@ import Badge from './badge'
 import Dialog from './dialog'
 import Card from './card'
 import Previewer from './previewer'
-import { XSwiper, XSwiperItem } from './x-swiper'
 import NumberRoller from './number-roller'
 import ViewBox from './view-box'
 
@@ -141,8 +140,6 @@ const vux = {
   Dialog,
   Card,
   Previewer,
-  XSwiper,
-  XSwiperItem,
   NumberRoller,
   ViewBox
 }
