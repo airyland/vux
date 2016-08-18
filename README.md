@@ -44,7 +44,7 @@
 
 > If you need a new component, don't hesitate to raise an issue.
 
-> The diagram is made with [coggle](https://coggle.it/`)
+> The diagram is made with [coggle](https://coggle.it/)
 
 <p align="center">
 	<img src="https://raw.githubusercontent.com/airyland/vux/master/assets/components.png" width="980">
