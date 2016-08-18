@@ -12,6 +12,7 @@ var compiler = webpack(config)
 var argv = require('yargs').argv
 var host = argv.host || '127.0.0.1'
 var port = argv.port || 8080
+var renderDoc = argv.doc
 
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
@@ -30,6 +31,19 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler))
 
 app.use('/static', express.static('./src/assets'))
+
+/**
+* for doc rendering
+*/
+if (renderDoc) {
+  var appDev = express()
+  appDev.get('/api/doc', function (req, res, next) {
+    return res.send('hello')
+  })
+  appDev.listen(8899, '127.0.0.1', function (err) {
+    err && console.log(err)
+  })
+}
 
 app.listen(port, host, function (err) {
   if (err) {
