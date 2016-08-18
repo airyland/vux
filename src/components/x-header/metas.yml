@@ -1,0 +1,36 @@
+props:
+  left-options.showBack:
+    en: if show back text
+    zh-CN: 是否显示返回文字
+  left-options.backText:
+    en: the back text
+    zh-CN: 返回文字
+  left-options.preventGoBack:
+    en: stop go back when clicking
+    zh-CN: 是否阻止返回
+  title:
+    en: title
+    zh-CN: 标题
+  transition:
+    en: title transition
+    zh-CN: 标题出现的动画
+  right-options.showMore:
+    en: if show more icon
+    zh-CN: 是否显示右侧的更多图标
+slots:
+  default:
+    en: title
+    zh-CN: 标题
+  right:
+    en: right part
+    zh-CN: 右侧部分
+events:
+  on-click-more:
+    en: triggers when more icon is clicked
+    zh-CN: 点击右侧更多时触发
+  on-click-back:
+    en: triggers when left part is clicked
+    zh-CN: 点击左边返回时触发
+  on-click-title:
+    en: triggers when title is clicked
+    zh-CN: 点击标题时触发

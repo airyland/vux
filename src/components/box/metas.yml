@@ -1,0 +1,7 @@
+intro:
+  en: a small component for lazy persons who don't want to write less code
+  zh-CN: 为div设置margin值，懒人才需要的组件
+props:
+  gap:
+    en: margin value
+    zh-CN: margin值

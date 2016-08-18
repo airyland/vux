@@ -1,0 +1,9 @@
+props:
+  value:
+    zh-CN: 编码内容，如果为链接，请保证有http(s)协议名
+  size:
+    zh-CN: 尺寸大小
+  bg-color:
+    zh-CN: 背景颜色
+  fg-color:
+    zh-CN: 二级码着色

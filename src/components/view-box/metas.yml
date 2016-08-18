@@ -1,0 +1,9 @@
+intro:
+  zh-CN: 该组件为100%高布局，在safari中会出现滚动时无法自动隐藏url工具栏和底部栏的问题。
+slots:
+  header:
+    zh-CN: 顶部区域，如果要使用统一的XHeader，可以使用该slot
+  default:
+    zh-CN: 主体内容，可滚动的区域。在该slot里的定位请直接使用absolute而不是fixed
+  bottom:
+    zh-CN: 底部区域，Tabbar可以使用该slot

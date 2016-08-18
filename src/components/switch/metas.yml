@@ -1,0 +1,17 @@
+props:
+  title:
+    en: label text
+    zh-CN: label文字
+  disabled:
+    en: if disabled
+    zh-CN: 是否不可点击
+  value:
+    en: component's value
+    zh-CN: 表单值
+  inline-desc:
+    en: text below label
+    zh-CN: 标签下文字
+events:
+  on-change:
+    en: triggers when value change, params is (value)
+    zh-CN: 值变化时触发，参数为 (value)
