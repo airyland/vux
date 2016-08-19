@@ -35,6 +35,11 @@ export default {
         return {}
       }
     }
+  },
+  watch: {
+    endVal (val) {
+      this._countup.update(parseInt(val))
+    }
   }
 }
 </script>
