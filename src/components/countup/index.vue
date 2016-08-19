@@ -38,7 +38,7 @@ export default {
   },
   watch: {
     endVal (val) {
-      this._countup.update(parseInt(val))
+      this._countup.update(val)
     }
   }
 }
