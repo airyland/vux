@@ -14,9 +14,7 @@ export default {
       type: String,
       default: 'radio'
     },
-    value: {
-      type: [String, Number, Array]
-    },
+    value: [String, Number, Array],
     max: Number
   },
   watch: {
