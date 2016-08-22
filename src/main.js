@@ -85,6 +85,7 @@ import Issue189 from './demos/Issue189'
 import Issue461 from './demos/Issue461'
 import Issue414 from './demos/Issue414'
 import Divider from './demos/Divider'
+import Fullpage from './components/fullpage/DemoBasic'
 
 // plugins
 import Device from './plugins/device'
@@ -104,8 +105,7 @@ Vue.use(ToastPlugin)
 Vue.use(AlertPlugin)
 
 const router = new Router({
-  transitionOnLoad: false,
-  suppressTransitionError: true
+  transitionOnLoad: false
 })
 
 /**
@@ -409,6 +409,9 @@ router.map({
   },
   '/component/divider': {
     component: Divider
+  },
+  '/component/fullpage': {
+    component: Fullpage
   }
 })
 
