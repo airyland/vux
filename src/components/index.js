@@ -60,6 +60,7 @@ import Card from './card'
 import Previewer from './previewer'
 import NumberRoller from './number-roller'
 import ViewBox from './view-box'
+import Popover from './popover'
 
 import { ButtonTab, ButtonTabItem } from './button-tab'
 import { Checker, CheckerItem } from './checker'
@@ -142,7 +143,23 @@ const vux = {
   Card,
   Previewer,
   NumberRoller,
-  ViewBox
+  ViewBox,
+  Popover
+}
+
+if (DEV) { // eslint-disable-line
+  const { getMetas } = require('../../build/build-metas')
+  const metas = getMetas(vux)
+  if (window.fetch) {
+    window.fetch('http://localhost:8899/api/doc', {
+      method: 'POST',
+      body: JSON.stringify(metas),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+  }
 }
 
 module.exports = vux

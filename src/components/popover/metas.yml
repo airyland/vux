@@ -1,0 +1,35 @@
+keywords:
+  - popover
+  - float menu
+  - tooltip
+  - 弹窗
+  - 菜单
+props:
+  content:
+    en: content of the popover
+    zh-CN: 弹出窗口内容
+  placement:
+    en: position of the popover
+    zh-CN: 弹出窗口位置
+    enum:
+      - top
+      - right
+      - bottom
+      - left
+    gutter:
+      en: the gutter between trigger element and popover arrow
+      zh-CN: 箭头和触发元素之间的距离
+slots:
+  default:
+    en: trigger element
+    zh-CN: 触发元素
+  content:
+    en: content of the popover
+    zh-CN: 弹窗内容
+events:
+  on-show:
+    en: triggers when popover shows
+    zh-CN: 弹窗显示时触发
+  on-hide:
+    en: triggers when popover hides
+    zh-CN: 弹窗隐藏时触发

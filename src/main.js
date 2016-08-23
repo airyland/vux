@@ -86,6 +86,7 @@ import Issue461 from './demos/Issue461'
 import Issue414 from './demos/Issue414'
 import Divider from './demos/Divider'
 import Fullpage from './components/fullpage/DemoBasic'
+import Popover from './components/popover/DemoIndex'
 
 // plugins
 import Device from './plugins/device'
@@ -412,6 +413,9 @@ router.map({
   },
   '/component/fullpage': {
     component: Fullpage
+  },
+  '/component/popover': {
+    component: Popover
   }
 })
 

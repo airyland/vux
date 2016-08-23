@@ -70,12 +70,15 @@
       <cell title="toast" link="component/toast">
         <span class="demo-icon" slot="icon">&#xe625;</span>
       </cell>
-    </group>
-
-    <group title="UI" title-color="#04be02">
+      <cell title="popover" link="component/popover">
+        <span class="demo-icon" slot="icon">&#xe65f;</span>
+      </cell>
       <cell title="actionsheet" link="component/actionsheet">
         <span class="demo-icon" slot="icon">&#xe624;</span>
       </cell>
+    </group>
+
+    <group title="UI" title-color="#04be02">
       <cell title="badge" link="component/badge">
         <span class="demo-icon" slot="icon" style="color:#f74c31;">&#xe65b;</span>
       </cell>
