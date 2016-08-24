@@ -2,6 +2,7 @@
   <div class="vux-header">
     <div class="vux-header-left">
       <a class="vux-header-back" @click.preventDefault v-show="leftOptions.showBack" :transition="transition" @click="onClickBack">{{leftOptions.backText}}</a>
+      <div class="left-arrow" @click="onClickBack" v-show="leftOptions.showBack" :transition="transition"></div>
       <slot name="left"></slot>
     </div>
     <h1 class="vux-header-title" @click="$emit('on-click-title')"><span v-show="title" :transition="transition">{{title}}</span><slot></slot></h1>
@@ -96,19 +97,24 @@ export default {
 .vux-header .vux-header-left .vux-header-back {
   padding-left: 16px
 }
-.vux-header .vux-header-left .vux-header-back:before {
-  content: "";
+.vux-header .vux-header-left .left-arrow {
   position: absolute;
-  display: block;
-  top: 2px;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  border: 1px solid @x-header-arrow-color;
-  border-width: 1px 0 0 1px;
-  margin-left: 3px;
-  margin-top: 1px;
-  transform: rotate(315deg)
+  width: 30px;
+  height: 30px;
+  top: -5px;
+  left: -5px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 1px solid @x-header-arrow-color;
+    border-width: 1px 0 0 1px;
+    transform: rotate(315deg);
+    top: 8px;
+    left: 7px;
+  }
 }
 .vux-header .vux-header-right {
   right: 15px
