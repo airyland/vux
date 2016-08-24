@@ -13,6 +13,7 @@ Vux组件的样式是各组件独立，因为你只需要保证项目有reset样
 
 - 配置`vue-loader`
 - 配置`babel-loader`以正确编译Vux的js源码
+- 添加`less` `less-loader`以正确编译less源码
 - 添加viewport meta
 - 添加`Fastclick`移除移动端点击延迟
 - 添加`vue-router`
@@ -34,7 +35,29 @@ npm run dev
 ## vue-cli手动引入
 
 如果使用Vue提供的`webpack`模板，请参照`vuxjs/webpack`模板按需要处理。
-其中第二步添加`babel-loader`是必须要做的，否则会报错。
+其中为Vux js源码添加`babel-loader`是必须要做的，否则会报错。
+
+###  添加meta
+
+src/index.html
+
+`<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">`
+
+### 引入Fastclick
+
+``` js
+// src/main.js
+const FastClick = require('fastclick')
+FastClick.attach(document.body)
+```
+
+### 安装添加less less-loader
+
+``` bash
+npm install less less-loader --save-dev
+```
+
+### 添加babel loader
 
 在`build/webpack.base.conf.js`里引入`vux-loader`
 
@@ -50,6 +73,31 @@ loaders:[
   vuxLoader.getBabelLoader(projectRoot)
 ]
 ```
+
+###  引入reset.less
+
+``` html
+<!--src/App.vue-->
+<style lang="less">
+@import '~vux/src/styles/reset';
+</style>
+```
+
+### 使用Vux模块
+
+``` js
+import Group from 'vux/src/components/group'
+import Cell from 'vux/src/components/cell'
+
+export default {
+  components: {
+  	Group,
+    Cell
+  }
+}
+```
+
+
 
 ## hard模式：不推荐的umd方式
 
