@@ -31,6 +31,9 @@ config.vue.loaders = {
 }
 
 config.plugins = (config.plugins || []).concat([
+  new webpack.DefinePlugin({
+    DEV: JSON.stringify(false)
+  }),
   // http://vuejs.github.io/vue-loader/workflow/production.html
   new webpack.DefinePlugin({
     'process.env': {
