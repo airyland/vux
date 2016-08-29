@@ -92,7 +92,7 @@ const baseList =
   img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
   title: '茶包VS原叶茶'
 }, {
-  url: 'javascript',
+  url: 'javascript:',
   img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
   title: '播下茶籽，明春可发芽？'
 }]
@@ -102,6 +102,12 @@ const imgList = [
   'http://placeholder.qiniudn.com/800x300/FFEF7D/ffffff',
   'http://placeholder.qiniudn.com/800x300/8AEEB1/ffffff'
 ]
+
+const urlList = baseList.map((item, index) => ({
+  url: 'http://m.baidu.com',
+  img: item.img,
+  title: `(可点击)${item.title}`
+}))
 
 const demoList = imgList.map((one, index) => ({
   url: 'javascript:',
@@ -140,7 +146,7 @@ export default {
       demo03_list: demoList,
       demo04_list: imgList,
       demo05_list: [],
-      demo06_list: baseList,
+      demo06_list: urlList,
       demo01_index: 0,
       demo05_index: 0,
       demo06_index: 0
