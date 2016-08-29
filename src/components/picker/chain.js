@@ -17,7 +17,7 @@ const Manager = class {
 
   getFirstColumn () {
     return filter(this.data, one => {
-      return !one.parent || one.parent === 0
+      return !one.parent || one.parent === 0 || one.parent === '0'
     })
   }
 
