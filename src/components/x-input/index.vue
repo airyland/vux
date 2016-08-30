@@ -180,6 +180,7 @@ export default {
         if (this.value.length < this.min) {
           this.errors.min = this.$interpolate('最少应该输入{{min}}个字符哦')
           this.valid = false
+					this.getError()
           return
         } else {
           delete this.errors.min
