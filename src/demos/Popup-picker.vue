@@ -33,11 +33,20 @@
       <popup-picker :show.sync="showPopupPicker" :show-cell="false" title="TEST" :data="[['1', '2', '3', '4', '5']]" :value.sync="value5"></popup-picker>
     </group>
 
+    <br>
+    <group title="隐藏时不影响其他popup-picker的mask">
+      <switch title="ishide popup-picker" :value.sync="switch6"></switch>
+      <popup-picker v-if="!switch6" :show.sync="showPopupPicker" title="显示值" :data="['我不会影响遮罩层'.split('')]" :value.sync="value6"></popup-picker>
+    </group>
+
+    <br>
+    <br>
+
   </div>
 </template>
 
 <script>
-import { PopupPicker, Group, Cell, Picker, XButton, Divider } from '../components'
+import { PopupPicker, Group, Cell, Picker, XButton, Divider, Switch } from '../components'
 
 export default {
   components: {
@@ -46,7 +55,8 @@ export default {
     Picker,
     XButton,
     Divider,
-    Cell
+    Cell,
+    Switch
   },
   methods: {
     changeList10 () {
@@ -142,7 +152,9 @@ export default {
       value3: [],
       value4: [],
       showPopupPicker: false,
-      value5: ['2']
+      value5: ['2'],
+      switch6: false,
+      value6: []
     }
   }
 }
