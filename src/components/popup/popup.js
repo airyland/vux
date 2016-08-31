@@ -17,6 +17,7 @@ const popupDialog = function (option) {
   if (!!document.querySelectorAll('.vux-popup-mask').length <= 0) {
     this.divMask = document.createElement('a')
     this.divMask.className = 'vux-popup-mask'
+    this.divMask.dataset.uuid = '' // 用于多个popup共享一个mask
     this.divMask.href = 'javascript:void(0)'
     document.body.appendChild(this.divMask)
   }
@@ -31,8 +32,9 @@ const popupDialog = function (option) {
   if (!option.container) {
     document.body.appendChild(div)
   }
-  this.mask = document.querySelector('.vux-popup-mask')
   this.container = document.querySelector('.vux-popup-dialog-' + this.uuid)
+  this.mask = document.querySelector('.vux-popup-mask')
+  this.mask.dataset.uuid += `,${this.uuid}`
   this._bindEvents()
   option = null
   return this
@@ -71,8 +73,13 @@ popupDialog.prototype.html = function (html) {
 }
 
 popupDialog.prototype.destroy = function () {
-  this.mask.removeEventListener('click', this.onClickMask.bind(this), false)
-  this.mask && this.mask.parentNode && this.mask.parentNode.removeChild(this.mask)
+  this.mask.dataset.uuid = this.mask.dataset.uuid.replace(new RegExp(`,${this.uuid}`, 'g'), '')
+  if (!this.mask.dataset.uuid) {
+    this.mask.removeEventListener('click', this.onClickMask.bind(this), false)
+    this.mask && this.mask.parentNode && this.mask.parentNode.removeChild(this.mask)
+  } else {
+    this.hide()
+  }
   delete window.__$vuxPopups[this.uuid]
 }
 
