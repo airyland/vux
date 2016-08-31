@@ -120,7 +120,7 @@ export default {
       this.month = data.month
     },
     formatDate: (year, month, child) => {
-      return [year, zero(month + 1), zero(child.day)].join('-')
+      return [year, zero(child.month + 1), zero(child.day)].join('-')
     },
     prev () {
       if (this.month === 0) {
