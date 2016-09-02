@@ -84,8 +84,7 @@ export default {
     },
     placeholder: String,
     value: {
-      type: String,
-      default: '',
+      type: [String, Number],
       twoWay: true
     },
     name: String,
