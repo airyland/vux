@@ -28,7 +28,7 @@ const findByKey = function (key, options) {
 export default {
   computed: {
     processOptions () {
-      if (this.options.length && this.options[0].key) {
+      if (this.options.length && {}.hasOwnProperty.call(this.options[0], 'key')) {
         return this.options
       } else {
         return this.options.map(function (item) {
