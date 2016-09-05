@@ -37,7 +37,7 @@ export default {
       if (!this.vertical) {
         width = this.width
         this.direction = 'horizontal'
-      }else{
+      } else {
         height = this.height
         this.direction = 'vertical'
       }
