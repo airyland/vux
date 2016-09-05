@@ -1,5 +1,5 @@
 <template>
-  <div v-show="show" transition="vux-popup" :style="{height:height}" class="vux-popup">
+  <div v-show="show" :transition="'vux-popup-'+direction" :style="styles" class="vux-popup">
     <slot></slot>
   </div>
 </template>
@@ -13,6 +13,14 @@ export default {
       type: Boolean,
       twoWay: true
     },
+    vertical: {
+      type: Boolean,
+      default: true
+    },
+    width:{
+      type: String,
+      default: 'auto'
+    },
     height: {
       type: String,
       default: 'auto'
@@ -20,6 +28,19 @@ export default {
     hideOnBlur: {
       type: Boolean,
       default: true
+    }
+  },
+  computed: {
+    styles(){
+      let height,width
+      height = width = '100%'
+      if (!this.vertical) {
+        width = this.width
+        this.direction = 'horizontal'
+      }else{
+        height = this.height
+        this.direction = 'vertical'
+      }
     }
   },
   ready () {
@@ -55,6 +76,7 @@ export default {
   },
   data () {
     return {
+      direction: 'vertical',
       hasFirstShow: false
     }
   },
@@ -112,11 +134,19 @@ export default {
   z-index: 100;
   transition: opacity 0.3s;
 }
-.vux-popup-transiton {}
-.vux-popup-enter {
-  transform: translate3d(0, 100%, 0);
+.vux-popup-vertical-transiton {}
+.vux-popup-vertical-enter {
+  transform: translateY(100%);
 }
-.vux-popup-leave {
-  transform: translate3d(0, 100%, 0);
+.vux-popup-vertical-leave {
+  transform: translateY(100%);
+}
+
+.vux-popup-horizontal-transiton {}
+.vux-popup-horizontal-enter {
+  transform: translateX(100%);
+}
+.vux-popup-horizontal-leave {
+  transform: translateX(100%);
 }
 </style>

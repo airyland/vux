@@ -7,6 +7,7 @@
       <switch title="Multi popup (first)" :value.sync="show3"></switch>
       <switch title="Mask disable" :value.sync="show5"></switch>
       <switch title="Popup address" :value.sync="show6"></switch>
+      <switch title="Popup direction" :value.sync="show7"></switch>
     </group>
     <popup :show.sync="show" @on-hide="log('hide')" @on-show="log('show')">
       <div class="popup0">
@@ -74,6 +75,22 @@
       </div>
     </popup>
 
+    <popup :show.sync="show7" :vertical="false" width="50%">
+      <div class="popup1">
+        <group>
+          <switch title="Popup direction Horizontal" :value.sync="show7"></switch>
+        </group>
+        <group>
+          <pre>
+            <code>
+              vertical: [false | true]  # 设置是否纵向弹出
+              width : [ auto ]          # 可以设置Pop宽度
+            </code>
+          </pre>
+        </group>
+      </div>
+    </popup>
+
   </div>
 </template>
 
@@ -99,6 +116,7 @@ export default {
       show4: false,
       show5: false,
       show6: false,
+      show7: false,
       title6: '默认空的',
       value6: [],
       showToast: false
