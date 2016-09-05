@@ -75,17 +75,15 @@
       </div>
     </popup>
 
-    <popup :show.sync="show7" :vertical="false" width="50%">
+    <popup :show.sync="show7" :vertical="false" width="100%">
       <div class="popup1">
         <group>
           <switch title="Popup direction Horizontal" :value.sync="show7"></switch>
         </group>
         <group>
           <pre>
-            <code>
-              vertical: [false | true]  # 设置是否纵向弹出
-              width : [ auto ]          # 可以设置Pop宽度
-            </code>
+vertical: [false | true]  # 设置是否纵向弹出
+width : [ auto ]          # 可以设置Pop宽度
           </pre>
         </group>
       </div>

@@ -1,0 +1,5 @@
+/*!
+ * Vux v0.1.3 (https://vux.li)
+ * Licensed under the MIT license
+ */
+.vux-fullpage-box{-webkit-transform:translateZ(0);transform:translateZ(0)}.vux-fullpage-box:after{display:block;content:' ';height:0;clear:both}.vux-fullpage-box.vux-fullpage-box-anim{-webkit-transition:all .5s ease-out 0s;transition:all .5s ease-out 0s}.vux-fullpage-item{display:block;overflow:hidden}.vux-fullpage-dir-h{float:left}

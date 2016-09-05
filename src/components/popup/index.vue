@@ -17,7 +17,7 @@ export default {
       type: Boolean,
       default: true
     },
-    width:{
+    width: {
       type: String,
       default: 'auto'
     },
@@ -31,16 +31,23 @@ export default {
     }
   },
   computed: {
-    styles(){
-      let height,width
-      height = width = '100%'
+    styles () {
+      let style = {
+        height: '100%',
+        width: '100%'
+      }
+
       if (!this.vertical) {
-        width = this.width
+        style.width = this.width
+        style.right = 0
         this.direction = 'horizontal'
-      }else{
-        height = this.height
+      } else {
+        style.height = this.height
+        style.left = 0
         this.direction = 'vertical'
       }
+
+      return style
     }
   },
   ready () {
@@ -109,7 +116,6 @@ export default {
 }
 .vux-popup-dialog {
   position: fixed;
-  left: 0;
   bottom: 0;
   width: 100%;
   background: #eee;
