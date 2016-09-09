@@ -162,7 +162,7 @@ export default {
         }
       } else {
         for (let i = 0; i < val.length; i++) {
-          if (this.scroller[i].value !== val[i]) {
+          if (this.scroller[i] && this.scroller[i].value !== val[i]) {
             this.scroller[i].select(val[i])
           }
         }
