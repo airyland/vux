@@ -23,7 +23,7 @@ const parentMixin = {
   },
   watch: {
     index (val, oldVal) {
-      oldVal > -1 && (this.$children[oldVal].selected = false)
+      oldVal > -1 && this.$children[oldVal] && (this.$children[oldVal].selected = false)
       this.$children[val].selected = true
     }
   },
