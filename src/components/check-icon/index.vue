@@ -15,10 +15,7 @@ export default {
     Icon
   },
   props: {
-    value: {
-      type: Boolean,
-      default: true
-    },
+    value: Boolean,
     type: {
       type: String,
       default: 'default'
