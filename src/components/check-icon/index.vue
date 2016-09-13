@@ -3,6 +3,7 @@
     <icon type="success" v-show="type === 'default' && value"></icon>
     <icon type="success_circle" v-show="type === 'plain' && value"></icon>
     <icon type="circle" v-show="!value"></icon>
+    <span><slot></slot></span>
   </div>
 </template>
 
@@ -31,7 +32,11 @@ export default {
 
 .vux-check-icon {
   display: inline-block;
-  width: 25px;
+}
+.vux-check-icon span {
+  line-height: 20px;
+  color: #222;
+  vertical-align: bottom;
 }
 .vux-check-icon > .weui_icon_success:before, .vux-check-icon > .weui_icon_success_circle:before {
   color: @check-icon-color-checked;
