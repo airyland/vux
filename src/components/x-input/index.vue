@@ -23,8 +23,8 @@
     </div>
     <div class="weui_cell_ft">
       <icon type="clear" v-show="showClear && value && !readonly" @click="clear"></icon>
-      <icon type="warn" title="{{!valid ? firstError : ''}}" v-show="!equalWith && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
-      <icon type="warn" v-show="hasLengthEqual && dirty && equalWith && !valid"></icon>
+      <icon class="vux-input-icon-warn" type="warn" title="{{!valid ? firstError : ''}}" v-show="!equalWith && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
+      <icon class="vux-input-icon-warn" type="warn" v-show="hasLengthEqual && dirty && equalWith && !valid"></icon>
       <icon type="success" v-show="equalWith && equalWith===value && valid"></icon>
       <slot name="right"><slot>
     </div>
@@ -250,4 +250,7 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_vcode';
+.vux-input-icon-warn.weui_icon_warn:before {
+  font-size: 21px;
+}
 </style>

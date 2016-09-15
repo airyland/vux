@@ -120,7 +120,7 @@ MIT
 
 ## Donate
 
-It takes much time and energy to maintain and improve this project. It Vux helps you, you may want to buy me a coffee :).
+It takes much time and energy to maintain and improve this project. If Vux helps you, you may want to buy me a coffee :).
 
 <p align="center">
   <img src="https://o3e85j0cv.qnssl.com/vux_pay.png" width="450">
