@@ -105,6 +105,7 @@
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
+    "weinre": "^2.0.0-pre-I0Z7U9OV",
     "yargs": "^4.8.1"
   }
 }
