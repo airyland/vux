@@ -112,7 +112,6 @@ class Swiper {
     arrayFrom(me.$items).forEach(function ($item, key) {
       me._offset.push((key - index) * me._distance)
     })
-    console.log(me._position, me._offset, me._current)
   }
 
   _setTransition (duration) {
