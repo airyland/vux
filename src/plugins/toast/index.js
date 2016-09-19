@@ -25,7 +25,7 @@ export default {
             $vm[i] = options[i]
           }
         }
-        if (options.onShow || options.onHide) {
+        if (typeof options === 'object' && options.onShow || options.onHide) {
           watcher = $vm.$watch('show', (val) => {
             val && options.onShow && options.onShow($vm)
             val === false && options.onHide && options.onHide($vm)
