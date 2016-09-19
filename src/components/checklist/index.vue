@@ -61,44 +61,29 @@ export default {
       return this.fillMode ? (this.options.length + 1) : this.options.length
     },
     _min () {
-      if (!this.required) {
-        return 0
-      }
-      if (this.min) {
-        if (this.min < 0) {
-          return 1
-        }
-        if (this.min >= this._total) {
-          return this._total
-        }
-        return this.min
+      if (this.min > 0) {
+        return Math.min(this.min, this._total)
       } else {
-        return 1
+        return this.required ? 1 : 0
       }
     },
     _max () {
-      if (!this.required) {
-        return this._total
-      }
-      if (this.max) {
-        if (this.max > this._total) {
-          return this._total
-        }
-        return this.max
+      if (this.max > 0) {
+        return Math.min(this.max, this._total)
       } else {
         return this._total
       }
     },
     valid () {
-      return this.value.length >= this._min && this.value.length <= this._max
+      return !(this.value.length || this.required) || (this.value.length >= this._min && this.value.length <= this._max)
     },
     error () {
       let err = []
       if (this.value.length < this._min) {
-        err.push(this.$interpolate('最少要选择{{_min}}个哦'))
+        err.push(this.$interpolate('最少要选择{{_min}}个哦' + (this.required ? '' : ',或者不选择')))
       }
       if (this.value.length > this._max) {
-        err.push(this.$interpolate('最多只能选择{{_max}}个哦'))
+        err.push(this.$interpolate('最多只能选择{{_max}}个哦' + (this.required ? '' : ',或者不选择')))
       }
       return err
     }
