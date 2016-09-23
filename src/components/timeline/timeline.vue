@@ -9,7 +9,11 @@
 <script>
 export default {
   props: {
-    color: String
+    color: String,
+    isShowIcon: {
+      type: Boolean,
+      default: true
+    }
   },
   methods: {
     setChildProps () {
@@ -82,7 +86,7 @@ export default {
     top: 45%;
     transform: translateY(-50%);
 
-    &::before {
+    &.weui_icon_success_no_circle::before {
       font-size: 12px;
       width: 20px;
       color: #FFF;
