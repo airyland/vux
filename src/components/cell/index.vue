@@ -31,7 +31,7 @@ export default {
     title: String,
     value: [String, Number],
     isLink: Boolean,
-    inlineDesc: String,
+    inlineDesc: [String, Number],
     primary: {
       type: String,
       default: 'title'
