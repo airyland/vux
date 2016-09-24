@@ -42,7 +42,7 @@ export default {
     }
   },
   props: {
-    time: String,
+    time: [String, Number],
     format: {
       type: String,
       default: '%D 天 %H 小时 %M 分 %S 秒'
