@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="display:inline-block;">
     <span v-if="showTimeString">{{timeString}}</span>
     <div class="vux-clocker-tpl"><slot></slot></div>
   </div>
