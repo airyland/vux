@@ -76,6 +76,10 @@
     <group-title>循环模式</group-title>
     <swiper loop auto :list="demo06_list" :index="demo06_index" @on-index-change="demo06_onIndexChange"></swiper>
     <p>current index: {{demo06_index}}</p>
+
+    <group-title>循环模式（只有两个）</group-title>
+    <swiper loop auto :list="demo07_list" :index="demo07_index" @on-index-change="demo07_onIndexChange"></swiper>
+    <p>current index: {{demo07_index}}</p>
   </div>
 </template>
 
@@ -114,6 +118,8 @@ const demoList = imgList.map((one, index) => ({
   img: one
 }))
 
+const only2List = baseList.slice(0, 2)
+
 export default {
   components: {
     Swiper,
@@ -137,6 +143,9 @@ export default {
     },
     demo06_onIndexChange (index) {
       this.demo06_index = index
+    },
+    demo07_onIndexChange (index) {
+      this.demo07_index = index
     }
   },
   data () {
@@ -147,9 +156,11 @@ export default {
       demo04_list: imgList,
       demo05_list: [],
       demo06_list: urlList,
+      demo07_list: only2List,
       demo01_index: 0,
       demo05_index: 0,
-      demo06_index: 0
+      demo06_index: 0,
+      demo07_index: 0
     }
   }
 }
