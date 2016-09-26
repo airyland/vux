@@ -24,7 +24,7 @@ const parentMixin = {
   watch: {
     index (val, oldVal) {
       oldVal > -1 && this.$children[oldVal] && (this.$children[oldVal].selected = false)
-      this.$children[val].selected = true
+      val > -1 && (this.$children[val].selected = true)
     }
   },
   data () {
@@ -61,6 +61,8 @@ const childMixin = {
     selected (val) {
       if (val) {
         this.$parent.index = this.index
+      } else {
+        this.$parent.index = -1
       }
     }
   },
