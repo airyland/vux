@@ -37,6 +37,7 @@ export default {
       return `url(${url})`
     },
     render () {
+      this.swiper && this.swiper.destroy()
       this.swiper = new Swiper({
         container: this.$el,
         direction: this.direction,
@@ -50,8 +51,8 @@ export default {
         imgList: this.imgList
       })
       .on('swiped', (prev, index) => {
-        this.current = index
-        this.index = index
+        this.current = index % this.length
+        this.index = index % this.length
       })
     },
     rerender () {

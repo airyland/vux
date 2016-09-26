@@ -29,6 +29,7 @@ class Swiper {
     this.$container = this._options.container.querySelector('.vux-swiper')
     this.$items = this.$container.querySelectorAll(this._options.item)
     this.count = this.$items.length
+    this.realCount = this.$items.length // real items length
     this._position = [] // used by go event
     this._firstItemIndex = 0
     if (!this.count) {
@@ -61,7 +62,7 @@ class Swiper {
   }
 
   _loop () {
-    return this._options.loop && this.count >= 3
+    return this._options.loop && this.realCount >= 3
   }
 
   _onResize () {
@@ -77,6 +78,9 @@ class Swiper {
   }
 
   _init () {
+    if (this._options.loop) {
+      this._loopTwoItems()
+    }
     this._height = this._options.height === 'auto' ? 'auto' : this._options.height - 0
     this.updateItemWidth()
     this._initPosition()
@@ -89,7 +93,7 @@ class Swiper {
   }
 
   _initPosition () {
-    for (let i = 0; i < this.count; i++) {
+    for (let i = 0; i < this.realCount; i++) {
       this._position.push(i)
     }
   }
@@ -189,7 +193,7 @@ class Swiper {
     me.transitionEndHandler = (e) => {
       me._activate(me._current)
       let cb = me._eventHandlers.swiped
-      cb && cb.apply(me, [me._prev, me._current])
+      cb && cb.apply(me, [me._prev % me.count, me._current % me.count])
       me._auto()
       me._loopRender()
       e.preventDefault()
@@ -198,6 +202,21 @@ class Swiper {
     me.$container.addEventListener('touchmove', me.touchmoveHandler, false)
     me.$container.addEventListener('touchend', me.touchendHandler, false)
     me.$items[1] && me.$items[1].addEventListener('webkitTransitionEnd', me.transitionEndHandler, false)
+  }
+
+  _loopTwoItems () {
+    // issue #596 (support when onlt two)
+    if (this.count === 2) {
+      let div = document.createElement('div')
+      let $item
+      for (let i = this.$items.length - 1; i >= 0; i--) {
+        div.innerHTML = this.$items[i].outerHTML
+        $item = div.querySelector(this._options.item)
+        $item.classList.add(`${this._options.item.replace('.', '')}-clone`)
+        this.$container.appendChild($item)
+      }
+      this.realCount = 4
+    }
   }
 
   _loopRender () {
@@ -230,7 +249,7 @@ class Swiper {
     } else {
       if (distance > 0 && this._current === 0) {
         return 0
-      } else if (distance < 0 && this._current === this.count - 1) {
+      } else if (distance < 0 && this._current === this.realCount - 1) {
         return 0
       } else {
         return distance
@@ -241,9 +260,9 @@ class Swiper {
   _moveIndex (num) {
     if (num !== 0) {
       this._prev = this._current
-      this._current += this.count
+      this._current += this.realCount
       this._current += num
-      this._current %= this.count
+      this._current %= this.realCount
     }
   }
 
@@ -262,8 +281,8 @@ class Swiper {
     me.stop()
 
     index = index || 0
-    index += this.count
-    index = index % this.count
+    index += this.realCount
+    index = index % this.realCount
     index = this._position.indexOf(index) - this._position.indexOf(this._current)
 
     me._moveIndex(index)
@@ -309,6 +328,13 @@ class Swiper {
     this.$container.removeEventListener('touchmove', this.touchmoveHandler, false)
     this.$container.removeEventListener('touchend', this.touchendHandler, false)
     this._itemDestoy()
+    // remove clone item (used by loop only 2)
+    if (this._options.loop && this.count === 2) {
+      let $item = this.$container.querySelector(`${this._options.item}-clone`)
+      $item && this.$container.removeChild($item)
+      $item = this.$container.querySelector(`${this._options.item}-clone`)
+      $item && this.$container.removeChild($item)
+    }
   }
 }
 
