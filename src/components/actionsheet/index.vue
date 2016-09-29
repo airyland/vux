@@ -30,7 +30,7 @@ export default {
     },
     menus: {
       type: Object,
-      default: {}
+      default: () => {}
     }
   },
   methods: {
