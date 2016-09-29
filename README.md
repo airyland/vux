@@ -4,13 +4,10 @@
   </a>
 </p>
 <p align="center">Be Cool with Vue and WeUI.</p>
-<p align="center">Vux = Vue + WeUI + A Bunch of Components </p>
+<p align="center">compatible with Vue@^1.0.24 (not yet support Vue@2.0)</p>
 <p align="center">
   <a href="https://www.npmjs.com/package/vux">
     <img src="https://img.shields.io/npm/v/vux.svg?style=flat-square" alt="">
-  </a>
-  <a href="https://www.npmjs.com/package/vux">
-    <img src="https://vux.li/next-badge" alt="">
   </a>
   <a href="https://www.npmjs.com/package/vux">
     <img src="https://img.shields.io/npm/dm/vux.svg?style=flat-square" alt="">
@@ -26,11 +23,6 @@
 ## Docs
 
 + [中文文档](https://vuxjs.gitbooks.io/vux/content/)
-
-## Importance notice
-
-+ This is not an Official Project of Wechat.
-+ [For 中文开发者]提问题时若使用`不能用`,`没效果`,`有问题`,`报错`此类模糊表达，但又没给出任何代码截图报错的，将**绝对**不会有任何反馈。([参阅 《提问的智慧》](https://github.com/tvvocold/How-To-Ask-Questions-The-Smart-Way))
 
 ## Demo
 
