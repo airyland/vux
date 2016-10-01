@@ -13,7 +13,7 @@
       :cols="cols"
       v-model="value"
       :style="textareaStyle"
-      :maxlength="max"></textarea>
+      :maxlength="max" v-el:textarea></textarea>
       <div class="weui_textarea_counter" v-show="showCounter && max"><span>{{count}}</span>/{{max}}</div>
     </div>
   </div>
