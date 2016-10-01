@@ -31,6 +31,9 @@ export default {
   },
   ready () {
     Autosize(this.$refs.autosize.$els.textarea)
+  },
+  beforeDestroy () {
+    Autosize.destroy(this.$refs.autosize.$els.textarea)
   }
 }
 </script>
