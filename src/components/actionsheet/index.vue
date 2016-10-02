@@ -18,11 +18,7 @@ export default {
     this.$tabbar = document.querySelector('.weui_tabbar')
   },
   props: {
-    show: {
-      type: Boolean,
-      required: true,
-      twoWay: true
-    },
+    show: Boolean,
     showCancel: Boolean,
     cancelText: {
       type: String,

@@ -32,8 +32,7 @@ export default {
     max: Number,
     value: {
       type: String,
-      default: '',
-      twoWay: true
+      default: ''
     },
     name: String,
     placeholder: String,

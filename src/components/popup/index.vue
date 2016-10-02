@@ -9,10 +9,7 @@ import Popup from './popup'
 
 export default {
   props: {
-    show: {
-      type: Boolean,
-      twoWay: true
-    },
+    show: Boolean,
     height: {
       type: String,
       default: 'auto'

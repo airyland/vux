@@ -83,10 +83,7 @@ export default {
       default: ''
     },
     placeholder: String,
-    value: {
-      type: [String, Number],
-      twoWay: true
-    },
+    value: [String, Number],
     name: String,
     readonly: {
       type: Boolean,

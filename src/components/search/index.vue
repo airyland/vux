@@ -45,7 +45,6 @@ export default {
     },
     value: {
       type: String,
-      twoWay: true,
       default: ''
     },
     results: {
