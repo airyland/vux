@@ -52,9 +52,11 @@ const childMixin = {
   },
   methods: {
     onItemClick () {
-      this.selected = true
-      this.$parent.index = this.index
-      this.$emit('on-item-click')
+      if (typeof this.disabled === 'undefined' || this.disabled === false) {
+        this.selected = true
+        this.$parent.index = this.index
+        this.$emit('on-item-click')
+      }
     }
   },
   watch: {
