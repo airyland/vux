@@ -8,6 +8,7 @@
       :autocorrect="autocorrect"
       :spellcheck="spellcheck"
       :placeholder="placeholder"
+      :readonly="readonly"
       :name="name"
       :rows="rows"
       :cols="cols"
@@ -36,6 +37,10 @@ export default {
     },
     name: String,
     placeholder: String,
+    readonly: {
+      type: Boolean,
+      default: false
+    },
     rows: {
       type: Number,
       default: 3
