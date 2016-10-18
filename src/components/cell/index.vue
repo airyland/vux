@@ -42,7 +42,11 @@ export default {
   },
   methods: {
     onClick () {
-      go(this.link, this.$router)
+      if (this.link) {
+        go(this.link, this.$router)
+      } else {
+        this.$emit('on-click')
+      }
     }
   }
 }
