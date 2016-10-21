@@ -31,6 +31,24 @@ app.use(require('webpack-hot-middleware')(compiler))
 
 app.use('/static', express.static('./src/assets'))
 
+/**
+* for doc rendering
+*/
+if (config.plugins[0].definitions.DEV === 'true') {
+  var appDev = express()
+  appDev.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    next()
+  })
+  appDev.post('/api/doc', function (req, res, next) {
+    return res.send('hello')
+  })
+  appDev.listen(8899, '127.0.0.1', function (err) {
+    err && console.log(err)
+  })
+}
+
 app.listen(port, host, function (err) {
   if (err) {
     console.log(err)
@@ -40,4 +58,3 @@ app.listen(port, host, function (err) {
   // manully trigger bundle building to save time
   http.get(`http://127.0.0.1:${port}/index.html`)
 })
-

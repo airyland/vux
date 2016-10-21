@@ -1,0 +1,14 @@
+extends:
+  - inline-calendar
+  - popup
+  - cell
+intro:
+  zh-CN: 扩展自inline-calendar, 相关属性可查看inline-calendar文档
+props:
+  value:
+    zh-CN: 选中值
+  title:
+    zh-CN: label文字
+events:
+  on-change:
+    zh-CN: 值改变时触发

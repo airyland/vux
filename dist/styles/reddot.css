@@ -1,4 +1,8 @@
-.vux-reddot,.vux-reddot-border,.vux-reddot-s {
+/*!
+ * Vux v0.1.3-rc5 (https://vux.li)
+ * Licensed under the MIT license
+ */
+ .vux-reddot,.vux-reddot-border,.vux-reddot-s {
   position: relative;
 }
 

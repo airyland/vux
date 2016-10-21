@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "0.1.3-rc4",
+  "version": "0.1.3",
   "description": "Mobile web UI based on Vue and Weui",
   "keywords": [
     "vux",
@@ -20,6 +20,7 @@
     "type": "git",
     "url": "https://github.com/airyland/vux"
   },
+  "license": "MIT",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "rimraf site && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js && cd site/static && mkdir vendors && cd ../../ && cp -r src/assets/* site/static/ && cp CNAME site/ && cp favicon.ico site/ && node build/common-nano-css.js site/static",
@@ -41,13 +42,14 @@
     "shake.js": "^1.2.2",
     "validator": "^5.1.0",
     "vux-blazy": "^1.6.4",
-    "vux-xscroll": "^3.1.6",
+    "vux-xscroll": "^3.1.8",
     "webp-support": "^1.0.3",
     "array-from": "^2.1.1",
     "object-assign": "^4.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
+    "autosize": "^3.0.17",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.0.0",
     "babel-plugin-transform-runtime": "^6.9.0",
@@ -88,6 +90,7 @@
     "karma-webpack": "^1.7.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.2",
+    "mkdirp": "^0.5.1",
     "postcss": "^5.0.21",
     "postcss-less": "^0.14.0",
     "rimraf": "^2.5.0",
@@ -98,10 +101,11 @@
     "vue-loader": "^8.5.3",
     "vue-router": "^0.7.11",
     "vue-style-loader": "^1.0.0",
+    "vuex": "^0.8.2",
+    "vuex-router-sync": "^2.1.0",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
-    "mkdirp": "^0.5.1",
     "yargs": "^4.8.1"
   }
 }

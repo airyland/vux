@@ -3,7 +3,7 @@
 .weui_tabbar {
     display: flex;
     position: absolute;
-    z-index: 500;
+    z-index: @tabbar-index;
     bottom: 0;
     width: 100%;
     background-color: #f7f7fa;
@@ -21,7 +21,7 @@
 
     &.weui_bar_item_on {
         .weui_tabbar_label {
-            color: #09BB07;
+            color: @tabbar-text-color-active;
         }
     }
 }

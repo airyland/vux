@@ -1,0 +1,14 @@
+props:
+  color:
+    en: the mask's color in rgb format, for example, '0, 0, 0'
+    zh-CN: 遮罩颜色，rgb值，'0, 0, 0'
+  opacity:
+    en: the opacity of the mask
+    zh-CN: 遮罩透明度
+slots:
+  default:
+    en: content below the mask
+    zh-CN: 背景内容，位于遮罩下方，一般为图片
+  content:
+    en: content above the mask
+    zh-CN: 遮罩上方内容，一般显示标题消息

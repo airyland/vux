@@ -1,0 +1,22 @@
+extends:
+  - popup-picker
+props:
+  raw-value:
+    zh-CN: 初始化时绑定的数据是否为文本类型，即非id，组件内部会转换为id。如果是异步初始化，只能使用id赋值。
+  title:
+    zh-CN: 表单标题
+  value:
+    zh-CN: 表单值
+  list:
+    zh-CN: 地址列表, 可以引入 `vux/src/components/address/list.json`或者用自己的数据，但是需要按照一致的数据结构。
+  inline-desc:
+    zh-CN: 标题下的描述
+  placeholder:
+    zh-CN: 没有值时的提示文字
+  hideDistrict:
+    zh-CN: 是否隐藏区，即只显示省份和城市
+events:
+  on-hide:
+    zh-CN: 关闭后触发，当非确定时，参数为false，反之为true
+  on-show:
+    zh-CN: 显示时触发

@@ -16,9 +16,6 @@ import Box from './box'
 import Tip from './tip'
 import Selector from './selector'
 import XButton from './x-button'
-import Flexbox from './flexbox'
-import FlexboxItem from './flexbox-item'
-import { Tab, TabItem } from './tab'
 import Swiper from './swiper'
 import SwiperItem from './swiper-item'
 import Sticky from './sticky'
@@ -55,20 +52,23 @@ import Masker from './masker'
 import Countdown from './countdown'
 import FriendlyTime from '../filters/friendly-time'
 import XHeader from './x-header'
-import Checker from './checker'
-import CheckerItem from './checker-item'
-import { Timeline, TimelineItem } from './timeline'
-import { Step, StepItem } from './steps'
-import { Tabbar, TabbarItem } from './tabbar'
 import Panel from './panel'
-import { ButtonTab, ButtonTabItem } from './button-tab'
 import InlineCalendar from './inline-calendar'
 import Badge from './badge'
 import Dialog from './dialog'
 import Card from './card'
 import Previewer from './previewer'
-import { XSwiper, XSwiperItem } from './x-swiper'
 import NumberRoller from './number-roller'
+import ViewBox from './view-box'
+import Popover from './popover'
+
+import { ButtonTab, ButtonTabItem } from './button-tab'
+import { Checker, CheckerItem } from './checker'
+import { Flexbox, FlexboxItem } from './flexbox'
+import { Step, StepItem } from './step'
+import { Timeline, TimelineItem } from './timeline'
+import { Tabbar, TabbarItem } from './tabbar'
+import { Tab, TabItem } from './tab'
 
 const vux = {
   Radio,
@@ -142,9 +142,24 @@ const vux = {
   Dialog,
   Card,
   Previewer,
-  XSwiper,
-  XSwiperItem,
-  NumberRoller
+  NumberRoller,
+  ViewBox,
+  Popover
+}
+
+if (DEV) { // eslint-disable-line
+  const { getMetas } = require('../../build/build-metas')
+  const metas = getMetas(vux)
+  if (window.fetch) {
+    window.fetch(`http://${window.location.hostname}:8899/api/doc`, {
+      method: 'POST',
+      body: JSON.stringify(metas),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+  }
 }
 
 module.exports = vux

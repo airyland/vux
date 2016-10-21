@@ -83,6 +83,9 @@ export default {
     },
     disablePast () {
       this.render(this.year, this.month, this.value)
+    },
+    disableFuture () {
+      this.render(this.year, this.month, this.value)
     }
   },
   methods: {
@@ -106,17 +109,18 @@ export default {
         year: year,
         month: month,
         value: this.value,
-        rangeBegin: this.startDate,
-        rangeEnd: this.endDate,
+        rangeBegin: this.convertDate(this.startDate),
+        rangeEnd: this.convertDate(this.endDate),
         returnSixRows: this.returnSixRows,
-        disablePast: this.disablePast
+        disablePast: this.disablePast,
+        disableFuture: this.disableFuture
       })
       this.days = data.days
       this.year = data.year
       this.month = data.month
     },
     formatDate: (year, month, child) => {
-      return [year, zero(month + 1), zero(child.day)].join('-')
+      return [year, zero(child.month + 1), zero(child.day)].join('-')
     },
     prev () {
       if (this.month === 0) {

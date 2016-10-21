@@ -1,0 +1,37 @@
+tags:
+  en:
+    - message
+    - confirm
+  zh-CN:
+    - 消息提示
+    - 确认
+props:
+  show:
+    en: visibility of the component
+    zh-CN: 是否显示
+  title:
+    en: dialog title
+    zh-CN: 弹窗标题
+  confirm-text:
+    en: confirm button text
+    zh-CN: 确认按钮文字
+  cancel-text:
+    en: cancel button text
+    zh-CN: 取消按钮文字
+  mask-transition:
+    en: mask's transition
+    zh-CN: 遮罩动画
+  dialog-transition:
+    en: dialog's transition
+    zh-CN: 弹窗动画
+slots:
+  default:
+    en: body content of the dialog
+    zh-CN: 弹窗主体内容
+events:
+  on-cancel:
+    en: triggers when the cancel button is clicked
+    zh-CN: 点击取消按钮时触发
+  on-confirm:
+    en: triggers when the confirm button is clicked
+    zh-CN: 点击确定按钮时触发

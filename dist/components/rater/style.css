@@ -1,1 +1,5 @@
+/*!
+ * Vux v0.1.3 (https://vux.li)
+ * Licensed under the MIT license
+ */
 .vux-rater{text-align:left;display:inline-block;line-height:normal}.vux-rater a{display:inline-block;text-align:center;cursor:pointer;color:#ccc}.vux-rater a:last-child{padding-right:2px!important;margin-right:0!important}.vux-rater a:hover{color:#fd9}.vux-rater a.is-disabled{color:#ccc!important;cursor:not-allowed}.vux-rater-box,.vux-rater-inner{position:relative}.vux-rater-inner,.vux-rater-outer{display:inline-block}.vux-rater-outer{position:absolute;left:0;top:0;overflow:hidden}

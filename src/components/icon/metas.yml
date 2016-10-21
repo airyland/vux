@@ -1,0 +1,4 @@
+props:
+  type:
+    en: icon name
+    zh-CN: 图标名字，可选值见demo

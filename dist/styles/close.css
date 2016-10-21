@@ -1,4 +1,8 @@
-.vux-close {
+/*!
+ * Vux v0.1.3-rc5 (https://vux.li)
+ * Licensed under the MIT license
+ */
+ .vux-close {
   position: relative;
   display: inline-block;
   vertical-align: middle;

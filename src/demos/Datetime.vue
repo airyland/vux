@@ -20,6 +20,14 @@
       <datetime :value.sync="value5" placeholder="请选择日期" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:mm" @on-change="change" title="Chinese" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
     </group>
 
+    <group title="show center button and clear the value">
+      <datetime :value.sync="value6" @on-change="change" title="Birthday" clear-text="clear" @on-clear="clearValue"></datetime>
+    </group>
+
+    <group title="show center button to set date to today">
+      <datetime :value.sync="value7" @on-change="change" title="Birthday" clear-text="today" @on-clear="setToday"></datetime>
+    </group>
+
   </div>
 </template>
 
@@ -37,12 +45,26 @@ export default {
       value2: '',
       value3: '',
       value4: '',
-      value5: ''
+      value5: '',
+      value6: '2016-08-18',
+      value7: ''
     }
   },
   methods: {
     change (value) {
       console.log('change', value)
+    },
+    clearValue (value) {
+      this.$data.value6 = ''
+      console.log('clear')
+    },
+    setToday (value) {
+      let now = new Date()
+      let cmonth = now.getMonth() + 1
+      let day = now.getDate()
+      if (cmonth < 10) cmonth = '0' + cmonth
+      this.$data.value7 = now.getFullYear() + '-' + cmonth + '-' + day
+      console.log('set today ok')
     }
   }
 }

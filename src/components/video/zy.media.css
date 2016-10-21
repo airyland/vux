@@ -1,0 +1,60 @@
+body { margin: 0 }
+
+/* zy.media style */
+.zy_media { background: #000; position: relative }
+.zy_media video, .zy_media audio { width: 100%; position: absolute; top: 0; left: 0; display: block }
+.zy_fullscreen { overflow: hidden }
+.zy_fullscreen .zy_media { position: fixed; left: 0; top: 0; right: 0; bottom: 0; z-index: 1000 }
+.zy_fullscreen .zy_wrap, .zy_fullscreen video { width: 100%; height: 100% }
+.zy_wrap { width: 100% }
+
+/* 视频标题 */
+.zy_title { height: 34px; padding-left: 10px; color: #fff; font-size: 12px; line-height: 34px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; background: rgba(0, 0, 0, .25); position: absolute; left: 0; right: 0; top: 0; -webkit-transition: top .5s; transition: top .5s }
+
+/* 视频主区中播放、加载中、错误提示 */
+.zy_media .dec_play, .zy_media .dec_loading, .zy_media .dec_error { margin: -32px 0 0 -31px; position: absolute; top: 50%; left: 50% }
+.zy_media .dec_play::before { width: 60px; height: 60px; content: ''; border-radius: 60px; border: #e5e5e4 1px solid; display: block }
+.zy_media .dec_play::after { width: 0; height: 0; content: ''; border-color: transparent transparent transparent #e5e5e4; border-width: 14px 20px; border-style: solid; position: absolute; top: 16px; left: 23px; z-index: 2; display: block }
+.zy_media .dec_loading { width: 62px; height: 62px; -webkit-animation: ani_loading .6s infinite linear; -webkit-animation-fill-mode: forwards; animation: ani_loading .6s infinite linear; animation-fill-mode: forwards }
+@-webkit-keyframes ani_loading {
+	100% { -webkit-transform: rotate(360deg) }
+}
+@keyframes ani_loading {
+	100% { transform: rotate(360deg) }
+}
+.zy_media .dec_loading::before { width: 7px; height: 7px; content: ''; border-radius: 7px; background: #fff; opacity: .8; position: absolute; top: 25px }
+.zy_media .dec_loading::after { width: 48px; height: 48px; content: ''; border-radius: 50px; border: 7px solid #fff; opacity: .2; display: block }
+.zy_media .dec_error { width: 62px; height: 62px; margin-top: -53px; margin-left: -25px; white-space: nowrap; color: #fff; font-size: 12px; text-align: center; position: absolute; top: 50%; left: 50%; }
+
+/* 控制栏 */
+.zy_controls { height: 44px; background: rgba(0, 0, 0, .55); position: absolute; left: 0; right: 0; bottom: 0; -webkit-transition: bottom .5s; transition: bottom .5s; display: -webkit-box; display: box; display: -webkit-flex; display: flex }
+
+/* 播放、暂停按钮 */
+.zy_playpause_btn { width: 26px; height: 30px; margin-right: 4px; padding: 13px 0 0 14px; position: relative }
+.zy_play::before { width: 0; height: 0; content: ''; border-color: transparent transparent transparent #cbcbcb; border-width: 8px 12px; border-style: solid; display: block }
+.zy_pause::before, .zy_pause::after { width: 3px; height: 14px; content: ''; background: #cbcbcb; position: absolute; top: 13px; left: 14px }
+.zy_pause::after { left: 22px }
+
+/* 时间线操作区 */
+.zy_timeline { margin-right: 10px; -webkit-box-flex: 1; -webkit-flex: 1 1 auto; flex: 1 1 auto }
+.zy_timeline_slider { width: 100%; height: 1px; background: #999; position: relative; top: 21px; left: 0 }
+.zy_timeline_buffering { width: 100%; height: 15px; top: -7px; background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255, 255, 255, .15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .15)), color-stop(.75, rgba(255, 255, 255, .15)), color-stop(.75, transparent), to(transparent)); background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); background-image: linear-gradient(-45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); -webkit-background-size: 15px 15px; background-size: 15px 15px; -webkit-animation: ani_buffering 2s linear infinite; animation: ani_buffering 2s linear infinite; position: absolute; }
+@-webkit-keyframes ani_buffering {
+	from { background-position: 0 0 }
+	to { background-position: 30px 0 }
+}
+@keyframes ani_buffering {
+	from { background-position: 0 0 }
+	to { background-position: 30px 0 }
+}
+.zy_timeline_loaded { width: 0; height: 1px; background: #e5e5e5; position: absolute; top: 0; left: 0; z-index: 1 }
+.zy_timeline_current { width: 0; height: 1px; background: #ff6159; position: relative; z-index: 2 }
+.zy_timeline_handle { width: 16px; height: 16px; border-radius: 16px; background: #e5e5e5; position: absolute; top: -8px; left: -8px; z-index: 3 }
+
+/* 时间展示 */
+.zy_time { width: auto; height: 44px; margin-right: 5px; line-height: 44px; font-size: 11px; color: #999; text-align: center }
+.zy_time .zy_currenttime { color: #e5e5e5 }
+
+/* 全屏控制按钮 */
+.zy_fullscreen_btn { width: 38px; height: 44px; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaBAMAAAEsY2FrAAAAElBMVEX///////////////////////+65XQCAAAABXRSTlMAHm1u3TG+li4AAAB5SURBVBgZBcGxbQNBEAQwPnCXC49TviU4UQnKx8ZP/62YVB58qQCIBwArGgAAwK4HkAUEgEXAEmBFG/AH+B0gN5BrQLwAAG4bXLOBewPXB/AGu6VtG4CeAUCdAaCcAVCcAQAAAAMAzrAD4IwdAM7PDgDOJwBt2wAA/9uDEjcL3fqtAAAAAElFTkSuQmCC); background-repeat: no-repeat; background-position: center; -webkit-background-size: 16px; background-size: 16px }
+.zy_unfullscreen { background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaBAMAAAEsY2FrAAAAElBMVEX///////////////////////+65XQCAAAABXRSTlMAHm1u3TG+li4AAAB5SURBVBgZBcGxDcMwEAQwGtH1QuD0WiGAB8gI39z+q4SEhR8AwALAwmAwgCAIS4AV0BYg7UAWEIttwNeA1x7gO8BrQDsAAGlBDpA3kOuAeIO4eDYZAM+WAeDZGQA8nwFo2w4AAAAAANq2A9D7AKDuA0C5D4DiPgDAH9lBEChOLXSRAAAAAElFTkSuQmCC) }

@@ -1,4 +1,8 @@
-.vux-fade-transition {
+/*!
+ * Vux v0.1.3-rc5 (https://vux.li)
+ * Licensed under the MIT license
+ */
+ .vux-fade-transition {
   opacity: 1;
   -webkit-transition: opacity linear 0.2s;
   transition: opacity linear 0.2s

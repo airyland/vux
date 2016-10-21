@@ -1,5 +1,3 @@
 src/assets/*/*.js
-src/components/calendar/calendar.js
 src/libs/eventor.js
 src/components/x-swiper/swiper.dom.js
-src/components/x-swiper/swiper.js

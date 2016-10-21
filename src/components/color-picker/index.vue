@@ -12,8 +12,7 @@
 
 <script>
 import Icon from '../icon'
-import Flexbox from '../flexbox'
-import FlexboxItem from '../flexbox-item'
+import { Flexbox, FlexboxItem } from '../flexbox'
 
 const sizeMap = {
   'large': 40,
@@ -35,10 +34,7 @@ export default {
       type: String,
       default: 'large'
     },
-    value: {
-      type: String,
-      twoWay: true
-    }
+    value: String
   },
   computed: {
     width () {

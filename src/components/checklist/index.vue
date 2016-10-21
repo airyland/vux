@@ -7,7 +7,7 @@
         <i class="weui_icon_checked"></i>
       </div>
       <div class="weui_cell_bd weui_cell_primary">
-        <p>{{one | getValue}}</p>
+        <p v-html="one | getValue"></p>
       </div>
     </label>
   </div>
@@ -43,7 +43,7 @@ export default {
     },
     value: {
       type: Array,
-      twoWay: true
+      default: () => []
     },
     max: Number,
     min: Number,

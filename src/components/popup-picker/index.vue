@@ -1,5 +1,5 @@
 <template>
-  <cell :title="title" primary="content" is-link :inline-desc="inlineDesc" @click="onClick">
+  <cell v-show="showCell" :title="title" primary="content" is-link :inline-desc="inlineDesc" @click="onClick">
     <span class="vux-popup-picker-value" v-if="!showName && value.length">{{value | array2string}}</span>
     <span class="vux-popup-picker-value" v-else="showName && value.length">{{value | value2name data}}</span>
     <span v-if="!value.length && placeholder" v-html="placeholder"></span>
@@ -12,7 +12,13 @@
           <flexbox-item style="text-align:right;padding-right:15px;line-height:44px;" @click="onHide(true)">完成</flexbox-item>
         </flexbox>
       </div>
-      <picker :data="data" :value.sync="tempValue" :columns="columns" :container="'#vux-popup-picker-'+uuid" @on-change="onPickerChange"></picker>
+      <picker
+      :data="data"
+      :value.sync="tempValue"
+      @on-change="onPickerChange"
+      :columns="columns"
+      :fixed-columns="fixedColumns"
+      :container="'#vux-popup-picker-'+uuid"></picker>
     </div>
   </popup>
 </template>
@@ -21,8 +27,7 @@
 import Picker from '../picker'
 import Cell from '../cell'
 import Popup from '../popup'
-import Flexbox from '../flexbox'
-import FlexboxItem from '../flexbox-item'
+import { Flexbox, FlexboxItem } from '../flexbox'
 import array2string from '../../filters/array2String'
 import value2name from '../../filters/value2name'
 import uuidMixin from '../../libs/mixin_uuid'
@@ -57,6 +62,10 @@ export default {
       type: Number,
       default: 0
     },
+    fixedColumns: {
+      type: Number,
+      default: 0
+    },
     value: {
       type: Array,
       default () {
@@ -64,9 +73,17 @@ export default {
       }
     },
     showName: Boolean,
-    inlineDesc: String
+    inlineDesc: String,
+    showCell: {
+      type: Boolean,
+      default: true
+    },
+    show: Boolean
   },
   methods: {
+    getNameValues () {
+      return value2name(this.value, this.data)
+    },
     onClick () {
       this.show = true
     },
@@ -78,15 +95,31 @@ export default {
       }
       if (!type) {
         this.closeType = false
-        this.tempValue = getObject(this.value)
+        if (this.value.length > 0) {
+          this.tempValue = getObject(this.value)
+        }
       }
     },
     onPopupHide (val) {
-      this.tempValue = getObject(this.value)
+      if (this.value.length > 0) {
+        this.tempValue = getObject(this.value)
+      }
       this.$emit('on-hide', this.closeType)
     },
     onPickerChange (val) {
-      this.value = getObject(val)
+      if (JSON.stringify(this.value) !== JSON.stringify(val)) {
+        // if has value, replace it
+        if (this.value.length) {
+          const nowData = JSON.stringify(this.data)
+          if (nowData !== this.currentData && this.currentData !== '[]') {
+            this.value = getObject(val)
+          }
+          this.currentData = nowData
+        } else { // if no value, stay quiet
+          // if set to auto update, do update the value
+        }
+      }
+      this.$emit('on-shadow-change', getObject(val))
     }
   },
   watch: {
@@ -98,9 +131,9 @@ export default {
   },
   data () {
     return {
-      show: false,
       tempValue: getObject(this.value),
-      closeType: false
+      closeType: false,
+      currentData: JSON.stringify(this.data) // used for detecting if it is after data change
     }
   }
 }

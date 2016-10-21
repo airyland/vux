@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="display:inline-block;">
     <span v-if="showTimeString">{{timeString}}</span>
     <div class="vux-clocker-tpl"><slot></slot></div>
   </div>
@@ -18,6 +18,7 @@ export default {
   },
   methods: {
     render () {
+      if (!this.time) return
       this.clocker = new Clocker(this.time)
       .on('tick', event => {
         this.update(event)
@@ -41,10 +42,7 @@ export default {
     }
   },
   props: {
-    time: {
-      type: String,
-      required: true
-    },
+    time: [String, Number],
     format: {
       type: String,
       default: '%D 天 %H 小时 %M 分 %S 秒'

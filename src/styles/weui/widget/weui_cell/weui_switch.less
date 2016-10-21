@@ -1,6 +1,6 @@
 @import "../../base/fn";
 @weuiSwitchHeight: 32px;
-.weui_cell_switch{
+.weui_cell.weui_cell_switch{
     padding-top: (@weuiCellHeight - @weuiSwitchHeight) / 2;
     padding-bottom: (@weuiCellHeight - @weuiSwitchHeight) / 2;
 }
@@ -39,8 +39,8 @@
     }
 
     &:checked{
-        border-color: #04BE02;
-        background-color: #04BE02;
+        border-color: @switch-checked-border-color;
+        background-color: @switch-checked-bg-color;
         &:before{
             transform: scale(0);
         }

@@ -14,7 +14,8 @@
     <br>
 
     <group title="chained columns">
-      <popup-picker :title="title3" :data="list3" :columns="3" :value.sync="value3"></popup-picker>
+      <popup-picker :title="title3" :data="list3" :columns="3" :value.sync="value3" v-ref:picker3></popup-picker>
+      <cell title="获取值对应的文字" :value="$refs.picker3.getNameValues()"></cell>
       <popup-picker :title="title4" :data="list3" :columns="3" :value.sync="value4" show-name></popup-picker>
     </group>
 
@@ -23,18 +24,39 @@
       <x-button type="primary" @click="changeList21">push方式更改列表</x-button>
     </div>
 
+    <br>
+    <divider>Control the visibility of popup-picker</divider>
+    <div style="margin: 0 15px;">
+      <x-button @click="showPopupPicker = true" type="primary">Show PopupPicker. value: {{value5 | json}}</x-button>
+    </div>
+    <group>
+      <popup-picker :show.sync="showPopupPicker" :show-cell="false" title="TEST" :data="[['1', '2', '3', '4', '5']]" :value.sync="value5"></popup-picker>
+    </group>
+
+    <br>
+    <group title="隐藏时不影响其他popup-picker的mask">
+      <switch title="ishide popup-picker" :value.sync="switch6"></switch>
+      <popup-picker v-if="!switch6" :show.sync="showPopupPicker" title="显示值" :data="['我不会影响遮罩层'.split('')]" :value.sync="value6"></popup-picker>
+    </group>
+
+    <br>
+    <br>
+
   </div>
 </template>
 
 <script>
-import { PopupPicker, Group, Picker, XButton } from '../components'
+import { PopupPicker, Group, Cell, Picker, XButton, Divider, Switch } from '../components'
 
 export default {
   components: {
     PopupPicker,
     Group,
     Picker,
-    XButton
+    XButton,
+    Divider,
+    Cell,
+    Switch
   },
   methods: {
     changeList10 () {
@@ -128,7 +150,11 @@ export default {
       value1: ['iPhone'],
       value2: ['iPhone', '华为3'],
       value3: [],
-      value4: []
+      value4: [],
+      showPopupPicker: false,
+      value5: ['2'],
+      switch6: false,
+      value6: []
     }
   }
 }

@@ -1,10 +1,11 @@
 <template>
   <div class="vux-header">
     <div class="vux-header-left">
-      <a class="vux-header-back" @click.preventDefault v-show="leftOptions.showBack" @click="onClickBack">{{leftOptions.backText}}</a>
+      <a class="vux-header-back" @click.preventDefault v-show="leftOptions.showBack" :transition="transition" @click="onClickBack">{{leftOptions.backText}}</a>
+      <div class="left-arrow" @click="onClickBack" v-show="leftOptions.showBack" :transition="transition"></div>
       <slot name="left"></slot>
     </div>
-    <h1 class="vux-header-title"><slot></slot></h1>
+    <h1 class="vux-header-title" @click="$emit('on-click-title')"><span v-show="title" :transition="transition">{{title}}</span><slot></slot></h1>
     <div class="vux-header-right">
       <a class="vux-header-more" @click.preventDefault @click="$emit('on-click-more')" v-if="rightOptions.showMore"></a>
       <slot name="right"></slot>
@@ -25,6 +26,8 @@ export default {
         }
       }
     },
+    title: String,
+    transition: String,
     rightOptions: {
       type: Object,
       default () {
@@ -46,12 +49,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/variable.less';
+
 .vux-header {
   position: relative;
   padding: 3px 0;
   box-sizing: border-box;
-  background-color: #35495e;
+  background-color: @x-header-background-color;
 }
 .vux-header .vux-header-title,.vux-header h1 {
   margin: 0 88px;
@@ -65,10 +70,10 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: #fff
+  color: @x-header-title-color;
 }
-.vux-header .vux-header-title a,.vux-header .vux-header-title a:active,.vux-header h1 a,.vux-header h1 a:active {
-  color: #fff
+.vux-header .vux-header-title > span {
+  display: inline-block;
 }
 .vux-header .vux-header-left,.vux-header .vux-header-right {
   position: absolute;
@@ -76,12 +81,12 @@ export default {
   display: block;
   font-size: 14px;
   line-height: 21px;
-  color: #ccc
+  color: @x-header-text-color;
 }
 .vux-header .vux-header-left a,.vux-header .vux-header-left button,.vux-header .vux-header-right a,.vux-header .vux-header-right button {
   float: left;
   margin-right: 8px;
-  color: #ccc
+  color: @x-header-text-color;
 }
 .vux-header .vux-header-left a:active,.vux-header .vux-header-left button:active,.vux-header .vux-header-right a:active,.vux-header .vux-header-right button:active {
   opacity: .5
@@ -92,19 +97,24 @@ export default {
 .vux-header .vux-header-left .vux-header-back {
   padding-left: 16px
 }
-.vux-header .vux-header-left .vux-header-back:before {
-  content: "";
+.vux-header .vux-header-left .left-arrow {
   position: absolute;
-  display: block;
-  top: 2px;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  border: 1px solid #ccc;
-  border-width: 1px 0 0 1px;
-  margin-left: 3px;
-  margin-top: 1px;
-  transform: rotate(315deg)
+  width: 30px;
+  height: 30px;
+  top: -5px;
+  left: -5px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 1px solid @x-header-arrow-color;
+    border-width: 1px 0 0 1px;
+    transform: rotate(315deg);
+    top: 8px;
+    left: 7px;
+  }
 }
 .vux-header .vux-header-right {
   right: 15px
@@ -116,5 +126,19 @@ export default {
 .vux-header .vux-header-right .vux-header-more:after {
   content: "\2022\0020\2022\0020\2022\0020";
   font-size: 16px;
+}
+.vux-header-fade-in-right-enter {
+  animation: fadeinR .5s;
+}
+.vux-header-fade-in-left-enter {
+  animation: fadeinL .5s;
+}
+@keyframes fadeinR{
+  0%{opacity:0;transform:translateX(80px);}
+  100%{opacity:1;transform:translateX(0);}
+}
+@keyframes fadeinL{
+  0%{opacity:0;transform:translateX(-80px);}
+  100%{opacity:1;transform:translateX(0);}
 }
 </style>

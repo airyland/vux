@@ -1,0 +1,18 @@
+props:
+  time:
+    en: the end time
+    zh-CN: 结束时间
+  format:
+    en: the result format
+    zh-CN: 显示格式
+events:
+  on-tick:
+    en: triggers on time ticking
+    zh-CN: 时间计算时触发，但非每1s触发
+  on-finish:
+    en: triggers on time end
+    zh-CN: 时间结束时触发
+slots:
+  default:
+    en: if specified, will be the format for the result
+    zh-CN: 若存在，则作为最终显示出来的结果模板

@@ -6,9 +6,12 @@
     <group-title>异步加载及动态改变数据</group-title>
     <picker :data='years001' :value.sync='year001' @on-change='change'></picker>
     <br>
-    <x-button type="primary" @click="changeValue([[1,3,5,7,9,11],[2,3,4,5],['a','b','c']])">Set Data1</x-button>
-    <x-button type="primary" @click="changeValue([[1,3,5,7,9,11],[2,3,4,5]])">Set Data1</x-button>
-    <x-button type="primary" @click="changeValue([[2,4,6,8,10,11]])">Set Data2</x-button>
+    <group>
+      <cell title="current value" :value="year001 | json"></cell>
+    </group>
+    <x-button type="primary" @click="changeValue([['1','3','5','7','9','11'],['2','3','4','5'],['a','b','c']])">Set Data1</x-button>
+    <x-button type="primary" @click="changeValue([['1','3','5','7','9','11'],['2','3','4','5']])">Set Data1</x-button>
+    <x-button type="primary" @click="changeValue([['2','4','6','8','10','11']])">Set Data2</x-button>
     <br>
     <group-title>设置默认值时</group-title>
     <picker :data='years' :value.sync='year2' @on-change='change'></picker>
@@ -30,11 +33,14 @@
     <x-button @click="setData1" type="primary">set Value to ["USA", "usa002", "0005"]</x-button>
     <x-button @click="setData2" type="primary">set Value to ["china", "china002", "gz"]</x-button>
     <x-button @click="setList" type="primary">set List</x-button>
+    <br>
+    <group-title>3列的数据，只显示两列</group-title>
+    <picker :data='year7' :fixed-columns="2" :columns=3 :value.sync='year8Value' @on-change='change'></picker>
   </div>
 </template>
 
 <script>
-import { Picker, GroupTitle, XButton } from '../components'
+import { Cell, Group, Picker, GroupTitle, XButton } from '../components'
 
 let years = []
 for (var i = 2000; i <= 2030; i++) {
@@ -48,7 +54,9 @@ export default {
   components: {
     Picker,
     GroupTitle,
-    XButton
+    XButton,
+    Cell,
+    Group
   },
   methods: {
     changeValue (value) {
@@ -163,7 +171,8 @@ export default {
         value: '0006',
         parent: 'usa002'
       }],
-      year7Value: []
+      year7Value: [],
+      year8Value: []
     }
   }
 }

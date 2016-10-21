@@ -1,6 +1,6 @@
 <template>
 	<div class="weui_panel weui_panel_access">
-    <div class="weui_panel_hd" v-if="header && header.title" v-html="header.title"></div>
+    <div class="weui_panel_hd" v-if="header && header.title" v-html="header.title" @click="$emit('on-click-header')"></div>
     <slot name="header"></slot>
     <div class="weui_panel_bd">
       <div class="vux-card-content"><slot name="content"></slot></div>
@@ -21,6 +21,7 @@ export default {
   methods: {
     onClickFooter () {
       this.footer.link && go(this.footer.link, this.$router)
+      this.$emit('on-click-footer')
     }
   }
 }

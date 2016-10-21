@@ -4,6 +4,15 @@ var fs = require('fs')
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var buildConfig = require(path.resolve(__dirname, './components'))
+var mkdirp = require('mkdirp')
+
+var touch = function (filePath) {
+  mkdirp(filePath, function () {
+    fs.open(filePath + '/style.css', 'w', function (err) {})
+  })
+}
+
+var pkg = require(path.join(__dirname, '../package.json'))
 
 var getConfig = function () {
   var config = {
@@ -73,7 +82,11 @@ var getConfig = function () {
       'process.env': {
         NODE_ENV: '"production"'
       }
-    })
+    }),
+    new webpack.BannerPlugin(`Vux v${pkg.version} (https://vux.li)
+Licensed under the ${pkg.license} license`, {
+    entryOnly: false
+    }),
   ])
   return config
 }
@@ -143,6 +156,8 @@ function build (name, _path, isMulti) {
   _config.output.library = converName(name)
   _config.output.path = path.resolve(__dirname, '../dist/components/' + name.toLowerCase() + '/')
 
+  touch(_config.output.path)
+
   webpack(_config, function (err, stats) {
     var jsonStats = stats.toJson()
     var assets = jsonStats.assets[0]
@@ -192,6 +207,9 @@ function buildCommon (name, _path, isMulti) {
   _config.output.libraryTarget = 'commonjs2'
   _config.output.filename = 'index.js'
   _config.output.path = path.resolve(__dirname, '../dist/components-commonjs/' + name.toLowerCase() + '/')
+
+  touch(_config.output.path)
+
   webpack(_config, function (err, stats) {
     var jsonStats = stats.toJson()
     var assets = jsonStats.assets[0]

@@ -13,7 +13,7 @@
       :cols="cols"
       v-model="value"
       :style="textareaStyle"
-      :maxlength="max"></textarea>
+      :maxlength="max" v-el:textarea></textarea>
       <div class="weui_textarea_counter" v-show="showCounter && max"><span>{{count}}</span>/{{max}}</div>
     </div>
   </div>
@@ -32,14 +32,10 @@ export default {
     max: Number,
     value: {
       type: String,
-      default: '',
-      twoWay: true
-    },
-    name: String,
-    placeholder: {
-      type: String,
       default: ''
     },
+    name: String,
+    placeholder: String,
     rows: {
       type: Number,
       default: 3
@@ -65,7 +61,11 @@ export default {
   },
   computed: {
     count () {
-      return this.value.length
+      let len = 0
+      if (this.value) {
+        len = this.value.replace(/\n/g, 'aa').length
+      }
+      return len > this.max ? this.max : len
     },
     textareaStyle () {
       if (this.height) {

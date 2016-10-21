@@ -1,0 +1,49 @@
+props:
+  value:
+    en:
+    zh-CN: 当前选中日期，双向绑定，默认为空，即选中当天日期
+  render-month:
+    en:
+    zh-CN: 指定渲染日期，如 [2018, 8]
+  start-date:
+    en:
+    zh-CN: 起始日期，格式为'YYYY-MM-dd'
+  end-date:
+    en:
+    zh-CN: 结束日期，格式为'YYYY-MM-dd'
+  show-last-month:
+    en:
+    zh-CN: 是否显示上个月的日期
+  show-next-month:
+    en:
+    zh-CN: 是否显示下个月的日期
+  highlight-weekend:
+    en:
+    zh-CN: 是否高亮周末
+  return-six-rows:
+    en:
+    zh-CN: 是否总是渲染6行日期
+  hide-header:
+    en:
+    zh-CN: 是否隐藏日历头部
+  hide-week-list:
+    en:
+    zh-CN: 是否隐藏星期列表
+  replace-text-list:
+    en:
+    zh-CN: "替换列表，可以将默认的日期换成文字，比如今天的日期替换成今，{'TODAY':'今'}"
+  weeks-list:
+    en:
+    zh-CN: 星期列表，从周日开始
+  custom-slot-fn:
+    en:
+    zh-CN: 用于为特定日期添加额外的html内容，参数为(行index,列index,日期详细属性)
+  render-on-value-change:
+    en:
+    zh-CN: 当日期变化时是否重新渲染日历，如果是渲染了多个日历的话需要设为false
+  disable-past:
+    en:
+    zh-CN: 禁止选择过去的日期，该选项可以与start-date同时使用
+  disable-future:
+    en:
+    zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用

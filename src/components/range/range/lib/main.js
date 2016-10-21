@@ -29,6 +29,7 @@ function Powerange (element, options) {
   this.element = element
   this.options = options || {}
   this.slider = this.create('span', 'range-bar')
+  this.hasAppend = false
 
   if (this.element !== null && this.element.type === 'text') this.init()
 }
@@ -66,8 +67,11 @@ Powerange.prototype.hide = function () {
  */
 
 Powerange.prototype.append = function () {
-  var slider = this.generate()
-  this.insertAfter(this.element, slider)
+  if (!this.hasAppend) {
+    var slider = this.generate()
+    this.insertAfter(this.element, slider)
+  }
+  this.hasAppend = true
 }
 
 /**
@@ -136,17 +140,6 @@ Powerange.prototype.insertAfter = function (reference, target) {
 }
 
 /**
- * Add an additional class for extra customization.
- *
- * @param {String} klass
- * @api private
- */
-
-Powerange.prototype.extraClass = function (klass) {
-  if (this.options.klass) classes(this.slider).add(klass)
-}
-
-/**
  * Set min and max values.
  *
  * @param {Number} min
@@ -171,13 +164,19 @@ Powerange.prototype.setRange = function (min, max) {
 
 Powerange.prototype.setValue = function (offset, size) {
   var part = percentage.from(parseFloat(offset), size)
-  var value = percentage.of(part, this.options.max - this.options.min) + this.options.min
+  if (offset === '0px' || size === 0) {
+    value = this.options.min
+  } else {
+    var value = percentage.of(part, this.options.max - this.options.min) + this.options.min
+    value = (this.options.decimal) ? (Math.round(value * 100) / 100) : Math.round(value)
+
+    if (value > this.options.max) {
+      value = this.options.max
+    }
+  }
+
   var changed = false
 
-  value = (this.options.decimal) ? (Math.round(value * 100) / 100) : Math.round(value)
-  if (value > this.options.max) {
-    value = this.options.max
-  }
   changed = this.element.value !== value
 
   this.element.value = value
@@ -242,12 +241,16 @@ Powerange.prototype.checkStep = function (value) {
  * @api private
  */
 
-Powerange.prototype.disable = function () {
-  if (this.options.min === this.options.max || this.options.min > this.options.max || this.options.disable) {
+Powerange.prototype.disable = function (force) {
+  if (this.options.disable || force) {
     this.mouse.unbind()
     this.touch.unbind()
-    this.slider.style.opacity = this.options.disableOpacity
-    classes(this.handle).add('range-disabled')
+  }
+  if (this.options.disable) {
+    if (this.options.disableOpacity) {
+      this.slider.style.opacity = this.options.disableOpacity
+    }
+    classes(this.slider).add('range-bar-disabled')
   }
 }
 
@@ -294,8 +297,16 @@ Powerange.prototype.init = function () {
   this.hide()
   this.append()
   this.bindEvents()
-  this.extraClass(this.options.klass)
   this.checkValues(this.options.start)
   this.setRange(this.options.min, this.options.max)
   this.disable()
 }
+
+Powerange.prototype.reInit = function (opts) {
+  this.options.start = opts.value
+  this.options.min = opts.min
+  this.options.max = opts.max
+  this.disable(true)
+  this.init()
+}
+

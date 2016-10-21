@@ -6,7 +6,7 @@ const MASK_TEMPLATE = '<div class="dp-mask"></div>'
 const TEMPLATE = `<div class="dp-container">
   <div class="dp-header">
     <div class="dp-item dp-left" data-role="cancel">cancel</div>
-    <div class="dp-item dp-center"></div>
+    <div class="dp-item dp-center" data-role="clear"></div>
     <div class="dp-item dp-right" data-role="confirm">ok</div>
   </div>
   <div class="dp-content">
@@ -28,8 +28,6 @@ var TYPE_MAP = {
   hour: ['HH', 'H'],
   minute: ['mm', 'm']
 }
-
-var BODY = document.body
 
 var MASK = null
 
@@ -54,9 +52,11 @@ var DEFAULT_CONFIG = {
   value: NOW.getFullYear() + '-' + (NOW.getMonth() + 1) + '-' + NOW.getDate(),
   onSelect () {},
   onConfirm () {},
+  onClear () {},
   onShow () {},
   onHide () {},
   confirmText: 'ok',
+  clearText: '',
   cancelText: 'cancel'
 }
 
@@ -72,7 +72,7 @@ function renderScroller (el, data, value, fn) {
 function showMask () {
   if (!MASK) {
     MASK = toElement(MASK_TEMPLATE)
-    BODY.appendChild(MASK)
+    document.body.appendChild(MASK)
 
     MASK.addEventListener('click', function () {
       CURRENT_PICKER && CURRENT_PICKER.hide()
@@ -151,8 +151,7 @@ DatetimePicker.prototype = {
       self._show(newValueMap)
     } else {
       var container = self.container = toElement(config.template)
-
-      BODY.appendChild(container)
+      document.body.appendChild(container)
 
       self.container.style.display = 'block'
 
@@ -200,6 +199,9 @@ DatetimePicker.prototype = {
         if (self.config.cancelText) {
           self.find('[data-role=cancel]').innerText = self.config.cancelText
         }
+        if (self.config.clearText) {
+          self.find('[data-role=clear]').innerText = self.config.clearText
+        }
         self.renderText = true
       }
 
@@ -214,6 +216,13 @@ DatetimePicker.prototype = {
         e.preventDefault()
         self.confirm()
       }, false)
+
+      if (self.config.clearText) {
+        self.find('[data-role=clear]').addEventListener('click', function (e) {
+          e.preventDefault()
+          self.clear()
+        }, false)
+      }
     }
 
     showMask()
@@ -333,6 +342,17 @@ DatetimePicker.prototype = {
     this.value = value
 
     if (self.config.onConfirm.call(self, value) === false) {
+      return
+    }
+
+    self.hide()
+  },
+
+  clear () {
+    var self = this
+    var value = self.getValue()
+
+    if (self.config.onClear.call(self, value) === false) {
       return
     }
 

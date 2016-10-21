@@ -1,0 +1,11 @@
+props:
+  stroke-width:
+    zh-CN: 线条宽度
+  stoke-color:
+    zh-CN: 线条颜色
+  trail-width:
+    zh-CN: 背景线条宽度
+  trail-color:
+    zh-CN: 背景线条颜色
+  percent:
+    zh-CN: 进度百分比

@@ -15,6 +15,7 @@
       <slot name="value"></slot>
       <slot></slot>
     </div>
+    <slot name="child"></slot>
   </div>
 </template>
 
@@ -28,9 +29,9 @@ export default {
   },
   props: {
     title: String,
-    value: String,
+    value: [String, Number],
     isLink: Boolean,
-    inlineDesc: String,
+    inlineDesc: [String, Number],
     primary: {
       type: String,
       default: 'title'
@@ -48,8 +49,13 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../styles/variable.less';
 @import '../../styles/tap.less';
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
+
+.weui_cell_bd > p {
+  color: @cell-body-label-color;
+}
 
 .weui_cell_ft.with_arrow:after {
   content: " ";

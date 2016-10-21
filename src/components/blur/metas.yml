@@ -1,0 +1,18 @@
+tips:
+  -
+    - en: If the component renders slowly on your target platform, you can try `css3 blur filter`
+    - zh-CN: 如果在手机上渲染过慢，可以尝试使用css3的`blur filter`
+props:
+  blur-amount:
+    en: blur amount of the effect
+    zh-CN: 模糊程度
+  url:
+    en: url of the image
+    zh-CN: 图片地址
+  height:
+    en: height of the container
+    zh-CN: 容器高度
+slots:
+  default:
+    en: content of the container, above the blur image
+    zh-CN: 容器内容，显示在模糊内容上面

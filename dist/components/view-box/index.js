@@ -1,0 +1,5 @@
+/*!
+ * Vux v0.1.3 (https://vux.li)
+ * Licensed under the MIT license
+ */
+!function(o,e){"object"==typeof exports&&"object"==typeof module?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports.vuxViewBox=e():o.vuxViewBox=e()}(this,function(){return function(o){function e(s){if(t[s])return t[s].exports;var r=t[s]={exports:{},id:s,loaded:!1};return o[s].call(r.exports,r,r.exports,e),r.loaded=!0,r.exports}var t={};return e.m=o,e.c=t,e.p="",e(0)}([function(o,e,t){o.exports=t(3)},function(o,e){},function(o,e){o.exports='<div class=weui_tab> <slot name=header></slot> <div class="weui_tab_bd vux-fix-safari-overflow-scrolling" v-el:view-box-body> <slot></slot> </div> <slot name=bottom></slot> </div>'},function(o,e,t){var s,r;t(1),r=t(2),o.exports=s||{},o.exports.__esModule&&(o.exports=o.exports["default"]),r&&(("function"==typeof o.exports?o.exports.options||(o.exports.options={}):o.exports).template=r)}])});

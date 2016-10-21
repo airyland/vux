@@ -1,0 +1,20 @@
+props:
+  type:
+    en:
+    zh-CN: 按钮类型，可选值为 `default,primary,warn`
+  disabled:
+    en: if disable the button
+    zh-CN: 是否不可点击
+  text:
+    en: button text, has the same function as default slot
+    zh-CN: 按钮文字，同默认slot
+  mini:
+    en: if use smaller style
+    zh-CN: 是否为mini类型，即小尺寸的按钮
+  plain:
+    en: if use plain styles which has no backgroundColor
+    zh-CN: 是否是plain样式，没有背景色
+slots:
+  default:
+    en: button text
+    zh-CN: 按钮文字

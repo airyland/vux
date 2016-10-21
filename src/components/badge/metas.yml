@@ -1,0 +1,4 @@
+props:
+  text:
+    en: text of the Badge
+    zh-CN: 显示的文字

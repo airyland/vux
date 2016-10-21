@@ -1,0 +1,13 @@
+button-tab:
+  props:
+    index:
+      zh-CN: 当前选中索引值，从0开始
+    height:
+      zh-CN: 高度值
+button-tab-item:
+  props:
+    selected:
+      zh-CN: 是否选中
+  events:
+    on-item-click:
+      zh-CN: 当前按钮点击时触发

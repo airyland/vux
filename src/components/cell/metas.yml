@@ -1,0 +1,32 @@
+props:
+  title:
+    en: label text
+    zh-CN: 左边标题文字
+  value:
+    en: right text
+    zh-CN: 右侧文字，复杂的样式布局请使用slot
+  inline-desc:
+    en: the text below title
+    zh-CN: 标题下面文字，一般为说明文字
+  is-link:
+    en: if this is a link, if true, there will be an arrow on the right
+    zh-CN: 是否为链接，如果是，右侧将会出现指引点击的右箭头
+  primary:
+    en: "main content area, can be in ['title', 'content']"
+    zh-CN: "可选值为 ['title', 'content']，对应的div会加上weui_cell_primary类名实现内容宽度自适应"
+slots:
+  default:
+    en: "right area, you can use default slot instead of prop:value so you can use complexed layout"
+    zh-CN: 右侧内容，相比于value的优点是可以用复杂的样式或者调用组件
+  value:
+    en: "[deprecated] the same as default slot"
+    zh-CN: "[废弃] 同默认slot"
+  icon:
+    en: icon area before title
+    zh-CN: 标题左侧的图像位置
+  after-title:
+    en: after title
+    zh-CN: 标题右侧位置
+  child:
+    en: the child element of the cell, you can add an element with absolute position
+    zh-CN: cell的直接子元素，因此可以添加一个相对于cell绝对定位的元素

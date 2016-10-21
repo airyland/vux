@@ -18,6 +18,7 @@
     :custom-slot-fn="customSlotFn"
     :render-on-value-change="renderOnValueChange"
     :disable-past="disablePast"
+    :disable-future="disableFuture"
     ></inline-calendar>
   </popup>
 </template>

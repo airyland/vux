@@ -10,8 +10,7 @@
 
 <script>
 import Scroller from './scroller'
-import Flexbox from '../flexbox'
-import FlexboxItem from '../flexbox-item'
+import { Flexbox, FlexboxItem } from '../flexbox'
 import Manager from './chain'
 
 export default {
@@ -22,7 +21,7 @@ export default {
   created () {
     if (this.columns !== 0) {
       const length = this.columns
-      this.store = new Manager(this.data, length)
+      this.store = new Manager(this.data, length, this.fixedColumns)
       this.data = this.store.getColumns(this.value)
     }
   },
@@ -39,10 +38,11 @@ export default {
       type: Number,
       default: 0
     },
-    value: {
-      type: Array,
-      twoWay: true
+    fixedColumns: {
+      type: Number,
+      default: 0
     },
+    value: Array,
     itemClass: {
       type: String,
       default: 'scroller-item'
@@ -67,6 +67,13 @@ export default {
       }
 
       for (let i = 0; i < data.length; i++) {
+        /**
+        * Still don't know why this happens
+        */
+        if (!document.querySelector(_this.getId(i))) {
+          return
+        }
+
         _this.scroller[i] && _this.scroller[i].destroy()
         _this.scroller[i] = new Scroller(_this.getId(i), {
           data: data[i],
@@ -74,7 +81,9 @@ export default {
           itemClass: _this.item_class,
           onSelect (value) {
             _this.value.$set(i, value)
-            _this.$emit('on-change', _this.getValue())
+            if (!this.columns || (this.columns && _this.getValue().length === _this.store.count)) {
+              _this.$emit('on-change', _this.getValue())
+            }
             if (_this.columns !== 0) {
               _this.renderChain(i + 1)
             }
@@ -86,7 +95,7 @@ export default {
       }
     },
     renderChain (i) {
-      if (this.columns === 0) {
+      if (!this.columns) {
         return
       }
 
@@ -114,10 +123,19 @@ export default {
     },
     getValue () {
       let data = []
-      for (var i = 0; i < this.data.length; i++) {
-        data.push(this.scroller[i].value)
+      for (let i = 0; i < this.data.length; i++) {
+        if (this.scroller[i]) {
+          data.push(this.scroller[i].value)
+        } else {
+          return []
+        }
       }
       return data
+    },
+    emitValueChange (val) {
+      if (!this.columns || (this.columns && val.length === this.store.count)) {
+        this.$emit('on-change', val)
+      }
     }
   },
   data () {
@@ -131,15 +149,17 @@ export default {
     value (val, oldVal) {
       // render all the scroller for chain datas
       if (this.columns !== 0) {
-        if (val !== oldVal) {
-          this.data = this.store.getColumns(val)
-          this.$nextTick(function () {
-            this.render(this.data, val)
-          })
+        if (val.length > 0) {
+          if (JSON.stringify(val) !== JSON.stringify(oldVal)) {
+            this.data = this.store.getColumns(val)
+            this.$nextTick(function () {
+              this.render(this.data, val)
+            })
+          }
         }
       } else {
         for (let i = 0; i < val.length; i++) {
-          if (this.scroller[i].value !== val[i]) {
+          if (this.scroller[i] && this.scroller[i].value !== val[i]) {
             this.scroller[i].select(val[i])
           }
         }
@@ -151,13 +171,22 @@ export default {
           this.render(newData, this.value)
           // emit on-change after rerender
           this.$nextTick(() => {
-            this.$emit('on-change', this.getValue())
+            this.emitValueChange(this.getValue())
+
+            if (JSON.stringify(this.getValue()) !== JSON.stringify(this.value)) {
+              if (!this.columns || (this.columns && this.getValue().length === this.store.count)) {
+                this.value = this.getValue()
+              }
+            }
           })
         })
       } else {
         if (this.columns !== 0) {
+          if (!newData.length) {
+            return
+          }
           const length = this.columns
-          this.store = new Manager(newData, length)
+          this.store = new Manager(newData, length, this.fixedColumns)
           this.data = this.store.getColumns(this.value)
         }
       }

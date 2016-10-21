@@ -29,6 +29,7 @@ class Swiper {
     this.$container = this._options.container.querySelector('.vux-swiper')
     this.$items = this.$container.querySelectorAll(this._options.item)
     this.count = this.$items.length
+    this.realCount = this.$items.length // real items length
     this._position = [] // used by go event
     this._firstItemIndex = 0
     if (!this.count) {
@@ -61,7 +62,7 @@ class Swiper {
   }
 
   _loop () {
-    return this._options.loop && this.count >= 3
+    return this._options.loop && this.realCount >= 3
   }
 
   _onResize () {
@@ -69,8 +70,7 @@ class Swiper {
     this.resizeHandler = () => {
       setTimeout(() => {
         me.updateItemWidth()
-        let firstItemIndex = me._getZeroIndexByPosition()
-        me._initOffset(firstItemIndex)
+        me._setOffset()
         me._setTransfrom()
       }, 100)
     }
@@ -78,11 +78,14 @@ class Swiper {
   }
 
   _init () {
+    if (this._options.loop) {
+      this._loopTwoItems()
+    }
     this._height = this._options.height === 'auto' ? 'auto' : this._options.height - 0
     this.updateItemWidth()
     this._initPosition()
     this._activate(this._current)
-    this._initOffset()
+    this._setOffset()
     this._setTransfrom()
     if (this._loop()) {
       this._loopRender()
@@ -90,7 +93,7 @@ class Swiper {
   }
 
   _initPosition () {
-    for (let i = 0; i < this.count; i++) {
+    for (let i = 0; i < this.realCount; i++) {
       this._position.push(i)
     }
   }
@@ -106,18 +109,13 @@ class Swiper {
     }
   }
 
-  _initOffset (position) {
-    position = position || 0
-    for (let i = 0; i < this.count; i++) {
-      this._offset[i] = (i - position) * this._distance
-    }
-  }
-
-  _moveOffset (position) {
-    position = position || 0
-    for (let i = 0; i < this.count; i++) {
-      this._offset[i] = this._offset[i] + position * this._distance
-    }
+  _setOffset () {
+    let me = this
+    let index = me._position.indexOf(me._current)
+    me._offset = []
+    arrayFrom(me.$items).forEach(function ($item, key) {
+      me._offset.push((key - index) * me._distance)
+    })
   }
 
   _setTransition (duration) {
@@ -161,7 +159,7 @@ class Swiper {
       if (me._options.direction === 'horizontal' && noScrollerY) {
         distance = distanceX
       }
-      if (((me._options.minMovingDistance && distance >= me._options.minMovingDistance) || !me._options.minMovingDistance) && noScrollerY) {
+      if (((me._options.minMovingDistance && Math.abs(distance) >= me._options.minMovingDistance) || !me._options.minMovingDistance) && noScrollerY) {
         me._setTransfrom(distance)
       }
 
@@ -178,6 +176,9 @@ class Swiper {
       }
 
       distance = me.getDistance(distance)
+      if (distance !== 0 && me._options.minMovingDistance && Math.abs(distance) < me._options.minMovingDistance) {
+        return
+      }
       if (distance > me._options.threshold) {
         me.move(-1)
       } else if (distance < -me._options.threshold) {
@@ -192,7 +193,7 @@ class Swiper {
     me.transitionEndHandler = (e) => {
       me._activate(me._current)
       let cb = me._eventHandlers.swiped
-      cb && cb.apply(me, [me._prev, me._current])
+      cb && cb.apply(me, [me._prev % me.count, me._current % me.count])
       me._auto()
       me._loopRender()
       e.preventDefault()
@@ -203,18 +204,30 @@ class Swiper {
     me.$items[1] && me.$items[1].addEventListener('webkitTransitionEnd', me.transitionEndHandler, false)
   }
 
+  _loopTwoItems () {
+    // issue #596 (support when onlt two)
+    if (this.count === 2) {
+      let div = document.createElement('div')
+      let $item
+      for (let i = this.$items.length - 1; i >= 0; i--) {
+        div.innerHTML = this.$items[i].outerHTML
+        $item = div.querySelector(this._options.item)
+        $item.classList.add(`${this._options.item.replace('.', '')}-clone`)
+        this.$container.appendChild($item)
+      }
+      this.realCount = 4
+    }
+  }
+
   _loopRender () {
     const me = this
     if (me._loop()) {
+      // issue #507 (delete cloneNode)
       if (me._offset[me._offset.length - 1] === 0) {
-        let firstChild = me.$items[0].cloneNode(true)
-        me.$container.appendChild(firstChild)
-        me.$container.removeChild(me.$items[0])
+        me.$container.appendChild(me.$items[0])
         me._loopEvent(1)
       } else if (me._offset[0] === 0) {
-        let lastChild = me.$items[me.$items.length - 1].cloneNode(true)
-        me.$container.insertBefore(lastChild, me.$container.firstChild)
-        me.$container.removeChild(me.$items[me.$items.length - 1])
+        me.$container.insertBefore(me.$items[me.$items.length - 1], me.$container.firstChild)
         me._loopEvent(-1)
       }
     }
@@ -226,7 +239,7 @@ class Swiper {
     me.$items = me.$container.querySelectorAll(me._options.item)
     me.$items[1] && me.$items[1].addEventListener('webkitTransitionEnd', me.transitionEndHandler, false)
     me._movePosition(num)
-    me._moveOffset(num)
+    me._setOffset()
     me._setTransfrom()
   }
 
@@ -236,7 +249,7 @@ class Swiper {
     } else {
       if (distance > 0 && this._current === 0) {
         return 0
-      } else if (distance < 0 && this._current === this.count - 1) {
+      } else if (distance < 0 && this._current === this.realCount - 1) {
         return 0
       } else {
         return distance
@@ -245,91 +258,48 @@ class Swiper {
   }
 
   _moveIndex (num) {
-    this._prev = this._current
-    this._current += num
-    this._current %= this.count
-    this._current = this._current < 0 ? this.count + this._current : this._current
+    if (num !== 0) {
+      this._prev = this._current
+      this._current += this.realCount
+      this._current += num
+      this._current %= this.realCount
+    }
   }
 
   _activate (index) {
     let clazz = this._options.activeClass
     Array.prototype.forEach.call(this.$items, ($item, key) => {
       $item.classList.remove(clazz)
-      if (index === this._position[key]) {
+      if (index === Number($item.dataset.index)) {
         $item.classList.add(clazz)
       }
     })
   }
 
-  _getZeroIndexByPosition () {
-    for (let i = 0; i < this._position.length; i++) {
-      if (this._position[i] === 0) {
-        return i
-      } else if (i === this._position.length - 1) {
-        return -1
-      }
-    }
-  }
-
-  _goOffset (index) {
-    index = index || 0
-    index = index % this.count
-    const me = this
-    let firstItemIndex = me._getZeroIndexByPosition()
-    for (let i = 0; i < me._offset.length; i++) {
-      if (me._offset[i] === 0) {
-        return firstItemIndex - i
-      }
-    }
-  }
-
   go (index) {
     const me = this
     me.stop()
-    if (me._loop()) {
-      let goOffset = me._goOffset(index)
-      me._moveOffset(-goOffset)
-      me._moveIndex(goOffset)
-      me._setTransition()
-      me._setTransfrom()
-    } else {
-      if (index < 0 || index > me.count - 1 || index === me._current) {
-        return
-      }
 
-      me._prev = me._current
-      me._current = index
+    index = index || 0
+    index += this.realCount
+    index = index % this.realCount
+    index = this._position.indexOf(index) - this._position.indexOf(this._current)
 
-      let distance = -(index - me._prev) * me._distance
-      for (let i = 0; i < me._offset.length; i++) {
-        me._offset[i] = me._offset[i] + distance
-      }
-      me._setTransition()
-      me._setTransfrom()
-    }
+    me._moveIndex(index)
+    me._setOffset()
+    me._setTransition()
+    me._setTransfrom()
     me._auto()
     return this
   }
 
   next () {
-    const me = this
-    if (me._loop()) {
-      me.move(1)
-    } else {
-      let index = me._current
-      index = index === me.count - 1 ? 0 : index + 1
-      me.go(index)
-    }
+    this.move(1)
     return this
   }
 
-  move (num, noAnimate) {
-    const me = this
-    me._moveOffset(-num)
-    me._movePosition(-num)
-    me._moveIndex(num)
-    me._setTransition(!noAnimate ? undefined : 'none')
-    me._setTransfrom()
+  move (num) {
+    this.go(this._current + num)
     return this
   }
 
@@ -358,6 +328,13 @@ class Swiper {
     this.$container.removeEventListener('touchmove', this.touchmoveHandler, false)
     this.$container.removeEventListener('touchend', this.touchendHandler, false)
     this._itemDestoy()
+    // remove clone item (used by loop only 2)
+    if (this._options.loop && this.count === 2) {
+      let $item = this.$container.querySelector(`${this._options.item}-clone`)
+      $item && this.$container.removeChild($item)
+      $item = this.$container.querySelector(`${this._options.item}-clone`)
+      $item && this.$container.removeChild($item)
+    }
   }
 }
 

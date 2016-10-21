@@ -30,7 +30,7 @@ export default {
         this.prisine = false
       }
       if (!this.handleChangeEvent) {
-        this.$emit('change', newVal)
+        this.$emit('on-change', newVal)
       }
     }
   },

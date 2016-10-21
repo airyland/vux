@@ -14,8 +14,11 @@
       </cell>
     </group>
     <group>
-      <cell title="Buy me a coffee" link="project/donate" value="捐赠">
+      <cell title="Buy me a coffee" link="project/donate">
         <span class="demo-icon" slot="icon" style="color:red;">&#xe630;</span>
+        <div class="badge-value" slot="value" class="vux-center-v">
+          <badge text="捐赠"></badge>
+        </div>
       </cell>
       <cell title="Github" link="http://github.com/airyland/vux" value="Star me">
         <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
@@ -25,12 +28,13 @@
 </template>
 
 <script>
-import { Cell, Group } from './components'
+import { Cell, Group, Badge } from './components'
 const version = require('../package.json').version
 export default {
   components: {
     Cell,
-    Group
+    Group,
+    Badge
   },
   data () {
     return {
@@ -63,6 +67,5 @@ export default {
 body {
   font-family: Helvetica, sans-serif;
   background-color: #fbf9fe;
-  padding-bottom: 50px;
 }
 </style>

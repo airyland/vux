@@ -1,0 +1,10 @@
+tips:
+  -
+    en: cannot custom line color for the moment
+    zh-CN: 暂时不可定义分割线颜色
+slots:
+  default:
+    en: divider title
+    zh-CN: 分隔线标题
+references:
+  - http://www.daqianduan.com/4258.html

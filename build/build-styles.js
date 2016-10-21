@@ -3,6 +3,8 @@ const syntax = require('postcss-less')
 const path = require('path')
 const fs = require('fs')
 
+var pkg = require(path.join(__dirname, '../package.json'))
+
 const p = path.resolve(__dirname, '../src/styles/')
 
 fs.readdir(p, function (err, files) {
@@ -29,6 +31,10 @@ function parse (file) {
     })
     .then(function (result) {
       const dist = getPath(file.replace('less', 'css'));
-      fs.writeFileSync(dist, result.css);
+      fs.writeFileSync(dist, `/*!
+ * Vux v0.1.3-rc5 (https://vux.li)
+ * Licensed under the MIT license
+ */
+ ` + result.css);
     });
 }

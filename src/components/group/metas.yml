@@ -1,0 +1,23 @@
+props:
+  title:
+    en: group title
+    zh-CN:分组标题
+  titleColor:
+    en: group title's color
+    zh-CN: 分组标题文字颜色
+  labelWidth:
+    en: common label width for child components
+    zh-CN: 为子元素设定统一label宽度
+  labelAlign:
+    en: common label text-align for child components
+    zh-CN: 为子元素设定统一对齐方式
+  labelMarginRight:
+    en: common margin right value for child components
+    zh-CN: 为子元素设定统一的右边margin
+  gutter:
+    en: set the marginTop value when there is no title
+    zh-CN: 设定group的上边距，只能用于没有标题时
+slot:
+  default:
+    en: content body for child components
+    zh-CN: 子组件插槽

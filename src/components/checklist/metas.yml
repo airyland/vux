@@ -1,0 +1,20 @@
+props:
+  value:
+    zh-CN: 表单值
+  title:
+    zh-CN: 标题
+  required:
+    zh-CN: 是否为必填
+  options:
+    zh-CN: 选项列表，可以为`[{name:'name',value:'value'}]`的形式
+  max:
+    zh-CN: 最多可选个数
+  min:
+    zh-CN: 最少可选个数
+  fill-mode:
+    zh-CN: 是否允许填写值
+  random-order:
+    zh-CN: 是否随机打乱选项顺序
+events:
+  on-change:
+    zh-CN: 值变化时触发，参数为 (value)

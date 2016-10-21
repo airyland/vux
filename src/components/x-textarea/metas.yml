@@ -1,0 +1,29 @@
+props:
+  show-counter:
+    en: if show the text length counter
+    zh-CN: 是否显示计数
+  max:
+    en: maxlength limit
+    zh-CN: 最大长度限制
+  value:
+    en: textarea's value
+    zh-CN: 表单值
+  name:
+    en: textarea's name
+    zh-CN: 表单名字
+  placeholder:
+    en: placeholder
+    zh-CN: 没有值时的提示文字
+  rows:
+    en: textarea's rows attribute
+    zh-CN: textarea 标准属性 rows
+  cols:
+    en: textarea's cols attribute
+    zh-CN: textara 标签属性 cols
+  height:
+    en: height
+    zh-CN: 高度
+events:
+  on-change:
+    en: triggers when value changes, params are (value)
+    zh-CN: 表单值变化时触发，参数为 (value)

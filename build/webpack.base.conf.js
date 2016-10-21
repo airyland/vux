@@ -1,5 +1,6 @@
 var path = require('path')
 var projectRoot = path.resolve(__dirname, '../')
+var src = path.join(projectRoot, 'src')
 
 module.exports = {
   entry: {
@@ -25,8 +26,8 @@ module.exports = {
   module: {
     preLoaders: [
       {
-        test: /\.js$/, 
-        loader: "eslint-loader", 
+        test: /\.js$/,
+        loader: 'eslint-loader',
         exclude: /node_modules/
       }
     ],
@@ -40,6 +41,11 @@ module.exports = {
         loader: 'babel',
         include: projectRoot,
         exclude: /node_modules/
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        include: src
       },
       {
         test: /\.json$/,

@@ -16,10 +16,12 @@
   :replace-text-list="replaceTextList"
   :weeks-list="weeksList"
   :custom-slot-fn="buildSlotFn"
-  :disable-past="disablePast">
+  :disable-past="disablePast"
+  :disable-future="disableFuture">
   </inline-calendar>
-  <group title="control days" style="margin-top: 350px;">
+  <group title="control days" style="margin-top: 30px;">
     <switch :value.sync="disablePast" title="Disable Past"></switch>
+    <switch :value.sync="disableFuture" title="Disable Future"></switch>
     <switch :value.sync="showLastMonth" title="Show Last Month"></switch>
     <switch :value.sync="showNextMonth" title="Show Next Month"></switch>
     <switch :value.sync="return6Rows" inline-desc="if not, the calendar's height would change" title="Always show 6 rows"></switch>
@@ -48,6 +50,7 @@
   </group>
 
   <br>
+
   <divider>We can render a list of calendars order by month</divider>
   <group>
     <cell title="current value" :value="listValue"></cell>
@@ -90,7 +93,8 @@ module.exports = {
       weeksList: [],
       useCustomFn: false,
       buildSlotFn: () => '',
-      disablePast: false
+      disablePast: false,
+      disableFuture: false
     }
   },
   watch: {
@@ -122,11 +126,6 @@ module.exports = {
 
 <style lang="less" scoped>
 .inline-calendar-demo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
   background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(5px);
 }
 </style>
