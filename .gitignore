@@ -8,3 +8,4 @@ examples/webpack/
 .idea
 dist/components-commonjs/
 /site
+*.iml
