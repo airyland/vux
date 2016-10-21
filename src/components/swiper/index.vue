@@ -3,14 +3,14 @@
     <div class="vux-swiper" :style="{height: xheight}">
       <slot></slot>
       <div class="vux-swiper-item" v-for="item in list" @click="clickListItem(item)">
-        <a href="javascript:">
-          <div class="vux-img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
+        <a :href="item.url">
+          <div class="vux-img {{item.cls}}"></div>
           <p class="vux-swiper-desc">{{item.title}}</p>
         </a>
       </div>
     </div>
-    <div :class="[dotsClass, 'vux-indicator', 'vux-indicator-' + dotsPosition]" v-show="showDots">
-      <a href="javascript:" v-for="key in length">
+    <div :class="['vux-indicator', 'vux-indicator-' + dotsPosition]" v-show="showDots && list.length > 1">
+      <a href="javascript:" v-for="(key, item) in list">
         <i class="vux-icon-dot" :class="{'active': key === current}"></i>
       </a>
     </div>
@@ -19,8 +19,6 @@
 
 <script>
 import Swiper from './swiper'
-import { go } from '../../libs/router'
-
 export default {
   ready () {
     if (!(this.list && this.list.length === 0)) {
@@ -30,7 +28,6 @@ export default {
   },
   methods: {
     clickListItem (item) {
-      go(item.url, this.$router)
       this.$emit('on-click-list-item', JSON.parse(JSON.stringify(item)))
     },
     buildBackgroundUrl (url) {
@@ -41,17 +38,14 @@ export default {
         container: this.$el,
         direction: this.direction,
         auto: this.auto,
-        loop: this.loop,
         interval: this.interval,
         threshold: this.threshold,
         duration: this.duration,
         height: this.height || this._height,
-        minMovingDistance: this.minMovingDistance,
-        imgList: this.imgList
+        minMovingDistance: this.minMovingDistance
       })
       .on('swiped', (prev, index) => {
         this.current = index
-        this.index = index
       })
     },
     rerender () {
@@ -61,7 +55,6 @@ export default {
       this.$nextTick(() => {
         this.index = 0
         this.current = 0
-        this.length = this.list.length || this.$children.length
         this.destroy()
         this.render()
       })
@@ -74,10 +67,15 @@ export default {
       const hasHeight = parseInt(this.height, 10)
       if (hasHeight) return this.height
       if (!hasHeight) {
-        if (this.aspectRatio) {
-          return this.$el.offsetWidth * this.aspectRatio + 'px'
+        if (this.list.length) {
+          if (this.aspectRatio) {
+            return this.$el.offsetWidth * this.aspectRatio + 'px'
+          } else {
+            return '180px'
+          }
+        } else {
+          return 'auto'
         }
-        return '180px'
       }
     }
   },
@@ -100,12 +98,10 @@ export default {
       type: String,
       default: 'right'
     },
-    dotsClass: String,
     auto: {
       type: Boolean,
       default: false
     },
-    loop: Boolean,
     interval: {
       type: Number,
       default: 3000
@@ -134,9 +130,8 @@ export default {
   },
   data () {
     return {
-      current: this.index,
-      xheight: 'auto',
-      length: this.list.length
+      current: 0,
+      xheight: 'auto'
     }
   },
   watch: {
@@ -148,9 +143,7 @@ export default {
     },
     index (val) {
       if (val !== this.current) {
-        this.$nextTick(() => {
-          this.swiper.go(val)
-        })
+        this.swiper.go(val)
       }
     }
   },
@@ -207,10 +200,8 @@ export default {
     position: relative;
 
     > .@{pre}-swiper-item {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
+      float: left;
+      position: relative;
       height: 100%;
 
       > a {
@@ -234,10 +225,10 @@ export default {
           height: 1.4em;
           font-size: 16px;
           padding: 20px 50px 12px 13px;
-          margin: 0;
           background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .7) 100%);
           color: #fff;
           text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
+          width: 100%;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;

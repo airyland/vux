@@ -15,21 +15,10 @@ const parentMixin = {
       }
     }
   },
-  props: {
-    index: {
-      type: Number,
-      default: 0
-    }
-  },
-  watch: {
-    index (val, oldVal) {
-      this.$children[oldVal].selected = false
-      this.$children[val].selected = true
-    }
-  },
   data () {
     return {
-      number: this.$children.length
+      number: this.$children.length,
+      index: 0
     }
   }
 }
