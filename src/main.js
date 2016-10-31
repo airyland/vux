@@ -128,7 +128,7 @@ router.beforeEach(({ to, from, next }) => {
   const toIndex = history.getItem(to.path)
   const fromIndex = history.getItem(from.path)
   if (toIndex) {
-    if (toIndex > fromIndex) {
+    if (toIndex > fromIndex || !fromIndex) {
       commit('UPDATE_DIRECTION', 'forward')
     } else {
       commit('UPDATE_DIRECTION', 'reverse')
