@@ -1,7 +1,7 @@
 <template>
-  <div class="vux-toast">
-    <div class="weui_mask_transparent" v-show="show"></div>
-      <div class="weui_toast" :style="{width: width}" :class="toastClass" v-show="show" :transition="transition">
+  <div class="vux-toast" v-show="show">
+    <div class="weui_mask_transparent"></div>
+      <div class="weui_toast" :style="{width: width}" :class="toastClass" :transition="transition">
         <i class="weui_icon_toast" v-show="type !== 'text'"></i>
         <p class="weui_toast_content" v-if="text" v-html="text"></p>
         <p class="weui_toast_content" v-else><slot></slot></p>
