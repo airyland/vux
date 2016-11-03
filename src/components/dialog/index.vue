@@ -1,6 +1,6 @@
 <template>
   <div class="weui_dialog_alert" v-show="show">
-    <div class="weui_mask" @click="this.hideOnBlur && (this.show = false)" :transition="maskTransition"></div>
+    <div class="weui_mask" @click="hideOnBlur && (show = false)" :transition="maskTransition"></div>
     <div class="weui_dialog" :transition="dialogTransition">
       <slot></slot>
     </div>
