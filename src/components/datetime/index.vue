@@ -70,6 +70,9 @@ export default {
       default: '{value}'
     }
   },
+  created () {
+    this.handleChangeEvent = true
+  },
   ready () {
     const uuid = this.uuid
     this.$el.setAttribute('id', 'vux-datetime-' + uuid)
