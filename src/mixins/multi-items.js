@@ -63,8 +63,6 @@ const childMixin = {
     selected (val) {
       if (val) {
         this.$parent.index = this.index
-      } else {
-        this.$parent.index = -1
       }
     }
   },
