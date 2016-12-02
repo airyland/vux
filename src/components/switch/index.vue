@@ -5,7 +5,7 @@
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
     <div class="weui_cell_ft">
-      <input class="weui_switch" type="checkbox" :disabled="disabled" v-model="value"/>
+      <input class="weui_switch" type="checkbox" :disabled="disabled" v-model="value" @click="toggle"/>
     </div>
   </div>
 </template>
@@ -16,6 +16,11 @@ import InlineDesc from '../inline-desc'
 export default {
   components: {
     InlineDesc
+  },
+  methods: {
+    toggle () {
+      this.$emit('on-change', this.value)
+    }
   },
   computed: {
     labelStyle () {
@@ -37,11 +42,6 @@ export default {
       default: false
     },
     inlineDesc: String
-  },
-  watch: {
-    value (newVal) {
-      this.$emit('on-change', newVal)
-    }
   }
 }
 </script>
