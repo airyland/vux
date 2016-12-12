@@ -34,18 +34,18 @@
   "dependencies": {
     "array-filter": "^1.0.0",
     "array-find": "^1.0.0",
+    "array-from": "^2.1.1",
     "array-map": "^0.0.0",
     "array-shuffle": "^1.0.0",
-    "countup": "^1.6.1",
+    "countup.js": "^1.7.1",
+    "object-assign": "^4.1.0",
     "photoswipe": "^4.1.1",
     "qr.js": "0.0.0",
     "shake.js": "^1.2.2",
     "validator": "^5.1.0",
     "vux-blazy": "^1.6.4",
     "vux-xscroll": "^3.1.8",
-    "webp-support": "^1.0.3",
-    "array-from": "^2.1.1",
-    "object-assign": "^4.1.0"
+    "webp-support": "^1.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
