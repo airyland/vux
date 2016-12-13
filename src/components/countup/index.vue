@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Countup from 'countup'
+import Countup from 'countup.js'
 
 export default {
   ready () {
