@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { Scroller, Swiper } from '../components'
+import { Scroller, Swiper } from 'vux'
 
 export default {
   components: {

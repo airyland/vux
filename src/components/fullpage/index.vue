@@ -8,28 +8,30 @@
 import Fullpage from './lib'
 
 export default {
-  ready () {
+  mounted () {
     const self = this
-    this._fullpage = new Fullpage(this.$el, {
-      dir: self.dir,
-      loop: self.loop,
-      drag: self.drag,
-      start: self.start,
-      duration: self.duration,
-      page: self.page,
-      der: self.der,
-      change: function (data) {
-        self.$emit('on-change', data)
-      },
-      beforeChange: function (data) {
-        self.$emit('on-before-change', data)
-      },
-      afterChange: function (data) {
-        self.$emit('on-after-change', data)
-      },
-      orientationchange: function (orientation) {
-        self.$emit('on-orientation-change', orientation)
-      }
+    this.$nextTick(() => {
+      this._fullpage = new Fullpage(this.$el, {
+        dir: self.dir,
+        loop: self.loop,
+        drag: self.drag,
+        start: self.start,
+        duration: self.duration,
+        page: self.page,
+        der: self.der,
+        change: function (data) {
+          self.$emit('on-change', data)
+        },
+        beforeChange: function (data) {
+          self.$emit('on-before-change', data)
+        },
+        afterChange: function (data) {
+          self.$emit('on-after-change', data)
+        },
+        orientationchange: function (orientation) {
+          self.$emit('on-orientation-change', orientation)
+        }
+      })
     })
   },
   props: {

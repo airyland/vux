@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { Box, Icon } from '../components'
+import { Box, Icon } from 'vux'
 
 export default {
   components: {

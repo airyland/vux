@@ -5,10 +5,9 @@
 </template>
 
 <script>
-
 export default {
   props: {
-    current: Number,
+    value: Number,
     backgroundColor: {
       type: String,
       default: '#fff'
@@ -18,12 +17,24 @@ export default {
       default: '10px'
     }
   },
-  ready () {
+  created () {
+    this.current = this.value
+  },
+  mounted () {
     this._mapPropsToChildComponent()
   },
   watch: {
-    current () {
+    value (val) {
+      this.current = val
+    },
+    current (val) {
       this._mapPropsToChildComponent()
+      this.$emit('input', val)
+    }
+  },
+  data () {
+    return {
+      current: 0
     }
   },
   methods: {
@@ -31,15 +42,15 @@ export default {
       const _this = this
       const len = this.$children.length - 1
       this.$children.forEach((child, index) => {
-        child.stepNumber = (index + 1).toString()
-        child.stepLast = index === len
+        child.currentStepNumber = (index + 1).toString()
+        child.currentStepLast = index === len
 
         if (index === _this.current) {
-          child.status = 'process'
+          child.currentStatus = 'process'
         } else if (index < _this.current) {
-          child.status = 'finish'
+          child.currentStatus = 'finish'
         } else {
-          child.status = 'wait'
+          child.currentStatus = 'wait'
         }
       })
     }

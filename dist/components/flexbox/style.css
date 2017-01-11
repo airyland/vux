@@ -1,5 +1,0 @@
-/*!
- * Vux v0.1.3 (https://vux.li)
- * Licensed under the MIT license
- */
-.vux-flexbox{width:100%;text-align:left;display:-webkit-box;display:-ms-flexbox;display:flex;box-align:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.vux-flexbox .vux-flexbox-item{-webkit-box-flex:1;-ms-flex:1;flex:1;min-width:20px;width:0}.vux-flexbox-item>.vux-flexbox{width:100%}.vux-flexbox .vux-flexbox-item:first-child{margin-left:0!important;margin-top:0!important}.vux-flex-col{box-orient:vertical;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.vux-flex-col>.vux-flexbox-item{width:100%}.vux-flex-row{box-direction:row;box-orient:horizontal;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}

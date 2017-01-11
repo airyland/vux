@@ -1,35 +1,52 @@
 <template>
   <div class="vux-actionsheet">
-    <div class="weui_mask_transition" :class="{'weui_fade_toggle': show}" :style="{display: show ? 'block' : 'none'}" @click="show=false"></div>
+    <div class="weui_mask_transition" :class="{'weui_fade_toggle': show}" :style="{display: show ? 'block' : 'none'}" @click="onClickingMask"></div>
     <div class="weui_actionsheet" :class="{'weui_actionsheet_toggle': show}">
       <div class="weui_actionsheet_menu">
-        <div class="weui_actionsheet_cell" v-for="(key, text) in menus" @click="emitEvent('on-click-menu', key)" v-html="text">
+        <div class="weui_actionsheet_cell" v-for="(text, key) in menus" @click="emitEvent('on-click-menu', key)" v-html="$t(text)">
         </div>
         <div class="vux-actionsheet-gap" v-if="showCancel"></div>
-        <div class="weui_actionsheet_cell vux-actionsheet-cancel" @click="emitEvent('on-click-menu', 'cancel')" v-if="showCancel">{{cancelText}}</div>
+        <div class="weui_actionsheet_cell vux-actionsheet-cancel" @click="emitEvent('on-click-menu', 'cancel')" v-if="showCancel">{{cancelText || $t('cancel')}}</div>
       </div>
     </div>
   </div>
 </template>
 
+<i18n>
+cancel:
+  en: cancel
+  zh-CN: 取消
+</i18n>
+
 <script>
 export default {
-  ready () {
-    this.$tabbar = document.querySelector('.weui_tabbar')
+  mounted () {
+    this.$nextTick(() => {
+      this.$tabbar = document.querySelector('.weui_tabbar')
+    })
   },
   props: {
-    show: Boolean,
+    value: Boolean,
     showCancel: Boolean,
-    cancelText: {
-      type: String,
-      default: 'cancel'
-    },
+    cancelText: String,
     menus: {
       type: Object,
       default: () => {}
+    },
+    closeOnClickingMask: {
+      type: Boolean,
+      default: true
+    }
+  },
+  data () {
+    return {
+      show: false
     }
   },
   methods: {
+    onClickingMask () {
+      this.closeOnClickingMask && (this.show = false)
+    },
     emitEvent (event, menu) {
       if (event === 'on-click-menu' && !/.noop/.test(menu)) {
         this.$emit(event, menu)
@@ -39,12 +56,14 @@ export default {
     },
     fixIos (zIndex) {
       if (this.$tabbar && /iphone/i.test(navigator.userAgent)) {
+        conosle.log('fix tabbar')
         this.$tabbar.style.zIndex = zIndex
       }
     }
   },
   watch: {
     show (val) {
+      this.$emit('input', val)
       if (val) {
         this.fixIos(-1)
       } else {
@@ -52,6 +71,9 @@ export default {
           this.fixIos(100)
         }, 200)
       }
+    },
+    value (val) {
+      this.show = val
     }
   },
   beforeDestroy () {

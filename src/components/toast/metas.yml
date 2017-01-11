@@ -1,0 +1,61 @@
+icon: '&#xe625;'
+tags:
+  en:
+    - toast
+    - tip
+    - dialog
+  zh-CN:
+    - 弹窗
+    - 提示
+props:
+  value:
+    type: Boolean
+    default: false
+    en: if showing toast, use v-model for binding
+    zh-CN: 是否显示, 使用 v-model 绑定
+  time:
+    type: Number
+    default: 2000
+    en: show time
+    zh-CN: 显示时间
+  type:
+    type: String
+    default: success
+    en: toast type, success, warn, cancel, text
+    zh-CN: 类型，可选值 success, warn, cancel, text
+  width:
+    type: String
+    default: 7.6em
+    en: toast's width
+    zh-CN: 宽度
+  isShowMask:
+    type: Boolean
+    default: false
+    en: if showing mask, users cannot operate other elements on the page
+    zh-CN: 是否显示遮罩，如果显示，用户将不能点击页面上其他元素
+  text:
+    type: String
+    default: ''
+    en: content of the toast, text or html, the same function as default slot
+    zh-CN: 提示内容，支持 html，和默认slot同样功能
+slots:
+  default:
+    en: default slot, the content of the toast
+    zh-CN: 默认slot, 提示内容
+events:
+  on-show:
+    en: emits when toast shows
+    zh-CN: 提示弹出时触发
+  on-hide:
+    en: emits when toast hides
+    zh-CN: 提示隐藏时触发
+changes:
+  v2.0.0:
+    en:
+      - '[change] use `v-model` instead of `:show.sync`'
+      - '[change] do not show mask by default'
+      - '[feature] add prop:isShowMask'
+    zh-CN:
+      - '[change] 使用 `v-model` 而不是`:show.sync`进行显示属性绑定'
+      - '[change] 默认不显示遮罩'
+      - '[feature] 添加 isShowMask 属性'

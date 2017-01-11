@@ -21,7 +21,7 @@ export default {
       headStyle: { backgroundColor: this.$parent.color }
     }
   },
-  ready () {
+  mounted () {
     this.$parent.setChildProps()
   },
   beforeDestroy () {

@@ -5,17 +5,17 @@
         <div class="vux-search-mask" @click="touch" v-show="!isFixed && autoFixed"></div>
         <div class="weui_search_inner">
           <i class="weui_icon_search"></i>
-          <input type="search" class="weui_search_input" id="search_input" :placeholder="placeholder" autocomplete="off" :required="required" v-model="value" v-el:input
+          <input type="search" class="weui_search_input" id="search_input" :placeholder="placeholder" autocomplete="off" :required="required" v-model="currentValue" ref="input"
           @focus="isFocus = true"
           @blur="isFocus = false"/>
           <a href="javascript:" class="weui_icon_clear" id="search_clear" @click="clear"></a>
         </div>
         <label for="search_input" class="weui_search_text" id="search_text" v-show="!isFocus && !value">
           <i class="weui_icon_search"></i>
-          <span>{{placeholder}}</span>
+          <span>{{placeholder || $t('placeholder')}}</span>
         </label>
       </form>
-      <a href="javascript:" class="weui_search_cancel" id="search_cancel" @click="cancel">{{cancelText}}</a>
+      <a href="javascript:" class="weui_search_cancel" id="search_cancel" @click="cancel">{{cancelText || $t('cancel_text')}}</a>
     </div>
     <div class="weui_cells weui_cells_access vux-search_show" id="search_show" v-show="isFixed">
       <slot></slot>
@@ -28,21 +28,24 @@
   </div>
 </template>
 
+<i18n>
+cancel_text:
+  en: cancel
+  zh-CN: 取消
+placeholder:
+  en: Search
+  zh-CN: 搜索
+</i18n>
+
 <script>
 export default {
   props: {
     required: {
       type: Boolean,
-      default: true
+      default: false
     },
-    placeholder: {
-      type: String,
-      default: 'Search'
-    },
-    cancelText: {
-      type: String,
-      default: 'cancel'
-    },
+    placeholder: String,
+    cancelText: String,
     value: {
       type: String,
       default: ''
@@ -62,14 +65,19 @@ export default {
       default: '0px'
     }
   },
+  created () {
+    if (this.value) {
+      this.currentValue = this.value
+    }
+  },
   methods: {
     clear () {
-      this.value = ''
+      this.currentValue = ''
       this.isFocus = true
       this.setFocus()
     },
     cancel () {
-      this.value = ''
+      this.currentValue = ''
       this.isCancel = true
       this.isFixed = false
       this.$emit('on-cancel')
@@ -86,11 +94,12 @@ export default {
       }
     },
     setFocus () {
-      this.$els.input.focus()
+      this.$refs.input.focus()
     }
   },
   data () {
     return {
+      currentValue: '',
       isCancel: true,
       isFocus: false,
       isFixed: false
@@ -105,7 +114,11 @@ export default {
       }
     },
     value (val) {
-      this.$emit('on-change', this.value)
+      this.currentValue = val
+    },
+    currentValue (val) {
+      this.$emit('on-change', val)
+      this.$emit('input', val)
     }
   }
 }

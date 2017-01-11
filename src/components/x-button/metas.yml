@@ -1,17 +1,32 @@
+icon: '&#xe616;'
+tags:
+  - button
+  - form
+  - 按钮
 props:
   type:
+    type: String
+    default: default
     en:
     zh-CN: 按钮类型，可选值为 `default,primary,warn`
   disabled:
+    type: Boolean
+    default: false
     en: if disable the button
     zh-CN: 是否不可点击
   text:
+    type: String
+    default: ''
     en: button text, has the same function as default slot
     zh-CN: 按钮文字，同默认slot
   mini:
+    type: Boolean
+    default: false
     en: if use smaller style
     zh-CN: 是否为mini类型，即小尺寸的按钮
   plain:
+    type: Boolean
+    default: false
     en: if use plain styles which has no backgroundColor
     zh-CN: 是否是plain样式，没有背景色
 slots:

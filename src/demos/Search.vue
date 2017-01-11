@@ -1,7 +1,7 @@
 <template>
   <div>
     <img src="../assets/demo/filter_bg.jpg" style="width: 100%">
-    <search @result-click="resultClick" @on-change="getResult" :results="results" :value.sync="value" top="46px"></search>
+    <search @result-click="resultClick" @on-change="getResult" :results="results" v-model="value"></search>
     <br>
     <group>
       <cell title="static position demo" is-link link="/component/search-static"></cell>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { Search, Group, Cell } from '../components'
+import { Search, Group, Cell } from 'vux'
 
 export default {
   components: {
@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     resultClick (item) {
-      alert('you click the result item: ' + JSON.stringify(item))
+      window.alert('you click the result item: ' + JSON.stringify(item))
     },
     getResult (val) {
       this.results = val ? getResult(this.value) : []

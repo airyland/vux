@@ -8,6 +8,19 @@
     <br/>
     <br/>
     <br/>
+    <div style="width: 100%;overflow:scroll;-webkit-overflow-scrolling:touch;">
+      <tab style="width:500px;">
+        <tab-item :selected="demo1 === '分类1'" @click="demo1 = '分类1'">已发货</tab-item>
+        <tab-item :selected="demo1 === '分类2'" @click="demo1 = '分类2'">未发货</tab-item>
+        <tab-item :selected="demo1 === '分类3'" @click="demo1 = '分类3'">全部订单</tab-item>
+        <tab-item :selected="demo1 === '分类4'" @click="demo1 = '分类4'">全部订单</tab-item>
+        <tab-item :selected="demo1 === '分类5'" @click="demo1 = '分类5'">全部订单</tab-item>
+      </tab>
+    </div>
+    
+    <br/>
+    <br/>
+    <br/>
     <divider>different active class</divider>
     <tab :animate="false">
       <tab-item active-class="active-6-1" :selected="demo6 === '已发货'" @click="demo6 = '已发货'">已发货</tab-item>
@@ -30,24 +43,34 @@
     <tab>
       <tab-item :selected="demoDisabled === 'A'" @click="demoDisabled = 'A'">A</tab-item>
       <tab-item :selected="demoDisabled === 'B'" @click="demoDisabled = 'B'">B</tab-item>
-      <tab-item :selected="demoDisabled === 'Disabled'" disabled style="color:#ececec;">Disabled</tab-item>
+      <tab-item :selected="demoDisabled === 'Disabled'" disabled>Disabled</tab-item>
     </tab>
     <br/>
     <br/>
     <br/>
-    <tab :line-width=2 active-color='#fc378c' :index.sync="index">
-      <tab-item class="vux-center" :selected="demo2 === item" v-for="item in list2" @click="demo2 = item">{{item}}</tab-item>
-    </tab>
-    <swiper :index.sync="index" height="100px" :show-dots="false">
-      <swiper-item v-for="item in list2">
-        <div class="tab-swiper vux-center">{{item}} Container</div>
-      </swiper-item>
-    </swiper>
+
+    <div>
+       <tab :line-width=2 active-color='#fc378c' v-model="index">
+        <tab-item class="vux-center" :selected="demo2 === item" v-for="item in list2" @click="demo2 = item">{{item}}</tab-item>
+      </tab>
+      <swiper v-model="index" height="100px" :show-dots="false">
+        <swiper-item v-for="item in list2">
+          <div class="tab-swiper vux-center">{{item}} Container</div>
+        </swiper-item>
+      </swiper>
+    </div>
+
     <br/>
-    <x-button @click="addTab" :disabled="list2.length === 5" type="primary">Add tab item</x-button>
-    <x-button @click="removeTab" :disabled="list2.length <= 2" type="primary">Remove tab item</x-button>
-    <x-button @click="next" type="primary">Active next current: {{index}}</x-button>
-    <x-button @click="prev" type="primary">Active prev current: {{index}}</x-button>
+    <div class="box">
+      <x-button @click.native="index=0" :disabled="index === 0" type="primary">go to 0</x-button>
+      <x-button @click.native="index=1" :disabled="index === 1" type="primary">go to 1</x-button>
+
+      <x-button @click.native="addTab" :disabled="list2.length === 5" type="primary">Add tab item</x-button>
+      <x-button @click.native="removeTab" :disabled="list2.length <= 2" type="primary">Remove tab item</x-button>
+      <x-button @click.native="next" type="primary">Active next current: {{index}}</x-button>
+      <x-button @click.native="prev" type="primary">Active prev current: {{index}}</x-button>
+    </div>
+  
     <br/>
     <br/>
     <tab :line-width=2>
@@ -119,7 +142,7 @@
 </template>
 
 <script>
-import { Tab, TabItem, Sticky, Divider, XButton, Swiper, SwiperItem } from '../components'
+import { Tab, TabItem, Sticky, Divider, XButton, Swiper, SwiperItem } from 'vux'
 const list = () => ['精选', '美食', '电影', '酒店', '外卖']
 
 export default {
@@ -176,8 +199,11 @@ export default {
 }
 </script>
 
-<style lang="less">
-@import '../styles/1px.less';
+<style lang="less" scoped>
+@import '~vux/src/styles/1px.less';
+.box {
+  padding: 15px;
+}
 .active-6-1 {
   color: rgb(252, 55, 140) !important;
   border-color: rgb(252, 55, 140) !important;

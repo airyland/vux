@@ -12,9 +12,10 @@
       :name="name"
       :rows="rows"
       :cols="cols"
-      v-model="value"
+      v-model="currentValue"
       :style="textareaStyle"
-      :maxlength="max" v-el:textarea></textarea>
+      :maxlength="max"
+      ref="textarea"></textarea>
       <div class="weui_textarea_counter" v-show="showCounter && max"><span>{{count}}</span>/{{max}}</div>
     </div>
   </div>
@@ -51,24 +52,48 @@ export default {
     },
     height: Number,
     // https://github.com/yisibl/blog/issues/3
-    autocomplete: 'off',
-    autocapitalize: 'off',
-    autocorrect: 'off',
-    spellcheck: 'false'
+    autocomplete: {
+      type: String,
+      default: 'off'
+    },
+    autocapitalize: {
+      type: String,
+      default: 'off'
+    },
+    autocorrect: {
+      type: String,
+      default: 'off'
+    },
+    spellcheck: {
+      type: String,
+      default:'false'
+    }
+  },
+  created () {
+    this.currentValue = this.value
   },
   watch: {
-    value (newVal) {
-      if (this.max && this.value.length > this.max) {
-        this.value = newVal.slice(0, this.max)
+    value (val) {
+      this.currentValue = val
+    },
+    currentValue (newVal) {
+      if (this.max && newVal > this.max) {
+        this.currentValue = newVal.slice(0, this.max)
       }
-      this.$emit('on-change', this.value)
+      this.$emit('on-change', this.currentValue)
+      this.$emit('input', this.currentValue)
+    }
+  },
+  data () {
+    return {
+      currentValue: ''
     }
   },
   computed: {
     count () {
       let len = 0
-      if (this.value) {
-        len = this.value.replace(/\n/g, 'aa').length
+      if (this.currentValue) {
+        len = this.currentValue.replace(/\n/g, 'aa').length
       }
       return len > this.max ? this.max : len
     },

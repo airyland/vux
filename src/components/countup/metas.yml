@@ -1,0 +1,33 @@
+icon: '&#xe63e;'
+tags:
+  en:
+    - countup
+    - digit
+    - number
+  zh-CN:
+    - 数字
+    - 滚动
+props:
+  start-val:
+    type: Number
+    default: 0
+    zh-CN: 开始数字
+  end-val:
+    type: Number
+    zh-CN: 结束数字
+  decimals:
+    type: Number
+    default: 0
+    zh-CN: 小数点位数
+  options:
+    type: 'Object'
+    zh-CN: '`countup.js`的设置项'
+  start:
+    type: Boolean
+    default: true
+    zh-CN: 是否自动开始计数
+changes:
+  v2.0.0:
+    zh-CN:
+      - '[feature] 添加 prop:`start`, 现在你可以手动开始计数了'
+      - '[change] 更新依赖`countup`为`countup.js`'

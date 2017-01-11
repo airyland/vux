@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { Scroller, Masker } from '../components'
+import { Scroller, Masker } from 'vux'
 
 export default {
   components: {

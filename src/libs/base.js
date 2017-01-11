@@ -5,7 +5,7 @@ export default {
   props: {
     required: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   created () {
@@ -31,6 +31,7 @@ export default {
       }
       if (!this.handleChangeEvent) {
         this.$emit('on-change', newVal)
+        this.$emit('input', newVal)
       }
     }
   },
@@ -38,8 +39,7 @@ export default {
     return {
       errors: {},
       prisine: true,
-      touched: false,
-      valid: true
+      touched: false
     }
   }
 }

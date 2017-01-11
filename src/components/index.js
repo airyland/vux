@@ -8,7 +8,7 @@ import XNumber from './x-number'
 import Cell from './cell'
 import InlineDesc from './inline-desc'
 import Checklist from './checklist'
-import Switch from './switch'
+import XSwitch from './switch'
 import XTextarea from './x-textarea'
 import Group from './group'
 import GroupTitle from './group-title'
@@ -27,7 +27,7 @@ import Actionsheet from './actionsheet'
 import Clocker from './clocker'
 import Rater from './rater'
 import PopupPicker from './popup-picker'
-import Address from './address'
+import XAddress from './address'
 import Toast from './toast'
 import Loading from './loading'
 import Alert from './alert'
@@ -37,7 +37,7 @@ import XImg from './x-img'
 import Spinner from './spinner'
 import Calendar from './calendar'
 import Icon from './icon'
-import Circle from './circle'
+import XCircle from './circle'
 import ColorPicker from './color-picker'
 import AddressChinaData from './address/list.json'
 import Divider from './divider'
@@ -55,7 +55,7 @@ import XHeader from './x-header'
 import Panel from './panel'
 import InlineCalendar from './inline-calendar'
 import Badge from './badge'
-import Dialog from './dialog'
+import XDialog from './dialog'
 import Card from './card'
 import Previewer from './previewer'
 import NumberRoller from './number-roller'
@@ -78,7 +78,7 @@ const vux = {
   GroupTitle,
   XNumber,
   Checklist,
-  Switch,
+  XSwitch,
   Box,
   Tip,
   Selector,
@@ -101,7 +101,7 @@ const vux = {
   Clocker,
   Rater,
   PopupPicker,
-  Address,
+  XAddress,
   Toast,
   Loading,
   Alert,
@@ -111,7 +111,7 @@ const vux = {
   Spinner,
   Calendar,
   Icon,
-  Circle,
+  XCircle,
   ColorPicker,
   AddressChinaData,
   Divider,
@@ -139,7 +139,7 @@ const vux = {
   ButtonTabItem,
   InlineCalendar,
   Badge,
-  Dialog,
+  XDialog,
   Card,
   Previewer,
   NumberRoller,
@@ -148,8 +148,9 @@ const vux = {
 }
 
 if (DEV) { // eslint-disable-line
-  const { getMetas } = require('../../build/build-metas')
-  const metas = getMetas(vux)
+  // const { getMetas } = require('../../build/build-metas')
+  // const metas = getMetas(vux)
+  /**
   if (window.fetch) {
     window.fetch(`http://${window.location.hostname}:8899/api/doc`, {
       method: 'POST',
@@ -160,6 +161,7 @@ if (DEV) { // eslint-disable-line
       }
     })
   }
+  **/
 }
 
 module.exports = vux

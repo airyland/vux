@@ -1,75 +1,76 @@
 <template>
   <div>
     <group>
-      <switch title="Default popup" :value.sync="show"></switch>
-      <switch title="Full popup" :value.sync="show1"></switch>
-      <switch title="with a Scroller" :value.sync="show2"></switch>
-      <switch title="Multi popup (first)" :value.sync="show3"></switch>
-      <switch title="Mask disable" :value.sync="show5"></switch>
-      <switch title="Popup address" :value.sync="show6"></switch>
+      <x-switch title="Default popup" v-model="show"></x-switch>
+      <x-switch title="Full popup" v-model="show1"></x-switch>
+      <x-switch title="with a Scroller" v-model="show2"></x-switch>
+      <x-switch title="Multi popup (first)" v-model="show3"></x-switch>
+      <x-switch title="Mask disable" v-model="show5"></x-switch>
+      <x-switch title="Popup address" v-model="show6"></x-switch>
     </group>
-    <popup :show.sync="show" @on-hide="log('hide')" @on-show="log('show')">
+    
+    <popup v-model="show" @on-hide="log('hide')" @on-show="log('show')">
       <div class="popup0">
         <group>
-          <switch title="Another Switcher" :value.sync="show"></switch>
-          <switch title="Show Toast" :value.sync="showToast"></switch>
+          <x-switch title="Another XSwitcher" v-model="show"></x-switch>
+          <x-switch title="Show Toast" v-model="showToast"></x-switch>
         </group>
       </div>
     </popup>
 
-    <toast :show.sync="showToast">You did it!</toast>
+    <toast v-model="showToast">You did it!</toast>
 
-    <popup :show.sync="show1" height="100%">
+    <popup v-model="show1" height="100%">
       <div class="popup1">
         <group>
-          <switch title="Another Switcher" :value.sync="show1"></switch>
+          <x-switch title="Another XSwitcher" v-model="show1"></x-switch>
         </group>
       </div>
     </popup>
 
-    <popup :show.sync="show2" height="200px" @on-first-show="resetScroller">
-      <scroller height="100px" lock-x style="border:1px solid red;" v-ref:scroller>
+    <popup v-model="show2" height="200px" @on-first-show="resetScroller">
+      <scroller height="100px" lock-x style="border:1px solid red;" ref="scroller">
         <div>
           <p v-for="i of 10">{{i}}</p>
         </div>
       </scroller>
     </popup>
 
-    <popup :show.sync="show3">
+    <popup v-model="show3">
       <div class="popup2">
         <group>
-          <switch title="Multi Popup (first)" :value.sync="show3"></switch>
-          <switch title="Multi Popup (second)" :value.sync="show4"></switch>
+          <x-switch title="Multi Popup (first)" v-model="show3"></x-switch>
+          <x-switch title="Multi Popup (second)" v-model="show4"></x-switch>
         </group>
         this is the first popup
       </div>
     </popup>
 
-    <popup :show.sync="show4">
+    <popup v-model="show4">
       <div class="popup2">
         <group>
-          <switch title="Multi Popup (second)" :value.sync="show4"></switch>
+          <x-switch title="Multi Popup (second)" v-model="show4"></x-switch>
         </group>
         this is the second popup
       </div>
     </popup>
 
-    <popup :show.sync="show5" :hide-on-blur=false>
+    <popup v-model="show5" :hide-on-blur=false>
       <div class="popup2">
         <group>
-          <switch title="Mask disable" :value.sync="show5"></switch>
+          <x-switch title="Mask disable" v-model="show5"></x-switch>
         </group>
         The mask cannot be clicked!
       </div>
     </popup>
 
-    <popup :show.sync="show6">
+    <popup v-model="show6">
       <div class="popup1">
         <group>
-          <switch title="Popup address" :value.sync="show6"></switch>
+          <x-switch title="Popup address" v-model="show6"></x-switch>
         </group>
         <group>
-          <address :title="title6" :value.sync="value6" :list="addressData" placeholder="请选择地址" inline-desc="可以设置placeholder"></address>
+          <x-address :title="title6" v-model="value6" :list="addressData" placeholder="请选择地址" inline-desc="可以设置placeholder"></x-address>
         </group>
       </div>
     </popup>
@@ -78,20 +79,20 @@
 </template>
 
 <script>
-import { Popup, Group, Switch, Scroller, Toast, Address, AddressChinaData } from '../components'
+import { Popup, Group, XSwitch, Scroller, Toast, XAddress, ChinaAddressData } from 'vux'
 
 export default {
   components: {
     Popup,
     Group,
-    Switch,
+    XSwitch,
     Scroller,
     Toast,
-    Address
+    XAddress
   },
   data () {
     return {
-      addressData: AddressChinaData,
+      addressData: ChinaAddressData,
       show: false,
       show1: false,
       show2: false,

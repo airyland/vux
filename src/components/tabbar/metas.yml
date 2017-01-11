@@ -1,3 +1,13 @@
+icon: '&#xe657;'
+items:
+  - tabbar
+  - tabbar-item
+import_code: "import { Tabbar, TabbarItem } from 'vux'"
+tags:
+  en:
+    - tabbar
+  zh-CN:
+    - 导航
 tabbar:
   props:
     icon-class:
@@ -5,7 +15,7 @@ tabbar:
       zh-CN: 图标的class名
   slots:
     default:
-      en: main content for tabbar items
+      en: slot for tabbar items
       zh-CN: tabbar主体内容，只允许tabbar-item
 tabbar-item:
   props:

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { Group, Cell, Tab, TabItem, Swiper, SwiperItem, Card, Scroller } from '../components'
+import { Group, Cell, Tab, TabItem, Swiper, SwiperItem, Card, Scroller } from 'vux'
 
 export default {
   components: {

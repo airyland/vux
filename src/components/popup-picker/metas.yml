@@ -1,0 +1,41 @@
+icon: '&#xe626;'
+tags:
+  en:
+    - popup
+    - picker
+    - form
+  zh-CN:
+    - 表单
+    - 选择
+    - 弹窗
+extra: |
+  <p class="tip">
+    其他选项与`picker`一致
+  </p>
+props:
+  value:
+    type: Array
+    zh-CN: '表单值，使用`v-model绑定`'
+  title:
+    zh-CN: 标题
+  cancel_text:
+    zh-CN: 弹窗的取消文字
+  confirm_text:
+    zh-CN: 弹窗的确认文字
+  placeholder:
+    zh-CN: 提示文字
+  show-name:
+    type: Boolean
+    default: false
+    zh-CN: 是否显示文字值而不是key
+  inline-desc:
+    zh-CN: Cell的描述文字
+events:
+  on-change:
+    params: '`(value)`'
+    zh-CN: 值变化时触发
+  on-show:
+    zh-CN: 弹窗出现时触发
+  on-hide:
+    params: '`(closeType)` true表示confirm(选择确认), false表示其他情况的关闭'
+    zh-CN: 弹窗关闭时触发

@@ -29,11 +29,25 @@ export default {
       default: '#000000'
     }
   },
-  ready () {
-    this.render()
+  mounted () {
+    this.$nextTick(() => {
+      this.render()
+    })
   },
   watch: {
-    'value+size+level+bgColor+fgColor' () {
+    value () {
+      this.render()
+    },
+    size () {
+      this.render()
+    },
+    level () {
+      this.render()
+    },
+    bgColor () {
+      this.render()
+    },
+    fgColor () {
       this.render()
     }
   },

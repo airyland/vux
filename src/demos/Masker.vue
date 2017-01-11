@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Masker from '../components/masker'
+import { Masker } from 'vux'
 
 export default {
   components: {

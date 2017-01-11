@@ -1,4 +1,40 @@
+icon: '&#xe607;'
+extra:
+  zh-CN: >
+    ```html
+      <group>
+        <selector title="title" v-model="value"></selector>
+      </group>
+    ```
+    
+    <p class="tip">`selector`只能在`Group`中使用</p>
+tags:
+  en:
+    - form
+    - select
+    - selector
+    - option
+  zh-CN:
+    - 选择
+    - 下拉选择
 tips:
   -
     - en: key should be a `String` if you use key=>value
     - zh-CN: 选项的key必须是字符串，使用数字会出现问题
+props:
+  value:
+    zh-CN: 表单值，使用v-model绑定
+  title:
+    zh-CN: 标题
+  direction:
+    zh-CN: 选项对齐方式
+  options:
+    type: Array
+    zh-CN: 选项列表
+  name: 
+    zh-CN: 表单的name名字
+  placeholder:
+    zh-CN: 提示文字 
+  readonly:
+    default: 'false'
+    zh-CN: 是否不可选择

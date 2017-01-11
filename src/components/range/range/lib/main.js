@@ -180,7 +180,7 @@ Powerange.prototype.setValue = function (offset, size) {
   changed = this.element.value !== value
 
   this.element.value = value
-  this.options.callback()
+  this.options.callback(value)
   if (changed) this.changeEvent()
 }
 

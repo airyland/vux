@@ -1,9 +1,16 @@
+icon: '&#xe658;'
 props:
   header.title:
+    type: String
+    default: ''
     zh-CN: 头部标题，不指定则不显示
   footer.title:
+    type: String
+    default: ''
     zh-CN: 底部标题，不指定则不显示
   footer.link:
+    type: String
+    default: ''
     zh-CN: 底部链接，普通url或者v-link参数
 events:
   on-click-footer:

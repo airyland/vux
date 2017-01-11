@@ -26,7 +26,7 @@ module.exports = Horizontal
  */
 
 function getWidth (el) {
-  let width = getComputedStyle(el, null)['width']
+  let width = window.getComputedStyle(el, null)['width']
   if (width === '100%' || width === 'auto') {
     return 0
   }

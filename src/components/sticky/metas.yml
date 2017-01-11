@@ -1,0 +1,14 @@
+icon: '&#xe623;'
+tags:
+  en:
+    - layout
+    - sticky
+  zh-CN:
+    - 布局
+    - 定位
+extra: |
+  <p class="tip">在Chrome模拟器运行时你可能会发现没有效果，这是因为Chrome并不支持原生sticky实现而模拟器环境是iPhone，目前程序是根据Safari版本来判断是否原生支持sticky。因此你可以切换到Android系统进行测试，但是真机上是完全正常的交互。</p>
+props: 
+slots:
+  default:
+    zh-CN: 内容插槽

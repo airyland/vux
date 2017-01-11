@@ -1,0 +1,25 @@
+icon: '&#xe61e;'
+tags:
+  en:
+    - popup
+  zh-CN:
+    - 弹窗
+props:
+  value:
+    type: Boolean
+    zh-CN: 是否关闭，使用`v-model`绑定
+  height:
+    type: String
+    default: 'auto'
+    zh-CN: 高度，设置`100%`为整屏高度
+  hide-on-blur:
+    type: Boolean
+    default: true
+    zh-CN: 点击遮罩时是否自动关闭
+events:
+  on-hide:
+    zh-CN: 关闭时触发
+  on-show:
+    zh-CN: 显示时触发
+  on-first-show:
+    zh-CN: 第一次显示时触发

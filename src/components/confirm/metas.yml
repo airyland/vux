@@ -1,27 +1,36 @@
+icon: '&#xe608;'
 tags:
   en:
+    - dialog
     - message
     - confirm
   zh-CN:
+    - 弹窗
     - 消息提示
     - 确认
 props:
   show:
+    type: Boolean
+    default: false
     en: visibility of the component
-    zh-CN: 是否显示
+    zh-CN: 是否显示，使用`v-model`绑定
   title:
     en: dialog title
     zh-CN: 弹窗标题
   confirm-text:
+    default: 确认(confirm)
     en: confirm button text
     zh-CN: 确认按钮文字
   cancel-text:
+    default: 取消(cancel)
     en: cancel button text
     zh-CN: 取消按钮文字
   mask-transition:
+    default: 'vux-fade'
     en: mask's transition
     zh-CN: 遮罩动画
   dialog-transition:
+    default: 'vux-dialog'
     en: dialog's transition
     zh-CN: 弹窗动画
 slots:

@@ -108,15 +108,15 @@ function DatetimePicker (config) {
   })
 
   var trigger = self.config.trigger
-  if (trigger) {
-    var output = self.config.output || trigger
-    trigger = self.trigger = getElement(trigger)
-    output = self.output = getElement(output)
 
-    trigger.addEventListener('click', function (e) {
-      e.preventDefault()
-      self.show(self.value)
-    }, false)
+  this.triggerHandler = function (e) {
+    e.preventDefault()
+    self.show(self.value)
+  }
+  if (trigger) {
+    trigger = self.trigger = getElement(trigger)
+    this.trigger = trigger
+    this.trigger.addEventListener('click', this.triggerHandler, false)
   }
 }
 
@@ -291,7 +291,7 @@ DatetimePicker.prototype = {
     self.container.style.removeProperty('-webkit-transform')
 
     setTimeout(function () {
-      self.container.style.display = 'none'
+      self.container && (self.container.style.display = 'none')
     }, SHOW_CONTAINER_TIME)
 
     hideMask()
@@ -305,6 +305,7 @@ DatetimePicker.prototype = {
 
   destroy () {
     var self = this
+    this.trigger.removeEventListener('click', this.triggerHandler, false)
     removeElement(MASK)
     removeElement(self.container)
     MASK = null

@@ -17,20 +17,20 @@
     <table>
       <thead v-show="!hideWeekList">
         <tr>
-          <th v-for="(index, week) in weeksList" class="week is-week-list-{{index}}">{{week}}</th>
+          <th v-for="(week, index) in _weeksList" class="week" :class="`is-week-list-${index}`">{{week}}</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(k1,day) in days">
+        <tr v-for="(day,k1) in days">
           <td
           :data-date="formatDate(year, month, child)"
-          :data-current="value"
-          v-for="(k2,child) in day"
-          :class="buildClass(k2, child, formatDate(year, month, child) === value && !child.isLastMonth && !child.isNextMonth)"
+          :data-current="currentValue"
+          v-for="(child,k2) in day"
+          :class="buildClass(k2, child, formatDate(year, month, child) === currentValue && !child.isLastMonth && !child.isNextMonth)"
           @click="select(k1,k2,$event)">
             <span
             v-show="(!child.isLastMonth && !child.isNextMonth ) || (child.isLastMonth && showLastMonth) || (child.isNextMonth && showNextMonth)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
-            {{{customSlotFn(k1, k2, child)}}}
+            <div v-html="renderFunction(k1, k2, child)"></div>
           </td>
         </tr>
       </tbody>
@@ -52,14 +52,25 @@ export default {
       days: [],
       current: [],
       today: format(new Date(), 'YYYY-MM-DD'),
-      months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+      months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+      currentValue: ''
     }
   },
-  ready () {
-    this.value = this.convertDate(this.value)
+  created(){
+    this.currentValue = this.value
+  },
+  mounted () {
+    this.currentValue = this.convertDate(this.currentValue)
     this.render(this.renderMonth[0], this.renderMonth[1] - 1)
   },
   computed: {
+    _weeksList () {
+      if (!this.weeksList || !this.weeksList.length) {
+        return ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+      } else {
+        return this.weeksList
+      }
+    },
     _replaceTextList () {
       const rs = {}
       for (let i in this.replaceTextList) {
@@ -69,23 +80,27 @@ export default {
     }
   },
   watch: {
-    value (val) {
-      this.value = this.convertDate(val)
+    value(val){
+      this.currentValue = val
+    },
+    currentValue (val) {
+      this.currentValue = this.convertDate(val)
       if (this.renderOnValueChange) {
         this.render(null, null, val)
       } else {
-        this.render(this.year, this.month, this.value)
+        this.render(this.year, this.month, this.currentValue)
       }
       this.$emit('on-change', val)
+      this.$emit('input', val)
     },
     returnSixRows (val) {
-      this.render(this.year, this.month, this.value)
+      this.render(this.year, this.month, this.currentValue)
     },
     disablePast () {
-      this.render(this.year, this.month, this.value)
+      this.render(this.year, this.month, this.currentValue)
     },
     disableFuture () {
-      this.render(this.year, this.month, this.value)
+      this.render(this.year, this.month, this.currentValue)
     }
   },
   methods: {
@@ -108,7 +123,7 @@ export default {
       let data = getDays({
         year: year,
         month: month,
-        value: this.value,
+        value: this.currentValue,
         rangeBegin: this.convertDate(this.startDate),
         rangeEnd: this.convertDate(this.endDate),
         returnSixRows: this.returnSixRows,
@@ -149,7 +164,7 @@ export default {
       }
       this.days[k1][k2].current = true
       this.current = [k1, k2]
-      this.value = [this.year, zero(this.month + 1), zero(this.days[k1][k2].day)].join('-')
+      this.currentValue = [this.year, zero(this.month + 1), zero(this.days[k1][k2].day)].join('-')
     }
   }
 }
@@ -251,7 +266,7 @@ export default {
 .inline-calendar td.is-today, .inline-calendar td.is-today.is-disabled {
   color: #04be02;
 }
-.calendar-enter, .calendar-leave {
+.calendar-enter, .calendar-leave-active {
   opacity: 0;
   transform: translate3d(0,-10px, 0);
 }
@@ -332,7 +347,6 @@ export default {
   text-align: center;
 }
 .inline-calendar td.placeholder {
-
 }
 .vux-calendar-range.inline-calendar td.current {
   background-color: #04be02;

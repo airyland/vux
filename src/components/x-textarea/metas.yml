@@ -1,29 +1,61 @@
+icon: '&#xe611;'
+extra:
+  zh-CN: >
+    ```html
+      <group>
+        <x-textarea title="title" v-model="value"></x-textara>
+      </group>
+    ```
+    
+    <p class="tip">`x-textarea`只能在`Group`中使用</p>
+tags:
+  - form
+  - textarea
+  - 多行输入框
+  - 表单
 props:
   show-counter:
+    type: Boolean
+    default: true
     en: if show the text length counter
     zh-CN: 是否显示计数
   max:
+    type: Number
+    default: 0
     en: maxlength limit
     zh-CN: 最大长度限制
   value:
+    type: String
+    default: ''
     en: textarea's value
     zh-CN: 表单值
   name:
+    type: String
+    default: ''
     en: textarea's name
     zh-CN: 表单名字
   placeholder:
+    type: String
+    default: ''
     en: placeholder
     zh-CN: 没有值时的提示文字
   rows:
+    type: Number
+    default: 3
     en: textarea's rows attribute
     zh-CN: textarea 标准属性 rows
   cols:
+    type: Number
+    default: 30
     en: textarea's cols attribute
-    zh-CN: textara 标签属性 cols
+    zh-CN: textarea 标签属性 cols
   height:
+    type: Number
+    default: 0
     en: height
     zh-CN: 高度
 events:
   on-change:
+    params: '`(value)`'
     en: triggers when value changes, params are (value)
-    zh-CN: 表单值变化时触发，参数为 (value)
+    zh-CN: 表单值变化时触发

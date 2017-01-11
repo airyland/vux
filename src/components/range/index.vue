@@ -1,6 +1,6 @@
 <template>
   <div class="vux-range-input-box" style="position:relative;margin-right:30px;margin-left:50px;">
-    <input class="vux-range-input" v-model="value" number>
+    <input class="vux-range-input" v-model.number="currentValue">
   </div>
 </template>
 
@@ -39,32 +39,38 @@ export default {
       default: 30
     }
   },
-  ready () {
-    let options = {
-      decimal: this.decimal,
-      start: this.value,
-      min: this.min,
-      max: this.max,
-      minHTML: this.minHTML,
-      maxHTML: this.maxHTML,
-      disable: this.disabled,
-      disabledOpacity: this.disabledOpacity,
-      initialBarWidth: getComputedStyle(this.$el.parentNode).width.replace('px', '') - 80
-    }
-    if (this.step !== 0) {
-      options.step = this.step
-    }
-    this.range = new Powerange(this.$el.querySelector('.vux-range-input'), options)
-    const handleTop = (this.rangeHandleHeight - this.rangeBarHeight) / 2
-    this.$el.querySelector('.range-handle').style.top = `-${handleTop}px`
-    this.$el.querySelector('.range-bar').style.height = `${this.rangeBarHeight}px`
+  created () {
+    this.currentValue = this.value
   },
-  watch: {
-    value (val) {
-      this.range.setStart(val)
-    },
-    'min + max': function () {
-      let value = this.value
+  mounted () {
+    const _this = this
+    this.$nextTick(() => {
+      let options = {
+        callback: function (value) {
+          _this.currentValue = value
+        },
+        decimal: this.decimal,
+        start: this.currentValue,
+        min: this.min,
+        max: this.max,
+        minHTML: this.minHTML,
+        maxHTML: this.maxHTML,
+        disable: this.disabled,
+        disabledOpacity: this.disabledOpacity,
+        initialBarWidth: window.getComputedStyle(this.$el.parentNode).width.replace('px', '') - 80
+      }
+      if (this.step !== 0) {
+        options.step = this.step
+      }
+      this.range = new Powerange(this.$el.querySelector('.vux-range-input'), options)
+      const handleTop = (this.rangeHandleHeight - this.rangeBarHeight) / 2
+      this.$el.querySelector('.range-handle').style.top = `-${handleTop}px`
+      this.$el.querySelector('.range-bar').style.height = `${this.rangeBarHeight}px`
+    })
+  },
+  methods: {
+    update () {
+      let value = this.currentValue
       if (value < this.min) {
         value = this.min
       }
@@ -72,8 +78,28 @@ export default {
         value = this.max
       }
       this.range.reInit({min: this.min, max: this.max, value: value})
-      this.value = value
-      this.range.setStart(this.value)
+      this.currentValue = value
+      this.range.setStart(this.currentValue)
+    }
+  },
+  data () {
+    return {
+      currentValue: 0
+    }
+  },
+  watch: {
+    currentValue (val) {
+      this.range && this.range.setStart(val)
+      this.$emit('input', val)
+    },
+    value (val) {
+      this.currentValue = val
+    },
+    min () {
+      this.update()
+    },
+    max () {
+      this.update()
     }
   }
 }

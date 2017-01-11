@@ -1,0 +1,29 @@
+icon: '&#xe60f;'
+tags:
+  - radio
+  - form
+  - 表单
+  - 单选
+extra:
+  zh-CN: >
+    ```html
+      <group>
+        <radio title="title" v-model="value"></radio>
+      </group>
+    ```
+    
+    <p class="tip">`radio`只能在`Group`中使用</p>
+props:
+  value:
+    zh-CN: 表单值，使用`v-model`绑定
+  options:
+    type: Array
+    zh-CN: 可选列表，可以用字符串组成的数组或者key=>value的形式
+  fill-mode:
+    type: Boolean
+    default: false
+    zh-CN: 是否可填写
+  fill-placeholder:
+    zh-CN: 可填写时的提示文字
+  fill-label:
+    zh-CN: 可填写时的label文字

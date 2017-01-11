@@ -11,7 +11,15 @@
 /**
 * tabbar
 */
-@tabbar-text-color-active: #09BB07;
+@tabbar-text-active-color: #09BB07;
+
+/**
+* tab
+*/
+@tab-text-disabled-color: #ddd;
+@tab-text-default-color: #666;
+@tab-text-active-color: @theme-color;
+@tab-bar-active-color: @theme-color;
 
 /**
 * dialog
@@ -22,8 +30,8 @@
 /**
 * x-number
 */
-@x-number-button-color: #3cc51f;
-@x-number-number-color: #666;
+@number-button-font-color: #3cc51f;
+@number-input-font-color: #666;
 
 /**
 * checkbox
@@ -48,9 +56,9 @@
 /**
 * Range
 */
-@range-opacity-disabled: @opacity-disabled;
-@range-color-bar-default: #a9acb1;
-@range-color-bar-active: @theme-color;
+@range-disabled-opacity: @opacity-disabled;
+@range-bar-default-color: #a9acb1;
+@range-bar-active-color: @theme-color;
 
 /**
 * Tabbar
@@ -58,12 +66,12 @@
 @tabbar-index: 100;
 
 /**
-* XHeader
+* Header
 */
-@x-header-background-color: #35495e;
-@x-header-title-color: #fff;
-@x-header-text-color: #ccc;
-@x-header-arrow-color: #ccc;
+@header-background-color: #35495e;
+@header-title-color: #fff;
+@header-text-color: #ccc;
+@header-arrow-color: #ccc;
 
 /**
 * Timeline
@@ -75,6 +83,7 @@
 */
 @switch-checked-bg-color: @theme-color;
 @switch-checked-border-color: @theme-color;
+@switch-disabled-opacity: 0.6;
 
 /**
 * Button
@@ -99,3 +108,35 @@
 @popover-font-color: #fff;
 @popover-border-radius: 3px;
 @popover-border-width: 5px;
+
+/**
+* Button tab
+*/
+@button-tab-active-border-color: @color-wechat-green;
+@button-tab-active-background-color: @color-wechat-green;
+@button-tab-active-font-color: #FFF;
+
+/**
+* Swiper
+*/
+@swiper-indicator-active-color: @theme-color;
+
+/**
+* checklist
+*/
+@checklist-icon-active-color: #09BB07;
+
+/**
+* popup-picker
+*/
+@popup-picker-header-text-color: @theme-color;
+
+/**
+* form-preview
+*/
+@form-preview-button-primary-color: #0BB20C;
+
+/**
+* load-more
+*/
+@load-more-line-color: #E5E5E5;

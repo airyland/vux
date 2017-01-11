@@ -39,17 +39,19 @@ export default () => ({
     type: Boolean,
     default: false
   },
-  replaceTextList: {
-    type: Object,
+  weeks: {
+    type: Array,
     default () {
-      return {}
+      return ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
     }
   },
   weeksList: {
     type: Array,
-    default: () => ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+    default () {
+      return ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+    }
   },
-  customSlotFn: {
+  renderFunction: {
     type: Function,
     default: () => ''
   },

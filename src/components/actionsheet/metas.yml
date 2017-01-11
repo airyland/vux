@@ -1,23 +1,57 @@
+icon: '&#xe624;'
+tags:
+  en:
+    - actionsheet
+    - dialog
+    - action sheet
+    - choose
+  zh-CN:
+    - 操作表
+    - 提示
 props:
-  show:
-    en: if show the component
-    zh-CN: 是否显示
+  value:
+    type: Boolean
+    default: false
+    en: if showing the component, use v-model for binding
+    zh-CN: 是否显示, 使用 v-model 绑定变量
   show-cancel:
-    en: if show the cancel menu
+    type: Boolean
+    default: false
+    en: if showing the cancel menu
     zh-CN: 是否显示取消菜单
   cancel-text:
+    type: String
+    default: 'cancel(取消)'
     en: text of cancel menu
     zh-CN: 取消菜单文字
   menus:
+    type: Object
+    default: '{}'
     en: "menu items, for example: `{menu1: 'some text'}`, menu name with `.noop` will not trigger click events"
-    zh-CN: "菜单项列表，举例：`{menu1: '删除'}`，如果名字上带有`.noop`表明这是纯文本展示，不会触发事件，用于展示描述"
+    zh-CN: "菜单项列表，举例：`{menu1: '删除'}`，如果名字上带有`.noop`表明这是纯文本(HTML)展示，不会触发事件，用于展示描述或者提醒"
+  close-on-clicking-mask:
+    type: Boolean
+    default: true
+    version: v2.0.0
+    en: if closing when clicking on mask
+    zh-CN: 点击遮罩时是否关闭菜单，适用于一些进入页面时需要强制选择的场景。
 events:
   on-click-menu:
+    params: (menuKey)
     en: triggers when clicking on the menu
     zh-CN: 点击菜单时触发，参数为当前菜单项对象
-  on-click-menu-{menuName}:
-    en: shortcut event for easily listening, you can listen on `on-click-menu-delete` if you have a menu named `delete`
+  on-click-menu-{menuKey}:
+    params: (menuKey)
+    en: shortcut event for easier listening, you can listen on `on-click-menu-delete` if you have a menu named `delete`
     zh-CN: 点击事件的快捷方式, 如果你有一个菜单名字为`delete`, 那么你可以监听 `on-click-menu-delete`
   on-click-menu-cancel:
-    en: triggers when click on cancel menu
+    en: triggers when clicking on the cancel menu
     zh-CN: 点击取消菜单时触发
+changes:
+  v2.0.0:
+    en:
+      - '[change] upgrade to vue@2.0, use `v-model` instead of `:show.sync`'
+      - '[feature] add prop close-on-clicking-mask'
+    zh-CN:
+      - '[change] 更新到 vue@2.0，使用 `v-model` 而不是`:show.sync`进行显示属性绑定'
+      - '[feature] 添加属性 `close-on-clicking-mask`, 适用于强制选择的场景'

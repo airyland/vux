@@ -1,13 +1,43 @@
+icon: '&#xe659;'
+import_code: |  
+  import { ButtonTab, ButtonTabItem } from 'vux'
+items:
+  - button-tab
+  - button-tab-item
+tags:
+  en:
+    - button
+    - tab
+  zh-CN:
+    - 按钮
+    - 选项卡
 button-tab:
   props:
-    index:
-      zh-CN: 当前选中索引值，从0开始
+    value:
+      type: Number
+      default: 0
+      en: current index, start from 0, use v-model for binding
+      zh-CN: 当前选中索引值，从0开始，使用 v-model 绑定
     height:
-      zh-CN: 高度值
+      type: Number
+      default: 30
+      en: height in px
+      zh-CN: 高度值, 单位为像素
 button-tab-item:
   props:
     selected:
+      type: Boolean
+      default: false
+      en: if selected
       zh-CN: 是否选中
   events:
     on-item-click:
+      params: (index)
+      en: emits when item being clicked
       zh-CN: 当前按钮点击时触发
+changes:
+  v2.0.0:
+    en:
+      - '[enhance] remove tap highlight'
+    zh-CN:
+      - '[enhance] 去除 Android 下点击可能出现的蓝色边框'

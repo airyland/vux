@@ -1,21 +1,18 @@
 <template>
   <div class="vux-toast">
-    <div class="weui_mask_transparent" v-show="show"></div>
-      <div class="weui_toast" :style="{width: width}" :class="toastClass" v-show="show" :transition="transition">
-        <i class="weui_icon_toast" v-show="type !== 'text'"></i>
-        <p class="weui_toast_content" v-if="text" v-html="text"></p>
-        <p class="weui_toast_content" v-else><slot></slot></p>
-      </div>
+    <div class="weui_mask_transparent" v-show="isShowMask && show"></div>
+    <div class="weui_toast" :style="{width: width}" :class="toastClass" v-show="show" :transition="transition">
+      <i class="weui_icon_toast" v-show="type !== 'text'"></i>
+      <p class="weui_toast_content" v-if="text" v-html="$t(text)"></p>
+      <p class="weui_toast_content" v-else><slot></slot></p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    show: {
-      type: Boolean,
-      default: false
-    },
+    value: Boolean,
     time: {
       type: Number,
       default: 2000
@@ -32,7 +29,21 @@ export default {
       type: String,
       default: '7.6em'
     },
+    isShowMask: {
+      type: Boolean,
+      default: false
+    },
     text: String
+  },
+  data () {
+    return {
+      show: false
+    }
+  },
+  created () {
+    if (this.value) {
+      this.show = true
+    }
   },
   computed: {
     toastClass () {
@@ -47,12 +58,20 @@ export default {
   watch: {
     show (val) {
       if (val) {
+        this.$emit('input', true)
+        this.$emit('on-show')
+      }
+      if (val) {
         clearTimeout(this.timeout)
         this.timeout = setTimeout(() => {
           this.show = false
+          this.$emit('input', false)
           this.$emit('on-hide')
         }, this.time)
       }
+    },
+    value (val) {
+      this.show = val
     }
   }
 }

@@ -1,25 +1,26 @@
 <template>
   <div>
     <br>
-    <progress :percent="percent1"></progress>
+    <x-progress :percent="percent1"></x-progress>
     <br>
     <box gap="10px">
-      <progress :percent="percent1" :show-cancel="false"></progress>
+      <x-progress :percent="percent2" :show-cancel="false"></x-progress>
     </box>
   </div>
 </template>
 
 <script>
-import { Progress, Box } from '../components'
+import { XProgress, Box } from 'vux'
 
 export default {
   components: {
-    Progress,
+    XProgress,
     Box
   },
   data () {
     return {
-      percent1: 50
+      percent1: 30,
+      percent2: 60
     }
   }
 }

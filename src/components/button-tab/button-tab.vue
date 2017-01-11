@@ -17,6 +17,7 @@ export default {
 
 <style lang="less">
 @import '../../styles/variable.less';
+@import '../../styles/reddot.less';
 
 .vux-button-group {
   & {
@@ -37,15 +38,16 @@ export default {
     border-width: 1px 1px 1px 0;
     color: #999;
     white-space: nowrap;
-    background: #fdfdfd
+    background: #fdfdfd;
+    -webkit-tap-highlight-color: rgba(255,0,0,0);
   }
 
   & > a.vux-button-group-current,
   & > a.hover,
   & > a:active {
-    border-color: @color-wechat-green;
-    color: #FFF;
-    background: @color-wechat-green
+    border-color: @button-tab-active-border-color;
+    color: @button-tab-active-font-color;
+    background: @button-tab-active-background-color;
   }
 
   & > a:first-child {

@@ -1,0 +1,21 @@
+icon: '&#xe658;'
+props:
+  header:
+    zh-CN: 头部文字
+  footer:
+    type: 'Object'
+    zh-CN: '尾部配置，`{url: url, title: title}`'
+  list:
+    type: 'Array'
+    zh-CN: '内容列表，[{title, desc, src}]'
+  type:
+    default: '1'
+    zh-CN: 布局类型，可选值 ['1', '2', '3']
+events:
+  on-click-header:
+    zh-CN: 点击头部时触发
+  on-click-item:
+    params: '`(item)`'
+    zh-CN: 点击内容列表时触发
+  on-click-footer:
+    zh-CN: 点击尾部时触发

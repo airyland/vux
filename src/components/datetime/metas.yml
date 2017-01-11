@@ -1,0 +1,95 @@
+icon: '&#xe60a;'
+extra: |
+  <p class="tip">
+  需要在`Group`组件里使用
+  </p>
+tags:
+  en:
+    - date
+    - datetime
+    - form
+  zh-CN:
+    - 日期
+    - 选择
+    - 表单
+props:
+  format:
+    type: String
+    default: 'YYYY-MM-DD'
+    en: date format
+    zh-CN: 时间格式
+  title:
+    type: String
+    default: ''
+    en: cell title
+    zh-CN: 标题
+  value: 
+    type: String
+    default: ''
+    en: form's value, use `v-model` for binding
+    zh-CN: 表单值，`v-model`绑定
+  inline-desc:
+    type: String
+    default: ''
+    en: description of the cell
+    zh-CN: 描述字符
+  placeholder:
+    type: String
+    default: ''
+    en: placeholder
+    zh-CN: 提示文字
+  min-year:
+    type: Number
+    default: ''
+    en: min-year of the form
+    zh-CN: 可选择的最小年份
+  max-year:
+    type: Number
+    default: ''
+    en: max-year of the form
+    zh-CN: 可选择的最大年份
+  confirm-text:
+    type: String
+    default: ok(确认)
+    en: confirm button's text
+    zh-CN: 确认按钮文字
+  cancel-text:
+    type: String
+    default: cancel(取消)
+    en: cancel button's text
+    zh-CN: 取消按钮文字
+  clear-text:
+    type: String
+    default: ''
+    en: custom button's text which shows in the middle of the header
+    zh-CN: 显示在中间的自定义按钮的文字
+  year-row:
+    type: String
+    default: '{value}'
+    en: render template for the year column
+    zh-CN: 年份的渲染模板
+  month-row:
+    type: String
+    default: '{value}'
+    en: render template for the month column
+    zh-CN: 月份的渲染模板
+  day-row:
+    type: String
+    default: '{value}'
+    en: render template for the day column
+    zh-CN: 日期的渲染模板
+  hour-row:
+    type: String
+    default: '{value}'
+    en: render template for the hour column
+    zh-CN: 小时的渲染模板
+  minute-row:
+    type: String
+    default: '{value}'
+    en: render template for the minute column
+    zh-CN: 分钟的渲染模板
+events:
+  on-change:
+    params: '`(value)`'
+    en: $emits when value changes, `(newVal)`
+    zh-CN: 表单值变化时触发, 参数 `(newVal)`

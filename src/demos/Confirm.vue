@@ -1,22 +1,30 @@
 <template>
   <div>
     <group>
-      <switch title="Toggle" :value.sync="show"></switch>
+      <x-switch :title="$t('Toggle')" v-model="show"></x-switch>
     </group>
-    <confirm :show.sync="show" title="confirm deleting the item" @on-cancel="onCancel" @on-confirm="onConfirm" @on-show="onShow" @on-hide="onHide">
-      <p style="text-align:center;">Are you sure?</p>
+    <confirm v-model="show" :title="$t('confirm deleting the item')" @on-cancel="onCancel" @on-confirm="onConfirm" @on-show="onShow" @on-hide="onHide">
+      <p style="text-align:center;">{{ $t('Are you sure?') }}</p>
     </confirm>
   </div>
 </template>
 
-<script>
-import { Confirm, Group, Switch } from '../components'
+<i18n>
+Toggle:
+  zh-CN: 显示
+Are you sure?:
+  zh-CN: 确定咩？
+confirm deleting the item:
+  zh-CN: 操作提示
+</i18n>
 
+<script>
+import { Confirm, Group, XSwitch } from 'vux'
 export default {
   components: {
     Confirm,
     Group,
-    Switch
+    XSwitch
   },
   data () {
     return {

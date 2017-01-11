@@ -1,17 +1,20 @@
 <template>
-  <div v-show="title" class="weui_cells_title">{{title}}</div>
-  <div class="weui_cells weui_cells_checkbox">
-    <label class="weui_cell weui_check_label" for="checkbox_{{uuid}}_{{index}}" v-for="(index, one) in options">
-      <div class="weui_cell_hd">
-        <input type="checkbox" class="weui_check" value="{{one | getKey}}" v-model="value" id="checkbox_{{uuid}}_{{index}}">
-        <i class="weui_icon_checked"></i>
-      </div>
-      <div class="weui_cell_bd weui_cell_primary">
-        <p v-html="one | getValue"></p>
-      </div>
-    </label>
+  <div>
+    <div v-show="title" class="weui_cells_title">{{title}}</div>
+    <slot name="after-title"></slot>
+    <div class="weui_cells weui_cells_checkbox">
+      <label class="weui_cell weui_check_label" :for="`checkbox_${uuid}_${index}`" v-for="(one, index) in currentOptions">
+        <div class="weui_cell_hd">
+          <input type="checkbox" class="weui_check" :name="`vux-checkbox-${uuid}`" :value="getKey(one)" v-model="currentValue" :id="`checkbox_${uuid}_${index}`" :disabled="ifDisable(getKey(one))">
+          <i class="weui_icon_checked vux-checklist-icon-checked"></i>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+          <p v-html="getValue(one)"></p>
+        </div>
+      </label>
+    </div>
+    <slot name="footer"></slot>
   </div>
-  <tip v-show="!valid && dirty"><icon type="warn" class="icon_small"></icon>{{error}}</tip>
 </template>
 
 <script>
@@ -32,10 +35,12 @@ export default {
   },
   mixins: [Base],
   props: {
+    name: String,
+    showError: Boolean,
     title: String,
     required: {
       type: Boolean,
-      default: true
+      default: false
     },
     options: {
       type: Array,
@@ -50,10 +55,28 @@ export default {
     fillMode: Boolean,
     randomOrder: Boolean
   },
-  ready () {
+  data () {
+    return {
+      currentValue: [],
+      currentOptions: this.options
+    }
+  },
+  created () {
     this.handleChangeEvent = true
+    if (this.value) {
+      this.currentValue = this.value
+    }
     if (this.randomOrder) {
-      this.options = shuffle(this.options)
+      this.currentOptions = shuffle(this.options)
+    } else {
+      this.currentOptions = this.options
+    }
+  },
+  methods: {
+    getValue,
+    getKey,
+    ifDisable (key) {
+      return this.currentValue.indexOf(key) === -1 && this.currentValue.length === this._max
     }
   },
   computed: {
@@ -61,23 +84,23 @@ export default {
       return this.fillMode ? (this.options.length + 1) : this.options.length
     },
     _min () {
-      if (!this.required) {
+      if (!this.required && !this.min) {
         return 0
       }
-      if (this.min) {
-        if (this.min < 0) {
+      if (!this.required && this.min) {
+        return Math.min(this._total, this.min)
+      }
+      if (this.required) {
+        if (this.min) {
+          let max = Math.max(1, this.min)
+          return Math.min(this._total, max)
+        } else {
           return 1
         }
-        if (this.min >= this._total) {
-          return this._total
-        }
-        return this.min
-      } else {
-        return 1
       }
     },
     _max () {
-      if (!this.required) {
+      if (!this.required && !this.max) {
         return this._total
       }
       if (this.max) {
@@ -90,30 +113,61 @@ export default {
       }
     },
     valid () {
-      return this.value.length >= this._min && this.value.length <= this._max
-    },
-    error () {
-      let err = []
-      if (this.value.length < this._min) {
-        err.push(this.$interpolate('最少要选择{{_min}}个哦'))
-      }
-      if (this.value.length > this._max) {
-        err.push(this.$interpolate('最多只能选择{{_max}}个哦'))
-      }
-      return err
+      return this.currentValue.length >= this._min && this.currentValue.length <= this._max
     }
   },
   watch: {
     value (newVal) {
-      this.$emit('on-change', JSON.parse(JSON.stringify(newVal)))
+      if (JSON.stringify(newVal) !== JSON.stringify(this.currentValue)) {
+        this.currentValue = newVal
+      }
+    },
+    options (val) {
+      this.currentOptions = val
+    },
+    currentValue (newVal) {
+      const val = pure(newVal)
+      this.$emit('on-change', val)
+      this.$emit('input', val)
+
+      let key = this.name || this.uuid
+      let err = {}
+      if (this._min) {
+        if (this.required) {
+          if (this.currentValue.length < this._min) {
+            err = {
+              min: this._min
+            }
+          }
+        } else {
+          if (this.currentValue.length && this.currentValue.length < this._min) {
+            err = {
+              min: this._min
+            }
+          }
+        }
+      }
+      if (!this.valid && this.dirty && Object.keys(err).length) {
+        this.$emit('on-error', err)
+      } else {
+        this.$emit('on-clear-error')
+      }
+
     }
   }
+}
+function pure (obj) {
+  return JSON.parse(JSON.stringify(obj))
 }
 </script>
 
 <style lang="less">
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 @import '../../styles/weui/widget/weui_cell/weui_check';
+
+.weui_cells_checkbox .weui_check:checked + .vux-checklist-icon-checked:before {
+  color: @checklist-icon-active-color;
+}
 
 .weui_cells_checkbox > label > * {
   pointer-events: none;

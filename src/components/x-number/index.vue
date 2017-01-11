@@ -1,18 +1,19 @@
 <template>
   <div class="weui_cell">
     <div class="weui_cell_bd weui_cell_primary">
-      <p>{{title}}</p>
+      <p v-html="$t(title)"></p>
     </div>
     <div class="weui_cell_ft" v-show="!readonly" style="font-size:0">
       <a @click="sub" class="vux-number-selector vux-number-selector-sub":class="{'vux-number-disabled':disabledMin}">-</a>
-      <input v-model="value" :name="name" class="vux-number-input" :style="{width: width+'px'}" number :readonly="!fillable" pattern="[0-9]*"/>
+      <input v-model.number="currentValue" :name="name" class="vux-number-input" :style="{width: width}" :readonly="!fillable" pattern="[0-9]*" type="number"/>
       <a @click="add" class="vux-number-selector vux-number-selector-plus" :class="{'vux-number-disabled':disabledMax}">+</a>
     </div>
-    <div class="weui_cell_ft" v-else>
+    <div class="weui_cell_ft" v-show="readonly">
       {{value}}
     </div>
   </div>
 </template>
+
 <script>
 export default {
   props: {
@@ -30,43 +31,53 @@ export default {
     title: String,
     fillable: {
       type: Boolean,
-      default: true
+      default: false
     },
     width: {
-      type: Number,
-      default: 50
+      type: String,
+      default: '50px'
+    }
+  },
+  created () {
+    this.currentValue = this.value
+  },
+  data () {
+    return {
+      currentValue: 0
     }
   },
   computed: {
     disabledMin () {
-      return typeof this.min === 'undefined' ? false : this.value <= this.min
+      return typeof this.min === 'undefined' ? false : this.currentValue <= this.min
     },
     disabledMax () {
-      return typeof this.max === 'undefined' ? false : this.value >= this.max
+      return typeof this.max === 'undefined' ? false : this.currentValue >= this.max
     }
   },
-  ready () {
-  },
   watch: {
-    value (newValue, old) {
-      if (this.min && this.value < this.min) {
-        this.value = this.min
+    currentValue (newValue, old) {
+      if (this.min && this.currentValue < this.min) {
+        this.currentValue = this.min
       }
-      if (this.max && this.value > this.max) {
-        this.value = this.max
+      if (this.max && this.currentValue > this.max) {
+        this.currenValue = this.max
       }
-      this.$emit('on-change', this.value)
+      this.$emit('on-change', this.currentValue)
+      this.$emit('input', this.currentValue)
+    },
+    value (newValue) {
+      this.currentValue = newValue
     }
   },
   methods: {
     add () {
       if (!this.disabledMax) {
-        this.value += this.step
+        this.currentValue += this.step
       }
     },
     sub () {
       if (!this.disabledMin) {
-        this.value -= this.step
+        this.currentValue -= this.step
       }
     }
   }
@@ -80,7 +91,7 @@ export default {
   float:left;
   height:20px;
   font-size:20px;
-  color: #666;
+  color: @number-input-font-color;
   appearance: none;
   border:1px solid #ececec;
   padding:3px 0;
@@ -92,7 +103,7 @@ export default {
   height:20px;
   font-size:25px;
   line-height:18px;
-  color:#3cc51f;
+  color:@number-button-font-color;
   border:1px solid #ececec;
 }
 .vux-number-selector.vux-number-disabled{

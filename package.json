@@ -1,12 +1,12 @@
 {
   "name": "vux",
-  "version": "0.1.3",
+  "version": "2.0.0",
   "description": "Mobile web UI based on Vue and Weui",
   "keywords": [
     "vux",
     "vue",
+    "vue ui",
     "weui",
-    "weex",
     "vue-components",
     "web-components",
     "component",
@@ -21,15 +21,6 @@
     "url": "https://github.com/airyland/vux"
   },
   "license": "MIT",
-  "scripts": {
-    "dev": "node build/dev-server.js",
-    "build": "rimraf site && webpack --progress --hide-modules --colors --config build/webpack.prod.conf.js && cd site/static && mkdir vendors && cd ../../ && cp -r src/assets/* site/static/ && cp CNAME site/ && cp favicon.ico site/ && node build/common-nano-css.js site/static",
-    "test": "karma start build/karma.conf.js --single-run",
-    "deploy": "gh-pages -d site",
-    "xdeploy": "npm run build && gh-pages -d site",
-    "xbuild": "mkdirp dist/styles && webpack --progress --hide-modules --colors --config build/webpack.npm.conf.js && rimraf dist/components && node build/build-components && node build/build-styles && node build/nano-css",
-    "xpublish": "npm run xbuild && npm publish && npm run xdeploy"
-  },
   "main": "dist/vux.js",
   "dependencies": {
     "array-filter": "^1.0.0",
@@ -37,7 +28,7 @@
     "array-from": "^2.1.1",
     "array-map": "^0.0.0",
     "array-shuffle": "^1.0.0",
-    "countup.js": "^1.7.1",
+    "countup.js": "^1.8.1",
     "object-assign": "^4.1.0",
     "photoswipe": "^4.1.1",
     "qr.js": "0.0.0",

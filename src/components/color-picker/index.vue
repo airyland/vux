@@ -25,6 +25,9 @@ export default {
     Flexbox,
     FlexboxItem
   },
+  created () {
+    this.currentValue = this.value
+  },
   props: {
     colors: {
       type: Array,
@@ -41,10 +44,23 @@ export default {
       return sizeMap[this.size]
     }
   },
+  data () {
+    return {
+      currentValue: ''
+    }
+  },
+  watch: {
+    value (val) {
+      this.currentValue = val
+    },
+    currentValue (color) {
+      this.$emit('on-change', color)
+      this.$emit('input', color)
+    }
+  },
   methods: {
     change (color) {
-      this.value = color
-      this.$emit('on-change', color)
+      this.currentValue = color
     }
   }
 }

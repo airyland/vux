@@ -1,7 +1,7 @@
 <template>
   <div>
     <a @click="sub" class="vux-number-selector vux-number-selector-sub":class="{'vux-number-disabled':disabledMin}">-</a>
-    <input v-model="value" :name="name" class="vux-number-input" :style="{width: width+'px'}" number :readonly="!fillable" pattern="[0-9]*"/>
+    <input v-model.number="value" :name="name" class="vux-number-input" :style="{width: width+'px'}" :readonly="!fillable" pattern="[0-9]*"/>
     <a @click="add" class="vux-number-selector vux-number-selector-plus" :class="{'vux-number-disabled':disabledMax}">+</a>
   </div>
 </template>
@@ -37,8 +37,6 @@ export default {
     disabledMax () {
       return typeof this.max === 'undefined' ? false : this.value >= this.max
     }
-  },
-  ready () {
   },
   watch: {
     value (newValue, old) {

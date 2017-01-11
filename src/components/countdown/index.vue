@@ -1,25 +1,26 @@
 <template>
-  <span>{{time}}</span>
+  <span>{{currentTime}}</span>
 </template>
 
 <script>
 export default {
   props: {
-    time: {
-      type: Number,
-      default: 60
-    },
+    value: Number,
     start: {
       type: Boolean,
       default: true
     }
   },
+  created (){
+    this.currentTime = this.time
+    if(this.value) this.currentTime = this.value
+  },
   methods: {
     tick () {
       let _this = this
       this.interval = setInterval(function () {
-        if (_this.time > 0) {
-          _this.time--
+        if (_this.currentTime > 0) {
+          _this.currentTime--
         } else {
           _this.stop()
           _this.index++
@@ -32,8 +33,14 @@ export default {
     }
   },
   watch: {
+    value (val){
+      this.currentTime = val
+    },
+    currentTime (val){
+      this.$emit('input', val)
+    },
     start (newVal, oldVal) {
-      if (newVal === true && oldVal === false && this.time > 0) {
+      if (newVal === true && oldVal === false && this.currentTime > 0) {
         this.tick()
       }
       if (newVal === false && oldVal === true) {
@@ -41,7 +48,7 @@ export default {
       }
     }
   },
-  ready () {
+  mounted () {
     if (this.start) {
       this.tick()
     }
@@ -49,7 +56,8 @@ export default {
   data () {
     return {
       interval: null,
-      index: 0
+      index: 0,
+      currentTime: 60
     }
   }
 }

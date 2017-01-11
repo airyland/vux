@@ -6,8 +6,10 @@
 import sticky from './sticky'
 
 export default {
-  ready () {
-    sticky(this.$el)
+  mounted () {
+    this.$nextTick(() => {
+      sticky(this.$el)
+    })
   }
 }
 </script>

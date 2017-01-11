@@ -1,9 +1,26 @@
+icon: '&#xe65a;'
+tags:
+  - qr
+  - qrcode
+  - 二维码
 props:
   value:
+    type: String
+    default: ''
+    en: content, make sure to prefix with http(s) when value is a link
     zh-CN: 编码内容，如果为链接，请保证有http(s)协议名
   size:
+    type: Number
+    default: 80
+    en: size
     zh-CN: 尺寸大小
   bg-color:
+    type: String
+    default: '#FFFFFF'
+    en: background color
     zh-CN: 背景颜色
   fg-color:
-    zh-CN: 二级码着色
+    type: String
+    default: '#000000'
+    en: front color
+    zh-CN: 二维码着色

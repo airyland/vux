@@ -17,9 +17,8 @@
 </template>
 
 <script>
-import { Cell, Group, Picker, PopupPicker, XButton, Divider } from '../components'
-const list =
-[{
+import { Cell, Group, Picker, PopupPicker, XButton, Divider } from 'vux'
+const list = [{
   name: '中国',
   value: 'china',
   parent: 0

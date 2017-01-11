@@ -1,0 +1,32 @@
+icon: '&#xe627;'
+tags:
+  en:
+    - picker
+    - form
+  zh-CN:
+    - 选择
+    - 表单
+    - 联动
+extra: |
+  对于联动的数据，请确保列表项的`value`值是字符串。
+props:
+  value:
+    type: Array
+    default: ''
+    en: picker value, use v-model for binding
+    zh-CN: 表单值，使用 v-model 绑定
+  data:
+    type: Array
+    default: ''
+    en: array list
+    zh-CN: 选项列表数据
+  columns:
+    type: Number
+    zh-CN: 指定列数
+  fixed-columns:
+    type: Number
+    zh-CN: 指定显示多少列，隐藏多余的
+events:
+  on-change:
+    params: '`(value)`'
+    zh-CN: 选择值变化时触发

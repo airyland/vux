@@ -8,13 +8,15 @@
 <script>
 const Clocker = require('./clocker')
 export default {
-  ready () {
-    this.slot = this.$el.querySelector('.vux-clocker-tpl')
-    this.slotString = this.slot.innerHTML
-    if (this.slotString !== '') {
-      this.showTimeString = false
-    }
-    this.render()
+  mounted () {
+    this.$nextTick(() => {
+      this.slot = this.$el.querySelector('.vux-clocker-tpl')
+      this.slotString = this.slot.innerHTML
+      if (this.slotString !== '') {
+        this.showTimeString = false
+      }
+      this.render()
+    })
   },
   methods: {
     render () {

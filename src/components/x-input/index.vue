@@ -1,31 +1,85 @@
 <template>
 	<div class="weui_cell" :class="{'weui_cell_warn': !valid}">
     <div class="weui_cell_hd">
-      <label class="weui_label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title">{{title}}</label>
+      <label class="weui_label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
     <div class="weui_cell_bd weui_cell_primary">
       <input
+      v-if="!type || type === 'text' "
       class="weui_input"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
       :autocorrect="autocorrect"
       :spellcheck="spellcheck"
       :style="inputStyle"
-      :type="type"
+      type="text"
       :name="name"
       :pattern="pattern"
       :placeholder="placeholder"
       :readonly="readonly"
-      v-model="value"
+      v-model="currentValue"
       @blur="blur"
-      v-el:input/>
+      ref="input"/>
+      <input
+      v-if="type === 'number' "
+      class="weui_input"
+      :autocomplete="autocomplete"
+      :autocapitalize="autocapitalize"
+      :autocorrect="autocorrect"
+      :spellcheck="spellcheck"
+      :style="inputStyle"
+      type="text"
+      :name="name"
+      :pattern="pattern"
+      :placeholder="placeholder"
+      :readonly="readonly"
+      v-model="currentValue"
+      @blur="blur"
+      ref="input"/>
+      <input
+      v-if="type === 'email' "
+      class="weui_input"
+      :autocomplete="autocomplete"
+      :autocapitalize="autocapitalize"
+      :autocorrect="autocorrect"
+      :spellcheck="spellcheck"
+      :style="inputStyle"
+      type="text"
+      :name="name"
+      :pattern="pattern"
+      :placeholder="placeholder"
+      :readonly="readonly"
+      v-model="currentValue"
+      @blur="blur"
+      ref="input"/>
+      <input
+      v-if="type === 'password' "
+      class="weui_input"
+      :autocomplete="autocomplete"
+      :autocapitalize="autocapitalize"
+      :autocorrect="autocorrect"
+      :spellcheck="spellcheck"
+      :style="inputStyle"
+      type="text"
+      :name="name"
+      :pattern="pattern"
+      :placeholder="placeholder"
+      :readonly="readonly"
+      v-model="currentValue"
+      @blur="blur"
+      ref="input"/>
     </div>
     <div class="weui_cell_ft">
-      <icon type="clear" v-show="showClear && value && !readonly" @click="clear"></icon>
-      <icon class="vux-input-icon-warn" type="warn" title="{{!valid ? firstError : ''}}" v-show="!equalWith && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
-      <icon class="vux-input-icon-warn" type="warn" v-show="hasLengthEqual && dirty && equalWith && !valid"></icon>
-      <icon type="success" v-show="equalWith && equalWith===value && valid"></icon>
+      <icon type="clear" v-show="!equalWith && showClear && currentValue && !readonly" @click.native="clear"></icon>
+
+      <icon class="vux-input-icon" type="warn" :title="!valid ? firstError : ''" v-show="!novalidate && !equalWith && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
+      <icon class="vux-input-icon" type="warn" v-if="!novalidate && hasLengthEqual && dirty && equalWith && !valid"></icon>
+      <icon type="success" v-show="!novalidate && equalWith && equalWith === currentValue && valid"></icon>
+
+      <icon type="success" class="vux-input-icon" v-show="novalidate && iconType === 'success'"></icon>
+      <icon type="warn" class="vux-input-icon" v-show="novalidate && iconType === 'error'"></icon>
+
       <slot name="right"></slot>
     </div>
   </div>
@@ -58,14 +112,12 @@ const validators = {
   }
 }
 export default {
-  ready () {
-    if (!this.title && !this.placeholder && !this.value) {
+  created () {
+    this.currentValue = this.value || ''
+    if (!this.title && !this.placeholder && !this.currentValue) {
       console.warn('no title and no placeholder?')
     }
-    if (this.equalWith) {
-      this.showClear = false
-    }
-    if (this.required && !this.value) {
+    if (this.required && !this.currentValue) {
       this.valid = false
     }
     if (this.isType === 'email') {
@@ -78,6 +130,10 @@ export default {
     InlineDesc
   },
   props: {
+    required: {
+      type: Boolean,
+      default: false
+    },
     title: {
       type: String,
       default: ''
@@ -91,7 +147,7 @@ export default {
     },
     keyboard: String,
     inlineDesc: String,
-    isType: String,
+    isType: [String, Function],
     min: Number,
     max: Number,
     showClear: {
@@ -99,16 +155,29 @@ export default {
       default: true
     },
     equalWith: String,
-    type: {
-      type: String,
-      default: 'text'
-    },
     textAlign: String,
     // https://github.com/yisibl/blog/issues/3
-    autocomplete: 'off',
-    autocapitalize: 'off',
-    autocorrect: 'off',
-    spellcheck: 'false'
+    autocomplete: {
+      type: String,
+      default: 'off'
+    },
+    autocapitalize: {
+      type: String,
+      default: 'off'
+    },
+    autocorrect: {
+      type: String,
+      default: 'off'
+    },
+    spellcheck: {
+      type: String,
+      default: 'false'
+    },
+    novalidate: {
+      type: Boolean,
+      default: false
+    },
+    iconType: String
   },
   computed: {
     pattern () {
@@ -132,7 +201,7 @@ export default {
   },
   methods: {
     clear () {
-      this.value = ''
+      this.currentValue = ''
       this.focus = true
     },
     blur () {
@@ -150,31 +219,45 @@ export default {
       }
       this.errors = {}
 
-      if (!this.value && !this.required) {
+      if (!this.currentValue && !this.required) {
         this.valid = true
         return
       }
 
-      if (!this.value && this.required) {
+      if (!this.currentValue && this.required) {
         this.valid = false
         this.errors.required = '必填哦'
         return
       }
 
-      const validator = validators[this.isType]
-      if (validator) {
-        this.valid = validator[ 'fn' ](this.value)
+      if (typeof this.isType === 'string') {
+        const validator = validators[this.isType]
+        if (validator) {
+          this.valid = validator[ 'fn' ](this.currentValue)
+          if (!this.valid) {
+            this.errors.format = validator[ 'msg' ] + '格式不对哦~'
+            return
+          } else {
+            delete this.errors.format
+          }
+        }
+      }
+
+      if (typeof this.isType === 'function') {
+        const validStatus = this.isType(this.currentValue)
+        this.valid = validStatus.valid
         if (!this.valid) {
-          this.errors.format = validator[ 'msg' ] + '格式不对哦~'
+          this.errors.format = validStatus.msg
           return
         } else {
           delete this.errors.format
         }
       }
+      
 
       if (this.min) {
-        if (this.value.length < this.min) {
-          this.errors.min = this.$interpolate('最少应该输入{{min}}个字符哦')
+        if (this.currentValue.length < this.min) {
+          this.errors.min = `最少应该输入${this.min}个字符哦`
           this.valid = false
           this.getError()
           return
@@ -184,8 +267,8 @@ export default {
       }
 
       if (this.max) {
-        if (this.value.length > this.max) {
-          this.errors.max = this.$interpolate('最多可以输入{{max}}个字符哦')
+        if (this.currentValue.length > this.max) {
+          this.errors.max = `最多可以输入${this.max}个字符哦`
           this.valid = false
           this.forceShowError = true
           return
@@ -198,9 +281,9 @@ export default {
       this.valid = true
     },
     validateEqual () {
-      let willCheck = this.dirty || this.value.length >= this.equalWith.length
+      let willCheck = this.dirty || this.currentValue.length >= this.equalWith.length
       // 只在长度符合时显示正确与否
-      if (willCheck && this.value !== this.equalWith) {
+      if (willCheck && this.currentValue !== this.equalWith) {
         this.valid = false
         this.errors.equal = '输入不一致'
         return
@@ -215,21 +298,26 @@ export default {
       firstError: '',
       forceShowError: false,
       hasLengthEqual: false,
-      focus: false
+      focus: false,
+      valid: true,
+      currentValue: ''
     }
     return data
   },
   watch: {
     focus (newVal) {
       if (newVal) {
-        this.$els.input.focus()
+        this.$refs.input.focus()
       }
     },
     valid () {
       this.getError()
     },
-    value (newVal) {
-      if (this.equalWith) {
+    value (val) {
+      this.currentValue = val
+    },
+    equalWith (newVal) {
+      if (newVal && this.equalWith) {
         if (newVal.length === this.equalWith.length) {
           this.hasLengthEqual = true
         }
@@ -237,6 +325,17 @@ export default {
       } else {
         this.validate()
       }
+    },
+    currentValue (newVal) {
+      if (newVal && this.equalWith) {
+        if (newVal.length === this.equalWith.length) {
+          this.hasLengthEqual = true
+        }
+        this.validateEqual()
+      } else {
+        this.validate()
+      }
+      this.$emit('input', newVal)
     }
   }
 }
@@ -247,7 +346,7 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_vcode';
-.vux-input-icon-warn.weui_icon_warn:before {
+.vux-input-icon.weui_icon_warn:before, .vux-input-icon.weui_icon_success:before {
   font-size: 21px;
 }
 </style>

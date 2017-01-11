@@ -13,7 +13,7 @@
       </div>
     </scroller>
     <group>
-      <switch :title="pullupEnabled ? '禁用Pullup' : '启用Pullup'" :value="true" @on-change="changePullupStatus"></switch>
+      <x-switch :title="pullupEnabled ? '禁用Pullup' : '启用Pullup'" :value="true" @on-change="changePullupStatus"></x-switch>
     </group>
 
     <divider>上拉加载重置</divider>
@@ -26,13 +26,13 @@
 </template>
 
 <script>
-import { Scroller, Divider, Switch, Group, Spinner } from '../components'
+import { Scroller, Divider, XSwitch, Group, Spinner } from 'vux'
 
 export default {
   components: {
     Scroller,
     Divider,
-    Switch,
+    XSwitch,
     Group,
     Spinner
   },

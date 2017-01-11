@@ -1,0 +1,45 @@
+icon: '&#xe614;'
+extra:
+  zh-CN: >
+    ```html
+      <group>
+        <x-input title="title" v-model="value"></x-input>
+      </group>
+    ```
+    
+    <p class="tip">`x-input`只能在`Group`中使用</p>
+tags:
+  en:
+    - form
+    - input
+  zh-CN:
+    - 输入框
+    - 表单
+    - 单行输入框
+props:
+  value:
+    zh-CN: 表单值，使用`v-model`绑定
+  required:
+    type: Boolean
+    default: false
+    zh-CN: 是否必值，如果不禁用验证，当没有填写时会在右侧显示错误icon
+  title:
+    zh-CN: label文字
+  placeholder:
+    zh-CN: placeholder 提示
+  show-clear:
+    type: Boolean
+    default: true
+    zh-CN: 是否显示清除icon
+  min:
+    type: Number
+    zh-CN: 最小输入字符限制
+  max:
+    type: Number
+    zh-CN: 最大输入字符限制
+changes:
+  v2.0.0:
+    zh-CN:
+      - '[feature] 添加 `novalidate` 及 `iconType` 可以禁用组件验证，手动显示 error 或者 success 样式'
+      - '[feature] `is-type` 支持传入函数'
+      - '[change] 受限于vue2不能动态设置type，目前`type`支持 text password number email' 

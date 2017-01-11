@@ -1,15 +1,13 @@
 <template>
- 
-    <a class="weui_cell" href="javascript:">
-      <slot>
-        <div class="weui_cell_bd weui_cell_primary">
-          <p>{{title}}</p>
-          <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
-        </div>
-        <div class="weui_cell_ft with_arrow vux-datetime-value">{{value || placeholder}}</div>
-      </slot>
-    </a>
- 
+  <a class="weui_cell" href="javascript:">
+    <slot>
+      <div class="weui_cell_bd weui_cell_primary">
+        <p>{{title}}</p>
+        <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+      </div>
+      <div class="weui_cell_ft with_arrow vux-datetime-value">{{ currentValue || placeholder}}</div>
+    </slot>
+  </a>
 </template>
 
 <script>
@@ -49,10 +47,7 @@ export default {
       type: String,
       default: 'cancel'
     },
-    clearText: {
-      type: String,
-      default: ''
-    },
+    clearText: String,
     yearRow: {
       type: String,
       default: '{value}'
@@ -75,12 +70,20 @@ export default {
     }
   },
   created () {
+    this.currentValue = this.value
     this.handleChangeEvent = true
   },
-  ready () {
+  data(){
+    return{
+      currentValue: ''
+    }
+  },
+  mounted () {
     const uuid = this.uuid
-    this.$el.setAttribute('id', 'vux-datetime-' + uuid)
-    this.render()
+    this.$nextTick(() => {
+      this.$el.setAttribute('id', 'vux-datetime-' + uuid)
+      this.render()
+    })
   },
   computed: {
     pickerOptions () {
@@ -88,7 +91,7 @@ export default {
       const options = {
         trigger: '#vux-datetime-' + this.uuid,
         format: this.format,
-        value: this.value,
+        value: this.currentValue,
         output: '.vux-datetime-value',
         confirmText: this.confirmText,
         cancelText: _this.cancelText,
@@ -99,7 +102,7 @@ export default {
         hourRow: this.hourRow,
         minuteRow: this.minuteRow,
         onConfirm (value) {
-          _this.value = value
+          _this.currentValue = value
         },
         onClear (value) {
           _this.$emit('on-clear', value)
@@ -123,8 +126,16 @@ export default {
     }
   },
   watch: {
-    value (val) {
+    currentValue (val){
       this.$emit('on-change', val)
+      this.$emit('input', val)
+    },
+    value (val) {
+      if (this.currentValue !== val) {
+        this.currentValue = val
+        this.picker.destroy()
+        this.render()
+      }
     }
   },
   beforeDestroy () {

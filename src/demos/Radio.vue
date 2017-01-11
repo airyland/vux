@@ -9,7 +9,7 @@
     </group>
 
     <group :title="'fill mode value is '+radio001Value">
-      <radio fill-mode :options="radio001" :value.sync="radio001Value" @on-change="change"></radio>
+      <radio fill-mode :options="radio001" v-model="radio001Value" @on-change="change"></radio>
     </group>
 
     <group title="fill mode with custom placeholder and label">
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { Radio, Group, DevTip } from '../components'
+import { Radio, Group, DevTip } from 'vux'
 
 export default {
   components: {

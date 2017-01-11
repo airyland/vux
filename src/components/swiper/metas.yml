@@ -1,0 +1,57 @@
+icon: '&#xe612;'
+props:
+  list:
+    type: Array
+    zh-CN: 图片列表
+  direction:
+    type: String
+    default: horizontal
+    zh-CN: 方向
+  showDots:
+    type: Boolean
+    default: true
+    zh-CN: 是否显示提示点
+  showDescMask:
+    type: Boolean
+    default: true
+    zh-CN: 是否显示描述半透明遮罩
+  dotsPosition:
+    type: String
+    default: right
+    zh-CN: 提示点位置
+  dotsClass:
+    zh-CN: 提示className
+  auto:
+    type: Boolean
+    default: false
+  loop:
+    type: Boolean
+    default: false
+    zh-CN: 是否循环
+  interval:
+    type: Number
+    default: 3000
+    zh-CN: 轮播停留时长
+  threshold:
+    type: Number
+    default: 50
+    zh-CN: 当滑动超过这个距离时才滑动
+  duration:
+    type: Number
+    default: 300
+    zh-CN: 切换动画时间
+  height:
+    type: String
+    default: auto
+    zh-CN: 高度
+  aspectRatio: 
+    type: Number
+    zh-CN: 用以根据当前可用宽度计算高度值
+  minMovingDistance:
+    type: Number
+    default: 0
+    zh-CN: 超过这个距离时才滑动
+  value:
+    type: Number
+    default: 0
+    zh-CN: index 绑定，使用v-model，一般不需要绑定

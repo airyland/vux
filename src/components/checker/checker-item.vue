@@ -8,25 +8,49 @@
 export default {
   props: {
     value: {
-      type: [String, Number],
+      type: [String, Number, Object],
       required: true
     },
     disabled: Boolean
   },
   computed: {
     classNames () {
+      const isSimpleValue = typeof this.value === 'string' || typeof this.value === 'number'
       const names = {
         'vux-tap-active': !this.disabled
       }
+
       if (this.$parent.defaultItemClass) {
         names[this.$parent.defaultItemClass] = true
       }
+
       if (this.$parent.selectedItemClass) {
-        names[this.$parent.selectedItemClass] = this.$parent.type === 'radio' ? (this.$parent.value === this.value) : (this.$parent.value.indexOf(this.value) > -1)
+        let selected = false
+        if (this.$parent.type === 'radio') {
+          if (isSimpleValue && this.$parent.currentValue === this.value) {
+            selected = true
+          } else if (typeof this.value === 'object' && isEqual(this.$parent.currentValue, this.value)) {
+            selected = true
+          }
+        } else {
+          if (typeof this.value === 'string') {
+            if (this.$parent.currentValue.indexOf(this.value) > -1){
+              selected = true
+            }
+          } else if (this.$parent.currentValue && this.$parent.currentValue.length) {
+            const match = this.$parent.currentValue.filter(one => {
+              return isEqual(one, this.value)
+            })
+            selected = match.length > 0
+          }
+        }
+        names[this.$parent.selectedItemClass] = selected
       }
+
       if (this.$parent.disabledItemClass) {
         names[this.$parent.disabledItemClass] = this.disabled
       }
+
       return names
     }
   },
@@ -40,24 +64,40 @@ export default {
     },
     selectRadio () {
       if (!this.disabled) {
-        this.$parent.$set('value', this.value)
+        this.$parent.currentValue = this.value
         this.$emit('on-item-click', this.value, this.disabled)
       }
     },
     selectCheckbox () {
+      if (!this.$parent.currentValue || this.$parent.currentValue === null) {
+        this.$parent.currentValue = []
+      }
+      const isSimpleValue = typeof this.value === 'string' || typeof this.value === 'number'
       if (!this.disabled) {
-        const index = this.$parent.value.indexOf(this.value)
-        if (index > -1) {
-          this.$parent.value.splice(index, 1)
+        let index = -1
+        if (isSimpleValue){
+          index = this.$parent.currentValue.indexOf(this.value)
         } else {
-          if (!this.$parent.max || (this.$parent.max && this.$parent.value.length < this.$parent.max)) {
-            this.$parent.value.push(this.value)
+          index = this.$parent.currentValue.map(one=>JSON.stringify(one)).indexOf(JSON.stringify(this.value))
+        } 
+        if (index > -1) {
+          this.$parent.currentValue.splice(index, 1)
+        } else {
+          if (!this.$parent.max || (this.$parent.max && (this.$parent.currentValue !== null && this.$parent.currentValue.length < this.$parent.max))) {
+            if (!this.$parent.currentValue || !this.$parent.currentValue.length) {
+              this.$parent.currentValue = []
+            }
+            this.$parent.currentValue.push(this.value)
           }
         }
         this.$emit('on-item-click', this.value, this.disabled)
       }
     }
   }
+}
+
+function isEqual (obj1, obj2) {
+  return JSON.stringify(obj1) === JSON.stringify(obj2)
 }
 </script>
 

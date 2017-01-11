@@ -34,10 +34,10 @@ export default {
             val === false && options.onHide && options.onHide($vm)
           })
         }
-        $vm.show = true
+        $vm.value = true
       },
       hide () {
-        $vm.show = false
+        $vm.value = false
       }
     }
 

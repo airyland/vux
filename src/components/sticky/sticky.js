@@ -3,7 +3,7 @@
 // 检测iOS版本大于等于6
 function gtIOS6 () {
   var userAgent = window.navigator.userAgent
-  var ios = userAgent.match(/(iPad|iPhone|iPod)\s+OS\s([\d_\.]+)/)
+  var ios = userAgent.match(/(iPad|iPhone|iPod)\s+OS\s([\d_.]+)/)
   return ios && ios[2] && (parseInt(ios[2].replace(/_/g, '.'), 10) >= 6)
 }
 

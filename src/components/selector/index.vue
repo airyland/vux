@@ -1,16 +1,16 @@
 <template>
-  <div class="weui_cell" :class="{'weui_select_after':title, 'weui_cell_select':!readonly}">
+   <div class="weui_cell" :class="{'weui_select_after':title, 'weui_cell_select':!readonly}">
     <div class="weui_cell_hd" v-if="title" :class="{'weui_cell_primary':readonly}">
       <label for="" class="weui_label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}">{{title}}</label>
     </div>
     <div class="weui_cell_bd weui_cell_primary" v-if="!readonly">
-      <select class="weui_select" :class="{'vux-selector-no-padding':!title}" :name="name" v-model="value" :style="{direction: direction}">
+      <select class="weui_select" :class="{'vux-selector-no-padding':!title}" :name="name" v-model="currentValue" :style="{direction: direction}">
         <option value="" v-if="placeholder" :selected="placeholder && !value">{{placeholder}}</option>
         <option :value="one.key" v-for="one in processOptions">{{one.value}}</option>
       </select>
     </div>
     <div class="weui_cell_ft" v-else>
-      {{value | findByKey processOptions}}
+      {{value | findByKey(processOptions)}}
     </div>
   </div>
 </template>
@@ -26,6 +26,11 @@ const findByKey = function (key, options) {
 }
 
 export default {
+  created () {
+    if (this.value) {
+      this.currentValue = this.value
+    }
+  },
   computed: {
     processOptions () {
       if (this.options.length && {}.hasOwnProperty.call(this.options[0], 'key')) {
@@ -44,8 +49,12 @@ export default {
     findByKey
   },
   watch: {
-    value (newValue) {
-      this.$emit('on-change', newValue)
+    value (val) {
+      this.currentValue = val
+    },
+    currentValue (val) {
+      this.$emit('on-change', val)
+      this.$emit('input', val)
     }
   },
   props: {
@@ -59,6 +68,11 @@ export default {
     placeholder: String,
     readonly: Boolean,
     value: String
+  },
+  data () {
+    return {
+      currentValue: ''
+    }
   }
 }
 </script>

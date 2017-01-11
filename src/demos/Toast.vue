@@ -1,38 +1,63 @@
 <template>
   <div>
     <group>
-      <switch title="默认提示" :value.sync="show1"></switch>
-      <switch title="文字提示" :value.sync="show2"></switch>
-      <switch title="提示取消" :value.sync="show3"></switch>
-      <switch title="提示禁止" :value.sync="show4"></switch>
-      <switch title="设置出现时间1s" :value.sync="show5"></switch>
-      <switch title="long text" :value.sync="show6"></switch>
+      <x-switch :title="$t('Basic Usage')" v-model="show1"></x-switch>
+      <x-switch :title="$t('type:text')" v-model="show2"></x-switch>
+      <x-switch :title="$t('type:cancel')" v-model="show3"></x-switch>
+      <x-switch :title="$t('type:warn')" v-model="show4"></x-switch>
+      <x-switch :title="$t('time:1s')" v-model="show5"></x-switch>
+      <x-switch :title="$t('long text')" v-model="show6"></x-switch>
     </group>
-    <toast :show.sync="show1" @on-hide="onHide">默认提示</toast>
-    <toast :show.sync="show2" type="text">处理成功</toast>
-    <toast :show.sync="show3" type="cancel">取消操作</toast>
-    <toast :show.sync="show4" type="warn">禁止操作</toast>
-    <toast :show.sync="show5" :time="1000">1s关闭</toast>
-    <toast :show.sync="show6" type="text" width="20em">Talk is cheap, show me the code.</toast>
-    <group title="prop:text">
-      <switch title="default" :value.sync="show7"></switch>
-      <switch title="text" :value.sync="show8"></switch>
+    <toast v-model="show1" @on-hide="onHide">{{ $t('Basic Usage') }}</toast>
+    <toast v-model="show2" type="text">{{$t('success')}}</toast>
+    <toast v-model="show3" type="cancel">{{$t('type:cancel')}}</toast>
+    <toast v-model="show4" type="warn">{{$t('type:warn')}}</toast>
+    <toast v-model="show5" :time="1000">{{$t('time:1s')}}</toast>
+    <toast v-model="show6" type="text" width="20em">{{$t('show me code')}}</toast>
+    <group :title="$t('prop:text')">
+      <x-switch :title="$t('type:success')" v-model="show7"></x-switch>
+      <x-switch :title="$t('type:text')" v-model="show8"></x-switch>
     </group>
-    <toast :show.sync="show7" text="Hello World"></toast>
-    <toast :show.sync="show8" type="text" text="Hello World"></toast>
-    <group title="As a plugin(>=v0.1.3)">
-      <switch title="default" :value.sync="show9" @on-change="onChange"></switch>
+    <toast v-model="show7" text="Hello World"></toast>
+    <toast v-model="show8" type="text" text="Hello World"></toast>
+    <group :title="$t('As a plugin(>=v0.1.3)')">
+      <x-switch :title="$t('default')" v-model="show9" @on-change="onChange"></x-switch>
     </group>
   </div>
 </template>
 
+<i18n>
+type:text:
+  zh-CN: type为text
+type:cancel:
+  zh-CN: type为cancel
+type:success:
+  zh-CN: type为success
+type:warn:
+  zh-CN: type为警告
+time:1s:
+  zh-CN: 显示时间1s
+long text:
+  zh-CN: 很长的文字
+success:
+  zh-CN: 成功啦~
+show me code:
+  zh-CN: Talk is cheap, show me the code.
+prop:text:
+  zh-CN: 设置text
+default:
+  zh-CN: 默认
+As a plugin(>=v0.1.3):
+  zh-CN: 插件形式调用
+</i18n>
+
 <script>
-import { Toast, Group, Switch } from '../components'
+import { Toast, Group, XSwitch } from 'vux'
 export default {
   components: {
     Toast,
     Group,
-    Switch
+    XSwitch
   },
   methods: {
     onHide () {

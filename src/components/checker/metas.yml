@@ -1,26 +1,48 @@
+icon: '&#xe655;'
+items:
+  - checker
+  - checker-item
+tags:
+  - form
+  - checker
+  - select
+  - 选择
 checker:
   props:
     default-item-class:
-      zh-CN: 默认class
+      zh-CN: 默认状态class
     selected-item-class:
-      zh-CN: 选中样式
+      zh-CN: 选中样式class
     disabled-item-class:
-      zh-CN: 不可选样式
+      zh-CN: 不可选样式class
     type:
-      zh-CN: 类型，单选为radio, 多选为checkbox
+      default: radio
+      zh-CN: 类型，单选为`radio`, 多选为`checkbox`
     value:
-      zh-CN: 表单值
+      type: Array
+      zh-CN: 表单值，使用`v-model`绑定
     max:
+      type: Number
       zh-CN: 最多可选个数，多选时可用
   events:
     on-change:
+      params: '`(value)`'
       zh-CN: value值变化时触发
 checker-item:
   props:
     value:
       zh-CN: 当前项的值
     disabled:
+      type: Boolean
+      default: false
       zh-CN: 是否为不可选
   events:
     on-item-click:
-      zh-CN: 当前项被点击时触发，参数为(itemValue, itemDisabled)
+      params: '`(itemValue, itemDisabled)`'
+      zh-CN: 当前项被点击时触发
+changes:
+  v2.0.0:
+    en:
+      - '[feature] Support Object value #705'
+    zh-CN:
+      - '[feature] 支持Object类型的值 #705'

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { XImg, Scroller } from '../components'
+import { XImg, Scroller } from 'vux'
 export default {
   components: {
     XImg,

@@ -1,23 +1,36 @@
 <template>
   <div>
     <group>
-      <switch title="Toggle" :value.sync="show"></switch>
+      <x-switch :title="$t('Show Me')" v-model="show"></x-switch>
     </group>
-    <alert :show.sync="show" title="congratulations" @on-show="onShow" @on-hide="onHide">Message is sent successfully~</alert>
-    <group title="As a plugin(>=v0.1.3)">
-      <switch title="Show" :value.sync="show1" @on-change="onChange"></switch>
+    <alert v-model="show" :title="$t('Congratulations')" @on-show="onShow" @on-hide="onHide"> {{ $t('Your Message is sent successfully~') }}</alert>
+    <group :title="$t('Use as a plugin')">
+      <x-switch :title="$t('Show Me')" v-model="show1" @on-change="onChange"></x-switch>
     </group>
   </div>
 </template>
 
+<i18n>
+Show Me:
+  zh-CN: 显示
+Use as a plugin:
+  zh-CN: 以插件方式调用
+Congratulations:
+  zh-CN: 恭喜
+Your Message is sent successfully~:
+  zh-CN: 消息已成功发送
+Do you agree?:
+  zh-CN: 同意不?
+</i18n>
+
 <script>
-import { Alert, Group, Switch } from '../components'
+import { Alert, Group, XSwitch } from 'vux'
 
 export default {
   components: {
     Alert,
     Group,
-    Switch
+    XSwitch
   },
   data () {
     return {
@@ -36,8 +49,8 @@ export default {
       const _this = this
       if (val) {
         this.$vux.alert.show({
-          title: 'Vux',
-          content: 'Be Careful',
+          title: 'Vux is Cool',
+          content: this.$t('Do you agree?'),
           onShow () {
             console.log('Plugin: I\'m showing')
           },

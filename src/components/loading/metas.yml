@@ -1,11 +1,26 @@
+icon: '&#xe610;'
+tags:
+  en:
+    - loading
+    - dialog
+  zh-CN:
+    - 加载
+    - 弹窗
+    - 提示
 props:
-  show:
+  value:
+    type: Boolean
+    default: false
     en: visibility of the component
-    zh-CN: 显示状态
+    zh-CN: 显示状态，使用`v-model`绑定
   text:
+    type: String
+    default: ''
     en: loading text
     zh-CN: 提示文字
   position:
+    type: String
+    default: 'fixed'
     en: position, default is `fixed`, you can use `absolute`
     zh-CN: 定位方式，默认为`fixed`，在100%的布局下用`absolute`可以避免抖动
 slots:

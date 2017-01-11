@@ -6,7 +6,7 @@ const Roller = class {
       throw Error('no container')
     }
     this.container.style.overflow = 'hidden'
-    this.rollHeight = parseInt(getComputedStyle(this.container).height)
+    this.rollHeight = parseInt(window.getComputedStyle(this.container).height)
 
     if (this.rollHeight < 1) {
       this.container.style.height = '20px'

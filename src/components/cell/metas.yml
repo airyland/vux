@@ -1,17 +1,40 @@
+icon: '&#xe62a;'
+extra:
+  zh-CN: >
+    ```html
+      <group>
+        <cell title="title" value="value"></cell>
+      </group>
+    ```
+    
+    <p class="tip">cell只能在`Group`中使用</p>
+tags:
+  - cell
+  - form
 props:
   title:
+    type: String
+    default: ''
     en: label text
     zh-CN: 左边标题文字
   value:
+    type: String
+    default: ''
     en: right text
     zh-CN: 右侧文字，复杂的样式布局请使用slot
   inline-desc:
+    type: String
+    default: ''
     en: the text below title
     zh-CN: 标题下面文字，一般为说明文字
   is-link:
+    type: Boolean
+    default: false
     en: if this is a link, if true, there will be an arrow on the right
     zh-CN: 是否为链接，如果是，右侧将会出现指引点击的右箭头
   primary:
+    type: String
+    default: 'title'
     en: "main content area, can be in ['title', 'content']"
     zh-CN: "可选值为 ['title', 'content']，对应的div会加上weui_cell_primary类名实现内容宽度自适应"
 slots:

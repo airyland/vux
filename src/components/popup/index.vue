@@ -1,7 +1,9 @@
 <template>
-  <div v-show="show" transition="vux-popup" :style="{height:height}" class="vux-popup">
-    <slot></slot>
-  </div>
+  <transition name="vux-popup">
+    <div v-show="show" :style="{height:height}" class="vux-popup">
+      <slot></slot>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -9,7 +11,7 @@ import Popup from './popup'
 
 export default {
   props: {
-    show: Boolean,
+    value: Boolean,
     height: {
       type: String,
       default: 'auto'
@@ -19,23 +21,25 @@ export default {
       default: true
     }
   },
-  ready () {
-    const _this = this
-    this.popup = new Popup({
-      container: _this.$el,
-      innerHTML: '',
-      hideOnBlur: _this.hideOnBlur,
-      onOpen (dialog) {
-        _this.fixSafariOverflowScrolling('auto')
-        _this.show = true
-      },
-      onClose (dialog) {
-        _this.show = false
-        if (Object.keys(window.__$vuxPopups).length >= 1) return
-        _this.fixSafariOverflowScrolling('touch')
-      }
+  mounted () {
+    this.$nextTick(() => {
+      const _this = this
+      this.popup = new Popup({
+        container: _this.$el,
+        innerHTML: '',
+        hideOnBlur: _this.hideOnBlur,
+        onOpen () {
+          _this.fixSafariOverflowScrolling('auto')
+          _this.show = true
+        },
+        onClose () {
+          _this.show = false
+          if (Object.keys(window.__$vuxPopups).length >= 1) return
+          _this.fixSafariOverflowScrolling('touch')
+        }
+      })
+      this.$overflowScrollingList = document.querySelectorAll('.vux-fix-safari-overflow-scrolling')
     })
-    this.$overflowScrollingList = document.querySelectorAll('.vux-fix-safari-overflow-scrolling')
   },
   methods: {
     /**
@@ -52,11 +56,13 @@ export default {
   },
   data () {
     return {
-      hasFirstShow: false
+      hasFirstShow: false,
+      show: this.value
     }
   },
   watch: {
     show (val) {
+      this.$emit('input', val)
       if (val) {
         this.popup.show()
         this.$emit('on-show')
@@ -69,6 +75,9 @@ export default {
         this.show = false
         this.popup.hide(false)
       }
+    },
+    value (val) {
+      this.show = val
     }
   },
   beforeDestroy () {
@@ -113,7 +122,7 @@ export default {
 .vux-popup-enter {
   transform: translate3d(0, 100%, 0);
 }
-.vux-popup-leave {
+.vux-popup-leave-active {
   transform: translate3d(0, 100%, 0);
 }
 </style>

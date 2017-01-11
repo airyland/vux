@@ -29,7 +29,7 @@ export default {
   },
   props: {
     title: String,
-    value: [String, Number],
+    value: [String, Number, Array],
     isLink: Boolean,
     inlineDesc: [String, Number],
     primary: {

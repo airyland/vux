@@ -1,35 +1,42 @@
 <template>
   <div class="vux-alert">
-    <dialog
+    <x-dialog
     class="weui_dialog_alert"
-    :show="show"
+    v-model="showValue"
     :mask-transition="maskTransition"
     :dialog-transition="dialogTransition"
     @on-hide="$emit('on-hide')"
     @on-show="$emit('on-show')">
-      <div class="weui_dialog_hd"><strong class="weui_dialog_title">{{title}}</strong></div>
+      <div class="weui_dialog_hd">
+        <strong class="weui_dialog_title">{{title}}</strong>
+      </div>
       <div class="weui_dialog_bd"><slot></slot></div>
       <div class="weui_dialog_ft">
-        <a href="javascript:;" class="weui_btn_dialog primary" @click="onHide">{{buttonText}}</a>
+        <a href="javascript:;"
+        class="weui_btn_dialog primary"
+        @click="onHide">{{buttonText || $t('button_text')}}</a>
       </div>
-    </dialog>
+    </x-dialog>
   </div>
 </template>
 
+<i18n>
+button_text:
+  en: OK
+  zh-CN: 确定
+</i18n>
+
 <script>
-import Dialog from '../dialog'
+import XDialog from '../x-dialog'
 
 export default {
   components: {
-    Dialog
+    XDialog
   },
   props: {
-    show: Boolean,
+    value: Boolean,
     title: String,
-    buttonText: {
-      type: String,
-      default: 'OK'
-    },
+    buttonText: String,
     maskTransition: {
       type: String,
       default: 'vux-fade'
@@ -39,9 +46,20 @@ export default {
       default: 'vux-dialog'
     }
   },
+  data () {
+    return {
+      showValue: this.value
+    }
+  },
   methods: {
     onHide () {
-      this.show = false
+      this.showValue = false
+      this.$emit('input', false)
+    }
+  },
+  watch: {
+    value (val) {
+      this.showValue = val
     }
   }
 }

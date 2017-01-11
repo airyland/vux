@@ -1,0 +1,28 @@
+icon: '&#xe63b;'
+tags:
+  en:
+    - form
+    - search
+  zh-CN:
+    - 表单
+    - 搜索
+props:
+  placeholder:
+    default: 搜索(search)
+    zh-CN: 提示文字
+  cancelText:
+    default: 取消(cancel)
+    zh-CN: 取消文字
+  value:
+    zh-CN: 表单值，`v-model`绑定
+  results:
+    type: Array
+    zh-CN: 指定搜索结果
+  autoFixed:
+    type: Boolean
+    default: true
+    zh-CN: 是否自动固定在顶端
+  top:
+    type: String
+    default: '0px'
+    zh-CN: 自动固定时距离顶部的距离
