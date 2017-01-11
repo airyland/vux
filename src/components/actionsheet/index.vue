@@ -56,7 +56,6 @@ export default {
     },
     fixIos (zIndex) {
       if (this.$tabbar && /iphone/i.test(navigator.userAgent)) {
-        conosle.log('fix tabbar')
         this.$tabbar.style.zIndex = zIndex
       }
     }
