@@ -43,3 +43,6 @@ changes:
       - '[feature] 添加 `novalidate` 及 `iconType` 可以禁用组件验证，手动显示 error 或者 success 样式'
       - '[feature] `is-type` 支持传入函数'
       - '[change] 受限于vue2不能动态设置type，目前`type`支持 text password number email' 
+  v2.0.1:
+    zh-CN:
+      - '[fix] 修复type未定义的问题'  

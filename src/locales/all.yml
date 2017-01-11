@@ -8,6 +8,7 @@ en:
   vux.popup-picker.confirm_text: ok
   vux.search.cancel_text: cancel
   vux.search.placeholder: Search
+  vux.loading.loading: Loading
 zh-CN:
   vux.actionsheet.cancel: 取消
   vux.alert.button_text: 确定
@@ -17,3 +18,4 @@ zh-CN:
   vux.popup-picker.confirm_text: 完成
   vux.search.cancel_text: 取消
   vux.search.placeholder: 搜索
+  vux.loading.loading: 加载中

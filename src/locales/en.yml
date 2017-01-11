@@ -6,3 +6,4 @@ vux.popup-picker.cancel_text: cancel
 vux.popup-picker.confirm_text: ok
 vux.search.cancel_text: cancel
 vux.search.placeholder: Search
+vux.loading.loading: Loading

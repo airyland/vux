@@ -138,6 +138,10 @@ export default {
       type: String,
       default: ''
     },
+    type: {
+      type: String,
+      default: 'text'
+    },
     placeholder: String,
     value: [String, Number],
     name: String,

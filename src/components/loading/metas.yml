@@ -27,3 +27,7 @@ slots:
   default:
     en: content area
     zh-CN: 提示文字区域
+changes:
+  v2.0.1:
+    zh-CN:
+      - '[fix] i18n 无配置'
