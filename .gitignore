@@ -9,3 +9,6 @@ examples/webpack/
 dist/components-commonjs/
 /site
 /docs
+*.vue.vux.*
+src/locales/components.yml
+src/locales/global_locales.yml
