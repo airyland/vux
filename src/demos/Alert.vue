@@ -5,7 +5,8 @@
     </group>
     <alert v-model="show" :title="$t('Congratulations')" @on-show="onShow" @on-hide="onHide"> {{ $t('Your Message is sent successfully~') }}</alert>
     <group :title="$t('Use as a plugin')">
-      <x-switch :title="$t('Show Me')" v-model="show1" @on-change="onChange"></x-switch>
+      <cell :title="$t('Show Me')" @click.native="showPlugin" is-link></cell>
+      <cell :title="$t('will auto close in 3s')" @click.native="showPluginAuto" is-link></cell>
     </group>
   </div>
 </template>
@@ -21,16 +22,19 @@ Your Message is sent successfully~:
   zh-CN: 消息已成功发送
 Do you agree?:
   zh-CN: 同意不?
+will auto close in 3s:
+  zh-CN: 3秒后关闭
 </i18n>
 
 <script>
-import { Alert, Group, XSwitch } from 'vux'
+import { Alert, Group, XSwitch, Cell } from 'vux'
 
 export default {
   components: {
     Alert,
     Group,
-    XSwitch
+    XSwitch,
+    Cell
   },
   data () {
     return {
@@ -45,23 +49,23 @@ export default {
     onShow () {
       console.log('on show')
     },
-    onChange (val) {
-      const _this = this
-      if (val) {
-        this.$vux.alert.show({
-          title: 'Vux is Cool',
-          content: this.$t('Do you agree?'),
-          onShow () {
-            console.log('Plugin: I\'m showing')
-          },
-          onHide () {
-            console.log('Plugin: I\'m hiding')
-            _this.show1 = false
-          }
-        })
-      } else {
+    showPlugin () {
+      this.$vux.alert.show({
+        title: 'Vux is Cool',
+        content: this.$t('Do you agree?'),
+        onShow () {
+          console.log('Plugin: I\'m showing')
+        },
+        onHide () {
+          console.log('Plugin: I\'m hiding now')
+        }
+      })
+    },
+    showPluginAuto () {
+      this.showPlugin()
+      setTimeout(() => {
         this.$vux.alert.hide()
-      }
+      }, 3000)
     }
   }
 }

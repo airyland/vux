@@ -10,7 +10,9 @@
       <div class="weui_dialog_hd">
         <strong class="weui_dialog_title">{{title}}</strong>
       </div>
-      <div class="weui_dialog_bd"><slot></slot></div>
+      <div class="weui_dialog_bd">
+        <slot></slot>
+      </div>
       <div class="weui_dialog_ft">
         <a href="javascript:;"
         class="weui_btn_dialog primary"
@@ -33,6 +35,11 @@ export default {
   components: {
     XDialog
   },
+  created () {
+    if (typeof this.value !== 'undefined') {
+      this.showValue = this.value
+    }
+  },
   props: {
     value: Boolean,
     title: String,
@@ -48,18 +55,20 @@ export default {
   },
   data () {
     return {
-      showValue: this.value
+      showValue: false
     }
   },
   methods: {
     onHide () {
       this.showValue = false
-      this.$emit('input', false)
     }
   },
   watch: {
     value (val) {
       this.showValue = val
+    },
+    showValue (val) {
+      this.$emit('input', val)
     }
   }
 }

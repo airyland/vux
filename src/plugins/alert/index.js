@@ -1,22 +1,22 @@
 import AlertComponent from '../../components/alert'
-
 let $vm
-let watcher
 
 export default {
-  install (vue) {
+  install (Vue) {
     if (!$vm) {
-      const Alert = vue.extend(AlertComponent)
+      const Alert = Vue.extend(AlertComponent)
       $vm = new Alert({
         el: document.createElement('div')
       })
       document.body.appendChild($vm.$el)
     }
 
+    const closeHandler = function () {
+      $vm.showValue === true && ($vm.showValue = false)
+    }
+
     const alert = {
       show (options) {
-        // destroy watcher
-        watcher && watcher()
         if (typeof options === 'object') {
           for (let i in options) {
             if (i !== 'content') {
@@ -28,31 +28,26 @@ export default {
         } else if (typeof options === 'string') {
           $vm.$el.querySelector('.weui_dialog_bd').innerHTML = options
         }
-        if (typeof options === 'object' && (options.onShow || options.onHide)) {
-          watcher = $vm.$watch('show', (val) => {
-            val && options.onShow && options.onShow($vm)
-            val === false && options.onHide && options.onHide($vm)
-          })
-        }
-        $vm.value = true
+        $vm.$el.querySelector('.weui_dialog_ft').addEventListener('click', closeHandler, false)
+        $vm.showValue = true
+        options.onShow && options.onShow($vm)
       },
       hide () {
-        $vm.value = false
+        $vm.showValue = false
       }
     }
 
-    // all Vux's plugins are included in this.$vux
-    if (!vue.$vux) {
-      vue.$vux = {
+    if (!Vue.$vux) {
+      Vue.$vux = {
         alert
       }
     } else {
-      vue.$vux.alert = alert
+      Vue.$vux.alert = alert
     }
 
-    vue.mixin({
+    Vue.mixin({
       created: function () {
-        this.$vux = vue.$vux
+        this.$vux = Vue.$vux
       }
     })
   }
