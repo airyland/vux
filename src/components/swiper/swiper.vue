@@ -71,7 +71,7 @@ export default {
         return
       }
       this.$nextTick(() => {
-        this.index = this.value ||0
+        this.index = this.value || 0
         this.current = this.value || 0
         this.length = this.list.length || this.$children.length
         this.destroy()

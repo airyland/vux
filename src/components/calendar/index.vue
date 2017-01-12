@@ -1,9 +1,9 @@
 <template>
   <div>
-    <cell :title="title" primary="content" :value="props_value" @click.native="onClick" is-link></cell>
+    <cell :title="title" primary="content" :value="currentValue" @click.native="onClick" is-link></cell>
     <popup v-model="show">
       <inline-calendar
-      v-model="props_value"
+      v-model="currentValue"
       @on-change="onSelect"
       :render-month="renderMonth"
       :start-date="startDate"
@@ -43,8 +43,8 @@ export default {
     Popup,
     Cell
   },
-  created(){
-    this.props_value=this.value
+  created () {
+    this.currentValue = this.value
   },
   props: Props,
   methods: {
@@ -53,19 +53,19 @@ export default {
     },
     onSelect (val) {
       this.show = false
-      this.props_value=val
-      this.$emit('on-change',val)
+      this.currentValue = val
+      this.$emit('on-change', val)
     }
   },
-  watch:{
-    value(val){
-      this.props_value=val
+  watch: {
+    value (val) {
+      this.currentValue = val
     }
   },
   data () {
     return {
       show: false,
-      props_value:''
+      currentValue: ''
     }
   }
 }

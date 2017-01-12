@@ -130,7 +130,6 @@ export default {
       this.$emit('on-change', val)
       this.$emit('input', val)
 
-      let key = this.name || this.uuid
       let err = {}
       if (this._min) {
         if (this.required) {
@@ -152,7 +151,6 @@ export default {
       } else {
         this.$emit('on-clear-error')
       }
-
     }
   }
 }

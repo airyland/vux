@@ -56,7 +56,7 @@ export default {
       currentValue: ''
     }
   },
-  created(){
+  created () {
     this.currentValue = this.value
   },
   mounted () {
@@ -80,7 +80,7 @@ export default {
     }
   },
   watch: {
-    value(val){
+    value (val) {
       this.currentValue = val
     },
     currentValue (val) {

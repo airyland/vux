@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  created(){
+  created () {
     this.currentValue = this.value
   },
   mounted () {
@@ -57,11 +57,11 @@ export default {
   methods: {
     handleClick (i, force) {
       if (!this.disabled || force) {
-        if (this.currentValue === i +1 ) {
+        if (this.currentValue === i + 1) {
           this.currentValue = i
           this.updateStyle()
         } else {
-          this.currentValue = i +1
+          this.currentValue = i + 1
         }
       }
     },
@@ -78,13 +78,13 @@ export default {
   data () {
     return {
       colors: [],
-      currentValue:0
+      currentValue: 0
     }
   },
   watch: {
-    currentValue(val){
+    currentValue (val) {
       this.updateStyle()
-      this.$emit('input',val)
+      this.$emit('input', val)
     },
     value (val) {
       this.currentValue = val

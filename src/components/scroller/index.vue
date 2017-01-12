@@ -177,7 +177,7 @@ export default {
       handler: function (val) {
         this.$emit('input', pure(val))
       },
-      deep:true
+      deep: true
     },
     value: {
       handler: function (val) {
@@ -205,7 +205,6 @@ export default {
       if (this.$slots.default) {
         content = this.$slots.default[0].elm
       }
-      
       if (!content) {
         throw new Error('no content is found')
       }

@@ -66,7 +66,7 @@ export default {
     },
     spellcheck: {
       type: String,
-      default:'false'
+      default: 'false'
     }
   },
   created () {

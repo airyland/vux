@@ -11,9 +11,9 @@ export default {
       default: true
     }
   },
-  created (){
+  created () {
     this.currentTime = this.time
-    if(this.value) this.currentTime = this.value
+    if (this.value) this.currentTime = this.value
   },
   methods: {
     tick () {
@@ -33,10 +33,10 @@ export default {
     }
   },
   watch: {
-    value (val){
+    value (val) {
       this.currentTime = val
     },
-    currentTime (val){
+    currentTime (val) {
       this.$emit('input', val)
     },
     start (newVal, oldVal) {

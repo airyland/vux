@@ -257,7 +257,6 @@ export default {
           delete this.errors.format
         }
       }
-      
 
       if (this.min) {
         if (this.currentValue.length < this.min) {

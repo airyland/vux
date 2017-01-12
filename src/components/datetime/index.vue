@@ -73,8 +73,8 @@ export default {
     this.currentValue = this.value
     this.handleChangeEvent = true
   },
-  data(){
-    return{
+  data () {
+    return {
       currentValue: ''
     }
   },
@@ -126,7 +126,7 @@ export default {
     }
   },
   watch: {
-    currentValue (val){
+    currentValue (val) {
       this.$emit('on-change', val)
       this.$emit('input', val)
     },

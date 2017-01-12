@@ -54,22 +54,24 @@ export default {
   },
   created () {
     this.showValue = this.show
-    if(this.value) this.showValue = this.value
+    if (this.value) {
+      this.showValue = this.value
+    }
   },
   watch: {
     value (val) {
       this.showValue = val
     },
-    showValue (val){
-      this.$emit('input',val)
+    showValue (val) {
+      this.$emit('input', val)
     },
     show (val) {
       this.showValue = val
     }
   },
-  data (){
+  data () {
     return {
-      showValue:false
+      showValue: false
     }
   },
   methods: {

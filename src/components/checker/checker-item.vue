@@ -34,7 +34,7 @@ export default {
           }
         } else {
           if (typeof this.value === 'string') {
-            if (this.$parent.currentValue.indexOf(this.value) > -1){
+            if (this.$parent.currentValue.indexOf(this.value) > -1) {
               selected = true
             }
           } else if (this.$parent.currentValue && this.$parent.currentValue.length) {
@@ -75,11 +75,11 @@ export default {
       const isSimpleValue = typeof this.value === 'string' || typeof this.value === 'number'
       if (!this.disabled) {
         let index = -1
-        if (isSimpleValue){
+        if (isSimpleValue) {
           index = this.$parent.currentValue.indexOf(this.value)
         } else {
-          index = this.$parent.currentValue.map(one=>JSON.stringify(one)).indexOf(JSON.stringify(this.value))
-        } 
+          index = this.$parent.currentValue.map(one => JSON.stringify(one)).indexOf(JSON.stringify(this.value))
+        }
         if (index > -1) {
           this.$parent.currentValue.splice(index, 1)
         } else {
