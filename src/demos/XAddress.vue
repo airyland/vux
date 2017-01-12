@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import { Group, XAddress, ChinaAddressData, XButton, Cell } from 'vux'
-import value2name from 'vux/src/filters/value2name'
+import { Group, XAddress, ChinaAddressData, XButton, Cell, Value2nameFilter as value2name } from 'vux'
+
 export default {
   components: {
     Group,

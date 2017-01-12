@@ -13,8 +13,7 @@
 </template>
 
 <script>
-import { Flexbox, FlexboxItem } from 'vux'
-const components = require('vux/src/components/list.json')
+import { Flexbox, FlexboxItem, VuxComponentListData as components } from 'vux'
 
 export default {
   components: {
