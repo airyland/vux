@@ -163,7 +163,8 @@ function render(files, tag) {
       name: name,
       icon: json.icon,
       color: json.color,
-      importName: json.importName
+      importName: json.importName,
+      items: json.items
     }
 
     if (item.icon && item.name) {

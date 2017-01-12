@@ -18,7 +18,11 @@
   },
   {
     "name": "button-tab",
-    "icon": "&#xe659;"
+    "icon": "&#xe659;",
+    "items": [
+      "button-tab",
+      "button-tab-item"
+    ]
   },
   {
     "name": "calendar",
@@ -34,7 +38,11 @@
   },
   {
     "name": "checker",
-    "icon": "&#xe655;"
+    "icon": "&#xe655;",
+    "items": [
+      "checker",
+      "checker-item"
+    ]
   },
   {
     "name": "checklist",
@@ -71,7 +79,11 @@
   },
   {
     "name": "flexbox",
-    "icon": "&#xe61f;"
+    "icon": "&#xe61f;",
+    "items": [
+      "flexbox",
+      "flexbox-item"
+    ]
   },
   {
     "name": "form-preview",
@@ -160,7 +172,11 @@
   },
   {
     "name": "step",
-    "icon": "&#xe65e;"
+    "icon": "&#xe65e;",
+    "items": [
+      "step",
+      "step-item"
+    ]
   },
   {
     "name": "sticky",
@@ -172,11 +188,19 @@
   },
   {
     "name": "tab",
-    "icon": "&#xe615;"
+    "icon": "&#xe615;",
+    "items": [
+      "tab",
+      "tab-item"
+    ]
   },
   {
     "name": "tabbar",
-    "icon": "&#xe657;"
+    "icon": "&#xe657;",
+    "items": [
+      "tabbar",
+      "tabbar-item"
+    ]
   },
   {
     "name": "timeline",
@@ -253,7 +277,11 @@
   },
   {
     "name": "button-tab",
-    "icon": "&#xe659;"
+    "icon": "&#xe659;",
+    "items": [
+      "button-tab",
+      "button-tab-item"
+    ]
   },
   {
     "name": "calendar",
@@ -269,7 +297,11 @@
   },
   {
     "name": "checker",
-    "icon": "&#xe655;"
+    "icon": "&#xe655;",
+    "items": [
+      "checker",
+      "checker-item"
+    ]
   },
   {
     "name": "checklist",
@@ -306,7 +338,11 @@
   },
   {
     "name": "flexbox",
-    "icon": "&#xe61f;"
+    "icon": "&#xe61f;",
+    "items": [
+      "flexbox",
+      "flexbox-item"
+    ]
   },
   {
     "name": "form-preview",
@@ -395,7 +431,11 @@
   },
   {
     "name": "step",
-    "icon": "&#xe65e;"
+    "icon": "&#xe65e;",
+    "items": [
+      "step",
+      "step-item"
+    ]
   },
   {
     "name": "sticky",
@@ -407,11 +447,19 @@
   },
   {
     "name": "tab",
-    "icon": "&#xe615;"
+    "icon": "&#xe615;",
+    "items": [
+      "tab",
+      "tab-item"
+    ]
   },
   {
     "name": "tabbar",
-    "icon": "&#xe657;"
+    "icon": "&#xe657;",
+    "items": [
+      "tabbar",
+      "tabbar-item"
+    ]
   },
   {
     "name": "timeline",
@@ -488,7 +536,11 @@
   },
   {
     "name": "button-tab",
-    "icon": "&#xe659;"
+    "icon": "&#xe659;",
+    "items": [
+      "button-tab",
+      "button-tab-item"
+    ]
   },
   {
     "name": "calendar",
@@ -504,7 +556,11 @@
   },
   {
     "name": "checker",
-    "icon": "&#xe655;"
+    "icon": "&#xe655;",
+    "items": [
+      "checker",
+      "checker-item"
+    ]
   },
   {
     "name": "checklist",
@@ -541,7 +597,11 @@
   },
   {
     "name": "flexbox",
-    "icon": "&#xe61f;"
+    "icon": "&#xe61f;",
+    "items": [
+      "flexbox",
+      "flexbox-item"
+    ]
   },
   {
     "name": "form-preview",
@@ -630,7 +690,11 @@
   },
   {
     "name": "step",
-    "icon": "&#xe65e;"
+    "icon": "&#xe65e;",
+    "items": [
+      "step",
+      "step-item"
+    ]
   },
   {
     "name": "sticky",
@@ -642,11 +706,19 @@
   },
   {
     "name": "tab",
-    "icon": "&#xe615;"
+    "icon": "&#xe615;",
+    "items": [
+      "tab",
+      "tab-item"
+    ]
   },
   {
     "name": "tabbar",
-    "icon": "&#xe657;"
+    "icon": "&#xe657;",
+    "items": [
+      "tabbar",
+      "tabbar-item"
+    ]
   },
   {
     "name": "timeline",
@@ -723,7 +795,11 @@
   },
   {
     "name": "button-tab",
-    "icon": "&#xe659;"
+    "icon": "&#xe659;",
+    "items": [
+      "button-tab",
+      "button-tab-item"
+    ]
   },
   {
     "name": "calendar",
@@ -739,7 +815,11 @@
   },
   {
     "name": "checker",
-    "icon": "&#xe655;"
+    "icon": "&#xe655;",
+    "items": [
+      "checker",
+      "checker-item"
+    ]
   },
   {
     "name": "checklist",
@@ -776,7 +856,11 @@
   },
   {
     "name": "flexbox",
-    "icon": "&#xe61f;"
+    "icon": "&#xe61f;",
+    "items": [
+      "flexbox",
+      "flexbox-item"
+    ]
   },
   {
     "name": "form-preview",
@@ -865,7 +949,11 @@
   },
   {
     "name": "step",
-    "icon": "&#xe65e;"
+    "icon": "&#xe65e;",
+    "items": [
+      "step",
+      "step-item"
+    ]
   },
   {
     "name": "sticky",
@@ -877,11 +965,19 @@
   },
   {
     "name": "tab",
-    "icon": "&#xe615;"
+    "icon": "&#xe615;",
+    "items": [
+      "tab",
+      "tab-item"
+    ]
   },
   {
     "name": "tabbar",
-    "icon": "&#xe657;"
+    "icon": "&#xe657;",
+    "items": [
+      "tabbar",
+      "tabbar-item"
+    ]
   },
   {
     "name": "timeline",

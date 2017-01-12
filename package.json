@@ -27,7 +27,8 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "build-doc": "node build/build-doc.js"
+    "build-doc": "node build/build-docs.js",
+    "build-components": "node build/build-components.js"
   },
   "dependencies": {
     "vue": "^2.1.0",
@@ -115,7 +116,11 @@
     "yaml-loader": "^0.4.0",
     "babel-runtime": "^6.20.0",
     "glob": "^7.1.1",
-    "js-yaml": "^3.7.0"
+    "js-yaml": "^3.7.0",
+    "touch": "^1.0.0",
+    "mkdirp": "^0.5.1",
+    "co": "^4.6.0",
+    "thunkify": "^2.1.2"
   },
   "engines": {
     "node": ">= 4.0.0",
