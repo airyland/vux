@@ -92,6 +92,7 @@ export default {
       if (this.autoFixed) {
         this.isFixed = true
       }
+      this.$emit('on-touch')
     },
     setFocus () {
       this.$refs.input.focus()
