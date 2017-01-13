@@ -29,8 +29,8 @@ export default {
     link: [String, Object],
     iconClass: String
   },
-  events: {
-    'on-item-click': function () {
+  methods: {
+    onItemClick: function () {
       go(this.link, this.$router)
     }
   }
