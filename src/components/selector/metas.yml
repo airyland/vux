@@ -23,6 +23,7 @@ tips:
     - zh-CN: 选项的key必须是字符串，使用数字会出现问题
 props:
   value:
+    type: String Number Object
     zh-CN: 表单值，使用v-model绑定
   title:
     zh-CN: 标题

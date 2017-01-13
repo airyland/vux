@@ -67,7 +67,7 @@ export default {
     name: String,
     placeholder: String,
     readonly: Boolean,
-    value: String
+    value: [String, Number, Object]
   },
   data () {
     return {
