@@ -64,5 +64,7 @@
   "WechatEmotion",
   "ColorPicker",
   "FormPreview",
-  "LoadMore"
+  "LoadMore",
+  "ScrollerFull",
+  "ScrollerHeader"
 ]

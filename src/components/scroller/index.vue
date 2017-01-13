@@ -140,17 +140,18 @@ export default {
   },
   computed: {
     styles () {
+      let height = this.height
       if (!this.height && (this.$el && !this.$el.style.height) && this.lockX) {
-        this.height = `${document.documentElement.clientHeight}px`
+        height = `${document.documentElement.clientHeight}px`
         this.reset()
       }
 
       if (this.height && this.height.indexOf('-') === 0) {
-        this.height = `${document.documentElement.clientHeight + parseInt(this.height)}px`
+        height = `${document.documentElement.clientHeight + parseInt(this.height)}px`
       }
 
       return {
-        height: `${this.height}`
+        height: `${height}`
       }
     }
   },

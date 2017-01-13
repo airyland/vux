@@ -3,8 +3,8 @@
     <div style="height:46px;">
      <x-header class="vux-scroller-header">I'm header</x-header>
     </div>
-    <scroller lock-x v-ref:scroller :height="-46-46+'px'">
-      <div class="box2" style="padding-bottom:50px">
+    <scroller lock-x ref="scroller" :height="-108+'px'">
+      <div class="box2">
         <p v-for="i in 80">placeholder {{i}}</p>
       </div>
     </scroller>
