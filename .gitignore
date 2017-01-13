@@ -8,7 +8,13 @@ examples/webpack/
 .idea
 dist/components-commonjs/
 /site
-/docs
+docs/zh-CN/*
+!docs/zh-CN/README.md
+!docs/zh-CN/livingearth.md
+!docs/zh-CN/pro.md
+!docs/zh-CN/vux-loader.md
+!docs/zh-CN/upgrade-to-2.md
+/docs/demos
 *.vue.vux.*
 src/locales/components.yml
 src/locales/global_locales.yml
