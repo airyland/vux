@@ -99,6 +99,9 @@ export default {
   padding-bottom: 10px;
   border-radius: 15px;
 }
+.weui_loading_toast .weui_toast_content {
+  margin-top: 0;
+}
 .weui_toast_success .weui_icon_toast:before {
   content: "\EA08";
 }
