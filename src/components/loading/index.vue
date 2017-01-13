@@ -46,19 +46,16 @@ export default {
 <style lang="less">
 @import '../../styles/weui/widget/weui_tips/weui_mask';
 @import '../../styles/weui/widget/weui_tips/weui_toast';
-@import '../../styles/weui/widget/weui-loading/index.less'; /* weui@1.x*/
+@import '../../styles/weui/widget/weui-loading/index.less';
 
-.weui_loading_toast .weui_toast_content{
-  margin-top: 0;
-}
 .weui-icon_toast.weui-loading {
   margin: 30px 0 0;
   width: 38px;
   height: 38px;
   vertical-align: baseline;
 }
-.weui_loading_toast .weui_toast_content{
-  margin-top: 0;
+.weui_loading_toast .weui_toast_content {
+  margin-top: 0!important;
 }
 .weui-icon_toast.weui-loading {
   margin: 30px 0 0;
