@@ -128,7 +128,7 @@ export default {
 }
 
 .vux-tab .vux-tab-item.vux-tab-selected {
-  color: @tab-active-font-color;
+  color: @tab-text-active-color;
   border-bottom: 3px solid @tab-text-active-color;
 }
 
