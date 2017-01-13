@@ -13,12 +13,10 @@ let maps = {
 }
 
 function saveMaps(key, value) {
-  console.log(key, value)
   if (/vux/.test(value)) {
     let index = value.indexOf('vux')
     value = value.slice(index + 4, value.length)
   }
-  console.log(key, value)
   maps[key] = value.replace('../', '')
   fs.writeFileSync(getPath('../src/components/map.json'), JSON.stringify(maps, null, 2))
 }
@@ -141,10 +139,8 @@ function render(files, tag) {
   files.forEach(function (file) {
 
     const name = getComponentName(file)
-      // console.log('file', name)
     const content = fs.readFileSync(file, 'utf-8')
     const json = yaml.safeLoad(content)
-      // console.log(name, json)
     let rs = {
       name: name,
       importName: _camelCase(name),
@@ -171,22 +167,22 @@ function render(files, tag) {
       gComponents.push(item)
     }
 
-    infos.push({
-      name,
-      icon: json.icon,
-      importName: json.importName,
-      metas: json
-    })
+    if (json.icon) {
+      infos.push({
+        name,
+        icon: json.icon,
+        importName: json.importName,
+        metas: json
+      })
+    }
 
     if (tag && json.tags && json.tags.en && json.tags.en.indexOf(tag) === -1) {
-      // console.log('不应该push', rs.name)
       return
     }
     if (tag && json.tags && !json.tags.en) {
       return
     }
     if (tag && !json.tags) {
-      // console.log('也不应该push', rs.name)
       return
     }
 
@@ -201,10 +197,8 @@ function render(files, tag) {
     }
     rs.status = json.status || 'maintaining'
     if (rs.icon && rs.name) {
-      // console.log('tag', tag, 'push', rs.name)
       components.push(rs)
     } else {
-      // console.log('不满足要求', rs.name, rs.icon)
     }
 
   })
@@ -215,13 +209,10 @@ function render(files, tag) {
 
   buildDemos(infos)
 
-  // console.log(components)
-  // console.log('components length', components.length)
   let langs = ['zh-CN', 'en']
   for (var i = 0; i < langs.length; i++) {
     let lang = langs[i]
     let docs = ''
-      // console.log('lang is', lang)
     if (!tag) {
       // 生成docs
       docs += `---
@@ -287,7 +278,6 @@ nav: ${lang}
     */
         docs += `<br><br><br>`
       })
-      // console.log(docs)
     if (!tag) {
       fs.writeFileSync(getPath(`../docs/${lang}/components.md`), docs)
 
@@ -300,10 +290,6 @@ nav: ${lang}
 }
 
 function getComponentInfo(one, lang, docs, name) {
-  // console.log(one.name)
-  if (name === 'divider') {
-    console.log('divider', one.slots)
-  }
   if (one.props) {
     if (name) {
       docs += `\n<span class="vux-component-name">${_camelCase(name)}</span>\n`
@@ -425,13 +411,10 @@ function transform (object, name) {
 
 function camelCase(input) {
   let str = input.toLowerCase().replace(/-(.)/g, function (match, group1) {
-    // console.log('group', group1)
     return group1.toUpperCase();
   });
 
-  // console.log('str is', str)
   str = str.replace(/_(.)/g, function (match, group1) {
-    // console.log('group', group1)
     return group1.toUpperCase();
   });
   return str
@@ -444,7 +427,6 @@ function _camelCase(input) {
 
 function buildDemos(infos) {
   infos.forEach((one) => {
-    // console.log('build demo', one.name)
     let str = ''
     let url = `http://localhost:8082/#/component/${one.name}`
     str += `---
@@ -472,7 +454,7 @@ nav: zh-CN
 
       str += '\n``` html\n'
 
-      let code = fs.readFileSync(`../../src/demos/${_camelCase(one.name)}.vue`, 'utf-8')
+      let code = fs.readFileSync(getPath(`../src/demos/${_camelCase(one.name)}.vue`), 'utf-8')
       str += `${code.replace(/<i18n[^>]*>([\s\S]*?)<\/i18n>/g, '')}\n`
       str += '```\n'
 
@@ -480,10 +462,10 @@ nav: zh-CN
 
 #### Github Issue`
 
-      fs.writeFileSync(`../docs/zh-CN/demos/${one.name}.md`, str)
+      fs.writeFileSync(getPath(`../docs/demos/${one.name}.md`), str)
 
     } catch (e) {
-
+      console.log(e)
     }
 
   })
