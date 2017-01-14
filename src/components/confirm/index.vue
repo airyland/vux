@@ -1,7 +1,7 @@
 <template>
   <div>
     <x-dialog class="weui_dialog_confirm"
-    :show="showValue"
+    v-model="showValue"
     :mask-transition="maskTransition"
     :dialog-transition="dialogTransition"
     @on-hide="$emit('on-hide')"
