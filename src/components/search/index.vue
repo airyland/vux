@@ -19,7 +19,7 @@
     </div>
     <div class="weui_cells weui_cells_access vux-search_show" id="search_show" v-show="isFixed">
       <slot></slot>
-      <div class="weui_cell" v-for="item in results" @click="handleResultClick(item)">
+      <div class="weui_cell" v-for="item in results" @click="handleResultClick(item)" v-on:touchmove.prevent>
         <div class="weui_cell_bd weui_cell_primary">
           <p>{{item.title}}</p>
         </div>
@@ -92,6 +92,7 @@ export default {
       if (this.autoFixed) {
         this.isFixed = true
       }
+      this.$emit('on-touch')
     },
     setFocus () {
       this.$refs.input.focus()
