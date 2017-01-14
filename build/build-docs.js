@@ -14,7 +14,7 @@ let maps = {
 
 function saveMaps(key, value) {
   if (/vux/.test(value)) {
-    let index = value.indexOf('vux')
+    let index = value.indexOf('vux/src')
     value = value.slice(index + 4, value.length)
   }
   maps[key] = value.replace('../', '')
