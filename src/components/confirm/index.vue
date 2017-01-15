@@ -7,7 +7,7 @@
     @on-hide="$emit('on-hide')"
     @on-show="$emit('on-show')">
       <div class="weui_dialog_hd"><strong class="weui_dialog_title">{{title}}</strong></div>
-      <div class="weui_dialog_bd"><slot></slot></div>
+      <div class="weui_dialog_bd"><slot><div v-html="content"></div></slot></div>
       <div class="weui_dialog_ft">
         <a href="javascript:;" class="weui_btn_dialog default" @click="onCancel">{{cancelText || $t('cancel_text')}}</a>
         <a href="javascript:;" class="weui_btn_dialog primary" @click="onConfirm">{{confirmText || $t('confirm_text')}}</a>
@@ -36,11 +36,7 @@ export default {
       type: Boolean,
       default: false
     },
-    show: Boolean,
-    title: {
-      type: String,
-      required: true
-    },
+    title: String,
     confirmText: String,
     cancelText: String,
     maskTransition: {
@@ -50,7 +46,8 @@ export default {
     dialogTransition: {
       type: String,
       default: 'vux-dialog'
-    }
+    },
+    content: String
   },
   created () {
     this.showValue = this.show
@@ -64,9 +61,6 @@ export default {
     },
     showValue (val) {
       this.$emit('input', val)
-    },
-    show (val) {
-      this.showValue = val
     }
   },
   data () {

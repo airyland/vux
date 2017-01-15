@@ -20,10 +20,11 @@ let store = new Vuex.Store({
 Vue.use(vuexI18n.plugin, store)
 
 // plugins
-import { DevicePlugin, ToastPlugin, AlertPlugin } from 'vux'
+import { DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin } from 'vux'
 Vue.use(DevicePlugin)
 Vue.use(ToastPlugin)
 Vue.use(AlertPlugin)
+Vue.use(ConfirmPlugin)
 
 import objectAssign from 'object-assign'
 
