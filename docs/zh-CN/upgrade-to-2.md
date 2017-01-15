@@ -49,6 +49,11 @@ this.$router.go('/somewhere')
 
 其他请参考官方升级文档: [https://cn.vuejs.org/v2/guide/migration-vue-router.html](https://cn.vuejs.org/v2/guide/migration-vue-router.html)
 
+
+### 不再生成`umd`文件
+
+但是你可以使用`npm run build-components`来生成，请参考文档首页。
+
 ### 双向绑定修改为 `v-model`
 
 所有相关Vux调用的 `:value.sync`都需要更改成 `v-model`
@@ -59,6 +64,44 @@ this.$router.go('/somewhere')
 // 2.x
 <component v-model="someValue"></component>
 ```
+
+### 使用 vux-loader
+
+原来你可能在webpack中做了这样的配置以正确编译vux的js源码：
+
+``` js
+{
+  test: /vux.src.*?js$/,
+  loader: 'babel'
+}
+```
+
+或者你也可能使用了低版本`vux-loader`的`getBabelLoader`方法。
+
+现在你可以直接删除这一句了，直接使用vux-loader。
+
+在`webpack.base.conf.js`中这样配置：
+
+``` js
+const vuxLoader = require('vux-loader')
+module.exports = vuxLoader.merge(webpackConfig, {
+  options: {},
+  plugins: [
+    {
+      name: 'vux-ui'
+    }
+	]
+})
+```
+
+### 引入方式变更
+
+原来你可能是单个组件引入，现在在`vux-loader`的支持下你可以直接这样写：
+
+``` js
+import { Group, Cell } from 'vux'
+```
+
 
 ### 组件名字变更
 
@@ -165,4 +208,3 @@ import { XAddress, ChinaAddressV1Data } from 'vux'
 <p align="center">
   <img src="https://github.com/airyland/china-area-data/raw/master/v2.0.0.changes.png" alt="">
 </p>
-
