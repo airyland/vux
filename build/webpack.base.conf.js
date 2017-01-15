@@ -4,6 +4,9 @@ var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 var fs = require('fs')
 
+var argv = require('yargs').argv
+argv.simulate = argv.simulate || false
+
 var env = process.env.NODE_ENV
 // check env & config/index.js to decide whether to enable CSS source maps for the
 // various preprocessor loaders added to vue-loader at the end of this file
@@ -107,8 +110,8 @@ const demoPath = path.resolve(__dirname, '../src/demo_list.json')
 
 module.exports = vuxLoader.merge(webpackConfig, {
   options: {
-    vuxDev: true,
-    vuxSetBabel: false,
+    vuxDev: !argv.simulate, // true
+    vuxSetBabel: argv.simulate, // false
     vuxWriteFile: true,
     env: 'dev'
   },
