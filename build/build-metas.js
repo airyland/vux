@@ -32,6 +32,5 @@ export function getMetas (vux) {
       }
     }
   }
-  console.log(JSON.stringify(rs).length)
   return rs
 }

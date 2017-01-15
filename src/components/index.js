@@ -151,7 +151,7 @@ if (DEV) { // eslint-disable-line
   const { getMetas } = require('../../build/build-metas')
   const metas = getMetas(vux)
   if (window.fetch) {
-    window.fetch('http://localhost:8899/api/doc', {
+    window.fetch(`http://${window.location.hostname}:8899/api/doc`, {
       method: 'POST',
       body: JSON.stringify(metas),
       headers: {

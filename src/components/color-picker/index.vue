@@ -34,10 +34,7 @@ export default {
       type: String,
       default: 'large'
     },
-    value: {
-      type: String,
-      twoWay: true
-    }
+    value: String
   },
   computed: {
     width () {

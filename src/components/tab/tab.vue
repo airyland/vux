@@ -29,6 +29,10 @@ export default {
       type: String,
       default: '#666'
     },
+    disabledColor: {
+      type: String,
+      default: '#ddd'
+    },
     animate: {
       type: Boolean,
       default: true
@@ -61,7 +65,7 @@ export default {
   watch: {
     index (newIndex, oldIndex) {
       this.direction = newIndex > oldIndex ? 'forward' : 'backward'
-      this.$emit('on-index-change', newIndex)
+      this.$emit('on-index-change', newIndex, oldIndex)
     }
   },
   data () {

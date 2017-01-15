@@ -42,10 +42,7 @@ export default {
       type: Number,
       default: 0
     },
-    value: {
-      type: Array,
-      twoWay: true
-    },
+    value: Array,
     itemClass: {
       type: String,
       default: 'scroller-item'

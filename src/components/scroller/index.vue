@@ -91,13 +91,11 @@ export default {
     },
     pulldownStatus: {
       type: String,
-      default: 'default',
-      twoWay: true
+      default: 'default'
     },
     pullupStatus: {
       type: String,
-      default: 'default',
-      twoWay: true
+      default: 'default'
     },
     enableHorizontalSwiping: {
       type: Boolean,

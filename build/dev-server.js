@@ -12,7 +12,6 @@ var compiler = webpack(config)
 var argv = require('yargs').argv
 var host = argv.host || '127.0.0.1'
 var port = argv.port || 8080
-var renderDoc = argv.doc
 
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
@@ -35,9 +34,14 @@ app.use('/static', express.static('./src/assets'))
 /**
 * for doc rendering
 */
-if (renderDoc) {
+if (config.plugins[0].definitions.DEV === 'true') {
   var appDev = express()
-  appDev.get('/api/doc', function (req, res, next) {
+  appDev.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    next()
+  })
+  appDev.post('/api/doc', function (req, res, next) {
     return res.send('hello')
   })
   appDev.listen(8899, '127.0.0.1', function (err) {
@@ -54,4 +58,3 @@ app.listen(port, host, function (err) {
   // manully trigger bundle building to save time
   http.get(`http://127.0.0.1:${port}/index.html`)
 })
-

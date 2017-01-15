@@ -24,11 +24,7 @@ export default {
     Dialog
   },
   props: {
-    show: {
-      type: Boolean,
-      default: false,
-      twoWay: true
-    },
+    show: Boolean,
     title: {
       type: String,
       required: true
