@@ -27,13 +27,13 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 即使你不使用vux的代码, 但能从源码得到一些参考那么也是件让人高兴的事情。
 
 <p class="warning">
-  vux@2.x 暂时只支持`webpack+vue-loader`方式的开发，没有生成组件的umd文件。也不建议使用引入`script`的方式进行开发，因为它会带来一系列的开发、维护、效率、部署问题。
+  vux@2.x 推荐`webpack+vue-loader`方式的开发，如果要使用`umd`文件，请参照下面文档。不建议使用引入`script`的方式进行开发，因为它会带来一系列的开发、维护、效率、部署问题。
   <br>
   <br>
-  Life is short, use webpack. 
+  Life is short, use webpack.
 </p>
 
-## 安装使用
+## 安装使用(webpack)
 
 直接安装：
 
@@ -47,7 +47,7 @@ vux@2.x 版本刚发布，如果使用有问题请及时提出，会快速解决
 vux@0.x 即将停止维护，请尽快迁移到 vue@2.x & vuex@2.x & vux@2.x，虽然要花点时间，但是完全值得。
 </p>
 
-### - 快速入门(webpack)
+### - 快速入门
 
 > 使用 `vue-cli` 工具和 `airyland/vux2` 模板快速初始化项目
 
@@ -91,7 +91,7 @@ export default {
 import { AlertPlugin, ToastPlugin } from 'vux'
 ```
 
-### - 手动使用(webpack)
+### - 手动使用
 
 折腾能力强的同学参考一下，下面即`vuxjs/vux2`模板主要处理的事项:
 
@@ -114,7 +114,7 @@ import { AlertPlugin, ToastPlugin } from 'vux'
   }]
   ```
 - 配置babel-loader以正确编译Vux的js源码（通过配置vux-loader实现）
-  
+
   ``` js
   plugins: [{
     name: 'vux-ui'
@@ -126,7 +126,7 @@ import { AlertPlugin, ToastPlugin } from 'vux'
   npm install less less-loader --save-dev
   ```
 - 安装 yaml-loader 以正确进行语言文件读取
-  
+
   ``` bash
   npm install yaml-loader --save-dev
   ```
@@ -150,11 +150,84 @@ import { AlertPlugin, ToastPlugin } from 'vux'
   ```
 
 - 添加webpack plugin, 在构建后去除重复css代码（通过配置vux-loader实现）
-  
+
   ``` js
   plugins: [{
     name: 'duplicate-style'
   }]
+  ```
+  ## 组件 umd 文件
+
+  <p class="tip">
+  从`2.0`开始，`VUX`不再在`repo`中保存`umd`文件，但提供了生成命令。
+  </p>
+
+  ### -- 生成命令
+
+  ``` bash
+  git clone https://github.com/airyland/vux.git // or just update: git pull
+  cd vux
+  npm install
+  npm run build-components
+  ```
+
+  默认生成的语言是`zh-CN`，模块命名空间为`vux`，如`vuxGroup`，`vuxCell`，你可以在命令行中配置。
+
+  ```
+  npm run build-components -- --locale='en' --namespace='X'
+  ```
+
+  ### -- 目录结构
+
+  生成的文件夹结构如：
+
+  <p class="tip">
+  出于目录结构一致性考虑，即使是子组件也是一个文件夹，并且会有一个空的`index.min.css`样式文件。
+  </p>
+
+  ```
+  |- dist/
+    |- vux.min.js ------------ 所有组件打包，仅用于测试，不推荐在生产环境使用
+    |- vux.min.css ----------- 所有组件样式打包，同样仅用于测试
+    |- components
+        |- actionsheet
+          |- index.min.js -------- 组件js代码
+          |- index.min.css ------- 组件css代码
+  ```
+
+  ### -- 使用
+
+  ``` html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>scripts</title>
+    <link rel="stylesheet" href="../dist/vux.min.css">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="demo">
+      <group>
+        <cell title="Vue" :value="how"></cell>
+      </group>
+    </div>
+
+    <script src="../dist/components/group/index.js"></script>
+    <script src="../dist/components/cell/index.js"></script>
+
+    <script>
+    Vue.component('group', vuxGroup)
+    Vue.component('cell', vuxCell)
+    new Vue({
+      el: '#demo',
+      data: {
+        how: 'Cool'
+      }
+    })
+    </script>
+  </body>
+  </html>
   ```
 
 ## i18n 配置
@@ -168,7 +241,6 @@ import { AlertPlugin, ToastPlugin } from 'vux'
 默认不配置此插件时，vux源码会按照默认语言`zh-CN`进行静态编译，和原来的使用没有明显不同。
 
 详细请参照 <a router-link="/zh-CN/vux-loader?id=i18n" style="color:#42b983;">vux-loader的vux-i18n文档</a>
-
 
 ## 颜色配置
 
@@ -344,13 +416,13 @@ import { AlertPlugin, ToastPlugin } from 'vux'
 ## 常见问题
 
 - 能否在微信小程序里使用
-  
+
   Sorry，不能。微信小程序是个相对封闭的平台，无法方便地适配。
 
 - 文档是用什么工具编写的？
 
   [Docute](https://docute.js.org) by [egoist](https://github.com/egoist)。在`Docute`基础上做了一点样式修改。
-  
+
 
 - Uncaught SyntaxError: Unexpected token export
 
@@ -372,7 +444,7 @@ import { AlertPlugin, ToastPlugin } from 'vux'
   确保在vux-loader里使用`duplicate-style`来实现对构建css进行压缩。
 
 - Vux 是否为微信官方项目
-  
+
   否。但是依赖的WeUI是微信团队的开源项目，感谢微信团队。
 
 - 为什么部分组件要加`x-`前缀
@@ -380,7 +452,7 @@ import { AlertPlugin, ToastPlugin } from 'vux'
   若不更名，可能在开发时与标准html标签相同而导致冲突或者bug。从Vue@2.x开始已经强制不能使用原生html标签。
 
 - 为什么不把组件打包成js进行分发
-  
+
   代码冗余，无法在构建时优化，出错时难以跟踪，作为组件维护者可能要打包多份代码出来满足不同需求(压缩版，未压缩，不同语言版)。在webpack中如果不加配置还会被多次打包。
 
   整体打包成一个js和一个css在移动端属于严重浪费，降低体验和性能。

@@ -16,8 +16,6 @@ import Box from './box'
 import Tip from './tip'
 import Selector from './selector'
 import XButton from './x-button'
-import Swiper from './swiper'
-import SwiperItem from './swiper-item'
 import Sticky from './sticky'
 import Picker from './picker'
 import Datetime from './datetime'
@@ -32,7 +30,7 @@ import Toast from './toast'
 import Loading from './loading'
 import Alert from './alert'
 import Confirm from './confirm'
-import Progress from './progress'
+import XProgress from './progress'
 import XImg from './x-img'
 import Spinner from './spinner'
 import Calendar from './calendar'
@@ -61,6 +59,8 @@ import Previewer from './previewer'
 import NumberRoller from './number-roller'
 import ViewBox from './view-box'
 import Popover from './popover'
+import LoadMore from './load-more'
+import FormPreview from './form-preview'
 
 import { ButtonTab, ButtonTabItem } from './button-tab'
 import { Checker, CheckerItem } from './checker'
@@ -69,6 +69,7 @@ import { Step, StepItem } from './step'
 import { Timeline, TimelineItem } from './timeline'
 import { Tabbar, TabbarItem } from './tabbar'
 import { Tab, TabItem } from './tab'
+import { Swiper, SwiperItem } from './swiper-item'
 
 const vux = {
   Radio,
@@ -106,7 +107,7 @@ const vux = {
   Loading,
   Alert,
   Confirm,
-  Progress,
+  XProgress,
   XImg,
   Spinner,
   Calendar,
@@ -144,24 +145,9 @@ const vux = {
   Previewer,
   NumberRoller,
   ViewBox,
-  Popover
-}
-
-if (DEV) { // eslint-disable-line
-  // const { getMetas } = require('../../build/build-metas')
-  // const metas = getMetas(vux)
-  /**
-  if (window.fetch) {
-    window.fetch(`http://${window.location.hostname}:8899/api/doc`, {
-      method: 'POST',
-      body: JSON.stringify(metas),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-  }
-  **/
+  Popover,
+  LoadMore,
+  FormPreview
 }
 
 module.exports = vux

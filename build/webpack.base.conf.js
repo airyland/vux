@@ -150,20 +150,13 @@ module.exports = vuxLoader.merge(webpackConfig, {
       }
     },
     {
-      name: 'duplicate-style',
-      envs: ['production']
+      name: 'duplicate-style'
     },
     {
       name: 'i18n',
       staticReplace: false,
       extractToFiles: 'src/locales/components.yml',
       localeList: ['en', 'zh-CN']
-    },
-    {
-      name: 'build-done-callback',
-      fn: function () {
-        console.log('done')
-      }
     },
     {
       name: 'less-theme',

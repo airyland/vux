@@ -1,4 +1,21 @@
+/**
+* --locale='zh-CN'
+* --namespace='vux'
+*/
+
+var argv = require('yargs').argv
+var namespace = argv.namespace || 'vux'
+
 let config = require('./webpack.prod.conf.js')
+config.vux.plugins.forEach(function(plugin) {
+  if (plugin.name === 'i18n') {
+    plugin.vuxStaticReplace = true
+    plugin.vuxLocale = argv['locale'] || 'zh-CN'
+  }
+})
+config.vux.options.env = 'production'
+
+const touch = require('touch')
 const path = require('path')
 const list = require(path.resolve(__dirname, '../src/datas/vux_component_list.json'))
 const webpack = require('webpack')
@@ -10,7 +27,11 @@ var pkg = require(path.resolve(__dirname, '../package.json'))
 
 var build = thunkify(function (config, name, cb) {
   let start = new Date().getTime()
+  console.log(`start:${name}`)
   webpack(config, function (err, stats) {
+    if (!config.entry.vux) {
+      touch.sync(path.resolve(config.output.path, './index.min.css'))
+    }
     var jsonStats = stats.toJson()
     var assets = jsonStats.assets[0]
     var size = assets.size / 1024
@@ -36,10 +57,6 @@ config.plugins.forEach((one, index) => {
 
 config.output.assetsPublicPath = '/'
 
-var touch = function (filePath) {
-  mkdirp(filePath, function () {})
-}
-
 const maps = require(path.resolve(__dirname, '../src/components/map.json'))
 
 let isBuilding = false
@@ -58,10 +75,10 @@ co(function* () {
         yield build(buildConfig(one), one.name)
       }
     }
+    yield build(buildMainConfig(), 'vux')
   } catch (e) {
     console.log(e)
   }
-
 })
 
 function camelCase(input) {
@@ -79,6 +96,28 @@ function _camelCase(input) {
   return str.slice(0, 1).toUpperCase() + str.slice(1)
 }
 
+function buildMainConfig() {
+
+  delete config.entry
+
+  config.plugins.forEach((one, index) => {
+    if (one.constructor.name === 'ExtractTextPlugin') {
+      config.plugins.splice(index, 1)
+    }
+  })
+
+  config.plugins.push(new ExtractTextPlugin(`vux.min.css`))
+
+  config.entry = config.entry || {}
+  config.entry['vux'] = 'src/components/index.js'
+  config.output = {}
+  config.output.libraryTarget = 'umd'
+  config.output.library = `vux`
+  config.output.filename = `vux.min.js`
+  config.output.path = path.resolve(__dirname, `../dist/`)
+  return config
+}
+
 function buildConfig(one) {
   one.importName = _camelCase(one.name)
   one.path = path.resolve(__dirname, '../' + maps[one.importName])
@@ -91,14 +130,14 @@ function buildConfig(one) {
     }
   })
 
-  config.plugins.push(new ExtractTextPlugin(`${one.name}.css`))
+  config.plugins.push(new ExtractTextPlugin(`index.min.css`))
 
   config.entry = config.entry || {}
   config.entry[one.name] = one.path
   config.output = {}
   config.output.libraryTarget = 'umd'
-  config.output.library = `X${one.importName}`
-  config.output.filename = `${one.name}.js`
-  config.output.path = path.resolve(__dirname, '../dist/components/')
+  config.output.library = `${namespace}${one.importName}`
+  config.output.filename = `index.min.js`
+  config.output.path = path.resolve(__dirname, `../dist/components/${one.name}/`)
   return config
 }
