@@ -1,3 +1,5 @@
+'use strict'
+
 /**
 * --locale='zh-CN'
 * --namespace='vux'

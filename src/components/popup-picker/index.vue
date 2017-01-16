@@ -48,6 +48,11 @@ const getObject = function (obj) {
 }
 
 export default {
+  created () {
+    if (typeof this.show !== 'undefined') {
+      this.showValue = this.show
+    }
+  },
   mixins: [uuidMixin],
   components: {
     Picker,
@@ -98,7 +103,16 @@ export default {
       return value2name(this.currentValue, this.data)
     },
     onClick () {
-      this.showValue = true
+      console.log('click')
+      if (this.onShowProcess) {
+        console.log('进程中')
+      } else {
+        this.showValue = true
+        this.onShowProcess = true
+        setTimeout(() => {
+          this.onShowProcess = false
+        }, 300)
+      }
     },
     onHide (type) {
       this.showValue = false
@@ -152,10 +166,11 @@ export default {
   },
   data () {
     return {
+      onShowProcess: false,
       tempValue: getObject(this.value),
       closeType: false,
       currentData: JSON.stringify(this.data), // used for detecting if it is after data change
-      showValue: this.show,
+      showValue: false,
       currentValue: this.value
     }
   }

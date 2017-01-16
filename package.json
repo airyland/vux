@@ -30,7 +30,8 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "build-docs": "node build/build-docs.js",
     "build-components": "node build/build-components.js",
-    "docs": "docute ./docs --port 8087"
+    "docs": "docute ./docs --port 8087",
+    "deploy-docs": "gh-pages -d docs"
   },
   "dependencies": {
     "vue": "^2.1.0",
@@ -84,6 +85,7 @@
     "file-loader": "^0.9.0",
     "friendly-errors-webpack-plugin": "^1.1.2",
     "function-bind": "^1.0.2",
+    "gh-pages": "^0.12.0",
     "glob": "^7.1.1",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",

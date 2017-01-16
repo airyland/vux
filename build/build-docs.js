@@ -1,3 +1,5 @@
+'use strict'
+
 var glob = require("glob")
 var fs = require('fs')
 var yaml = require('js-yaml')

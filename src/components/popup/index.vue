@@ -1,5 +1,5 @@
 <template>
-  <transition name="vux-popup">
+  <transition name="vux-popup-animate">
     <div v-show="show" :style="{height:height}" class="vux-popup">
       <slot></slot>
     </div>
@@ -88,9 +88,6 @@ export default {
 </script>
 
 <style>
-.vux-popup {
-  border-top: 2px solid #04BE02;
-}
 .vux-popup-dialog {
   position: fixed;
   left: 0;
@@ -118,11 +115,11 @@ export default {
   z-index: 100;
   transition: opacity 0.3s;
 }
-.vux-popup-transiton {}
-.vux-popup-enter {
+.vux-popup-animate-transiton {}
+.vux-popup-animate-enter {
   transform: translate3d(0, 100%, 0);
 }
-.vux-popup-leave-active {
+.vux-popup-animate-leave-active {
   transform: translate3d(0, 100%, 0);
 }
 </style>
