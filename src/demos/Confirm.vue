@@ -17,6 +17,9 @@
     <div style="padding:15px;">
       <x-button @click.native="showPlugin2" type="primary">Hide after 3s</x-button>
     </div>
+    <div style="padding:15px;">
+      <x-button @click.native="showPlugin3" type="primary">Hide On Blur</x-button>
+    </div>
   </div>
 </template>
 
@@ -79,6 +82,13 @@ export default {
       setTimeout(() => {
         this.$vux.confirm.hide()
       }, 3000)
+    },
+    showPlugin3 () {
+      this.$vux.confirm.show({
+        title: 'Title',
+        content: 'Content',
+        hideOnBlur: true
+      })
     }
   }
 }
