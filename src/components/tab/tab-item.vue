@@ -1,5 +1,5 @@
 <template>
-  <div class="vux-tab-item" :class="[currentSelected ? activeClass : '', {'vux-tab-selected': currentSelected, 'vux-tab-disabled': disabled, 'vux-tab-selected': currentSelected}]" :style="style" @click="onItemClick">
+  <div class="vux-tab-item" :class="[currentSelected ? activeClass : '', {'vux-tab-selected': currentSelected, 'vux-tab-disabled': disabled}]" :style="style" @click="onItemClick">
     <slot></slot>
   </div>
 </template>
