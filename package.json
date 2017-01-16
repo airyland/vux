@@ -28,7 +28,7 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "build-doc": "node build/build-docs.js",
+    "build-docs": "node build/build-docs.js",
     "build-components": "node build/build-components.js",
     "docs": "docute ./docs --port 8087"
   },

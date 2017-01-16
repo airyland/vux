@@ -258,13 +258,13 @@ nav: ${lang}
             props: one.json[one.items[0]].props,
             slots: one.json[one.items[0]].slots,
             events: one.json[one.items[0]].events
-          }, lang, docs)
+          }, lang, docs, one.items[0])
 
           docs = getComponentInfo({
             props: one.json[one.items[1]].props,
             slots: one.json[one.items[1]].slots,
             events: one.json[one.items[1]].events
-          }, lang, docs, one.items[0])
+          }, lang, docs, one.items[1])
         }
 
         // after extra
@@ -290,10 +290,13 @@ nav: ${lang}
 }
 
 function getComponentInfo(one, lang, docs, name) {
-  if (one.props) {
+
+  if (one.props || one.slots) {
     if (name) {
       docs += `\n<span class="vux-component-name">${_camelCase(name)}</span>\n`
     }
+  }
+  if (one.props) {
     // prop title
     docs += `\n<span class="vux-props-title">Props</span>\n`
     docs += `\n| ${t('名字')}   | ${t('类型')} | ${t('默认')}    | ${t('说明')}   |
@@ -320,7 +323,7 @@ function getComponentInfo(one, lang, docs, name) {
   if (one.events) {
     // slot title
     docs += `\n<span class="vux-props-title">Events</span>\n`
-    docs += `\n| ${t('名字')}    | ${t('参数')}   | ${t('说明')} | 
+    docs += `\n| ${t('名字')}    | ${t('参数')}   | ${t('说明')} |
 |-------|-------|-------|
 `
     for (let i in one.events) {
@@ -403,7 +406,7 @@ function transform (object, name) {
   }
   for(let i in object) {
     rs['en'][`vux.${name}.${i}`] = object[i]['en']
-    rs['zh-CN'][`vux.${name}.${i}`] = object[i]['zh-CN'] 
+    rs['zh-CN'][`vux.${name}.${i}`] = object[i]['zh-CN']
   }
   return rs
 }
