@@ -347,7 +347,7 @@ function getComponentInfo(one, lang, docs, name) {
     // docs += `\n\n<span class="vux-props-title">Demo</span>\n`
   if (one.name || name) {
     if (one.hideDemo !== true) {
-      docs += `\n<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/${one.name || name}">进入demo页面</a>\n`
+      docs += `\n<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/${(one.name || name).replace('-item', '')}">进入demo页面</a>\n`
     }
   }
 
@@ -440,7 +440,7 @@ function _camelCase(input) {
 function buildDemos(infos) {
   infos.forEach((one) => {
     let str = ''
-    let url = `http://vux.li/demos/v2/#/component/${one.name}`
+    let url = `https://vux.li/demos/v2/#/component/${one.name}`
     str += `---
 nav: zh-CN
 ---
