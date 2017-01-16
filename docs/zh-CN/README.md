@@ -423,6 +423,15 @@ import { AlertPlugin, ToastPlugin } from 'vux'
 
   [Docute](https://docute.js.org) by [egoist](https://github.com/egoist)。在`Docute`基础上做了一点样式修改。
 
+- Can't resolve '../inline-desc' in
+
+  webpack resolve配置
+
+  ``` js
+  resolve: {
+    extensions: ['', '.js', '.vue', '.json']
+  }
+  ```
 
 - Uncaught SyntaxError: Unexpected token export
 

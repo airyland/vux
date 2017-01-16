@@ -29,7 +29,8 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "build-doc": "node build/build-docs.js",
-    "build-components": "node build/build-components.js"
+    "build-components": "node build/build-components.js",
+    "docs": "docute ./docs --port 8087"
   },
   "dependencies": {
     "vue": "^2.1.0",
@@ -69,6 +70,7 @@
     "connect-history-api-fallback": "^1.1.0",
     "cross-env": "^3.1.3",
     "css-loader": "^0.25.0",
+    "docute-cli": "^0.4.0",
     "eslint": "^3.7.1",
     "eslint-config-standard": "^6.1.0",
     "eslint-friendly-formatter": "^2.0.5",
