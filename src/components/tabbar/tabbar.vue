@@ -17,6 +17,8 @@ export default {
 
 <style lang="less">
 @import '../../styles/weui/widget/weui_tab/weui_tab_tabbar';
+@import '../../styles/reddot.less';
+
 .weui_tabbar_icon {
   position: relative;
 }

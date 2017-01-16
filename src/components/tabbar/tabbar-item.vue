@@ -1,5 +1,5 @@
 <template>
-  <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': $parent.index === currentIndex}" @click="onItemClick">
+  <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': $parent.index === currentIndex}" @click="onItemClick(true)">
     <div class="weui_tabbar_icon" :class="[iconClass || $parent.iconClass, {'vux-reddot': showDot}]">
       <slot name="icon"></slot>
       <sup><badge v-if="badge" :text="badge"></badge></sup>
@@ -12,7 +12,6 @@
 
 <script>
 import { childMixin } from '../../mixins/multi-items'
-import { go } from '../../libs/router'
 import Badge from '../badge'
 
 export default {
@@ -28,11 +27,6 @@ export default {
     badge: String,
     link: [String, Object],
     iconClass: String
-  },
-  methods: {
-    onItemClick: function () {
-      go(this.link, this.$router)
-    }
   }
 }
 </script>

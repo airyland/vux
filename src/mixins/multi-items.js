@@ -1,7 +1,8 @@
+import { go } from '../libs/router'
+
 const parentMixin = {
   mounted () {
     if (this.value >= 0) {
-      console.log('current index', this.currentIndex)
       this.currentIndex = this.value
     }
     this.updateIndex()
@@ -61,11 +62,14 @@ const childMixin = {
     })
   },
   methods: {
-    onItemClick () {
+    onItemClick (hasLink) {
       if (typeof this.disabled === 'undefined' || this.disabled === false) {
         this.currentSelected = true
         this.$parent.currentIndex = this.currentIndex
         this.$emit('on-item-click')
+      }
+      if (hasLink === true) {
+        go(this.link, this.$router)
       }
     }
   },
@@ -91,4 +95,3 @@ export {
   parentMixin,
   childMixin
 }
-

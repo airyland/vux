@@ -9,11 +9,11 @@
         <img slot="icon" src="../assets/demo/icon_nav_msg.png">
         <span slot="label">Message</span>
       </tabbar-item>
-      <tabbar-item selected>
+      <tabbar-item selected link="/component/demo">
         <img slot="icon" src="../assets/demo/icon_nav_article.png">
         <span slot="label">Explore</span>
       </tabbar-item>
-      <tabbar-item>
+      <tabbar-item badge="2">
         <img slot="icon" src="../assets/demo/icon_nav_cell.png">
         <span slot="label">News</span>
       </tabbar-item>
