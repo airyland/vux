@@ -15,3 +15,5 @@ CNAME
 circle.yml
 bower.json
 /assets/
+.babelrc
+docs/
