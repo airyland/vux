@@ -438,7 +438,7 @@ function _camelCase(input) {
 function buildDemos(infos) {
   infos.forEach((one) => {
     let str = ''
-    let url = `http://localhost:8082/#/component/${one.name}`
+    let url = `http://vux.li/demos/v2/#/component/${one.name}`
     str += `---
 nav: zh-CN
 ---
@@ -472,7 +472,7 @@ nav: zh-CN
 
 #### Github Issue`
 
-      fs.writeFileSync(getPath(`../docs/demos/${one.name}.md`), str)
+      fs.writeFileSync(getPath(`../docs/zh-CN/demos/${one.name}.md`), str)
 
     } catch (e) {
       console.log(e)

@@ -50,11 +50,11 @@ export default {
 
 @font-face {
   font-family: 'vux-demo';  /* project id 70323 */
-  src: url('//at.alicdn.com/t/font_333ae73qzu4k7qfr.eot');
-  src: url('//at.alicdn.com/t/font_333ae73qzu4k7qfr.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_333ae73qzu4k7qfr.woff') format('woff'),
-  url('//at.alicdn.com/t/font_333ae73qzu4k7qfr.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_333ae73qzu4k7qfr.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_mh11prdwhirx80k9.eot');
+  src: url('//at.alicdn.com/t/font_mh11prdwhirx80k9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_mh11prdwhirx80k9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_mh11prdwhirx80k9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_mh11prdwhirx80k9.svg#iconfont') format('svg');
 }
 
 .demo-icon {
