@@ -190,7 +190,7 @@ import { XHeader } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-click-more</span> |   &nbsp; | 点击右侧更多时触发 |
 | <span class="prop-key">on-click-back</span> |   &nbsp; | 点击左边返回时触发 |

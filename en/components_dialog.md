@@ -21,7 +21,7 @@ import { Actionsheet } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-click-menu</span> |   (menuKey) | triggers when clicking on the menu |
 | <span class="prop-key">on-click-menu-{menuKey}</span> |   (menuKey) | shortcut event for easier listening, you can listen on `on-click-menu-delete` if you have a menu named `delete` |
@@ -56,7 +56,7 @@ import { Alert } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-show</span> |   &nbsp; | emits when dialog is show |
 
@@ -90,7 +90,7 @@ import { Confirm } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-cancel</span> |   &nbsp; | triggers when the cancel button is clicked |
 | <span class="prop-key">on-confirm</span> |   &nbsp; | triggers when the confirm button is clicked |
@@ -119,6 +119,9 @@ import { Loading } from 'vux'
 
 
 <a class="vux-demo-link" href="#" router-link="/zh-CN/demos/loading">进入demo页面</a>
+
+<br><span class="vux-props-title">Changes (v2.0.1)</span>
+<ul><li><span style="font-size:14px;"><span class="change change-fix">fix</span>  i18n 无配置</span></li></ul>
 <br><br><br>
 ### Toast_COM
 ``` js
@@ -144,7 +147,7 @@ import { Toast } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-show</span> |   &nbsp; | emits when toast shows |
 | <span class="prop-key">on-hide</span> |   &nbsp; | emits when toast hides |

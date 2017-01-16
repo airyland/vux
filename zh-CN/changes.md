@@ -47,4 +47,15 @@ nav: zh-CN
 
 #### XNumber
 <ul><li><span style="font-size:15px;"><span class="change change-change">change</span>  fillable 值默认为false, 稍微保护一下不小心商城的后端接口没有做好数据校验的用户，导致用户粘贴负数还提交正确</span></li></ul>
+### v2.0.14_COM
+
+#### Grid
+<ul><li><span style="font-size:15px;"><span class="change change-feature">feature</span>  增加`grid`九宫格组件</span></li></ul>
+### v2.0.1_COM
+
+#### Loading
+<ul><li><span style="font-size:15px;"><span class="change change-fix">fix</span>  i18n 无配置</span></li></ul>
+
+#### XInput
+<ul><li><span style="font-size:15px;"><span class="change change-fix">fix</span>  修复type未定义的问题</span></li></ul>
 

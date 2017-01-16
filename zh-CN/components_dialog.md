@@ -21,7 +21,7 @@ import { Actionsheet } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-click-menu</span> |   (menuKey) | 点击菜单时触发，参数为当前菜单项对象 |
 | <span class="prop-key">on-click-menu-{menuKey}</span> |   (menuKey) | 点击事件的快捷方式, 如果你有一个菜单名字为`delete`, 那么你可以监听 `on-click-menu-delete` |
@@ -56,7 +56,7 @@ import { Alert } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-show</span> |   &nbsp; | 弹窗显示时触发 |
 
@@ -90,7 +90,7 @@ import { Confirm } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-cancel</span> |   &nbsp; | 点击取消按钮时触发 |
 | <span class="prop-key">on-confirm</span> |   &nbsp; | 点击确定按钮时触发 |
@@ -119,6 +119,9 @@ import { Loading } from 'vux'
 
 
 <a class="vux-demo-link" href="#" router-link="/zh-CN/demos/loading">进入demo页面</a>
+
+<br><span class="vux-props-title">Changes (v2.0.1)</span>
+<ul><li><span style="font-size:14px;"><span class="change change-fix">fix</span>  i18n 无配置</span></li></ul>
 <br><br><br>
 ### Toast_COM
 ``` js
@@ -144,7 +147,7 @@ import { Toast } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-show</span> |   &nbsp; | 提示弹出时触发 |
 | <span class="prop-key">on-hide</span> |   &nbsp; | 提示隐藏时触发 |

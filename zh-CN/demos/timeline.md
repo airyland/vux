@@ -5,12 +5,12 @@ nav: zh-CN
 
 ### Timeline_COM
 
-<img width="100" src="http://qr.topscan.com/api.php?text=https%3A%2F%2Fvux.li%2Fdemos%2Fv2%2F%23%2Fcomponent%2Ftimeline"/>
+<img width="100" src="http://qr.topscan.com/api.php?text=http%3A%2F%2Fvux.li%2Fdemos%2Fv2%2F%23%2Fcomponent%2Ftimeline"/>
 
 #### Demo
 
  <div style="width:377px;height:667px;display:inline-block;border:1px dashed #ececec;border-radius:5px;overflow:hidden;">
-   <iframe src="https://vux.li/demos/v2/#/component/timeline" width="375" height="667" border="0" frameborder="0"></iframe>
+   <iframe src="http://vux.li/demos/v2/#/component/timeline" width="375" height="667" border="0" frameborder="0"></iframe>
  </div>
 
 #### demo 代码

@@ -5,12 +5,12 @@ nav: zh-CN
 
 ### Alert_COM
 
-<img width="100" src="http://qr.topscan.com/api.php?text=https%3A%2F%2Fvux.li%2Fdemos%2Fv2%2F%23%2Fcomponent%2Falert"/>
+<img width="100" src="http://qr.topscan.com/api.php?text=http%3A%2F%2Fvux.li%2Fdemos%2Fv2%2F%23%2Fcomponent%2Falert"/>
 
 #### Demo
 
  <div style="width:377px;height:667px;display:inline-block;border:1px dashed #ececec;border-radius:5px;overflow:hidden;">
-   <iframe src="https://vux.li/demos/v2/#/component/alert" width="375" height="667" border="0" frameborder="0"></iframe>
+   <iframe src="http://vux.li/demos/v2/#/component/alert" width="375" height="667" border="0" frameborder="0"></iframe>
  </div>
 
 #### demo 代码
@@ -25,7 +25,8 @@ nav: zh-CN
     </group>
     <alert v-model="show" :title="$t('Congratulations')" @on-show="onShow" @on-hide="onHide"> {{ $t('Your Message is sent successfully~') }}</alert>
     <group :title="$t('Use as a plugin')">
-      <x-switch :title="$t('Show Me')" v-model="show1" @on-change="onChange"></x-switch>
+      <cell :title="$t('Show Me')" @click.native="showPlugin" is-link></cell>
+      <cell :title="$t('will auto close in 3s')" @click.native="showPluginAuto" is-link></cell>
     </group>
   </div>
 </template>
@@ -33,13 +34,14 @@ nav: zh-CN
 
 
 <script>
-import { Alert, Group, XSwitch } from 'vux'
+import { Alert, Group, XSwitch, Cell } from 'vux'
 
 export default {
   components: {
     Alert,
     Group,
-    XSwitch
+    XSwitch,
+    Cell
   },
   data () {
     return {
@@ -54,23 +56,23 @@ export default {
     onShow () {
       console.log('on show')
     },
-    onChange (val) {
-      const _this = this
-      if (val) {
-        this.$vux.alert.show({
-          title: 'Vux is Cool',
-          content: this.$t('Do you agree?'),
-          onShow () {
-            console.log('Plugin: I\'m showing')
-          },
-          onHide () {
-            console.log('Plugin: I\'m hiding')
-            _this.show1 = false
-          }
-        })
-      } else {
+    showPlugin () {
+      this.$vux.alert.show({
+        title: 'Vux is Cool',
+        content: this.$t('Do you agree?'),
+        onShow () {
+          console.log('Plugin: I\'m showing')
+        },
+        onHide () {
+          console.log('Plugin: I\'m hiding now')
+        }
+      })
+    },
+    showPluginAuto () {
+      this.showPlugin()
+      setTimeout(() => {
         this.$vux.alert.hide()
-      }
+      }, 3000)
     }
   }
 }

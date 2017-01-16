@@ -21,7 +21,7 @@ import { Actionsheet } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-click-menu</span> |   (menuKey) | triggers when clicking on the menu |
 | <span class="prop-key">on-click-menu-{menuKey}</span> |   (menuKey) | shortcut event for easier listening, you can listen on `on-click-menu-delete` if you have a menu named `delete` |
@@ -56,7 +56,7 @@ import { Alert } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-show</span> |   &nbsp; | emits when dialog is show |
 
@@ -111,6 +111,8 @@ import { ButtonTab, ButtonTabItem } from 'vux'
 
 ```
 
+<span class="vux-component-name">ButtonTab</span>
+
 <span class="vux-props-title">Props</span>
 
 | name   | type | default    | description   |
@@ -119,7 +121,7 @@ import { ButtonTab, ButtonTabItem } from 'vux'
 | <span class="prop-key">height</span> | <span class="type type-number">Number</span> | 30 | height in px |
 
 
-<span class="vux-component-name">ButtonTab</span>
+<span class="vux-component-name">ButtonTabItem</span>
 
 <span class="vux-props-title">Props</span>
 
@@ -129,12 +131,15 @@ import { ButtonTab, ButtonTabItem } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-item-click</span> |   (index) | emits when item being clicked |
 
 
-<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/button-tab">进入demo页面</a>
+<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/button-tab-item">进入demo页面</a>
+
+<br><span class="vux-props-title">Changes (v2.0.0)</span>
+<ul><li><span style="font-size:14px;"><span class="change change-enhance">enhance</span>  去除 Android 下点击可能出现的蓝色边框</span></li></ul>
 <br><br><br>
 ### Calendar_COM
 ``` js
@@ -150,7 +155,7 @@ import { Calendar } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   (value) | emits when value changes |
 
@@ -180,7 +185,7 @@ import { Card } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-click-footer</span> |   &nbsp; | undefined |
 | <span class="prop-key">on-click-header</span> |   &nbsp; | undefined |
@@ -221,6 +226,8 @@ import { Cell } from 'vux'
 import { Checker } from 'vux'
 ```
 
+<span class="vux-component-name">Checker</span>
+
 <span class="vux-props-title">Props</span>
 
 | name   | type | default    | description   |
@@ -234,12 +241,12 @@ import { Checker } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   `(value)` | undefined |
 
 
-<span class="vux-component-name">Checker</span>
+<span class="vux-component-name">CheckerItem</span>
 
 <span class="vux-props-title">Props</span>
 
@@ -250,12 +257,15 @@ import { Checker } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-item-click</span> |   `(itemValue, itemDisabled)` | undefined |
 
 
-<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/checker">进入demo页面</a>
+<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/checker-item">进入demo页面</a>
+
+<br><span class="vux-props-title">Changes (v2.0.0)</span>
+<ul><li><span style="font-size:14px;"><span class="change change-feature">feature</span>  支持Object类型的值 #705</span></li></ul>
 <br><br><br>
 ### Checklist_COM
 ``` js
@@ -276,7 +286,7 @@ import { Checklist } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   (value) | emits when value changes |
 
@@ -306,7 +316,7 @@ import { Clocker } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-tick</span> |   &nbsp; | triggers on time ticking |
 | <span class="prop-key">on-finish</span> |   &nbsp; | triggers on time end |
@@ -359,7 +369,7 @@ import { Confirm } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-cancel</span> |   &nbsp; | triggers when the cancel button is clicked |
 | <span class="prop-key">on-confirm</span> |   &nbsp; | triggers when the confirm button is clicked |
@@ -435,7 +445,7 @@ import { Datetime } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   `(value)` | $emits when value changes, `(newVal)` |
 
@@ -461,6 +471,8 @@ import { Divider } from 'vux'
 import { Flexbox } from 'vux'
 ```
 
+<span class="vux-component-name">Flexbox</span>
+
 <span class="vux-props-title">Props</span>
 
 | name   | type | default    | description   |
@@ -478,7 +490,7 @@ import { Flexbox } from 'vux'
 | <span class="prop-key">default</span> | undefined |
 
 
-<span class="vux-component-name">Flexbox</span>
+<span class="vux-component-name">FlexboxItem</span>
 
 <span class="vux-props-title">Props</span>
 
@@ -494,7 +506,7 @@ import { Flexbox } from 'vux'
 | <span class="prop-key">default</span> | undefined |
 
 
-<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/flexbox">进入demo页面</a>
+<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/flexbox-item">进入demo页面</a>
 <br><br><br>
 ### FormPreview_COM
 ``` js
@@ -516,6 +528,42 @@ import { FormPreview } from 'vux'
 
 <br><span class="vux-props-title">Changes (v2.0.0)</span>
 <ul><li><span style="font-size:14px;"><span class="change change-feature">feature</span>  增加`form-preview`组件</span></li></ul>
+<br><br><br>
+### Grid_COM
+``` js
+import { Grid, GridItem } from 'vux'
+```
+
+<span class="vux-component-name">Grid</span>
+
+<span class="vux-props-title">Slots</span>
+
+| name    | description   |
+|-------|-------|
+| <span class="prop-key">default</span> | default slot for `grid-item` list |
+
+
+<span class="vux-component-name">GridItem</span>
+
+<span class="vux-props-title">Props</span>
+
+| name   | type | default    | description   |
+|-------|-------|-------|-------|
+| <span class="prop-key">icon</span> | <span class="type type-string">String</span> |  | icon url. if using local resources, it is better to use `slot=icon` |
+| <span class="prop-key">label</span> | <span class="type type-string">String</span> |  | `label` text |
+
+<span class="vux-props-title">Slots</span>
+
+| name    | description   |
+|-------|-------|
+| <span class="prop-key">icon</span> | icon slot, use `<img>` |
+| <span class="prop-key">label</span> | slot for label, the same func as prop:label |
+
+
+<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/grid-item">进入demo页面</a>
+
+<br><span class="vux-props-title">Changes (v2.0.14)</span>
+<ul><li><span style="font-size:14px;"><span class="change change-feature">feature</span>  增加`grid`九宫格组件</span></li></ul>
 <br><br><br>
 ### Group_COM
 ``` js
@@ -650,6 +698,9 @@ import { Loading } from 'vux'
 
 
 <a class="vux-demo-link" href="#" router-link="/zh-CN/demos/loading">进入demo页面</a>
+
+<br><span class="vux-props-title">Changes (v2.0.1)</span>
+<ul><li><span style="font-size:14px;"><span class="change change-fix">fix</span>  i18n 无配置</span></li></ul>
 <br><br><br>
 ### Masker_COM
 ``` js
@@ -689,7 +740,7 @@ import { Panel } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-click-header</span> |   &nbsp; | undefined |
 | <span class="prop-key">on-click-item</span> |   `(item)` | undefined |
@@ -714,7 +765,7 @@ import { Picker } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   `(value)` | undefined |
 
@@ -743,7 +794,7 @@ import { Popover } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-show</span> |   &nbsp; | triggers when popover shows |
 | <span class="prop-key">on-hide</span> |   &nbsp; | triggers when popover hides |
@@ -773,7 +824,7 @@ import { PopupPicker } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   `(value)` | undefined |
 | <span class="prop-key">on-show</span> |   &nbsp; | undefined |
@@ -797,7 +848,7 @@ import { Popup } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-hide</span> |   &nbsp; | undefined |
 | <span class="prop-key">on-show</span> |   &nbsp; | undefined |
@@ -1043,7 +1094,7 @@ import { Selector } from 'vux'
 
 | name   | type | default    | description   |
 |-------|-------|-------|-------|
-| <span class="prop-key">value</span> | <span class="type type-string">String</span> |  | undefined |
+| <span class="prop-key">value</span> | <span class="type type-string number object">String Number Object</span> |  | undefined |
 | <span class="prop-key">title</span> | <span class="type type-string">String</span> |  | undefined |
 | <span class="prop-key">direction</span> | <span class="type type-string">String</span> |  | undefined |
 | <span class="prop-key">options</span> | <span class="type type-array">Array</span> |  | undefined |
@@ -1075,7 +1126,7 @@ import { Step } from 'vux'
 
 
 
-<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/step">进入demo页面</a>
+<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/step-item">进入demo页面</a>
 <br><br><br>
 ### Sticky_COM
 ``` js
@@ -1124,6 +1175,8 @@ import { Swiper } from 'vux'
 import { Tab, TabItem } from 'vux'
 ```
 
+<span class="vux-component-name">Tab</span>
+
 <span class="vux-props-title">Props</span>
 
 | name   | type | default    | description   |
@@ -1135,7 +1188,7 @@ import { Tab, TabItem } from 'vux'
 | <span class="prop-key">animate</span> | <span class="type type-boolean">Boolean</span> | true | undefined |
 
 
-<span class="vux-component-name">Tab</span>
+<span class="vux-component-name">TabItem</span>
 
 <span class="vux-props-title">Props</span>
 
@@ -1145,12 +1198,14 @@ import { Tab, TabItem } from 'vux'
 | <span class="prop-key">active-class</span> | <span class="type type-string">String</span> |  | undefined |
 
 
-<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/tab">进入demo页面</a>
+<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/tab-item">进入demo页面</a>
 <br><br><br>
 ### Tabbar_COM
 ``` js
 import { Tabbar, TabbarItem } from 'vux'
 ```
+
+<span class="vux-component-name">Tabbar</span>
 
 <span class="vux-props-title">Props</span>
 
@@ -1165,7 +1220,7 @@ import { Tabbar, TabbarItem } from 'vux'
 | <span class="prop-key">default</span> | slot for tabbar items |
 
 
-<span class="vux-component-name">Tabbar</span>
+<span class="vux-component-name">TabbarItem</span>
 
 <span class="vux-props-title">Props</span>
 
@@ -1185,12 +1240,12 @@ import { Tabbar, TabbarItem } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-item-click</span> |   &nbsp; | triggers when tabbar item is click |
 
 
-<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/tabbar">进入demo页面</a>
+<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/tabbar-item">进入demo页面</a>
 <br><br><br>
 ### Timeline_COM
 ``` js
@@ -1221,7 +1276,7 @@ import { Toast } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-show</span> |   &nbsp; | emits when toast shows |
 | <span class="prop-key">on-hide</span> |   &nbsp; | emits when toast hides |
@@ -1275,7 +1330,7 @@ import { XAddress, ChinaAddressV1Data } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-hide</span> |   &nbsp; | undefined |
 | <span class="prop-key">on-show</span> |   &nbsp; | undefined |
@@ -1355,7 +1410,7 @@ import { XHeader } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-click-more</span> |   &nbsp; | triggers when more icon is clicked |
 | <span class="prop-key">on-click-back</span> |   &nbsp; | triggers when left part is clicked |
@@ -1429,7 +1484,7 @@ import { XProgress } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-cancel</span> |   &nbsp; | triggers when the cancel button is clicked |
 
@@ -1452,7 +1507,7 @@ import { XSwitch } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   `(value)` | triggers when value change, params is (currentValue) |
 
@@ -1479,7 +1534,7 @@ import { XTextarea } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   `(value)` | triggers when value changes, params are (value) |
 

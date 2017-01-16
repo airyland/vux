@@ -169,9 +169,9 @@ module.exports = vuxLoader.merge(webpackConfig, {
 
 > 适用于对`<template></template>`模板代码做自定义处理
 > 适用于某些更改不频繁但非服务端配置的文字，可能调用多次，也可能手动更改或者批量替换相对麻烦
-> 
+>
 > 同样你也可以用来从接口获取最新配置替换特定的占位字符
-> 
+>
 > 当然也适用于在源码中对`pm`进行吐槽(千万要记得production环境要有配置，否则可能会上新闻。)
 
    * name 插件名字， `template-parser`
@@ -265,7 +265,7 @@ module.exports = vuxLoader.merge(webpackConfig, {
 那么你就可以很方便地引入组件了：
 
 ```
-// 0.x 
+// 0.x
 import Group from 'vux/src/components/group'
 import Cell from 'vux/src/components/cell'
 
@@ -273,68 +273,21 @@ import Cell from 'vux/src/components/cell'
 import { Group, Cell } from 'vux'
 ```
 
-#### vux-i18n
+#### i18n
 
-<p class="warning">
-  vux-i18n 为 vux 组件库配套构建工具，如果你并没有使用vux组件，不需要使用这个来实现i18n。
-<br>
-  即如果你使用了vux组件，你可以方便地实现对整个项目的i18n支持，但是没有使用vux，暂时只能自己实现i18n(比如自行引入vuex-i18n，但同时不支持i18n标签编译)。
-</p>
-
-参数：
-
-- `dynamic` 默认false
-- `locale` 默认zh-CN, 只有在dynamic为false才有效
-
-可能的使用情况：
-
-- 默认情况下，不配置该插件，会以中文(zh-CN)构建vux源码，和旧版本使用没区别
-
-- 如果你需要静态构建vux的英文语言版本，请配置`locale:en`
-
-- 如果你需要可以切换语言，请配置 `dynamic: true`并在main.js里引入`i18n plugin`，工具会在`src`下生成两个配置文件
-
-  配置i18n plugin:
-
-  ``` js
-  // 原来的vuex store定义，你可能会有自己的其他modules。
-  let store = new Vuex.Store({
-    modules: {}
-  })
-
-  import I18nPlugin from 'vux/src/plugins/i18n'
-  Vue.use(I18nPlugin, { store })
-  ```
-
-  工具自动生成的语言配置文件
-  ``` md
-  - src
-   -locales
-    - global_locales.yml // 编写全局语言，覆盖已有语言配置，包括vux的语言
-    - components_locales.yml // 自动从.vue(非vux源码文件)的 <i18n>区块生成
-  ```
-
-  那么你就可以用<i18>标签来配置多语言了
-
-  ``` html
-  <i18n>
-   title: 
-    zh-CN: 标题
-   content:
-     en: content
-     zh-CN: 内容
-  </i18n>
-  ```
-
-  切换语言，增加配置语言，请参照 [vuex-i18n](https://www.npmjs.com/package/vuex-i18n)
+今天有新版本，稍候更新。
 
 #### less-theme
+
+<p class="warning">
+注意，path所在文件必须是简单的less变量对，不能import其他文件或者引入变量。
+</p>
 
 > less 变量设置和替换
 
 > 适用于全局变量替换,  方便切换主题
 > 这意味着，你不再需要为每个页面引入全局的less文件了，你只需要设置lang为less就可以直接使用变量了
- 
+
 ```
 <style lang="less">
 .info {

@@ -173,7 +173,7 @@ import { XHeader } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-click-more</span> |   &nbsp; | triggers when more icon is clicked |
 | <span class="prop-key">on-click-back</span> |   &nbsp; | triggers when left part is clicked |

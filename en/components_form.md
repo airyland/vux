@@ -23,7 +23,7 @@ import { Checklist } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   (value) | emits when value changes |
 
@@ -60,7 +60,7 @@ import { Datetime } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   `(value)` | $emits when value changes, `(newVal)` |
 
@@ -131,7 +131,7 @@ import { Picker } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   `(value)` | undefined |
 
@@ -157,7 +157,7 @@ import { PopupPicker } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   `(value)` | undefined |
 | <span class="prop-key">on-show</span> |   &nbsp; | undefined |
@@ -214,7 +214,7 @@ import { Selector } from 'vux'
 
 | name   | type | default    | description   |
 |-------|-------|-------|-------|
-| <span class="prop-key">value</span> | <span class="type type-string">String</span> |  | undefined |
+| <span class="prop-key">value</span> | <span class="type type-string number object">String Number Object</span> |  | undefined |
 | <span class="prop-key">title</span> | <span class="type type-string">String</span> |  | undefined |
 | <span class="prop-key">direction</span> | <span class="type type-string">String</span> |  | undefined |
 | <span class="prop-key">options</span> | <span class="type type-array">Array</span> |  | undefined |
@@ -248,7 +248,7 @@ import { XAddress, ChinaAddressV1Data } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-hide</span> |   &nbsp; | undefined |
 | <span class="prop-key">on-show</span> |   &nbsp; | undefined |
@@ -318,7 +318,7 @@ import { XSwitch } from 'vux'
 
 <span class="vux-props-title">Events</span>
 
-| name    | params   | description | 
+| name    | params   | description |
 |-------|-------|-------|
 | <span class="prop-key">on-change</span> |   `(value)` | triggers when value change, params is (currentValue) |
 
