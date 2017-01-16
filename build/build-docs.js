@@ -2,6 +2,7 @@ var glob = require("glob")
 var fs = require('fs')
 var yaml = require('js-yaml')
 var path = require('path')
+var _ = require('lodash')
 
 function getPath(dir) {
   return path.join(__dirname, dir)
@@ -163,7 +164,7 @@ function render(files, tag) {
       items: json.items
     }
 
-    if (item.icon && item.name) {
+    if (!tag && item.icon && item.name) {
       gComponents.push(item)
     }
 
@@ -202,8 +203,10 @@ function render(files, tag) {
     }
 
   })
-
-  fs.writeFileSync(getPath('../src/datas/vux_component_list.json'), JSON.stringify(gComponents, null, 2))
+  if (!tag) {
+    gComponents = _.uniqBy(gComponents, 'name')
+    fs.writeFileSync(getPath('../src/datas/vux_component_list.json'), JSON.stringify(gComponents, null, 2))
+  }
 
   buildChanges(infos)
 
@@ -255,12 +258,14 @@ nav: ${lang}
 
         if (one.items) {
           docs = getComponentInfo({
+            hideDemo: true,
             props: one.json[one.items[0]].props,
             slots: one.json[one.items[0]].slots,
             events: one.json[one.items[0]].events
           }, lang, docs, one.items[0])
 
           docs = getComponentInfo({
+            json: one.json,
             props: one.json[one.items[1]].props,
             slots: one.json[one.items[1]].slots,
             events: one.json[one.items[1]].events
@@ -339,7 +344,9 @@ function getComponentInfo(one, lang, docs, name) {
   docs += `\n`
     // docs += `\n\n<span class="vux-props-title">Demo</span>\n`
   if (one.name || name) {
-    docs += `\n<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/${one.name || name}">进入demo页面</a>\n`
+    if (one.hideDemo !== true) {
+      docs += `\n<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/${one.name || name}">进入demo页面</a>\n`
+    }
   }
 
   if (one.json && one.json.changes) {

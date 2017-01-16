@@ -41,6 +41,8 @@
   "FormPreview": "src/components/form-preview/index.vue",
   "Demobasic": "src/components/fullpage/DemoBasic.vue",
   "Fullpage": "src/components/fullpage/index.vue",
+  "GridItem": "src/components/grid/grid-item.vue",
+  "Grid": "src/components/grid/grid.vue",
   "GroupTitle": "src/components/group-title/index.vue",
   "Group": "src/components/group/index.vue",
   "Icon": "src/components/icon/index.vue",
