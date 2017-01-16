@@ -3,7 +3,11 @@
     <group>
       <x-switch :title="$t('Toggle')" v-model="show"></x-switch>
     </group>
-    <confirm v-model="show" :title="$t('confirm deleting the item')" @on-cancel="onCancel" @on-confirm="onConfirm" @on-show="onShow" @on-hide="onHide">
+    <confirm v-model="show" :title="$t('confirm deleting the item')"
+    @on-cancel="onCancel"
+    @on-confirm="onConfirm"
+    @on-show="onShow"
+    @on-hide="onHide">
       <p style="text-align:center;">{{ $t('Are you sure?') }}</p>
     </confirm>
     <br>

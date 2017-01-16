@@ -4,6 +4,7 @@
     v-model="showValue"
     :mask-transition="maskTransition"
     :dialog-transition="dialogTransition"
+    :hide-on-blur="hideOnBlur"
     @on-hide="$emit('on-hide')"
     @on-show="$emit('on-show')">
       <div class="weui_dialog_hd"><strong class="weui_dialog_title">{{title}}</strong></div>
@@ -33,6 +34,10 @@ export default {
   },
   props: {
     value: {
+      type: Boolean,
+      default: false
+    },
+    hideOnBlur: {
       type: Boolean,
       default: false
     },

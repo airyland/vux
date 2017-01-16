@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Mobile web UI based on Vue and WeUI",
   "keywords": [
     "vux",
@@ -117,7 +117,7 @@
     "vue-template-compiler": "^2.1.0",
     "vuex": "^2.1.1",
     "vuex-i18n": "^1.3.1",
-    "vux-loader": "^1.0.19",
+    "vux-loader": "^1.0.20",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
