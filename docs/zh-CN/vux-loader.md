@@ -169,9 +169,9 @@ module.exports = vuxLoader.merge(webpackConfig, {
 
 > 适用于对`<template></template>`模板代码做自定义处理
 > 适用于某些更改不频繁但非服务端配置的文字，可能调用多次，也可能手动更改或者批量替换相对麻烦
-> 
+>
 > 同样你也可以用来从接口获取最新配置替换特定的占位字符
-> 
+>
 > 当然也适用于在源码中对`pm`进行吐槽(千万要记得production环境要有配置，否则可能会上新闻。)
 
    * name 插件名字， `template-parser`
@@ -265,7 +265,7 @@ module.exports = vuxLoader.merge(webpackConfig, {
 那么你就可以很方便地引入组件了：
 
 ```
-// 0.x 
+// 0.x
 import Group from 'vux/src/components/group'
 import Cell from 'vux/src/components/cell'
 
@@ -279,11 +279,15 @@ import { Group, Cell } from 'vux'
 
 #### less-theme
 
+<p class="warning">
+注意，path所在文件必须是简单的less变量对，不能import其他文件或者引入变量。
+</p>
+
 > less 变量设置和替换
 
 > 适用于全局变量替换,  方便切换主题
 > 这意味着，你不再需要为每个页面引入全局的less文件了，你只需要设置lang为less就可以直接使用变量了
- 
+
 ```
 <style lang="less">
 .info {
