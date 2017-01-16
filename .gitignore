@@ -17,5 +17,4 @@ docs/zh-CN/*
 /docs/demos
 *.vue.vux.*
 src/locales/components.yml
-src/locales/global_locales.yml
 /dist/*/*
