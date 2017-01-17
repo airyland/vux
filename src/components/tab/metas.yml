@@ -9,6 +9,16 @@ tags:
     - 选项
     - 选项卡
 import_code: "import { Tab, TabItem } from 'vux'"
+extra: |
+
+  如果需要监听`tab-item`的点击事件，请使用`on-item-click`事件:
+
+  ``` html
+  <tab>
+    <tab-item @on-item-click="handler"></tab-item>
+  </tab>
+  ```
+
 tab:
   props:
     lineWidth:
@@ -19,7 +29,7 @@ tab:
       zh-CN: 选中时文字颜色
     defaultColor:
       zh-CN: 默认文字颜色
-    disabledColor: 
+    disabledColor:
       zh-CN: 不可点击时文字颜色
     animate:
       type: Boolean
