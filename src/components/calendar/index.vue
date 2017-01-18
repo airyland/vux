@@ -16,7 +16,7 @@
       :hide-week-list="hideWeekList"
       :replace-text-list="replaceTextList"
       :weeks-list="weeksList"
-      :custom-slot-fn="customSlotFn"
+      :render-function="renderFunction"
       :render-on-value-change="renderOnValueChange"
       :disable-past="disablePast"
       :disable-future="disableFuture"
