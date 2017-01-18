@@ -1,5 +1,5 @@
 <template>
-  <a href="javascript:;" class="weui-grid">
+  <a href="javascript:;" class="weui-grid" @click="onClick">
     <div class="weui-grid__icon">
       <slot name="icon"><img :src="icon" alt=""></slot>
     </div>
@@ -9,7 +9,14 @@
 </template>
 
 <script>
+import { go } from '../../libs/router'
+
 export default {
-  props: ['icon', 'label']
+  props: ['icon', 'label', 'link'],
+  methods: {
+    onClick () {
+      go(this.link, this.$router)
+    }
+  }
 }
 </script>
