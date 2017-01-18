@@ -1,7 +1,7 @@
 import AlertComponent from '../../components/alert'
 let $vm
 
-export default {
+const plugin = {
   install (Vue) {
     if (!$vm) {
       const Alert = Vue.extend(AlertComponent)
@@ -52,3 +52,6 @@ export default {
     })
   }
 }
+
+export default plugin
+module.exports = plugin

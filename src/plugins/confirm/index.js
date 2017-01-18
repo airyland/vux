@@ -3,7 +3,7 @@ import ConfirmComponent from '../../components/confirm'
 let $vm
 let hasWatch = false
 
-export default {
+const plugin = {
   install (vue, options) {
     const Confirm = vue.extend(ConfirmComponent)
 
@@ -69,3 +69,6 @@ export default {
     })
   }
 }
+
+export default plugin
+module.exports = plugin

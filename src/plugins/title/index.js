@@ -1,5 +1,5 @@
 // https://www.deboy.cn/set-wechat-title-in-vuejs-spa.html
-export default {
+const plugin = {
   install(Vue, opts) {
     if (!Vue.$vux) {
       Vue.$vux = {
@@ -31,3 +31,6 @@ var setTitle = function (title, url = '/favicon.ico') {
     document.body.appendChild(iframe)
   }
 }
+
+export default plugin
+module.exports = plugin

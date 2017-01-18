@@ -41,7 +41,7 @@ var build = thunkify(function (config, name, cb) {
     console.log('size', size)
     console.log('time', (new Date().getTime() - start) / 1000 + 's')
     console.log('----------------')
-    cb()
+    cb && cb()
   })
 })
 
@@ -63,6 +63,16 @@ const maps = require(path.resolve(__dirname, '../src/components/map.json'))
 
 let isBuilding = false
 co(function* () {
+
+  try {
+    const pluginList = ['Confirm', 'Toast', 'Device', 'Alert']
+    for (let j = 0; j < pluginList.length; j++) {
+      yield build(buildPlugin(pluginList[j]), `Plugin ${pluginList[j]}`)
+    }
+  } catch (e) {
+    console.log(e)
+  }
+
   try {
     for (let i = 0; i < list.length; i++) {
       let one = list[i]
@@ -117,6 +127,27 @@ function buildMainConfig() {
   config.output.library = `vux`
   config.output.filename = `vux.min.js`
   config.output.path = path.resolve(__dirname, `../dist/`)
+  return config
+}
+
+// build plugins
+function buildPlugin (name) {
+  delete config.entry
+
+  config.plugins.forEach((one, index) => {
+    if (one.constructor.name === 'ExtractTextPlugin') {
+      config.plugins.splice(index, 1)
+    }
+  })
+
+  config.plugins.push(new ExtractTextPlugin(`index.min.css`))
+  config.entry = config.entry || {}
+  config.entry['plugin'] = `src/plugins/${name.toLowerCase()}/index.js`
+  config.output = {}
+  config.output.libraryTarget = 'umd'
+  config.output.library = `${namespace}${name}Plugin`
+  config.output.filename = `index.min.js`
+  config.output.path = path.resolve(__dirname, `../dist/plugins/${name.toLowerCase()}`)
   return config
 }
 

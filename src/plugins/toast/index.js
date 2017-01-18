@@ -3,7 +3,7 @@ import ToastComponent from '../../components/toast'
 let $vm
 let watcher
 
-export default {
+const plugin = {
   install (vue, options) {
     const Toast = vue.extend(ToastComponent)
 
@@ -54,3 +54,6 @@ export default {
     })
   }
 }
+
+export default plugin
+module.exports = plugin
