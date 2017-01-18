@@ -15,7 +15,7 @@ const parentMixin = {
       for (let i = 0; i < children.length; i++) {
         children[i].currentIndex = i
         if (children[i].currentSelected) {
-          this.currentIndex = i
+          this.index = i
         }
       }
     }
