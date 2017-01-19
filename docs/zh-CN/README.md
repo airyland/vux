@@ -195,7 +195,17 @@ import { AlertPlugin, ToastPlugin } from 'vux'
           |- index.min.css ------- 组件css代码
   ```
 
-  ### -- 使用
+  <p class="tip">
+  vux.min.js 包括了所有的组件、插件及默认地址库，都挂载在全局变量vux上。当然为了使用方便同样直接挂载到了`window`上。
+  <br>
+  组件调用举例: `vuxCell`
+  <br>
+  插件调用举例：`vuxAlertPlugin`
+  <br>
+  默认地址库调用：`vuxChinaAddressData`
+  </p>
+
+  ### -- 组件使用
 
   ``` html
   <!DOCTYPE html>
@@ -229,6 +239,52 @@ import { AlertPlugin, ToastPlugin } from 'vux'
   </body>
   </html>
   ```
+### -- 插件使用
+
+
+``` html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>scripts</title>
+  <link rel="stylesheet" href="../../dist/styles/reset.css">
+  <link rel="stylesheet" href="../../dist/plugins/alert/index.min.css">
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="demo">
+  </div>
+
+  <script src="../../dist/plugins/alert/index.min.js"></script>
+
+  <script>
+  Vue.use(vuxAlertPlugin)
+
+  new Vue({
+    el: '#demo',
+    data: {
+      how: 'Cool'
+    },
+    mounted () {
+      this.$vux.alert.show('hello')
+    }
+  })
+  </script>
+</body>
+</html>
+```
+
+### -- 生成css工具样式
+
+包括`1px`解决方案，构建文件位于`dist/styles/*.css`,构建方式：
+
+``` bash
+npm run build-styles
+```
+
+<p class="tip">为了使用方便，可以使用`npm run xbuild`来执行`build-components` 及 `build-styles`</p>
 
 ## i18n 配置
 

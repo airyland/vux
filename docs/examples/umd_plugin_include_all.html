@@ -4,26 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
   <title>scripts</title>
-  <link rel="stylesheet" href="../dist/vux.min.css">
+  <link rel="stylesheet" href="../../dist/styles/reset.css">
+  <link rel="stylesheet" href="../../dist/plugins/alert/index.min.css">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
   <div id="demo">
-    <group>
-      <cell title="Vue" :value="how"></cell>
-    </group>
   </div>
 
-  <script src="../dist/components/group/index.js"></script>
-  <script src="../dist/components/cell/index.js"></script>
+  <script src="../../dist/vux.min.js"></script>
 
   <script>
-  Vue.component('group', vuxGroup)
-  Vue.component('cell', vuxCell)
+  Vue.use(vuxAlertPlugin)
+  // or Vue.use(vux.vuxAlertPlugin)
+
   new Vue({
     el: '#demo',
     data: {
       how: 'Cool'
+    },
+    mounted () {
+      this.$vux.alert.show('hello')
     }
   })
   </script>

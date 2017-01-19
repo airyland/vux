@@ -17,6 +17,7 @@ config.vux.plugins.forEach(function(plugin) {
 })
 config.vux.options.env = 'production'
 
+const fs = require('fs')
 const touch = require('touch')
 const path = require('path')
 const list = require(path.resolve(__dirname, '../src/datas/vux_component_list.json'))
@@ -41,7 +42,7 @@ var build = thunkify(function (config, name, cb) {
     console.log('size', size)
     console.log('time', (new Date().getTime() - start) / 1000 + 's')
     console.log('----------------')
-    cb && cb()
+    cb && cb(err)
   })
 })
 
@@ -63,7 +64,11 @@ const maps = require(path.resolve(__dirname, '../src/components/map.json'))
 
 let isBuilding = false
 co(function* () {
-
+  try {
+    yield build(buildMainConfig(), 'vux')
+  } catch(e){
+    console.log(e)
+  }
   try {
     const pluginList = ['Confirm', 'Toast', 'Device', 'Alert']
     for (let j = 0; j < pluginList.length; j++) {
@@ -87,7 +92,6 @@ co(function* () {
         yield build(buildConfig(one), one.name)
       }
     }
-    yield build(buildMainConfig(), 'vux')
   } catch (e) {
     console.log(e)
   }
@@ -109,6 +113,31 @@ function _camelCase(input) {
 }
 
 function buildMainConfig() {
+
+  // list all components
+  const list = require('../src/components/map.json')
+  let code = 'const vux = {}\n'
+  code += `/* only for building vux.css */
+import Style from '../styles/index.vue'\n`
+
+  delete list['NOTICE']
+  delete list['ChinaAddressV1Data']
+
+  for (let i in list) {
+      const name = `${namespace}${i}`
+      code += `import ${name} from '${list[i]}'\n
+vux['${name}'] = ${name}\n`
+  }
+
+  code += `
+if (!!window) {
+  for (let i in vux) {
+    window[i] = vux[i]
+  }
+}\n`
+  code += `module.exports = vux`
+
+  fs.writeFileSync(path.resolve(__dirname, '../src/components/index.js'), code)
 
   delete config.entry
 
