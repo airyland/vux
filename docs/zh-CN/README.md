@@ -56,7 +56,7 @@ npm install vue-cli -g // 如果还没安装
 vue init airyland/vux2 project
 
 cd project
-npm install
+npm install // 使用 cnpm 安装可能会出现问题，推荐使用 npm --registry=https://registry.npm.taobao.org
 npm run dev
 ```
 
