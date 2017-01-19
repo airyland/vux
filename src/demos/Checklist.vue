@@ -1,7 +1,11 @@
 <template>
   <div>
     <checklist :title="$t('Basic Usage')" required :options="commonList" v-model="checklist001" @on-change="change"></checklist>
-
+    <div style="padding:15px;">
+      <x-button @click.native="selectFirst" type="primary">选择第1个值</x-button>
+      <x-button @click.native="selectFirstTwo" type="primary">选择前两个值</x-button>
+      <x-button @click.native="selectLeft" type="primary">选择剩下值</x-button>
+    </div>
     <checklist :title="$t('handle errors')" required :options="commonList" show-error v-model="checklist0011" @on-change="change" @on-error="onError" @on-clear-error="onNoError" name="demo1" :max="2">
       <p slot="footer" v-show="error" class="error">{{error}}</p>
     </checklist>
@@ -39,7 +43,8 @@ Async list:
 </i18n>
 
 <script>
-import { Group, Checklist, Cell, Divider } from 'vux'
+import { Group, Checklist, Cell, Divider, XButton } from 'vux'
+import _ from 'lodash'
 
 export default {
   mounted () {
@@ -51,7 +56,8 @@ export default {
     Group,
     Checklist,
     Cell,
-    Divider
+    Divider,
+    XButton
   },
   methods: {
     change (val) {
@@ -63,6 +69,16 @@ export default {
     },
     onNoError () {
       this.error = null
+    },
+    selectFirst () {
+      this.checklist001 = ['China']
+    },
+    selectFirstTwo () {
+      this.checklist001 = ['China', 'Japan']
+    },
+    selectLeft () {
+      const left = _.without.apply(_, [this.commonList].concat(this.checklist001))
+      this.checklist001 = left
     }
   },
   data () {
