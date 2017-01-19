@@ -306,6 +306,8 @@ npm run build-styles
 
 <p class="warning">
   暂时只支持配合`vux-loader`使用。
+  <br>
+  注意的是主题文件不能引入其他less文件，只能为变量列表。
 </p>
 
 请配置vux-loader的`less-theme`插件，指定用以覆盖的less文件路径：
@@ -320,6 +322,8 @@ npm run build-styles
 ### - 可配置颜色
 
 <p class="tip">
+源码地址：<a href="https://github.com/airyland/vux/blob/v2/src/styles/variable.less">https://github.com/airyland/vux/blob/v2/src/styles/variable.less</a>
+<br>
   更多配置需求请通过 issue 提出。
 </p>
 
@@ -452,6 +456,8 @@ npm run build-styles
 
 ### - demo站点的示例配置
 
+源代码地址：[https://github.com/airyland/vux/blob/v2/src/theme.less](https://github.com/airyland/vux/blob/v2/src/theme.less)
+
 ``` css
 @yellow: #ffe26d;
 @button-tab-active-border-color: #ccc;
@@ -467,8 +473,12 @@ npm run build-styles
 
 @checklist-icon-active-color: #FF9900;
 
-@tab-active-font-color: #FF9900;
-@tab-active-bar-color: #FF9900;
+@tab-text-active-color: #FF9900;
+@tab-bar-active-color: #FF9900;
+
+@dialog-button-text-primary-color: #FF9900;
+
+@form-preview-button-primary-color: #FF9900;
 ```
 
 ## 常见问题
