@@ -28,7 +28,7 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "build-docs": "mkdir docs/zh-CN/demos && node build/build-docs.js",
+    "build-docs": "rm -rf docs/zh-CN/demos && mkdir docs/zh-CN/demos && node build/build-docs.js",
     "build-components": "node build/build-components.js",
     "build-styles": "rm -rf dist/styles && mkdir dist/styles && node build/build-styles.js",
     "xbuild": "npm run build-styles && npm run build-components",
