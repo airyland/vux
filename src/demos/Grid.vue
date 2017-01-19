@@ -10,6 +10,10 @@
       <grid-item :link="{ path: '/component/cell'}" :label="$t('Go to Cell')">
         <img slot="icon" src="../assets/grid_icon.png">
       </grid-item>
+      <grid-item link="/component/cell" @on-item-click="onItemClick">
+        <img slot="icon" src="../assets/grid_icon.png">
+        <span slot="label">{{ $t('Go to Cell') }}</span>
+      </grid-item>
     </grid>
   </div>
 </template>
@@ -28,6 +32,11 @@ export default {
   components: {
     Grid,
     GridItem
+  },
+  methods: {
+    onItemClick () {
+      console.log('on item click')
+    }
   }
 }
 </script>

@@ -3,7 +3,7 @@
     <div class="weui-grid__icon">
       <slot name="icon"><img :src="icon" alt=""></slot>
     </div>
-    <p class="weui-grid__label" v-if="label" v-html="label"><slot name="label"></slot></p>
+    <p class="weui-grid__label"><slot name="label"><span v-html="label"></span></slot></p>
     <slot></slot>
    </a>
 </template>
@@ -15,6 +15,7 @@ export default {
   props: ['icon', 'label', 'link'],
   methods: {
     onClick () {
+      this.$emit('on-item-click')
       go(this.link, this.$router)
     }
   }
