@@ -10,7 +10,7 @@ tags:
     - 星级
     - 评分
 props:
-  max: 
+  max:
     type: Number
     default: 5
     zh-CN: 最多可选个数
@@ -18,7 +18,7 @@ props:
     type: Number
     default: 0
     zh-CN: 值，使用 v-model 绑定
-  disabled: 
+  disabled:
     type: Boolean
     default: false
     zh-CN: 是否禁用
@@ -27,7 +27,7 @@ props:
     default: '★'
     zh-CN: 字符
   active-color:
-    type: String,
+    type: String
     default: '#fc6'
     zh-CN: 选中时的颜色
   margin:

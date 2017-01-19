@@ -9,6 +9,8 @@ tags:
     - 滚动
 extra: |
   <p class="warning">
+  `Scroller`的内容必须是一个`div`，并且只能有一个`div`
+  <br>
   `Scroller` 希望解决的是简单的列表问题而不是一个内嵌各种复杂标签交互的容器，很容易发生性能或者交互问题。
   </p>
 after_extra: |
@@ -42,7 +44,7 @@ after_extra: |
   ```
 
   <span class="vux-qa">QA 如何更新数据</span>
-  
+
   如果展示内容只是简单的增加或者减少，直接调用`reset`方法即可
 
   ``` js
@@ -52,7 +54,7 @@ after_extra: |
   ```
 
   如果展示内容完全重载，那么需要主动设置位置让其能正确回到顶部。适用于改变筛选条件后重载数据的情况
-  
+
   ``` js
   this.$nextTick(() => {
     this.$refs.scroller.reset({
@@ -86,21 +88,21 @@ after_extra: |
     }
   }
   ```
-  
+
   ```
   // 重置状态为default
   this.status.pullupStatus = 'default
   ```
 
   <span class="vux-qa">QA 如何设置pulldown完成</span>
-  
+
   参照`pullup`, 使用方法`donePulldown`或者绑定`pulldownStatus`然后重置为`default`。
-  
+
   <span class="vux-qa">QA 如何禁用或者启用pullup</span>
-  
+
   在有些情况下，比如数据不多不需要上拉加载或者已经加载完成，我们需要禁用pullup
   同样可以调用方法 `disablePullup` 或者设置`pullupSatatus`为`disabled`
-  
+
   反之，则调用方法 `enalbePullup` 或者设置`pullupSatatus`为`enabled`
 props:
   value:
