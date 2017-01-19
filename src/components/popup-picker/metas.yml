@@ -30,6 +30,10 @@ props:
     zh-CN: 是否显示文字值而不是key
   inline-desc:
     zh-CN: Cell的描述文字
+  value-text-align:
+    type: String
+    default: right
+    zh-CN: 'value 对齐方式(text-align), `v2.1.0-rc.3`开始支持'
 events:
   on-change:
     params: '`(value)`'

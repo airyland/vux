@@ -1,10 +1,22 @@
 <template>
   <div class="vux-cell-box">
-    <cell v-show="showCell" :title="title" primary="content" is-link :inline-desc="inlineDesc" @click.native="onClick">
-      <span class="vux-popup-picker-value" v-if="!showName && value.length">{{value | array2string}}</span>
-      <span class="vux-popup-picker-value" v-else="showName && value.length">{{value | value2name(data)}}</span>
-      <span v-if="!value.length && placeholder" v-html="placeholder"></span>
-    </cell>
+    <div class="weui_cell vux-tap-active" @click="onClick" v-show="showCell">
+      <div class="weui_cell_hd">
+        <label class="weui_label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
+        <inline-desc>{{inlineDesc}}</inline-desc>
+      </div>
+      <div class="weui_cell_bd weui_cell_primary with_arrow vux-popup-picker-select-box">
+        <div class="vux-popup-picker-select" :style="{textAlign: valueTextAlign}">
+          <span class="vux-popup-picker-value" v-if="!showName && value.length">{{value | array2string}}</span>
+          <span class="vux-popup-picker-value" v-else="showName && value.length">{{value | value2name(data)}}</span>
+          <span v-if="!value.length && placeholder" v-html="placeholder"></span>
+        </div>
+      </div>
+      <div class="weui_cell_ft">
+
+      </div>
+    </div>
+
     <popup v-model="showValue" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid" @on-hide="onPopupHide" @on-show="$emit('on-show')">
       <div class="vux-popup-picker-container">
         <div class="vux-popup-picker-header">
@@ -22,6 +34,7 @@
         :container="'#vux-popup-picker-'+uuid"></picker>
       </div>
     </popup>
+
   </div>
 </template>
 
@@ -38,6 +51,7 @@ confirm_text:
 import Picker from '../picker'
 import Cell from '../cell'
 import Popup from '../popup'
+import InlineDesc from '../inline-desc'
 import { Flexbox, FlexboxItem } from '../flexbox'
 import array2string from '../../filters/array2String'
 import value2name from '../../filters/value2name'
@@ -59,13 +73,18 @@ export default {
     Cell,
     Popup,
     Flexbox,
-    FlexboxItem
+    FlexboxItem,
+    InlineDesc
   },
   filters: {
     array2string,
     value2name
   },
   props: {
+    valueTextAlign: {
+      type: String,
+      default: 'right'
+    },
     title: String,
     cancelText: String,
     confirmText: String,
@@ -214,5 +233,28 @@ export default {
 .vux-popup-picker-header-menu-right {
   text-align: right;
   padding-right: 15px;
+}
+.vux-popup-picker-select {
+  width: 100%;
+  position: relative;
+}
+.vux-popup-picker-select span {
+  padding-right: 15px;
+}
+.vux-popup-picker-select-box.weui_cell_bd:after {
+  content: " ";
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  position: relative;
+  top: -2px;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -3px;
 }
 </style>

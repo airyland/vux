@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <cell :title="$t('My Account')" :value="$t('Protected')"></cell>
+      <cell :title="$t('My Account')" :value="$t('Protected')" @click.native="onClick"></cell>
     </group>
 
     <group :title="$t('use is-link to show arrow')">
@@ -70,6 +70,11 @@ export default {
   components: {
     Group,
     Cell
+  },
+  methods: {
+    onClick () {
+      console.log('on click')
+    }
   }
 }
 </script>

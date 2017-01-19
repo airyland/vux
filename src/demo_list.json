@@ -67,5 +67,6 @@
   "LoadMore",
   "ScrollerFull",
   "ScrollerHeader",
-  "Grid"
+  "Grid",
+  "Group"
 ]
