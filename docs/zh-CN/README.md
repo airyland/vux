@@ -42,9 +42,23 @@ npm install vux --save
 ```
 
 <p class="warning">
-vux@2.x 版本刚发布，如果使用有问题请及时提出，会快速解决。
-<br>
-vux@0.x 即将停止维护，请尽快迁移到 vue@2.x & vuex@2.x & vux@2.x，虽然要花点时间，但是完全值得。
+vux2必须配合`vux-loader`使用, 请在`build/webpack.base.conf.js`里参照如下代码进行配置：
+</p>
+
+``` js
+const vuxLoader = require('vux-loader')
+module.exports = vuxLoader.merge(webpackConfig, {
+  options: {},
+  plugins: [
+    {
+      name: 'vux-ui'
+    }
+	]
+})
+```
+
+<p class="warning">
+vux@0.x 已经停止维护，请尽快迁移到 vue@2.x & vuex@2.x & vux@2.x，虽然要花点时间，但是完全值得。
 </p>
 
 ### - 快速入门
