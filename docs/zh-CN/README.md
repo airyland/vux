@@ -160,12 +160,14 @@ import { AlertPlugin, ToastPlugin } from 'vux'
 
   <p class="tip">
   从`2.0`开始，`VUX`不再在`repo`中保存`umd`文件，但提供了生成命令。
+  <br>
+  例子可查看：[https://github.com/airyland/vux/tree/v2/docs/examples](https://github.com/airyland/vux/tree/v2/docs/examples)
   </p>
 
   ### -- 生成命令
 
   ``` bash
-  git clone https://github.com/airyland/vux.git // or just update: git pull
+  git clone https://github.com/airyland/vux.git --depth=1 // or just update: git pull
   cd vux
   npm install
   npm run build-components

@@ -214,7 +214,7 @@ function render(files, tag) {
 
   buildDemos(infos)
 
-  let langs = ['zh-CN', 'en']
+  let langs = ['zh-CN']
   for (var i = 0; i < langs.length; i++) {
     let lang = langs[i]
     let docs = ''

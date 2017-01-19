@@ -1,4 +1,34 @@
 icon: '&#xe603;'
+extra: |
+
+  该组件支持以`plugin`形式调用：
+
+  ``` js
+  import  { AlertPlugin } from 'vux'
+  Vue.use(AlertPlugin)
+
+  // 或者umd方式
+  // 引入构建的js文件
+  Vue.use(vuxAlertPlugin)
+  ```
+
+  ``` js
+  // 显示
+  this.$vux.alert.show({
+    title: 'Vux is Cool',
+    content: 'Do you agree?',
+    onShow () {
+      console.log('Plugin: I\'m showing')
+    },
+    onHide () {
+      console.log('Plugin: I\'m hiding')
+    }
+  })
+  // 隐藏
+  this.$vux.alert.hide()
+  ```
+
+
 tags:
   en:
     - alert

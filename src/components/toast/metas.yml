@@ -7,6 +7,27 @@ tags:
   zh-CN:
     - 弹窗
     - 提示
+extra: |
+ 该组件支持以`plugin`形式调用：
+
+ ``` js
+ import  { ToastPlugin } from 'vux'
+ Vue.use(ToastPlugin)
+
+ // 或者umd方式
+ // 引入构建的js文件
+ Vue.use(vuxToastPlugin)
+ ```
+
+ ``` js
+ // 显示
+ this.$vux.toast.show({
+  text: 'Loading'
+ })
+ // 隐藏
+ this.$vux.toast.hide()
+ ```
+
 props:
   value:
     type: Boolean

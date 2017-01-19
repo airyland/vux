@@ -8,6 +8,28 @@ tags:
     - 弹窗
     - 消息提示
     - 确认
+extra: |
+  该组件支持以`plugin`形式调用：
+
+  ``` js
+  import  { ConfirmPlugin } from 'vux'
+  Vue.use(ConfirmPlugin)
+
+  // 或者umd方式
+  // 引入构建的js文件
+  Vue.use(vuxConfirmPlugin)
+  ```
+
+  ``` js
+  // 显示
+  this.$vux.confirm.show({
+    // 组件除show外的属性
+    onCancel () {},
+    onConfirm () {}
+  })
+  // 隐藏
+  this.$vux.alert.hide()
+  ```
 props:
   show:
     type: Boolean
