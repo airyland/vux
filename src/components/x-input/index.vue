@@ -6,7 +6,7 @@
     </div>
     <div class="weui_cell_bd weui_cell_primary">
       <input
-      v-if="!type || type === 'text' "
+      v-if="!type || type === 'text'"
       class="weui_input"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
@@ -22,7 +22,7 @@
       @blur="blur"
       ref="input"/>
       <input
-      v-if="type === 'number' "
+      v-if="type === 'number'"
       class="weui_input"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
@@ -38,7 +38,7 @@
       @blur="blur"
       ref="input"/>
       <input
-      v-if="type === 'email' "
+      v-if="type === 'email'"
       class="weui_input"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
@@ -54,7 +54,7 @@
       @blur="blur"
       ref="input"/>
       <input
-      v-if="type === 'password' "
+      v-if="type === 'password'"
       class="weui_input"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
