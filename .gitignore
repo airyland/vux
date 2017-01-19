@@ -18,3 +18,4 @@ docs/zh-CN/*
 *.vue.vux.*
 src/locales/components.yml
 /dist/*/*
+src/components/index.js
