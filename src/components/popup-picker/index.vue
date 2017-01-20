@@ -112,7 +112,7 @@ export default {
         if (this.value.length) {
           const nowData = JSON.stringify(this.data)
           if (nowData !== this.currentData && this.currentData !== '[]') {
-            this.value = getObject(val)
+            this.tempValue = getObject(val)
           }
           this.currentData = nowData
         } else { // if no value, stay quiet
