@@ -88,7 +88,7 @@ export default {
 </script>
 
 <style>
-.vux-popup-dialog {
+.vux-popup-dialog,.vux-popup {
   position: fixed;
   left: 0;
   bottom: 0;
