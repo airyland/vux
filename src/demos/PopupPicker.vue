@@ -3,6 +3,44 @@
     <group title="single column">
       <popup-picker :title="title1" :data="list1" v-model="value1" @on-show="onShow" @on-hide="onHide"></popup-picker>
     </group>
+    <br>
+    <div class="picker-buttons">
+       <x-button type="primary" @click.native="changeList10">重新赋值列表</x-button>
+       <x-button type="primary" @click.native="changeList11">push方式更改列表</x-button>
+     </div>
+     <group title="double columns">
+       <popup-picker :title="title2" :data="list2" v-model="value2"></popup-picker>
+     </group>
+     <br>
+
+     <group title="chained columns">
+       <popup-picker :title="title3" :data="list3" :columns="3" v-model="value3" ref="picker3"></popup-picker>
+       <cell title="获取值对应的文字" value="$refs.picker3.getNameValues()"></cell>
+       <popup-picker :title="title4" :data="list3" :columns="3" v-model="value4" show-name></popup-picker>
+     </group>
+
+     <br>
+     <div class="picker-buttons">
+       <x-button type="primary" @click.native="changeList21">push方式更改列表</x-button>
+     </div>
+
+     <br>
+     <divider>Control the visibility of popup-picker</divider>
+     <div style="margin: 0 15px;">
+       <x-button @click.native="showPopupPicker = true" type="primary">Show PopupPicker. value: {{value5 }}</x-button>
+     </div>
+     <group>
+       <popup-picker :show="showPopupPicker" :show-cell="false" title="TEST" :data="[['1', '2', '3', '4', '5']]" v-model="value5" @on-hide="showPopupPicker=false"></popup-picker>
+     </group>
+
+     <br>
+     <group title="隐藏时不影响其他popup-picker的mask">
+       <x-switch title="ishide popup-picker" v-model="switch6"></x-switch>
+       <popup-picker v-if="!switch6" :show.sync="showPopupPicker" title="显示值" :data="['我不会影响遮罩层'.split('')]" v-model="value6"></popup-picker>
+     </group>
+
+     <br>
+     <br>
   </div>
 </template>
 
