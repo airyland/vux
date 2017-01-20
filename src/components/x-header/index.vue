@@ -60,7 +60,6 @@ export default {
 }
 .vux-header .vux-header-title,.vux-header h1 {
   margin: 0 88px;
-  margin-left: 100px;
   line-height: 40px;
   text-align: center;
   height: 40px;

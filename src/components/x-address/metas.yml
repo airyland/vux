@@ -7,7 +7,11 @@ extra:
         <x-address title="title" v-model="value"></x-address>
       </group>
     ```
-    
+
+    <p class="tip">
+    如果你需要单独引入地址数据，可以在源码[src/datas](https://github.com/airyland/vux/tree/v2/src/datas)找到。
+    </p>
+
     <p class="tip">`x-address`只能在`Group`中使用</p>
 tags:
   en:

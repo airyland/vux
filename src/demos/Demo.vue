@@ -1,19 +1,22 @@
 <template>
   <div>
-    <flexbox wrap="wrap" :gutter="0" class="vux-1px-b">
-      <flexbox-item :span="1/3" v-for="component in components" class="cbox vux-1px-t" @click.native="go(component.name.toLowerCase())">
-        <div class="vux-1px-r cbox-inner">
-          <span class="demo-icon" v-html="component.icon" :style="{color: component.color}"></span>
-          <br>
-          <span class="cname">{{component.name}}</span>
-        </div>
-      </flexbox-item>
-    </flexbox>
+    <keep-alive>
+      <flexbox wrap="wrap" :gutter="0" class="vux-1px-b">
+        <flexbox-item :span="1/3" v-for="component in components" class="cbox vux-1px-t" @click.native="go(component.name.toLowerCase())">
+          <div class="vux-1px-r cbox-inner">
+            <span class="demo-icon" v-html="component.icon" :style="{color: component.color}"></span>
+            <br>
+            <span class="cname">{{component.name}}</span>
+          </div>
+        </flexbox-item>
+      </flexbox>
+    </keep-alive>
   </div>
 </template>
 
 <script>
 import { Flexbox, FlexboxItem, VuxComponentListData as components } from 'vux'
+import { mapState } from 'vuex'
 
 export default {
   components: {
@@ -29,6 +32,11 @@ export default {
     return {
       components: components
     }
+  },
+  computed: {
+    ...mapState({
+      demoTop: state => state.vux.demoScrollTop
+    })
   }
 }
 </script>
@@ -46,24 +54,5 @@ export default {
 }
 .cname {
   text-transform: capitalize;
-}
-
-@font-face {
-  font-family: 'vux-demo';  /* project id 70323 */
-  src: url('//at.alicdn.com/t/font_mh11prdwhirx80k9.eot');
-  src: url('//at.alicdn.com/t/font_mh11prdwhirx80k9.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_mh11prdwhirx80k9.woff') format('woff'),
-  url('//at.alicdn.com/t/font_mh11prdwhirx80k9.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_mh11prdwhirx80k9.svg#iconfont') format('svg');
-}
-
-.demo-icon {
-  font-family: 'vux-demo';
-  font-size:20px;
-  color: #04BE02;
-}
-
-.demo-icon:before {
-  content: attr(icon);
 }
 </style>

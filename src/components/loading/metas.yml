@@ -7,6 +7,30 @@ tags:
     - 加载
     - 弹窗
     - 提示
+extra: |
+   该组件支持以`plugin`形式调用：
+
+   ``` js
+   import  { LoadingPlugin } from 'vux'
+   Vue.use(LoadingPlugin)
+
+   // 或者umd方式
+   // 引入构建的js文件
+   Vue.use(vuxLoadingPlugin)
+   ```
+
+   ``` js
+   // 显示
+   this.$vux.loading.show({
+    text: 'Loading'
+   })
+   // 隐藏
+   this.$vux.loading.hide()
+   ```
+   <p class="tip">
+   loading同样支持在vue外直接使用，请参照 [https://github.com/airyland/vux/blob/v2/docs/examples/loading.html](https://github.com/airyland/vux/blob/v2/docs/examples/loading.html)
+   </p>
+
 props:
   value:
     type: Boolean

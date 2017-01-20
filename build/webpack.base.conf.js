@@ -128,10 +128,16 @@ module.exports = vuxLoader.merge(webpackConfig, {
         list = JSON.parse(list)
         let str = []
         list.forEach(one => {
+          let filename = one
+          let path = `/component/${toDash(one)}`
+          if (/#/.test(one)) {
+            filename = one.split('#')[0]
+            path = one.split('#')[1]
+          }
           str.push(`{
-  path: '/component/${toDash(one)}',
+  path: '${path}',
   component: function (resolve) {
-    require(['./demos/${one}.vue'], resolve)
+    require(['./demos/${filename}.vue'], resolve)
   }
 }`)
         })
@@ -154,6 +160,7 @@ module.exports = vuxLoader.merge(webpackConfig, {
     },
     {
       name: 'i18n',
+      vuxStaticReplace: true,
       staticReplace: false,
       extractToFiles: 'src/locales/components.yml',
       localeList: ['en', 'zh-CN']

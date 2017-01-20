@@ -68,5 +68,10 @@
   "ScrollerFull",
   "ScrollerHeader",
   "Grid",
-  "Group"
+  "Group",
+  "ViewBox",
+  "Home#/",
+  "Donate#/project/donate",
+  "Demo#/demo",
+  "FormatTime"
 ]
