@@ -11,6 +11,7 @@
   "AlertPlugin": "src/plugins/alert/index.js",
   "ConfirmPlugin": "src/plugins/confirm/index.js",
   "DevicePlugin": "src/plugins/device/index.js",
+  "LoadingPlugin": "src/plugins/loading/index.js",
   "TitlePlugin": "src/plugins/title/index.js",
   "ToastPlugin": "src/plugins/toast/index.js",
   "ClickOutsideDirective": "src/directives/click-outside/index.js",

@@ -4,6 +4,9 @@
       <x-switch :title="$t('Toggle')" v-model="show1" @on-change="show1change"></x-switch>
     </group>
     <loading v-model="show1" :text="text1"></loading>
+    <div style="padding: 15px;">
+      <x-button @click.native="showLoading" type="primary">显示loading(2s后关闭)</x-button>
+    </div>
   </div>
 </template>
 
@@ -11,13 +14,14 @@
 </i18n>
 
 <script>
-import { Loading, Group, XSwitch } from 'vux'
+import { Loading, Group, XSwitch, XButton } from 'vux'
 
 export default {
   components: {
     Loading,
     Group,
-    XSwitch
+    XSwitch,
+    XButton
   },
   data () {
     return {
@@ -26,6 +30,14 @@ export default {
     }
   },
   methods: {
+    showLoading () {
+      this.$vux.loading.show({
+        text: 'Loading'
+      })
+      setTimeout(() => {
+        this.$vux.loading.hide()
+      }, 2000)
+    },
     show1change (val) {
       if (val) {
         tick(0, (percent) => {

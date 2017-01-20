@@ -98,7 +98,7 @@ co(function* () {
   }
 
   try {
-    const pluginList = ['Confirm', 'Toast', 'Device', 'Alert']
+    const pluginList = ['Confirm', 'Toast', 'Device', 'Alert', 'Loading']
     for (let j = 0; j < pluginList.length; j++) {
       yield build(buildPlugin(pluginList[j]), `Plugin ${pluginList[j]}`)
     }
