@@ -17,12 +17,32 @@ config.vux.plugins.forEach(function(plugin) {
 })
 config.vux.options.env = 'production'
 
+const webpack = require('webpack')
+const mkdirp = require('mkdirp')
 const fs = require('fs')
 const touch = require('touch')
 const path = require('path')
+
+mkdirp.sync(path.resolve(__dirname, '../dist/plugins'))
+mkdirp.sync(path.resolve(__dirname, '../dist/styles'))
+
 const list = require(path.resolve(__dirname, '../src/datas/vux_component_list.json'))
-const webpack = require('webpack')
-const mkdirp = require('mkdirp')
+const maps = require(path.resolve(__dirname, '../src/components/map.json'))
+// 查找在maps里但不在list里的组件
+let others = []
+for(let i in maps) {
+  let match = list.filter(function(one){
+    return _camelCase(one.name) === i
+  })
+  if (match.length === 0 && !/Plugin|Data|Directive|Filter|Item|NOTICE|Demo|Dev/.test(i)) {
+    others.push({
+      name: toDash(i),
+      importName: i,
+      path: maps[i]
+    })
+  }
+}
+
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var co = require('co')
 var thunkify = require('thunkify')
@@ -60,15 +80,23 @@ config.plugins.forEach((one, index) => {
 
 config.output.assetsPublicPath = '/'
 
-const maps = require(path.resolve(__dirname, '../src/components/map.json'))
-
 let isBuilding = false
+
+co(function*() {
+  try {
+    for (let n = 0; n < others.length; n++) {
+      yield build(buildConfig(others[n]), others[n].name)
+    }
+  } catch (e) {}
+})
+
 co(function* () {
   try {
     yield build(buildMainConfig(), 'vux')
   } catch(e){
     console.log(e)
   }
+
   try {
     const pluginList = ['Confirm', 'Toast', 'Device', 'Alert']
     for (let j = 0; j < pluginList.length; j++) {
@@ -202,4 +230,10 @@ function buildConfig(one) {
   config.output.filename = `index.min.js`
   config.output.path = path.resolve(__dirname, `../dist/components/${one.name}/`)
   return config
+}
+
+function toDash(str) {
+  return str.replace(/([A-Z])/g, function (m, w) {
+    return '-' + w.toLowerCase();
+  }).replace('-', '')
 }
