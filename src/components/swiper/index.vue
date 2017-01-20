@@ -2,9 +2,9 @@
   <div class="vux-slider">
     <div class="vux-swiper" :style="{height: xheight}">
       <slot></slot>
-      <div class="vux-swiper-item" v-for="(index, item) in list" @click="clickListItem(item)" :data-index="index">
-        <a href="javascript:">
-          <div class="vux-img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
+      <div class="vux-swiper-item"  v-for="(index, item) in list" @click="clickListItem(item)" :data-index="index">
+        <a :href="item.url">
+          <div class="vux-img {{item.cls}}"></div>
           <p class="vux-swiper-desc" v-if="showDescMask">{{item.title}}</p>
         </a>
       </div>

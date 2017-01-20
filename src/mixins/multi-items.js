@@ -29,7 +29,8 @@ const parentMixin = {
   },
   data () {
     return {
-      number: this.$children.length
+      number: this.$children.length,
+      index: 0
     }
   }
 }
