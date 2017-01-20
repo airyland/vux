@@ -11,6 +11,15 @@ nav: zh-CN
   <a href="https://www.npmjs.com/package/vux">
     <img src="https://img.shields.io/npm/dm/vux.svg?style=flat-square" alt="">
   </a>
+  <br>
+  <br>
+  <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
+    <img src="https://static.vux.li/demo_v2_doc_home.png" width="100" alt="">
+  </a>
+  <br>
+  <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
+    预览地址>>
+  </a>
 </p>
 
 
@@ -35,7 +44,7 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 
 ## 安装使用(webpack)
 
-直接安装：
+直接安装或者更新：
 
 ``` js
 npm install vux --save
@@ -514,6 +523,10 @@ npm run build-styles
     extensions: ['', '.js', '.vue', '.json']
   }
   ```
+
+- $t is not defined
+
+  请参照文档配置 `vux-loader`
 
 - Uncaught SyntaxError: Unexpected token export
 
