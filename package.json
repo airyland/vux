@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "xdev": "node build/dev-server.js --simulate --port 8087",
-    "build": "node build/build.js",
+    "build": "node build/build.js && rm -rf docs/demos/v2/ && mkdir docs/demos/v2 && cp -r docs/demos/temp/* docs/demos/v2/",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
