@@ -34,6 +34,9 @@
         <p v-for="i in 20" v-if="showList1">placeholder {{ i + '' + i }}</p>
         <p v-for="i in 10" v-if="!showList1">placeholder {{ i }}</p>
         <x-button style="margin:10px 0;" type="primary" @click.native="onClickButton">{{ $t('Button') }}</x-button>
+        <group>
+          <cell @click.native="onCellClick" title="Title" value="Value"></cell>
+        </group>
       </div>
     </scroller>
     <x-button @click.native="changeList" type="primary">{{ $t('show another list') }}</x-button>
@@ -44,7 +47,7 @@
 A Horizontal Scroller without Scrollbar:
   zh-CN: 不带滚动条的水平 scroller
 A Horizontal Scroller with Scrollbar:
-  zh-CN: 显示滚动条的水平 scroller 
+  zh-CN: 显示滚动条的水平 scroller
 A Horizontal Scroller without bounce effect:
   zh-CN: 没有边缘回滚效果的水平 scroller
 A Vertical Scroller:
@@ -58,14 +61,16 @@ Button:
 </i18n>
 
 <script>
-import { Scroller, Divider, Spinner, XButton } from 'vux'
+import { Scroller, Divider, Spinner, XButton, Group, Cell } from 'vux'
 
 export default {
   components: {
     Scroller,
     Divider,
     Spinner,
-    XButton
+    XButton,
+    Group,
+    Cell
   },
   data () {
     return {
@@ -73,6 +78,9 @@ export default {
     }
   },
   methods: {
+    onCellClick () {
+      window.alert('cell click')
+    },
     onClickButton () {
       window.alert('click')
     },
