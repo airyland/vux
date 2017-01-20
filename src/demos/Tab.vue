@@ -1,49 +1,49 @@
 <template>
   <div>
     <tab>
-      <tab-item :selected="demo1 === '已发货'" @click="demo1 = '已发货'">已发货</tab-item>
-      <tab-item :selected="demo1 === '未发货'" @click="demo1 = '未发货'">未发货</tab-item>
-      <tab-item :selected="demo1 === '全部订单'" @click="demo1 = '全部订单'">全部订单</tab-item>
+      <tab-item selected>已发货</tab-item>
+      <tab-item>未发货</tab-item>
+      <tab-item>全部订单</tab-item>
     </tab>
     <br/>
     <br/>
     <br/>
     <div style="width: 100%;overflow:scroll;-webkit-overflow-scrolling:touch;">
       <tab style="width:500px;">
-        <tab-item :selected="demo1 === '分类1'" @click="demo1 = '分类1'">已发货</tab-item>
-        <tab-item :selected="demo1 === '分类2'" @click="demo1 = '分类2'">未发货</tab-item>
-        <tab-item :selected="demo1 === '分类3'" @click="demo1 = '分类3'">全部订单</tab-item>
-        <tab-item :selected="demo1 === '分类4'" @click="demo1 = '分类4'">全部订单</tab-item>
-        <tab-item :selected="demo1 === '分类5'" @click="demo1 = '分类5'">全部订单</tab-item>
+        <tab-item>已发货</tab-item>
+        <tab-item selected>未发货</tab-item>
+        <tab-item>全部订单</tab-item>
+        <tab-item>全部订单</tab-item>
+        <tab-item>全部订单</tab-item>
       </tab>
     </div>
-    
+
     <br/>
     <br/>
     <br/>
     <divider>different active class</divider>
     <tab :animate="false">
-      <tab-item active-class="active-6-1" :selected="demo6 === '已发货'" @click="demo6 = '已发货'">已发货</tab-item>
-      <tab-item active-class="active-6-2" :selected="demo6 === '未发货'" @click="demo6 = '未发货'">未发货</tab-item>
-      <tab-item active-class="active-6-3" :selected="demo6 === '全部订单'" @click="demo6 = '全部订单'">全部订单</tab-item>
+      <tab-item active-class="active-6-1">已发货</tab-item>
+      <tab-item active-class="active-6-2" selected>未发货</tab-item>
+      <tab-item active-class="active-6-3">全部订单</tab-item>
     </tab>
     <br/>
     <br/>
     <br/>
     <divider>no animation</divider>
     <tab :animate="false">
-      <tab-item :selected="demo5 === '已发货'" @click="demo5 = '已发货'">已发货</tab-item>
-      <tab-item :selected="demo5 === '未发货'" @click="demo5 = '未发货'">未发货</tab-item>
-      <tab-item :selected="demo5 === '全部订单'" @click="demo5 = '全部订单'">全部订单</tab-item>
+      <tab-item>已发货</tab-item>
+      <tab-item selected>未发货</tab-item>
+      <tab-item>全部订单</tab-item>
     </tab>
     <br/>
     <br/>
     <br/>
     <divider>disabled</divider>
     <tab>
-      <tab-item :selected="demoDisabled === 'A'" @click="demoDisabled = 'A'">A</tab-item>
-      <tab-item :selected="demoDisabled === 'B'" @click="demoDisabled = 'B'">B</tab-item>
-      <tab-item :selected="demoDisabled === 'Disabled'" disabled>Disabled</tab-item>
+      <tab-item selected>A</tab-item>
+      <tab-item>B</tab-item>
+      <tab-item disabled>Disabled</tab-item>
     </tab>
     <br/>
     <br/>
@@ -70,7 +70,7 @@
       <x-button @click.native="next" type="primary">Active next current: {{index}}</x-button>
       <x-button @click.native="prev" type="primary">Active prev current: {{index}}</x-button>
     </div>
-  
+
     <br/>
     <br/>
     <tab :line-width=2>
@@ -157,15 +157,12 @@ export default {
   },
   data () {
     return {
-      demo1: '未发货',
       list2: list(),
-      demo5: '未发货',
       demo2: '美食',
       list3: ['收到的消息', '发出的消息'],
       demo3: '收到的消息',
       list4: ['正在正映', '即将上映'],
       demo4: '即将上映',
-      demo6: '未发货',
       demoDisabled: 'A',
       index: 0
     }
@@ -201,6 +198,8 @@ export default {
 
 <style lang="less" scoped>
 @import '~vux/src/styles/1px.less';
+@import '~vux/src/styles/center.less';
+
 .box {
   padding: 15px;
 }
