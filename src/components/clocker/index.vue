@@ -26,7 +26,7 @@ export default {
       })
       .on('finish', () => {
         this.timeString = '00:00:00'
-        this.$emit('on-finish')
+        this.$dispatch('on-finish')
       })
       .start()
     },
