@@ -22,12 +22,17 @@ export default {
   },
   computed: {
     styles () {
-      return {
+      const styles = {
         'justify-content': this.justify,
+        '-webkit-justify-content': this.justify,
         'align-items': this.align,
+        '-webkit-align-items': this.align,
         'flex-wrap': this.wrap,
-        'flex-direction': this.direction
+        '-webkit-flex-wrap': this.wrap,
+        'flex-direction': this.direction,
+        '-webkit-flex-direction': this.direction
       }
+      return styles
     }
   }
 }
