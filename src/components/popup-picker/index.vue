@@ -3,6 +3,7 @@
     <div class="weui_cell vux-tap-active" @click="onClick" v-show="showCell">
       <div class="weui_cell_hd">
         <label class="weui_label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
+        <br>
         <inline-desc>{{inlineDesc}}</inline-desc>
       </div>
       <div class="weui_cell_bd weui_cell_primary with_arrow vux-popup-picker-select-box">
@@ -122,16 +123,7 @@ export default {
       return value2name(this.currentValue, this.data)
     },
     onClick () {
-      console.log('click')
-      if (this.onShowProcess) {
-        console.log('进程中')
-      } else {
-        this.showValue = true
-        this.onShowProcess = true
-        setTimeout(() => {
-          this.onShowProcess = false
-        }, 300)
-      }
+      this.showValue = true
     },
     onHide (type) {
       this.showValue = false
@@ -214,9 +206,6 @@ export default {
   transform-origin: 0 0;
   transform: scaleY(0.5);
   left: 15px;
-}
-.vux-popup-picker {
-  border-top: 1px solid #04BE02;
 }
 .vux-popup-picker-header {
   height: 44px;
