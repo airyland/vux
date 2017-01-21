@@ -1,16 +1,14 @@
 <template>
   <div>
-    <keep-alive>
-      <flexbox wrap="wrap" :gutter="0" class="vux-1px-b">
-        <flexbox-item :span="1/3" v-for="component in components" class="cbox vux-1px-t" @click.native="go(component.name.toLowerCase())">
-          <div class="vux-1px-r cbox-inner">
-            <span class="demo-icon" v-html="component.icon" :style="{color: component.color}"></span>
-            <br>
-            <span class="cname">{{component.name}}</span>
-          </div>
-        </flexbox-item>
-      </flexbox>
-    </keep-alive>
+    <flexbox :gutter="0" class="vux-1px-b" v-for="list in components">
+      <flexbox-item :span="1/3" v-for="component in list" class="cbox vux-1px-t" @click.native="go(component.name.toLowerCase())">
+        <div class="vux-1px-r cbox-inner">
+          <span class="demo-icon" v-html="component.icon" :style="{color: component.color}"></span>
+          <br>
+          <span class="cname">{{component.name}}</span>
+        </div>
+      </flexbox-item>
+    </flexbox>
   </div>
 </template>
 
@@ -26,11 +24,20 @@ export default {
   methods: {
     go (name) {
       this.$router.push(`/component/${name}`)
+    },
+    split (array) {
+      let chunks = []
+      let count = Math.ceil(array.length / 3)
+      while (count > 0) {
+        chunks.push(array.slice((count - 1) * 3, count * 3))
+        count--
+      }
+      return chunks.reverse()
     }
   },
   data () {
     return {
-      components: components
+      components: this.split(components)
     }
   },
   computed: {
