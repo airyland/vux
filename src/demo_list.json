@@ -73,5 +73,6 @@
   "Home#/",
   "Donate#/project/donate",
   "Demo#/demo",
-  "FormatTime"
+  "FormatTime",
+  "Uploader"
 ]
