@@ -43,11 +43,13 @@ export default {
   width: 100%;
   text-align: left;
   display: flex;
+  display: -webkit-flex;
   box-align: center;
   align-items: center;
 }
 .vux-flexbox .vux-flexbox-item {
   flex: 1;
+  -webkit-flex: 1;
   min-width: 20px;
   width: 0%;
 }
