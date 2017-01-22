@@ -528,6 +528,10 @@ npm run build-styles
 
   请参照文档配置 `vux-loader`
 
+  demo例子使用`$t`是因为demo启用了`i18n`，如果你没有使用`vuex-i18n`等相关`i18n`插件，请不要使用`$t`函数
+
+  如果已经配置`vux-loader`但依然有错误，请清除`node_modules`使用`npm install`重新安装，`cnpm install`可能会导致出问题。
+
 - Uncaught SyntaxError: Unexpected token export
 
  原因是Vux的js源码没配置babel，你可以在webpack配置的loaders加上
