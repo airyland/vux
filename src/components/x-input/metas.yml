@@ -37,6 +37,10 @@ props:
   max:
     type: Number
     zh-CN: 最大输入字符限制
+events:
+  on-blur:
+    params: '`(value)`'
+    zh-CN: 'input的`blur`事件'
 changes:
   v2.0.0:
     zh-CN:
