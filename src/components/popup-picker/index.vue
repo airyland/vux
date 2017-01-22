@@ -3,8 +3,8 @@
     <div class="weui_cell vux-tap-active" @click="onClick" v-show="showCell">
       <div class="weui_cell_hd">
         <label class="weui_label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
-        <br>
-        <inline-desc>{{inlineDesc}}</inline-desc>
+        <br v-if="inlineDesc">
+        <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </div>
       <div class="weui_cell_bd weui_cell_primary with_arrow vux-popup-picker-select-box">
         <div class="vux-popup-picker-select" :style="{textAlign: valueTextAlign}">
