@@ -203,12 +203,15 @@ export default {
   methods: {
     clear () {
       this.currentValue = ''
-      this.focus = true
+      this.focus()
     },
     blur () {
       this.setTouched()
       this.validate()
       this.$emit('on-blur', this.currentValue)
+    },
+    focus () {
+      this.$refs.input.focus()
     },
     getError () {
       let key = Object.keys(this.errors)[0]
@@ -299,18 +302,12 @@ export default {
       firstError: '',
       forceShowError: false,
       hasLengthEqual: false,
-      focus: false,
       valid: true,
       currentValue: ''
     }
     return data
   },
   watch: {
-    focus (newVal) {
-      if (newVal) {
-        this.$refs.input.focus()
-      }
-    },
     valid () {
       this.getError()
     },
