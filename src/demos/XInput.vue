@@ -28,6 +28,10 @@
       <x-input title="message" required placeholder="I'm placeholder" :show-clear="false" autocapitalize="characters"></x-input>
     </group>
 
+    <group title="focus事件">
+      <x-input title="focus-handler" placeholder="focus me please!" :show-clear="true" @on-focus="onFocus"></x-input>
+    </group>
+
     <group title="set is-type=china-name">
       <x-input title="姓名" name="username" placeholder="请输入姓名" is-type="china-name"></x-input>
     </group>
@@ -109,6 +113,9 @@ export default {
     },
     onBlur (val) {
       console.log('on blur', val)
+    },
+    onFocus (val) {
+      console.log('on focus', val)
     }
   }
 }
