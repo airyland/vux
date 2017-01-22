@@ -2,7 +2,7 @@
   <div>
 
     <group title="禁用内置验证及显示成功或者错误样式">
-      <x-input title="禁用验证" placeholder="I'm placeholder" novalidate :icon-type="iconType" :show-clear="false"></x-input>
+      <x-input title="禁用验证" placeholder="I'm placeholder" novalidate :icon-type="iconType" :show-clear="false" @on-blur="onBlur"></x-input>
     </group>
     <br>
     <x-button @click.native="iconType = 'success'"> set success</x-button>
@@ -106,6 +106,9 @@ export default {
     },
     change (val) {
       console.log(val)
+    },
+    onBlur (val) {
+      console.log('on blur', val)
     }
   }
 }
