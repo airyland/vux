@@ -19,6 +19,7 @@
       :placeholder="placeholder"
       :readonly="readonly"
       v-model="currentValue"
+      @focus="focusHandler"
       @blur="blur"
       ref="input"/>
       <input
@@ -35,6 +36,7 @@
       :placeholder="placeholder"
       :readonly="readonly"
       v-model="currentValue"
+      @focus="focusHandler"
       @blur="blur"
       ref="input"/>
       <input
@@ -51,6 +53,7 @@
       :placeholder="placeholder"
       :readonly="readonly"
       v-model="currentValue"
+      @focus="focusHandler"
       @blur="blur"
       ref="input"/>
       <input
@@ -67,6 +70,7 @@
       :placeholder="placeholder"
       :readonly="readonly"
       v-model="currentValue"
+      @focus="focusHandler"
       @blur="blur"
       ref="input"/>
     </div>
@@ -203,15 +207,15 @@ export default {
   methods: {
     clear () {
       this.currentValue = ''
-      this.focus()
+      this.$refs.input.focus()
+    },
+    focusHandler () {
+      this.$emit('on-focus', this.currentValue)
     },
     blur () {
       this.setTouched()
       this.validate()
       this.$emit('on-blur', this.currentValue)
-    },
-    focus () {
-      this.$refs.input.focus()
     },
     getError () {
       let key = Object.keys(this.errors)[0]
