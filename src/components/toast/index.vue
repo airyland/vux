@@ -3,7 +3,7 @@
     <div class="weui_mask_transparent" v-show="isShowMask && show"></div>
     <div class="weui_toast" :style="{width: width}" :class="toastClass" v-show="show" :transition="transition">
       <i class="weui_icon_toast" v-show="type !== 'text'"></i>
-      <p class="weui_toast_content" v-if="text" v-html="$t(text)"></p>
+      <p class="weui_toast_content" v-if="text" :style="style" v-html="$t(text)"></p>
       <p class="weui_toast_content" v-else><slot></slot></p>
     </div>
   </div>
@@ -52,6 +52,11 @@ export default {
         'weui_toast_cancel': this.type === 'cancel',
         'weui_toast_success': this.type === 'success',
         'weui_toast_text': this.type === 'text'
+      }
+    },
+    style () {
+      if (this.type === 'text' && this.width === 'auto') {
+        return { padding: '10px' }
       }
     }
   },
