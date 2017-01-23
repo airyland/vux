@@ -187,33 +187,39 @@ body {
 }
 @keyframes popInLeft {
   from {
+    opacity: 0;
     transform: translate3d(-100%, 0, 0);
   }
   to {
+    opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
 @keyframes popOutLeft {
   from {
-    transform: translate3d(0, 0, 0);
+    opacity: 1;
   }
   to {
+    opacity: 0;
     transform: translate3d(-100%, 0, 0);
   }
 }
 @keyframes popInRight {
   from {
+    opacity: 0;
     transform: translate3d(100%, 0, 0);
   }
   to {
-    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: none;
   }
 }
 @keyframes popOutRight {
   from {
-    transform: translate3d(0, 0, 0);
+    opacity: 1;
   }
   to {
+    opacity: 0;
     transform: translate3d(100%, 0, 0);
   }
 }
