@@ -53,6 +53,7 @@ var build = thunkify(function (config, name, cb) {
   console.log(`start:${name}`)
   webpack(config, function (err, stats) {
     if (!config.entry.vux) {
+      mkdirp.sync(path.resolve(config.output.path))
       touch.sync(path.resolve(config.output.path, './index.min.css'))
     }
     var jsonStats = stats.toJson()
