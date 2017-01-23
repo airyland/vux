@@ -226,6 +226,13 @@ export default {
         stopPropagation: this.stopPropagation
       })
 
+      this._xscroll.on('scroll', () => {
+        this.$emit('on-scroll', {
+          top: this._xscroll.getScrollTop(),
+          left: this._xscroll.getScrollLeft()
+        })
+      })
+
       if (this.usePulldown) {
         // if use slot=pulldown
         let container = this.$slots.pulldown

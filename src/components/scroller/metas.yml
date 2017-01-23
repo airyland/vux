@@ -104,6 +104,11 @@ after_extra: |
   同样可以调用方法 `disablePullup` 或者设置`pullupSatatus`为`disabled`
 
   反之，则调用方法 `enalbePullup` 或者设置`pullupSatatus`为`enabled`
+events:
+  on-scroll:
+    params: '`(position)`'
+    en: emits when user scrolls
+    zh-CN: '容器滚动时触发，参数为`top`和`left`位置'
 props:
   value:
     type: 'Object'
