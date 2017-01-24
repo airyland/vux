@@ -101,9 +101,9 @@ after_extra: |
   <span class="vux-qa">QA 如何禁用或者启用pullup</span>
 
   在有些情况下，比如数据不多不需要上拉加载或者已经加载完成，我们需要禁用pullup
-  同样可以调用方法 `disablePullup` 或者设置`pullupSatatus`为`disabled`
+  同样可以调用方法 `disablePullup` 或者设置`pullupStatus`为`disabled`
 
-  反之，则调用方法 `enalbePullup` 或者设置`pullupSatatus`为`enabled`
+  反之，则调用方法 `enablePullup` 或者设置`pullupStatus`为`enabled`
 events:
   on-scroll:
     params: '`(position)`'
