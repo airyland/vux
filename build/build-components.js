@@ -43,6 +43,12 @@ for(let i in maps) {
   }
 }
 
+others.push({
+  name: 'swiper-item',
+  importName: 'SwiperItem',
+  path: maps['SwiperItem']
+})
+
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var co = require('co')
 var thunkify = require('thunkify')
