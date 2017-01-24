@@ -109,6 +109,10 @@ events:
     params: '`(position)`'
     en: emits when user scrolls
     zh-CN: '容器滚动时触发，参数为`top`和`left`位置'
+  on-pulldown-loading:
+    zh-CN: 用户触发下拉刷新状态，监听该事件以获取加载新数据
+  on-pullup-loading:
+    zh-CN: 用户触发上拉加载状态，监听该事件以加载新数据
 props:
   value:
     type: 'Object'
