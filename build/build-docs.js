@@ -150,6 +150,7 @@ function render(files, tag) {
       deprecatedInfo: json.deprecated_info || '',
       props: json.props,
       events: json.events,
+      methods: json.methods,
       slots: json.slots,
       extra: json.extra,
       after_extra: json.after_extra,
@@ -263,14 +264,16 @@ nav: ${lang}
             hideDemo: true,
             props: one.json[one.items[0]].props,
             slots: one.json[one.items[0]].slots,
-            events: one.json[one.items[0]].events
+            events: one.json[one.items[0]].events,
+            methods: one.json[one.items[0]].methods
           }, lang, docs, one.items[0])
 
           docs = getComponentInfo({
             json: one.json,
             props: one.json[one.items[1]].props,
             slots: one.json[one.items[1]].slots,
-            events: one.json[one.items[1]].events
+            events: one.json[one.items[1]].events,
+            methods: one.json[one.items[1]].methods
           }, lang, docs, one.items[1])
         }
 
@@ -339,6 +342,20 @@ function getComponentInfo(one, lang, docs, name) {
       docs += `| ${getKeyHTML(i)} |   ${params || '&nbsp;'} | ${intro} |\n`
     }
   }
+
+  if (one.methods) {
+    // slot title
+    docs += `\n<span class="vux-props-title">Methods</span>\n`
+    docs += `\n| ${t('名字')}    | ${t('参数')}   | ${t('说明')} |
+|-------|-------|-------|
+`
+    for (let i in one.methods) {
+      let intro = one.methods[i][lang]
+      let params = one.methods[i]['params']
+      docs += `| ${getKeyHTML(i)} |   ${params || '&nbsp;'} | ${intro} |\n`
+    }
+  }
+
   // docs += `<div></div>`
   // docs += `\n`
   // docs += `\n\n<span class="vux-props-title">Demo</span>\n`

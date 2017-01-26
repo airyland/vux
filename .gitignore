@@ -19,3 +19,4 @@ docs/zh-CN/*
 src/locales/components.yml
 /dist/*/*
 src/components/index.js
+test/unit/coverage/
