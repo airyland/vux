@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     scrollTop () {
-      this.$refs.viewBox.$refs.viewBoxBody.scrollTop = 0
+      this.$refs.viewBox.scrollTop(0)
     },
     ...mapActions([
       'updateDemoPosition'
@@ -54,10 +54,10 @@ export default {
   mounted () {
     this.handler = () => {
       if (this.path === '/demo') {
-        this.updateDemoPosition(this.box.scrollTop)
+        this.updateDemoPosition(this.$refs.viewBox.getScrollTop())
       }
     }
-    this.box = this.$refs.viewBox.$refs.viewBoxBody
+    this.box = this.$refs.viewBox.getScrollBody()
     if (this.path === '/demo') {
       this.box.addEventListener('scroll', this.handler, false)
     }

@@ -8,6 +8,22 @@
   </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    scrollTo (top) {
+      this.$refs.viewBoxBody.scrollTop = top
+    },
+    getScrollTop () {
+      return this.$refs.viewBoxBody.scrollTop
+    },
+    getScrollBody () {
+      return this.$refs.viewBoxBody
+    }
+  }
+}
+</script>
+
 <style lang="less">
 @import '../../styles/weui/widget/weui_tab/weui_tab_tabbar';
 </style>

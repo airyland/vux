@@ -1,9 +1,27 @@
-intro:
-  zh-CN: 该组件为100%高布局，在safari中会出现滚动时无法自动隐藏url工具栏和底部栏的问题。
+icon: '&#xe641;'
+tags:
+  zh-CN:
+    - 布局
+  en:
+    - layout
+extra: |
+
+  该组件为`100%高`布局，可以解决部分键盘输入的问题，但是同时会在safari中出现向下滚动时无法自动隐藏url工具栏和底部栏的问题。
+
+  如果你想保存滚动距离，推荐使用`vuex`实现，在特定`path`对`scrollBody`监听`scroll`事件，并获取滚动距离。
+
 slots:
   header:
     zh-CN: 顶部区域，如果要使用统一的XHeader，可以使用该slot
   default:
-    zh-CN: 主体内容，可滚动的区域。在该slot里的定位请直接使用absolute而不是fixed
+    zh-CN: '主体内容，可滚动的区域。在该slot里的定位请直接使用`absolute`而不是`fixed`'
   bottom:
     zh-CN: 底部区域，Tabbar可以使用该slot
+methods:
+  scrollTo:
+    params: '`(top)`'
+    zh-CN: 滚动到指定位置
+  getScrollTop:
+    zh-CN: 获取当前滚动距离
+  getScrollBody:
+    zh-CN: '获取滚动`div`, 也可以直接用组件引用的`.$refs.viewBoxBody`'
