@@ -10,10 +10,7 @@
         </button-tab>
       </div>
       <router-view></router-view>
-
-    </view-box>
-
-    <tabbar class="vux-demo-tabbar" icon-class="vux-center" v-show="!isTabbarDemo" slot="bottom">
+      <tabbar class="vux-demo-tabbar" icon-class="vux-center" v-show="!isTabbarDemo" slot="bottom">
         <tabbar-item :link="{path:'/'}" :selected="route.path === '/'">
           <span class="demo-icon-22 vux-demo-tabbar-icon-home" slot="icon">&#xe637;</span>
           <span slot="label">Home</span>
@@ -27,6 +24,7 @@
           <span slot="label">Donate</span>
         </tabbar-item>
       </tabbar>
+  </view-box>
   </div>
 </template>
 
