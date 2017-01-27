@@ -70,7 +70,7 @@ module.exports = vuxLoader.merge(webpackConfig, {
 vux@0.x 已经停止维护，请尽快迁移到 vue@2.x & vuex@2.x & vux@2.x，虽然要花点时间，但是完全值得。
 </p>
 
-### - 快速入门
+### 快速入门
 
 > 使用 `vue-cli` 工具和 `airyland/vux2` 模板快速初始化项目
 
@@ -83,7 +83,7 @@ npm install // 使用 cnpm 安装可能会出现问题，推荐使用 npm --regi
 npm run dev
 ```
 
-### - 调用示例
+### 调用示例
 
 > .vue文件中调用组件
 
@@ -114,7 +114,7 @@ export default {
 import { AlertPlugin, ToastPlugin } from 'vux'
 ```
 
-### - 手动使用
+### 手动使用
 
 折腾能力强的同学参考一下，下面即`vuxjs/vux2`模板主要处理的事项:
 
@@ -182,12 +182,12 @@ import { AlertPlugin, ToastPlugin } from 'vux'
   ## 组件 umd 文件
 
   <p class="tip">
-  从`2.0`开始，`VUX`不再在`repo`中保存`umd`文件，但提供了生成命令。
+  从`2.0`开始，推荐使用`webpack`来调用组件，因此不再在`repo`中保存`umd`文件，但提供了生成命令。
   <br>
   例子可查看：[https://github.com/airyland/vux/tree/v2/docs/examples](https://github.com/airyland/vux/tree/v2/docs/examples)
   </p>
 
-  ### -- 生成命令
+  ### 生成命令
 
   ``` bash
   git clone https://github.com/airyland/vux.git --depth=1 // or just update: git pull
@@ -202,7 +202,7 @@ import { AlertPlugin, ToastPlugin } from 'vux'
   npm run build-components -- --locale='en' --namespace='X'
   ```
 
-  ### -- 目录结构
+  ### 目录结构
 
   生成的文件夹结构如：
 
@@ -230,7 +230,7 @@ import { AlertPlugin, ToastPlugin } from 'vux'
   默认地址库调用：`vuxChinaAddressData`
   </p>
 
-  ### -- 组件使用
+  ### 组件使用
 
   ``` html
   <!DOCTYPE html>
@@ -264,7 +264,7 @@ import { AlertPlugin, ToastPlugin } from 'vux'
   </body>
   </html>
   ```
-### -- 插件使用
+### 插件使用
 
 
 ``` html
@@ -301,7 +301,7 @@ import { AlertPlugin, ToastPlugin } from 'vux'
 </html>
 ```
 
-### -- 生成css工具样式
+### 生成css工具样式
 
 包括`1px`解决方案，构建文件位于`dist/styles/*.css`,构建方式：
 
@@ -325,7 +325,7 @@ npm run build-styles
 
 ## 颜色配置
 
-### - 配置插件
+### 配置插件
 
 <p class="warning">
   暂时只支持配合`vux-loader`使用。
@@ -342,7 +342,7 @@ npm run build-styles
 }
 ```
 
-### - 可配置颜色
+### 可配置颜色
 
 <p class="tip">
 源码地址：<a href="https://github.com/airyland/vux/blob/v2/src/styles/variable.less">https://github.com/airyland/vux/blob/v2/src/styles/variable.less</a>
@@ -477,7 +477,7 @@ npm run build-styles
 @popup-picker-header-text-color: @theme-color;
 ```
 
-### - demo站点的示例配置
+### demo站点的示例配置
 
 源代码地址：[https://github.com/airyland/vux/blob/v2/src/theme.less](https://github.com/airyland/vux/blob/v2/src/theme.less)
 
@@ -504,7 +504,7 @@ npm run build-styles
 @form-preview-button-primary-color: #FF9900;
 ```
 
-## 如何添加谷歌统计
+## 添加谷歌统计
 
 单页面应用切换时要手动触发页面统计，首先在`index.html`里引入谷歌统计代码：
 
@@ -529,6 +529,11 @@ router.afterEach(function (to) {
 })
 ```
 
+## 使用微信 jssdk
+todo
+
+## 发送 ajax 请求
+todo
 
 ## 常见问题
 
