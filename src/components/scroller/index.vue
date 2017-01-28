@@ -136,10 +136,8 @@ export default {
       this.pullup.complete()
       this.reset()
       this.currentValue.pullupStatus = 'default'
-    }
-  },
-  computed: {
-    styles () {
+    },
+    getStyles () {
       let height = this.height
       if (!this.height && (this.$el && !this.$el.style.height) && this.lockX) {
         height = `${document.documentElement.clientHeight}px`
@@ -149,8 +147,7 @@ export default {
       if (this.height && this.height.indexOf('-') === 0) {
         height = `${document.documentElement.clientHeight + parseInt(this.height)}px`
       }
-
-      return {
+      this.styles = {
         height: `${height}`
       }
     }
@@ -170,7 +167,8 @@ export default {
   },
   data () {
     return {
-      currentValue: {}
+      currentValue: {},
+      styles: {}
     }
   },
   watch: {
@@ -179,6 +177,9 @@ export default {
         this.$emit('input', pure(val))
       },
       deep: true
+    },
+    height () {
+      this.getStyles()
     },
     value: {
       handler: function (val) {
@@ -289,6 +290,7 @@ export default {
       this._xscroll.render()
       window.addEventListener('orientationchange', this.handleOrientationchange, false)
     })
+    this.getStyles()
   },
   beforeDestroy () {
     if (this.pullup) {

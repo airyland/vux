@@ -17,3 +17,4 @@ bower.json
 /assets/
 .babelrc
 docs/
+*.vue.vux.*
