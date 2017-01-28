@@ -6,7 +6,7 @@ extra:
         <x-input title="title" v-model="value"></x-input>
       </group>
     ```
-    
+
     <p class="tip">`x-input`只能在`Group`中使用</p>
 tags:
   en:
@@ -19,6 +19,13 @@ tags:
 props:
   value:
     zh-CN: 表单值，使用`v-model`绑定
+  type:
+    type: String
+    default: text
+    zh-CN: '即input的`type`属性，目前支持 `text`,`number`,`email`,`password`'
+  is-type:
+    type: String,Function
+    zh-CN: '内置验证器，支持`email`,`china-name`,`china-mobile`, 同样也支持直接传函数, 需要同步返回一个对象`{valid:true}`或者`{valid:false, msg:错误信息}`'
   required:
     type: Boolean
     default: false
@@ -46,7 +53,7 @@ changes:
     zh-CN:
       - '[feature] 添加 `novalidate` 及 `iconType` 可以禁用组件验证，手动显示 error 或者 success 样式'
       - '[feature] `is-type` 支持传入函数'
-      - '[change] 受限于vue2不能动态设置type，目前`type`支持 text password number email' 
+      - '[change] 受限于vue2不能动态设置type，目前`type`支持 text password number email'
   v2.0.1:
     zh-CN:
-      - '[fix] 修复type未定义的问题'  
+      - '[fix] 修复type未定义的问题'

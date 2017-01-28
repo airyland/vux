@@ -387,7 +387,16 @@ function getKeyHTML(key) {
 
 function getTypeHTML(type) {
   type = type || 'String'
-  return `<span class="type type-${type ? type.toLowerCase() : 'string'}">${type}</span>`
+  if (/,/.test(type)) {
+    const list = type.split(',').map(function(one){
+      return one.replace(/^\s+|\s+$/g, '')
+    }).map(function(one){
+      return `<span class="type type-${one ? one.toLowerCase() : 'string'}">${one}</span>`
+    })
+    return list.join('<br>')
+  } else {
+    return `<span class="type type-${type ? type.toLowerCase() : 'string'}">${type}</span>`
+  }
 }
 
 function getChangeTagHTNL(str, fontSize = '15px') {

@@ -6,7 +6,7 @@ extra:
         <selector title="title" v-model="value"></selector>
       </group>
     ```
-    
+
     <p class="tip">`selector`只能在`Group`中使用</p>
 tags:
   en:
@@ -23,7 +23,7 @@ tips:
     - zh-CN: 选项的key必须是字符串，使用数字会出现问题
 props:
   value:
-    type: String Number Object
+    type: String,Number,Object
     zh-CN: 表单值，使用v-model绑定
   title:
     zh-CN: 标题
@@ -32,10 +32,10 @@ props:
   options:
     type: Array
     zh-CN: 选项列表
-  name: 
+  name:
     zh-CN: 表单的name名字
   placeholder:
-    zh-CN: 提示文字 
+    zh-CN: 提示文字
   readonly:
     default: 'false'
     zh-CN: 是否不可选择
