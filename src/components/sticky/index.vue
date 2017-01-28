@@ -1,5 +1,7 @@
 <template>
-  <div><slot></slot></div>
+  <div>
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -8,9 +10,14 @@ import sticky from './sticky'
 export default {
   mounted () {
     this.$nextTick(() => {
-      sticky(this.$el)
+      sticky(this.$el, {
+        scrollBox: this.scrollBox,
+        offset: this.offset,
+        checkStickySupport: typeof this.checkStickySupport === 'undefined' ? true : this.checkStickySupport
+      })
     })
-  }
+  },
+  props: ['scrollBox', 'offset', 'checkStickySupport']
 }
 </script>
 
@@ -26,4 +33,3 @@ export default {
   top: 0;
 }
 </style>
-
