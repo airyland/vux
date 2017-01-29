@@ -162,7 +162,9 @@ export default {
       this.currentValue = this.value
     }
     this.handleOrientationchange = () => {
-      this.reset()
+      setTimeout(() => {
+        this.reset()
+      }, 100)
     }
   },
   data () {
