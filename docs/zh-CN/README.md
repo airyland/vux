@@ -609,6 +609,12 @@ todo
 
 遵从 Github 上的 contribution template.
 
+### 如何更新文档
+
+目前英文文档并不完善，欢迎帮忙翻译。文档格式为`yml`，位于每个组件目录下的`metas.yml`文件，你可以参阅一些相对完善的组件文档进行更新。
+
+当`PR`被合并后，文档服务器会在`5分钟`内摘取最新代码并执行`npm run build-docs`及`npm run build`实现文档及`demo`更新。
+
 ### 如何提 Issue
 
 <p class="tip">
