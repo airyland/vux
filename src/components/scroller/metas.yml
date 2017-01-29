@@ -104,6 +104,18 @@ after_extra: |
   同样可以调用方法 `disablePullup` 或者设置`pullupStatus`为`disabled`
 
   反之，则调用方法 `enablePullup` 或者设置`pullupStatus`为`enabled`
+
+  <span class="vux-qa">启用keep-alive后滚动有问题</span>
+
+  需要在调用Scroller的页面上在 hook: `activated`上执行`reset`
+
+  ``` js
+  activated () {
+    this.$refs.scroller.reset()
+  }
+  ```
+
+
 events:
   on-scroll:
     params: '`(position)`'
