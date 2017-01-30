@@ -66,7 +66,9 @@ const childMixin = {
       if (typeof this.disabled === 'undefined' || this.disabled === false) {
         this.currentSelected = true
         this.$parent.currentIndex = this.currentIndex
-        this.$emit('on-item-click')
+        this.$nextTick(() => {
+          this.$emit('on-item-click')
+        })
       }
       if (hasLink === true) {
         go(this.link, this.$router)

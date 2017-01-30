@@ -12,8 +12,8 @@
     </button-tab>
     <br>
     <button-tab v-model="demo01">
-      <button-tab-item>{{ $t('Articles') }}</button-tab-item>
-      <button-tab-item>{{ $t('Products') }}</button-tab-item>
+      <button-tab-item @on-item-click="consoleIndex()">{{ $t('Articles') }}</button-tab-item>
+      <button-tab-item @on-item-click="consoleIndex()">{{ $t('Products') }}</button-tab-item>
     </button-tab>
     <br>
     <button-tab v-model="demo01">
@@ -60,6 +60,11 @@ export default {
     ButtonTab,
     ButtonTabItem,
     Divider
+  },
+  methods: {
+    consoleIndex () {
+      console.log('click demo01', this.demo01)
+    }
   },
   data () {
     return {
