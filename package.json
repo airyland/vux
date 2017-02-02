@@ -39,7 +39,6 @@
   },
   "dependencies": {
     "vue": "^2.1.0",
-    "vux-loader": "^1.0.26",
     "array-from": "^2.1.1",
     "array-filter": "^1.0.0",
     "vux-blazy": "^1.6.4",
