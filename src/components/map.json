@@ -8,6 +8,7 @@
   "ChinaAddressV1Data": "src/datas/china_address_v1.json",
   "ChinaAddressData": "src/datas/china_address.json",
   "VuxComponentListData": "src/datas/vux_component_list.json",
+  "AjaxPlugin": "src/plugins/ajax/index.js",
   "AlertPlugin": "src/plugins/alert/index.js",
   "ConfirmPlugin": "src/plugins/confirm/index.js",
   "DevicePlugin": "src/plugins/device/index.js",

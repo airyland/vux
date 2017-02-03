@@ -6,6 +6,7 @@ import Value2nameFilter from './src/filters/value2name.js'
 import ChinaAddressV1Data from './src/datas/china_address_v1.json'
 import ChinaAddressData from './src/datas/china_address.json'
 import VuxComponentListData from './src/datas/vux_component_list.json'
+import AjaxPlugin from './src/plugins/ajax/index.js'
 import AlertPlugin from './src/plugins/alert/index.js'
 import ConfirmPlugin from './src/plugins/confirm/index.js'
 import DevicePlugin from './src/plugins/device/index.js'
@@ -110,6 +111,7 @@ export {
   ChinaAddressV1Data,
   ChinaAddressData,
   VuxComponentListData,
+  AjaxPlugin,
   AlertPlugin,
   ConfirmPlugin,
   DevicePlugin,

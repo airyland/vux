@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "2.1.0-rc.19",
+  "version": "2.1.0-rc.20",
   "main": "index.js",
   "description": "Mobile web UI based on Vue and WeUI",
   "keywords": [
@@ -43,6 +43,7 @@
     "array-map": "^0.0.0",
     "array-shuffle": "^1.0.1",
     "autosize": "^3.0.20",
+    "axios": "^0.15.3",
     "china-area-data": "^2.0.0",
     "countup.js": "^1.8.1",
     "fastclick": "^1.0.6",

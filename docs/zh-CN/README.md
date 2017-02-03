@@ -539,7 +539,7 @@ router.afterEach(function (to) {
   先确认已经满足使用`jssdk`的要求再进行编码。
   <br>
   <br>
-  `WechatPlugin`在`vux@^2.1.0-rc.19`支持
+  `WechatPlugin`在`vux@^2.1.0-rc.19`开始支持
 </p>
 
 ``` js
@@ -552,7 +552,32 @@ Vue.use(WechatPlugin)
 考虑到你需要在引入插件后调用`wx.config`方法进行配置，你可以通过 `WechatPlugin.$wechat` 在组件外部访问`wx`对象。 
 
 ## 发送 ajax 请求
-todo
+
+<p class="tip">
+  `AjaxPlugin`在`vux@^2.1.0-rc.20`开始支持
+</p>
+
+`ajax`请求推荐使用 [axios](https://github.com/mzabriskie/axios)
+
+需要注意的是`axios`是基于`Promise`的，因此如果你需要兼容低版本浏览器([caniuse](http://caniuse.com/#feat=promises))，需要引入`polyfill`。
+
+`Polyfill` 推荐使用 [es6-promise](https://github.com/stefanpenner/es6-promise)
+
+``` js
+require('es6-promise').polyfill()
+```
+
+--- 
+
+如果你非常非常懒并且觉得`axios`名字比较奇怪，`VUX`直接把`axios`封装成插件，你可以直接引用插件。
+
+``` js
+import { AjaxPlugin } from 'vux'
+Vue.use(AjaxPlugin)
+console.log(AjaxPlugin.$http)
+```
+
+然后你可以和`vue-resource`一样在组件内使用`this.$http`进行调用了。
 
 ## 常见问题
 

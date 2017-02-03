@@ -37,15 +37,17 @@ store.registerModule('vux', {
 Vue.use(vuexI18n.plugin, store)
 
 // plugins
-import { DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin } from 'vux'
+import { DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin } from 'vux'
 Vue.use(DevicePlugin)
 Vue.use(ToastPlugin)
 Vue.use(AlertPlugin)
 Vue.use(ConfirmPlugin)
 Vue.use(LoadingPlugin)
 Vue.use(WechatPlugin)
+Vue.use(AjaxPlugin)
 
 const wx = WechatPlugin.$wechat
+const http = AjaxPlugin.$http
 
 /**
 * -------------------------- 微信分享 ----------------------
@@ -71,13 +73,10 @@ wx.ready(() => {
 
 const permissions = JSON.stringify(['onMenuShareTimeline', 'onMenuShareAppMessage'])
 const url = document.location.href
-const xhr = new window.XMLHttpRequest()
-xhr.open('POST', 'https://vux.li/jssdk?url=' + encodeURIComponent(url.split('#')[0]) + '&jsApiList=' + permissions, true)
-xhr.onload = function () {
+http.post('https://vux.li/jssdk?url=' + encodeURIComponent(url.split('#')[0]) + '&jsApiList=' + permissions).then(res => {
   const body = JSON.parse(this.responseText)
   wx.config(body.data)
-}
-xhr.send('')
+})
 
 import objectAssign from 'object-assign'
 
