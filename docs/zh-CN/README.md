@@ -579,6 +579,16 @@ console.log(AjaxPlugin.$http)
 
 然后你可以和`vue-resource`一样在组件内使用`this.$http`进行调用了。
 
+## 工具库
+
+### base64
+
+``` js
+import { Base64Tool } from 'vux'
+Base64Tool.encode('VUX')
+Base64Tool.decode('VlVY')
+```
+
 ## 常见问题
 
 - 能否在微信小程序里使用

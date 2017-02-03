@@ -32,6 +32,14 @@ glob(getPath("../src/plugins/**/index.js"), {}, function (er, files) {
   })
 })
 
+glob(getPath("../src/tools/**/index.js"), {}, function (er, files) {
+  files.forEach(function (file) {
+    let name = getComponentName(file)
+    name = _camelCase(name)
+    saveMaps(name + 'Tool', file)
+  })
+})
+
 glob(getPath("../src/directives/**/index.js"), {}, function (er, files) {
   files.forEach(function (file) {
     let name = getComponentName(file)

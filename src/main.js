@@ -74,8 +74,7 @@ wx.ready(() => {
 const permissions = JSON.stringify(['onMenuShareTimeline', 'onMenuShareAppMessage'])
 const url = document.location.href
 http.post('https://vux.li/jssdk?url=' + encodeURIComponent(url.split('#')[0]) + '&jsApiList=' + permissions).then(res => {
-  const body = JSON.parse(this.responseText)
-  wx.config(body.data)
+  wx.config(res.data.data)
 })
 
 import objectAssign from 'object-assign'
