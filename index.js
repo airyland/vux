@@ -12,6 +12,7 @@ import DevicePlugin from './src/plugins/device/index.js'
 import LoadingPlugin from './src/plugins/loading/index.js'
 import TitlePlugin from './src/plugins/title/index.js'
 import ToastPlugin from './src/plugins/toast/index.js'
+import WechatPlugin from './src/plugins/wechat/index.js'
 import ClickOutsideDirective from './src/directives/click-outside/index.js'
 import InviewDirective from './src/directives/inview/index.js'
 import Actionsheet from './src/components/actionsheet/index.vue'
@@ -72,6 +73,9 @@ import Spinner from './src/components/spinner/index.vue'
 import StepItem from './src/components/step/step-item.vue'
 import Step from './src/components/step/step.vue'
 import Sticky from './src/components/sticky/index.vue'
+import SwipeoutButton from './src/components/swipeout/swipeout-button.vue'
+import SwipeoutItem from './src/components/swipeout/swipeout-item.vue'
+import Swipeout from './src/components/swipeout/swipeout.vue'
 import SwiperItem from './src/components/swiper/swiper-item.vue'
 import Swiper from './src/components/swiper/swiper.vue'
 import TabItem from './src/components/tab/tab-item.vue'
@@ -112,6 +116,7 @@ export {
   LoadingPlugin,
   TitlePlugin,
   ToastPlugin,
+  WechatPlugin,
   ClickOutsideDirective,
   InviewDirective,
   Actionsheet,
@@ -172,6 +177,9 @@ export {
   StepItem,
   Step,
   Sticky,
+  SwipeoutButton,
+  SwipeoutItem,
+  Swipeout,
   SwiperItem,
   Swiper,
   TabItem,

@@ -112,7 +112,7 @@ module.exports = vuxLoader.merge(webpackConfig, {
   options: {
     vuxDev: !argv.simulate, // true
     vuxSetBabel: argv.simulate, // false
-    vuxWriteFile: true,
+    vuxWriteFile: false,
     env: 'dev'
   },
   plugins: [

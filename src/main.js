@@ -37,12 +37,47 @@ store.registerModule('vux', {
 Vue.use(vuexI18n.plugin, store)
 
 // plugins
-import { DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin } from 'vux'
+import { DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin } from 'vux'
 Vue.use(DevicePlugin)
 Vue.use(ToastPlugin)
 Vue.use(AlertPlugin)
 Vue.use(ConfirmPlugin)
 Vue.use(LoadingPlugin)
+Vue.use(WechatPlugin)
+
+const wx = WechatPlugin.$wechat
+
+/**
+* -------------------------- 微信分享 ----------------------
+* 请不要直接复制下面代码
+*/
+
+wx.ready(() => {
+  console.log('wechat ready')
+  wx.onMenuShareAppMessage({
+    title: 'VUX', // 分享标题
+    desc: '基于 WeUI 和 Vue 的移动端 UI 组件库',
+    link: 'https://vux.li?x-page=wechat_share_message',
+    imgUrl: 'https://static.vux.li/logo_520.png'
+  })
+
+  wx.onMenuShareTimeline({
+    title: 'VUX', // 分享标题
+    desc: '基于 WeUI 和 Vue 的移动端 UI 组件库',
+    link: 'https://vux.li?x-page=wechat_share_timeline',
+    imgUrl: 'https://static.vux.li/logo_520.png'
+  })
+})
+
+const permissions = JSON.stringify(['onMenuShareTimeline', 'onMenuShareAppMessage'])
+const url = document.location.href
+const xhr = new window.XMLHttpRequest()
+xhr.open('POST', 'https://vux.li/jssdk?url=' + encodeURIComponent(url.split('#')[0]) + '&jsApiList=' + permissions, true)
+xhr.onload = function () {
+  const body = JSON.parse(this.responseText)
+  wx.config(body.data)
+}
+xhr.send('')
 
 import objectAssign from 'object-assign'
 
@@ -63,7 +98,7 @@ Vue.i18n.set('zh-CN')
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
 
-// The following line will be replaced with component list by vux-loader
+// The following line will be replaced with by vux-loader with routes in ./demo_list.json
 const routes = []
 
 const router = new VueRouter({

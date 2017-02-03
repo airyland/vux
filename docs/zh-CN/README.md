@@ -530,7 +530,26 @@ router.afterEach(function (to) {
 ```
 
 ## 使用微信 jssdk
-todo
+
+该插件提供了`commonJS`的引入方式。
+
+<p class="warning">
+  分享接口只有认证公众号才能使用，域名必须备案且在微信后台设置。
+  <br>
+  先确认已经满足使用`jssdk`的要求再进行编码。
+  <br>
+  <br>
+  `WechatPlugin`在`vux@^2.1.0-rc.19`支持
+</p>
+
+``` js
+import { WechatPlugin } from 'vux'
+console.log(WechatPlugin.$wechat) // 可以直接访问 wx 对象。
+Vue.use(WechatPlugin)
+```
+那么之后任何组件中都可以通过 `this.$wechat` 访问到 `wx` 对象。
+
+考虑到你需要在引入插件后调用`wx.config`方法进行配置，你可以通过 `WechatPlugin.$wechat` 在组件外部访问`wx`对象。 
 
 ## 发送 ajax 请求
 todo

@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "2.1.0-rc.18",
+  "version": "2.1.0-rc.19",
   "main": "index.js",
   "description": "Mobile web UI based on Vue and WeUI",
   "keywords": [
@@ -34,28 +34,28 @@
     "build-components": "node build/build-components.js",
     "build-styles": "rm -rf dist/styles && mkdir dist/styles && node build/build-styles.js",
     "xbuild": "npm run build-styles && npm run build-components",
-    "docs": "docute ./docs --port 8087",
-    "deploy-docs": "gh-pages -d docs"
+    "docs": "docute ./docs --port 8087"
   },
   "dependencies": {
-    "vue": "^2.1.0",
-    "array-from": "^2.1.1",
     "array-filter": "^1.0.0",
-    "vux-blazy": "^1.6.4",
+    "array-find": "^1.0.0",
+    "array-from": "^2.1.1",
+    "array-map": "^0.0.0",
+    "array-shuffle": "^1.0.1",
+    "autosize": "^3.0.20",
+    "china-area-data": "^2.0.0",
+    "countup.js": "^1.8.1",
+    "fastclick": "^1.0.6",
+    "object-assign": "^4.1.0",
     "photoswipe": "^4.1.1",
     "qr.js": "0.0.0",
-    "countup.js": "^1.8.1",
-    "array-find": "^1.0.0",
-    "array-map": "^0.0.0",
-    "validator": "^6.2.1",
-    "array-shuffle": "^1.0.1",
-    "webp-support": "^1.0.3",
-    "autosize": "^3.0.20",
-    "vux-xscroll": "^3.1.8",
-    "object-assign": "^4.1.0",
     "shake.js": "^1.2.2",
-    "china-area-data": "^2.0.0",
-    "fastclick": "^1.0.6"
+    "validator": "^6.2.1",
+    "vue": "^2.1.0",
+    "vux-blazy": "^1.6.4",
+    "vux-xscroll": "^3.1.8",
+    "we-jssdk": "^1.0.0",
+    "webp-support": "^1.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
