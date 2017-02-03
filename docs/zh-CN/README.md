@@ -544,8 +544,9 @@ router.afterEach(function (to) {
 
 ``` js
 import { WechatPlugin } from 'vux'
-console.log(WechatPlugin.$wechat) // 可以直接访问 wx 对象。
 Vue.use(WechatPlugin)
+
+console.log(WechatPlugin.$wechat) // 可以直接访问 wx 对象。
 ```
 那么之后任何组件中都可以通过 `this.$wechat` 访问到 `wx` 对象。
 
@@ -574,6 +575,7 @@ require('es6-promise').polyfill()
 ``` js
 import { AjaxPlugin } from 'vux'
 Vue.use(AjaxPlugin)
+
 console.log(AjaxPlugin.$http)
 ```
 
@@ -581,12 +583,22 @@ console.log(AjaxPlugin.$http)
 
 ## 工具库
 
+<p class="tip">
+  实际项目开发中会有很多工具函数的需求，`VUX`提供这些工具库并不会让你的项目代码变得臃肿。
+  <br>
+  所有组件或者工具函数都是**按需使用**。
+  <br>
+  <br>
+  对于有相关需求的开发者来说，不用自己写或者花时间去寻求合适的第三方库了，开箱即用。
+</p>
+
 ### base64
 
 ``` js
-import { Base64Tool } from 'vux'
-Base64Tool.encode('VUX')
-Base64Tool.decode('VlVY')
+import { base64 } from 'vux'
+
+base64.encode('VUX')
+base64.decode('VlVY')
 ```
 
 ### md5
@@ -598,8 +610,9 @@ Base64Tool.decode('VlVY')
 </p>
 
 ```
-import { Md5Tool } from 'vux'
-Md5Tool('VUX')
+import { md5 } from 'vux'
+
+md5('VUX')
 ```
 
 ## 常见问题

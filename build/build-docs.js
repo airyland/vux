@@ -6,6 +6,11 @@ var yaml = require('js-yaml')
 var path = require('path')
 var _ = require('lodash')
 
+const aliasMap = {
+  Base64Tool: 'base64',
+  Md5Tool: 'md5'
+}
+
 function getPath(dir) {
   return path.join(__dirname, dir)
 }
@@ -21,6 +26,9 @@ function saveMaps(key, value) {
     value = value.slice(index + 4, value.length)
   }
   maps[key] = value.replace('../', '')
+  if (aliasMap[key]) {
+    maps[aliasMap[key]] = maps[key]
+  }
   fs.writeFileSync(getPath('../src/components/map.json'), JSON.stringify(maps, null, 2))
 }
 
