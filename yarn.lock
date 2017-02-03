@@ -949,6 +949,10 @@ bluebird@^3.0.5, bluebird@^3.1.1, bluebird@^3.3.0, bluebird@^3.4.7:
   version "3.4.7"
   resolved "http://registry.npm.taobao.org/bluebird/download/bluebird-3.4.7.tgz#f72d760be09b7f76d08ed8fae98b289a8d05fab3"
 
+blueimp-md5@^2.6.0:
+  version "2.6.0"
+  resolved "http://registry.npm.taobao.org/blueimp-md5/download/blueimp-md5-2.6.0.tgz#c96dd67f57db522da9a0c49b464ca44e20c04e0f"
+
 body-parser@^1.12.4:
   version "1.16.0"
   resolved "http://registry.npm.taobao.org/body-parser/download/body-parser-1.16.0.tgz#924a5e472c6229fb9d69b85a20d5f2532dec788b"

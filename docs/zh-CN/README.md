@@ -589,6 +589,19 @@ Base64Tool.encode('VUX')
 Base64Tool.decode('VlVY')
 ```
 
+### md5
+
+<p class="tip">
+  该工具直接依赖于 [blueimp-md5](https://github.com/blueimp/JavaScript-MD5)
+  <br>
+  注意: `md5`是消息摘要算法并非加密算法，用于需要加密的场景会有安全问题。
+</p>
+
+```
+import { Md5Tool } from 'vux'
+Md5Tool('VUX')
+```
+
 ## 常见问题
 
 - 能否在微信小程序里使用
