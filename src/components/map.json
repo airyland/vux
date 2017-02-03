@@ -18,6 +18,8 @@
   "WechatPlugin": "src/plugins/wechat/index.js",
   "Base64Tool": "src/tools/base64/index.js",
   "base64": "src/tools/base64/index.js",
+  "CookieTool": "src/tools/cookie/index.js",
+  "cookie": "src/tools/cookie/index.js",
   "Md5Tool": "src/tools/md5/index.js",
   "md5": "src/tools/md5/index.js",
   "ClickOutsideDirective": "src/directives/click-outside/index.js",

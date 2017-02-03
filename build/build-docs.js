@@ -8,7 +8,8 @@ var _ = require('lodash')
 
 const aliasMap = {
   Base64Tool: 'base64',
-  Md5Tool: 'md5'
+  Md5Tool: 'md5',
+  CookieTool: 'cookie'
 }
 
 function getPath(dir) {
