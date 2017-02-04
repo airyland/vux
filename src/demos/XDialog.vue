@@ -2,11 +2,19 @@
   <div style="height: 1000px">
     <group>
       <x-switch v-model="show" title="Toggle"></x-switch>
+      <x-switch v-model="showHideOnBlur" title="点击遮罩自动关闭"></x-switch>
     </group>
     <group style="padding-top: 300px">
       <x-switch v-model="showNoScroll" title="背景不可滚动"></x-switch>
     </group>
     <x-dialog v-model="show" class="dialog-demo">
+      <p class="dialog-title">I'm a bg scroll Dialog.</p>
+      <div class="img-box">
+        <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
+      </div>
+      <span class="vux-close" @click="show=false"></span>
+    </x-dialog>
+    <x-dialog v-model="showHideOnBlur" class="dialog-demo" :hideOnBlur="true">
       <p class="dialog-title">I'm a bg scroll Dialog.</p>
       <div class="img-box">
         <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
@@ -41,7 +49,8 @@ export default {
   data () {
     return {
       show: false,
-      showNoScroll: false
+      showNoScroll: false,
+      showHideOnBlur: false
     }
   }
 }
