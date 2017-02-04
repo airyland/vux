@@ -588,7 +588,9 @@ console.log(AjaxPlugin.$http)
 
 然后你可以和`vue-resource`一样在组件内使用`this.$http`进行调用了。
 
-## 异步加载组件
+## 优化
+
+### 异步加载组件
 
 将所有页面组件一次性加载是一个很浪费资源和考验用户耐心的做法，尤其在移动端。
 
@@ -600,6 +602,28 @@ console.log(AjaxPlugin.$http)
   component: function (resolve) {
     require(['./demos/somepath.vue'], resolve)
   }
+}
+```
+
+### 将 manifest js代码直接写入到页面
+
+<p class="tip">
+  manifest文件为路径配置和异步组件名字列表，该做法可以减少一个`http`请求。
+  <br>
+  确保 `vux-loader`更新到 `^1.0.35`
+</p>
+
+首先在页面的`</body>`前加入代码：
+
+``` html
+<%=htmlWebpackPlugin.files.webpackManifest%>
+```
+
+然后在`vux-loader`配置中加入`inline-manifest`插件
+
+``` js
+{
+  name: 'inline-manifest'
 }
 ```
 
