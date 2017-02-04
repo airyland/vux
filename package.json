@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "2.1.0-rc.24",
+  "version": "2.1.0-rc.25",
   "main": "index.js",
   "description": "Mobile web UI based on Vue and WeUI",
   "keywords": [
@@ -56,8 +56,8 @@
     "vue": "^2.1.0",
     "vux-blazy": "^1.6.4",
     "vux-xscroll": "^3.1.8",
-    "we-jssdk": "^1.0.0",
-    "webp-support": "^1.0.3"
+    "webp-support": "^1.0.3",
+    "weixin-js-sdk": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

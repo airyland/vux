@@ -1,4 +1,4 @@
-import wx from 'we-jssdk'
+import wx from 'weixin-js-sdk'
 
 module.exports = {
   install (Vue) {

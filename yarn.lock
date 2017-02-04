@@ -5828,10 +5828,6 @@ watchpack@^0.2.1:
     chokidar "^1.0.0"
     graceful-fs "^4.1.2"
 
-we-jssdk@^1.0.0:
-  version "1.0.0"
-  resolved "http://registry.npm.taobao.org/we-jssdk/download/we-jssdk-1.0.0.tgz#69cbff395ab3440ba75661d9f766b6e9baf16451"
-
 weak-map@1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/weak-map/download/weak-map-1.0.0.tgz#b66e56a9df0bd25a76bbf1b514db129080614a37"
@@ -5922,6 +5918,10 @@ websocket-driver@>=0.5.1:
 websocket-extensions@>=0.1.1:
   version "0.1.1"
   resolved "http://registry.npm.taobao.org/websocket-extensions/download/websocket-extensions-0.1.1.tgz#76899499c184b6ef754377c2dbb0cd6cb55d29e7"
+
+weixin-js-sdk@^1.2.0:
+  version "1.2.0"
+  resolved "http://registry.npm.taobao.org/weixin-js-sdk/download/weixin-js-sdk-1.2.0.tgz#5132949eb65b3d4e5f3e052bd3b6b10abdf47d55"
 
 whet.extend@~0.9.9:
   version "0.9.9"
