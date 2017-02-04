@@ -19,7 +19,7 @@
       <div class="img-box">
         <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
       </div>
-      <span class="vux-close" @click="show=false"></span>
+      <span class="vux-close" @click="showHideOnBlur=false"></span>
     </x-dialog>
     <x-dialog v-model="showNoScroll" class="dialog-demo" :scroll="false">
       <p class="dialog-title">I'm a no scroll Dialog.</p>
