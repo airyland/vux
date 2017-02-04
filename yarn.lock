@@ -2889,6 +2889,12 @@ inject-loader@^2.0.1:
   dependencies:
     loader-utils "^0.2.3"
 
+inline-manifest-webpack-plugin@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/inline-manifest-webpack-plugin/-/inline-manifest-webpack-plugin-3.0.1.tgz#ca2151063115298e2fd94b669ab76c7dd63e44ad"
+  dependencies:
+    source-map-url "0.4.0"
+
 inquirer@^0.12.0:
   version "0.12.0"
   resolved "http://registry.npm.taobao.org/inquirer/download/inquirer-0.12.0.tgz#1ef2bfd63504df0bc75785fff8c2c41df12f077e"
@@ -5201,6 +5207,10 @@ source-map-support@^0.4.2:
   dependencies:
     source-map "^0.5.3"
 
+source-map-url@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
+
 source-map@0.5.x, source-map@^0.5.0, source-map@^0.5.1, source-map@^0.5.3, source-map@^0.5.6, source-map@~0.5.1, source-map@~0.5.3:
   version "0.5.6"
   resolved "http://registry.npm.taobao.org/source-map/download/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
@@ -5785,12 +5795,13 @@ vux-blazy@^1.6.4:
   version "1.6.4"
   resolved "http://registry.npm.taobao.org/vux-blazy/download/vux-blazy-1.6.4.tgz#e33073d902e0a3844ef1a463cce3ca2e0aab47bf"
 
-vux-loader@^1.0.32:
-  version "1.0.32"
-  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.0.32.tgz#401acfb1990ad5681bbb251220f58810fa08e07c"
+vux-loader@^1.0.34:
+  version "1.0.34"
+  resolved "https://registry.yarnpkg.com/vux-loader/-/vux-loader-1.0.34.tgz#45bb4acbdc9266fd259967d7967e4a96e5a79296"
   dependencies:
     compare-versions "^3.0.0"
     cssnano "^3.7.4"
+    inline-manifest-webpack-plugin "^3.0.1"
     js-yaml "^3.6.1"
     less "^2.7.1"
     loader-utils "^0.2.15"
