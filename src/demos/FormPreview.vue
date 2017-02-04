@@ -51,11 +51,15 @@ export default {
         text: '辅助操作'
       }, {
         style: 'primary',
-        text: '操作'
+        text: '跳转到首页',
+        link: '/'
       }],
       buttons2: [{
         style: 'primary',
-        text: '操作'
+        text: '点击事件',
+        onButtonClick: () => {
+          alert('clicking')
+        }
       }]
     }
   }

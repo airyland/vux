@@ -12,15 +12,25 @@
         </div>
       </div>
       <div class="weui-form-preview__ft">
-        <a class="weui-form-preview__btn" :class="{'weui-form-preview__btn_default': button.style==='default', 'weui-form-preview__btn_primary': button.style === 'primary'}" href="javascript:" v-for="button in footerButtons">{{$t(button.text)}}</a>
+        <a class="weui-form-preview__btn" :class="{'weui-form-preview__btn_default': button.style==='default', 'weui-form-preview__btn_primary': button.style === 'primary'}" href="javascript:" v-for="button in footerButtons" @click="onButtonClick(button.onButtonClick, button.link)">{{$t(button.text)}}</a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { go } from '../../libs/router'
+
 export default {
-  props: ['headerLabel', 'headerValue', 'bodyItems', 'footerButtons']
+  props: ['headerLabel', 'headerValue', 'bodyItems', 'footerButtons'],
+  methods: {
+    onButtonClick (cb, link) {
+      cb && cb()
+      if (link) {
+        go(link, this.$router)
+      }
+    }
+  }
 }
 </script>
 
