@@ -9,10 +9,12 @@ extra:
     
     <p class="tip">`x-textarea`只能在`Group`中使用</p>
 tags:
-  - form
-  - textarea
-  - 多行输入框
-  - 表单
+  en:
+    - form
+    - textarea
+  zh-CN:
+    - 多行输入框
+    - 表单
 props:
   show-counter:
     type: Boolean
