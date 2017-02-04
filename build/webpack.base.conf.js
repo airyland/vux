@@ -120,9 +120,6 @@ module.exports = vuxLoader.merge(webpackConfig, {
       name: 'vux-ui'
     },
     {
-      name: 'inline-manifest'
-    },
-    {
       name: 'js-parser',
       test: /main\.js/,
       fn: function (source) {
