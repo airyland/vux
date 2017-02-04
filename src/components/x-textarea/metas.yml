@@ -3,7 +3,7 @@ extra:
   zh-CN: >
     ```html
       <group>
-        <x-textarea title="title" v-model="value"></x-textara>
+        <x-textarea title="title" v-model="value"></x-textarea>
       </group>
     ```
     
