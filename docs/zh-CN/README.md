@@ -44,11 +44,18 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 
 ## 安装使用(webpack)
 
+<p class="warning">
+  如果你从没使用过`VUX`，请直接看下面的快速入门。
+</p>
+
 直接安装或者更新：
 
 ``` js
 npm install vux --save
 ```
+
+如果你是从`0.x`更新，请参考： <a router-link="/zh-CN/upgrade-to-2" style="color:#42b983;">更新到`2.x`</a>
+
 
 <p class="warning">
 vux2必须配合`vux-loader`使用, 请在`build/webpack.base.conf.js`里参照如下代码进行配置：
