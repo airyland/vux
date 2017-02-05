@@ -121,9 +121,6 @@ export default {
     if (!this.title && !this.placeholder && !this.currentValue) {
       console.warn('no title and no placeholder?')
     }
-    if (this.required && !this.currentValue) {
-      this.valid = false
-    }
   },
   mixins: [Base],
   components: {

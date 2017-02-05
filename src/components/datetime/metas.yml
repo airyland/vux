@@ -88,6 +88,11 @@ props:
     default: '{value}'
     en: render template for the minute column
     zh-CN: 分钟的渲染模板
+  required:
+    type: Boolean
+    default: false
+    en: is required
+    zh-CN: 是否必填
 events:
   on-change:
     params: '`(value)`'
