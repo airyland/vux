@@ -843,6 +843,13 @@ yarn // 使用 yarn.lock 保证依赖版本一致
 yarn run dev
 ```
 
+### 本地查看文档
+
+``` bash
+npm run build-docs // 构建文档
+npm run docs // 使用 docute 预览文档
+```
+
 ### 如何贡献
 
 遵从 Github 上的 contribution template.
