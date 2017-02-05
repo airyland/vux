@@ -123,6 +123,7 @@ export default {
     }
     if (this.required && !this.currentValue) {
       this.valid = false
+      this.getError()
     }
   },
   mixins: [Base],
