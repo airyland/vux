@@ -1,5 +1,5 @@
 <template>
-  <div class="vux-search-box" :class="{'vux-search-fixed':isFixed}" :style="{top: isFixed ? top : ''}">
+  <div class="vux-search-box" :class="{'vux-search-fixed':isFixed}" :style="{top: isFixed ? top : '', position: fixPosition }">
     <div class="weui_search_bar" id="search_bar" :class="{weui_search_focusing: !isCancel}">
       <form class="weui_search_outer" @submit.prevent="$emit('on-submit', value)">
         <div class="vux-search-mask" @click="touch" v-show="!isFixed && autoFixed"></div>
@@ -63,11 +63,23 @@ export default {
     top: {
       type: String,
       default: '0px'
+    },
+    position: {
+      type: String,
+      default: 'fixed'
     }
   },
   created () {
     if (this.value) {
       this.currentValue = this.value
+    }
+  },
+  computed: {
+    fixPosition () {
+      if (this.isFixed) {
+        return this.position === 'absolute' ? 'absolute' : 'fixed'
+      }
+      return 'static'
     }
   },
   methods: {

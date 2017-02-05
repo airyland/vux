@@ -26,3 +26,7 @@ props:
     type: String
     default: '0px'
     zh-CN: 自动固定时距离顶部的距离
+  position:
+    type: String
+    default: 'fixed'
+    zh-CN: '自动固定时的定位，当用于`100%`布局时，建议使用`absolute`定位'
