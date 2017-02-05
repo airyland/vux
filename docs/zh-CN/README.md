@@ -22,6 +22,13 @@ nav: zh-CN
   </a>
 </p>
 
+<p class="tip">
+  0.x 版本文档不完整，并且已经不再维护。请更新或者直接使用`2.x`。
+  <br>
+  如果你想查看`0.x`组件代码和 Demo 代码，请查看 [master 分支](https://github.com/airyland/vux/tree/master)
+  <br>
+  <a href="https://vuxjs.gitbooks.io/vux/content/">访问 `0.x` 文档地址</a>
+</p>
 
 ## 简介
 
@@ -594,7 +601,7 @@ console.log(AjaxPlugin.$http)
 
 将所有页面组件一次性加载是一个很浪费资源和考验用户耐心的做法，尤其在移动端。
 
-`webpack` 提供了`[code splitting](https://webpack.js.org/guides/code-splitting-require/)`，你可以按照下面写法实现当切换到特定路由时才加载代码。
+`webpack` 提供了[code splitting](https://webpack.js.org/guides/code-splitting-require/)，你可以按照下面写法实现当切换到特定路由时才加载代码。
 
 ``` js
 {
