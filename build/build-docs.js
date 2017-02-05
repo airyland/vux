@@ -5,6 +5,11 @@ var fs = require('fs')
 var yaml = require('js-yaml')
 var path = require('path')
 var _ = require('lodash')
+const mkdirp = require('mkdirp')
+const rimraf = require('rimraf')
+
+rimraf.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
+mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
 
 const aliasMap = {
   Base64Tool: 'base64',
