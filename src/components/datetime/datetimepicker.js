@@ -1,5 +1,6 @@
 import Scroller from '../picker/scroller'
 import { each, trimZero, addZero, getMaxDay, parseRow, parseDate, getElement, toElement, removeElement } from './util'
+import { getYears, getMonths, getDays } from './makeData'
 
 const MASK_TEMPLATE = '<div class="dp-mask"></div>'
 
@@ -43,6 +44,10 @@ var DEFAULT_CONFIG = {
   currentMonth: NOW.getMonth() + 1,
   minYear: 2000,
   maxYear: 2030,
+  minHour: 0,
+  maxHour: 23,
+  startDate: null,
+  endDate: null,
   yearRow: '{value}',
   monthRow: '{value}',
   dayRow: '{value}',
@@ -106,6 +111,20 @@ function DatetimePicker (config) {
   each(DEFAULT_CONFIG, function (key, val) {
     self.config[key] = config[key] || val
   })
+
+  if (typeof this.config.startDate === 'string') {
+    this.config.startDate = new Date(this.config.startDate.replace(/-/g, '/'))
+  }
+
+  if (typeof this.config.endDate === 'string') {
+    this.config.endDate = new Date(this.config.endDate.replace(/-/g, '/'))
+  }
+
+  if (this.config.startDate && !this.config.endDate) {
+    this.config.endDate = new Date('2030-12-31')
+  }
+
+  this.reMakeData = !!this.config.startDate && !!this.config.endDate
 
   var trigger = self.config.trigger
 
@@ -182,6 +201,7 @@ DatetimePicker.prototype = {
           if (type === 'year') {
             var currentMonth = self.monthScroller ? self.monthScroller.value : config.currentMonth
             currentDay = self.dayScroller.value
+            self._setMonthScroller(currentValue, currentMonth)
             self._setDayScroller(currentValue, currentMonth, currentDay)
           } else if (type === 'month') {
             var currentYear = self.yearScroller ? self.yearScroller.value : config.currentYear
@@ -236,18 +256,34 @@ DatetimePicker.prototype = {
     var data = []
     var min
     var max
+
     if (type === 'year') {
       min = config.minYear
       max = config.maxYear
+      if (this.reMakeData) {
+        const { minYear, maxYear } = getYears(this.config.startDate, this.config.endDate)
+        min = Math.max(min, minYear)
+        max = Math.min(max, maxYear)
+      }
     } else if (type === 'month') {
       min = 1
       max = 12
+      if (this.reMakeData) {
+        const { minMonth, maxMonth } = getMonths(this.config.startDate, this.config.endDate, this.yearScroller.value * 1)
+        min = Math.max(min, minMonth)
+        max = Math.min(max, maxMonth)
+      }
     } else if (type === 'day') {
       min = 1
       max = getMaxDay(year, month)
+      if (this.reMakeData) {
+        const { minDay, maxDay } = getDays(this.config.startDate, this.config.endDate, this.yearScroller.value * 1, this.monthScroller.value * 1)
+        min = Math.max(min, minDay)
+        max = Math.min(max, maxDay)
+      }
     } else if (type === 'hour') {
-      min = 0
-      max = 23
+      min = this.config.minHour
+      max = this.config.maxHour
     } else if (type === 'minute') {
       min = 0
       max = 59
@@ -266,6 +302,19 @@ DatetimePicker.prototype = {
       })
     }
     return data
+  },
+
+  // after year change
+  _setMonthScroller (currentValue, month) {
+    const self = this
+    this.monthScroller.destroy()
+    var div = self.find('[data-role=month]')
+    self.monthScroller = renderScroller(div, self._makeData('month'), month, function (currentValue) {
+      self.config.onSelect.call(self, 'month', currentValue)
+      var currentYear = self.yearScroller ? self.yearScroller.value : self.config.currentYear
+      const currentDay = self.dayScroller.value
+      self._setDayScroller(currentYear, currentValue, currentDay)
+    })
   },
 
   _setDayScroller (year, month, day) {

@@ -5,6 +5,14 @@
     </group>
 
     <p class="center" @click="value1 = '2017-11-11'">{{ $t('click to change value to: 2017-11-11') }}</p>
+    
+    <group :title="$t('Limit hours')">
+      <datetime v-model="limitHourValue" format="YYYY-MM-DD HH:mm" :min-hour=9 :max-hour=18 @on-change="change" :title="$t('Limit hours')" :inline-desc="$t('09-18')"></datetime>
+    </group>
+
+    <group :title="$t('set start-date and end-date') + ' 2015-11-11 ~ 2017-10-11'">
+      <datetime v-model="limitHourValue" start-date="2015-11-11" end-date="2017-10-11" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('start time')"></datetime>
+    </group>
 
     <group :title="$t('format: YYYY-MM-DD HH:mm')">
       <datetime v-model="value2" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('start time')"></datetime>
@@ -67,6 +75,14 @@ Click me:
   zh-CN: 点我
 custom trigger slot:
   zh-CN: 自定义触发内容
+Limit hours:
+  zh-CN: 限定小时范围
+09-18:
+  zh-CN: 工作时间 09-18
+set start-date and end-date:
+  zh-CN: 设置开始时间和结束日期
+'click to change value to: 2017-11-11':
+  zh-CN: 设置时间为 2017-11-11
 </i18n>
 
 <script>
@@ -80,13 +96,14 @@ export default {
   },
   data () {
     return {
-      value1: '2016-02-11',
+      value1: '2015-11-12',
       value2: '',
       value3: '',
       value4: '',
       value5: '',
       value6: '2016-08-18',
-      value7: ''
+      value7: '',
+      limitHourValue: ''
     }
   },
   methods: {
