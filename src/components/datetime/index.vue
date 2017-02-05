@@ -5,12 +5,16 @@
         <p>{{title}}</p>
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </div>
-      <div class="weui_cell_ft with_arrow vux-datetime-value">{{ currentValue || placeholder}}</div>
+      <div class="weui_cell_ft with_arrow vux-datetime-value">
+        {{ currentValue || placeholder}}
+        <icon class="vux-input-icon" type="warn" v-show="!valid" :title="firstError"></icon>
+      </div>
     </slot>
   </a>
 </template>
 
 <script>
+import Icon from '../icon'
 import Picker from './datetimepicker'
 import Group from '../group'
 import InlineDesc from '../inline-desc'
@@ -20,7 +24,8 @@ export default {
   mixins: [Base],
   components: {
     Group,
-    InlineDesc
+    InlineDesc,
+    Icon
   },
   props: {
     format: {
@@ -67,6 +72,10 @@ export default {
     minuteRow: {
       type: String,
       default: '{value}'
+    },
+    required: {
+      type: Boolean,
+      default: false
     }
   },
   created () {
@@ -75,7 +84,9 @@ export default {
   },
   data () {
     return {
-      currentValue: ''
+      currentValue: null,
+      valid: true,
+      errors: {}
     }
   },
   mounted () {
@@ -106,6 +117,9 @@ export default {
         },
         onClear (value) {
           _this.$emit('on-clear', value)
+        },
+        onHide () {
+          _this.validate()
         }
       }
       if (this.minYear) {
@@ -115,6 +129,10 @@ export default {
         options.maxYear = this.maxYear
       }
       return options
+    },
+    firstError () {
+      let key = Object.keys(this.errors)[0]
+      return this.errors[key]
     }
   },
   methods: {
@@ -123,12 +141,22 @@ export default {
         this.picker.destroy()
       }
       this.picker = new Picker(this.pickerOptions)
+    },
+    validate () {
+      if (!this.currentValue && this.required) {
+        this.valid = false
+        this.errors.required = '必填'
+        return
+      }
+      this.valid = true
+      this.errors = {}
     }
   },
   watch: {
     currentValue (val) {
       this.$emit('on-change', val)
       this.$emit('input', val)
+      this.validate()
     },
     value (val) {
       if (this.currentValue !== val) {
