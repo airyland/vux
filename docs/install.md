@@ -1,5 +1,5 @@
 [zh-CN]
-> Vux推荐从`src/components`里引入组件，因为体积小而且配合`vux-loader`可以最大效率工程化。
+> Vux推荐从`src/components`里引入组件，因为体积小而且配合`vue-loader`可以最大效率工程化。
 
 后面将逐渐不支持umd的形式，即不再构建`dist`目录的umd文件，新的一些feature将使用webpack loader 来支持。
 
