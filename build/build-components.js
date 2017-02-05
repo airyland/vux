@@ -34,7 +34,7 @@ for(let i in maps) {
   let match = list.filter(function(one){
     return _camelCase(one.name) === i
   })
-  if (match.length === 0 && !/Plugin|Data|Directive|Filter|Item|NOTICE|Demo|Dev/.test(i)) {
+  if (match.length === 0 && !/Plugin|Data|Directive|Filter|Item|NOTICE|Demo|Dev|Tool|md5|base64|cookie/.test(i)) {
     others.push({
       name: toDash(i),
       importName: i,
