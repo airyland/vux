@@ -1,7 +1,7 @@
 <template>
   <div>
     <img src="../assets/demo/filter_bg.jpg" style="width: 100%">
-    <search @result-click="resultClick" @on-change="getResult" :results="results" v-model="value" position="absolute" top="46px"></search>
+    <search @result-click="resultClick" @on-change="getResult" :results="results" v-model="value" position="absolute" auto-scroll-to-top top="46px"></search>
     <br>
     <group>
       <cell title="static position demo" is-link link="/component/search-static"></cell>

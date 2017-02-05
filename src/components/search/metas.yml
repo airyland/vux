@@ -29,4 +29,8 @@ props:
   position:
     type: String
     default: 'fixed'
-    zh-CN: '自动固定时的定位，当用于`100%`布局时，建议使用`absolute`定位'
+    zh-CN: '自动固定时的定位，一些布局下可能需要使用其他定位，比如`absolute`'
+  auto-scroll-to-top:
+    type: Boolean
+    default: false
+    zh-CN: '`Safari`下弹出键盘时可能会出现看不到input，需要手动滚动，启用该属性会在fix时滚动到顶端'

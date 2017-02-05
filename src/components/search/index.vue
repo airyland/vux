@@ -67,7 +67,8 @@ export default {
     position: {
       type: String,
       default: 'fixed'
-    }
+    },
+    autoScrollToTop: Boolean
   },
   created () {
     if (this.value) {
@@ -123,8 +124,13 @@ export default {
       if (val === true) {
         this.setFocus()
         this.isFocus = true
-      } else {
-      }
+
+        if (this.autoScrollToTop) {
+          setTimeout(() => {
+            window.scrollTo(0, 0)
+          }, 150)
+        }
+      } else {}
     },
     value (val) {
       this.currentValue = val
