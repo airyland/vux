@@ -597,6 +597,15 @@ console.log(AjaxPlugin.$http)
 
 ## 优化
 
+### 点击延迟
+
+在`main.js`里引用`fastclick`
+
+``` js
+const FastClick = require('fastclick')
+FastClick.attach(document.body)
+```
+
 ### 异步加载组件
 
 将所有页面组件一次性加载是一个很浪费资源和考验用户耐心的做法，尤其在移动端。
@@ -612,7 +621,7 @@ console.log(AjaxPlugin.$http)
 }
 ```
 
-### 将 manifest js代码直接写入到页面
+### inline manifest
 
 <p class="tip">
   manifest文件为路径配置和异步组件名字列表，该做法可以减少一个`http`请求。
