@@ -159,7 +159,7 @@ export default {
   width: 100%;
 }
 .weui_cells.vux-search_show {
-  margin-top: 0;
+  margin-top: 0!important;
   overflow-y: auto;
 }
 .vux-search-mask {
