@@ -30,7 +30,8 @@ export default {
     autoCloseOnButtonClick: {
       type: Boolean,
       default: true
-    }
+    },
+    disabled: Boolean
   },
   mounted () {
     this.$nextTick(() => {
@@ -51,6 +52,9 @@ export default {
       }
     },
     start (ev) {
+      if (this.disabled) {
+        return
+      }
       if (ev.target.nodeName.toLowerCase() === 'button') {
         ev.preventDefault()
         return
@@ -73,6 +77,9 @@ export default {
       this.pageY = touch.pageY
     },
     move (ev) {
+      if (this.disabled) {
+        return
+      }
       if (ev.target.nodeName.toLowerCase() === 'button') {
         ev.preventDefault()
         return
@@ -106,6 +113,9 @@ export default {
       }
     },
     end (ev) {
+      if (this.disabled) {
+        return
+      }
       if (ev.target.nodeName.toLowerCase() === 'button') {
         ev.preventDefault()
         return
@@ -123,7 +133,10 @@ export default {
 
       this.pageX = this.pageY = this.valid = undefined
     },
-    setOffset (x, animated) {
+    setOffset (x, animated, force) {
+      if (this.disabled && !force) {
+        return
+      }
       if (animated && this.target) {
         this.target && this.target.classList.add('vux-swipeout-content-animated')
         var cb = (function (self, target) {
@@ -150,6 +163,13 @@ export default {
       animated: false,
       styles: {
         transform: 'translate3d(0px, 0, 0)'
+      }
+    }
+  },
+  watch: {
+    disabled (newVal, oldVal) {
+      if (newVal === true && !oldVal) {
+        this.setOffset(0, true, true)
       }
     }
   }

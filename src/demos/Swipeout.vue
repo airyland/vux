@@ -1,16 +1,29 @@
 <template>
   <div>
     <swipeout class="demo-swipeout">
-     <swipeout-item v-for="i in 5" class="demo-swipeout-item" @on-close="handleEvents('on-close')" @on-open="handleEvents('on-open')">
-       <div slot="button">
-          <swipeout-button @click.native="onButtonClick('fav ' + i)" background-color="#336DD6">{{$t('Fav')}}</swipeout-button>
-          <swipeout-button @click.native="onButtonClick('delete ' + i)" background-color="#D23934">{{$t('Delete')}}</swipeout-button>
-       </div>
-       <div slot="content">
-        {{$t('JavaScript is the bese language')}} {{i}}
-       </div>
-     </swipeout-item>
+      <swipeout-item class="demo-swipeout-item" @on-close="handleEvents('on-close')" @on-open="handleEvents('on-open')">
+        <div slot="button">
+          <swipeout-button @click.native="onButtonClick('fav')" background-color="#336DD6">{{$t('Fav')}}</swipeout-button>
+          <swipeout-button @click.native="onButtonClick('delete')" background-color="#D23934">{{$t('Delete')}}</swipeout-button>
+        </div>
+        <div slot="content">
+        {{$t('JavaScript is the best language')}}
+        </div>
+      </swipeout-item>
+      <swipeout-item :disabled="disabled" class="demo-swipeout-item">
+        <div slot="button">
+          <swipeout-button @click.native="onButtonClick('fav')" background-color="#336DD6">{{$t('Fav')}}</swipeout-button>
+          <swipeout-button @click.native="onButtonClick('delete')" background-color="#D23934">{{$t('Delete')}}</swipeout-button>
+        </div>
+        <div slot="content">
+        {{$t('disabled')}}
+        </div>
+      </swipeout-item>
     </swipeout>
+    <div style="padding:15px;">
+      <x-button @click.native="disabled = false" type="primary" :disabled="!disabled">{{ $t('Enable') }}</x-button>
+      <x-button @click.native="disabled = true" type="warn" :disabled="disabled">{{ $t('Disable') }}</x-button>
+    </div>
   </div>
 </template>
 
@@ -19,18 +32,19 @@ Fav:
   zh-CN: 收藏
 Delete:
   zh-CN: 删除
-JavaScript is the bese language:
+JavaScript is the best language:
   zh-CN: JavaScript 是最好的语言
 </i18n>
 
 <script>
-import { Swipeout, SwipeoutItem, SwipeoutButton } from 'vux'
+import { Swipeout, SwipeoutItem, SwipeoutButton, XButton } from 'vux'
 
 export default {
   components: {
     Swipeout,
     SwipeoutItem,
-    SwipeoutButton
+    SwipeoutButton,
+    XButton
   },
   methods: {
     onButtonClick (type) {
@@ -38,6 +52,11 @@ export default {
     },
     handleEvents (type) {
       console.log('event: ', type)
+    }
+  },
+  data () {
+    return {
+      disabled: true
     }
   }
 }
