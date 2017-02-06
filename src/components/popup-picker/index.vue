@@ -111,7 +111,7 @@ export default {
       }
     },
     showName: Boolean,
-    inlineDesc: String,
+    inlineDesc: [String, Number, Array, Object, Boolean],
     showCell: {
       type: Boolean,
       default: true
