@@ -1,3 +1,5 @@
+// THIS FILE IS ONLY FOR IDE ENTRY CHECKING NOT FOR REAL USAGE
+
 import Array2stringFilter from './src/filters/array2String.js'
 import FormatTimeFilter from './src/filters/format-time.js'
 import FriendlyTimeFilter from './src/filters/friendly-time.js'
@@ -14,6 +16,12 @@ import LoadingPlugin from './src/plugins/loading/index.js'
 import TitlePlugin from './src/plugins/title/index.js'
 import ToastPlugin from './src/plugins/toast/index.js'
 import WechatPlugin from './src/plugins/wechat/index.js'
+import Base64Tool from './src/tools/base64/index.js'
+import base64 from './src/tools/base64/index.js'
+import CookieTool from './src/tools/cookie/index.js'
+import cookie from './src/tools/cookie/index.js'
+import Md5Tool from './src/tools/md5/index.js'
+import md5 from './src/tools/md5/index.js'
 import ClickOutsideDirective from './src/directives/click-outside/index.js'
 import InviewDirective from './src/directives/inview/index.js'
 import Actionsheet from './src/components/actionsheet/index.vue'
@@ -119,6 +127,12 @@ export {
   TitlePlugin,
   ToastPlugin,
   WechatPlugin,
+  Base64Tool,
+  base64,
+  CookieTool,
+  cookie,
+  Md5Tool,
+  md5,
   ClickOutsideDirective,
   InviewDirective,
   Actionsheet,
