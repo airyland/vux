@@ -1,5 +1,5 @@
 <template>
-  <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': $parent.index === currentIndex}" @click="onItemClick(true)">
+  <a :href="link" class="weui_tabbar_item" :class="{'weui_bar_item_on': $parent.index === currentIndex}" @click="onItemClick(true)">
     <div class="weui_tabbar_icon" :class="[iconClass || $parent.iconClass, {'vux-reddot': showDot}]">
       <slot name="icon"></slot>
       <sup><badge v-if="badge" :text="badge"></badge></sup>
