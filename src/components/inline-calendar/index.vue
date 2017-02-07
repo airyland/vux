@@ -2,15 +2,23 @@
   <div class="inline-calendar" :class="{'is-weekend-highlight': highlightWeekend}">
     <div class="calendar-header" v-show="!hideHeader">
       <div class="calendar-year">
-        <a class="year-prev vux-prev-icon" href="javascript:" @click="go(year - 1, month)"></a>
+        <span @click="go(year - 1, month)">
+          <a class="year-prev vux-prev-icon" href="javascript:"></a>
+        </span>
         <a class="calendar-year-txt calendar-title" href="javascript:">{{year}}</a>
-        <a class="year-next vux-next-icon" href="javascript:" @click="go(year + 1, month)"></a>
+        <span class="calendar-header-right-arrow" @click="go(year + 1, month)">
+          <a class="year-next vux-next-icon" href="javascript:"></a>
+        </span>
       </div>
 
       <div class="calendar-month">
-        <a @click="prev" class="month-prev vux-prev-icon" href="javascript:"></a>
+        <span @click="prev">
+          <a class="month-prev vux-prev-icon" href="javascript:"></a>
+        </span>
         <a class="calendar-month-txt calendar-title" href="javascript:">{{months[month]}}</a>
-        <a @click="next" class="month-next vux-next-icon" href="javascript:"></a>
+        <span @click="next" class="calendar-header-right-arrow">
+          <a class="month-next vux-next-icon" href="javascript:"></a>
+        </span>
       </div>
     </div>
 
@@ -171,6 +179,20 @@ export default {
 </script>
  
 <style>
+.calendar-year > span, .calendar-month > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  padding: 8px;
+  width: 24px;
+  height: 24px;
+}
+
+.calendar-year > span.calendar-header-right-arrow, .calendar-month > span.calendar-header-right-arrow {
+  left: auto;
+  right: 0;
+}
 .vux-prev-icon, .vux-next-icon {
   position: absolute;
   left: 0;
@@ -224,7 +246,7 @@ export default {
   text-align: center;
   overflow: hidden;
 }
-.calendar-header a:last-of-type {
+.calendar-header span:last-of-type {
   float: right;
   vertical-align: bottom;
 }
