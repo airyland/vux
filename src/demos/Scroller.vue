@@ -1,5 +1,10 @@
 <template>
   <div>
+    <group>
+      <cell is-link title="pullup" link="/component/pullup">Pullup</cell>
+      <cell is-link title="pulldown" link="/component/pulldown">Pulldown</cell>
+    </group>
+
     <divider>{{ $t('A Horizontal Scroller without Scrollbar') }}</divider>
     <scroller lock-y :scrollbar-x=false>
       <div class="box1">
