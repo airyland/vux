@@ -1,7 +1,7 @@
 <template>
-  <button class="weui_btn" :class="classes" :disabled="disabled">
+  <component :is="component" class="weui_btn" :class="classes" :disabled="disabled" :href="href">
     {{text}}<slot></slot>
-  </button>
+  </component>
 </template>
 
 <script>
@@ -13,9 +13,13 @@ export default {
     disabled: Boolean,
     mini: Boolean,
     plain: Boolean,
-    text: String
+    text: String,
+    href: String
   },
   computed: {
+    component () {
+      return this.href ? 'Link' : 'Button';
+    },
     classes () {
       return [
         {
@@ -26,6 +30,10 @@ export default {
         this.plain ? `weui_btn_plain_${this.type}` : ''
       ]
     }
+  },
+  components: {
+    Link: { template: '<a><slot></slot></a>' },
+    Button: { template: '<button><slot></slot></button>' }
   }
 }
 </script>
