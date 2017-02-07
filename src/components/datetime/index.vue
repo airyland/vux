@@ -124,6 +124,9 @@ export default {
   },
   watch: {
     value (val) {
+      if (this.picker.value != val) {
+        this.picker.value = val
+      }
       this.$emit('on-change', val)
     }
   },
