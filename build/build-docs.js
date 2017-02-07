@@ -26,8 +26,23 @@ let maps = {}
 
 function saveMaps(key, value) {
   if (/vux/.test(value)) {
-    let index = value.indexOf('vux/src')
-    value = value.slice(index + 4, value.length)
+    let index = value.indexOf('src/components')
+    if (/Filter$/.test(key)) {
+      index = value.indexOf('src/filters')
+    }
+    if (/Data$/.test(key)) {
+      index = value.indexOf('src/datas')
+    }
+    if (/Plugin$/.test(key)) {
+      index = value.indexOf('src/plugins')
+    }
+    if (/Directive$/.test(key)) {
+      index = value.indexOf('src/directives')
+    }
+    if (/Tool$/.test(key)) {
+      index = value.indexOf('src/tools')
+    }
+    value = value.slice(index, value.length)
   }
   maps[key] = value.replace('../', '')
   if (aliasMap[key]) {
