@@ -5,7 +5,7 @@
         <div class="vux-search-mask" @click="touch" v-show="!isFixed && autoFixed"></div>
         <div class="weui_search_inner">
           <i class="weui_icon_search"></i>
-          <input type="search" class="weui_search_input" id="search_input" :placeholder="placeholder" autocomplete="off" :required="required" v-model="value" v-el:input
+          <input type="search" class="weui_search_input" id="search_input" :placeholder="placeholder" autocomplete="off" :required="required" v-model="value" v-el:input :debounce="debounce"
           @focus="isFocus = true"
           @blur="isFocus = false"/>
           <a href="javascript:" class="weui_icon_clear" id="search_clear" @click="clear"></a>
@@ -60,6 +60,10 @@ export default {
     top: {
       type: String,
       default: '0px'
+    },
+    debounce: {
+      type: Number,
+      default: 0
     }
   },
   methods: {
