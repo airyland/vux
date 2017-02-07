@@ -1,5 +1,5 @@
 <template>
-	<div class="weui_cell" :class="{'weui_cell_warn': !valid}">
+	<div class="vux-x-input weui_cell" :class="{'weui_cell_warn': !valid}">
     <div class="weui_cell_hd">
       <label class="weui_label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
@@ -363,5 +363,8 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_vcode';
 .vux-input-icon.weui_icon_warn:before, .vux-input-icon.weui_icon_success:before {
   font-size: 21px;
+}
+.vux-x-input .weui_icon {
+  padding-left: 5px;
 }
 </style>
