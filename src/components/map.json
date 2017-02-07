@@ -24,6 +24,7 @@
   "md5": "src/tools/md5/index.js",
   "ClickOutsideDirective": "src/directives/click-outside/index.js",
   "InviewDirective": "src/directives/inview/index.js",
+  "TransferDomDirective": "src/directives/transfer-dom/index.js",
   "Actionsheet": "src/components/actionsheet/index.vue",
   "Alert": "src/components/alert/index.vue",
   "Badge": "src/components/badge/index.vue",
