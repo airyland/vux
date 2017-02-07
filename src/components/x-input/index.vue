@@ -236,6 +236,7 @@ export default {
       if (!this.currentValue && this.required) {
         this.valid = false
         this.errors.required = '必填哦'
+        this.getError()
         return
       }
 
