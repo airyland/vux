@@ -222,7 +222,7 @@ export default {
       this.firstError = this.errors[key]
     },
     validate () {
-      if (this.equalWith) {
+      if (typeof this.equalWith !== 'undefined') {
         this.validateEqual()
         return
       }
@@ -289,6 +289,11 @@ export default {
       this.valid = true
     },
     validateEqual () {
+      if (!this.equalWith && this.currentValue) {
+        this.valid = false
+        this.errors.equal = '输入不一致'
+        return
+      }
       let willCheck = this.dirty || this.currentValue.length >= this.equalWith.length
       // 只在长度符合时显示正确与否
       if (willCheck && this.currentValue !== this.equalWith) {
@@ -296,8 +301,12 @@ export default {
         this.errors.equal = '输入不一致'
         return
       } else {
-        this.valid = true
-        delete this.errors.equal
+        if (!this.currentValue && this.required) {
+          this.valid = false
+        } else {
+          this.valid = true
+          delete this.errors.equal
+        }
       }
     }
   },
@@ -329,6 +338,9 @@ export default {
       }
     },
     currentValue (newVal) {
+      if (!this.equalWith && newVal) {
+        this.validateEqual()
+      }
       if (newVal && this.equalWith) {
         if (newVal.length === this.equalWith.length) {
           this.hasLengthEqual = true
