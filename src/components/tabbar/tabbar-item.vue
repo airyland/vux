@@ -19,7 +19,6 @@ export default {
     Badge
   },
   created () {
-    console.log(this.$slots)
     if (!this.$slots.icon) {
       this.simple = true
     }

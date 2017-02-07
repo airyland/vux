@@ -204,6 +204,9 @@ Powerange.prototype.step = function (sliderSize, handleSize) {
   }
 
   this.steps = steps
+  for (let i = 10; i >= 0; i--) {
+    this.steps[steps.length - i] = dimension - interval * i
+  }
 
   return this.steps
 }
