@@ -1,6 +1,6 @@
 <template>
-  <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': $parent.index === currentIndex}" @click="onItemClick(true)">
-    <div class="weui_tabbar_icon" :class="[iconClass || $parent.iconClass, {'vux-reddot': showDot}]">
+  <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': $parent.index === currentIndex, 'vux-tabbar-simple': simple}" @click="onItemClick(true)">
+    <div class="weui_tabbar_icon" :class="[iconClass || $parent.iconClass, {'vux-reddot': showDot}]" v-if="!simple">
       <slot name="icon"></slot>
       <sup><badge v-if="badge" :text="badge"></badge></sup>
     </div>
@@ -18,6 +18,12 @@ export default {
   components: {
     Badge
   },
+  created () {
+    console.log(this.$slots)
+    if (!this.$slots.icon) {
+      this.simple = true
+    }
+  },
   mixins: [childMixin],
   props: {
     showDot: {
@@ -27,6 +33,11 @@ export default {
     badge: String,
     link: [String, Object],
     iconClass: String
+  },
+  data () {
+    return {
+      simple: false
+    }
   }
 }
 </script>

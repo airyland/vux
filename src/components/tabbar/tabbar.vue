@@ -29,4 +29,12 @@ export default {
   transform: translateX(-50%);
   z-index: 101;
 }
+.weui_tabbar_item.vux-tabbar-simple {
+  padding: 0;
+  height: 50px;
+  line-height: 50px;
+}
+.vux-tabbar-simple .weui_tabbar_label {
+  font-size: 14px;
+}
 </style>

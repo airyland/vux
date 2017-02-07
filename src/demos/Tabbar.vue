@@ -1,5 +1,8 @@
 <template>
   <div>
+    <group>
+      <cell is-link title="Tabbar Simple" link="/component/tabbar-simple"></cell>
+    </group>
     <tabbar>
       <tabbar-item>
         <img slot="icon" src="../assets/demo/icon_nav_button.png">
@@ -22,12 +25,14 @@
 </template>
 
 <script>
-import { Tabbar, TabbarItem } from 'vux'
+import { Tabbar, TabbarItem, Group, Cell } from 'vux'
 
 export default {
   components: {
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    Group,
+    Cell
   }
 }
 </script>
