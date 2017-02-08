@@ -8,6 +8,8 @@ extra:
     ```
 
     <p class="tip">`x-input`只能在`Group`中使用</p>
+
+    如果你想实现在输入框右边按钮切换密码明文，请使用`slot=right`实现`type`切换。
 tags:
   en:
     - form
@@ -44,6 +46,14 @@ props:
   max:
     type: Number
     zh-CN: '最大输入字符限制，等同于`maxlength`，达到限制到不能再输入'
+  disabled:
+    type: Boolean
+    default: false
+    zh-CN: 是否禁用填写
+  readonly:
+    type: Boolean
+    default: false
+    zh-CN: 同input的标准属性readonly
 events:
   on-blur:
     params: '`(value)`'
