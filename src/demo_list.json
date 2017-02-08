@@ -25,6 +25,7 @@
   "Scroller",
   "Pulldown",
   "Pullup",
+  "PulldownPullup",
   "Toast",
   "Reddot",
   "Divider",
