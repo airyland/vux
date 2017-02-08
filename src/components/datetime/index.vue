@@ -144,6 +144,12 @@ export default {
       this.$emit('on-change', val)
       this.$emit('input', val)
     },
+    startDate () {
+      this.render()
+    },
+    endDate () {
+      this.render()
+    },
     value (val) {
       if (this.currentValue !== val) {
         this.currentValue = val

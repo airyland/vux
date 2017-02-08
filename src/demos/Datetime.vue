@@ -11,8 +11,12 @@
     </group>
 
     <group :title="$t('set start-date and end-date') + ' 2015-11-11 ~ 2017-10-11'">
-      <datetime v-model="limitHourValue" start-date="2015-11-11" end-date="2017-10-11" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('start time')"></datetime>
+      <datetime v-model="limitHourValue" :start-date="startDate" :end-date="endDate" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('start time')"></datetime>
     </group>
+
+    <div style="padding:15px;">
+      <x-button @click.native="reRender" type="primary">2016-11-11 ~ 2018-10-11</x-button>
+    </div>
 
     <group :title="$t('format: YYYY-MM-DD HH:mm')">
       <datetime v-model="value2" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('start time')"></datetime>
@@ -103,10 +107,16 @@ export default {
       value5: '',
       value6: '2016-08-18',
       value7: '',
-      limitHourValue: ''
+      limitHourValue: '',
+      startDate: '2015-11-11',
+      endDate: '2017-10-11'
     }
   },
   methods: {
+    reRender () {
+      this.startDate = '2016-11-11'
+      this.endDate = '2018-10-11'
+    },
     change (value) {
       console.log('change', value)
     },
