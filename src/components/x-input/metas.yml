@@ -1,6 +1,6 @@
 icon: '&#xe614;'
 extra:
-  zh-CN: >
+  zh-CN: |
     ```html
       <group>
         <x-input title="title" v-model="value"></x-input>
