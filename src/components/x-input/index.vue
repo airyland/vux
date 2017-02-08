@@ -132,6 +132,7 @@ export default {
     if (this.required && !this.currentValue) {
       this.valid = false
     }
+    this.handleChangeEvent = true
   },
   mixins: [Base],
   components: {

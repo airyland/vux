@@ -14,7 +14,7 @@
     </group>
 
     <group title="max is alias to maxlength">
-      <x-input title='max=5' :max="5" @on-change="change"></x-input>
+      <x-input title='max=5' :max="5" @on-change="change" v-model="maxValue"></x-input>
     </group>
 
     <group title="disabled">
@@ -108,7 +108,8 @@ export default {
         }
       },
       style: '',
-      disabledValue: 'hello'
+      disabledValue: 'hello',
+      maxValue: ''
     }
   },
   methods: {
