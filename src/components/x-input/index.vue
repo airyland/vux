@@ -8,6 +8,7 @@
       <input
       v-if="!type || type === 'text'"
       class="weui_input"
+      :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
       :autocorrect="autocorrect"
@@ -25,6 +26,7 @@
       <input
       v-if="type === 'number'"
       class="weui_input"
+      :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
       :autocorrect="autocorrect"
@@ -42,6 +44,7 @@
       <input
       v-if="type === 'email'"
       class="weui_input"
+      :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
       :autocorrect="autocorrect"
@@ -59,6 +62,7 @@
       <input
       v-if="type === 'password'"
       class="weui_input"
+      :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
       :autocorrect="autocorrect"
@@ -357,6 +361,7 @@ export default {
         this.validate()
       }
       this.$emit('input', newVal)
+      this.$emit('on-change', newVal)
     }
   }
 }

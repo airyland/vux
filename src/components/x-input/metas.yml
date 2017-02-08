@@ -43,11 +43,14 @@ props:
     zh-CN: 最小输入字符限制
   max:
     type: Number
-    zh-CN: 最大输入字符限制
+    zh-CN: '最大输入字符限制，等同于`maxlength`，达到限制到不能再输入'
 events:
   on-blur:
     params: '`(value)`'
     zh-CN: 'input的`blur`事件'
+  on-change:
+    params: '`(value)`'
+    zh-CN: '输入值变化时触发'
 changes:
   v2.0.0:
     zh-CN:

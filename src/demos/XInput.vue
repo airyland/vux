@@ -13,6 +13,11 @@
       <x-input title="必须输入2333" :is-type="be2333" placeholder="I'm placeholder"></x-input>
     </group>
 
+    <group title="max is alias to maxlength">
+      <x-input title='max=5' :max="5" @on-change="change"></x-input>
+    </group>
+
+
     <group title="html title">
       <x-input :title='`<span style="${style}">hello</span>`' placeholder="I'm placeholder"></x-input>
     </group>
