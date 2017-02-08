@@ -19,6 +19,7 @@
       :pattern="pattern"
       :placeholder="placeholder"
       :readonly="readonly"
+      :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
       @blur="blur"
@@ -37,6 +38,7 @@
       :pattern="pattern"
       :placeholder="placeholder"
       :readonly="readonly"
+      :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
       @blur="blur"
@@ -55,6 +57,7 @@
       :pattern="pattern"
       :placeholder="placeholder"
       :readonly="readonly"
+      :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
       @blur="blur"
@@ -73,13 +76,14 @@
       :pattern="pattern"
       :placeholder="placeholder"
       :readonly="readonly"
+      :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
       @blur="blur"
       ref="input"/>
     </div>
     <div class="weui_cell_ft">
-      <icon type="clear" v-show="!equalWith && showClear && currentValue && !readonly" @click.native="clear"></icon>
+      <icon type="clear" v-show="!equalWith && showClear && currentValue && !readonly && !disabled" @click.native="clear"></icon>
 
       <icon class="vux-input-icon" type="warn" :title="!valid ? firstError : ''" v-show="!novalidate && !equalWith && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
       <icon class="vux-input-icon" type="warn" v-if="!novalidate && hasLengthEqual && dirty && equalWith && !valid"></icon>
@@ -150,10 +154,8 @@ export default {
     placeholder: String,
     value: [String, Number],
     name: String,
-    readonly: {
-      type: Boolean,
-      default: false
-    },
+    readonly: Boolean,
+    disabled: Boolean,
     keyboard: String,
     inlineDesc: String,
     isType: [String, Function],

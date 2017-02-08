@@ -17,6 +17,10 @@
       <x-input title='max=5' :max="5" @on-change="change"></x-input>
     </group>
 
+    <group title="disabled">
+      <x-input title='value' disabled v-model="disabledValue"></x-input>
+    </group>
+
 
     <group title="html title">
       <x-input :title='`<span style="${style}">hello</span>`' placeholder="I'm placeholder"></x-input>
@@ -103,7 +107,8 @@ export default {
           msg: 'Must be 2333'
         }
       },
-      style: ''
+      style: '',
+      disabledValue: 'hello'
     }
   },
   methods: {
