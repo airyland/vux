@@ -54,12 +54,15 @@ export default {
     onSelect (val) {
       this.show = false
       this.currentValue = val
-      this.$emit('on-change', val)
     }
   },
   watch: {
     value (val) {
       this.currentValue = val
+    },
+    currentValue (val) {
+      this.$emit('input', val)
+      this.$emit('on-change', val)
     }
   },
   data () {
