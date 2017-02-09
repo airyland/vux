@@ -37,7 +37,7 @@ props:
     zh-CN: 选项对齐方式
   options:
     type: Array
-    zh-CN: 选项列表
+    zh-CN: '选项列表，可以为简单数组，或者 `{ key: KEY, value: VALUE }` 结构的键值对数组。当使用键值对时，返回的`value`为`key`的值。'
   name:
     zh-CN: 表单的name名字
   placeholder:
