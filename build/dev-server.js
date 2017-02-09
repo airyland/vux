@@ -1,19 +1,23 @@
-var argv = require('yargs').argv
-
 require('./check-versions')()
+
 var config = require('../config')
-if (!process.env.NODE_ENV) process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
+if (!process.env.NODE_ENV) {
+  process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
+}
+
+var opn = require('opn')
 var path = require('path')
 var express = require('express')
 var webpack = require('webpack')
-var opn = require('opn')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : require('./webpack.dev.conf')
 
 // default port where dev server listens for incoming traffic
-var port = process.env.PORT || argv.port || config.dev.port
+var port = process.env.PORT || config.dev.port
+// automatically open browser, if not set will be false
+var autoOpenBrowser = !!config.dev.autoOpenBrowser
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable
@@ -43,7 +47,7 @@ Object.keys(proxyTable).forEach(function (context) {
   if (typeof options === 'string') {
     options = { target: options }
   }
-  app.use(proxyMiddleware(context, options))
+  app.use(proxyMiddleware(options.filter || context, options))
 })
 
 // handle fallback for HTML5 history API
@@ -73,7 +77,7 @@ module.exports = app.listen(port, function (err) {
   }
 
   // when env is testing, don't need open it
-  if (process.env.NODE_ENV !== 'testing') {
-    // opn(uri)
+  if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
+    opn(uri)
   }
 })

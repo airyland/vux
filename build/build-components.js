@@ -1,21 +1,22 @@
 'use strict'
+process.env.NODE_ENV = 'production'
 
 /**
-* --locale='zh-CN'
-* --namespace='vux'
-*/
+ * --locale='zh-CN'
+ * --namespace='vux'
+ */
 
 var argv = require('yargs').argv
 var namespace = argv.namespace || 'vux'
 
 let config = require('./webpack.prod.conf.js')
-config.vux.plugins.forEach(function(plugin) {
+const vuxConfig = require('./vux-config')
+vuxConfig.plugins.forEach(function (plugin) {
   if (plugin.name === 'i18n') {
     plugin.vuxStaticReplace = true
     plugin.vuxLocale = argv['locale'] || 'zh-CN'
   }
 })
-config.vux.options.env = 'production'
 
 const webpack = require('webpack')
 const mkdirp = require('mkdirp')
@@ -28,10 +29,11 @@ mkdirp.sync(path.resolve(__dirname, '../dist/styles'))
 
 const list = require(path.resolve(__dirname, '../src/datas/vux_component_list.json'))
 const maps = require(path.resolve(__dirname, '../src/components/map.json'))
+
 // 查找在maps里但不在list里的组件
 let others = []
-for(let i in maps) {
-  let match = list.filter(function(one){
+for (let i in maps) {
+  let match = list.filter(function (one) {
     return _camelCase(one.name) === i
   })
   if (match.length === 0 && !/Plugin|Data|Directive|Filter|Item|NOTICE|Demo|Dev|Tool|md5|base64|cookie/.test(i)) {
@@ -60,7 +62,7 @@ var build = thunkify(function (config, name, cb) {
   webpack(config, function (err, stats) {
     if (!config.entry.vux) {
       mkdirp.sync(path.resolve(config.output.path))
-      touch.sync(path.resolve(config.output.path, './index.min.css'))
+      // touch.sync(path.resolve(config.output.path, './index.min.css'))
     }
     var jsonStats = stats.toJson()
     var assets = jsonStats.assets[0]
@@ -89,7 +91,8 @@ config.output.assetsPublicPath = '/'
 
 let isBuilding = false
 
-co(function*() {
+
+co(function* () {
   try {
     for (let n = 0; n < others.length; n++) {
       yield build(buildConfig(others[n]), others[n].name)
@@ -98,11 +101,13 @@ co(function*() {
 })
 
 co(function* () {
+
   try {
     yield build(buildMainConfig(), 'vux')
-  } catch(e){
+  } catch (e) {
     console.log(e)
   }
+
 
   try {
     const pluginList = ['Confirm', 'Toast', 'Device', 'Alert', 'Loading']
@@ -116,8 +121,8 @@ co(function* () {
   try {
     for (let i = 0; i < list.length; i++) {
       let one = list[i]
-      if(one.items) {
-        for(let j = 0; j < one.items.length; j++) {
+      if (one.items) {
+        for (let j = 0; j < one.items.length; j++) {
           one.name = one.items[j]
           one.importName = _camelCase(one.items[j])
           one.path = maps[one.importName]
@@ -130,6 +135,7 @@ co(function* () {
   } catch (e) {
     console.log(e)
   }
+
 })
 
 function camelCase(input) {
@@ -159,8 +165,8 @@ import Style from '../styles/index.vue'\n`
   delete list['ChinaAddressV1Data']
 
   for (let i in list) {
-      const name = `${namespace}${i}`
-      code += `import ${name} from '${list[i]}'\n
+    const name = `${namespace}${i}`
+    code += `import ${name} from '${list[i]}'\n
 vux['${name}'] = ${name}\n`
   }
 
@@ -182,7 +188,9 @@ if (!!window) {
     }
   })
 
-  config.plugins.push(new ExtractTextPlugin(`vux.min.css`))
+  config.plugins.push(new ExtractTextPlugin({
+    filename: `vux.min.css`
+  }))
 
   config.entry = config.entry || {}
   config.entry['vux'] = 'src/components/index.js'
@@ -191,11 +199,12 @@ if (!!window) {
   config.output.library = `vux`
   config.output.filename = `vux.min.js`
   config.output.path = path.resolve(__dirname, `../dist/`)
+  delete config.__vueOptions__
   return config
 }
 
 // build plugins
-function buildPlugin (name) {
+function buildPlugin(name) {
   delete config.entry
 
   config.plugins.forEach((one, index) => {
@@ -204,7 +213,9 @@ function buildPlugin (name) {
     }
   })
 
-  config.plugins.push(new ExtractTextPlugin(`index.min.css`))
+  config.plugins.push(new ExtractTextPlugin({
+    filename: 'index.min.css'
+  }))
   config.entry = config.entry || {}
   config.entry['plugin'] = `src/plugins/${name.toLowerCase()}/index.js`
   config.output = {}
@@ -212,6 +223,7 @@ function buildPlugin (name) {
   config.output.library = `${namespace}${name}Plugin`
   config.output.filename = `index.min.js`
   config.output.path = path.resolve(__dirname, `../dist/plugins/${name.toLowerCase()}`)
+  delete config.__vueOptions__
   return config
 }
 
@@ -227,7 +239,9 @@ function buildConfig(one) {
     }
   })
 
-  config.plugins.push(new ExtractTextPlugin(`index.min.css`))
+  config.plugins.push(new ExtractTextPlugin({
+    filename: 'index.min.css'
+  }))
 
   config.entry = config.entry || {}
   config.entry[one.name] = one.path
@@ -236,6 +250,7 @@ function buildConfig(one) {
   config.output.library = `${namespace}${one.importName}`
   config.output.filename = `index.min.js`
   config.output.path = path.resolve(__dirname, `../dist/components/${one.name}/`)
+  delete config.__vueOptions__
   return config
 }
 

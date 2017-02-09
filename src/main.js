@@ -56,7 +56,7 @@ Vue.use(AjaxPlugin)
 
 const wx = WechatPlugin.$wechat
 const http = AjaxPlugin.$http
-
+console.log(wx)
 /**
 * -------------------------- 微信分享 ----------------------
 * 请不要直接复制下面代码
@@ -87,9 +87,9 @@ http.post('https://vux.li/jssdk?url=' + encodeURIComponent(url.split('#')[0]) + 
 
 import objectAssign from 'object-assign'
 
-const vuxLocales = require('json!yaml!vux/src/locales/all.yml')
-const componentsLocales = require('json!yaml!src/locales/components.yml')
-const globalLocales = require('json!yaml!src/locales/global_locales.yml') || {en: {}, 'zh-CN': {}}
+const vuxLocales = require('json-loader!yaml-loader!vux/src/locales/all.yml')
+const componentsLocales = require('json-loader!yaml-loader!src/locales/components.yml')
+const globalLocales = require('json-loader!yaml-loader!src/locales/global_locales.yml') || {en: {}, 'zh-CN': {}}
 
 const finalLocales = {
   'en': objectAssign(vuxLocales['en'], componentsLocales['en'], globalLocales['en']),

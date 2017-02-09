@@ -1,9 +1,12 @@
 const wx = require('weixin-js-sdk')
 
-module.exports = {
+const plugin = {
   install (Vue) {
     Vue.prototype.$wechat = wx
-  }
+  },
+  $wechat: wx
 }
 
-module.exports.$wechat = wx
+export default plugin
+export const install = plugin.install
+

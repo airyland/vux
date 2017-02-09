@@ -1,4 +1,4 @@
-const ToastComponent = require('../../components/toast')
+import ToastComponent from '../../components/toast'
 
 let $vm
 let watcher
@@ -55,4 +55,6 @@ const plugin = {
   }
 }
 
-module.exports = plugin
+export default plugin
+export const install = plugin.install
+

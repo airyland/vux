@@ -1,9 +1,10 @@
 import axios from 'axios'
 
-module.exports = {
+export default {
   install (Vue) {
     Vue.prototype.$http = axios
-  }
+  },
+  $http: axios
 }
 
-module.exports.$http = axios
+export const $http = axios

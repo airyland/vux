@@ -32,4 +32,6 @@ var setTitle = function (title, url = '/favicon.ico') {
   }
 }
 
-module.exports = plugin
+export default plugin
+export const install = plugin.install
+
