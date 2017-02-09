@@ -76,7 +76,7 @@ export default {
   height: 1px;
   position: absolute;
   left: 0;
-  top: 10px;
+  top: 12px;
   padding: 0 0;
   transition: all 0.4s ease 0s;
 }
@@ -90,7 +90,7 @@ export default {
 }
 
 .vux-step-item-checked::before {
-  font-size: 15px;
+  font-size: 15px!important;
   transform: translateY(-10%);
 }
 
@@ -106,9 +106,10 @@ export default {
   .vux-step-item-head-inner {
     width: 20px;
     height: 20px;
+    line-height: 20px;
     border-radius: 99px;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 14px;
     transition: all 0.4s ease 0s;
     background: #fff none repeat scroll 0 0;
   }
