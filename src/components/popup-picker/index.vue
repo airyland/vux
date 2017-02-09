@@ -9,7 +9,7 @@
       <div class="weui_cell_bd weui_cell_primary with_arrow vux-popup-picker-select-box">
         <div class="vux-popup-picker-select" :style="{textAlign: valueTextAlign}">
           <span class="vux-popup-picker-value" v-if="!showName && value.length">{{value | array2string}}</span>
-          <span class="vux-popup-picker-value" v-else="showName && value.length">{{value | value2name(data)}}</span>
+          <span class="vux-popup-picker-value" v-if="showName && value.length">{{value | value2name(data)}}</span>
           <span v-if="!value.length && placeholder" v-html="placeholder"></span>
         </div>
       </div>

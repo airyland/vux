@@ -6,6 +6,7 @@
       <x-input title="隐患部位" placeholder="必填" v-model="value3"></x-input>
       <x-input title="密码" type="password" placeholder="必填" v-model="value4"></x-input>
       <popup-picker title="请选择" :data="list" v-model="value5" value-text-align="left"></popup-picker>
+      <popup-picker title="请选择" placeholder="Required" :data="list" v-model="value6" value-text-align="left"></popup-picker>
     </group>
   </div>
 </template>
@@ -28,6 +29,7 @@ export default {
       value3: '',
       value4: '',
       value5: ['A'],
+      value6: [],
       list: [['A', 'B', 'C']]
     }
   }
