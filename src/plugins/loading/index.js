@@ -58,4 +58,3 @@ const plugin = {
 export default plugin
 export const install = plugin.install
 
-

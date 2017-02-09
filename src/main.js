@@ -56,7 +56,7 @@ Vue.use(AjaxPlugin)
 
 const wx = WechatPlugin.$wechat
 const http = AjaxPlugin.$http
-console.log(wx)
+
 /**
 * -------------------------- 微信分享 ----------------------
 * 请不要直接复制下面代码

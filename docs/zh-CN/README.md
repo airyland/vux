@@ -713,7 +713,17 @@ FastClick.attach(document.body)
 }
 ```
 
-## 禁用 eslint
+## 开发
+
+### autoprefix 设置
+
+`vue`官方模板的设置是`last 2 versions`，相对来说支持浏览器版本过少，会导致你在某些`Android`机子上出现问题。
+
+如果你使用 `last 7 versions` 会生成不必要的`-ms`前缀代码.
+
+因此建议同`WeUI`一样，使用配置 `['iOS >= 7', 'Android >= 4.1']`
+
+### 禁用 eslint
 
 并不推荐禁用`eslint`, 编码规范可以一定程序上保证代码质量。但是如果你确实想禁用，可以删除`build/webpack.base.conf.js`里的相关代码。
 

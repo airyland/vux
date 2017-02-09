@@ -34,4 +34,3 @@ var setTitle = function (title, url = '/favicon.ico') {
 
 export default plugin
 export const install = plugin.install
-
