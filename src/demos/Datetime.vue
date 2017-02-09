@@ -47,6 +47,9 @@
         <x-button>{{$t('Click me')}}</x-button>
       </datetime>
     </group>
+    <group :title="$t('required')">
+      <datetime v-model="value8" :title="$t('Required')" :required="true"></datetime>
+    </group>
   </div>
 </template>
 
@@ -107,6 +110,7 @@ export default {
       value5: '',
       value6: '2016-08-18',
       value7: '',
+      value8: '',
       limitHourValue: '',
       startDate: '2015-11-11',
       endDate: '2017-10-11'
