@@ -20,11 +20,15 @@ let store = new Vuex.Store({
 
 store.registerModule('vux', {
   state: {
-    demoScrollTop: 0
+    demoScrollTop: 0,
+    isLoading: false
   },
   mutations: {
     updateDemoPosition (state, payload) {
       state.demoScrollTop = payload.top
+    },
+    updateLoadingStatus (state, payload) {
+      state.isLoading = payload.isLoading
     }
   },
   actions: {
@@ -106,6 +110,7 @@ const router = new VueRouter({
 sync(store, router)
 
 router.beforeEach(function (to, from, next) {
+  store.commit('updateLoadingStatus', {isLoading: true})
   if (/\/http/.test(to.path)) {
     let url = to.path.split('http')[1]
     window.location.href = `http${url}`
@@ -115,6 +120,7 @@ router.beforeEach(function (to, from, next) {
 })
 
 router.afterEach(function (to) {
+  store.commit('updateLoadingStatus', {isLoading: false})
   ga && ga('set', 'page', to.fullPath)
   ga && ga('send', 'pageview')
 })

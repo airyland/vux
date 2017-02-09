@@ -1,5 +1,6 @@
 <template>
   <div style="height:100%;">
+    <loading v-model="isLoading"></loading>
     <view-box ref="viewBox">
       <x-header slot="header" style="width:100%;position:absolute;left:0;top:0;z-index:100;" :left-options="leftOptions" :title="title" @on-click-title="scrollTop"></x-header>
 
@@ -29,7 +30,7 @@
 </template>
 
 <script>
-import { ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem } from 'vux'
+import { ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem, Loading } from 'vux'
 import { mapState, mapActions } from 'vuex'
 
 export default {
@@ -39,7 +40,8 @@ export default {
     ViewBox,
     XHeader,
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    Loading
   },
   methods: {
     scrollTop () {
@@ -90,7 +92,8 @@ export default {
     ...mapState({
       route: state => state.route,
       path: state => state.route.path,
-      demoTop: state => state.vux.demoScrollTop
+      demoTop: state => state.vux.demoScrollTop,
+      isLoading: state => state.vux.isLoading
     }),
     isShowBar () {
       if (/component/.test(this.path)) {
