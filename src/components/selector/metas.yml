@@ -8,6 +8,12 @@ extra:
     ```
 
     <p class="tip">`selector`只能在`Group`中使用</p>
+
+    <p class="warning">
+    在`iOS`上，如果没有指定`placeholder`也没有指定`value`，会出现弹出选择框时默认选中第一个值，但是确定后依然没有选中的情况。
+    <br>
+    因此对于`iOS`，组件内部在列表项前面增加了一个空的`option`，强制用户滑动选择一次以避免上面的问题。
+    </p>
 tags:
   en:
     - form
