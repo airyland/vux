@@ -82,7 +82,9 @@ export default {
       }
       if (path === '/demo' && this.demoTop) {
         this.$nextTick(() => {
-          this.box.scrollTop = this.demoTop
+          setTimeout(() => {
+            this.box.scrollTop = this.demoTop
+          }, 550)
         })
       } else {
         this.$nextTick(() => {
