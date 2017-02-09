@@ -3,6 +3,9 @@ extra: |
   <p class="tip">
     `list`为图片列表快捷设置，如果你需要自定义一些样式，或者内容并不为纯图片，可以引用`swiper-item`组件。
   </p>
+  <p class="warning">
+  不要在`swiper`里嵌套`scroller`，不要把`web`页面当成`App`来做，相关`Issue`将不会处理。
+  </p>
 props:
   list:
     type: Array
