@@ -11,19 +11,19 @@ props:
     type: String
     default: horizontal
     zh-CN: 方向
-  showDots:
+  show-dots:
     type: Boolean
     default: true
     zh-CN: 是否显示提示点
-  showDescMask:
+  show-desc-mask:
     type: Boolean
     default: true
     zh-CN: 是否显示描述半透明遮罩
-  dotsPosition:
+  dots-position:
     type: String
     default: right
     zh-CN: 提示点位置
-  dotsClass:
+  dots-class:
     zh-CN: 提示className
   auto:
     type: Boolean
@@ -46,12 +46,12 @@ props:
     zh-CN: 切换动画时间
   height:
     type: String
-    default: auto
-    zh-CN: 高度
-  aspectRatio: 
+    default: 180px
+    zh-CN: '高度值。如果为`100%`宽度并且知道宽高比，可以设置`aspect-ratio`自动计算高度'
+  aspect-ratio: 
     type: Number
     zh-CN: 用以根据当前可用宽度计算高度值
-  minMovingDistance:
+  min-moving-distance:
     type: Number
     default: 0
     zh-CN: 超过这个距离时才滑动

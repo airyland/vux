@@ -12,6 +12,9 @@ extra: |
   `Scroller`的内容必须是一个`div`，并且只能有一个`div`
   <br>
   `Scroller` 希望解决的是简单的列表问题而不是一个内嵌各种复杂标签交互的容器，很容易发生性能或者交互问题。
+  <br>
+  <br>
+  默认高度为整个视口高度，如果你加了`x-header`，那么你需要减去一个`x-header`的高度: `height="-46"`
   </p>
 after_extra: |
   pulldown 默认配置:
