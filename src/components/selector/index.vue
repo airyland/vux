@@ -5,7 +5,8 @@
     </div>
     <div class="weui_cell_bd weui_cell_primary" v-if="!readonly">
       <select class="weui_select" :class="{'vux-selector-no-padding':!title}" :name="name" v-model="currentValue" :style="{direction: direction}">
-        <option value="" v-if="placeholder" :selected="placeholder && !value">{{placeholder}}</option>
+        <option value="" v-if="!value && placeholder" :selected="!value && placeholder">{{placeholder}}</option>
+        <option disabled v-if="!placeholder && !value && isIOS && title"></option>
         <option :value="one.key" v-for="one in processOptions">{{one.value}}</option>
       </select>
     </div>
@@ -71,7 +72,8 @@ export default {
   },
   data () {
     return {
-      currentValue: ''
+      currentValue: '',
+      isIOS: /iPad|iPhone|iPod/.test(window.navigator.userAgent)
     }
   }
 }

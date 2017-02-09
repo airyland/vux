@@ -1,4 +1,4 @@
-import AlertComponent from '../../components/alert'
+const AlertComponent = require('../../components/alert')
 let $vm
 
 const plugin = {
@@ -53,5 +53,4 @@ const plugin = {
   }
 }
 
-export default plugin
 module.exports = plugin

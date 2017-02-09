@@ -37,7 +37,7 @@ let millisecondsPerSecond = 1000
   }
 }())
 
-export default {
+module.exports = {
 
   // A requestAnimationFrame wrapper / polyfill.
   requestAnimationFrame: (function () {

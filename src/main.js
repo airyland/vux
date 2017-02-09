@@ -20,11 +20,19 @@ let store = new Vuex.Store({
 
 store.registerModule('vux', {
   state: {
-    demoScrollTop: 0
+    demoScrollTop: 0,
+    isLoading: false,
+    direction: 'forward'
   },
   mutations: {
     updateDemoPosition (state, payload) {
       state.demoScrollTop = payload.top
+    },
+    updateLoadingStatus (state, payload) {
+      state.isLoading = payload.isLoading
+    },
+    updateDirection (state, payload) {
+      state.direction = payload.direction
     }
   },
   actions: {
@@ -37,12 +45,45 @@ store.registerModule('vux', {
 Vue.use(vuexI18n.plugin, store)
 
 // plugins
-import { DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin } from 'vux'
+import { DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin } from 'vux'
 Vue.use(DevicePlugin)
 Vue.use(ToastPlugin)
 Vue.use(AlertPlugin)
 Vue.use(ConfirmPlugin)
 Vue.use(LoadingPlugin)
+Vue.use(WechatPlugin)
+Vue.use(AjaxPlugin)
+
+const wx = WechatPlugin.$wechat
+const http = AjaxPlugin.$http
+
+/**
+* -------------------------- 微信分享 ----------------------
+* 请不要直接复制下面代码
+*/
+
+wx.ready(() => {
+  console.log('wechat ready')
+  wx.onMenuShareAppMessage({
+    title: 'VUX', // 分享标题
+    desc: '基于 WeUI 和 Vue 的移动端 UI 组件库',
+    link: 'https://vux.li?x-page=wechat_share_message',
+    imgUrl: 'https://static.vux.li/logo_520.png'
+  })
+
+  wx.onMenuShareTimeline({
+    title: 'VUX', // 分享标题
+    desc: '基于 WeUI 和 Vue 的移动端 UI 组件库',
+    link: 'https://vux.li?x-page=wechat_share_timeline',
+    imgUrl: 'https://static.vux.li/logo_520.png'
+  })
+})
+
+const permissions = JSON.stringify(['onMenuShareTimeline', 'onMenuShareAppMessage'])
+const url = document.location.href
+http.post('https://vux.li/jssdk?url=' + encodeURIComponent(url.split('#')[0]) + '&jsApiList=' + permissions).then(res => {
+  wx.config(res.data.data)
+})
 
 import objectAssign from 'object-assign'
 
@@ -63,7 +104,7 @@ Vue.i18n.set('zh-CN')
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
 
-// The following line will be replaced with component list by vux-loader
+// The following line will be replaced with by vux-loader with routes in ./demo_list.json
 const routes = []
 
 const router = new VueRouter({
@@ -72,7 +113,31 @@ const router = new VueRouter({
 
 sync(store, router)
 
+// simple history management
+const history = window.sessionStorage
+history.clear()
+let historyCount = history.getItem('count') * 1 || 0
+history.setItem('/', 0)
+
 router.beforeEach(function (to, from, next) {
+  store.commit('updateLoadingStatus', {isLoading: true})
+
+  const toIndex = history.getItem(to.path)
+  const fromIndex = history.getItem(from.path)
+
+  if (toIndex) {
+    if (toIndex > fromIndex || !fromIndex || (toIndex === '0' && fromIndex === '0')) {
+      store.commit('updateDirection', {direction: 'forward'})
+    } else {
+      store.commit('updateDirection', {direction: 'reverse'})
+    }
+  } else {
+    ++historyCount
+    history.setItem('count', historyCount)
+    to.path !== '/' && history.setItem(to.path, historyCount)
+    store.commit('updateDirection', {direction: 'forward'})
+  }
+
   if (/\/http/.test(to.path)) {
     let url = to.path.split('http')[1]
     window.location.href = `http${url}`
@@ -82,6 +147,7 @@ router.beforeEach(function (to, from, next) {
 })
 
 router.afterEach(function (to) {
+  store.commit('updateLoadingStatus', {isLoading: false})
   ga && ga('set', 'page', to.fullPath)
   ga && ga('send', 'pageview')
 })

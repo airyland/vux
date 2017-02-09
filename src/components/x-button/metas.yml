@@ -1,8 +1,11 @@
 icon: '&#xe616;'
 tags:
-  - button
-  - form
-  - 按钮
+  en:
+    - button
+    - form
+  zh-CN:
+    - 表单
+    - 按钮
 props:
   type:
     type: String
@@ -29,6 +32,8 @@ props:
     default: false
     en: if use plain styles which has no backgroundColor
     zh-CN: 是否是plain样式，没有背景色
+  action-type:
+    zh-CN: '`button`的type属性，默认为浏览器默认(submit)，可选为 `submit` `button` `reset`'
 slots:
   default:
     en: button text

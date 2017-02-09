@@ -6,6 +6,10 @@
       <x-button type="primary">primary</x-button>
       <x-button type="warn">Delete</x-button>
       
+      <divider>action type</divider>
+      <x-button type="primary" action-type="button">submit</x-button>
+      <x-button type="warn" action-type="reset">reset</x-button>
+
       <divider>mini</divider>
       <x-button mini>submit</x-button>
       <x-button mini type="primary">primary</x-button>

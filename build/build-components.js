@@ -34,7 +34,7 @@ for(let i in maps) {
   let match = list.filter(function(one){
     return _camelCase(one.name) === i
   })
-  if (match.length === 0 && !/Plugin|Data|Directive|Filter|Item|NOTICE|Demo|Dev/.test(i)) {
+  if (match.length === 0 && !/Plugin|Data|Directive|Filter|Item|NOTICE|Demo|Dev|Tool|md5|base64|cookie/.test(i)) {
     others.push({
       name: toDash(i),
       importName: i,
@@ -42,6 +42,12 @@ for(let i in maps) {
     })
   }
 }
+
+others.push({
+  name: 'swiper-item',
+  importName: 'SwiperItem',
+  path: maps['SwiperItem']
+})
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var co = require('co')
@@ -53,6 +59,7 @@ var build = thunkify(function (config, name, cb) {
   console.log(`start:${name}`)
   webpack(config, function (err, stats) {
     if (!config.entry.vux) {
+      mkdirp.sync(path.resolve(config.output.path))
       touch.sync(path.resolve(config.output.path, './index.min.css'))
     }
     var jsonStats = stats.toJson()

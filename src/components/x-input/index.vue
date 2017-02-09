@@ -1,5 +1,5 @@
 <template>
-	<div class="weui_cell" :class="{'weui_cell_warn': !valid}">
+	<div class="vux-x-input weui_cell" :class="{'weui_cell_warn': !valid}">
     <div class="weui_cell_hd">
       <label class="weui_label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
@@ -8,6 +8,7 @@
       <input
       v-if="!type || type === 'text'"
       class="weui_input"
+      :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
       :autocorrect="autocorrect"
@@ -18,6 +19,7 @@
       :pattern="pattern"
       :placeholder="placeholder"
       :readonly="readonly"
+      :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
       @blur="blur"
@@ -25,6 +27,7 @@
       <input
       v-if="type === 'number'"
       class="weui_input"
+      :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
       :autocorrect="autocorrect"
@@ -35,6 +38,7 @@
       :pattern="pattern"
       :placeholder="placeholder"
       :readonly="readonly"
+      :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
       @blur="blur"
@@ -42,6 +46,7 @@
       <input
       v-if="type === 'email'"
       class="weui_input"
+      :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
       :autocorrect="autocorrect"
@@ -52,6 +57,7 @@
       :pattern="pattern"
       :placeholder="placeholder"
       :readonly="readonly"
+      :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
       @blur="blur"
@@ -59,6 +65,7 @@
       <input
       v-if="type === 'password'"
       class="weui_input"
+      :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
       :autocorrect="autocorrect"
@@ -69,13 +76,14 @@
       :pattern="pattern"
       :placeholder="placeholder"
       :readonly="readonly"
+      :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
       @blur="blur"
       ref="input"/>
     </div>
     <div class="weui_cell_ft">
-      <icon type="clear" v-show="!equalWith && showClear && currentValue && !readonly" @click.native="clear"></icon>
+      <icon type="clear" v-show="!equalWith && showClear && currentValue && !readonly && !disabled" @click.native="clear"></icon>
 
       <icon class="vux-input-icon" type="warn" :title="!valid ? firstError : ''" v-show="!novalidate && !equalWith && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
       <icon class="vux-input-icon" type="warn" v-if="!novalidate && hasLengthEqual && dirty && equalWith && !valid"></icon>
@@ -124,6 +132,7 @@ export default {
     if (this.required && !this.currentValue) {
       this.valid = false
     }
+    this.handleChangeEvent = true
   },
   mixins: [Base],
   components: {
@@ -146,10 +155,8 @@ export default {
     placeholder: String,
     value: [String, Number],
     name: String,
-    readonly: {
-      type: Boolean,
-      default: false
-    },
+    readonly: Boolean,
+    disabled: Boolean,
     keyboard: String,
     inlineDesc: String,
     isType: [String, Function],
@@ -222,7 +229,7 @@ export default {
       this.firstError = this.errors[key]
     },
     validate () {
-      if (this.equalWith) {
+      if (typeof this.equalWith !== 'undefined') {
         this.validateEqual()
         return
       }
@@ -236,6 +243,7 @@ export default {
       if (!this.currentValue && this.required) {
         this.valid = false
         this.errors.required = '必填哦'
+        this.getError()
         return
       }
 
@@ -257,6 +265,10 @@ export default {
         this.valid = validStatus.valid
         if (!this.valid) {
           this.errors.format = validStatus.msg
+          this.forceShowError = true
+          if (!this.firstError) {
+            this.getError()
+          }
           return
         } else {
           delete this.errors.format
@@ -267,7 +279,9 @@ export default {
         if (this.currentValue.length < this.min) {
           this.errors.min = `最少应该输入${this.min}个字符哦`
           this.valid = false
-          this.getError()
+          if (!this.firstError) {
+            this.getError()
+          }
           return
         } else {
           delete this.errors.min
@@ -289,6 +303,11 @@ export default {
       this.valid = true
     },
     validateEqual () {
+      if (!this.equalWith && this.currentValue) {
+        this.valid = false
+        this.errors.equal = '输入不一致'
+        return
+      }
       let willCheck = this.dirty || this.currentValue.length >= this.equalWith.length
       // 只在长度符合时显示正确与否
       if (willCheck && this.currentValue !== this.equalWith) {
@@ -296,8 +315,12 @@ export default {
         this.errors.equal = '输入不一致'
         return
       } else {
-        this.valid = true
-        delete this.errors.equal
+        if (!this.currentValue && this.required) {
+          this.valid = false
+        } else {
+          this.valid = true
+          delete this.errors.equal
+        }
       }
     }
   },
@@ -329,6 +352,9 @@ export default {
       }
     },
     currentValue (newVal) {
+      if (!this.equalWith && newVal) {
+        this.validateEqual()
+      }
       if (newVal && this.equalWith) {
         if (newVal.length === this.equalWith.length) {
           this.hasLengthEqual = true
@@ -338,6 +364,7 @@ export default {
         this.validate()
       }
       this.$emit('input', newVal)
+      this.$emit('on-change', newVal)
     }
   }
 }
@@ -350,5 +377,8 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_vcode';
 .vux-input-icon.weui_icon_warn:before, .vux-input-icon.weui_icon_success:before {
   font-size: 21px;
+}
+.vux-x-input .weui_icon {
+  padding-left: 5px;
 }
 </style>

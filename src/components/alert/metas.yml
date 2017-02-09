@@ -3,6 +3,10 @@ extra: |
 
   该组件支持以`plugin`形式调用：
 
+  <p class="warning">
+  以插件形式调用时，和`template`中使用不同，属性名请使用`小驼峰式`，比如`buttonText`而不是`button-text`。
+  </p>
+
   ``` js
   import  { AlertPlugin } from 'vux'
   Vue.use(AlertPlugin)

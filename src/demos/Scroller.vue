@@ -1,5 +1,11 @@
 <template>
   <div>
+    <group>
+      <cell is-link title="pullup" link="/component/pullup">Pullup</cell>
+      <cell is-link title="pulldown" link="/component/pulldown">Pulldown</cell>
+      <cell is-link title="pulldownpullup" link="/component/pulldown-pullup">PulldownPullup</cell>
+    </group>
+
     <divider>{{ $t('A Horizontal Scroller without Scrollbar') }}</divider>
     <scroller lock-y :scrollbar-x=false>
       <div class="box1">
@@ -21,8 +27,8 @@
       </div>
     </scroller>
 
-    <divider>{{ $t('A Vertical Scroller') }}</divider>
-    <scroller lock-x height="200px">
+    <divider>{{ $t('A Vertical Scroller') }} scrollTop: {{scrollTop}}</divider>
+    <scroller lock-x height="200px" @on-scroll="onScroll">
       <div class="box2">
         <p v-for="i in 80">placeholder {{i}}</p>
       </div>
@@ -74,10 +80,15 @@ export default {
   },
   data () {
     return {
-      showList1: true
+      showList1: true,
+      scrollTop: 0
     }
   },
   methods: {
+    onScroll (pos) {
+      console.log('on scroll', pos)
+      this.scrollTop = pos.top
+    },
     onCellClick () {
       window.alert('cell click')
     },

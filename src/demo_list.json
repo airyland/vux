@@ -25,6 +25,7 @@
   "Scroller",
   "Pulldown",
   "Pullup",
+  "PulldownPullup",
   "Toast",
   "Reddot",
   "Divider",
@@ -74,5 +75,13 @@
   "Donate#/project/donate",
   "Demo#/demo",
   "FormatTime",
-  "Uploader"
+  "Uploader",
+  "Issue833#/issue/833",
+  "Issue471#/issue/471",
+  "Issue598#/issue/598",
+  "Issue624#/issue/624",
+  "Issue649#/issue/649",
+  "Issue865#/issue/865",
+  "Swipeout",
+  "TabbarSimple"
 ]

@@ -112,12 +112,15 @@ module.exports = vuxLoader.merge(webpackConfig, {
   options: {
     vuxDev: !argv.simulate, // true
     vuxSetBabel: argv.simulate, // false
-    vuxWriteFile: true,
+    vuxWriteFile: false,
     env: 'dev'
   },
   plugins: [
     {
       name: 'vux-ui'
+    },
+    {
+      name: 'inline-manifest'
     },
     {
       name: 'js-parser',
@@ -160,7 +163,7 @@ module.exports = vuxLoader.merge(webpackConfig, {
     },
     {
       name: 'i18n',
-      vuxStaticReplace: true,
+      vuxStaticReplace: false,
       staticReplace: false,
       extractToFiles: 'src/locales/components.yml',
       localeList: ['en', 'zh-CN']

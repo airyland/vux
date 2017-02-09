@@ -275,7 +275,32 @@ import { Group, Cell } from 'vux'
 
 #### i18n
 
-今天有新版本，稍候更新。
+1. 如果你只是调用中文语言的vux组件，那么你不需要做任何配置。
+
+2. 如果你需要调用英文语言的vux组件，需要配置语言
+
+  ``` js
+  {
+    name: 'i18n',
+    vuxStaticReplace: true,
+    vuxLocale: 'en'
+  }
+  ```
+3. 如果你想和demo站点一样可以写`i18n`block，并且需要动态切换语言，那么需要配置插件抽取i18n的内容，并设置非静态替换
+
+  ``` js
+  {
+    name: 'i18n',
+    vuxStaticReplace: false,
+    staticReplace: false,
+    extractToFiles: 'src/locales/components.yml',
+    localeList: ['en', 'zh-CN']
+  }
+  ```
+
+然后你就可以引用`vuex-i18n`插件实现多语言切换了。
+
+参考 [main.js](https://github.com/airyland/vux/blob/v2/src/main.js#L84-L96) 及 [vuex-i18n 文档](https://www.npmjs.com/package/vuex-i18n)(仅当参考，你也可以使用其他i18n插件)。
 
 #### less-theme
 

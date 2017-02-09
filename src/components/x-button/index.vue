@@ -1,5 +1,5 @@
 <template>
-  <button class="weui_btn" :class="classes" :disabled="disabled">
+  <button class="weui_btn" :class="classes" :disabled="disabled" :type="actionType">
     {{text}}<slot></slot>
   </button>
 </template>
@@ -13,7 +13,8 @@ export default {
     disabled: Boolean,
     mini: Boolean,
     plain: Boolean,
-    text: String
+    text: String,
+    actionType: String
   },
   computed: {
     classes () {

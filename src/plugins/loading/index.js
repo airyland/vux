@@ -1,4 +1,4 @@
-import LoadingComponent from '../../components/loading'
+const LoadingComponent = require('../../components/loading')
 
 let $vm
 let watcher
@@ -55,5 +55,5 @@ const plugin = {
   }
 }
 
-export default plugin
 module.exports = plugin
+

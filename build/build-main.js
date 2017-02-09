@@ -8,7 +8,7 @@ delete maps.NOTICE
 
 const target = path.resolve(__dirname, '../index.js')
 
-let str = ``
+let str = `// THIS FILE IS ONLY FOR IDE ENTRY CHECKING NOT FOR REAL USAGE\n\n`
 for (let i in maps) {
   str += `import ${i} from './${maps[i]}'\n`
 }

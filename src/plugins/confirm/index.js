@@ -1,4 +1,4 @@
-import ConfirmComponent from '../../components/confirm'
+const ConfirmComponent = require('../../components/confirm')
 
 let $vm
 let hasWatch = false
@@ -70,5 +70,4 @@ const plugin = {
   }
 }
 
-export default plugin
 module.exports = plugin

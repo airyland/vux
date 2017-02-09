@@ -101,9 +101,30 @@ after_extra: |
   <span class="vux-qa">QA 如何禁用或者启用pullup</span>
 
   在有些情况下，比如数据不多不需要上拉加载或者已经加载完成，我们需要禁用pullup
-  同样可以调用方法 `disablePullup` 或者设置`pullupSatatus`为`disabled`
+  同样可以调用方法 `disablePullup` 或者设置`pullupStatus`为`disabled`
 
-  反之，则调用方法 `enalbePullup` 或者设置`pullupSatatus`为`enabled`
+  反之，则调用方法 `enablePullup` 或者设置`pullupStatus`为`enabled`
+
+  <span class="vux-qa">启用keep-alive后滚动有问题</span>
+
+  需要在调用Scroller的页面上在 hook: `activated`上执行`reset`
+
+  ``` js
+  activated () {
+    this.$refs.scroller.reset()
+  }
+  ```
+
+
+events:
+  on-scroll:
+    params: '`(position)`'
+    en: emits when user scrolls
+    zh-CN: '容器滚动时触发，参数为`top`和`left`位置'
+  on-pulldown-loading:
+    zh-CN: 用户触发下拉刷新状态，监听该事件以获取加载新数据
+  on-pullup-loading:
+    zh-CN: 用户触发上拉加载状态，监听该事件以加载新数据
 props:
   value:
     type: 'Object'
@@ -112,7 +133,7 @@ props:
   height:
     type: String
     default: ''
-    zh-CN: 容器高度，默认为整个viewport高度
+    zh-CN: '容器高度，默认为整个viewport高度，如果你希望scroller自动计算除去头部尾部的高度，请设置成负数，如`height="-40"`'
   lockX:
     type: Boolean
     default: false

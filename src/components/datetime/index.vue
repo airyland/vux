@@ -67,7 +67,17 @@ export default {
     minuteRow: {
       type: String,
       default: '{value}'
-    }
+    },
+    minHour: {
+      type: Number,
+      default: 0
+    },
+    maxHour: {
+      type: Number,
+      default: 23
+    },
+    startDate: String,
+    endDate: String
   },
   created () {
     this.currentValue = this.value
@@ -101,6 +111,10 @@ export default {
         dayRow: this.dayRow,
         hourRow: this.hourRow,
         minuteRow: this.minuteRow,
+        minHour: this.minHour,
+        maxHour: this.maxHour,
+        startDate: this.startDate,
+        endDate: this.endDate,
         onConfirm (value) {
           _this.currentValue = value
         },
@@ -129,6 +143,12 @@ export default {
     currentValue (val) {
       this.$emit('on-change', val)
       this.$emit('input', val)
+    },
+    startDate () {
+      this.render()
+    },
+    endDate () {
+      this.render()
     },
     value (val) {
       if (this.currentValue !== val) {

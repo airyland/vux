@@ -64,13 +64,17 @@ export default {
     load1 () {
       setTimeout(() => {
         this.n1 += 10
-        this.$refs.demo1.donePullup()
+        setTimeout(() => {
+          this.$refs.demo1.donePullup()
+        }, 100)
       }, 2000)
     },
     load2 () {
       setTimeout(() => {
         this.n2 += 10
-        this.$refs.demo2.donePullup()
+        setTimeout(() => {
+          this.$refs.demo2.donePullup()
+        }, 100)
         if (this.n2 === 30) { // unload plugin
           setTimeout(() => {
             this.$refs.demo2.disablePullup()
@@ -81,7 +85,9 @@ export default {
     load3 () {
       setTimeout(() => {
         this.n3 += 10
-        this.demo3Value.pullupStatus = 'default'
+        setTimeout(() => {
+          this.demo3Value.pullupStatus = 'default'
+        }, 100)
         console.log('demo3value', JSON.stringify(this.demo3Value))
         if (this.n3 === 30) { // unload plugin
           setTimeout(() => {

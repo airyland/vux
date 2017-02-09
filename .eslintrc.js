@@ -6,7 +6,7 @@ module.exports = {
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
-  globals: {'ga': true, 'window': true, 'document': true},
+  globals: {'ga': true, 'window': true, 'document': true, 'alert': true},
   // required to lint *.vue files
   plugins: [
     'html'

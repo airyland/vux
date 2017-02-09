@@ -3,6 +3,8 @@ items:
   - tabbar
   - tabbar-item
 import_code: "import { Tabbar, TabbarItem } from 'vux'"
+extra: |
+  支持简单模式，即不指定`icon`，`label`将垂直居中显示。
 tags:
   en:
     - tabbar

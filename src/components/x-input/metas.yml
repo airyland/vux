@@ -1,13 +1,15 @@
 icon: '&#xe614;'
 extra:
-  zh-CN: >
+  zh-CN: |
     ```html
       <group>
         <x-input title="title" v-model="value"></x-input>
       </group>
     ```
-    
+
     <p class="tip">`x-input`只能在`Group`中使用</p>
+
+    如果你想实现在输入框右边按钮切换密码明文，请使用`slot=right`实现`type`切换。
 tags:
   en:
     - form
@@ -19,6 +21,13 @@ tags:
 props:
   value:
     zh-CN: 表单值，使用`v-model`绑定
+  type:
+    type: String
+    default: text
+    zh-CN: '即input的`type`属性，目前支持 `text`,`number`,`email`,`password`'
+  is-type:
+    type: String,Function
+    zh-CN: '内置验证器，支持`email`,`china-name`,`china-mobile`, 同样也支持直接传函数, 需要同步返回一个对象`{valid:true}`或者`{valid:false, msg:错误信息}`'
   required:
     type: Boolean
     default: false
@@ -36,17 +45,28 @@ props:
     zh-CN: 最小输入字符限制
   max:
     type: Number
-    zh-CN: 最大输入字符限制
+    zh-CN: '最大输入字符限制，等同于`maxlength`，达到限制到不能再输入'
+  disabled:
+    type: Boolean
+    default: false
+    zh-CN: 是否禁用填写
+  readonly:
+    type: Boolean
+    default: false
+    zh-CN: 同input的标准属性readonly
 events:
   on-blur:
     params: '`(value)`'
     zh-CN: 'input的`blur`事件'
+  on-change:
+    params: '`(value)`'
+    zh-CN: '输入值变化时触发'
 changes:
   v2.0.0:
     zh-CN:
       - '[feature] 添加 `novalidate` 及 `iconType` 可以禁用组件验证，手动显示 error 或者 success 样式'
       - '[feature] `is-type` 支持传入函数'
-      - '[change] 受限于vue2不能动态设置type，目前`type`支持 text password number email' 
+      - '[change] 受限于vue2不能动态设置type，目前`type`支持 text password number email'
   v2.0.1:
     zh-CN:
-      - '[fix] 修复type未定义的问题'  
+      - '[fix] 修复type未定义的问题'

@@ -25,14 +25,35 @@ function isSupportSticky () {
   return isSupport
 }
 
-export default function (nav) {
-  if (gtIOS6() || isSupportSticky()) {
+export default function (nav, options = {}) {
+  let scrollBox = options.scrollBox || window
+  let offset = options.offset || 0
+  const checkStickySupport = options.checkStickySupport === true || false
+  if (typeof scrollBox === 'string') {
+    scrollBox = document.getElementById(scrollBox)
+  }
+
+  let getTop = function () {
+    if (scrollBox === window) {
+      return document.documentElement.scrollTop
+    } else {
+      return scrollBox.scrollTop
+    }
+  }
+
+  if (checkStickySupport && (gtIOS6() || isSupportSticky())) {
     // 大于等于iOS6版本使用sticky
     nav.classList.add('vux-sticky')
   } else {
-    var navOffsetY = nav.offsetTop
-    window.addEventListener('scroll', function () {
-      window.scrollY >= navOffsetY ? nav.classList.add('vux-fixed') : nav.classList.remove('vux-fixed')
+    var navOffsetY = nav.offsetTop - offset
+    scrollBox.addEventListener('scroll', function () {
+      const distance = getTop()
+      if (distance >= navOffsetY) {
+        nav.style.top = offset + 'px'
+        nav.classList.add('vux-fixed')
+      } else {
+        nav.classList.remove('vux-fixed')
+      }
     })
   }
 }

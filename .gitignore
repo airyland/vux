@@ -17,5 +17,7 @@ docs/zh-CN/*
 /docs/demos
 *.vue.vux.*
 src/locales/components.yml
-/dist/*/*
+/dist/**/*
 src/components/index.js
+test/unit/coverage/
+docs/*.map

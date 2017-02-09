@@ -10,6 +10,10 @@ tags:
 extra: |
  该组件支持以`plugin`形式调用：
 
+ <p class="warning">
+  以插件形式调用时，和`template`中使用不同，属性名请使用`小驼峰式`，比如`isShowMask`而不是`is-show-mask`。
+  </p>
+
  ``` js
  import  { ToastPlugin } from 'vux'
  Vue.use(ToastPlugin)
@@ -49,7 +53,7 @@ props:
     default: 7.6em
     en: toast's width
     zh-CN: 宽度
-  isShowMask:
+  is-show-mask:
     type: Boolean
     default: false
     en: if showing mask, users cannot operate other elements on the page
