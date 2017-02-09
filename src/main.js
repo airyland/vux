@@ -21,7 +21,8 @@ let store = new Vuex.Store({
 store.registerModule('vux', {
   state: {
     demoScrollTop: 0,
-    isLoading: false
+    isLoading: false,
+    direction: 'forward'
   },
   mutations: {
     updateDemoPosition (state, payload) {
@@ -29,6 +30,9 @@ store.registerModule('vux', {
     },
     updateLoadingStatus (state, payload) {
       state.isLoading = payload.isLoading
+    },
+    updateDirection (state, payload) {
+      state.direction = payload.direction
     }
   },
   actions: {
@@ -109,8 +113,31 @@ const router = new VueRouter({
 
 sync(store, router)
 
+// simple history management
+const history = window.sessionStorage
+history.clear()
+let historyCount = history.getItem('count') * 1 || 0
+history.setItem('/', 0)
+
 router.beforeEach(function (to, from, next) {
   store.commit('updateLoadingStatus', {isLoading: true})
+
+  const toIndex = history.getItem(to.path)
+  const fromIndex = history.getItem(from.path)
+
+  if (toIndex) {
+    if (toIndex > fromIndex || !fromIndex || (toIndex === '0' && fromIndex === '0')) {
+      store.commit('updateDirection', {direction: 'forward'})
+    } else {
+      store.commit('updateDirection', {direction: 'reverse'})
+    }
+  } else {
+    ++historyCount
+    history.setItem('count', historyCount)
+    to.path !== '/' && history.setItem(to.path, historyCount)
+    store.commit('updateDirection', {direction: 'forward'})
+  }
+
   if (/\/http/.test(to.path)) {
     let url = to.path.split('http')[1]
     window.location.href = `http${url}`
