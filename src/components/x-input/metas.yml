@@ -58,6 +58,9 @@ events:
   on-blur:
     params: '`(value)`'
     zh-CN: 'input的`blur`事件'
+  on-focus:
+    params: '`(value)`'
+    zh-CN: 'input的`focus`事件'
   on-change:
     params: '`(value)`'
     zh-CN: '输入值变化时触发'
