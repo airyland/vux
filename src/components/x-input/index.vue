@@ -216,6 +216,9 @@ export default {
       this.currentValue = ''
       this.$refs.input.focus()
     },
+    focus () {
+      this.$refs.input.focus()
+    },
     focusHandler () {
       this.$emit('on-focus', this.currentValue)
     },
