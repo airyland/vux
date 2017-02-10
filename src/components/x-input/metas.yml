@@ -64,6 +64,9 @@ events:
   on-change:
     params: '`(value)`'
     zh-CN: '输入值变化时触发'
+methods:
+  focus:
+    zh-CN: 手动获得焦点
 changes:
   v2.0.0:
     zh-CN:
