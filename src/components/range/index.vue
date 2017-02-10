@@ -5,7 +5,7 @@
 </template>
 
 <script>
-const Powerange = require('./range/lib/powerange')
+import Powerange from './range/lib/powerange'
 
 export default {
   props: {
