@@ -78,7 +78,7 @@
 <script>
 import { InlineCalendar, Group, XSwitch, Radio, XButton, Cell, Divider } from 'vux'
 
-module.exports = {
+export default {
   data () {
     return {
       show: true,
