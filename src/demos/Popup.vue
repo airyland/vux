@@ -107,7 +107,9 @@ export default {
   },
   methods: {
     resetScroller () {
-      this.$refs.scroller.reset()
+      this.$nextTick(() => {
+        this.$refs.scroller.reset()
+      })
     },
     log (str) {
       console.log(str)
