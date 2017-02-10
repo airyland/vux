@@ -38,7 +38,7 @@
     </group>
 
     <group title="focus事件">
-      <x-input title="focus-handler" placeholder="focus me!" :show-clear="true" @focus="onFocus"></x-input>
+      <x-input title="focus-handler" placeholder="focus me!" :show-clear="true" @on-focus="onFocus"></x-input>
     </group>
 
     <group title="set is-type=china-name">
