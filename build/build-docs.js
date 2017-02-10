@@ -14,7 +14,13 @@ mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
 const aliasMap = {
   Base64Tool: 'base64',
   Md5Tool: 'md5',
-  CookieTool: 'cookie'
+  CookieTool: 'cookie',
+  CommaTool: 'numberComma',
+  PadTool: 'numberPad',
+  RandomTool: 'numberRandom',
+  FormatTool: 'dateFormat',
+  TrimTool: 'stringTrim',
+  QuerystringTool: 'querystring'
 }
 
 function getPath(dir) {
@@ -47,6 +53,7 @@ function saveMaps(key, value) {
   maps[key] = value.replace('../', '')
   if (aliasMap[key]) {
     maps[aliasMap[key]] = maps[key]
+    delete maps[key]
   }
   // sort
   const list = []
@@ -73,7 +80,7 @@ glob(getPath("../src/plugins/**/index.js"), {}, function (er, files) {
   })
 })
 
-glob(getPath("../src/tools/**/index.js"), {}, function (er, files) {
+glob(getPath("../src/tools/**/*.js"), {}, function (er, files) {
   files.forEach(function (file) {
     let name = getComponentName(file)
     name = _camelCase(name)

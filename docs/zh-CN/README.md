@@ -721,6 +721,22 @@ FastClick.attach(document.body)
 
 ## 开发
 
+### 全局公用函数
+
+如果你需要让一个工具函数在每个组件可用，可以把方法挂载到 `Vue.prototype`上。
+
+`main.js` 中
+
+``` js
+Vue.prototype.method = function () {}
+```
+
+那么组件代码里
+
+``` js
+this.method()
+```
+
 ### autoprefix 设置
 
 `vue`官方模板的设置是`last 2 versions`，相对来说支持浏览器版本过少，会导致你在某些`Android`机子上出现问题。
@@ -859,6 +875,54 @@ base64.decode('VlVY')
 import { md5 } from 'vux'
 
 md5('VUX')
+```
+
+### date 日期格式化
+
+相对`moment`来说`十分轻量`的实现。
+
+import { dateFormat } from 'vux'
+
+``` js
+dateFormat(new Date(), 'YYYY-MM-DD HH:mm:ss')
+```
+
+### number 格式化工具
+
+`numberComma`用于分割数字，默认为3位分割，一般用于格式化`金额`。
+
+`numberPad`用于按照位数补0
+
+`numberRandom`用于生成两个整数范围内的随机整数
+
+``` js
+import { numberComma, numberPad, numberRandom } from 'vux'
+numberComma(21342132) // 21,342,132
+numberComma(21342132, 4) // 2134,2132
+numberComma(21342132.234) // 21,342,132.234
+
+numberPad(1) // 01
+numberPad(234, 4) // 0234
+
+numberRandom(1, 7) // 2
+```
+
+### string 处理工具
+
+``` js
+import { stringTrim } from 'vux'
+
+stringTrim(' 1024 ') // 1024
+```
+
+### url 参数解析
+
+```js
+import { querystring } from 'vux'
+
+querystring.parse('a=b&c=d') // {a:'b',c:'d'}, 默认参数为 location.search
+
+querystring.stringify({a:'b',c:'d'}) // 'a=b&c=d'，注意不支持复杂嵌套的结构
 ```
 
 ## 常见问题
