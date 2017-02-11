@@ -29,7 +29,7 @@ export default {
   data () {
     return {
       results: [],
-      value: ''
+      value: 'test'
     }
   }
 }

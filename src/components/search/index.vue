@@ -88,6 +88,9 @@ export default {
       this.currentValue = ''
       this.isFocus = true
       this.setFocus()
+      if (this.autoFixed && !this.isFixed) {
+        this.isFixed = true
+      }
     },
     cancel () {
       this.currentValue = ''
@@ -166,7 +169,7 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 90%;
   height: 100%;
   z-index: 5;
 }
