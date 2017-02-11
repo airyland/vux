@@ -265,7 +265,7 @@ html, body {
   }
   to {
     opacity: 1;
-    transform: none;
+    transform: translate3d(0, 0, 0);
   }
 }
 @keyframes popOutRight {
