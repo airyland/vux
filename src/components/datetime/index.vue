@@ -164,7 +164,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/variable.less';
+
 .weui_cell_ft.with_arrow:after {
   content: " ";
   display: inline-block;
@@ -270,11 +272,19 @@ export default {
 }
 
 .dp-header .dp-item {
-  color: #04BE02;
+  color: @datetime-header-item-font-color;
   font-size: 18px;
   height: 44px;
   line-height: 44px;
   cursor: pointer;
+}
+
+.dp-header .dp-item.dp-left {
+  color: @datetime-header-item-cancel-font-color;
+}
+
+.dp-header .dp-item.dp-right {
+  color: @datetime-header-item-confirm-font-color;
 }
 
 .dp-content {

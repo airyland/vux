@@ -107,3 +107,7 @@ events:
     params: '`(value)`'
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
+changes:
+  v2.1.0-rc.46:
+    zh-CN:
+      - '[feature] 支持配置`取消`和`确定`的文字颜色 #715 @greedying'
