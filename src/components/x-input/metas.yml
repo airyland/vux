@@ -54,6 +54,9 @@ props:
     type: Boolean
     default: false
     zh-CN: 同input的标准属性readonly
+slots:
+  label:
+    zh-CN: '用于自定义`label`(即 title)部分内容，比如使用`icon`'
 events:
   on-blur:
     params: '`(value)`'
@@ -68,6 +71,9 @@ methods:
   focus:
     zh-CN: 手动获得焦点
 changes:
+  v2.1.0-rc.46:
+    zh-CN:
+      - '[feature] 添加`slot=label`自定义label部分内容 #895 @erguotou520'
   v2.0.0:
     zh-CN:
       - '[feature] 添加 `novalidate` 及 `iconType` 可以禁用组件验证，手动显示 error 或者 success 样式'

@@ -1,8 +1,10 @@
 <template>
 	<div class="vux-x-input weui_cell" :class="{'weui_cell_warn': !valid}">
     <div class="weui_cell_hd">
-      <label class="weui_label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
-      <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+      <slot name="label">
+        <label class="weui_label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
+        <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+      </slot>
     </div>
     <div class="weui_cell_bd weui_cell_primary">
       <input
