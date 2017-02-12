@@ -21,16 +21,18 @@ extra: |
 
 tab:
   props:
-    lineWidth:
+    line-width:
       type: Number,
       default: 3
       zh-CN: 线条宽度
-    activeColor:
+    active-color:
       zh-CN: 选中时文字颜色
     defaultColor:
       zh-CN: 默认文字颜色
-    disabledColor:
+    disabled-color:
       zh-CN: 不可点击时文字颜色
+    bar-active-color:
+      zh-CN: '设置底部`bar`颜色，该颜色也可以通过`less`变量`@tab-bar-active-color`设置。'
     animate:
       type: Boolean
       default: true
@@ -43,3 +45,7 @@ tab-item:
       zh-CN: 是否不可选
     active-class:
       zh-CN: 当前项选中时的class
+changes:
+  v2.1.0-rc.46:
+    zh-CN:
+      - '[feature] 支持设置 `bar-active-color` #715 @greedying'

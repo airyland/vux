@@ -24,6 +24,7 @@ export default {
       default: 3
     },
     activeColor: String,
+    barActiveColor: String,
     defaultColor: String,
     disabledColor: String,
     animate: {
@@ -43,7 +44,7 @@ export default {
         left: this.barLeft,
         right: this.barRight,
         display: 'block',
-        backgroundColor: this.activeColor,
+        backgroundColor: this.barActiveColor || this.activeColor,
         height: this.lineWidth + 'px',
         transition: !this.hasReady ? 'none' : null
       }
