@@ -617,6 +617,10 @@ FastClick.attach(document.body)
 
 > 使用WKWebView，在单页应用中通过document.title多次修改原生title的方法将失效，该问题将于微信3月份发布的版本中解决。
 
+<h4>如何实现`weui.io`或者星巴克页面的设置顶部bar和页面下拉背景色</h4>
+
+微信对于部分合作方开放了`jssdk`的`setBounceBackground`及`setNavigationBarColor`权限，目测暂无申请入口。
+
 ### 全局公用函数
 
 如果你需要让一个工具函数在每个组件可用，可以把方法挂载到 `Vue.prototype`上。
