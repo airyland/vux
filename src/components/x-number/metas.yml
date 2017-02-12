@@ -38,7 +38,15 @@ props:
     type: String
     default: 50px
     zh-CN: 宽度
+  button-style:
+    type: String
+    default: square
+    zh-CN: '按钮样式，可选值为`round`'
 changes:
+  v2.1.0-rc.46:
+    zh-CN:
+      - '[enhance] 使用`svg`代替 `+` `-` 字符'
+      - '[feature] 支持圆形按钮样式'
   v2.0.0:
     zh-CN:
       - '[change] fillable 值默认为false, 稍微保护一下不小心商城的后端接口没有做好数据校验的用户，导致用户粘贴负数还提交正确'

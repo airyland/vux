@@ -944,6 +944,31 @@ querystring.stringify({a:'b',c:'d'}) // 'a=b&c=d'，注意不支持复杂嵌套�
     extensions: ['', '.js', '.vue', '.json']
   }
   ```
+- 初始化时eslint选择 airbnb 报import extension
+  
+  项目目录下的.eslintrc.js 修改：
+
+  ``` js
+  'rules': {
+      // don't require .vue extension when importing
+      'import/extensions': ['off', 'always', { // 设为 off
+        'js': 'never',
+        'vue': 'never'
+      }],
+      'import/no-unresolved': [0, {commonjs: true, amd: true}], // 添加这一行
+      // allow debugger during development
+      'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    }
+  ```
+
+  报`document`不存在，请在rules前添加配置：
+
+  ``` js
+  'globals': {
+    'document': true
+  },
+  'rules' balabala
+  ```
 
 - $t is not defined
 

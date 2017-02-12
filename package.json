@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "2.1.0-rc.45",
+  "version": "2.1.0-rc.46",
   "main": "index.js",
   "description": "Mobile web UI based on Vue and WeUI",
   "keywords": [
@@ -121,6 +121,7 @@
     "shelljs": "^0.7.6",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
+    "sort-object": "^3.0.2",
     "thunkify": "^2.1.2",
     "touch": "^1.0.0",
     "url-loader": "^0.5.7",

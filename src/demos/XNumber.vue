@@ -12,6 +12,10 @@
       <x-number :title="$t('Quantity')" width="100px"></x-number>
     </group>
 
+    <group :title="$t('round style')">
+      <x-number :title="$t('Quantity')" v-model="roundValue" button-style="round" :min="0" :max="5"></x-number>
+    </group>
+
     <group :title="$t('set step=0.5')">
       <x-number :title="$t('Quantity')" :step="0.5"></x-number>
     </group>
@@ -20,8 +24,8 @@
       <x-number :title="$t('Quantity')" :min="-5" :max="8" :value="1"></x-number>
     </group>
 
-    <group :title="$t('fillable = false')">
-      <x-number :value="10" :title="$t('Quantity')" :fillable="false"></x-number>
+    <group :title="$t('fillable = true')">
+      <x-number :value="10" :title="$t('Quantity')" fillable></x-number>
     </group>
     
     <group :title="$t('use with other group elements')">
@@ -46,12 +50,14 @@ set step=0.5:
   zh-CN: 设置步长为0.5
 set value=1, min=-5 and max=8:
   zh-CN: 设置值为1，最小值为-5，最大值为8
-fillable = false:
-  zh-CN: 设置不可输入
+fillable = true:
+  zh-CN: 设置可以输入
 use with other group elements:
   zh-CN: 和其他group子元素一起使用
 Switch Component:
   zh-CN: Switch 组件
+round style:
+  zh-CN: 圆形按钮
 </i18n>
 
 <script>
@@ -62,6 +68,11 @@ export default {
     XNumber,
     Group,
     XSwitch
+  },
+  data () {
+    return {
+      roundValue: 0
+    }
   },
   methods: {
     change (val) {

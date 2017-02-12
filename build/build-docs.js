@@ -1,12 +1,14 @@
 'use strict'
 
-var glob = require("glob")
-var fs = require('fs')
-var yaml = require('js-yaml')
-var path = require('path')
-var _ = require('lodash')
+const glob = require("glob")
+const fs = require('fs')
+const yaml = require('js-yaml')
+const path = require('path')
+const _ = require('lodash')
 const mkdirp = require('mkdirp')
 const rimraf = require('rimraf')
+const semver = require('semver')
+const sortObj = require('sort-object')
 
 rimraf.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
 mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
@@ -583,8 +585,14 @@ function buildChanges(infos) {
 nav: zh-CN
 ---\n`
 
+  rs = sortObj(rs, {
+    sort: function (a, b) {
+      return semver.gt(a, b) ? -1 : 1
+    }
+  })
+
   for (let i in rs) {
-    str += `### ${i}_COM\n`
+    str += `\n### ${i}_COM\n`
     for (let j in rs[i]) {
       str += `\n#### ${_camelCase(j)}\n`
       str += `<ul>`
@@ -600,3 +608,4 @@ nav: zh-CN
 
   fs.writeFileSync(getPath(`../docs/zh-CN/changes.md`), str)
 }
+

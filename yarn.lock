@@ -138,6 +138,10 @@ arr-flatten@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/arr-flatten/download/arr-flatten-1.0.1.tgz#e5ffe54d45e19f32f216e91eb99c8ce892bb604b"
 
+arr-union@^3.0.0:
+  version "3.1.0"
+  resolved "http://registry.npm.taobao.org/arr-union/download/arr-union-3.1.0.tgz#e39b09aea9def866a8f206e288af63919bae39c4"
+
 array-differ@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/array-differ/download/array-differ-1.0.0.tgz#eff52e3758249d33be402b8bb8e564bb2b5d4031"
@@ -1141,6 +1145,19 @@ bytes@1:
 bytes@2.4.0:
   version "2.4.0"
   resolved "http://registry.npm.taobao.org/bytes/download/bytes-2.4.0.tgz#7d97196f9d5baf7f6935e25985549edd2a6c2339"
+
+bytewise-core@^1.2.2:
+  version "1.2.3"
+  resolved "http://registry.npm.taobao.org/bytewise-core/download/bytewise-core-1.2.3.tgz#3fb410c7e91558eb1ab22a82834577aa6bd61d42"
+  dependencies:
+    typewise-core "^1.2"
+
+bytewise@^1.1.0:
+  version "1.1.0"
+  resolved "http://registry.npm.taobao.org/bytewise/download/bytewise-1.1.0.tgz#1d13cbff717ae7158094aa881b35d081b387253e"
+  dependencies:
+    bytewise-core "^1.2.2"
+    typewise "^1.0.3"
 
 caller-path@^0.1.0:
   version "0.1.0"
@@ -2661,6 +2678,10 @@ get-stdin@^4.0.1:
   version "4.0.1"
   resolved "http://registry.npm.taobao.org/get-stdin/download/get-stdin-4.0.1.tgz#b968c6b0a04384324902e8bf1a5df32579a450fe"
 
+get-value@^2.0.2:
+  version "2.0.6"
+  resolved "http://registry.npm.taobao.org/get-value/download/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
+
 getpass@^0.1.1:
   version "0.1.6"
   resolved "http://registry.npm.taobao.org/getpass/download/getpass-0.1.6.tgz#283ffd9fc1256840875311c1b60e8c40187110e6"
@@ -3111,6 +3132,10 @@ ipaddr.js@1.2.0:
 is-absolute-url@^2.0.0:
   version "2.1.0"
   resolved "http://registry.npm.taobao.org/is-absolute-url/download/is-absolute-url-2.1.0.tgz#50530dfb84fcc9aa7dbe7852e83a37b93b9f2aa6"
+
+is-arguments@^1.0.2:
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/is-arguments/download/is-arguments-1.0.2.tgz#07e30ad79531844179b642d2d8399435182c8727"
 
 is-arrayish@^0.2.1:
   version "0.2.1"
@@ -5047,13 +5072,9 @@ resolve-from@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/resolve-from/download/resolve-from-1.0.1.tgz#26cbfe935d1aeeeabb29bc3fe5aeb01e93d44226"
 
-resolve@1.1.x:
+resolve@1.1.x, resolve@^1.1.6:
   version "1.1.7"
   resolved "http://registry.npm.taobao.org/resolve/download/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
-
-resolve@^1.1.6:
-  version "1.2.0"
-  resolved "http://registry.npm.taobao.org/resolve/download/resolve-1.2.0.tgz#9589c3f2f6149d1417a40becc1663db6ec6bc26c"
 
 restore-cursor@^1.0.1:
   version "1.0.1"
@@ -5159,6 +5180,14 @@ set-blocking@^2.0.0, set-blocking@~2.0.0:
 set-immediate-shim@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/set-immediate-shim/download/set-immediate-shim-1.0.1.tgz#4b2b1b27eb808a9f8dcc481a58e5e56f599f3f61"
+
+set-value@^0.3.3:
+  version "0.3.3"
+  resolved "http://registry.npm.taobao.org/set-value/download/set-value-0.3.3.tgz#b81223681638a1088fd88a435b8a9d32dae8d9ba"
+  dependencies:
+    extend-shallow "^2.0.1"
+    isobject "^2.0.0"
+    to-object-path "^0.2.0"
 
 setimmediate@^1.0.4:
   version "1.0.5"
@@ -5279,11 +5308,30 @@ socket.io@1.7.2:
     socket.io-client "1.7.2"
     socket.io-parser "2.3.1"
 
+sort-asc@^0.2.0:
+  version "0.2.0"
+  resolved "http://registry.npm.taobao.org/sort-asc/download/sort-asc-0.2.0.tgz#00a49e947bc25d510bfde2cbb8dffda9f50eb2fc"
+
+sort-desc@^0.2.0:
+  version "0.2.0"
+  resolved "http://registry.npm.taobao.org/sort-desc/download/sort-desc-0.2.0.tgz#280c1bdafc6577887cedbad1ed2e41c037976646"
+
 sort-keys@^1.0.0:
   version "1.1.2"
   resolved "http://registry.npm.taobao.org/sort-keys/download/sort-keys-1.1.2.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
   dependencies:
     is-plain-obj "^1.0.0"
+
+sort-object@^3.0.2:
+  version "3.0.2"
+  resolved "http://registry.npm.taobao.org/sort-object/download/sort-object-3.0.2.tgz#daf2b693f611f7dd2a21b82b805e4eac230f755e"
+  dependencies:
+    bytewise "^1.1.0"
+    get-value "^2.0.2"
+    is-extendable "^0.1.1"
+    sort-asc "^0.2.0"
+    sort-desc "^0.2.0"
+    union-value "^0.2.3"
 
 source-list-map@^0.1.4, source-list-map@~0.1.7:
   version "0.1.8"
@@ -5579,6 +5627,13 @@ to-fast-properties@^1.0.1:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/to-fast-properties/download/to-fast-properties-1.0.2.tgz#f3f5c0c3ba7299a7ef99427e44633257ade43320"
 
+to-object-path@^0.2.0:
+  version "0.2.0"
+  resolved "http://registry.npm.taobao.org/to-object-path/download/to-object-path-0.2.0.tgz#1634e1b52a88ba00e3949619fc0081dc9a3b07ca"
+  dependencies:
+    arr-flatten "^1.0.1"
+    is-arguments "^1.0.2"
+
 toposort@^1.0.0:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/toposort/download/toposort-1.0.2.tgz#be1de72431320fcefe35a7b539c1c336cbcfd32c"
@@ -5640,6 +5695,16 @@ typedarray@^0.0.6, typedarray@~0.0.5:
   version "0.0.6"
   resolved "http://registry.npm.taobao.org/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
+typewise-core@^1.2, typewise-core@^1.2.0:
+  version "1.2.0"
+  resolved "http://registry.npm.taobao.org/typewise-core/download/typewise-core-1.2.0.tgz#97eb91805c7f55d2f941748fa50d315d991ef195"
+
+typewise@^1.0.3:
+  version "1.0.3"
+  resolved "http://registry.npm.taobao.org/typewise/download/typewise-1.0.3.tgz#1067936540af97937cc5dcf9922486e9fa284651"
+  dependencies:
+    typewise-core "^1.2.0"
+
 uglify-js@2.7.x, uglify-js@^2.6, uglify-js@^2.7.5:
   version "2.7.5"
   resolved "http://registry.npm.taobao.org/uglify-js/download/uglify-js-2.7.5.tgz#4612c0c7baaee2ba7c487de4904ae122079f2ca8"
@@ -5664,6 +5729,15 @@ ultron@1.0.x:
 underscore@^1.8.3:
   version "1.8.3"
   resolved "http://registry.npm.taobao.org/underscore/download/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
+
+union-value@^0.2.3:
+  version "0.2.3"
+  resolved "http://registry.npm.taobao.org/union-value/download/union-value-0.2.3.tgz#ec91d75a83f312c292515c33b954865b1df32026"
+  dependencies:
+    arr-union "^3.0.0"
+    get-value "^2.0.2"
+    is-extendable "^0.1.1"
+    set-value "^0.3.3"
 
 uniq@^1.0.1:
   version "1.0.1"
