@@ -34,3 +34,9 @@ props:
     type: Boolean
     default: false
     zh-CN: '`Safari`下弹出键盘时可能会出现看不到input，需要手动滚动，启用该属性会在fix时滚动到顶端'
+changes:
+  v2.1.0-rc.47:
+    zh-CN:
+      - '[enhance] 删除无用代码'
+      - '[fix] 修复`取消`按钮在非`fixed`情况下没有出现的问题 @excitedcat'
+      - '[fix] 修复页面上多个实例时，`label id`冲突'

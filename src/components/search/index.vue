@@ -1,23 +1,23 @@
 <template>
   <div class="vux-search-box" :class="{'vux-search-fixed':isFixed}" :style="{top: isFixed ? top : '', position: fixPosition }">
-    <div class="weui_search_bar" id="search_bar" :class="{weui_search_focusing: !isCancel}">
+    <div class="weui_search_bar" :class="{weui_search_focusing: !isCancel || currentValue}">
       <form class="weui_search_outer" @submit.prevent="$emit('on-submit', value)">
         <div class="vux-search-mask" @click="touch" v-show="!isFixed && autoFixed"></div>
         <div class="weui_search_inner">
           <i class="weui_icon_search"></i>
-          <input type="search" class="weui_search_input" id="search_input" :placeholder="placeholder" autocomplete="off" :required="required" v-model="currentValue" ref="input"
-          @focus="isFocus = true"
-          @blur="isFocus = false"/>
-          <a href="javascript:" class="weui_icon_clear" id="search_clear" @click="clear"></a>
+          <input type="search" class="weui_search_input" :id="`search_input_${uuid}`" :placeholder="placeholder" autocomplete="off" :required="required" v-model="currentValue" ref="input"
+          @focus="onFocus"
+          @blur="onBlur"/>
+          <a href="javascript:" class="weui_icon_clear" @click="clear"></a>
         </div>
-        <label for="search_input" class="weui_search_text" id="search_text" v-show="!isFocus && !value">
+        <label :for="`search_input_${uuid}`" class="weui_search_text" v-show="!isFocus && !value">
           <i class="weui_icon_search"></i>
           <span>{{placeholder || $t('placeholder')}}</span>
         </label>
       </form>
-      <a href="javascript:" class="weui_search_cancel" id="search_cancel" @click="cancel">{{cancelText || $t('cancel_text')}}</a>
+      <a href="javascript:" class="weui_search_cancel" @click="cancel">{{cancelText || $t('cancel_text')}}</a>
     </div>
-    <div class="weui_cells weui_cells_access vux-search_show" id="search_show" v-show="isFixed">
+    <div class="weui_cells weui_cells_access vux-search_show" v-show="isFixed">
       <slot></slot>
       <div class="weui_cell" v-for="item in results" @click="handleResultClick(item)" v-on:touchmove.prevent>
         <div class="weui_cell_bd weui_cell_primary">
@@ -38,7 +38,10 @@ placeholder:
 </i18n>
 
 <script>
+import uuidMixin from '../../mixins/uuid'
+
 export default {
+  mixins: [uuidMixin],
   props: {
     required: {
       type: Boolean,
@@ -112,6 +115,14 @@ export default {
     },
     setFocus () {
       this.$refs.input.focus()
+    },
+    onFocus () {
+      this.isFocus = true
+      this.touch()
+    },
+    onBlur () {
+      this.isFocus = false
+      this.isCancel = true
     }
   },
   data () {
