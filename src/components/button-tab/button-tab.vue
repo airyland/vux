@@ -34,32 +34,32 @@ export default {
     font-size: 14px;
     line-height: 31px;
     text-align: center;
-    border: 1px solid #d2d2d2;
-    border-width: 1px 1px 1px 0;
-    color: #999;
+    border: @button-tab-border-width solid @button-tab-default-border-color;
+    border-width: @button-tab-border-width @button-tab-border-width @button-tab-border-width 0;
+    color: @button-tab-default-text-color;
     white-space: nowrap;
-    background: #fdfdfd;
+    background: @button-tab-default-background-color;
     -webkit-tap-highlight-color: rgba(255,0,0,0);
   }
 
   & > a.vux-button-group-current,
   & > a.hover,
   & > a:active {
-    border-color: @button-tab-active-border-color;
-    color: @button-tab-active-font-color;
+    border-color: @button-tab-border-color;
+    color: @button-tab-active-text-color;
     background: @button-tab-active-background-color;
   }
 
   & > a:first-child {
-    border-width: 1px;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
-    background-clip: padding-box
+    border-width: @button-tab-border-width;
+    border-top-left-radius: @button-tab-border-radius;
+    border-bottom-left-radius: @button-tab-border-radius;
+    background-clip: padding-box;
   }
 
   & > a:last-child {
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-top-right-radius: @button-tab-border-radius;
+    border-bottom-right-radius: @button-tab-border-radius;
     background-clip: padding-box;
   }
 

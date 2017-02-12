@@ -121,9 +121,19 @@
 /**
 * Button tab
 */
-@button-tab-active-border-color: @color-wechat-green;
+@button-tab-border-width: 1px;
+@button-tab-border-radius: 16px;
+
+@button-tab-border-color: @theme-color;
+@button-tab-default-border-color: @button-tab-border-color;
+@button-tab-active-border-color: @button-tab-border-color;
+
+@button-tab-default-background-color: #fdfdfd;
 @button-tab-active-background-color: @color-wechat-green;
-@button-tab-active-font-color: #FFF;
+
+@button-tab-active-font-color: #FFF; /* alias */
+@button-tab-active-text-color: @button-tab-active-font-color;
+@button-tab-default-text-color: #999;
 
 /**
 * Swiper
