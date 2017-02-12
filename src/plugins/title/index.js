@@ -1,6 +1,8 @@
 // https://www.deboy.cn/set-wechat-title-in-vuejs-spa.html
+// This plugin no longer works for wechat(WKWebView)
+
 const plugin = {
-  install(Vue, opts) {
+  install (Vue, opts) {
     if (!Vue.$vux) {
       Vue.$vux = {
         setTitle: setTitle
