@@ -38,3 +38,7 @@ slots:
   default:
     en: button text
     zh-CN: 按钮文字
+changes:
+  v2.1.0-rc.46:
+      zh-CN:
+        - '[feature] 添加`less`变量 #896 @erguotou520'
