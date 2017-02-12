@@ -132,6 +132,11 @@ export default {
 
 ``` js
 import { AlertPlugin, ToastPlugin } from 'vux'
+
+Vue.use(AlertPlugin)
+Vue.use(ToastPlugin)
+
+// 详细使用请参考对应组件文档
 ```
 
 ### 手动使用
