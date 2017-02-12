@@ -601,19 +601,25 @@ nav: zh-CN
     }
   })
 
+  let releases = ''
+
   for (let i in rs) {
+    releases += `\n # ${i}\n`
     str += `\n### ${i}_COM\n`
     for (let j in rs[i]) {
+      releases += `\n## ${_camelCase(j)}\n`
       str += `\n#### ${_camelCase(j)}\n`
       str += `<ul>`
       rs[i][j].forEach(one => {
         str += `${parseChange(getChangeTagHTML(one))}`
+        releases += `- ${one}\n`
       })
       str += `</ul>`
       str += `\n`
     }
   }
 
+  console.log(releases)
   str += '\n'
 
   fs.writeFileSync(getPath(`../docs/zh-CN/changes.md`), str)
