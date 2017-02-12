@@ -432,7 +432,7 @@ function getComponentInfo(one, lang, docs, name) {
 
     docs += `<ul>`
     one.json.changes[lastestVersion]['zh-CN'].forEach(one => {
-      docs += `${getChangeTagHTNL(one, '14px')}`
+      docs += `${getChangeTagHTML(one, '14px')}`
     })
     docs += `</ul>\n`
   }
@@ -457,7 +457,7 @@ function getTypeHTML(type) {
   }
 }
 
-function getChangeTagHTNL(str, fontSize = '15px') {
+function getChangeTagHTML(str, fontSize = '15px') {
   const _split = str.split(']')
   const type = _split[0].replace('[', '')
   const content = _split[1]
@@ -567,6 +567,16 @@ nav: zh-CN
   })
 }
 
+function parseChange (str) {
+  str = str.replace(/#(\d+)\s?/g, function (a, b) {
+    return `<a href="https://github.com/airyland/vux/issues/${b}" target="_blank">#${b}</a> `
+  })
+  str = str.replace(/@(\w+)\s?/g, function (a, b) {
+    return `<a href="https://github.com/${b}" target="_blank">${a}</a>`
+  })
+  return str
+}
+
 function buildChanges(infos) {
   let rs = {}
   infos.forEach(one => {
@@ -597,7 +607,7 @@ nav: zh-CN
       str += `\n#### ${_camelCase(j)}\n`
       str += `<ul>`
       rs[i][j].forEach(one => {
-        str += `${getChangeTagHTNL(one)}`
+        str += `${parseChange(getChangeTagHTML(one))}`
       })
       str += `</ul>`
       str += `\n`
