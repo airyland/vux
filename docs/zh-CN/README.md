@@ -2,24 +2,53 @@
 nav: zh-CN
 ---
 
-<h2 class="big-title">VUX</h2>
-
-<p align="left">
-  <a href="https://www.npmjs.com/package/vux">
-    <img src="https://img.shields.io/npm/v/vux.svg?style=flat-square" alt="">
-  </a>
-  <a href="https://www.npmjs.com/package/vux">
-    <img src="https://img.shields.io/npm/dm/vux.svg?style=flat-square" alt="">
-  </a>
+<p align="center">
+  <span class="big-title">VUX</span>
   <br>
-  <br>
-  <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
+   <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
     <img src="https://static.vux.li/demo_v2_doc_home.png" width="100" alt="">
   </a>
   <br>
   <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
     预览地址>>
   </a>
+  <br>
+  <br>
+  <a href="https://github.com/airyland/vux">
+    <img src="https://img.shields.io/github/stars/airyland/vux.svg?style=social&label=Star" alt="">
+  </a>
+  <a href="https://github.com/airyland/vux">
+    <img src="https://img.shields.io/github/forks/airyland/vux.svg?style=social&label=Fork" alt="">
+  </a>
+  <a href="https://github.com/airyland/vux">
+    <img src="https://img.shields.io/github/watchers/airyland/vux.svg?style=social&label=Watch" alt="">
+  </a>
+  <br>
+  <br>
+  <a href="https://github.com/airyland/vux/issues">
+    <img src="https://img.shields.io/github/issues/airyland/vux.svg?style=flat-square" alt="">
+  </a>
+  <a href="https://github.com/airyland/vux/issues">
+    <img src="https://img.shields.io/issuestats/i/github/airyland/vux.svg?style=flat-square" alt="">
+  </a>
+  <a href="https://github.com/airyland/vux/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/airyland/vux.svg?style=flat-square" alt="">
+  </a>
+  <br>
+  <a href="https://www.npmjs.com/package/vux">
+    <img src="https://img.shields.io/npm/l/vux.svg?style=flat-square" alt="">
+  </a>
+  <a href="https://www.npmjs.com/package/vux">
+    <img src="https://img.shields.io/npm/v/vux.svg?style=flat-square" alt="">
+  </a>
+  <a href="https://www.npmjs.com/package/vux">
+    <img src="https://img.shields.io/npm/dm/vux.svg?style=flat-square" alt="">
+  </a>
+  <a href="https://www.npmjs.com/package/vux">
+    <img src="https://img.shields.io/npm/dt/vux.svg?style=flat-square" alt="">
+  </a>
+  <br>
+  <br>
 </p>
 
 <p class="tip">
