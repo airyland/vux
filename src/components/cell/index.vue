@@ -57,17 +57,21 @@ export default {
   color: @cell-body-label-color;
 }
 
+.weui_cell_ft.with_arrow {
+  margin-right: 15px;
+}
+
 .weui_cell_ft.with_arrow:after {
   content: " ";
   display: inline-block;
-  transform: rotate(45deg);
+  transform: rotate(45deg) translateY(-50%);
   height: 6px;
   width: 6px;
   border-width: 2px 2px 0 0;
   border-color: #C8C8CD;
   border-style: solid;
-  position: relative;
-  top: -1px;
-  margin-left: .3em;
+  position: absolute;
+  top: 50%;
+  right: 15px;
 }
 </style>

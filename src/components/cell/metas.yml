@@ -53,3 +53,7 @@ slots:
   child:
     en: the child element of the cell, you can add an element with absolute position
     zh-CN: cell的直接子元素，因此可以添加一个相对于cell绝对定位的元素
+changes:
+  v2.1.0-rc.47:
+    zh-CN:
+      - '[enhance] 修复内容多时的箭头位置 #715 @greedying '
