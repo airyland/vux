@@ -18,7 +18,7 @@
       <x-address title="二级省市" v-model="value3" raw-value :list="addressData"></x-address>
     </group>
     <group>
-      <x-address title="只显示省市" v-model="value4" raw-value :list="addressData" hide-district></x-address ref="demo2">
+      <x-address title="只显示省市" v-model="value4" raw-value :list="addressData" hide-district></x-address>
       <cell title="value值" :value="value4"></cell>
       <cell title="转换成文字值" :value="getName(value4)"></cell>
     </group>
