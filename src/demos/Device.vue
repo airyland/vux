@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <cell v-for="(key, val) in $device" :title="key">{{val}}</cell>
+      <cell v-for="(item, key) in $device" :title="key">{{item}}</cell>
     </group>
   </div>
 </template>
