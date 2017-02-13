@@ -22,7 +22,9 @@ const aliasMap = {
   RandomTool: 'numberRandom',
   FormatTool: 'dateFormat',
   TrimTool: 'stringTrim',
-  QuerystringTool: 'querystring'
+  QuerystringTool: 'querystring',
+  DebounceTool: 'debounce',
+  ThrottleTool: 'throttle'
 }
 
 function getPath(dir) {
@@ -176,6 +178,19 @@ glob(getPath('../src/**/metas.yml'), {}, function (err, files) {
   render(files, 'form')
   render(files, 'dialog')
   render(files, 'layout')
+})
+
+glob(getPath('../src/tools/**/metas.yml'), {}, function (err, files) {
+  let rs = []
+  files.forEach(function(file){
+    const name = file.split('tools/')[1].replace('/metas.yml', '')
+    const json = yaml.safeLoad(fs.readFileSync(file, 'utf-8'))
+    rs.push({
+      name: name,
+      metas: json
+    })
+  })
+  fs.writeFileSync(getPath('../src/tools/changes.json'), JSON.stringify(rs, null, 2))
 })
 
 function getComponentName(path) {
@@ -578,6 +593,8 @@ function parseChange (str) {
 }
 
 function buildChanges(infos) {
+  const toolInfos = require(getPath('../src/tools/changes.json'))
+  infos = infos.concat(toolInfos)
   let rs = {}
   infos.forEach(one => {
     let name = one.name

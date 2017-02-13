@@ -688,6 +688,28 @@ preLoaders: [
   对于有相关需求的开发者来说，不用自己写或者花时间去寻求合适的第三方库了，开箱即用。
 </p>
 
+### debounce 
+
+<p class="warning">
+  请注意了解 `debounce` 和 `throttle` 的区别。如果尚不清楚，请`google`之。
+</p>
+
+``` js
+import { debounce } from 'vux'
+
+debounce(func, [wait=0], [options={}])
+```
+[详细文档](https://lodash.com/docs/#debounce)
+
+### throttle
+
+``` js
+import { throttle } from 'vux'
+
+throttle(func, [wait=0], [options={}])
+```
+
+[详细文档](https://lodash.com/docs/#throttle)
 
 ### cookie
 
