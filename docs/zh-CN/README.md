@@ -83,6 +83,7 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 > 如果你的产品在使用`VUX`, 欢迎邮箱发送`Logo+链接`给我。
 
 <img src="https://static.vux.li/showcase/ssy_logo.png" width="200">
+<img src="https://static.vux.li/showcase/jkda51.png" width="200">
 
 ## 安装使用(webpack)
 
