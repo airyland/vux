@@ -15,7 +15,7 @@
 
      <group title="chained columns">
        <popup-picker :title="title3" :data="list3" :columns="3" v-model="value3" ref="picker3"></popup-picker>
-       <cell title="获取值对应的文字" value="$refs.picker3.getNameValues()"></cell>
+       <cell title="获取值对应的文字" :value="$refs.picker3&&$refs.picker3.getNameValues()"></cell>
        <popup-picker :title="title4" :data="list3" :columns="3" v-model="value4" show-name></popup-picker>
      </group>
 
