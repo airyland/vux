@@ -4,11 +4,14 @@
   @touchmove="move"
   @touchend="end"
   @touchcancel="end">
-    <div class="vux-swipeout-button-box">
-      <slot name="button"></slot>
+    <div class="vux-swipeout-button-box vux-swipeout-button-box-left" :style="leftButtonBoxStyle" v-show="distX >= 0">
+      <slot name="left-menu"></slot>
+    </div>
+    <div class="vux-swipeout-button-box" :style="rightButtonBoxStyle" v-show="distX <= 0">
+      <slot name="right-menu"></slot>
     </div>
     <div class="vux-swipeout-content" :style="styles" @touchstart="onContentClick" ref="content">
-     <slot name="content"></slot>
+      <slot name="content"></slot>
     </div>
   </div>
 </template>
@@ -19,11 +22,15 @@ import arrayFilter from 'array-filter'
 export default {
   name: 'swipeout-item',
   props: {
-    buffer: {
+    sensitivity: {
       type: Number,
-      default: 4
+      default: 0
     },
-    distance: {
+    rightMenuWidth: {
+      type: Number,
+      default: 160
+    },
+    leftMenuWidth: {
       type: Number,
       default: 160
     },
@@ -31,11 +38,26 @@ export default {
       type: Boolean,
       default: true
     },
-    disabled: Boolean
+    disabled: Boolean,
+    threshold: {
+      type: Number,
+      default: 0.3
+    },
+    underlayColor: String,
+    transitionMode: {
+      type: String,
+      default: 'reveal' // follow stagger
+    }
   },
   mounted () {
     this.$nextTick(() => {
       this.target = this.$refs.content
+      if (this.$slots['left-menu']) {
+        this.hasLeftMenu = true
+      }
+      if (this.$slots['right-menu']) {
+        this.hasRightMenu = true
+      }
     })
   },
   methods: {
@@ -43,23 +65,35 @@ export default {
       if (this.styles.transform.indexOf('(0px, 0, 0)') === -1) {
         this.setOffset(0, true)
         this.$emit('on-close')
+        setTimeout(() => {
+          this.isOpen = false
+        }, 200)
+        this.distX = 0
       }
     },
     onItemClick () {
       if (this.autoCloseOnButtonClick) {
         this.setOffset(0, true)
         this.$emit('on-close')
+        this.isOpen = false
+        this.distX = 0
       }
     },
     start (ev) {
       if (this.disabled) {
+        ev.preventDefault()
         return
       }
       if (ev.target.nodeName.toLowerCase() === 'button') {
         ev.preventDefault()
         return
       }
-      // check if there are open items
+
+      if (this.isOpen) {
+        ev.preventDefault()
+        return
+      }
+
       if (this.$parent.$options._componentTag === 'swipeout') {
         const openItems = arrayFilter(this.$parent.$children, item => {
           return item.$data.styles.transform.indexOf('(0px, 0, 0)') === -1
@@ -84,16 +118,19 @@ export default {
         ev.preventDefault()
         return
       }
-      if (this.pageX === undefined) return
+      if (this.pageX === undefined) {
+        return
+      }
 
       const touch = ev.touches ? ev.touches[0] : ev
       this.distX = touch.pageX - this.pageX
       this.distY = touch.pageY - this.pageY
-
       if (this.valid === undefined) {
-        if (this.distX > 0) {
+        if (this.distX > 0 && this.hasLeftMenu === false) {
           this.valid = false
-        } else if (Math.abs(this.distX) > this.buffer || Math.abs(this.distY) > this.buffer) {
+        } else if (this.distX < 0 && this.hasRightMenu === false) {
+          this.valid = false
+        } else if (Math.abs(this.distX) > this.sensitivity || Math.abs(this.distY) > this.sensitivity) {
           this.valid = Math.abs(this.distX) > Math.abs(this.distY)
         } else {
           ev.preventDefault()
@@ -101,12 +138,14 @@ export default {
       }
 
       if (this.valid === true) {
-        if (this.distX <= 0) {
-          if (Math.abs(this.distX) <= this.distance) {
-            this.setOffset(this.distX)
+        if (Math.abs(this.distX) <= this.menuWidth) {
+          this.setOffset(this.distX)
+        } else {
+          const extra = (Math.abs(this.distX) - this.menuWidth) * 0.5
+          if (this.distX < 0) {
+            this.setOffset(-(this.menuWidth + extra))
           } else {
-            var extra = (Math.abs(this.distX) - this.distance) * 0.5
-            this.setOffset(-(this.distance + extra))
+            this.setOffset(this.menuWidth + extra)
           }
         }
         ev.preventDefault()
@@ -122,12 +161,32 @@ export default {
       }
 
       if (this.valid === true) {
-        if (this.distX < -this.distance * 0.2) {
-          this.setOffset(-this.distance, true) // 距离够长就展开
-          this.$emit('on-open')
+        if (this.distX < 0) {
+          const threshold = this.threshold <= 1 ? this.rightMenuWidth * this.threshold : this.threshold
+
+          if (this.distX < -threshold) {
+            this.setOffset(-this.rightMenuWidth, true)
+            this.$emit('on-open')
+            this.isOpen = true
+          } else {
+            this.setOffset(0, true)
+            this.$emit('on-close')
+            this.isOpen = false
+            this.distX = 0
+          }
         } else {
-          this.setOffset(0, true)
-          this.$emit('on-close')
+          const threshold = this.threshold <= 1 ? this.leftMenuWidth * this.threshold : this.threshold
+
+          if (this.distX > threshold) {
+            this.setOffset(this.leftMenuWidth, true)
+            this.$emit('on-open')
+            this.isOpen = true
+          } else {
+            this.setOffset(0, true)
+            this.$emit('on-close')
+            this.isOpen = false
+            this.distX = 0
+          }
         }
       } else if (this.pageX !== undefined) {}
 
@@ -136,6 +195,16 @@ export default {
     setOffset (x, animated, force) {
       if (this.disabled && !force) {
         return
+      }
+      if (x === 0) {
+        setTimeout(() => {
+          this.isOpen = false
+        }, 300)
+      }
+      if (x < 0 && Math.abs(x) === this.rightMenuWidth) {
+        this.distX = -this.rightMenuWidth
+      } else if (x > 0 && Math.abs(x) === this.leftMenuWidth) {
+        this.distX = this.leftMenuWidth
       }
       if (animated && this.target) {
         this.target && this.target.classList.add('vux-swipeout-content-animated')
@@ -152,6 +221,49 @@ export default {
         this.target.classList.add('animated')
       }
       this.styles.transform = 'translate3d(' + x + 'px, 0, 0)'
+    },
+    open (position = 'right') {
+      this.setOffset(position === 'right' ? -this.rightMenuWidth : this.leftMenuWidth, true, true)
+    },
+    close () {
+      this.setOffset(0, true, true)
+    }
+  },
+  computed: {
+    menuWidth () {
+      if (!this.hasLeftMenu && this.hasRightMenu) {
+        return this.rightMenuWidth
+      }
+      if (this.hasLeftMenu && !this.hasRightMenu) {
+        return this.leftMenuWidth
+      }
+      if (this.hasLeftMenu && this.hasRightMenu) {
+        return this.distX < 0 ? this.rightMenuWidth : this.leftMenuWidth
+      }
+    },
+    buttonBoxStyle () {
+      return {
+        backgroundColor: this.underlayColor
+      }
+    },
+    leftButtonBoxStyle () {
+      let styles = this.buttonBoxStyle
+      if (this.transitionMode === 'follow') {
+        styles.transform = `translate3d(-${this.leftMenuWidth - this.distX}px, 0, 0)`
+      }
+      return styles
+    },
+    rightButtonBoxStyle () {
+      let styles = JSON.parse(JSON.stringify(this.buttonBoxStyle))
+      if (this.transitionMode === 'follow') {
+        let offset = this.rightMenuWidth - Math.abs(this.distX)
+        if (offset < 0) {
+          offset = 0
+        }
+        styles.transition = 'transform 0.2s'
+        styles.transform = `translate3d(${offset}px, 0, 0)`
+      }
+      return styles
     }
   },
   data () {
@@ -160,7 +272,11 @@ export default {
       pageY: undefined,
       distX: 0,
       distY: 0,
+      hasLeftMenu: false,
+      hasRightMenu: false,
       animated: false,
+      isAnimated: false,
+      isOpen: false,
       styles: {
         transform: 'translate3d(0px, 0, 0)'
       }
@@ -175,36 +291,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.vux-swipeout-item {
-  position: relative;
-}
-.vux-swipeout-button-box {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  font-size: 0;
-  text-align: right;
-}
-.vux-swipeout-button-box > div {
-  height: 100%;
-}
-.vux-swipeout-button {
-  height: 100%;
-  text-align: center;
-  font-size: 14px;
-  color: #FFF;
-  border: none;
-}
-.vux-swipeout-content {
-  position: relative;
-  padding: 20px 15px;
-  background: #FFF;
-}
-.vux-swipeout-content.vux-swipeout-content-animated {
-  transition: transform 0.2s;
-}
-</style>

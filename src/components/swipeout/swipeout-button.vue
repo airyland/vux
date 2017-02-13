@@ -1,5 +1,6 @@
 <template>
-  <button class="vux-swipeout-button" :style="{width: `${width}px`, backgroundColor: backgroundColor}" @click="onButtonClick">
+  <button class="vux-swipeout-button"
+  :class="{'vux-swipeout-button-primary': type === 'primary', 'vux-swipeout-button-warn': type === 'warn', 'vux-swipeout-button-default': type === 'default'}" :style="{width: `${width}px`, backgroundColor: backgroundColor}" @click="onButtonClick">
     <slot>{{text}}</slot>
   </button>
 </template>
@@ -8,10 +9,8 @@
 export default {
   props: {
     text: String,
-    backgroundColor: {
-      type: String,
-      default: '#b6bec0'
-    },
+    backgroundColor: String,
+    type: String,
     width: {
       type: Number,
       default: 80
