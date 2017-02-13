@@ -54,6 +54,10 @@ props:
     type: Boolean
     default: false
     zh-CN: 同input的标准属性readonly
+  debounce:
+    type: Number
+    default: ''
+    zh-CN: '`debounce`用以限制`on-change`事件触发。如果你需要根据用户输入做`ajax`请求，建议开启以节省无效请求和服务器资源，单位为毫秒'
 slots:
   label:
     zh-CN: '用于自定义`label`(即 title)部分内容，比如使用`icon`'
@@ -66,11 +70,14 @@ events:
     zh-CN: 'input的`focus`事件'
   on-change:
     params: '`(value)`'
-    zh-CN: '输入值变化时触发'
+    zh-CN: '输入值变化时触发。如果你使用了`debounce`，那么触发将不会是实时的。'
 methods:
   focus:
     zh-CN: 手动获得焦点
 changes:
+  v2.1.0-rc.48:
+    zh-CN:
+      - '[feature] 支持`debounce` #715 @YYmmlin'
   v2.1.0-rc.46:
     zh-CN:
       - '[feature] 添加`slot=label`自定义label部分内容 #895 @erguotou520'

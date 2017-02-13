@@ -107,6 +107,8 @@ import InlineDesc from '../inline-desc'
 import isEmail from 'validator/lib/isEmail'
 import isMobilePhone from 'validator/lib/isMobilePhone'
 
+import Debounce from '../../tools/debounce'
+
 const validators = {
   'email': {
     fn: isEmail,
@@ -135,6 +137,16 @@ export default {
       this.valid = false
     }
     this.handleChangeEvent = true
+    if (this.debounce) {
+      this._debounce = Debounce(() => {
+        this.$emit('on-change', this.currentValue)
+      }, this.debounce)
+    }
+  },
+  beforeDestroy () {
+    if (this._debounce) {
+      this._debounce.cancel()
+    }
   },
   mixins: [Base],
   components: {
@@ -191,7 +203,8 @@ export default {
       type: Boolean,
       default: false
     },
-    iconType: String
+    iconType: String,
+    debounce: Number
   },
   computed: {
     pattern () {
@@ -369,7 +382,11 @@ export default {
         this.validate()
       }
       this.$emit('input', newVal)
-      this.$emit('on-change', newVal)
+      if (this._debounce) {
+        this._debounce()
+      } else {
+        this.$emit('on-change', newVal)
+      }
     }
   }
 }

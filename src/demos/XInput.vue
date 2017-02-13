@@ -23,6 +23,10 @@
       <x-input title='max=5' :max="5" @on-change="change" v-model="maxValue"></x-input>
     </group>
 
+    <group title="debounce = 1000">
+      <x-input title='debounce' :debounce="500" @on-change="change" v-model="debounceValue"></x-input>
+    </group>
+
     <group title="disabled">
       <x-input title='value' disabled v-model="disabledValue"></x-input>
     </group>
@@ -115,6 +119,7 @@ export default {
       },
       style: '',
       disabledValue: 'hello',
+      debounceValue: '',
       maxValue: ''
     }
   },

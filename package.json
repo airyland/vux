@@ -48,6 +48,8 @@
     "china-area-data": "^2.0.0",
     "countup.js": "^1.8.1",
     "fastclick": "^1.0.6",
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
     "object-assign": "^4.1.0",
     "photoswipe": "^4.1.1",
     "qr.js": "0.0.0",
