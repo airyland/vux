@@ -1,0 +1,17 @@
+icon: '&#xe699;'
+tags:
+  en:
+    - form
+  zh-CN:
+    - 表单
+extra: |
+  ``` js
+  // 验证
+  if(this.$refs.form.validate()){
+    //do something
+  }
+  ```
+slots:
+  default:
+    en: content of the form
+    zh-CN: 表单内容

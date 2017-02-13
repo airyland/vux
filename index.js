@@ -109,6 +109,7 @@ import XNumber from './src/components/x-number/index.vue'
 import XProgress from './src/components/x-progress/index.vue'
 import XSwitch from './src/components/x-switch/index.vue'
 import XTextarea from './src/components/x-textarea/index.vue'
+import XForm from './src/components/x-form/index.vue'
 
 export {
   Array2stringFilter,
@@ -219,5 +220,6 @@ export {
   XNumber,
   XProgress,
   XSwitch,
-  XTextarea
+  XTextarea,
+  XForm
 }
