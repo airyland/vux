@@ -15,7 +15,7 @@
 
     <group title="使用icon代替title">
       <x-input title="必须输入2333" :is-type="be2333" placeholder="I'm placeholder">
-        <img slot="title" style="padding-right:10px;display:block;" src="http://dn-placeholder.qbox.me/110x110/FF2D55/000" width="24" height="24">
+        <img slot="label" style="padding-right:10px;display:block;" src="http://dn-placeholder.qbox.me/110x110/FF2D55/000" width="24" height="24">
       </x-input>
     </group>
 
