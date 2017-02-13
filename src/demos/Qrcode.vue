@@ -1,8 +1,11 @@
 <template>
   <div style="text-align:center;margin-top:15px;">
-    <divider>{{ $t('Notice: It cannot be extracted by Wechat') }}</divider>
-    <qrcode value="https://vux.li"></qrcode>
+    <divider>{{ $t('default type = img') }}</divider>
+    <qrcode value="https://vux.li?x-page=demo_qrcode" type="img"></qrcode>
     <br>
+    <br>
+    <divider>{{ $t('type = canvas') }}</divider>
+    <qrcode value="https://vux.li?x-page=demo_qrcode"></qrcode>
     <br>
     <qrcode :value="value" :fg-color="fgColor"></qrcode>
     <br>
@@ -13,8 +16,10 @@
 </template>
 
 <i18n>
-'Notice: It cannot be extracted by Wechat':
-  zh-CN: 注意：canvas不能在微信里长按识别
+default type = img:
+  zh-CN: '默认类型为 img，可以在微信里长按识别'
+type = canvas:
+  zh-CN: '类型为 canvas'
 current url:
   zh-CN: 当前url
 current fgColor:

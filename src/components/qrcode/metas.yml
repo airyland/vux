@@ -24,3 +24,12 @@ props:
     default: '#000000'
     en: front color
     zh-CN: 二维码着色
+  type:
+    type: String
+    default: img
+    en: 'render type, can be `img` or `canvas`'
+    zh-CN: '渲染类型，可以为`img`(适合需要在微信需要长按识别的场景)和`canvas`'
+changes:
+  v2.1.0-rc.47:
+    zh-CN:
+      - '[feature] 支持渲染类型为图片 #900 @keepgoingwm'
