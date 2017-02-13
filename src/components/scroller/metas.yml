@@ -15,6 +15,10 @@ extra: |
   <br>
   <br>
   默认高度为整个视口高度，如果你加了`x-header`，那么你需要减去一个`x-header`的高度: `height="-46"`
+
+  <br>
+  <br>
+  请确保在你的数据更新后进行`reset`操作(参考下面文档)，如果你做了`reset`还有问题再开`issue`并附上代码，否则将`绝对不会被处理`。
   </p>
 after_extra: |
   pulldown 默认配置:
