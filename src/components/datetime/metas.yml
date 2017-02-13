@@ -102,6 +102,11 @@ props:
   end-date:
     type: String
     zh-CN: 限定最大日期，注意该限制只能限定到日期，不能限定到小时分钟
+  required:
+    type: Boolean
+    default: false
+    en: is required
+    zh-CN: 是否必填
 events:
   on-change:
     params: '`(value)`'
