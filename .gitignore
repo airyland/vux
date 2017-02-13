@@ -22,3 +22,4 @@ src/components/index.js
 test/unit/coverage/
 docs/*.map
 v2/
+npm-debug.log.*

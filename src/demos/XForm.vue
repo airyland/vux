@@ -5,15 +5,17 @@
       <x-input title="最小长度5" name="bbb" v-model="value2" required :min="5"></x-input>
     </x-form>
     <x-button @click.native="validate">验证</x-button>
-    <cell v-for="(v,k) in errors" :title="k" :value="v"></cell>
+    <group v-for="e in errors">
+      <cell v-for="(v,k) in e" :title="k" :value="v"></cell>
+    </group>
   </div>
 </template>
 <script>
-  import { XForm, XInput, XButton, Cell } from 'vux'
+  import { XForm, XInput, XButton, Group, Cell } from 'vux'
 
   export default {
     components: {
-      XForm, XInput, XButton, Cell
+      XForm, XInput, XButton, Group, Cell
     },
     data () {
       return {
