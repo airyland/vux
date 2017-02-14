@@ -45,6 +45,10 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
+  v2.1.0:
+    zh-CN:
+      - '[feature] 更新到 `WeUI` 最新版本'
+      - '[feature] 支持 `prop:isLoading`'
   v2.1.0-rc.46:
       zh-CN:
         - '[feature] 添加`less`变量 #896 @erguotou520'

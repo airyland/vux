@@ -10,6 +10,11 @@
       <x-button type="primary" action-type="button">submit</x-button>
       <x-button type="warn" action-type="reset">reset</x-button>
 
+      <divider>loading</divider>
+      <x-button type="default" is-loading>submit</x-button>
+      <x-button type="primary" is-loading>submit</x-button>
+      <x-button type="warn" is-loading>submit</x-button>
+  
       <divider>mini</divider>
       <x-button mini>submit</x-button>
       <x-button mini type="primary">primary</x-button>
