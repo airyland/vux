@@ -69,7 +69,7 @@ export default {
         this.currentValue = this.min
       }
       if (this.max && this.currentValue > this.max) {
-        this.currenValue = this.max
+        this.currentValue = this.max
       }
       this.$emit('on-change', this.currentValue)
       this.$emit('input', this.currentValue)
