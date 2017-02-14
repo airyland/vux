@@ -1,31 +1,33 @@
 <template>
-  <div style="padding: 15px;">
-    <button-tab>
-      <button-tab-item>{{ $t('Today') }}</button-tab-item>
-      <button-tab-item selected>{{ $t('This Week') }}</button-tab-item>
-      <button-tab-item>{{ $t('This Month') }}</button-tab-item>
-    </button-tab>
-    <br>
-    <button-tab>
-      <button-tab-item selected>{{ $t('Articles') }}</button-tab-item>
-      <button-tab-item>{{ $t('Products') }}</button-tab-item>
-    </button-tab>
-    <br>
-    <button-tab v-model="demo01">
-      <button-tab-item @on-item-click="consoleIndex()">{{ $t('Articles') }}</button-tab-item>
-      <button-tab-item @on-item-click="consoleIndex()">{{ $t('Products') }}</button-tab-item>
-    </button-tab>
-    <br>
-    <button-tab v-model="demo01">
-      <button-tab-item>{{ $t('Articles sync') }}</button-tab-item>
-      <button-tab-item>{{ $t('Products sync') }}</button-tab-item>
-    </button-tab>
-    <br>
-    <divider>{{ $t('Red Dot') }}</divider>
-    <button-tab>
-      <button-tab-item selected>{{ $t('All Messages') }}</button-tab-item>
-      <button-tab-item><span class="vux-reddot-s">{{ $t('New Messages') }}</span></button-tab-item>
-    </button-tab>
+  <div>
+    <div style="padding: 15px;">
+      <button-tab>
+        <button-tab-item>{{ $t('Today') }}</button-tab-item>
+        <button-tab-item selected>{{ $t('This Week') }}</button-tab-item>
+        <button-tab-item>{{ $t('This Month') }}</button-tab-item>
+      </button-tab>
+      <br>
+      <button-tab>
+        <button-tab-item selected>{{ $t('Articles') }}</button-tab-item>
+        <button-tab-item>{{ $t('Products') }}</button-tab-item>
+      </button-tab>
+      <br>
+      <button-tab v-model="demo01">
+        <button-tab-item @on-item-click="consoleIndex()">{{ $t('Articles') }}</button-tab-item>
+        <button-tab-item @on-item-click="consoleIndex()">{{ $t('Products') }}</button-tab-item>
+      </button-tab>
+      <br>
+      <button-tab v-model="demo01">
+        <button-tab-item>{{ $t('Articles sync') }}</button-tab-item>
+        <button-tab-item>{{ $t('Products sync') }}</button-tab-item>
+      </button-tab>
+      <br>
+      <divider>{{ $t('Red Dot') }}</divider>
+      <button-tab>
+        <button-tab-item selected>{{ $t('All Messages') }}</button-tab-item>
+        <button-tab-item><span class="vux-reddot-s">{{ $t('New Messages') }}</span></button-tab-item>
+      </button-tab>
+    </div>
   </div>
 </template>
 
