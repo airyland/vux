@@ -61,6 +61,8 @@ props:
 slots:
   label:
     zh-CN: '用于自定义`label`(即 title)部分内容，比如使用`icon`'
+  right:
+    zh-CN: '用以在输入框右边显示内容，比如验证码图片，单位，切换密码显示方式等'
 events:
   on-blur:
     params: '`(value)`'
