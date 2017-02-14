@@ -7,8 +7,9 @@ const isIphone = !isIpad && /(iPhone\sOS)\s([\d_]+)/.test(ua)
 const isWechat = /micromessenger/i.test(ua)
 
 const plugin = function (Vue) {
-  if (!Vue.$device) {
-    Vue.$device = {
+  // Vue.$device will be removed
+  if (!Vue.$device || !Vue.device) {
+    Vue.$device = Vue.device = {
       isAndroid,
       isIpad,
       isIpod,
