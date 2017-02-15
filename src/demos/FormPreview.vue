@@ -1,10 +1,10 @@
 <template>
   <div>
-    <form-preview :header-label="$t('付款金额')" header-value="¥2400.00" :bodyItems="list" :footer-buttons="buttons1"></form-preview>
+    <form-preview :header-label="$t('付款金额')" header-value="¥2400.00" :body-items="list" :footer-buttons="buttons1"></form-preview>
     <br>
-    <form-preview :header-label="$t('付款金额')" header-value="¥2400.00" :bodyItems="list" :footer-buttons="buttons2"></form-preview>
+    <form-preview :header-label="$t('付款金额')" header-value="¥2400.00" :body-items="list" :footer-buttons="buttons2"></form-preview>
     <br>
-    <form-preview :header-label="$t('付款金额')" header-value="¥2400.00" :bodyItems="list"></form-preview>
+    <form-preview :header-label="$t('付款金额')" header-value="¥2400.00" :body-items="list"></form-preview>
   </div>
 </template>
 
