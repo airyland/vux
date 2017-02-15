@@ -27,6 +27,9 @@ props:
       button list, [{style: 'primary', text: 'text', onButtonClick: fn, link: '/path'}]
     zh-CN: '底部按钮列表，default为灰色样式，primary文字为高亮颜色， [{style: "primary", text: "text", onButtonClick: fn(), link: "/path"}]'
 changes:
+  v2.1.0-rc.49:
+    zh-CN:
+      - '[fix] 修复出现滚动条 #920 @asingingfish'
   v2.0.0:
     zh-CN:
       - '[feature] 增加`form-preview`组件'
