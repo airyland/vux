@@ -24,7 +24,7 @@ props:
   type:
     type: String
     default: text
-    zh-CN: '即input的`type`属性，目前支持 `text`,`number`,`email`,`password`'
+    zh-CN: '即input的`type`属性，目前支持 `text`,`number`,`email`,`password`,`tel`'
   is-type:
     type: String,Function
     zh-CN: '内置验证器，支持`email`,`china-name`,`china-mobile`, 同样也支持直接传函数, 需要同步返回一个对象`{valid:true}`或者`{valid:false, msg:错误信息}`'

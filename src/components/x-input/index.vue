@@ -86,6 +86,25 @@
       @focus="focusHandler"
       @blur="blur"
       ref="input"/>
+      <input
+      v-if="type === 'tel'"
+      class="weui-input"
+      :maxlength="max"
+      :autocomplete="autocomplete"
+      :autocapitalize="autocapitalize"
+      :autocorrect="autocorrect"
+      :spellcheck="spellcheck"
+      :style="inputStyle"
+      type="tel"
+      :name="name"
+      :pattern="pattern"
+      :placeholder="placeholder"
+      :readonly="readonly"
+      :disabled="disabled"
+      v-model="currentValue"
+      @focus="focusHandler"
+      @blur="blur"
+      ref="input"/>
     </div>
     <div class="weui_cell_ft">
       <icon type="clear" v-show="!equalWith && showClear && currentValue && !readonly && !disabled" @click.native="clear"></icon>
