@@ -1,8 +1,11 @@
 <template>
 	<div class="vux-x-input weui_cell" :class="{'weui_cell_warn': !valid}">
     <div class="weui_cell_hd">
-      <slot name="label">
-        <label class="weui_label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
+      <div :style="labelStyles" v-if="hasRestrictedLabel">
+        <slot name="restricted-label"></slot>
+      </div>
+      <slot name="label" v-if="!hasRestrictedLabel">
+        <label class="weui_label" :style="labelStyles" v-if="title" v-html="title"></label>
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </slot>
     </div>
@@ -142,6 +145,9 @@ export default {
         this.$emit('on-change', this.currentValue)
       }, this.debounce)
     }
+    if (this.$slots['restricted-label']) {
+      this.hasRestrictedLabel = true
+    }
   },
   beforeDestroy () {
     if (this._debounce) {
@@ -207,6 +213,13 @@ export default {
     debounce: Number
   },
   computed: {
+    labelStyles () {
+      return {
+        width: this.$parent.labelWidth || (this.labelWidth + 'em'),
+        textAlign: this.$parent.labelAlign,
+        marginRight: this.$parent.labelMarginRight
+      }
+    },
     pattern () {
       if (this.keyboard === 'number' || this.isType === 'china-mobile') {
         return '[0-9]*'
@@ -344,6 +357,7 @@ export default {
   },
   data () {
     let data = {
+      hasRestrictedLabel: false,
       firstError: '',
       forceShowError: false,
       hasLengthEqual: false,

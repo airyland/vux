@@ -2,6 +2,9 @@
   <div>
     <group label-width="4em" label-margin-right="2em" label-align="right">
       <x-input title="上报人" v-model="value1"></x-input>
+      <x-input title="图标" placeholder="I'm placeholder">
+        <img slot="restricted-label" style="display:inline-block;vertical-align:middle;" src="http://dn-placeholder.qbox.me/110x110/FF2D55/000" width="24" height="24">
+      </x-input>
       <selector title="隐患类别" :options="['工艺技术', '其他']" v-model="value2"></selector>
       <selector title="隐患类别" placeholder="Placeholder" :options="['工艺技术', '其他']" v-model="value7"></selector>
       <selector title="隐患类别" :options="['工艺技术', '其他']" v-model="value8"></selector>

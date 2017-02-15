@@ -61,6 +61,8 @@ props:
 slots:
   label:
     zh-CN: '用于自定义`label`(即 title)部分内容，比如使用`icon`'
+  restricted-label:
+    zh-CN: '用于自定义`label`部分，和`slot=label`不同的是，该slot宽度受到父组件`group`的限制'
   right:
     zh-CN: '用以在输入框右边显示内容，比如验证码图片，单位，切换密码显示方式等'
 events:
@@ -77,6 +79,9 @@ methods:
   focus:
     zh-CN: 手动获得焦点
 changes:
+  v2.1.0-rc.49:
+    zh-CN:
+      - '[feature] 支持`slot=restricted-label` #918 @zqyadam'
   v2.1.0-rc.48:
     zh-CN:
       - '[feature] 支持`debounce` #715 @YYmmlin'
