@@ -5,8 +5,8 @@
       <cell title="上面value值" :value="value"></cell>
     </group>
     <br>
-    <group>
-      <x-address :title="title2" v-model="value2" raw-value :list="addressData"></x-address>
+    <group label-width="4em" label-align="left">
+      <x-address :title="title2" v-model="value2" raw-value :list="addressData" value-text-align="left"></x-address>
     </group>
     <br/>
     <div style="padding: 0 15px;">

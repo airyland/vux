@@ -2,7 +2,7 @@
   <div class="vux-cell-box">
     <div class="weui_cell vux-tap-active" @click="onClick" v-show="showCell">
       <div class="weui_cell_hd">
-        <label class="weui_label" :style="{display: 'block', width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
+        <label class="weui_label" :style="{display: 'block', width: $parent.labelWidth || $parent.$parent.labelWidth, textAlign: $parent.labelAlign || $parent.$parent.labelAlign, marginRight: $parent.labelMarginRight || $parent.$parent.labelMarginRight}" v-if="title" v-html="title"></label>
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </div>
       <div class="weui_cell_bd weui_cell_primary with_arrow vux-popup-picker-select-box">

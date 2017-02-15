@@ -9,12 +9,13 @@
       <x-input title="密码" type="password" placeholder="必填" v-model="value4"></x-input>
       <popup-picker title="请选择" :data="list" v-model="value5" value-text-align="left"></popup-picker>
       <popup-picker title="请选择" placeholder="Required" :data="list" v-model="value6" value-text-align="left"></popup-picker>
+       <x-address title="地址选择" v-model="addressValue" raw-value :list="addressData" value-text-align="left"></x-address>
     </group>
   </div>
 </template>
 
 <script>
-import { Group, Cell, XInput, Selector, PopupPicker } from 'vux'
+import { Group, Cell, XInput, Selector, PopupPicker, ChinaAddressData, XAddress } from 'vux'
 
 export default {
   components: {
@@ -22,10 +23,13 @@ export default {
     Cell,
     XInput,
     Selector,
-    PopupPicker
+    PopupPicker,
+    XAddress
   },
   data () {
     return {
+      addressData: ChinaAddressData,
+      addressValue: ['广东省', '深圳市', '南山区'],
       value1: '张三',
       value2: '工艺技术',
       value3: '',

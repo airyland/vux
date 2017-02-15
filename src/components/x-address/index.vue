@@ -1,6 +1,6 @@
 <template>
   <div>
-    <popup-picker :fixed-columns="hideDistrict ? 2 : 0" :columns="3" :data="list" :title="title" v-model="currentValue" show-name :inline-desc="inlineDesc" :placeholder="placeholder" @on-hide="emitHide" @on-show="$emit('on-show')"></popup-picker>
+    <popup-picker :fixed-columns="hideDistrict ? 2 : 0" :columns="3" :data="list" :title="title" v-model="currentValue" show-name :inline-desc="inlineDesc" :placeholder="placeholder" @on-hide="emitHide" @on-show="$emit('on-show')" :value-text-align="valueTextAlign"></popup-picker>
   </div>
 </template>
 
@@ -31,7 +31,8 @@ export default {
     },
     inlineDesc: String,
     placeholder: String,
-    hideDistrict: Boolean
+    hideDistrict: Boolean,
+    valueTextAlign: String
   },
   created () {
     if (this.currentValue.length && this.rawValue) {
