@@ -399,7 +399,7 @@ import { Group, Cell } from 'vux'
 {
   name: 'style-parser',
   fn: function (source) {
-    return "@import '../styles/variable.less'\n" + source
+    return "@import '../styles/variable.less'\n" + source // 你可以根据this.resourcePath 来确定是否要引入以及引入的相对路径
   }
 }
 ```
