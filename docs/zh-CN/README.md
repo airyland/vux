@@ -123,12 +123,13 @@ vux@0.x 已经停止维护，请尽快迁移到 vue@2.x & vuex@2.x & vux@2.x，�
 ### 快速入门
 
 > 使用 `vue-cli` 工具和 `airyland/vux2` 模板快速初始化项目
+> 默认为 webpack2 模板，如果你需要使用`webpack1`，请使用 vue init airyland/vux2#webpack1 projectPath
 
 ``` js
 npm install vue-cli -g // 如果还没安装
-vue init airyland/vux2 project
+vue init airyland/vux2 projectPath
 
-cd project
+cd projectPath
 npm install // 使用 cnpm 安装可能会出现问题，推荐使用 npm --registry=https://registry.npm.taobao.org
 npm run dev
 ```
