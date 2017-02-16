@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <flexbox :gutter="0" class="vux-1px-b" v-for="list in components">
+  <div class="vux-1px-b">
+    <flexbox :gutter="0" v-for="list in components">
       <flexbox-item :span="1/3" v-for="component in list" class="cbox vux-1px-t" @click.native="go(component.name.toLowerCase())">
         <div class="vux-1px-r cbox-inner">
           <span class="demo-icon" v-html="component.icon" :style="{color: component.color}"></span>
@@ -49,8 +49,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '~vux/src/styles/1px.less';
-
 .cbox {
   text-align: center;
 }
