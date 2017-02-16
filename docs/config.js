@@ -35,6 +35,10 @@ self.$config = {
         {
           title: '布局',
           path: '/zh-CN/components_layout'
+        },
+        {
+          title: '样式工具',
+          path: '/zh-CN/css'
         }]
       },
       {

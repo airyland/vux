@@ -1,0 +1,21 @@
+name:
+  en: 1px
+  zh-CN: 1px 解决方案
+doc: |
+  
+  在你项目的`App.vue`引入，组件内不需要再重复引入。
+
+  ``` html
+  <style lang="less">
+  @import '~vux/src/styles/1px.less;'
+  </style>
+  ```
+
+  可用类名：
+
+  - `vux-1px-l` 左边框
+  - `vux-1px-r` 右边框
+  - `vux-1px-t` 上边框
+  - `vux-1px-b` 下边框
+  - `vux-1px-tb` 上下边框
+  - `vux-1px` 全边框

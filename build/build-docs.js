@@ -372,6 +372,27 @@ nav: ${lang}
 
 }
 
+glob(getPath("../src/styles/*.yml"), {}, function (er, files) {
+  let infos = []
+  files.forEach(function (file) {
+    const content = fs.readFileSync(file, 'utf-8')
+    const info = yaml.safeLoad(content)
+    infos.push(info)
+  })
+  buildCssDocs(infos)
+})
+
+function buildCssDocs (infoList) {
+  let docs = `---
+nav: zh-CN
+---\n`
+  infoList.forEach(function(one){
+    docs += `\n## ${one.name.en}\n`
+    docs += `${one.doc}\n\n`
+  })
+  fs.writeFileSync(getPath(`../docs/zh-CN/css.md`), docs)
+}
+
 function getComponentInfo(one, lang, docs, name) {
 
   if (one.props || one.slots) {
