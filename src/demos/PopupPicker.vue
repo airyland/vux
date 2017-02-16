@@ -1,7 +1,7 @@
 <template>
   <div>
     <group title="single column">
-      <popup-picker :title="title1" :data="list1" v-model="value1" @on-show="onShow" @on-hide="onHide"></popup-picker>
+      <popup-picker :title="title1" :data="list1" v-model="value1" @on-show="onShow" @on-hide="onHide" @on-change="onChange"></popup-picker>
     </group>
     <br>
     <div class="picker-buttons">
@@ -58,6 +58,9 @@ export default {
     XSwitch
   },
   methods: {
+    onChange (val) {
+      console.log('val change', val)
+    },
     changeList10 () {
       this.list1 = [['小米1', 'iPhone1', '华为1', '情怀1', '三星1', '其他1', '不告诉你1']]
     },

@@ -1,0 +1,5 @@
+icon: '&#xe641;'
+changes:
+  v2.1.0-rc.50:
+    zh-CN:
+      - '[feature] `swipeout`组件`beta`版本'

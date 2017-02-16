@@ -166,7 +166,8 @@ export default {
       }
     },
     currentValue (val) {
-      this.$emit('input', val)
+      this.$emit('on-change', getObject(val))
+      this.$emit('input', getObject(val))
     },
     show (val) {
       this.showValue = val

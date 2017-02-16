@@ -43,3 +43,7 @@ events:
   on-hide:
     params: '`(closeType)` true表示confirm(选择确认), false表示其他情况的关闭'
     zh-CN: 弹窗关闭时触发
+changes:
+  v2.1.0-rc.50:
+    zh-CN:
+      - '[fix] 修复`on-change`事件没有触发 #934 @howyhuang'
