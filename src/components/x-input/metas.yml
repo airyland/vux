@@ -79,6 +79,9 @@ methods:
   focus:
     zh-CN: 手动获得焦点
 changes:
+  v2.1.0-rc.51:
+    zh-CN:
+      - '[fix] 修复`slots`判断问题 #936 @zscumt123'
   v2.1.0-rc.49:
     zh-CN:
       - '[feature] 支持`slot=restricted-label` #918 @zqyadam'

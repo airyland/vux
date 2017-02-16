@@ -164,7 +164,9 @@ export default {
         this.$emit('on-change', this.currentValue)
       }, this.debounce)
     }
-    if (this.$slots['restricted-label']) {
+  },
+  mounted () {
+    if (this.$slots && this.$slots['restricted-label']) {
       this.hasRestrictedLabel = true
     }
   },
