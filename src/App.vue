@@ -60,7 +60,6 @@ export default {
     setLocale (locale) {
       this.$i18n.set(locale)
       this.$locale.set(locale)
-      console.log(this.$locale)
     }
   },
   mounted () {

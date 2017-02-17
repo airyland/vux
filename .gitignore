@@ -23,3 +23,4 @@ src/components/index.js
 test/unit/coverage/
 docs/*.map
 v2/
+changes.json
