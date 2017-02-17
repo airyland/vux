@@ -12,6 +12,7 @@ const sortObj = require('sort-object')
 
 rimraf.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
 mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
+mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/changes'))
 
 const aliasMap = {
   Base64Tool: 'base64',
@@ -314,7 +315,7 @@ nav: ${lang}
           docs += `\n<p class="warning">${t('该组件已经停止维护。')}${one.deprecatedInfo ? one.deprecatedInfo[lang] : ''}</p>\n`
         }
         docs += '\n``` js'
-        if (one.import_code) {
+        if (one.import_code && one.import_code !== '&nbsp;') {
           docs += `\n${one.import_code}`
         } else {
           docs += `\nimport { ${one.importName} } from 'vux'`
@@ -333,21 +334,39 @@ nav: ${lang}
         }
 
         if (one.items) {
+
           docs = getComponentInfo({
-            hideDemo: true,
+            name: one.name,
+            hideDemo: one.items.length > 1,
             props: one.json[one.items[0]].props,
+            sub_extra: one.json[one.items[0]].sub_extra,
             slots: one.json[one.items[0]].slots,
             events: one.json[one.items[0]].events,
             methods: one.json[one.items[0]].methods
           }, lang, docs, one.items[0])
 
           docs = getComponentInfo({
+            name: one.name,
             json: one.json,
+            hideDemo: one.items.length > 2,
             props: one.json[one.items[1]].props,
+            sub_extra: one.json[one.items[1]].sub_extra,
             slots: one.json[one.items[1]].slots,
             events: one.json[one.items[1]].events,
             methods: one.json[one.items[1]].methods
           }, lang, docs, one.items[1])
+
+          if (one.items.length === 3) {
+            docs = getComponentInfo({
+              name: one.name,
+              json: one.json,
+              props: one.json[one.items[2]].props,
+              sub_extra: one.json[one.items[2]].sub_extra,
+              slots: one.json[one.items[2]].slots,
+              events: one.json[one.items[2]].events,
+              methods: one.json[one.items[2]].methods
+            }, lang, docs, one.items[2])
+          }
         }
 
         // after extra
@@ -359,8 +378,9 @@ nav: ${lang}
       Playground is coming soon
     </div>\n`
     */
-        docs += `<br><br><br>`
+        docs += `\n\n\n`
       })
+
     if (!tag) {
       fs.writeFileSync(getPath(`../docs/${lang}/components.md`), docs)
 
@@ -394,7 +414,9 @@ nav: zh-CN
 }
 
 function getComponentInfo(one, lang, docs, name) {
-
+  if (one.extra) {
+    docs += `\n${one.sub_extra}\n`
+  }
   if (one.props || one.slots) {
     if (name) {
       docs += `\n<span class="vux-component-name">${_camelCase(name)}</span>\n`
@@ -456,13 +478,15 @@ function getComponentInfo(one, lang, docs, name) {
   // docs += `\n<div id="play-${one.importName}" class="component-play-box"><a class="vux-demo-link" href="#" router-link="/zh-CN/demos/${one.name}">进入demo页面</a></div>\n`
   docs += `\n`
     // docs += `\n\n<span class="vux-props-title">Demo</span>\n`
+  
   if (one.name || name) {
     if (one.hideDemo !== true) {
       docs += `\n<a class="vux-demo-link" href="#" router-link="/zh-CN/demos/${(one.name || name).replace('-item', '')}">进入demo页面</a>\n`
     }
   }
 
-  if (one.json && one.json.changes) {
+  // do not show change log in component list
+  if (one.json && one.json.changes && one.hideDemo !== true && false) {
     let lastestVersion = Object.keys(one.json.changes)[0]
     docs += `\n<br><span class="vux-props-title">Changes (${lastestVersion})</span>\n`
 
@@ -639,25 +663,41 @@ nav: zh-CN
     }
   })
 
-  let releases = ''
+  let releases = {}
 
   for (let i in rs) {
-    releases += `\n # ${i}\n`
+    releases[i] = {}
+    // releases += `\n # ${i}\n`
     str += `\n### ${i}_COM\n`
     for (let j in rs[i]) {
-      releases += `\n## ${_camelCase(j)}\n`
+      // releases += `\n## ${_camelCase(j)}\n`
+      releases[i][j] = []
       str += `\n#### ${_camelCase(j)}\n`
       str += `<ul>`
       rs[i][j].forEach(one => {
         str += `${parseChange(getChangeTagHTML(one))}`
-        releases += `- ${one}\n`
+        // releases += `- ${one}\n`
+        releases[i][j].push(one)
       })
       str += `</ul>`
       str += `\n`
     }
   }
 
-  console.log(releases)
+  for (let i in releases) {
+    const release = releases[i]
+    let file = getPath(`../docs/zh-CN/changes/${i}.md`)
+    let content = ''
+    for (let j in release) {
+      content += `\n## ${_camelCase(j)}\n`
+      release[j].forEach(function(line){
+        content += `- ${line}\n`
+      })
+      fs.writeFileSync(file, content)
+    }
+  }
+
+
   str += '\n'
 
   fs.writeFileSync(getPath(`../docs/zh-CN/changes.md`), str)
