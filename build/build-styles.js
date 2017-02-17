@@ -2,6 +2,11 @@ const postcss = require('postcss')
 const syntax = require('postcss-less')
 const path = require('path')
 const fs = require('fs')
+const shell = require('shelljs')
+
+const distPath = path.resolve(__dirname, `../dist/styles/`)
+shell.rm('-rf', distPath)
+shell.mkdir('-p', distPath)
 
 var pkg = require(path.join(__dirname, '../package.json'))
 
