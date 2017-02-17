@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vux-swipeout">
     <slot></slot>
   </div>
 </template>
@@ -7,6 +7,10 @@
 <style lang="less">
 @import '../../styles/variable.less';
 
+.vux-swipeout {
+  width: 100%;
+  overflow: hidden;
+}
 .vux-swipeout-item {
   position: relative;
 }

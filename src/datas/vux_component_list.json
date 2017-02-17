@@ -192,7 +192,12 @@
   },
   {
     "name": "swipeout",
-    "icon": "&#xe641;"
+    "icon": "&#xe641;",
+    "items": [
+      "swipeout",
+      "swipeout-item",
+      "swipeout-button"
+    ]
   },
   {
     "name": "swiper",
