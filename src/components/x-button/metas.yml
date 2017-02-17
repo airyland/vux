@@ -34,6 +34,10 @@ props:
     zh-CN: 是否是plain样式，没有背景色
   action-type:
     zh-CN: '`button`的type属性，默认为浏览器默认(submit)，可选为 `submit` `button` `reset`'
+  show-loading:
+    type: Boolean
+    default: false
+    zh-CN: 按钮是否显示loading状态，如果是，则按钮自动设为disabled状态
 slots:
   default:
     en: button text
