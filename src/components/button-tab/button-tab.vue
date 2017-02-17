@@ -29,10 +29,10 @@ export default {
     display: block;
     flex: 1;
     width: 100%;
-    height: 30px;
+    height: @button-tab-height;
     padding: 0;
     font-size: 14px;
-    line-height: 31px;
+    line-height: @button-tab-line-height;
     text-align: center;
     border: @button-tab-border-width solid @button-tab-default-border-color;
     border-width: @button-tab-border-width @button-tab-border-width @button-tab-border-width 0;
