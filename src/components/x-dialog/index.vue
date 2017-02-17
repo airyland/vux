@@ -1,10 +1,10 @@
 <template>
   <div class="vux-x-dialog weui_dialog_alert fix_ios_fixed" @touchmove="onTouchMove">
-    <transition name="vux-mask">
+    <transition :name="maskTransition">
       <div class="weui_mask" @click="hideOnBlur && (currentValue = false)" v-show="currentValue"></div>
     </transition>
     <input style="display:none" v-model="currentValue">
-    <transition name="vux-dialog">
+    <transition :name="dialogTransition">
       <div class="weui_dialog" v-show="currentValue" >
         <slot></slot>
       </div>
@@ -21,7 +21,7 @@ export default {
     },
     maskTransition: {
       type: String,
-      default: 'vux-fade'
+      default: 'vux-mask'
     },
     dialogTransition: {
       type: String,
