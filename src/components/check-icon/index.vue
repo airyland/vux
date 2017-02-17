@@ -35,7 +35,7 @@ export default {
   color: #222;
   vertical-align: bottom;
 }
-.vux-check-icon > .weui_icon_success:before, .vux-check-icon > .weui_icon_success_circle:before {
+.vux-check-icon > .weui-icon-success:before, .vux-check-icon > .weui-icon-success-circle:before {
   color: @check-icon-color-checked;
 }
 </style>

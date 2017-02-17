@@ -1,6 +1,6 @@
 <template>
   <button class="weui-btn" :class="classes" :disabled="disabled" :type="actionType">
-    <i class="weui-loading" v-if="isLoading"></i><slot>{{text}}</slot>
+    <i class="weui-loading" v-if="showLoading"></i><slot>{{text}}</slot>
   </button>
 </template>
 
@@ -15,7 +15,7 @@ export default {
     plain: Boolean,
     text: String,
     actionType: String,
-    isLoading: Boolean
+    showLoading: Boolean
   },
   computed: {
     classes () {
@@ -25,8 +25,8 @@ export default {
           'weui-btn_mini': this.mini
         },
         `weui-btn_${this.type}`,
-        this.plain ? `weui-btn_plain_${this.type}` : '',
-        this.isLoading ? `weui-btn_loading` : ''
+        this.plain ? `weui-btn_plain-${this.type}` : '',
+        this.showLoading ? `weui-btn_loading` : ''
       ]
     }
   }

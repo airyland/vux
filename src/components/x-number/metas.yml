@@ -42,7 +42,16 @@ props:
     type: String
     default: square
     zh-CN: '按钮样式，可选值为`round`'
+  align:
+    type: String
+    default: right
+    zh-CN: '按钮部分位置，默认在右边(right)，可选值为`left`和`right`'
 changes:
+  v2.1.0-rc.52:
+    zh-CN:
+      - '[feature] 升级`WeUI`样式'
+      - '[fix] 修复`label`样式不受控于`group`设置'
+      - '[feature] 支持`align`属性'
   v2.1.0-rc.46:
     zh-CN:
       - '[enhance] 使用`svg`代替 `+` `-` 字符'

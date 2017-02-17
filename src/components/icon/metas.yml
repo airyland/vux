@@ -3,23 +3,23 @@ after_extra: |
   ``` html
   <icon type="success"></icon>
   <icon type="info"></icon>
-  <icon type="info_circle"></icon>
+  <icon type="info-circle"></icon>
   <icon type="warn"></icon>
   <icon type="waiting"></icon>
-  <icon type="waiting_circle"></icon>
-  <icon type="safe_success"></icon>
-  <icon type="safe_warn"></icon>
-  <icon type="success_circle"></icon>
-  <icon type="success_no_circle"></icon>
+  <icon type="waiting-circle"></icon>
+  <icon type="safe-success"></icon>
+  <icon type="safe-warn"></icon>
+  <icon type="success-circle"></icon>
+  <icon type="success-no-circle"></icon>
   <icon type="circle"></icon>
   <icon type="download"></icon>
   <icon type="cancel"></icon>
   <icon type="search"></icon>
   <icon type="clear"></icon>
-  <icon type="success" class="icon_big"></icon>
-  <icon type="info" class="icon_big"></icon>
-  <icon type="safe_success" class="icon_big"></icon>
-  <icon type="safe_warn" class="icon_big"></icon>
+  <icon type="success" class="icon-big"></icon>
+  <icon type="info" class="icon-big"></icon>
+  <icon type="safe-success" class="icon-big"></icon>
+  <icon type="safe-warn" class="icon-big"></icon>
   ```
 tags:
   en:
@@ -32,3 +32,8 @@ props:
     default: ''
     en: icon name
     zh-CN: 图标名字，可选值见demo
+changes:
+  v2.1.0-rc.52:
+    zh-CN:
+      - '[feature] 更新`WeUI`样式到最新版本'
+      - '[change] `type`参数由下划线变为中划线，组件内部做了兼容保证升级时无影响'

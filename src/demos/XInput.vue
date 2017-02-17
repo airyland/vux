@@ -31,6 +31,10 @@
       <x-input title='value' disabled v-model="disabledValue"></x-input>
     </group>
 
+    <group title="set type = tel">
+      <x-input title='value' type="tel"></x-input>
+    </group>
+
 
     <group title="html title">
       <x-input :title='`<span style="${style}">hello</span>`' placeholder="I'm placeholder"></x-input>
@@ -72,12 +76,12 @@
       <x-input title="请确认6位数字" v-model="password2" type="text" placeholder="" :equal-with="password"></x-input>
     </group>
 
-    <group title="验证码" class="weui_cells_form">
-      <x-input title="验证码" class="weui_vcode">
-        <img slot="right" src="http://weui.github.io/weui/images/vcode.jpg">
+    <group title="验证码" class="weui-cells_form">
+      <x-input title="验证码" class="weui-cell_vcode">
+        <img slot="right" class="weui-vcode-img" src="http://weui.github.io/weui/images/vcode.jpg">
       </x-input>
-      <x-input title="发送验证码" class="weui_vcode">
-        <x-button slot="right" type="primary">发送验证码</x-button>
+      <x-input title="发送验证码" class="weui-vcode">
+        <x-button slot="right" type="primary" mini>发送验证码</x-button>
       </x-input>
     </group>
 
@@ -143,11 +147,6 @@ export default {
 }
 </script>
 <style scoped>
-.weui_cell_ft .weui_btn {
-  margin-left: 5px;
-  vertical-align: middle;
-  display: inline-block;
-}
 .red {
   color: red;
 }

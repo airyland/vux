@@ -46,7 +46,7 @@ export default {
             this.text1 = 'Start processing'
             return
           }
-          this.text1 = `${percent}% completed`
+          this.text1 = `${percent}%`
         })
       }
     }

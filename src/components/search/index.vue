@@ -1,26 +1,26 @@
 <template>
   <div class="vux-search-box" :class="{'vux-search-fixed':isFixed}" :style="{top: isFixed ? top : '', position: fixPosition }">
-    <div class="weui_search_bar" :class="{weui_search_focusing: !isCancel || currentValue}">
-      <form class="weui_search_outer" @submit.prevent="$emit('on-submit', value)">
+    <div class="weui-search-bar" :class="{'weui-search-bar_focusing': !isCancel || currentValue}">
+      <form class="weui-search-bar__form" @submit.prevent="$emit('on-submit', value)">
         <div class="vux-search-mask" @click="touch" v-show="!isFixed && autoFixed"></div>
-        <div class="weui_search_inner">
-          <i class="weui_icon_search"></i>
-          <input type="search" class="weui_search_input" :id="`search_input_${uuid}`" :placeholder="placeholder" autocomplete="off" :required="required" v-model="currentValue" ref="input"
+        <div class="weui-search-bar__box">
+          <i class="weui-icon-search"></i>
+          <input type="search" class="weui-search-bar__input" :id="`search_input_${uuid}`" :placeholder="placeholder" autocomplete="off" :required="required" v-model="currentValue" ref="input"
           @focus="onFocus"
           @blur="onBlur"/>
-          <a href="javascript:" class="weui_icon_clear" @click="clear"></a>
+          <a href="javascript:" class="weui-icon-clear" @click="clear" v-show="currentValue"></a>
         </div>
-        <label :for="`search_input_${uuid}`" class="weui_search_text" v-show="!isFocus && !value">
-          <i class="weui_icon_search"></i>
+        <label :for="`search_input_${uuid}`" class="weui-search-bar__label" v-show="!isFocus && !value">
+          <i class="weui-icon-search"></i>
           <span>{{placeholder || $t('placeholder')}}</span>
         </label>
       </form>
-      <a href="javascript:" class="weui_search_cancel" @click="cancel">{{cancelText || $t('cancel_text')}}</a>
+      <a href="javascript:" class="weui-search-bar__cancel-btn" @click="cancel">{{cancelText || $t('cancel_text')}}</a>
     </div>
-    <div class="weui_cells weui_cells_access vux-search_show" v-show="isFixed">
+    <div class="weui-cells vux-search_show" v-show="isFixed">
       <slot></slot>
-      <div class="weui_cell" v-for="item in results" @click="handleResultClick(item)" v-on:touchmove.prevent>
-        <div class="weui_cell_bd weui_cell_primary">
+      <div class="weui-cell weui-cell_access" v-for="item in results" @click="handleResultClick(item)" v-on:touchmove.prevent>
+        <div class="weui-cell__bd weui-cell_primary">
           <p>{{item.title}}</p>
         </div>
       </div>
@@ -102,7 +102,8 @@ export default {
       this.$emit('on-cancel')
     },
     handleResultClick (item) {
-      this.$emit('result-click', item)
+      this.$emit('result-click', item) // just for compatibility
+      this.$emit('on-result-click', item)
       this.isCancel = true
       this.isFixed = false
     },
@@ -160,19 +161,21 @@ export default {
 <style lang="less">
 @import '../../styles/weui/icon/weui_icon_font';
 @import '../../styles/weui/widget/weui_searchbar/weui_searchbar';
+@import '../../styles/weui/widget/weui_cell/weui_cell_global';
+@import '../../styles/weui/widget/weui_cell/weui_access';
 
 .vux-search-fixed {
   position: fixed;
   left: 0;
   top: 0;
   z-index: 5;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 1);
   backdrop-filter: blur(5px);
 }
 .vux-search-box {
   width: 100%;
 }
-.weui_cells.vux-search_show {
+.weui-cells.vux-search_show {
   margin-top: 0!important;
   overflow-y: auto;
 }
@@ -183,8 +186,5 @@ export default {
   width: 90%;
   height: 100%;
   z-index: 5;
-}
-.vux-search-box .weui_cells:after {
-  display: none;
 }
 </style>

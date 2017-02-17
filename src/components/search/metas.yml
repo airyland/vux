@@ -34,7 +34,21 @@ props:
     type: Boolean
     default: false
     zh-CN: '`Safari`下弹出键盘时可能会出现看不到input，需要手动滚动，启用该属性会在fix时滚动到顶端'
+events:
+  on-submit:
+    zh-CN: 表单提交时触发
+  on-cancel:
+    zh-CN: '点击`取消`按钮时触发'
+  on-change:
+    zh-CN: 输入文字变化时触发
+  on-result-click:
+    params: '`(item)`'
+    zh-CN: '点击结果条目时触发，原来的`result-click`事件不符合规范已经废弃'
 changes:
+  v2.1.0-rc.52:
+    zh-CN:
+      - '[feature] 更新到`WeUI`最新代码'
+      - '[enhance] 当`value`为空时，不显示清除按钮'
   v2.1.0-rc.47:
     zh-CN:
       - '[enhance] 删除无用代码'

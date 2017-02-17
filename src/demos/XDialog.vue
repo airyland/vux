@@ -59,7 +59,7 @@ export default {
 <style lang="less" scoped>
 @import '~vux/src/styles/close';
 .dialog-demo {
-  .weui_dialog{
+  .weui-dialog{
     border-radius: 8px;
     padding-bottom: 8px;
   }

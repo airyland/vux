@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { go } from '../../libs/router'
+
 export default {
   props: {
     leftOptions: {
@@ -27,6 +29,7 @@ export default {
       }
     },
     title: String,
+    defaultBackLink: [String, Object],
     transition: String,
     rightOptions: {
       type: Object,
@@ -42,7 +45,11 @@ export default {
       if (this.leftOptions.preventGoBack) {
         this.$emit('on-click-back')
       } else {
-        window.history.back()
+        if (document.referrer === '') {
+          this.defaultBackLink && go(this.defaultBackLink, this.$router)
+        } else {
+          window.history.back()
+        }
       }
     }
   }

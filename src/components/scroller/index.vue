@@ -111,6 +111,7 @@ export default {
           this._xscroll.scrollLeft(scrollPosition.left)
         }
         if (typeof scrollPosition.top !== 'undefined') {
+          console.log(this._xscroll.getScrollTop())
           this._xscroll.scrollTop(scrollPosition.top)
         }
       }

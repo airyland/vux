@@ -1,5 +1,5 @@
 <template>
-  <div class="weui_cells_title">
+  <div class="weui-cells__title">
     <slot></slot>
   </div>
 </template>

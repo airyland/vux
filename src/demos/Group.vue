@@ -5,6 +5,10 @@
       <x-input title="图标" placeholder="I'm placeholder">
         <img slot="restricted-label" style="display:inline-block;vertical-align:middle;" src="http://dn-placeholder.qbox.me/110x110/FF2D55/000" width="24" height="24">
       </x-input>
+    <group label-width="4em" label-margin-right="2em" label-align="left">
+      <x-input title="上<i class='vux-blank-half'></i>报<i class='vux-blank-half'></i>人" v-model="value1"></x-input>
+      <x-number title="Quantity" align="left" v-model="numberValue" button-style="round" :min="0" :max="5"></x-number>
+      <datetime title="时&emsp;&emsp;&nbsp;间" v-model="time1" value-text-align="left"></datetime>
       <selector title="隐患类别" :options="['工艺技术', '其他']" v-model="value2"></selector>
       <selector title="隐患类别" placeholder="Placeholder" :options="['工艺技术', '其他']" v-model="value7"></selector>
       <selector title="隐患类别" :options="['工艺技术', '其他']" v-model="value8"></selector>
@@ -18,7 +22,7 @@
 </template>
 
 <script>
-import { Group, Cell, XInput, Selector, PopupPicker, ChinaAddressData, XAddress } from 'vux'
+import { Group, Cell, XInput, Selector, PopupPicker, Datetime, XNumber, ChinaAddressData, XAddress } from 'vux'
 
 export default {
   components: {
@@ -27,7 +31,9 @@ export default {
     XInput,
     Selector,
     PopupPicker,
-    XAddress
+    XAddress,
+    Datetime,
+    XNumber
   },
   data () {
     return {
@@ -39,9 +45,11 @@ export default {
       value7: '',
       value8: '',
       value4: '',
+      time1: '2017-06-01',
       value5: ['A'],
       value6: [],
-      list: [['A', 'B', 'C']]
+      list: [['A', 'B', 'C']],
+      numberValue: 0
     }
   }
 }

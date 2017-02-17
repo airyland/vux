@@ -22,13 +22,13 @@ const plugin = {
             if (i !== 'content') {
               $vm[i] = options[i]
             } else {
-              $vm.$el.querySelector('.weui_dialog_bd').innerHTML = options['content']
+              $vm.$el.querySelector('.weui-dialog__bd').innerHTML = options['content']
             }
           }
         } else if (typeof options === 'string') {
-          $vm.$el.querySelector('.weui_dialog_bd').innerHTML = options
+          $vm.$el.querySelector('.weui-dialog__bd').innerHTML = options
         }
-        $vm.$el.querySelector('.weui_dialog_ft').addEventListener('click', closeHandler, false)
+        $vm.$el.querySelector('.weui-dialog__ft').addEventListener('click', closeHandler, false)
         $vm.showValue = true
         options.onShow && options.onShow($vm)
       },

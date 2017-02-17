@@ -41,6 +41,10 @@ slots:
     zh-CN: '主体内容，可滚动的区域'
   bottom:
     zh-CN: 底部区域，Tabbar可以使用该slot
+  body-padding-top:
+    zh-CN: 主体的`padding-top`值，当底部存在`x-header`等`absolute`定位元素时需要设置
+  body-padding-bottom:
+    zh-CN: 主体的`padding-bottom`值，当底部存在`tabbar`等`absolute`定位元素时需要设置
 methods:
   scrollTo:
     params: '`(top)`'
@@ -49,3 +53,7 @@ methods:
     zh-CN: 获取当前滚动距离
   getScrollBody:
     zh-CN: '获取滚动`div`, 也可以直接用组件引用的`.$refs.viewBoxBody`'
+changes:
+  v2.1.0-rc.52:
+    zh-CN:
+      - '[feature] 增加`body-padding-top`及`body-padding-bottom`方便设定上下`padding`值'

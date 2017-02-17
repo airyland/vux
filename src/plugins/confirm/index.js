@@ -42,7 +42,7 @@ const plugin = {
             $vm.showValue = false
           })
           hasWatch = true
-          $vm.$el.querySelector('.weui_dialog_ft').addEventListener('click', function () {
+          $vm.$el.querySelector('.weui-dialog__ft').addEventListener('click', function () {
             $vm.showValue = false
           }, false)
         }

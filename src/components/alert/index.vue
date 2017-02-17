@@ -1,21 +1,20 @@
 <template>
   <div class="vux-alert">
     <x-dialog
-    class="weui_dialog_alert"
     v-model="showValue"
     :mask-transition="maskTransition"
     :dialog-transition="dialogTransition"
     @on-hide="$emit('on-hide')"
     @on-show="$emit('on-show')">
-      <div class="weui_dialog_hd">
-        <strong class="weui_dialog_title">{{title}}</strong>
+      <div class="weui-dialog__hd">
+        <strong class="weui-dialog__title">{{title}}</strong>
       </div>
-      <div class="weui_dialog_bd">
+      <div class="weui-dialog__bd">
         <slot></slot>
       </div>
-      <div class="weui_dialog_ft">
+      <div class="weui-dialog__ft">
         <a href="javascript:;"
-        class="weui_btn_dialog primary"
+        class="weui-dialog__btn weui-dialog__btn_primary"
         @click="onHide">{{buttonText || $t('button_text')}}</a>
       </div>
     </x-dialog>
@@ -46,7 +45,7 @@ export default {
     buttonText: String,
     maskTransition: {
       type: String,
-      default: 'vux-fade'
+      default: 'vux-mask'
     },
     dialogTransition: {
       type: String,

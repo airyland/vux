@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div v-show="title" class="weui_cells_title">{{title}}</div>
+    <div v-show="title" class="weui-cells__title">{{title}}</div>
     <slot name="after-title"></slot>
-    <div class="weui_cells weui_cells_checkbox">
-      <label class="weui_cell weui_check_label" :for="`checkbox_${uuid}_${index}`" v-for="(one, index) in currentOptions">
-        <div class="weui_cell_hd">
-          <input type="checkbox" class="weui_check" :name="`vux-checkbox-${uuid}`" :value="getKey(one)" v-model="currentValue" :id="`checkbox_${uuid}_${index}`" :disabled="ifDisable(getKey(one))">
-          <i class="weui_icon_checked vux-checklist-icon-checked"></i>
+    <div class="weui-cells weui-cells_checkbox">
+      <label class="weui-cell weui-check_label" :for="`checkbox_${uuid}_${index}`" v-for="(one, index) in currentOptions">
+        <div class="weui-cell__hd">
+          <input type="checkbox" class="weui-check" :name="`vux-checkbox-${uuid}`" :value="getKey(one)" v-model="currentValue" :id="`checkbox_${uuid}_${index}`" :disabled="ifDisable(getKey(one))">
+          <i class="weui-icon-checked vux-checklist-icon-checked"></i>
         </div>
-        <div class="weui_cell_bd weui_cell_primary">
+        <div class="weui-cell__bd">
           <p v-html="getValue(one)"></p>
         </div>
       </label>
@@ -163,14 +163,11 @@ function pure (obj) {
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 @import '../../styles/weui/widget/weui_cell/weui_check';
 
-.weui_cells_checkbox .weui_check:checked + .vux-checklist-icon-checked:before {
+.weui-cells_checkbox .weui-check:checked + .vux-checklist-icon-checked:before {
   color: @checklist-icon-active-color;
 }
 
-.weui_cells_checkbox > label > * {
+.weui-cells_checkbox > label > * {
   pointer-events: none;
-}
-.weui_cells > a {
-  color:#000;
 }
 </style>

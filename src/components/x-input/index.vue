@@ -1,18 +1,18 @@
 <template>
-	<div class="vux-x-input weui_cell" :class="{'weui_cell_warn': !valid}">
-    <div class="weui_cell_hd">
+	<div class="vux-x-input weui-cell" :class="{'weui-cell_warn': !valid}">
+    <div class="weui-cell__hd">
       <div :style="labelStyles" v-if="hasRestrictedLabel">
         <slot name="restricted-label"></slot>
       </div>
-      <slot name="label" v-if="!hasRestrictedLabel">
-        <label class="weui_label" :style="labelStyles" v-if="title" v-html="title"></label>
+      <slot name="label">
+        <label class="weui-label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </slot>
     </div>
-    <div class="weui_cell_bd weui_cell_primary">
+    <div class="weui-cell__bd weui-cell__primary">
       <input
       v-if="!type || type === 'text'"
-      class="weui_input"
+      class="weui-input"
       :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
@@ -31,7 +31,7 @@
       ref="input"/>
       <input
       v-if="type === 'number'"
-      class="weui_input"
+      class="weui-input"
       :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
@@ -50,7 +50,7 @@
       ref="input"/>
       <input
       v-if="type === 'email'"
-      class="weui_input"
+      class="weui-input"
       :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
@@ -69,7 +69,7 @@
       ref="input"/>
       <input
       v-if="type === 'password'"
-      class="weui_input"
+      class="weui-input"
       :maxlength="max"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
@@ -106,7 +106,7 @@
       @blur="blur"
       ref="input"/>
     </div>
-    <div class="weui_cell_ft">
+    <div class="weui-cell__ft">
       <icon type="clear" v-show="!equalWith && showClear && currentValue && !readonly && !disabled" @click.native="clear"></icon>
 
       <icon class="vux-input-icon" type="warn" :title="!valid ? firstError : ''" v-show="!novalidate && !equalWith && ((touched && !valid && firstError) || (forceShowError && !valid && firstError))"></icon>
@@ -432,10 +432,19 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_vcode';
-.vux-input-icon.weui_icon_warn:before, .vux-input-icon.weui_icon_success:before {
+
+.vux-input-icon.vux-input-icon {
   font-size: 21px;
 }
-.vux-x-input .weui_icon {
+.vux-input-icon.weui-icon-warn:before, .vux-input-icon.weui-icon-success:before {
+  font-size: 21px;
+}
+.vux-x-input .weui-icon {
   padding-left: 5px;
+}
+.vux-x-input.weui-cell_vcode {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
 }
 </style>

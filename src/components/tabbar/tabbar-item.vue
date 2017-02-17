@@ -1,10 +1,10 @@
 <template>
-  <a href="javascript:;" class="weui_tabbar_item" :class="{'weui_bar_item_on': $parent.index === currentIndex, 'vux-tabbar-simple': simple}" @click="onItemClick(true)">
-    <div class="weui_tabbar_icon" :class="[iconClass || $parent.iconClass, {'vux-reddot': showDot}]" v-if="!simple">
+  <a href="javascript:;" class="weui-tabbar__item" :class="{'weui-bar__item_on': $parent.index === currentIndex, 'vux-tabbar-simple': simple}" @click="onItemClick(true)">
+    <div class="weui-tabbar__icon" :class="[iconClass || $parent.iconClass, {'vux-reddot': showDot}]" v-if="!simple">
       <slot name="icon"></slot>
       <sup><badge v-if="badge" :text="badge"></badge></sup>
     </div>
-    <p class="weui_tabbar_label">
+    <p class="weui-tabbar__label">
       <slot name="label"></slot>
     </p>
   </a>

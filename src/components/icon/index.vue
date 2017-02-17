@@ -8,8 +8,8 @@ export default {
     type: String
   },
   computed: {
-    className () {
-      return `weui_icon weui_icon_${this.type}`
+    className () { // compatible with old type param
+      return `weui-icon weui_icon_${this.type} weui-icon-${this.type.replace(/_/g, '-')}`
     }
   }
 }
@@ -18,11 +18,11 @@ export default {
 <style lang="less">
 @import '../../styles/weui/icon/weui_icon_font';
 
-.icon_big:before {
+.icon-big:before {
   font-size: 104px;
 }
 
-.icon_small:before {
+.icon-small:before {
   font-size: 12px;
 }
 </style>

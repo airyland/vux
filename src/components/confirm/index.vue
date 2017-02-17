@@ -1,17 +1,17 @@
 <template>
   <div>
-    <x-dialog class="weui_dialog_confirm"
+    <x-dialog
     v-model="showValue"
     :mask-transition="maskTransition"
     :dialog-transition="dialogTransition"
     :hide-on-blur="hideOnBlur"
     @on-hide="$emit('on-hide')"
     @on-show="$emit('on-show')">
-      <div class="weui_dialog_hd"><strong class="weui_dialog_title">{{title}}</strong></div>
-      <div class="weui_dialog_bd"><slot><div v-html="content"></div></slot></div>
-      <div class="weui_dialog_ft">
-        <a href="javascript:;" class="weui_btn_dialog default" @click="onCancel">{{cancelText || $t('cancel_text')}}</a>
-        <a href="javascript:;" class="weui_btn_dialog primary" @click="onConfirm">{{confirmText || $t('confirm_text')}}</a>
+      <div class="weui-dialog__hd"><strong class="weui-dialog__title">{{title}}</strong></div>
+      <div class="weui-dialog__bd"><slot><div v-html="content"></div></slot></div>
+      <div class="weui-dialog__ft">
+        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" @click="onCancel">{{cancelText || $t('cancel_text')}}</a>
+        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" @click="onConfirm">{{confirmText || $t('confirm_text')}}</a>
       </div>
     </x-dialog>
   </div>

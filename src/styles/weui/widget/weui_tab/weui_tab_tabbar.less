@@ -1,27 +1,56 @@
-/**
-* @vux Copy weui_tab.less and Remove navbar
-*/
-
 @import "../../base/fn";
-@import "tabbar";
 
-.weui_tab {
-  position: relative;
-  height: 100%;
+.weui-tabbar {
+    display: flex;
+    position: absolute;
+    z-index: 500;
+    bottom: 0;
+    width: 100%;
+    background-color: #F7F7FA;
+
+    &:before {
+        .setTopLine(#C0BFC4);
+    }
 }
 
-.weui_tab_bd {
-  box-sizing: border-box;
-  height: 100%;
-  padding-bottom: 55px;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.weui_tab_bd_item {
-    display: none;
-}
-
-.weui_tab_bd_item_active {
+.weui-tabbar__item {
     display: block;
-} 
+    flex: 1;
+    padding: 5px 0 0;
+    font-size: 0;
+    color: @weuiTextColorGray;
+    text-align: center;
+    .setTapColor();
+
+    &.weui-bar__item_on {
+        .weui-tabbar__icon,
+        .weui-tabbar__icon > i,
+        .weui-tabbar__label {
+            color: #09BB07;
+        }
+    }
+}
+
+.weui-tabbar__icon {
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+
+    i&,
+    > i {
+        font-size: 24px;
+        color: @weuiTextColorGray;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.weui-tabbar__label {
+    text-align: center;
+    color: @weuiTextColorGray;
+    font-size: 10px;
+    line-height: 1.8;
+}

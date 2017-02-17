@@ -1,11 +1,11 @@
 <template>
-  <div class="weui_cell weui_cell_switch">
-    <div class="weui_cell_hd weui_cell_primary">
-      <label class="weui_label" :style="labelStyle" v-html="title"></label>
+  <div class="vux-x-switch weui-cell weui-cell_switch">
+    <div class="weui-cell__bd">
+       <label class="weui-label" :style="labelStyle" v-html="title"></label>
       <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
     </div>
-    <div class="weui_cell_ft">
-      <input class="weui_switch" type="checkbox" :disabled="disabled" v-model="currentValue"/>
+    <div class="weui-cell__ft">
+      <input class="weui-switch" type="checkbox" :disabled="disabled" v-model="currentValue"/>
     </div>
   </div>
 </template>
@@ -22,6 +22,7 @@ export default {
       let isHTML = /<\/?[^>]*>/.test(this.title)
       let width = Math.min(isHTML ? 5 : (this.title.length + 1), 14) + 'em'
       return {
+        display: 'block',
         width
       }
     }
@@ -59,12 +60,16 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
 @import '../../styles/weui/widget/weui_cell/weui_switch';
 
-.weui_cell_switch .weui_cell_ft {
+.weui-cell_switch .weui-cell__ft {
   font-size: 0;
 }
 
-input.weui_switch[disabled] {
+input.weui-switch[disabled] {
   opacity: @switch-disabled-opacity;
 }
 
+.vux-x-switch.weui-cell_switch {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
 </style>

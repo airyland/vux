@@ -1,12 +1,14 @@
 <template>
   <div class="vux-actionsheet">
-    <div class="weui_mask_transition" :class="{'weui_fade_toggle': show}" :style="{display: show ? 'block' : 'none'}" @click="onClickingMask"></div>
-    <div class="weui_actionsheet" :class="{'weui_actionsheet_toggle': show}">
-      <div class="weui_actionsheet_menu">
-        <div class="weui_actionsheet_cell" v-for="(text, key) in menus" @click="emitEvent('on-click-menu', key)" v-html="$t(text)">
+    <div class="weui-mask weui-mask_transparent" :class="{'weui-actionsheet_toggle': show}" :style="{display: show ? 'block' : 'none'}" @click="onClickingMask"></div>
+
+    <div class="weui-actionsheet" :class="{'weui-actionsheet_toggle': show}">
+      <div class="weui-actionsheet__menu">
+        <div class="weui-actionsheet__cell" v-for="(text, key) in menus" @click="emitEvent('on-click-menu', key)" v-html="$t(text)">
         </div>
-        <div class="vux-actionsheet-gap" v-if="showCancel"></div>
-        <div class="weui_actionsheet_cell vux-actionsheet-cancel" @click="emitEvent('on-click-menu', 'cancel')" v-if="showCancel">{{cancelText || $t('cancel')}}</div>
+      </div>
+      <div class="weui-actionsheet__action" @click="emitEvent('on-click-menu', 'cancel')" v-if="showCancel">
+        <div class="weui-actionsheet__cell">{{cancelText || $t('cancel')}}</div>
       </div>
     </div>
   </div>
@@ -22,7 +24,7 @@ cancel:
 export default {
   mounted () {
     this.$nextTick(() => {
-      this.$tabbar = document.querySelector('.weui_tabbar')
+      this.$tabbar = document.querySelector('.weui-tabbar')
     })
   },
   props: {

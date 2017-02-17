@@ -1,11 +1,11 @@
 <template>
-  <a class="weui_cell" href="javascript:">
+  <a class="vux-datetime weui-cell weui-cell_access" href="javascript:">
     <slot>
-      <div class="weui_cell_bd weui_cell_primary">
-        <p>{{title}}</p>
+      <div>
+        <p :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-html="title"></p>
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </div>
-      <div class="weui_cell_ft with_arrow vux-datetime-value">
+      <div class="weui-cell__ft vux-cell-primary vux-datetime-value" :style="{textAlign: valueTextAlign}">
         {{ currentValue || placeholder}}
         <icon class="vux-input-icon" type="warn" v-show="!valid" :title="firstError"></icon>
       </div>
@@ -86,7 +86,8 @@ export default {
       default: 23
     },
     startDate: String,
-    endDate: String
+    endDate: String,
+    valueTextAlign: String
   },
   created () {
     this.currentValue = this.value
@@ -195,19 +196,6 @@ export default {
 <style lang="less">
 @import '../../styles/variable.less';
 
-.weui_cell_ft.with_arrow:after {
-  content: " ";
-  display: inline-block;
-  transform: rotate(45deg);
-  height: 6px;
-  width: 6px;
-  border-width: 2px 2px 0 0;
-  border-color: #C8C8CD;
-  border-style: solid;
-  position: relative;
-  top: -1px;
-  margin-left: .3em;
-}
 .scroller-component {
   display: block;
   position: relative;
@@ -328,5 +316,9 @@ export default {
   box-sizing: border-box;
   flex: 1;
   text-align: center;
+}
+
+.vux-datetime .vux-input-icon {
+  float: right;
 }
 </style>

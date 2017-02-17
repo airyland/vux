@@ -1,7 +1,7 @@
 <template>
-  <div class="weui_tab">
+  <div class="weui-tab">
     <slot name="header"></slot>
-    <div class="weui_tab_bd vux-fix-safari-overflow-scrolling" ref="viewBoxBody" id="vux_view_box_body">
+    <div class="weui-tab__panel vux-fix-safari-overflow-scrolling" ref="viewBoxBody" id="vux_view_box_body" :style='{paddingTop: bodyPaddingTop, paddingBottom: bodyPaddingBottom}'>
       <slot></slot>
     </div>
     <slot name="bottom"></slot>
@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  props: ['bodyPaddingTop', 'bodyPaddingBottom'],
   methods: {
     scrollTo (top) {
       this.$refs.viewBoxBody.scrollTop = top
@@ -25,5 +26,5 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/weui/widget/weui_tab/weui_tab_tabbar';
+@import '../../styles/weui/widget/weui_tab/vux-tabbar';
 </style>

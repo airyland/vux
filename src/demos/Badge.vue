@@ -6,14 +6,14 @@
     <br>
     <group :title="$t('Used in a Cell')">
       <cell :title="$t('single digit')" is-link>
-        <div class="badge-value vux-center-v" slot="value">
-          {{ $t('New Message') }} &nbsp;
+        <div class="badge-value" slot="value">
+          <span class="vertical-middle">{{ $t('New Message') }} &nbsp;</span>
           <badge text="8"></badge>
         </div>
       </cell>
       <cell :title="$t('Big Number')" is-link>
-        <div class="badge-value vux-center-v" slot="value">
-          {{ $t('New Message') }} &nbsp;
+        <div class="badge-value" slot="value">
+          <span class="vertical-middle">{{ $t('New Message') }} &nbsp;</span>
           <badge text="888"></badge>
         </div>
       </cell>
@@ -45,9 +45,10 @@ export default {
 </script>
 
 <style lang="less">
-@import '~vux/src/styles/center.less';
-
 .badge-value {
   display: inline-block!important;
+}
+.vertical-middle {
+  vertical-align: middle;
 }
 </style>

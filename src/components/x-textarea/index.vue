@@ -1,8 +1,8 @@
 <template>
-  <div class="weui_cell">
-    <div class="weui_cell_bd weui_cell_primary">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
       <textarea
-      class="weui_textarea"
+      class="weui-textarea"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
       :autocorrect="autocorrect"
@@ -16,7 +16,7 @@
       :style="textareaStyle"
       :maxlength="max"
       ref="textarea"></textarea>
-      <div class="weui_textarea_counter" v-show="showCounter && max"><span>{{count}}</span>/{{max}}</div>
+      <div class="weui-textarea-counter" v-show="showCounter && max"><span>{{count}}</span>/{{max}}</div>
     </div>
   </div>
 </template>

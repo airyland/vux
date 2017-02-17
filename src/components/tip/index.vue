@@ -24,7 +24,7 @@ export default {
   padding-left:10px;
   padding-right:5px;
 }
-.vux-group-tip .weui_icon {
+.vux-group-tip .weui-icon {
   padding-right: 3px;
 }
 </style>

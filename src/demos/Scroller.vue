@@ -28,11 +28,13 @@
     </scroller>
 
     <divider>{{ $t('A Vertical Scroller') }} scrollTop: {{scrollTop}}</divider>
-    <scroller lock-x height="200px" @on-scroll="onScroll">
+    <scroller lock-x height="200px" @on-scroll="onScroll" ref="scrollerEvent">
       <div class="box2">
         <p v-for="i in 80">placeholder {{i}}</p>
       </div>
     </scroller>
+
+    <x-button type="primary" @click.native="$refs.scrollerEvent.reset({top:0})">reset</x-button>
 
     <divider>{{ $t('A Vertical Scroller with scrollbar') }}</divider>
     <scroller lock-x scrollbar-y height="200px" ref="scroller">
@@ -83,6 +85,11 @@ export default {
       showList1: true,
       scrollTop: 0
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.$refs.scrollerEvent.reset({top: 0})
+    })
   },
   methods: {
     onScroll (pos) {

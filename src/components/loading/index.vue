@@ -1,9 +1,9 @@
 <template>
-  <div class="weui_loading_toast" v-show="show">
-    <div class="weui_mask_transparent"></div>
-    <div class="weui_toast" :style="{ position: position }">
+  <div class="weui-loading_toast" v-show="show">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast" :style="{ position: position }">
       <i class="weui-loading weui-icon_toast"></i>
-      <p class="weui_toast_content">{{ $t(text) || $t('loading') }}<slot></slot></p>
+      <p class="weui-toast__content">{{ $t(text) || $t('loading') }}<slot></slot></p>
     </div>
   </div>
 </template>
@@ -53,14 +53,6 @@ export default {
   width: 38px;
   height: 38px;
   vertical-align: baseline;
-}
-.weui_loading_toast .weui_toast_content {
-  margin-top: 0!important;
-}
-.weui-icon_toast.weui-loading {
-  margin: 30px 0 0;
-  width: 38px;
-  height: 38px;
-  vertical-align: baseline;
+  display: inline-block;
 }
 </style>
