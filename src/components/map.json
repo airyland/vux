@@ -55,6 +55,7 @@
   "Loading": "src/components/loading/index.vue",
   "LoadingPlugin": "src/plugins/loading/index.js",
   "LoadMore": "src/components/load-more/index.vue",
+  "LocalePlugin": "src/plugins/locale/index.js",
   "Masker": "src/components/masker/index.vue",
   "md5": "src/tools/md5/index.js",
   "Name2valueFilter": "src/filters/name2value.js",

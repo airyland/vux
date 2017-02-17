@@ -9,8 +9,8 @@
       default-back-link="/"></x-header>
       <div style="padding: 15px 15px;" v-show="isShowBar">
         <button-tab>
-          <button-tab-item :selected="$i18n.locale() === 'zh-CN'" @click.native="$i18n.set('zh-CN')">中文</button-tab-item>
-          <button-tab-item :selected="$i18n.locale() === 'en'" @click.native="$i18n.set('en')">English</button-tab-item>
+          <button-tab-item :selected="$i18n.locale() === 'zh-CN'" @click.native="setLocale('zh-CN')">中文</button-tab-item>
+          <button-tab-item :selected="$i18n.locale() === 'en'" @click.native="setLocale('en')">English</button-tab-item>
         </button-tab>
       </div>
 
@@ -56,7 +56,12 @@ export default {
     },
     ...mapActions([
       'updateDemoPosition'
-    ])
+    ]),
+    setLocale (locale) {
+      this.$i18n.set(locale)
+      this.$locale.set(locale)
+      console.log(this.$locale)
+    }
   },
   mounted () {
     this.handler = () => {

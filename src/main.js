@@ -45,7 +45,7 @@ store.registerModule('vux', {
 Vue.use(vuexI18n.plugin, store)
 
 // plugins
-import { DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin } from 'vux'
+import { LocalePlugin, DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin } from 'vux'
 Vue.use(DevicePlugin)
 Vue.use(ToastPlugin)
 Vue.use(AlertPlugin)
@@ -53,6 +53,7 @@ Vue.use(ConfirmPlugin)
 Vue.use(LoadingPlugin)
 Vue.use(WechatPlugin)
 Vue.use(AjaxPlugin)
+Vue.use(LocalePlugin)
 
 const wx = WechatPlugin.$wechat
 const http = AjaxPlugin.$http
@@ -99,7 +100,13 @@ const finalLocales = {
 for (let i in finalLocales) {
   Vue.i18n.add(i, finalLocales[i])
 }
-Vue.i18n.set('zh-CN')
+
+const nowLocale = Vue.locale.get()
+if (/zh/.test(nowLocale)) {
+  Vue.i18n.set('zh-CN')
+} else {
+  Vue.i18n.set('en')
+}
 
 const FastClick = require('fastclick')
 FastClick.attach(document.body)
