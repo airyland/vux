@@ -2,6 +2,7 @@ const postcss = require('postcss')
 const syntax = require('postcss-less')
 const path = require('path')
 const fs = require('fs')
+const less = require('less')
 const shell = require('shelljs')
 
 const distPath = path.resolve(__dirname, `../dist/styles/`)
@@ -29,15 +30,24 @@ const getPath = function (name) {
 
 function parse (file) {
   var code = fs.readFileSync(path.resolve(__dirname, `../src/styles/${file}`), 'utf-8')
-  postcss([require('autoprefixer')(['last 2 versions'])])
-    .process(code, {
-      syntax: syntax
-    })
-    .then(function (result) {
-      const dist = getPath(file.replace('less', 'css'));
-      fs.writeFileSync(dist, result.css);
-    })
-    .catch(function(e){
-      console.log(e)
-    })
+  less.render(code, {
+    compress: true,
+    paths: [path.resolve(__dirname, '../src/styles')]
+  },function (e, output) {
+    if (e) {
+      throw e
+    } else {
+      postcss([require('autoprefixer')(['last 2 versions'])])
+      .process(output.css, {
+        syntax: syntax
+      })
+      .then(function (result) {
+        const dist = getPath(file.replace('less', 'css'));
+        fs.writeFileSync(dist, result.css);
+      })
+      .catch(function(e){
+        console.log(e)
+      })
+    }
+  })
 }
