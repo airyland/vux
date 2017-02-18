@@ -52,13 +52,18 @@
         </flexbox-item>
       </flexbox>
 
+      <divider>loading</divider>
+      <x-switch title="showLoading" v-model="showLoading"></x-switch>
+      <x-button type="default" :show-loading="showLoading">default</x-button>
+      <x-button type="primary" :show-loading="showLoading">primary</x-button>
+      <x-button type="warn" :show-loading="showLoading">Delete</x-button>
     </box>
 
   </div>
 </template>
 
 <script>
-import { XButton, Box, GroupTitle, Group, Flexbox, FlexboxItem, Divider } from 'vux'
+import { XButton, Box, GroupTitle, Group, Flexbox, FlexboxItem, Divider, XSwitch } from 'vux'
 
 export default {
   components: {
@@ -68,7 +73,8 @@ export default {
     Group,
     Flexbox,
     FlexboxItem,
-    Divider
+    Divider,
+    XSwitch
   },
   methods: {
     change (value) {
@@ -82,7 +88,8 @@ export default {
   data () {
     return {
       submit001: 'click me',
-      disable001: false
+      disable001: false,
+      showLoading: false
     }
   }
 }
