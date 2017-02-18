@@ -6,6 +6,12 @@ tags:
   zh-CN:
     - 表单
     - 按钮
+extra: |
+ 
+ <p class="warning">
+  按照`Vue`[文档](https://cn.vuejs.org/v2/guide/components.html#使用-v-on-绑定自定义事件)，在组件上绑定点击事件请使用`@click.native`。
+ </p>
+ 
 props:
   type:
     type: String
