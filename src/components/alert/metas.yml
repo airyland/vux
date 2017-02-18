@@ -1,6 +1,6 @@
 icon: '&#xe603;'
 extra:
-  zh-CN:|
+  zh-CN: |
 
     该组件支持以`plugin`形式调用：
 
@@ -32,7 +32,7 @@ extra:
     // 隐藏
     this.$vux.alert.hide()
     ```
-  en:|
+  en: |
 
     This component can be imported as plugin:
 
