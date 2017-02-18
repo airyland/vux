@@ -1,6 +1,9 @@
 icon: '&#xe640;'
-extra: |
-  <p class="tip">当前组件使用`svg`实现模糊效果。如果在手机上渲染过慢，可以尝试直接使用css3的`blur filter`。</p>
+extra:
+  zh-CN:|
+    <p class="tip">当前组件使用`svg`实现模糊效果。如果在手机上渲染过慢，可以尝试直接使用css3的`blur filter`。</p>
+  en:|
+    <p class="tip">This component uses `svg` to implement blur. If rendering it in mobile devices is too slow, you can try to use a css3 featrue -- `blur filter`.     </p>
 tags:
   en:
     - image
