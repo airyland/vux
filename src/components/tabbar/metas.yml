@@ -21,6 +21,9 @@ tabbar:
       zh-CN: tabbar主体内容，只允许tabbar-item
 tabbar-item:
   props:
+    selected:
+      en: 'if selected, you can also use `v-model="index"` on tabbar to set item selected'
+      zh-CN: '是否选中当前项，你也可以使用`v-model`来指定选中的`tabbar-item`的`index`'
     badge:
       en: badge text, if not specified, the badge will not show
       zh-CN: 徽标文字，不指定则不显示
