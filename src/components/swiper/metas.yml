@@ -1,10 +1,10 @@
 icon: '&#xe612;'
 extra: |
   <p class="tip">
-    `list`为图片列表快捷设置，如果你需要自定义一些样式，或者内容并不为纯图片，可以引用`swiper-item`组件。
+    `list`为图片列表快捷设置，如果你需要自定义一些样式，或者内容并不为纯图片，可以引用`swiper-item`组件来自定义。
   </p>
   <p class="warning">
-  不要在`swiper`里嵌套`scroller`，不要把`web`页面当成`App`来做，相关`Issue`将不会处理。
+  不要在`swiper`里嵌套`scroller`，在`web`上过于复杂化而且手势会有冲突，相关`Issue`将不会处理。
   </p>
 props:
   list:
@@ -31,6 +31,7 @@ props:
   auto:
     type: Boolean
     default: false
+    zh-CN: 是否自动轮播
   loop:
     type: Boolean
     default: false

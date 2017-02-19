@@ -420,7 +420,7 @@ nav: zh-CN
 }
 
 function getComponentInfo(one, lang, docs, name) {
-  if (one.extra) {
+  if (one.sub_extra) {
     docs += `\n${one.sub_extra}\n`
   }
   if (one.props || one.slots) {
