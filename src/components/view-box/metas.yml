@@ -54,6 +54,6 @@ methods:
   getScrollBody:
     zh-CN: '获取滚动`div`, 也可以直接用组件引用的`.$refs.viewBoxBody`'
 changes:
-  v2.1.0-rc.52:
+  v2.1.0:
     zh-CN:
       - '[feature] 增加`body-padding-top`及`body-padding-bottom`方便设定上下`padding`值'

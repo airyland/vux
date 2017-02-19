@@ -45,7 +45,7 @@ events:
     params: '`(item)`'
     zh-CN: '点击结果条目时触发，原来的`result-click`事件不符合规范已经废弃'
 changes:
-  v2.1.0-rc.52:
+  v2.1.0:
     zh-CN:
       - '[feature] 更新到`WeUI`最新代码'
       - '[enhance] 当`value`为空时，不显示清除按钮'

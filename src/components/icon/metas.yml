@@ -33,7 +33,7 @@ props:
     en: icon name
     zh-CN: 图标名字，可选值见demo
 changes:
-  v2.1.0-rc.52:
+  v2.1.0:
     zh-CN:
       - '[feature] 更新`WeUI`样式到最新版本'
       - '[change] `type`参数由下划线变为中划线，组件内部做了兼容保证升级时无影响'

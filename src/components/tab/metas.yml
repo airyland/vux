@@ -22,7 +22,7 @@ extra: |
 tab:
   props:
     line-width:
-      type: Number,
+      type: Number
       default: 3
       zh-CN: 线条宽度
     active-color:

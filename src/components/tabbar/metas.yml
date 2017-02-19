@@ -31,8 +31,8 @@ tabbar-item:
       en: if show the red dot
       zh-CN: 是否显示红点
     link:
-      en: the url for current tabbar item, can be a url or a `v-link` value
-      zh-CN: 链接，可以为普通url或者用`v-link`写法
+      en: the url for current tabbar item, can be a url or a `vue-router` link value
+      zh-CN: 链接，可以为普通url或者用`vue-link`的路径写法
     icon-class:
       en: the classname for current icon, if tabbar and tabbar-item both specify icon-class, tabbar-item's will be usePulldown
       zh-CN: 图标类名，如果tabbar也同时定义了icon-class, 会使用tabbar-item的

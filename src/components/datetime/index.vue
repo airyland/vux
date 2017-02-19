@@ -321,4 +321,7 @@ export default {
 .vux-datetime .vux-input-icon {
   float: right;
 }
+.vux-cell-primary {
+  flex: 1;
+}
 </style>

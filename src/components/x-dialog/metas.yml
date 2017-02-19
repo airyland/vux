@@ -5,6 +5,6 @@ tags:
   zh-CN:
     - 弹窗
 changes:
-  v2.1.0-rc.52:
+  v2.1.0:
     zh-CN:
       - '[fix] 修复`transition`绑定'

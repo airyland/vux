@@ -2,7 +2,6 @@
   <div style="height:100%;">
     <loading v-model="isLoading"></loading>
     <view-box ref="viewBox" body-padding-top="46px" body-padding-bottom="55px">
-
       <x-header slot="header" style="width:100%;position:absolute;left:0;top:0;z-index:100;" :left-options="leftOptions"
       :title="title"
       @on-click-title="scrollTop"
@@ -148,6 +147,7 @@ export default {
 <style lang="less">
 @import '~vux/src/styles/reset.less';
 @import '~vux/src/styles/1px.less';
+@import '~vux/src/styles/tap.less';
 
 body {
   background-color: #fbf9fe;
@@ -200,11 +200,11 @@ html, body {
 
 @font-face {
   font-family: 'vux-demo';  /* project id 70323 */
-  src: url('//at.alicdn.com/t/font_mh11prdwhirx80k9.eot');
-  src: url('//at.alicdn.com/t/font_mh11prdwhirx80k9.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_mh11prdwhirx80k9.woff') format('woff'),
-  url('//at.alicdn.com/t/font_mh11prdwhirx80k9.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_mh11prdwhirx80k9.svg#iconfont') format('svg');
+  src: url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.eot');
+  src: url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.eot?#iefix') format('embedded-opentype'),
+  url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.woff') format('woff'),
+  url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.ttf') format('truetype'),
+  url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.svg#iconfont') format('svg');
 }
 
 .demo-icon {
