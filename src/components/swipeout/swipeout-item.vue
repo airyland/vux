@@ -29,14 +29,6 @@ export default {
       type: Number,
       default: 0
     },
-    rightMenuWidth: {
-      type: Number,
-      default: 160
-    },
-    leftMenuWidth: {
-      type: Number,
-      default: 160
-    },
     autoCloseOnButtonClick: {
       type: Boolean,
       default: true
@@ -57,13 +49,26 @@ export default {
       this.target = this.$refs.content
       if (this.$slots['left-menu']) {
         this.hasLeftMenu = true
+        this.caculateMenuWidth('left')
       }
       if (this.$slots['right-menu']) {
         this.hasRightMenu = true
+        this.caculateMenuWidth('right')
       }
     })
   },
   methods: {
+    caculateMenuWidth (direction) {
+      const list = this.$slots[`${direction}-menu`][0].children.filter(one => {
+        return one.tag
+      })
+      let width = 0
+      list.forEach(one => {
+        const propsData = one.componentOptions ? one.componentOptions.propsData : {}
+        width += (propsData.width || 80)
+      })
+      this[`${direction}MenuWidth`] = width
+    },
     onContentClick () {
       if (this.styles.transform.indexOf('(0px, 0, 0)') === -1) {
         this._setClose(200)
@@ -281,7 +286,9 @@ export default {
       isOpen: false,
       styles: {
         transform: 'translate3d(0px, 0, 0)'
-      }
+      },
+      leftMenuWidth: 160,
+      rightMenuWidth: 160
     }
   },
   watch: {

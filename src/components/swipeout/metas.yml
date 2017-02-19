@@ -34,14 +34,6 @@ swipeout-item:
       type: Number
       default: 0
       zh-CN: 滑动多少距离后开始触发菜单显示
-    left-menu-width:
-      type: Number
-      default: 160
-      zh-CN: 左菜单宽度，单位为像素
-    right-menu-width:
-      type: Number
-      default: 160
-      zh-CN: 右菜单宽度，单位为像素
     auto-close-on-button-click:
       type: Boolean
       default: true
