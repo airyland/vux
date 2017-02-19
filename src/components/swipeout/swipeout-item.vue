@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import arrayFilter from 'array-filter'
-
 export default {
   name: 'swipeout-item',
   props: {
@@ -41,7 +39,7 @@ export default {
     underlayColor: String,
     transitionMode: {
       type: String,
-      default: 'reveal' // 'follow' 'stagger'
+      default: 'reveal'
     }
   },
   mounted () {
@@ -59,13 +57,11 @@ export default {
   },
   methods: {
     caculateMenuWidth (direction) {
-      const list = this.$slots[`${direction}-menu`][0].children.filter(one => {
-        return one.tag
-      })
+      const list = this.$slots[`${direction}-menu`][0].children.filter(one => one.tag)
       let width = 0
       list.forEach(one => {
         const propsData = one.componentOptions ? one.componentOptions.propsData : {}
-        width += (propsData.width || 80)
+        width += propsData.width || 80
       })
       this[`${direction}MenuWidth`] = width
     },
@@ -80,27 +76,14 @@ export default {
       }
     },
     start (ev) {
-      if (this.disabled) {
+      if (this.disabled || ev.target.nodeName.toLowerCase() === 'button' || this.isOpen) {
         ev.preventDefault()
         return
       }
-
-      if (ev.target.nodeName.toLowerCase() === 'button') {
-        ev.preventDefault()
-        return
-      }
-
-      if (this.isOpen) {
-        ev.preventDefault()
-        return
-      }
-
       if (this.$parent.$options._componentTag === 'swipeout') {
-        const openItems = arrayFilter(this.$parent.$children, item => {
-          return item.$data.styles.transform.indexOf('(0px, 0, 0)') === -1
-        })
+        const openItems = this.$parent.$children.filter(item => item.$data.styles.transform.indexOf('(0px, 0, 0)') === -1)
         if (openItems.length > 0) {
-          openItems.forEach(item => {
+          openItems.forEacfh(item => {
             item.setOffset(0, true)
           })
           ev.preventDefault()
@@ -152,15 +135,10 @@ export default {
       }
     },
     end (ev) {
-      if (this.disabled) {
+      if (this.disabled || ev.target.nodeName.toLowerCase() === 'button') {
         ev.preventDefault()
         return
       }
-      if (ev.target.nodeName.toLowerCase() === 'button') {
-        ev.preventDefault()
-        return
-      }
-
       if (this.valid === true) {
         if (this.distX < 0) {
           const threshold = this.threshold <= 1 ? this.rightMenuWidth * this.threshold : this.threshold
