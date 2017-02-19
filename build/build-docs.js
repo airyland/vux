@@ -314,13 +314,19 @@ nav: ${lang}
         if (one.status === 'deprecated') {
           docs += `\n<p class="warning">${t('该组件已经停止维护。')}${one.deprecatedInfo ? one.deprecatedInfo[lang] : ''}</p>\n`
         }
-        docs += '\n``` js'
-        if (one.import_code && one.import_code !== '&nbsp;') {
-          docs += `\n${one.import_code}`
+       
+        if (one.import_code) {
+          if (one.import_code !== '&nbsp;') {
+            docs += '\n``` js'
+            docs += `\n${one.import_code}`
+            docs += '\n```\n'
+          }
         } else {
+          docs += '\n``` js'
           docs += `\nimport { ${one.importName} } from 'vux'`
+          docs += '\n```\n'
         }
-        docs += '\n```\n'
+        
 
         if (one.extra && typeof one.extra === 'string' && lang === 'zh-CN') {
           docs += '\n' + one.extra + '\n'
