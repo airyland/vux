@@ -29,7 +29,7 @@ nav: zh-CN
     <img src="https://img.shields.io/github/issues/airyland/vux.svg?style=flat-square" alt="">
   </a>
   <a href="https://github.com/airyland/vux/issues">
-    <img src="https://img.shields.io/issuestats/i/github/airyland/vux.svg?style=flat-square" alt="">
+    <img src="http://isitmaintained.com/badge/resolution/airyland/vux.svg?style=flat-square" alt="">
   </a>
   <a href="https://github.com/airyland/vux/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/airyland/vux.svg?style=flat-square" alt="">
