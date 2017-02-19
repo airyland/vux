@@ -324,6 +324,7 @@ nav: ${lang}
     }
 
     components.forEach(function (one) {
+        docs += '\n\n---\n'
         docs += `\n### ${one.importName}_COM`
 
         docs += `\n<span style="color: #999;font-size:12px;"><a href="https://github.com/airyland/vux/blob/v2/src/components/${one.name}/metas.yml" target="_blank">${t('编辑文档', lang)}</a></span>`
