@@ -1,10 +1,9 @@
 <template>
   <div class="vux-actionsheet">
     <div class="weui-mask weui-mask_transparent" :class="{'weui-actionsheet_toggle': show}" :style="{display: show ? 'block' : 'none'}" @click="onClickingMask"></div>
-
     <div class="weui-actionsheet" :class="{'weui-actionsheet_toggle': show}">
       <div class="weui-actionsheet__menu">
-        <div class="weui-actionsheet__cell" v-for="(text, key) in menus" @click="emitEvent('on-click-menu', key)" v-html="$t(text)">
+        <div class="weui-actionsheet__cell" v-for="(text, key) in menus" @click="onMenuClick(text, key)" v-html="$t(text.label || text)" :class="`vux-actionsheet-menu-${text.type || 'default'}`">
         </div>
       </div>
       <div class="weui-actionsheet__action" @click="emitEvent('on-click-menu', 'cancel')" v-if="showCancel">
@@ -32,7 +31,7 @@ export default {
     showCancel: Boolean,
     cancelText: String,
     menus: {
-      type: Object,
+      type: [Object, Array],
       default: () => {}
     },
     closeOnClickingMask: {
@@ -46,14 +45,28 @@ export default {
     }
   },
   methods: {
+    onMenuClick (text, key) {
+      if (typeof text === 'string') {
+        console.log('text', text, key)
+        this.emitEvent('on-click-menu', key)
+      } else {
+        if (text.type !== 'disabled' && text.type !== 'info') {
+          if (text.value) {
+            this.emitEvent('on-click-menu', text.value)
+          } else {
+            this.show = false
+          }
+        }
+      }
+    },
     onClickingMask () {
       this.closeOnClickingMask && (this.show = false)
     },
-    emitEvent (event, menu) {
+    emitEvent (event, menu, shouldClose = true) {
       if (event === 'on-click-menu' && !/.noop/.test(menu)) {
         this.$emit(event, menu)
         this.$emit(`${event}-${menu}`)
-        this.show = false
+        shouldClose && (this.show = false)
       }
     },
     fixIos (zIndex) {
@@ -94,5 +107,17 @@ export default {
 }
 .vux-actionsheet-cancel:before {
   border-top: none;
+}
+.vux-actionsheet-menu-primary {
+  color: @actionsheet-label-primary-color;
+}
+.vux-actionsheet-menu-warn {
+  color: @actionsheet-label-warn-color;
+}
+.vux-actionsheet-menu-default {
+  color: @actionsheet-label-default-color;
+}
+.vux-actionsheet-menu-disabled {
+  color: @actionsheet-label-disabled-color;
 }
 </style>
