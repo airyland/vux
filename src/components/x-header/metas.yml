@@ -37,9 +37,6 @@ props:
     default: false
     en: if show more icon
     zh-CN: 是否显示右侧的更多图标
-  default-back-link:
-    en: if no history, will go to here
-    zh-CN: 当用户直接进入当前页面时，不存在历史记录无法返回，设置一个首页链接保证能正常跳转
 slots:
   default:
     en: title
@@ -57,7 +54,3 @@ events:
   on-click-title:
     en: triggers when title is clicked
     zh-CN: 点击标题时触发
-changes:
-  v2.1.0-rc.52:
-    zh-CN:
-      - '[feature] 支持`default-back-link`，保证在没有历史记录时能返回到首页或者其他页面'
