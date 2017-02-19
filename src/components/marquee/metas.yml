@@ -31,6 +31,6 @@ marquee-item:
 changes:
   v2.1.0:
     en:
-      - '[feaure] new component'
+      - '[feature] new component'
     zh-CN:
-      - '[feauture] 新组件'
+      - '[feature] 新组件'
