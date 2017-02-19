@@ -1,22 +1,17 @@
 <template>
   <div v-click-outside="onClickedOutside">
-    <span ref="trigger">
+    <span ref="trigger" @click="toggle">
       <slot>
       </slot>
     </span>
     <div class="vux-popover"
-      :class="{
-      'top':placement === 'top',
-      'left':placement === 'left',
-      'right':placement === 'right',
-      'bottom':placement === 'bottom'
-      }"
       ref="popover"
+      :style="popoverStyle"
       v-show="show">
         <div :class="arrowClass"></div>
         <div @click="$emit('on-click-content')">
           <slot name="content">
-              <div v-html="content"></div>
+            <div v-html="content"></div>
           </slot>
         </div>
     </div>
@@ -29,35 +24,34 @@ import ClickOutside from '../../directives/click-outside'
 export default {
   mounted () {
     this.$nextTick(() => {
-      const triger = this.$refs.trigger.children[0]
-      triger.addEventListener('click', (e) => {
-        this.toggle()
-      })
+      const trigger = this.$refs.trigger.children[0]
       const popover = this.$refs.popover
       switch (this.placement) {
         case 'top' :
-          this.position.left = triger.offsetLeft - popover.offsetWidth / 2 + triger.offsetWidth / 2
-          this.position.top = triger.getBoundingClientRect().top - popover.offsetHeight - this.gutter
+          this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2
+          this.position.top = trigger.getBoundingClientRect().top - popover.offsetHeight - this.gutter
           break
         case 'left':
-          this.position.left = triger.offsetLeft - popover.offsetWidth - this.gutter
-          this.position.top = triger.getBoundingClientRect().top + triger.offsetHeight / 2 - popover.offsetHeight / 2
+          this.position.left = trigger.offsetLeft - popover.offsetWidth - this.gutter
+          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - popover.offsetHeight / 2
           break
         case 'right':
-          this.position.left = triger.offsetLeft + triger.offsetWidth + this.gutter
-          this.position.top = triger.getBoundingClientRect().top + triger.offsetHeight / 2 - popover.offsetHeight / 2
+          this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.gutter
+          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - popover.offsetHeight / 2
           break
         case 'bottom':
-          this.position.left = triger.offsetLeft - popover.offsetWidth / 2 + triger.offsetWidth / 2
-          this.position.top = triger.getBoundingClientRect().top + triger.offsetHeight + this.gutter
+          this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2
+          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight + this.gutter
           break
         default:
           console.warn('Wrong placement prop')
       }
-      popover.style.top = this.position.top + 'px'
-      popover.style.left = this.position.left + 'px'
-      popover.style.display = 'none'
       this.show = false
+      this.popoverStyle = {
+        top: this.position.top + 'px',
+        left: this.position.left + 'px',
+        display: 'none'
+      }
     })
   },
   directives: {
@@ -89,7 +83,8 @@ export default {
         top: 0,
         left: 0
       },
-      show: true
+      show: true,
+      popoverStyle: {}
     }
   },
   computed: {
