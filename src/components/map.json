@@ -56,6 +56,8 @@
   "LoadingPlugin": "src/plugins/loading/index.js",
   "LoadMore": "src/components/load-more/index.vue",
   "LocalePlugin": "src/plugins/locale/index.js",
+  "Marquee": "src/components/marquee/marquee.vue",
+  "MarqueeItem": "src/components/marquee/marquee-item.vue",
   "Masker": "src/components/masker/index.vue",
   "md5": "src/tools/md5/index.js",
   "Name2valueFilter": "src/filters/name2value.js",

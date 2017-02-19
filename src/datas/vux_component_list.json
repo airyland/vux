@@ -118,6 +118,14 @@
     "icon": "&#xe610;"
   },
   {
+    "name": "marquee",
+    "icon": "&#xe662;",
+    "items": [
+      "marquee",
+      "marquee-item"
+    ]
+  },
+  {
     "name": "masker",
     "icon": "&#xe651;"
   },
