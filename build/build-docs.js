@@ -440,13 +440,13 @@ nav: zh-CN
 }
 
 function getComponentInfo(one, lang, docs, name) {
-  if (one.sub_extra) {
-    docs += `\n${one.sub_extra}\n`
-  }
   if (one.props || one.slots) {
     if (name) {
       docs += `\n<span class="vux-component-name">${_camelCase(name)}</span>\n`
     }
+  }
+  if (one.sub_extra) {
+    docs += `\n${one.sub_extra}\n`
   }
   if (one.props) {
     // prop title
