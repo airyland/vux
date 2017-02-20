@@ -123,7 +123,6 @@ export default {
     },
     onBlur () {
       this.isFocus = false
-      this.isCancel = true
     }
   },
   data () {
