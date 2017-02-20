@@ -18,10 +18,10 @@ props:
 events:
   on-click-footer:
     zh-CN: 点击底部时触发
-    en: emits when click the footer
+    en: emits when clicking the footer
   on-click-header:
     zh-CN: 点击头部时触发
-    en: emits when click the header
+    en: emits when clicking the header
 slots:
   header:
     zh-CN: 头部位置

@@ -1,6 +1,17 @@
 icon: '&#xe61c;'
 extra:
-  zh-CN: >
+  en: |
+
+    ```html
+      <group>
+        <x-switch title="title" v-model="value"></x-switch>
+      </group>
+    ```
+    
+    <p class="tip">`x-switch` should be used in `Group`.</p>
+
+  zh-CN: |
+
     ```html
       <group>
         <x-switch title="title" v-model="value"></x-switch>
@@ -29,12 +40,12 @@ props:
   value:
     type: Boolean
     default: false
-    en: component's value, use v-model for binding
-    zh-CN: 表单值, 使用v-model绑定
+    en: "component's value, use `v-model` for binding"
+    zh-CN: '表单值, 使用`v-model`绑定'
   inline-desc:
     type: String
     default: ''
-    en: text below label
+    en: desctiption text below the label
     zh-CN: 标签下文字
 events:
   on-change:

@@ -16,8 +16,8 @@ button-tab:
     value:
       type: Number
       default: 0
-      en: current index, start from 0, use v-model for binding
-      zh-CN: 当前选中索引值，从0开始，使用 v-model 绑定
+      en: 'current index, start from 0, use `v-model` for binding'
+      zh-CN: '当前选中索引值，从0开始，使用 `v-model` 绑定'
     height:
       type: Number
       default: 30

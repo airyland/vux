@@ -1,6 +1,7 @@
 icon: '&#xe611;'
 extra:
-  zh-CN: >
+  zh-CN: |
+
     ```html
       <group>
         <x-textarea title="title" v-model="value"></x-textarea>
@@ -29,8 +30,8 @@ props:
   value:
     type: String
     default: ''
-    en: textarea's value
-    zh-CN: 表单值
+    en: "textarea's value, use `v-model` for binding"
+    zh-CN: '表单值, 使用`v-model`绑定'
   name:
     type: String
     default: ''
@@ -59,5 +60,5 @@ props:
 events:
   on-change:
     params: '`(value)`'
-    en: triggers when value changes, params are (value)
+    en: triggers when value changes
     zh-CN: 表单值变化时触发

@@ -1,13 +1,45 @@
 icon: '&#xe61b;'
-import_code: "import { XAddress } from 'vux'\n// 如果你需要引入数据\nimport { XAddress, ChinaAddressData } from 'vux'\n// 如果需要引入旧版数据\nimport { XAddress, ChinaAddressV1Data } from 'vux'"
+import_code: "&nbsp;"
 extra:
-  zh-CN: >
+  en: |
+
     ```html
       <group>
         <x-address title="title" v-model="value"></x-address>
       </group>
     ```
 
+    ``` js
+    import { XAddress } from 'vux'
+
+    // you can import built-in data
+    import { XAddress, ChinaAddressData } from 'vux'
+
+    // if you need older data
+    import { XAddress, ChinaAddressV1Data } from 'vux'
+    ```
+
+    <p class="tip">
+    you can view source data at [src/datas](https://github.com/airyland/vux/tree/v2/src/datas).
+    </p>
+
+    <p class="tip">`x-address` should be used in `Group`</p>
+
+  zh-CN: |
+    ```html
+      <group>
+        <x-address title="title" v-model="value"></x-address>
+      </group>
+    ```
+    ``` js
+    import { XAddress } from 'vux'
+
+    // 如果你需要引入数据
+    import { XAddress, ChinaAddressData } from 'vux'
+
+    // 如果需要引入旧版数据
+    import { XAddress, ChinaAddressV1Data } from 'vux'
+    ```
     <p class="tip">
     如果你需要单独引入地址数据，可以在源码[src/datas](https://github.com/airyland/vux/tree/v2/src/datas)找到。
     </p>
@@ -26,42 +58,55 @@ props:
   raw-value:
     type: Boolean
     default: false
+    en: if the initial value is `string value` instead of `id value`
     zh-CN: 指定初始化时绑定的数据是否为文本(即省市名，而不是id)类型，即对于非id值组件内部会转换为id。如果是异步设置value，只能使用id赋值。
   title:
     type: String
     default: ''
+    en: label text
     zh-CN: 表单标题
   value:
     type: Array
     default: ''
-    zh-CN: 表单值
+    en: 'form value, use `v-model` for binding'
+    zh-CN: '表单值, 使用`v-model`绑定'
   list:
     type: Array
     default: ''
+    en: address data
     zh-CN: 地址列表, 可以引入内置地址数据或者用自己的数据，但是需要按照一致的数据结构。
   inline-desc:
     type: String
     default: ''
+    en: description text below label
     zh-CN: 标题下的描述
   placeholder:
     type: String
     default: ''
+    en: placeholder
     zh-CN: 没有值时的提示文字
-  hideDistrict:
+  hide-district:
     type: Boolean
     default: false
+    en: if hide district column
     zh-CN: 是否隐藏区，即只显示省份和城市
   value-text-align:
     type: String
     default: right
+    en: 'align setting of `value`'
     zh-CN: 'value 对齐方式(text-align), `v2.1.0-rc.49`开始支持'
 events:
   on-hide:
+    en: emits when being closed
     zh-CN: 关闭后触发，当非确定时，参数为false，反之为true
   on-show:
+    en: emits when being open
     zh-CN: 显示时触发
 changes:
   v2.1.0-rc.49:
+    en:
+      - '[feature] support `value-text-align` #921 @linhaobin'
+      - '[fix] fix `label` styles not conform to `group` settings'
     zh-CN:
       - '[feature] 支持`value-text-align` #921 @linhaobin'
       - '[fix] 修复`label`样式不受控于`group`属性的bug'
