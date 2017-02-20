@@ -83,7 +83,7 @@ export default {
       if (this.$parent.$options._componentTag === 'swipeout') {
         const openItems = this.$parent.$children.filter(item => item.$data.styles.transform.indexOf('(0px, 0, 0)') === -1)
         if (openItems.length > 0) {
-          openItems.forEacfh(item => {
+          openItems.forEach(item => {
             item.setOffset(0, true)
           })
           ev.preventDefault()
