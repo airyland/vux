@@ -50,8 +50,4 @@ function parse (file) {
       })
     }
   })
-<<<<<<< 9a97fa54b01ee056bf9e25efd00bcf79b1225032
 }
-=======
-}
->>>>>>> style: import reset.less instead of copying from WeUI
