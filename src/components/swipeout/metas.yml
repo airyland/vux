@@ -50,11 +50,22 @@ swipeout-item:
       type: String
       default: reveal
       zh-CN: 菜单打开方式，`reveal`表示菜单不动内容滑出，`follow`表示菜单随内容滑出
+  methods:
+    open:
+      params: '`(direction)`'
+      zh-CN: 打开菜单，参数为方向
+    close:
+      zh-CN: 关闭菜单
   slots:
     left-menu:
       zh-CN: 左菜单
     right-menu:
       zh-CN: 右菜单
+  events:
+    on-open:
+      zh-CN: 菜单完全打开时触发
+    on-close:
+      zh-CN: 菜单完全关闭时触发
 changes:
   v2.1.0-rc.50:
     zh-CN:
