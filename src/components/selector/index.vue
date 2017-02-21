@@ -5,8 +5,8 @@
     </div>
     <div class="weui-cell__bd" v-if="!readonly">
       <select class="weui-select" v-model="currentValue" :style="{direction: direction}">
-        <option value="" v-if="!value && placeholder" :selected="!value && placeholder">{{placeholder}}</option>
-        <option disabled v-if="!placeholder && !value && isIOS && title"></option>
+        <option value="" v-if="typeof value === 'undefined' && placeholder" :selected="typeof value === 'undefined' && placeholder">{{placeholder}}</option>
+        <option disabled v-if="!placeholder && typeof value === 'undefined' && isIOS && title"></option>
         <option :value="one.key" v-for="one in processOptions">{{one.value}}</option>
       </select>
     </div>
@@ -28,7 +28,7 @@ const findByKey = function (key, options) {
 
 export default {
   created () {
-    if (this.value) {
+    if (typeof value !== 'undefined') {
       this.currentValue = this.value
     }
   },
