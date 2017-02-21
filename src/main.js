@@ -9,6 +9,8 @@ Vue.use(Vuex)
 
 import vuexI18n from 'vuex-i18n'
 
+require('es6-promise').polyfill()
+
 /**
 * you can add your module here
 */
