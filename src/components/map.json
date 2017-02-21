@@ -60,6 +60,7 @@
   "MarqueeItem": "src/components/marquee/marquee-item.vue",
   "Masker": "src/components/masker/index.vue",
   "md5": "src/tools/md5/index.js",
+  "Msg": "src/components/msg/index.vue",
   "Name2valueFilter": "src/filters/name2value.js",
   "numberComma": "src/tools/number/comma.js",
   "numberPad": "src/tools/number/pad.js",

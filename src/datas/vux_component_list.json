@@ -130,6 +130,10 @@
     "icon": "&#xe651;"
   },
   {
+    "name": "msg",
+    "icon": "&#xe619;"
+  },
+  {
     "name": "panel",
     "icon": "&#xe658;"
   },
