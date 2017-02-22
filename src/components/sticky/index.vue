@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vux-sticky-box">
     <slot></slot>
   </div>
 </template>
@@ -21,7 +21,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/variable.less';
+
+.vux-sticky-box {
+  z-index: @sticky-zindex;
+}
 .vux-sticky {
   width: 100%;
   position: sticky;
