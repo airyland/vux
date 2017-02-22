@@ -23,3 +23,9 @@ events:
     zh-CN: 显示时触发
   on-first-show:
     zh-CN: 第一次显示时触发
+changes:
+  v2.1.1-rc.1:
+    en:
+      - '[fix] Fix overflow-scrolling setting in safari #311 @linhaobin'
+    zh-CN:
+      - '[fix] 修复 `overflow-scrolling` 设置逻辑遗漏问题 #311 @linhaobin'

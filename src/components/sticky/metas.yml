@@ -43,3 +43,9 @@ props:
 slots:
   default:
     zh-CN: 内容插槽
+changes:
+  v2.1.1-rc.1:
+    en:
+      - '[fix] Fix wrong offset after transition between routes'
+    zh-CN:
+      - '[fix] 修复路由间有过渡动画导致顶部距离计算不准确的问题'

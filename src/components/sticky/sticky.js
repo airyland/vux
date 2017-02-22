@@ -33,7 +33,9 @@ export default function (nav, options = {}) {
     scrollBox = document.getElementById(scrollBox)
   }
 
-  let getTop = function () {
+  let navOffsetY = nav.offsetTop - offset
+
+  const getTop = function () {
     if (scrollBox === window) {
       return document.documentElement.scrollTop
     } else {
@@ -41,19 +43,23 @@ export default function (nav, options = {}) {
     }
   }
 
+  const scrollHandler = function () {
+    const distance = getTop()
+    if (distance >= navOffsetY) {
+      nav.style.top = offset + 'px'
+      nav.classList.add('vux-fixed')
+    } else {
+      nav.classList.remove('vux-fixed')
+    }
+  }
+
   if (checkStickySupport && (gtIOS6() || isSupportSticky())) {
     // 大于等于iOS6版本使用sticky
     nav.classList.add('vux-sticky')
   } else {
-    var navOffsetY = nav.offsetTop - offset
-    scrollBox.addEventListener('scroll', function () {
-      const distance = getTop()
-      if (distance >= navOffsetY) {
-        nav.style.top = offset + 'px'
-        nav.classList.add('vux-fixed')
-      } else {
-        nav.classList.remove('vux-fixed')
-      }
-    })
+    setTimeout(() => {
+      navOffsetY = nav.offsetTop - offset
+      scrollBox.addEventListener('scroll', scrollHandler)
+    }, 1000)
   }
 }
