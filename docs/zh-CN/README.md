@@ -85,6 +85,7 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 <img src="https://static.vux.li/showcase/ssy_logo.png" width="200">
 <img src="https://static.vux.li/showcase/jkda51.png" width="200">
 <img src="https://static.vux.li/showcase/voez.png" width="200">
+<img src="https://static.vux.li/showcase/logo_xmb.png" width="200">
 
 ## 安装使用(webpack)
 
@@ -237,7 +238,7 @@ Vue.use(ToastPlugin)
     name: 'duplicate-style'
   }]
   ```
-  
+
 - 如果你使用 webpack-simple 模板或者 webpack 配置里缺少 .vue extension 配置，请记得配置：
 
   ``` js
