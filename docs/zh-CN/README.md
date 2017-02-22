@@ -237,6 +237,13 @@ Vue.use(ToastPlugin)
     name: 'duplicate-style'
   }]
   ```
+  
+- 如果你使用 webpack-simple 模板或者 webpack 配置里缺少 .vue extension 配置，请记得配置：
+
+  ``` js
+  resolve: {
+    extensions: ['.js', '.vue', '.json']
+  ```
 
 ## umd 使用
 
