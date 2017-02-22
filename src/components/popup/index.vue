@@ -66,12 +66,14 @@ export default {
       if (val) {
         this.popup.show()
         this.$emit('on-show')
+        this.fixSafariOverflowScrolling('auto')
         if (!this.hasFirstShow) {
           this.$emit('on-first-show')
           this.hasFirstShow = true
         }
       } else {
         this.$emit('on-hide')
+        this.fixSafariOverflowScrolling('touch')
         this.show = false
         this.popup.hide(false)
       }
