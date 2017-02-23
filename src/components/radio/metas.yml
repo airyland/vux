@@ -6,7 +6,7 @@ tags:
   - 单选
 extra:
   zh-CN: |
-  
+
     ```html
       <group>
         <radio title="title" :options="options" v-model="value"></radio>
@@ -48,4 +48,4 @@ changes:
     en:
       - '[feature] Support icon'
     zh-CN:
-      - '[feautre] 支持左侧图标'
+      - '[feature] 支持左侧图标'
