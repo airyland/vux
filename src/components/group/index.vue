@@ -28,6 +28,6 @@ export default {
 @import '../../styles/blank.less';
 
 .vux-no-group-title {
-  margin-top:15px;
+  margin-top: @group-title-margin-top;
 }
 </style>
