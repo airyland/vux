@@ -64,16 +64,6 @@ export default {
 </script>
 
 <style lang="less">
-@import '../styles/weui/base/mixin/setOnepx.less';
-
-.x-hr {
-  padding-top: 15px;
-  margin-bottom: 15px;
-  position: relative;
-  &:before {
-    .setBottomLine()
-  }
-}
 .btn_wrap {
   padding: 0 1rem;
   margin-top: 2rem;
