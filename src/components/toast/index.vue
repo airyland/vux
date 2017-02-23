@@ -106,6 +106,9 @@ export default {
   padding-bottom: 10px;
   border-radius: 15px;
 }
+.weui-toast__content {
+  font-size: @toast-content-font-size;
+}
 .weui-loading_toast .weui-toast__content {
   margin-top: 0;
 }
