@@ -109,6 +109,7 @@
   "VuxComponentListData": "src/datas/vux_component_list.json",
   "WechatEmotion": "src/components/wechat-emotion/index.vue",
   "WechatPlugin": "src/plugins/wechat/index.js",
+  "WepayInput": "src/components/wepay-input/index.vue",
   "XAddress": "src/components/x-address/index.vue",
   "XButton": "src/components/x-button/index.vue",
   "XCircle": "src/components/x-circle/index.vue",
