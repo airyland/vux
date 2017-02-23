@@ -2,7 +2,10 @@
   <div class="weui-cells_radio">
     <label class="weui-cell weui-cell_radio weui-check__label" :for="`radio_${uuid}_${index}`" v-for="(one, index) in options">
       <div class="weui-cell__bd">
-        <p>{{one | getValue}}</p>
+        <p>
+          <img class="vux-radio-icon" :src="one.icon" v-show="one && one.icon">
+          <span class="vux-radio-label">{{one | getValue}}</span>
+        </p>
       </div>
       <div class="weui-cell__ft">
         <input type="radio" class="weui-check" v-model="currentValue" :id="`radio_${uuid}_${index}`" :value="getKey(one)">
@@ -101,5 +104,15 @@ function contains (a, obj) {
 @import '../../styles/weui/icon/weui_icon_font';
 .weui-cell_radio > * {
   pointer-events: none;
+}
+.vux-radio-icon {
+  width: 24px;
+  height:24px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.vux-radio-label {
+  vertical-align: middle;
 }
 </style>
