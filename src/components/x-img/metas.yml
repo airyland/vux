@@ -1,1 +1,37 @@
 icon: '&#xe602;'
+props:
+  default-src:
+    en: default image src
+    zh-CN: 默认显示的图片地址
+  src:
+    en: real image src
+    zh-CN: 最终加载的图片地址
+  webp-src:
+    en: real image src in webp format, if current browser supports webp, this image will be loaded
+    zh-CN: webp 格式的图片地址，如果当前浏览器支持webp，则加载该地址
+  error-class:
+    en: a class name will be added to the img element if loading failed
+    zh-CN: 加载失败时添加到 img 元素上的类名
+  success-class:
+    en: a class name will be added to the img element if loading successfully
+    zh-cn: 加载成功时添加到 img 元素上的类名
+  offset:
+    type: Number
+    default: 100
+    en: how early you want the elements to be loaded before they’re visible
+    zh-CN: 距离多远时开始加载
+  container:
+    default: window
+    en: If you want to lazy load elements inside a scrolling container change the default value to the selector of the container
+    zh-CN: 当图片是在一个容器里滚动时(比如demo站点100%高度的布局)，你需要指定容器的选择器
+  delay:
+    type: Number
+    default: 100
+    en: delay execute lazyload function because sometimes transition between routes will cause problems
+    zh-CN: 延迟执行，在存在路由过渡时立即执行可能会导致进入页面后并不会正确加载图片
+changes:
+  v2.1.1-rc.2:
+    en:
+      - '[feature] Support prop:delay'
+    zh-CN:
+      - '[feature] 支持延迟执行属性 delay'
