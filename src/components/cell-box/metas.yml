@@ -1,0 +1,37 @@
+icon: '&#xe62a;'
+extra:
+  zh-CN: >
+    ```html
+      <group>
+        <cell-box is-link>
+          <!-- anything -->
+        </cell-box>
+      </group>
+    ```
+    
+    <p class="tip">与`cell`相比，`cell-box`更自由和灵活，只提供`is-link`和`link`属性，内容直接使用默认slot定义。
+    <br>
+    `cell-box`同样只能在`Group`中使用</p>
+tags:
+  - cell
+  - form
+props:
+  is-link:
+    type: Boolean
+    default: false
+    en: if this is a link, if true, there will be an arrow on the right
+    zh-CN: 是否为链接，如果是，右侧将会出现指引点击的右箭头
+  link:
+    type: String, Object
+    en: redirect link when being clicked
+    zh-CN: 点击链接，可以为http(s)协议，也可以是 vue-router 支持的地址形式
+slots:
+  default:
+    en: content body
+    zh-CN: 内容区域
+changes:
+  v2.1.1-rc.1:
+    en:
+      - '[feature] new component'
+    zh-CN:
+      - '[feature] 新组件'

@@ -27,6 +27,10 @@ props:
     default: ''
     en: the text below title
     zh-CN: 标题下面文字，一般为说明文字
+  link:
+    type: String, Object
+    en: redirect link when being clicked
+    zh-CN: 点击链接，可以为http(s)协议，也可以是 vue-router 支持的地址形式
   is-link:
     type: Boolean
     default: false

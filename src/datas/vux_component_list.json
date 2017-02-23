@@ -33,6 +33,10 @@
     "icon": "&#xe658;"
   },
   {
+    "name": "cell-box",
+    "icon": "&#xe62a;"
+  },
+  {
     "name": "cell",
     "icon": "&#xe62a;"
   },
