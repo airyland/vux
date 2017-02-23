@@ -153,6 +153,7 @@ co(function* () {
 
         for (let j = 0; j < one.items.length; j++) {
           one.name = one.items[j]
+          one.path = maps[one.importName]
           yield build(buildConfig(one), one.items[j])
         }
       } else {
