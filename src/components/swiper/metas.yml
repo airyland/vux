@@ -63,3 +63,9 @@ props:
     type: Number
     default: 0
     zh-CN: index 绑定，使用v-model，一般不需要绑定
+changes:
+  v2.1.1-rc.2:
+    en:
+      - '[fix] Fix es6 iterator compability, use forEach'
+    zh-CN:
+      - '[fix] 修复部分机子不支持 for of 遍历'

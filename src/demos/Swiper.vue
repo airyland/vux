@@ -192,8 +192,6 @@ export default {
 </script>
 
 <style scoped>
-@import '~vux/src/styles/center.less';
-
 .copyright {
   font-size: 12px;
   color: #ccc;
