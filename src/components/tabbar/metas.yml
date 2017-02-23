@@ -47,3 +47,9 @@ tabbar-item:
     on-item-click:
       en: triggers when tabbar item is click
       zh-CN: 点击菜单项时触发
+changes:
+  v2.1.1-rc.1:
+    en:
+      - '[fix] fix variable @tabbar-text-active-color #982 @marsal1212'
+    zh-CN:
+      - '[fix] 修复 less 变量 @tabbar-text-active-color #982 @marsal1212'
