@@ -6,7 +6,7 @@ module.exports = {
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
-  globals: {'ga': true, 'window': true, 'document': true, 'alert': true},
+  globals: {'ga': true, 'window': true, 'document': true, 'alert': true, 'api': true, 'apiready': true},
   env: {
     browser: true
   },

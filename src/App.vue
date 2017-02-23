@@ -50,6 +50,9 @@ export default {
     Loading
   },
   methods: {
+    reload () {
+      document.location.reload()
+    },
     scrollTop () {
       this.$refs.viewBox.scrollTo(0)
     },
@@ -104,6 +107,7 @@ export default {
     ...mapState({
       route: state => state.route,
       path: state => state.route.path,
+      deviceready: state => state.app.deviceready,
       demoTop: state => state.vux.demoScrollTop,
       isLoading: state => state.vux.isLoading,
       direction: state => state.vux.direction
@@ -170,9 +174,6 @@ html, body {
 }
 .vux-demo-tabbar .weui-bar__item_on .demo-icon-22 {
   color: #F70968;
-}
-.vux-demo-tabbar .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
-  color: #35495e;
 }
 .vux-demo-tabbar .weui-tabbar_item.weui-bar__item_on .vux-demo-tabbar-icon-home {
   color: rgb(53, 73, 94);

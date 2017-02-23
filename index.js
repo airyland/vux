@@ -5,6 +5,7 @@ import Agree from './src/components/agree/index.vue'
 import AjaxPlugin from './src/plugins/ajax/index.js'
 import Alert from './src/components/alert/index.vue'
 import AlertPlugin from './src/plugins/alert/index.js'
+import AppPlugin from './src/plugins/app/index.js'
 import Array2stringFilter from './src/filters/array2String.js'
 import Badge from './src/components/badge/index.vue'
 import base64 from './src/tools/base64/index.js'
@@ -15,6 +16,7 @@ import ButtonTabItem from './src/components/button-tab/button-tab-item.vue'
 import Calendar from './src/components/calendar/index.vue'
 import Card from './src/components/card/index.vue'
 import Cell from './src/components/cell/index.vue'
+import CellBox from './src/components/cell-box/index.vue'
 import Checker from './src/components/checker/checker.vue'
 import CheckerItem from './src/components/checker/checker-item.vue'
 import CheckIcon from './src/components/check-icon/index.vue'
@@ -129,6 +131,7 @@ export {
   AjaxPlugin,
   Alert,
   AlertPlugin,
+  AppPlugin,
   Array2stringFilter,
   Badge,
   base64,
@@ -139,6 +142,7 @@ export {
   Calendar,
   Card,
   Cell,
+  CellBox,
   Checker,
   CheckerItem,
   CheckIcon,

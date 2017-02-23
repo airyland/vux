@@ -30,3 +30,16 @@
         }
     }
 }
+
+.weui-cell_access.vux-cell-box {
+    padding-right: 13px;
+    position: relative;
+    &:after {
+        content: " ";
+        .setArrow(right, 6px, #C8C8CD, 2px);
+        position: absolute;
+        top: 50%;
+        margin-top: -4px;
+        right: 15px;
+    }
+}

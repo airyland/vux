@@ -1,8 +1,10 @@
+'use strict'
+
 const path = require('path')
 const fs = require('fs')
 const demoPath = path.resolve(__dirname, '../src/demo_list.json')
 
-var argv = require('yargs').argv
+const argv = require('yargs').argv
 argv.simulate = argv.simulate || false
 
 module.exports = {
@@ -41,6 +43,15 @@ module.exports = {
   }
 }`)
         })
+
+         if (argv.platform === 'app') {
+           str.push(`{
+  path: '/test/app',
+  component: function (resolve) {
+    require(['./demos/AppTest.vue'], resolve)
+  }
+}`)
+        }
 
         // 404 page
         str.push(`{
