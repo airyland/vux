@@ -66,9 +66,9 @@ props:
 changes:
   v2.1.1-rc.3:
     en:
-      - '[fix] Fix nodes list forEach function is undefined'
+      - '[fix] Fix nodes list forEach function is undefined #991 @howyhuang'
     zh-CN:
-      - '[fix] 修复 node 列表没有 forEach 方法'
+      - '[fix] 修复 node 列表没有 forEach 方法 #991 @howyhuang'
   v2.1.1-rc.2:
     en:
       - '[fix] Fix es6 iterator compability, use forEach'

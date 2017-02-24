@@ -208,6 +208,19 @@ glob(getPath('../src/tools/**/metas.yml'), {}, function (err, files) {
   fs.writeFileSync(getPath('../src/tools/changes.json'), JSON.stringify(rs, null, 2))
 })
 
+glob(getPath('../src/plugins/**/metas.yml'), {}, function (err, files) {
+  let rs = []
+  files.forEach(function(file){
+    const name = file.split('plugins/')[1].replace('/metas.yml', '')
+    const json = yaml.safeLoad(fs.readFileSync(file, 'utf-8'))
+    rs.push({
+      name: name,
+      metas: json
+    })
+  })
+  fs.writeFileSync(getPath('../src/plugins/changes.json'), JSON.stringify(rs, null, 2))
+})
+
 function getComponentName(path) {
   let list = path.split('/')
   if (list[list.length - 1] === 'index.vue' || list[list.length - 1] === 'index.js') {
@@ -658,7 +671,9 @@ function parseChange (str) {
 
 function buildChanges(infos) {
   const toolInfos = require(getPath('../src/tools/changes.json'))
+  const pluginInfos = require(getPath('../src/plugins/changes.json'))
   infos = infos.concat(toolInfos)
+  infos = infos.concat(pluginInfos)
   let rs = {}
   infos.forEach(one => {
     let name = one.name
