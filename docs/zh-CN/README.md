@@ -347,7 +347,7 @@ router.afterEach(function (to) {
 import { WechatPlugin } from 'vux'
 Vue.use(WechatPlugin)
 
-console.log(WechatPlugin.$wechat) // 可以直接访问 wx 对象。
+console.log(Vue.wechat) // 可以直接访问 wx 对象。
 ```
 那么之后任何组件中都可以通过 `this.$wechat` 访问到 `wx` 对象。
 
@@ -377,7 +377,7 @@ require('es6-promise').polyfill()
 import { AjaxPlugin } from 'vux'
 Vue.use(AjaxPlugin)
 
-console.log(AjaxPlugin.$http)
+console.log(Vue.http)
 ```
 
 然后你可以和`vue-resource`一样在组件内使用`this.$http`进行调用了。

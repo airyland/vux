@@ -62,8 +62,8 @@ if (process.env.platform === 'app') {
   Vue.use(AppPlugin, store)
 }
 
-const wx = WechatPlugin.$wechat
-const http = AjaxPlugin.$http
+const wx = Vue.wechat
+const http = Vue.http
 
 /**
 * -------------------------- 微信分享 ----------------------
