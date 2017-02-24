@@ -315,7 +315,7 @@ class Swiper {
   }
 
   _itemDestoy () {
-    this.$items.length && this.$items.forEach(item => {
+    this.$items.length && arrayFrom(this.$items).forEach(item => {
       item.removeEventListener('webkitTransitionEnd', this.transitionEndHandler, false)
     })
   }
