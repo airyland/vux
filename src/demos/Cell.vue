@@ -27,7 +27,7 @@
     <group :title="$t('isLink is set to true when link exists')">
       <cell :title="$t('Go to Radio Demo')" link="/component/radio" inline-desc='link="/component/radio"'></cell>
       <cell :title="$t('Go to Demo')" :link="{path:'/demo'}" inline-desc=':link={path:"/demo"}'></cell>
-      <cell Ltitle="$t('http link')" link="https://vux.li" inline-desc='link="https://vux.li"'></cell>
+      <cell :title="$t('http link')" link="https://vux.li" inline-desc='link="https://vux.li"'></cell>
     </group>
   </div>
 </template>
