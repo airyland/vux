@@ -35,4 +35,5 @@ export default {
 
 <style lang="less">
 @import '../../styles/weui/widget/weui-button/weui-button.less';
+@import '../../styles/weui/widget/weui-loading/weui-loading.less';
 </style>
