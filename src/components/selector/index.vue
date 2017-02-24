@@ -28,7 +28,7 @@ const findByKey = function (key, options) {
 
 export default {
   created () {
-    if (typeof value !== 'undefined') {
+    if (typeof this.value !== 'undefined') {
       this.currentValue = this.value
     }
   },
