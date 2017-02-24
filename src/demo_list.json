@@ -90,5 +90,6 @@
   "Marquee",
   "Msg",
   "WepayInput",
-  "CellBox"
+  "CellBox",
+  "XIcon"
 ]
