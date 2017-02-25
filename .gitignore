@@ -26,3 +26,4 @@ docs/*.map
 v2/
 changes.json
 nuxt/
+docs/releases.json

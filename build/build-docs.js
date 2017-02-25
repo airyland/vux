@@ -669,7 +669,27 @@ function parseChange (str) {
   return str
 }
 
+function parseTag (firstTag, tag, releases) {
+  if (!releases.length) {
+    return tag
+  }
+  if (firstTag === tag) {
+    if (tag !== releases[0].tag) {
+      return  `${tag} (not release yet)`
+    }
+  }
+  return tag
+}
+
 function buildChanges(infos) {
+  let _releases = []
+  try {
+    const fetch = require('./fetch-github')
+    _releases = require(getPath('../docs/releases.json'))
+  } catch (e) {
+
+  }
+
   const toolInfos = require(getPath('../src/tools/changes.json'))
   const pluginInfos = require(getPath('../src/plugins/changes.json'))
   infos = infos.concat(toolInfos)
@@ -697,12 +717,13 @@ nav: zh-CN
     }
   })
 
+  let firstTag = Object.keys(rs)[0]
   let releases = {}
 
   for (let i in rs) {
     releases[i] = {}
     // releases += `\n # ${i}\n`
-    str += `\n### ${i}_COM\n`
+    str += `\n### ${parseTag(firstTag, i, _releases)}_COM\n`
     for (let j in rs[i]) {
       // releases += `\n## ${_camelCase(j)}\n`
       releases[i][j] = []
