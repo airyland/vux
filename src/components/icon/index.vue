@@ -1,11 +1,12 @@
 <template>
-  <i :class="className"></i>
+  <i :class="[className, isMsg ? 'weui-icon_msg' : '']"></i>
 </template>
 
 <script>
 export default {
   props: {
-    type: String
+    type: String,
+    isMsg: Boolean
   },
   computed: {
     className () { // compatible with old type param
@@ -18,11 +19,10 @@ export default {
 <style lang="less">
 @import '../../styles/weui/icon/weui_icon_font';
 
+/**
+following styles will be removed after v3.0.0
+*/
 .icon-big:before {
-  font-size: 104px;
-}
-
-.icon-small:before {
-  font-size: 12px;
+  font-size: 93px;
 }
 </style>

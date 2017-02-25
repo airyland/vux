@@ -17,12 +17,12 @@
       <icon type="search"></icon>
       <icon type="clear"></icon>
       <br/>
-      <icon type="success" class="icon-big"></icon>
-      <icon type="info" class="icon-big"></icon>
-      <icon type="warn" class="icon-big"></icon>
-      <icon type="waiting" class="icon-big"></icon>
-      <icon type="safe_success" class="icon-big"></icon>
-      <icon type="safe_warn" class="icon-big"></icon>
+      <icon type="success" is-msg></icon>
+      <icon type="info" is-msg></icon>
+      <icon type="warn" is-msg></icon>
+      <icon type="waiting" is-msg></icon>
+      <icon type="safe_success" is-msg></icon>
+      <icon type="safe_warn" is-msg></icon>
     </box>
   </div>
 </template>
