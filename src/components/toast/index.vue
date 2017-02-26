@@ -1,7 +1,7 @@
 <template>
   <div class="vux-toast">
     <div class="weui-mask_transparent" v-show="isShowMask && show"></div>
-    <transition :name="transition">
+    <transition :name="currentTransition">
       <div class="weui-toast" :style="{width: width}" :class="toastClass" v-show="show">
         <i class="weui-icon-success-no-circle weui-icon_toast" v-show="type !== 'text'"></i>
         <p class="weui-toast__content" v-if="text" :style="style" v-html="$t(text)"></p>
@@ -12,7 +12,10 @@
 </template>
 
 <script>
+import SafariFixIssue from '../../mixins/safari-fix'
+
 export default {
+  mixins: [SafariFixIssue],
   props: {
     value: Boolean,
     time: {
@@ -23,10 +26,7 @@ export default {
       type: String,
       default: 'success'
     },
-    transition: {
-      type: String,
-      default: 'vux-fade'
-    },
+    transition: String,
     width: {
       type: String,
       default: '7.6em'
@@ -35,7 +35,8 @@ export default {
       type: Boolean,
       default: false
     },
-    text: String
+    text: String,
+    position: String
   },
   data () {
     return {
@@ -48,12 +49,27 @@ export default {
     }
   },
   computed: {
+    currentTransition () {
+      if (this.transition) {
+        return this.transition
+      }
+      if (this.position === 'top') {
+        return 'vux-slide-from-top'
+      }
+      if (this.position === 'bottom') {
+        return 'vux-slide-from-bottom'
+      }
+      return 'vux-fade'
+    },
     toastClass () {
       return {
         'weui-toast_forbidden': this.type === 'warn',
         'weui-toast_cancel': this.type === 'cancel',
         'weui-toast_success': this.type === 'success',
-        'weui-toast_text': this.type === 'text'
+        'weui-toast_text': this.type === 'text',
+        'vux-toast-top': this.position === 'top',
+        'vux-toast-bottom': this.position === 'bottom',
+        'vux-toast-middle': this.position === 'middle'
       }
     },
     style () {
@@ -64,6 +80,8 @@ export default {
   },
   watch: {
     show (val) {
+      this.fixSafariOverflowScrolling('auto')
+
       if (val) {
         this.$emit('input', true)
         this.$emit('on-show')
@@ -74,6 +92,7 @@ export default {
           this.show = false
           this.$emit('input', false)
           this.$emit('on-hide')
+          this.fixSafariOverflowScrolling('touch')
         }, this.time)
       }
     },
@@ -90,6 +109,32 @@ export default {
 @import '../../styles/weui/icon/weui_icon_font';
 @import '../../styles/weui/widget/weui_tips/weui_toast';
 
+.weui-toast.vux-toast-top {
+  top: @toast-position-top-offset;
+}
+.weui-toast.vux-toast-bottom {
+  top: auto;
+  bottom: @toast-position-bottom-offset;
+  transform: translateX(-50%);
+}
+.weui-toast.vux-toast-middle {
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.vux-slide-from-top-enter, .vux-slide-from-top-leave-active {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-100%)!important;
+}
+.vux-slide-from-bottom-enter, .vux-slide-from-bottom-leave-active {
+  opacity: 0;
+  transform: translateX(-50%) translateY(100%)!important;
+}
+.vux-slide-from-top-enter-active,
+.vux-slide-from-top-leave-active,
+.vux-slide-from-bottom-enter-active,
+.vux-slide-from-bottom-leave-active {
+  transition: all 400ms cubic-bezier(.36,.66,.04,1);
+}
 .weui-toast {
   transform: translateX(-50%);
   margin-left: 0!important;

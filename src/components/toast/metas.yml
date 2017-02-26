@@ -63,6 +63,12 @@ props:
     default: ''
     en: content of the toast, text or html, the same function as default slot
     zh-CN: 提示内容，支持 html，和默认slot同样功能
+  position:
+    version: v2.1.1-rc.4
+    type: String
+    default: 'default'
+    en: 'toast position, available values: default, top, middle, bottom'
+    zh-CN: 显示位置，可选值 default, top, middle, bottom
 slots:
   default:
     en: default slot, the content of the toast
@@ -75,6 +81,11 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
+  v2.1.1-rc.4:
+    en:
+      - '[feature] Support position setting. #973 @ LaiXuechao'
+    zh-CN:
+      - '[feature] 支持显示位置设置 #973 @LaiXuechao'
   v2.1.1-rc.2:
     en:
       - '[feature] Add more less variables'
