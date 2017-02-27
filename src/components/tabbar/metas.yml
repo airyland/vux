@@ -48,6 +48,11 @@ tabbar-item:
       en: triggers when tabbar item is click
       zh-CN: 点击菜单项时触发
 changes:
+  v2.1.1-rc.4:
+    en:
+      - '[fix] fix this.$slots undefined #1000 @asingingfish'
+    zh-CN:
+      - '[fix] 修复 this.$slots 不存在 #1000 @asingingfish'
   v2.1.1-rc.1:
     en:
       - '[fix] fix variable @tabbar-text-active-color #982 @marsal1212'
