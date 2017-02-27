@@ -1,12 +1,12 @@
-"use strict"
+'use strict'
 const list = require('china-area-data')
 let rs = []
 
 for (var i in list) {
   for (var j in list[i]) {
     var item = {
-      name: 　list[i][j],
-      value: j + '',
+      name: list[i][j],
+      value: j + ''
     }
     if (i !== '86') {
       item.parent = i
