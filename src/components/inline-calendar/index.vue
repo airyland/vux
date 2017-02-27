@@ -31,9 +31,9 @@
       <tbody>
         <tr v-for="(day,k1) in days">
           <td
+          v-for="(child,k2) in day"
           :data-date="formatDate(year, month, child)"
           :data-current="currentValue"
-          v-for="(child,k2) in day"
           :class="buildClass(k2, child, formatDate(year, month, child) === currentValue && !child.isLastMonth && !child.isNextMonth)"
           @click="select(k1,k2,$event)">
             <span
@@ -100,6 +100,9 @@ export default {
       }
       this.$emit('on-change', val)
       this.$emit('input', val)
+    },
+    renderFunction () {
+      this.render(this.year, this.month, this.currentValue)
     },
     returnSixRows (val) {
       this.render(this.year, this.month, this.currentValue)
