@@ -1,9 +1,11 @@
 icon: '&#xe62b;'
 tags:
-  - calendar
-  - 日历
-  - 表单
-  - form
+  en:
+    - form
+    - calendar
+  zh-CN:
+    - 日历
+    - 表单
 props:
   value:
     type: String
@@ -13,75 +15,81 @@ props:
   render-month:
     type: Array
     default: ''
-    en:
+    en: specify which date to render, for example [2018, 8]
     zh-CN: 指定渲染日期，如 [2018, 8]
   start-date:
     type: String
     default: ''
-    en:
-    zh-CN: 起始日期，格式为'YYYY-MM-dd'
+    en: 'start date with format `YYYY-MM-dd`'
+    zh-CN: '起始日期，格式为 `YYYY-MM-dd`'
   end-date:
     type: String
     default: ''
-    en:
-    zh-CN: 结束日期，格式为'YYYY-MM-dd'
+    en: 'end date with format `YYYY-MM-dd`'
+    zh-CN: '结束日期，格式为`YYYY-MM-dd`'
   show-last-month:
     type: Boolean
     default: true
-    en:
+    en: if show last month's days
     zh-CN: 是否显示上个月的日期
   show-next-month:
     type: Boolean
     default: true
-    en:
+    en: if show next month's days
     zh-CN: 是否显示下个月的日期
   highlight-weekend:
     type: Boolean
     default: false
-    en:
+    en: if highlight weekend days
     zh-CN: 是否高亮周末
   return-six-rows:
     type: Boolean
     default: true
-    en:
+    en: if always show six rows
     zh-CN: 是否总是渲染6行日期
   hide-header:
     type: Boolean
     default: false
-    en:
+    en: if hiding header
     zh-CN: 是否隐藏日历头部
   hide-week-list:
     type: Boolean
     default: false
-    en:
+    en: if hiding week list
     zh-CN: 是否隐藏星期列表
   replace-text-list:
     type: 'Object'
     default: ''
-    en:
+    en: replace list, for example, {'TODAY':'今'}
     zh-CN: "替换列表，可以将默认的日期换成文字，比如今天的日期替换成今，{'TODAY':'今'}"
   weeks-list:
     type: Array
     default: "['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']"
-    en:
+    en: 'week list, starting from `Sunday`'
     zh-CN: 星期列表，从周日开始
   render-function:
     type: Function
     default: ''
-    en:
+    en: render function to add extra contents, params `(line, row, dateData)`
     zh-CN: 用于为特定日期添加额外的html内容，参数为(行index,列index,日期详细属性)
   render-on-value-change:
     type: Boolean
     default: true
-    en:
+    en: if re-render calendar if value changes, should set to false when showing multi months
     zh-CN: 当日期变化时是否重新渲染日历，如果是渲染了多个日历的话需要设为false
   disable-past:
     type: Boolean
     default: false
-    en:
+    en: if disable the past days
     zh-CN: 禁止选择过去的日期，该选项可以与start-date同时使用
   disable-future:
     type: Boolean
     default: false
-    en:
+    en: if disable future days
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
+changes:
+  v2.1.1-rc.5:
+    en:
+      - '[fix] fix render-function not reactive'
+    zh-CN:
+      - '[fix] 修复 render-function 变化不重新渲染的问题'
