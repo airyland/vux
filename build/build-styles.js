@@ -37,7 +37,7 @@ function parse (file) {
     if (e) {
       throw e
     } else {
-      postcss([require('autoprefixer')(['last 2 versions'])])
+      postcss([require('autoprefixer')(['iOS >= 7', 'Android >= 4.1'])])
       .process(output.css, {
         syntax: syntax
       })
