@@ -28,6 +28,11 @@ module.exports = {
         this.addDependency(demoPath)
         let list = fs.readFileSync(demoPath, 'utf-8')
         list = JSON.parse(list)
+        if (argv.demo) {
+          list = list.filter(item => {
+            return item.indexOf(argv.demo) > -1
+          })
+        }
         let str = []
         list.forEach(one => {
           let filename = one
