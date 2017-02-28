@@ -7,6 +7,8 @@ nav: zh-CN
   <p class="tip">
   从`2.0`开始，推荐使用`webpack`来调用组件，因此不再在`repo`中保存`umd`文件，但提供了生成命令。
   <br>
+  请更新 `NodeJS` 到版本 `7.6.0`及以上。
+  <br>
   例子可查看：[https://github.com/airyland/vux/tree/v2/docs/examples](https://github.com/airyland/vux/tree/v2/docs/examples)
   </p>
 
