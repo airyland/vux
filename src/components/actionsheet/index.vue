@@ -47,7 +47,6 @@ export default {
   methods: {
     onMenuClick (text, key) {
       if (typeof text === 'string') {
-        console.log('text', text, key)
         this.emitEvent('on-click-menu', key)
       } else {
         if (text.type !== 'disabled' && text.type !== 'info') {
