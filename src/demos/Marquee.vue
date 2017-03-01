@@ -2,14 +2,14 @@
   <div>
     <divider>{{ $t('Default usage') }}</divider>
     <marquee>
-      <marquee-item v-for="i in 5" @click.native="onClick(i)" class="align-middle">hello world {{i}}</marquee-item>
+      <marquee-item v-for="i in 5" :key="i" @click.native="onClick(i)" class="align-middle">hello world {{i}}</marquee-item>
     </marquee>
     <br>
     <divider>{{ $t('Used in a cell')}}</divider>
     <group>
       <cell :title="$t('News')">
         <marquee>
-          <marquee-item v-for="i in 5" @click.native="onClick(i)">{{ $t('JavaScript is the best language')}} {{i}}</marquee-item>
+          <marquee-item v-for="i in 5" :key="i" @click.native="onClick(i)">{{ $t('JavaScript is the best language')}} {{i}}</marquee-item>
         </marquee>
       </cell>
     </group>

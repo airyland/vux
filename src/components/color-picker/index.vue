@@ -1,7 +1,7 @@
 <template>
   <div class="vux-color-picker">
     <flexbox>
-      <flexbox-item v-for="color in colors" class="vux-color-box">
+      <flexbox-item v-for="color in colors" :key="color" class="vux-color-box">
         <span class="vux-color-item" :style="{borderRadius: width/2 + 'px',backgroundColor: color, width: width + 'px', height: width + 'px'}" @click="change(color)" :class="{'vux-color-white': color === '#fff' || color === '#fff', 'vux-color-picker-small': size === 'small', 'vux-color-picker-middle': size === 'middle'}">
           <icon v-if="color === value" class="vux-color-checked" :style="{lineHeight: width + 'px'}" type="success-no-circle"></icon>
         </span>

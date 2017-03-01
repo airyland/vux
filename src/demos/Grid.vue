@@ -1,7 +1,7 @@
 <template>
   <div>
     <grid>
-      <grid-item :label="$t('Grid')" v-for="i in 9">
+      <grid-item :label="$t('Grid')" v-for="i in 9" :key="i">
         <img slot="icon" src="../assets/grid_icon.png">
       </grid-item>
       <grid-item link="/component/cell" :label="$t('Go to Cell')">

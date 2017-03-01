@@ -15,7 +15,7 @@
 			</timeline-item>
 		</timeline>
 		<timeline>
-			<timeline-item v-for="i in count">
+			<timeline-item v-for="(i, index) in count" :key="index">
 				<h4 :class="[i === 0 ? 'recent' : '']">Timeline Node {{i + 1}}</h4>
 				<p :class="[i === 0 ? 'recent' : '']">index {{i + 1}}</p>
 			</timeline-item>

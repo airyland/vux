@@ -52,10 +52,10 @@
 
     <div>
        <tab :line-width=2 active-color='#fc378c' v-model="index">
-        <tab-item class="vux-center" :selected="demo2 === item" v-for="item in list2" @click="demo2 = item">{{item}}</tab-item>
+        <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">{{item}}</tab-item>
       </tab>
       <swiper v-model="index" height="100px" :show-dots="false">
-        <swiper-item v-for="item in list2">
+        <swiper-item v-for="(item, index) in list2" :key="index">
           <div class="tab-swiper vux-center">{{item}} Container</div>
         </swiper-item>
       </swiper>
@@ -74,15 +74,15 @@
 
     <br/>
     <br/>
-    <tab :line-width=2>
-      <tab-item :selected="demo3 === item" v-for="(index, item) in list3" :class="{'vux-1px-r': index===0}" @click="demo3 = item">{{item}}</tab-item>
+    <tab :line-width="2">
+      <tab-item :selected="demo3 === item" v-for="(item, index) in list3" :class="{'vux-1px-r': index===0}" @click="demo3 = item" :key="index">{{item}}</tab-item>
     </tab>
     <br/>
     <br/>
     <br/>
     <sticky scrollBox="vux_view_box_body" :check-sticky-support="false" :offset="46">
       <tab :line-width=1>
-        <tab-item :selected="demo4 === item" v-for="item in list4" @click="demo4 = item">{{item}}</tab-item>
+        <tab-item :selected="demo4 === item" v-for="(item, index) in list4" @click="demo4 = item" :key="index">{{item}}</tab-item>
       </tab>
     </sticky>
     <br v-for="i in 40">

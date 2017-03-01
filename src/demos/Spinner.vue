@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <cell v-for="type in types" :title="type">
+      <cell v-for="type in types" :title="type" :key="type">
         <spinner :type="type" slot="value"></spinner>
       </cell>
     </group>
