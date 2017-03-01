@@ -6,7 +6,7 @@ extra:
     Icons come from [Ionicons(MIT)](http://ionicons.com/)
     </p>
 
-    `x-icon` is a virtual component，which means you don't need to import `XIcon`, `vux-loader@^1.0.43` will transform your code into `inline svg`。
+    `x-icon` is a virtual component，which means you don't need to import `XIcon`, `vux-loader@^1.0.46` will transform your code into `inline svg`。
 
     you can set `fill` style by its class names.
 
