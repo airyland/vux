@@ -139,7 +139,7 @@ export default {
   transform: translateX(-50%);
   margin-left: 0!important;
 }
-.weui-toast_forbidden {
+.weui-toast.weui-toast_forbidden {
   color: #F76260;
 }
 .weui-toast.weui-toast_text{

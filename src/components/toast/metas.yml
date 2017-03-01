@@ -81,6 +81,11 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
+  v2.1.1-rc.6:
+    en:
+      - '[fix] fix forbidden style being overwritten #1016 @LaiXuechao'
+    zh-CN:
+      - '[fix] 修复禁止样式被覆盖 #1016 @LaiXuechao'
   v2.1.1-rc.4:
     en:
       - '[feature] Support position setting. #973 @ LaiXuechao'
