@@ -73,7 +73,9 @@ export default {
         }
       } else {
         this.$emit('on-hide')
-        this.fixSafariOverflowScrolling('touch')
+        if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
+          this.fixSafariOverflowScrolling('touch')
+        }
         this.show = false
         this.popup.hide(false)
       }
