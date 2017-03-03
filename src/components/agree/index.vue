@@ -1,6 +1,6 @@
 <template>
   <label :for="`vux-agree-${uuid}`" class="weui-agree">
-    <input :id="`vux-agree-${uuid}`" type="checkbox" :checked="currentValue" class="weui-agree__checkbox">
+    <input :id="`vux-agree-${uuid}`" type="checkbox" v-model="currentValue" class="weui-agree__checkbox">
     <span class="weui-agree__text">
       <slot></slot>
     </span>
