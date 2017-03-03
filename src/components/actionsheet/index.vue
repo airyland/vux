@@ -32,7 +32,7 @@ export default {
     cancelText: String,
     menus: {
       type: [Object, Array],
-      default: () => {}
+      default: () => ({})
     },
     closeOnClickingMask: {
       type: Boolean,
