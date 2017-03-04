@@ -851,6 +851,21 @@ npm run docs // 使用 docute 预览文档
 
 遵从 Github 上的 contribution template.
 
+如果修改了组件代码，需要在组件目录的`metas.yml`加上changes，直接使用`next`作为版本号(如果已经存在该版本号，则直接添加变更条目即可)。
+
+中括号内为变更类型，可选值 `fix` `enhance` `feature` `change`
+
+比如：
+
+``` yml
+changes:
+  next:
+    en:
+      - '[fix] fix *** bug #issueId'
+    zh-CN:
+      - '[fix] 修复 *** bug #issueId'
+```
+
 ### 如何更新文档
 
 目前英文文档并不完善，欢迎帮忙翻译。文档格式为`yml`，位于每个组件目录下的`metas.yml`文件，你可以参阅一些相对完善的组件文档进行更新。
