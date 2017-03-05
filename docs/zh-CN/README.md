@@ -352,7 +352,9 @@ console.log(Vue.wechat) // 可以直接访问 wx 对象。
 ```
 那么之后任何组件中都可以通过 `this.$wechat` 访问到 `wx` 对象。
 
-考虑到你需要在引入插件后调用`wx.config`方法进行配置，你可以通过 `WechatPlugin.$wechat` 在组件外部访问`wx`对象。 
+考虑到你需要在引入插件后调用`wx.config`方法进行配置，你可以通过 `Vue.wechat` 在组件外部访问`wx`对象。 
+
+`jssdk`需要请求签名配置，你可以直接使用下面的`ajaxPlugin`。
 
 ## 发送 ajax 请求
 
