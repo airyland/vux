@@ -1,7 +1,9 @@
 <template>
   <div class="vux-tab" :class="{'vux-tab-no-animate': !animate}">
     <slot></slot>
-    <div v-if="animate" class="vux-tab-ink-bar" :class="barClass" :style="barStyle"></div>
+    <div v-if="animate" class="vux-tab-ink-bar" :class="barClass" :style="barStyle">
+      <span class="vux-tab-bar-inner" :style="innerBarStyle" v-if="customBarWidth"></span>
+    </div>
   </div>
 </template>
 
@@ -30,7 +32,8 @@ export default {
     animate: {
       type: Boolean,
       default: true
-    }
+    },
+    customBarWidth: [Function, String]
   },
   computed: {
     barLeft () {
@@ -39,15 +42,28 @@ export default {
     barRight () {
       return `${(this.number - this.currentIndex - 1) * (100 / this.number)}%`
     },
-    barStyle () {
+    // when prop:custom-bar-width
+    innerBarStyle () {
       return {
+        width: typeof this.customBarWidth === 'function' ? this.customBarWidth(this.currentIndex) : this.customBarWidth,
+        backgroundColor: this.barActiveColor || this.activeColor
+      }
+    },
+    // end
+    barStyle () {
+      const commonStyle = {
         left: this.barLeft,
         right: this.barRight,
         display: 'block',
-        backgroundColor: this.barActiveColor || this.activeColor,
         height: this.lineWidth + 'px',
         transition: !this.hasReady ? 'none' : null
       }
+      if (!this.customBarWidth) {
+        commonStyle.backgroundColor = this.barActiveColor || this.activeColor
+      } else {
+        commonStyle.backgroundColor = 'transparent' // when=prop:custom-bar-width
+      }
+      return commonStyle
     },
     barClass () {
       return {
@@ -88,6 +104,7 @@ export default {
     bottom: 0;
     left: 0;
     background-color: @tab-bar-active-color;
+    text-align: center;
 
     &-transition-forward {
       transition: right @effect-duration @easing-in-out,
@@ -139,5 +156,14 @@ export default {
 
 .vux-tab.vux-tab-no-animate .vux-tab-item.vux-tab-selected {
   background: 0 0;
+}
+
+/** when=prop:custom-bar-width **/
+.vux-tab-bar-inner {
+  display: block;
+  background-color: @tab-text-active-color;
+  margin: auto;
+  height: 100%;
+  transition: width 0.3s @easing-in-out;
 }
 </style>

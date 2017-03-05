@@ -37,6 +37,11 @@ tab:
       type: Boolean
       default: true
       zh-CN: 切换时是否需要动画
+    custom-bar-width:
+      type: String, Function
+      version: next
+      en: 'set active bar width, like `50px`. or you can use function, param is `(currentInex)`'
+      zh-CN: '设置底部`bar`宽度，默认宽度是整体tab宽度平分，比如`50px`。使用函数时参数为当前索引`index`，你可以定义不同`tab-item`对应的`bar`宽度。'
 tab-item:
   props:
     disabled:
@@ -46,6 +51,11 @@ tab-item:
     active-class:
       zh-CN: 当前项选中时的class
 changes:
+  next:
+    en:
+      - '[feature] Support setting bar width with prop:custom-bar-width'
+    zh-CN:
+      - '[feature] 支持定义 bar 宽度'
   v2.1.0-rc.46:
     zh-CN:
       - '[feature] 支持设置 `bar-active-color` #715 @greedying'

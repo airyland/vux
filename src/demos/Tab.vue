@@ -7,6 +7,22 @@
     </tab>
     <br/>
     <br/>
+    <divider>定义bar固定宽度</divider>
+    <tab :line-width="1" custom-bar-width="60px">
+      <tab-item selected>已发货</tab-item>
+      <tab-item>未发货</tab-item>
+      <tab-item>全部订单</tab-item>
+    </tab>
+    <br/>
+    <br/>
+    <divider>使用函数定义bar宽度</divider>
+    <tab :line-width="1" :custom-bar-width="getBarWidth">
+      <tab-item selected>AA</tab-item>
+      <tab-item>AAAA</tab-item>
+      <tab-item>AAAAAAA</tab-item>
+    </tab>
+    <br/>
+    <br/>
     <br/>
     <divider>{{ $t('set bar-active-color')}}</divider>
     <div style="width: 100%;overflow:scroll;-webkit-overflow-scrolling:touch;">
@@ -117,7 +133,10 @@ export default {
       list4: ['正在正映', '即将上映'],
       demo4: '即将上映',
       demoDisabled: 'A',
-      index: 0
+      index: 0,
+      getBarWidth: function (index) {
+        return (index + 1) * 22 + 'px'
+      }
     }
   },
   methods: {
