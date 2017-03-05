@@ -464,12 +464,12 @@ function getComponentInfo(one, lang, docs, name) {
   if (one.props) {
     // prop title
     docs += `\n<span class="vux-props-title">Props</span>\n`
-    docs += `\n| ${t('名字')}   | ${t('类型')} | ${t('默认')}    | ${t('说明')}   |
+    docs += `\n| ${t('名字')}   | ${t('类型')} | ${t('默认')}  |  version | ${t('说明')}   |
 |-------|-------|-------|-------|
 `
     for (let i in one.props) {
       let prop = one.props[i][lang]
-      docs += `| ${getKeyHTML(i)} | ${getTypeHTML(one.props[i].type)} | ${getColorHTML(one.props[i])} | ${prop} |\n`
+      docs += `| ${getKeyHTML(i)} | ${getTypeHTML(one.props[i].type)} | ${getColorHTML(one.props[i])} | ${one.props[i].version ? one.props[i].version : ''} | ${prop} |\n`
     }
   }
 
@@ -670,6 +670,9 @@ function parseChange (str) {
 }
 
 function parseTag (firstTag, tag, releases) {
+  if (tag === 'next') {
+    return  `${tag} (not release yet)`
+  }
   if (!releases.length) {
     return tag
   }
@@ -713,6 +716,12 @@ nav: zh-CN
 
   rs = sortObj(rs, {
     sort: function (a, b) {
+      if (a === 'next') {
+        return -1
+      }
+      if (b === 'next') {
+        return 1
+      }
       return semver.gt(a, b) ? -1 : 1
     }
   })
