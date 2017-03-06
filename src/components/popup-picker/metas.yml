@@ -44,6 +44,11 @@ events:
     params: '`(closeType)` true表示confirm(选择确认), false表示其他情况的关闭'
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[enhance] Support PC mouse drag  #1039 @michael829'
+    zh-CN:
+      - '[enhance] 支持 PC 上鼠标选择 #1039 @michael829'
   v2.1.1-rc.1:
     en:
       - '[fix] Fix labelMarginRight #977 @wg5945'
