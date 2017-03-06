@@ -39,5 +39,3 @@ export default {
   color: @check-icon-color-checked;
 }
 </style>
-
-
