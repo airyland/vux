@@ -118,3 +118,9 @@ events:
   on-change:
     params: '`(value)`'
     zh-CN: 选择值变化时触发
+changes:
+  next:
+    en:
+      - '[enhance] Support PC mouse drag  #1039 @michael829'
+    zh-CN:
+      - '[enhance] 支持 PC 上鼠标选择 #1039 @michael829'

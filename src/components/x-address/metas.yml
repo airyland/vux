@@ -103,6 +103,11 @@ events:
     en: emits when being open
     zh-CN: 显示时触发
 changes:
+  next:
+    en:
+      - '[enhance] Support PC mouse drag  #1039 @michael829'
+    zh-CN:
+      - '[enhance] 支持 PC 上鼠标选择 #1039 @michael829'
   v2.1.0-rc.49:
     en:
       - '[feature] support `value-text-align` #921 @linhaobin'
