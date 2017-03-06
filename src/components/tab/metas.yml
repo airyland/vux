@@ -54,8 +54,10 @@ changes:
   next:
     en:
       - '[feature] Support setting bar width with prop:custom-bar-width'
+      - '[fix] Fix errors when initializing without tab-item #1038 @liu2010y'
     zh-CN:
       - '[feature] 支持定义 bar 宽度'
+      - '[fix] 修复初始化时没有 tab-item 时导致报错 #1038 @liu2010y'
   v2.1.0-rc.46:
     zh-CN:
       - '[feature] 支持设置 `bar-active-color` #715 @greedying'
