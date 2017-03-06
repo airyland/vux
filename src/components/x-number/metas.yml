@@ -69,6 +69,11 @@ props:
     en: align setting of the selecting area
     zh-CN: '按钮部分位置，默认在右边(right)，可选值为`left`和`right`'
 changes:
+  next:
+    en:
+      - '[fix] Emit on-change after nextTick'
+    zh-CN:
+      - '[fix] 在 nextTick 后触发 on-change 事件'
   v2.1.0:
     en:
       - '[feature] upgrade `WeUI`'
