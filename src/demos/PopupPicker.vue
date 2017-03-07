@@ -36,11 +36,15 @@
      <br>
      <group title="隐藏时不影响其他popup-picker的mask">
        <x-switch title="ishide popup-picker" v-model="switch6"></x-switch>
-       <popup-picker v-if="!switch6" :show.sync="showPopupPicker" title="显示值" :data="['我不会影响遮罩层'.split('')]" v-model="value6"></popup-picker>
+       <popup-picker v-if="!switch6" title="显示值" :data="['我不会影响遮罩层'.split('')]" v-model="value6"></popup-picker>
      </group>
 
      <br>
      <br>
+
+     <group title="显示格式化">
+      <popup-picker title="时间" :inline-desc="`当前值[${formatDemoValue}]`"v-model="formatDemoValue" :data="[['01','02','03'],['11','12','13']]" :display-format="format"></popup-picker>
+     </group>
   </div>
 </template>
 
@@ -156,7 +160,11 @@ export default {
       showPopupPicker: false,
       value5: ['2'],
       switch6: false,
-      value6: []
+      value6: [],
+      formatDemoValue: ['01', '12'],
+      format: function (value, name) {
+        return `${value[0]}:${value[1]}`
+      }
     }
   }
 }

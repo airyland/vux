@@ -7,8 +7,9 @@
       </div>
       <div class="vux-cell-primary vux-popup-picker-select-box">
         <div class="vux-popup-picker-select" :style="{textAlign: valueTextAlign}">
-          <span class="vux-popup-picker-value" v-if="!showName && value.length">{{value | array2string}}</span>
-          <span class="vux-popup-picker-value" v-if="showName && value.length">{{value | value2name(data)}}</span>
+          <span class="vux-popup-picker-value" v-if="!displayFormat && !showName && value.length">{{value | array2string}}</span>
+          <span class="vux-popup-picker-value" v-if="!displayFormat && showName && value.length">{{value | value2name(data)}}</span>
+          <span class="vux-popup-picker-value" v-if="displayFormat && value.length">{{ displayFormat(value) }}</span>
           <span v-if="!value.length && placeholder" v-html="placeholder"></span>
         </div>
       </div>
@@ -114,9 +115,11 @@ export default {
       type: Boolean,
       default: true
     },
-    show: Boolean
+    show: Boolean,
+    displayFormat: Function
   },
   methods: {
+    value2name,
     getNameValues () {
       return value2name(this.currentValue, this.data)
     },
