@@ -24,6 +24,8 @@ tags:
     - 多行输入框
     - 表单
 props:
+  title:
+    zh-CN: label文字
   show-counter:
     type: Boolean
     default: true
@@ -64,6 +66,11 @@ props:
     default: 0
     en: height
     zh-CN: 高度
+slots:
+  label:
+    zh-CN: '用于自定义`label`(即 title)部分内容，比如使用`icon`'
+  restricted-label:
+    zh-CN: '用于自定义`label`部分，和`slot=label`不同的是，该slot宽度受到父组件`group`的限制'
 events:
   on-change:
     params: '`(value)`'
