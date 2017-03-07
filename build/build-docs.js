@@ -452,6 +452,16 @@ nav: zh-CN
   fs.writeFileSync(getPath(`../docs/zh-CN/css.md`), docs)
 }
 
+function getVersion(version) {
+  if (!version) {
+    return ''
+  }
+  if (version === 'next') {
+    return '下个版本'
+  }
+  return version
+}
+
 function getComponentInfo(one, lang, docs, name) {
   if (one.props || one.slots) {
     if (name) {
@@ -469,7 +479,7 @@ function getComponentInfo(one, lang, docs, name) {
 `
     for (let i in one.props) {
       let prop = one.props[i][lang]
-      docs += `| ${getKeyHTML(i)} | ${getTypeHTML(one.props[i].type)} | ${getColorHTML(one.props[i])} | ${one.props[i].version ? one.props[i].version : ''} | ${prop} |\n`
+      docs += `| ${getKeyHTML(i)} | ${getTypeHTML(one.props[i].type)} | ${getColorHTML(one.props[i])} | ${getVersion(one.props[i].version)} | ${prop} |\n`
     }
   }
 
