@@ -121,11 +121,10 @@
         v-model="demo4"
         default-item-class="demo4-item"
         selected-item-class="demo4-item-selected"
-        disabled-item-class="demo4-item-disabled"
-        @on-item-click="showPopup=false">
-          <checker-item value="花跟叶">花跟叶</checker-item>
-          <checker-item value="鸟与树">鸟与树</checker-item>
-          <checker-item value="我和你">我和你</checker-item>
+        disabled-item-class="demo4-item-disabled">
+          <checker-item value="花跟叶" @on-item-click="showPopup=false">花跟叶</checker-item>
+          <checker-item value="鸟与树" @on-item-click="showPopup=false">鸟与树</checker-item>
+          <checker-item value="我和你" @on-item-click="showPopup=false">我和你</checker-item>
           <checker-item value="全套礼品装" disabled>全套礼品装</checker-item>
         </checker>
       </div>
@@ -247,9 +246,6 @@ export default {
 <style scoped>
 .box {
   padding: 0 15px;
-}
-.checker-popup {
-  background: rgba(255,255,255,0.5);
 }
 .demo1-item {
   border: 1px solid #ececec;
