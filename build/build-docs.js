@@ -453,13 +453,15 @@ nav: zh-CN
 }
 
 function getVersion(version) {
+  let rs = ''
   if (!version) {
-    return ''
+    rs = ''
+  } else if (version === 'next') {
+    rs = '下个版本'
+  } else {
+    rs = version
   }
-  if (version === 'next') {
-    return '下个版本'
-  }
-  return version
+  return `<span style="font-size:12px;white-space:nowrap;">${rs}</span>`
 }
 
 function getComponentInfo(one, lang, docs, name) {
@@ -549,7 +551,7 @@ function getComponentInfo(one, lang, docs, name) {
 }
 
 function getKeyHTML(key) {
-  return `<span class="prop-key">${key}</span>`
+  return `<span class="prop-key" style="white-space:nowrap;">${key}</span>`
 }
 
 function getTypeHTML(type) {
