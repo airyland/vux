@@ -1,12 +1,24 @@
 icon: '&#xe655;'
+extra:
+  en: |
+  
+    `Checker` is a more flexible component than `Radio` and `Checklist`.
+
+  zh-CN: |
+
+    `Checker` 是比`Radio`或者`Checklist`更加灵活的选择组件，可以自定义需要的布局样式。
+
 items:
   - checker
   - checker-item
 tags:
-  - form
-  - checker
-  - select
-  - 选择
+  en:
+    - form
+    - checker
+    - select
+  zh-CN:
+    - 表单
+    - 选择
 checker:
   props:
     default-item-class:
