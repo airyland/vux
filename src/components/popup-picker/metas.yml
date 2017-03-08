@@ -37,7 +37,7 @@ props:
     zh-CN: 'value 对齐方式(text-align)'
   display-format:
     type: Function
-    version: next
+    version: v2.1.1-rc.7
     en: 'used to format display text on cell, param: (currentValue)'
     zh-CN: 自定义在cell上的显示格式，参数为当前 value，使用该属性时，show-name 属性将失效
 events:
