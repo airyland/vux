@@ -52,6 +52,9 @@ nav: zh-CN
 </p>
 
 <p class="tip">
+  2.x 不会有影响升级的 `break change`，请放心及时更新版本。
+  <br>
+  <br>
   0.x 版本文档不完整，并且已经不再维护。请更新或者直接使用`2.x`。
   <br>
   如果你想查看`0.x`组件代码和 Demo 代码，请查看 [master 分支](https://github.com/airyland/vux/tree/master)
