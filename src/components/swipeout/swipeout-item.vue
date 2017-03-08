@@ -76,8 +76,7 @@ export default {
       }
     },
     start (ev) {
-      if (this.disabled || ev.target.nodeName.toLowerCase() === 'button' || this.isOpen) {
-        ev.preventDefault()
+      if (this.disabled || this.isOpen || ev.target.nodeName.toLowerCase() === 'button') {
         return
       }
       if (this.$parent.$options._componentTag === 'swipeout') {
@@ -135,8 +134,11 @@ export default {
       }
     },
     end (ev) {
-      if (this.disabled || ev.target.nodeName.toLowerCase() === 'button') {
+      if (this.disabled) {
         ev.preventDefault()
+        return
+      }
+      if (ev.target.nodeName.toLowerCase() === 'button') {
         return
       }
       if (this.valid === true) {

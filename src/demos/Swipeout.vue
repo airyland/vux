@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     onButtonClick (type) {
-      alert('on button click' + type)
+      alert('on button click ' + type)
     },
     handleEvents (type) {
       console.log('event: ', type)

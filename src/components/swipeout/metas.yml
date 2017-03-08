@@ -67,6 +67,11 @@ swipeout-item:
     on-close:
       zh-CN: 菜单完全关闭时触发
 changes:
+  next:
+    en:
+      - '[fix] Fix button click on Android. #1044 @tangtaoit'
+    zh-CN:
+      - '[fix] 修复 Android 下按钮点击事件不触发问题 #1044 @tangtaoit'
   v2.1.0-rc.50:
     zh-CN:
       - '[feature] `swipeout`组件`beta`版本'
