@@ -91,5 +91,6 @@
   "Msg",
   "WepayInput",
   "CellBox",
-  "XIcon"
+  "XIcon",
+  "ScrollerSwiper"
 ]
