@@ -67,7 +67,7 @@ swipeout-item:
     on-close:
       zh-CN: 菜单完全关闭时触发
 changes:
-  next:
+  v2.1.1-rc.7:
     en:
       - '[fix] Fix button click on Android. #1044 @tangtaoit'
     zh-CN:

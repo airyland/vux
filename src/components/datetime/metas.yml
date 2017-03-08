@@ -113,7 +113,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.1.1-rc.7:
     en:
       - '[enhance] Support PC mouse drag  #1039 @michael829'
     zh-CN:
