@@ -1,3 +1,10 @@
+changes:
+  next:
+    en:
+      - '[feature] support title prop'
+    zh-CN:
+      - '[feature] 支持title属性'
+
 icon: '&#xe611;'
 extra:
   zh-CN: |
@@ -7,7 +14,7 @@ extra:
         <x-textarea title="title" v-model="value"></x-textarea>
       </group>
     ```
-    
+
     <p class="tip">`x-textarea`只能在`Group`中使用</p>
 tags:
   en:
