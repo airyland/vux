@@ -1,9 +1,11 @@
 icon: '&#xe60f;'
 tags:
-  - radio
-  - form
-  - 表单
-  - 单选
+  en:
+    - radio
+    - form
+  zh-CN:
+    - 表单
+    - 单选
 extra:
   zh-CN: |
 
