@@ -2,10 +2,10 @@
   <div class="vux-header">
     <div class="vux-header-left">
       <transition :name="transition">
-        <a class="vux-header-back" @click.preventDefault v-show="leftOptions.showBack" @click="onClickBack">{{leftOptions.backText}}</a>
+        <a class="vux-header-back" @click.preventDefault v-show="_leftOptions.showBack" @click="onClickBack">{{ _leftOptions.backText || $t('back_text') }}</a>
       </transition>
       <transition :name="transition">
-        <div class="left-arrow" @click="onClickBack" v-show="leftOptions.showBack"></div>
+        <div class="left-arrow" @click="onClickBack" v-show="_leftOptions.showBack"></div>
       </transition>
       <slot name="left"></slot>
     </div>
@@ -23,19 +23,18 @@
   </div>
 </template>
 
+<i18n>
+back_text:
+  en: Back
+  zh-CN: 返回
+</i18n>
+
 <script>
+import objectAssign from 'object-assign'
+
 export default {
   props: {
-    leftOptions: {
-      type: Object,
-      default () {
-        return {
-          showBack: true,
-          backText: 'Back',
-          preventGoBack: false
-        }
-      }
-    },
+    leftOptions: Object,
     title: String,
     transition: String,
     rightOptions: {
@@ -47,9 +46,17 @@ export default {
       }
     }
   },
+  computed: {
+    _leftOptions () {
+      return objectAssign({
+        showBack: true,
+        preventGoBack: false
+      }, this.leftOptions || {})
+    }
+  },
   methods: {
     onClickBack () {
-      if (this.leftOptions.preventGoBack) {
+      if (this._leftOptions.preventGoBack) {
         this.$emit('on-click-back')
       } else {
         this.$router ? this.$router.back() : window.history.back()

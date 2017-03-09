@@ -58,5 +58,7 @@ changes:
   next:
     en:
       - '[fix] Fix transition'
+      - '[fix] Fix back-text i18n'
     zh-CN:
       - '[fix] 修复过渡动画'
+      - '[fix] 修复 返回文字 国际化'
