@@ -15,41 +15,46 @@
       <x-input title="密码" type="password" placeholder="必填" v-model="value4"></x-input>
       <popup-picker title="请选择" :data="list" v-model="value5" value-text-align="left"></popup-picker>
       <popup-picker title="请选择" placeholder="Required" :data="list" v-model="value6" value-text-align="left"></popup-picker>
-       <x-address title="地址选择" v-model="addressValue" raw-value :list="addressData" value-text-align="left"></x-address>
+      <x-address title="地址选择" v-model="addressValue" raw-value :list="addressData" value-text-align="left"></x-address>
+      <x-textarea title="详细信息" placeholder="请填写详细信息" :show-counter="false" :rows="3"></x-textarea>
+      <x-textarea placeholder="请填写详细信息" :show-counter="false" :rows="3">
+        <img slot="restricted-label" style="display:inline-block;vertical-align:middle;" src="http://dn-placeholder.qbox.me/110x110/FF2D55/000" width="24" height="24">
+      </x-textarea>
     </group>
   </div>
 </template>
 
 <script>
-import { Group, Cell, XInput, Selector, PopupPicker, Datetime, XNumber, ChinaAddressData, XAddress } from 'vux'
+  import { Group, Cell, XInput, Selector, PopupPicker, Datetime, XNumber, ChinaAddressData, XAddress, XTextarea } from 'vux'
 
-export default {
-  components: {
-    Group,
-    Cell,
-    XInput,
-    Selector,
-    PopupPicker,
-    XAddress,
-    Datetime,
-    XNumber
-  },
-  data () {
-    return {
-      addressData: ChinaAddressData,
-      addressValue: ['广东省', '深圳市', '南山区'],
-      value1: '张三',
-      value2: '工艺技术',
-      value3: '',
-      value7: '',
-      value8: '',
-      value4: '',
-      time1: '2017-06-01',
-      value5: ['A'],
-      value6: [],
-      list: [['A', 'B', 'C']],
-      numberValue: 0
+  export default {
+    components: {
+      Group,
+      Cell,
+      XInput,
+      Selector,
+      PopupPicker,
+      XAddress,
+      Datetime,
+      XNumber,
+      XTextarea
+    },
+    data () {
+      return {
+        addressData: ChinaAddressData,
+        addressValue: ['广东省', '深圳市', '南山区'],
+        value1: '张三',
+        value2: '工艺技术',
+        value3: '',
+        value7: '',
+        value8: '',
+        value4: '',
+        time1: '2017-06-01',
+        value5: ['A'],
+        value6: [],
+        list: [['A', 'B', 'C']],
+        numberValue: 0
+      }
     }
   }
-}
 </script>
