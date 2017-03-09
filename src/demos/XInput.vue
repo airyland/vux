@@ -2,12 +2,13 @@
   <div>
 
     <group title="禁用内置验证及显示成功或者错误样式">
-      <x-input title="禁用验证" placeholder="I'm placeholder" novalidate :icon-type="iconType" :show-clear="false" @on-blur="onBlur"></x-input>
+      <x-input title="禁用验证" placeholder="I'm placeholder" novalidate :icon-type="iconType" :show-clear="false" @on-blur="onBlur" placeholder-align="right"></x-input>
     </group>
-    <br>
-    <x-button @click.native="iconType = 'success'"> set success</x-button>
-    <x-button @click.native="iconType = 'error'"> set error</x-button>
-    <x-button @click.native="iconType = ''"> set empty</x-button>
+    <div style="padding:15px;">
+      <x-button @click.native="iconType = 'success'" type="primary"> set success</x-button>
+      <x-button @click.native="iconType = 'error'" type="primary"> set error</x-button>
+      <x-button @click.native="iconType = ''" type="primary"> set empty</x-button>
+    </div>
 
     <group title="is-type传入function">
       <x-input title="必须输入2333" :is-type="be2333" placeholder="I'm placeholder"></x-input>

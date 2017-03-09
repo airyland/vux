@@ -9,7 +9,7 @@
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </slot>
     </div>
-    <div class="weui-cell__bd weui-cell__primary">
+    <div class="weui-cell__bd weui-cell__primary" :class="placeholderAlign ? `vux-x-input-placeholder-${placeholderAlign}` : ''">
       <input
       v-if="!type || type === 'text'"
       class="weui-input"
@@ -231,7 +231,8 @@ export default {
       default: false
     },
     iconType: String,
-    debounce: Number
+    debounce: Number,
+    placeholderAlign: String
   },
   computed: {
     labelStyles () {
@@ -432,7 +433,12 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_vcode';
-
+.vux-x-input .vux-x-input-placeholder-right input::-webkit-input-placeholder {
+  text-align: right;
+}
+.vux-x-input .vux-x-input-placeholder-center input::-webkit-input-placeholder {
+  text-align: center;
+}
 .vux-input-icon.vux-input-icon {
   font-size: 21px;
 }
