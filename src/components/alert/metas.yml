@@ -32,6 +32,11 @@ extra:
     // 隐藏
     this.$vux.alert.hide()
     ```
+
+    <p class="class warning">
+    如果你想实现在`vue-router`的`beforeEach`或者`afterEach`的 hook 里关闭，可以使用 `Vue.$vux.alert.hide()`
+    </p>
+
   en: |
 
     This component can be imported as plugin:
