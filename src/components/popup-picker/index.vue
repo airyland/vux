@@ -190,6 +190,7 @@ export default {
 
 <style lang="less">
 @import '../../styles/variable.less';
+@import '../../styles/1px.less';
 
 .vux-cell-box {
   position: relative;
@@ -210,6 +211,12 @@ export default {
 .vux-popup-picker-header {
   height: 44px;
   color: @popup-picker-header-text-color;
+  background-color: @popup-picker-header-bg-color;
+  font-size: @popup-picker-header-font-size;
+  position: relative;
+  &:after {
+    .setBottomLine(#e5e5e5);
+  }
 }
 .vux-popup-picker-value {
   /* display: inline-block; */

@@ -50,6 +50,11 @@ events:
     params: '`(closeType)` true表示confirm(选择确认), false表示其他情况的关闭'
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[enhance] Update header style and add less variables'
+    zh-CN:
+      - '[enhance] 更新头部样式并新增 less 变量'
   v2.1.1-rc.7:
     en:
       - '[enhance] Support PC mouse drag  #1039 @michael829'
