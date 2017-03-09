@@ -1,11 +1,21 @@
 <template>
   <div class="vux-header">
     <div class="vux-header-left">
-      <a class="vux-header-back" @click.preventDefault v-show="leftOptions.showBack" :transition="transition" @click="onClickBack">{{leftOptions.backText}}</a>
-      <div class="left-arrow" @click="onClickBack" v-show="leftOptions.showBack" :transition="transition"></div>
+      <transition :name="transition">
+        <a class="vux-header-back" @click.preventDefault v-show="leftOptions.showBack" @click="onClickBack">{{leftOptions.backText}}</a>
+      </transition>
+      <transition :name="transition">
+        <div class="left-arrow" @click="onClickBack" v-show="leftOptions.showBack"></div>
+      </transition>
       <slot name="left"></slot>
     </div>
-    <h1 class="vux-header-title" @click="$emit('on-click-title')"><span v-show="title" :transition="transition">{{title}}</span><slot></slot></h1>
+    <h1 class="vux-header-title" @click="$emit('on-click-title')">
+      <slot>
+        <transition :name="transition">
+          <span v-show="title">{{title}}</span>
+        </transition>
+      </slot>
+    </h1>
     <div class="vux-header-right">
       <a class="vux-header-more" @click.preventDefault @click="$emit('on-click-more')" v-if="rightOptions.showMore"></a>
       <slot name="right"></slot>
@@ -126,18 +136,30 @@ export default {
   content: "\2022\0020\2022\0020\2022\0020";
   font-size: 16px;
 }
-.vux-header-fade-in-right-enter {
+.vux-header-fade-in-right-enter-active {
   animation: fadeinR .5s;
 }
-.vux-header-fade-in-left-enter {
+.vux-header-fade-in-left-enter-active {
   animation: fadeinL .5s;
 }
-@keyframes fadeinR{
-  0%{opacity:0;transform:translateX(80px);}
-  100%{opacity:1;transform:translateX(0);}
+@keyframes fadeinR {
+  0% {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  100% {
+    opacity:1;
+    transform:translateX(0);
+  }
 }
 @keyframes fadeinL{
-  0%{opacity:0;transform:translateX(-80px);}
-  100%{opacity:1;transform:translateX(0);}
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 </style>

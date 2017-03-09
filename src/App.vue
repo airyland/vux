@@ -4,6 +4,7 @@
     <view-box ref="viewBox" body-padding-top="46px" body-padding-bottom="55px">
       <x-header slot="header" style="width:100%;position:absolute;left:0;top:0;z-index:100;" :left-options="leftOptions"
       :title="title"
+      :transition="headerTransition"
       @on-click-title="scrollTop"></x-header>
       <div style="padding: 15px 15px;" v-show="isShowBar">
         <button-tab>
