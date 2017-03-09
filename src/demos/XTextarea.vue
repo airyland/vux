@@ -15,6 +15,7 @@
     </group>
     <group title="autosize">
       <x-textarea placeholder="Type something" :show-counter="false" :rows="1" ref="autosize"></x-textarea>
+      <x-textarea title="title" placeholder="Type something" :show-counter="false" :rows="1" ref="autosize2"></x-textarea>
     </group>
     <group>
       <x-textarea title="带标题" placeholder="请填写详细信息" :show-counter="false" :rows="3"></x-textarea>
@@ -37,6 +38,7 @@
     },
     mounted () {
       Autosize(this.$refs.autosize.$refs.textarea)
+      Autosize(this.$refs.autosize2.$refs.textarea)
     },
     beforeDestroy () {
       Autosize.destroy(this.$refs.autosize.$refs.textarea)

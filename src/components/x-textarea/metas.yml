@@ -25,7 +25,13 @@ tags:
     - 表单
 props:
   title:
+    version: next
+    en: label text
     zh-CN: label文字
+  inline-desc:
+    version: next
+    en: description text below title
+    zh-CN: 位于标题下的描述文字
   show-counter:
     type: Boolean
     default: true
@@ -68,8 +74,10 @@ props:
     zh-CN: 高度
 slots:
   label:
+    version: next
     zh-CN: '用于自定义`label`(即 title)部分内容，比如使用`icon`'
   restricted-label:
+    version: next
     zh-CN: '用于自定义`label`部分，和`slot=label`不同的是，该slot宽度受到父组件`group`的限制'
 events:
   on-change:
