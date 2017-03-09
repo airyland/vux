@@ -92,5 +92,6 @@
   "WepayInput",
   "CellBox",
   "XIcon",
-  "ScrollerSwiper"
+  "ScrollerSwiper",
+  "TabbarIcon"
 ]

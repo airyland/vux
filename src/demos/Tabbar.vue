@@ -1,7 +1,8 @@
 <template>
   <div>
     <group>
-      <cell is-link title="Tabbar Simple" link="/component/tabbar-simple"></cell>
+      <cell is-link title="Simple" link="/component/tabbar-simple"></cell>
+      <cell is-link title="Switch icons" link="/component/tabbar-icon"></cell>
     </group>
     <tabbar>
       <tabbar-item>
