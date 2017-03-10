@@ -45,7 +45,7 @@ tabbar-item:
       en: icon area
       zh-CN: 图标区域
     icon-active:
-      version: next
+      version: v2.1.1-rc.8
       en: will show when current item is activated
       zh-CN: 如果存在，当前 tabbar-item 点击时会显示，用于切换图标
     label:
@@ -56,7 +56,7 @@ tabbar-item:
       en: triggers when tabbar item is click
       zh-CN: 点击菜单项时触发
 changes:
-  next:
+  v2.1.1-rc.8:
     en:
       - '[feature] Support slot:active-icon'
     zh-CN:
