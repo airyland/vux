@@ -14,7 +14,7 @@
         </a>
       </div>
     </div>
-    <div class="weui-cell__ft" v-show="readonly">
+    <div class="weui-cell__ft vux-cell-primary" v-show="readonly">
       {{value}}
     </div>
   </div>
