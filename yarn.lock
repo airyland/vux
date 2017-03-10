@@ -4046,6 +4046,10 @@ no-case@^2.2.0:
   dependencies:
     lower-case "^1.1.1"
 
+node-cli-config@^0.0.1:
+  version "0.0.1"
+  resolved "http://registry.npm.taobao.org/node-cli-config/download/node-cli-config-0.0.1.tgz#af7774d85402a6b7cb96c1f91bb24fdd58d7c0b0"
+
 node-fetch@^1.6.3:
   version "1.6.3"
   resolved "http://registry.npm.taobao.org/node-fetch/download/node-fetch-1.6.3.tgz#dc234edd6489982d58e8f0db4f695029abcd8c04"
@@ -5918,7 +5922,7 @@ uuid@^2.0.1:
   version "2.0.3"
   resolved "http://registry.npm.taobao.org/uuid/download/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
 
-uuid@^3.0.0:
+uuid@^3.0.0, uuid@^3.0.1:
   version "3.0.1"
   resolved "http://registry.npm.taobao.org/uuid/download/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
 
@@ -6020,9 +6024,9 @@ vux-blazy@^1.6.4:
   version "1.6.4"
   resolved "http://registry.npm.taobao.org/vux-blazy/download/vux-blazy-1.6.4.tgz#e33073d902e0a3844ef1a463cce3ca2e0aab47bf"
 
-vux-loader@^1.0.46:
-  version "1.0.46"
-  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.0.46.tgz#02911278b2b0c80e225103d1e66e860479f6fd4e"
+vux-loader@^1.0.47:
+  version "1.0.47"
+  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.0.47.tgz#63705dd21fc3b376b9b7c7ea500a9b986771b079"
   dependencies:
     compare-versions "^3.0.0"
     cssnano "^3.7.4"
@@ -6030,8 +6034,10 @@ vux-loader@^1.0.46:
     js-yaml "^3.6.1"
     less "^2.7.1"
     loader-utils "^0.2.15"
+    node-cli-config "^0.0.1"
     touch "^1.0.0"
     underscore "^1.8.3"
+    uuid "^3.0.1"
     webpack-merge "^1.1.2"
     webpack-sources "^0.1.2"
 
