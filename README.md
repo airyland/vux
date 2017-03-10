@@ -54,6 +54,8 @@
 
 ## Docs
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/airyland/vux.svg)](https://greenkeeper.io/)
+
 + [中文文档](https://vux.li/)
 + English(working)
 
