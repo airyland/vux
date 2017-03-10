@@ -3,7 +3,6 @@ nav: zh-CN
 ---
 
 <p align="center">
-  <span class="big-title">VUX</span>
   <br>
    <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
     <img src="https://static.vux.li/demo_v2_doc_home.png" width="100" alt="">
@@ -365,20 +364,6 @@ console.log(Vue.wechat) // 可以直接访问 wx 对象。
   `AjaxPlugin`在`vux@^2.1.0-rc.20`开始支持
 </p>
 
-`ajax`请求推荐使用 [axios](https://github.com/mzabriskie/axios)
-
-需要注意的是`axios`是基于`Promise`的，因此如果你需要兼容低版本浏览器([caniuse](http://caniuse.com/#feat=promises))，需要引入`polyfill`。
-
-`Polyfill` 推荐使用 [es6-promise](https://github.com/stefanpenner/es6-promise)
-
-``` js
-require('es6-promise').polyfill()
-```
-
---- 
-
-如果你非常非常懒并且觉得`axios`名字比较奇怪，`VUX`直接把`axios`封装成插件，你可以直接引用插件。
-
 ``` js
 import { AjaxPlugin } from 'vux'
 Vue.use(AjaxPlugin)
@@ -387,6 +372,16 @@ console.log(Vue.http)
 ```
 
 然后你可以和`vue-resource`一样在组件内使用`this.$http`进行调用了。
+
+---
+
+`AjaxPlugin` 插件依赖于 [axios](https://github.com/mzabriskie/axios)，需要注意的是`axios`是基于`Promise`的，因此如果你需要兼容低版本浏览器([caniuse](http://caniuse.com/#feat=promises))，需要引入`polyfill`。
+
+`Polyfill` 推荐使用 [es6-promise](https://github.com/stefanpenner/es6-promise)
+
+``` js
+require('es6-promise').polyfill()
+```
 
 ## 优化
 
