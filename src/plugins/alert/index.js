@@ -11,15 +11,11 @@ const plugin = {
       document.body.appendChild($vm.$el)
     }
 
-    const closeHandler = function () {
-      $vm.showValue === true && ($vm.showValue = false)
-    }
-
     const alert = {
       show (options) {
         if (typeof options === 'object') {
           for (let i in options) {
-            if (i !== 'content') {
+            if (i !== 'content' && i !== 'onHide') {
               $vm[i] = options[i]
             } else {
               $vm.$el.querySelector('.weui-dialog__bd').innerHTML = options['content']
@@ -28,12 +24,20 @@ const plugin = {
         } else if (typeof options === 'string') {
           $vm.$el.querySelector('.weui-dialog__bd').innerHTML = options
         }
-        $vm.$el.querySelector('.weui-dialog__ft').addEventListener('click', closeHandler, false)
+        this.watcher && this.watcher()
+        this.watcher = $vm.$watch('showValue', (val) => {
+          val && options.onShow && options.onShow($vm)
+          if (val === false && options.onHide) {
+            options.onHide($vm)
+            this.watcher && this.watcher()
+          }
+        })
         $vm.showValue = true
-        options.onShow && options.onShow($vm)
       },
       hide () {
         $vm.showValue = false
+        this.watcher && this.watcher()
+        this.watcher = null
       }
     }
 

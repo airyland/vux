@@ -121,6 +121,11 @@ events:
     en: emits when dialog shows
     zh-CN: 弹窗显示时触发
 changes:
+  next:
+    en:
+      - '[fix] Fix onHide callback issue #1023 @jsonviewer'
+    zh-CN:
+      - '[fix] 修正 onHide 回调被错误调用 #1023 @jsonviewer'
   v2.0.0:
     en:
       - '[change] use `v-model` instead of `:show.sync`'
