@@ -40,13 +40,20 @@ const popupDialog = function (option) {
   this.mask.dataset.uuid += `,${this.uuid}`
   this._bindEvents()
   option = null
+  this.containerHandler = () => {
+    this.mask && !/show/.test(this.mask.className) && setTimeout(() => {
+      !/show/.test(this.mask.className) && (this.mask.style['zIndex'] = -1)
+    }, 200)
+  }
+
+  this.container.addEventListener('webkitTransitionEnd', this.containerHandler)
+  this.container.addEventListener('transitionend', this.containerHandler)
+
   return this
 }
 
 popupDialog.prototype.onClickMask = function () {
-  if (this.params.hideOnBlur && this.isShow) {
-    this.hide(false)
-  }
+  this.params.onClose()
 }
 
 popupDialog.prototype._bindEvents = function () {
@@ -55,6 +62,7 @@ popupDialog.prototype._bindEvents = function () {
 
 popupDialog.prototype.show = function () {
   this.mask.classList.add('vux-popup-show')
+  this.mask.style['zIndex'] = 500
   this.container.classList.add('vux-popup-show')
   if (this.container.classList.contains('vux-popup')) {
     this.container.classList.remove('vux-popup')
@@ -70,6 +78,9 @@ popupDialog.prototype.hide = function (shouldCallback = true) {
   this.container.classList.remove('vux-popup-show')
   if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
     this.mask.classList.remove('vux-popup-show')
+    setTimeout(() => {
+      this.mask && !/show/.test(this.mask.className) && (this.mask.style['zIndex'] = -1)
+    }, 400)
   }
   if (this.container.classList.contains('vux-popup')) {
     this.container.classList.remove('vux-popup')
@@ -93,6 +104,8 @@ popupDialog.prototype.destroy = function () {
   } else {
     this.hide()
   }
+  this.container.removeEventListener('webkitTransitionEnd', this.containerHandler)
+  this.container.removeEventListener('transitionend', this.containerHandler)
   delete window.__$vuxPopups[this.uuid]
 }
 
