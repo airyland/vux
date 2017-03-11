@@ -67,6 +67,11 @@ swipeout-item:
     on-close:
       zh-CN: 菜单完全关闭时触发
 changes:
+  next:
+    en:
+      - '[fix] Fix left-menu is shown when swiping right quickly'
+    zh-CN:
+      - '[fix] 修复向右快速滑动时左侧菜单可能会被滑出'
   v2.1.1-rc.7:
     en:
       - '[fix] Fix button click on Android. #1044 @tangtaoit'
