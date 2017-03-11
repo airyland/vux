@@ -1,5 +1,5 @@
 changes:
-  next:
+  v2.1.1-rc.9:
     en:
       - '[feature] Add dateRange tool function'
       - '[feature] format support string-type of date'

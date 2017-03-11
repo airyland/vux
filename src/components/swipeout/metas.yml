@@ -67,7 +67,7 @@ swipeout-item:
     on-close:
       zh-CN: 菜单完全关闭时触发
 changes:
-  next:
+  v2.1.1-rc.9:
     en:
       - '[fix] Fix left-menu is shown when swiping right quickly'
     zh-CN:

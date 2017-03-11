@@ -51,7 +51,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.1.1-rc.9:
     en:
       - '[feature] new component #970 @327326724'
     zh-CN:

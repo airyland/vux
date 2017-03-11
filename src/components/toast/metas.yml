@@ -81,7 +81,7 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
-  next:
+  v2.1.1-rc.9:
     en:
       - '[enhance] Reset props every time plugin.show is called #870 @jsonviewer'
     zh-CN:

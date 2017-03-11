@@ -121,7 +121,7 @@ events:
     en: emits when dialog shows
     zh-CN: 弹窗显示时触发
 changes:
-  next:
+  v2.1.1-rc.9:
     en:
       - '[fix] Fix onHide callback issue #1023 @jsonviewer'
     zh-CN:

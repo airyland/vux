@@ -21,7 +21,7 @@ props:
     en: if closing popup when mask being clicked
     zh-CN: 点击遮罩时是否自动关闭
   is-transparent:
-    version: next
+    version: v2.1.1-rc.9
     type: Boolean
     default: false
     en: if using transparent background
@@ -41,7 +41,7 @@ slots:
     en: content body
     zh-CN: 弹窗主体内容
 changes:
-  next:
+  v2.1.1-rc.9:
     en:
       - '[enhance] Better mask transition'
       - '[feature] Support tranparent background'
