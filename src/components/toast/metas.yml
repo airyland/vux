@@ -81,6 +81,11 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
+  next:
+    en:
+      - '[enhance] Reset props every time plugin.show is called #870 @jsonviewer'
+    zh-CN:
+      - '[enhance] 插件调用时每次都重置为默认参数 #870 @jsonviewer'
   v2.1.1-rc.6:
     en:
       - '[fix] fix forbidden style being overwritten #1016 @LaiXuechao'
