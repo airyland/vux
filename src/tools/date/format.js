@@ -1,4 +1,10 @@
 module.exports = function (date, fmt = 'YYYY-MM-DD HH:mm:ss') {
+  if (typeof date === 'string') {
+    date = new Date(date.replace(/-/g, '/'))
+  }
+  if (typeof date === 'number') {
+    date = new Date(date)
+  }
   var o = {
     'M+': date.getMonth() + 1,
     'D+': date.getDate(),
