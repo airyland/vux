@@ -74,6 +74,10 @@
     "icon": "&#xe63e;"
   },
   {
+    "name": "datetime-range",
+    "icon": "&#xe60a;"
+  },
+  {
     "name": "datetime",
     "icon": "&#xe60a;"
   },

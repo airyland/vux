@@ -93,5 +93,6 @@
   "CellBox",
   "XIcon",
   "ScrollerSwiper",
-  "TabbarIcon"
+  "TabbarIcon",
+  "DatetimeRange"
 ]
