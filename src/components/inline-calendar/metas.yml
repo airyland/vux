@@ -88,6 +88,11 @@ props:
     en: if disable future days
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
 changes:
+  next:
+    en:
+      - '[feature] Add more less variables. #896'
+    zh-CN:
+      - '[feature] 支持多个 less 变量. #896'
   v2.1.1-rc.5:
     en:
       - '[fix] fix render-function not reactive'
