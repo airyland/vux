@@ -85,3 +85,73 @@ It takes much time and energy to maintain and improve this project. If Vux helps
 <p align="center">
   <img src="https://o3e85j0cv.qnssl.com/vux_pay.png" width="450">
 </p>
+
+## Backers
+
+Support us with a monthly donation and help us continue our activities. [[Become a backer](https://opencollective.com/vux#backer)]
+
+<a href="https://opencollective.com/vux/backer/0/website" target="_blank"><img src="https://opencollective.com/vux/backer/0/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/1/website" target="_blank"><img src="https://opencollective.com/vux/backer/1/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/2/website" target="_blank"><img src="https://opencollective.com/vux/backer/2/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/3/website" target="_blank"><img src="https://opencollective.com/vux/backer/3/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/4/website" target="_blank"><img src="https://opencollective.com/vux/backer/4/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/5/website" target="_blank"><img src="https://opencollective.com/vux/backer/5/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/6/website" target="_blank"><img src="https://opencollective.com/vux/backer/6/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/7/website" target="_blank"><img src="https://opencollective.com/vux/backer/7/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/8/website" target="_blank"><img src="https://opencollective.com/vux/backer/8/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/9/website" target="_blank"><img src="https://opencollective.com/vux/backer/9/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/10/website" target="_blank"><img src="https://opencollective.com/vux/backer/10/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/11/website" target="_blank"><img src="https://opencollective.com/vux/backer/11/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/12/website" target="_blank"><img src="https://opencollective.com/vux/backer/12/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/13/website" target="_blank"><img src="https://opencollective.com/vux/backer/13/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/14/website" target="_blank"><img src="https://opencollective.com/vux/backer/14/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/15/website" target="_blank"><img src="https://opencollective.com/vux/backer/15/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/16/website" target="_blank"><img src="https://opencollective.com/vux/backer/16/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/17/website" target="_blank"><img src="https://opencollective.com/vux/backer/17/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/18/website" target="_blank"><img src="https://opencollective.com/vux/backer/18/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/19/website" target="_blank"><img src="https://opencollective.com/vux/backer/19/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/20/website" target="_blank"><img src="https://opencollective.com/vux/backer/20/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/21/website" target="_blank"><img src="https://opencollective.com/vux/backer/21/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/22/website" target="_blank"><img src="https://opencollective.com/vux/backer/22/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/23/website" target="_blank"><img src="https://opencollective.com/vux/backer/23/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/24/website" target="_blank"><img src="https://opencollective.com/vux/backer/24/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/25/website" target="_blank"><img src="https://opencollective.com/vux/backer/25/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/26/website" target="_blank"><img src="https://opencollective.com/vux/backer/26/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/27/website" target="_blank"><img src="https://opencollective.com/vux/backer/27/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/28/website" target="_blank"><img src="https://opencollective.com/vux/backer/28/avatar.svg"></a>
+<a href="https://opencollective.com/vux/backer/29/website" target="_blank"><img src="https://opencollective.com/vux/backer/29/avatar.svg"></a>
+
+## Sponsors
+
+Become a sponsor and get your logo on our README on Github with a link to your site. [[Become a sponsor](https://opencollective.com/vux#sponsor)]
+
+<a href="https://opencollective.com/vux/sponsor/0/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/1/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/2/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/3/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/4/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/5/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/6/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/7/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/8/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/9/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/9/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/10/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/10/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/11/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/11/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/12/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/12/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/13/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/13/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/14/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/14/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/15/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/15/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/16/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/16/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/17/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/17/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/18/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/18/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/19/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/19/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/20/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/20/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/21/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/21/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/22/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/22/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/23/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/23/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/24/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/24/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/25/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/25/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/26/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/26/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/27/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/27/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/28/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/28/avatar.svg"></a>
+<a href="https://opencollective.com/vux/sponsor/29/website" target="_blank"><img src="https://opencollective.com/vux/sponsor/29/avatar.svg"></a>
