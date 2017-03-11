@@ -314,6 +314,7 @@ function render(files, tag) {
   }
 
   buildChanges(infos)
+  buildChanges(infos, 'en')
 
   buildDemos(infos)
 
@@ -682,29 +683,14 @@ function parseChange (str) {
   return str
 }
 
-function parseTag (firstTag, tag, releases) {
+function parseTag (firstTag, tag) {
   if (tag === 'next') {
     return  `${tag} (not release yet)`
-  }
-  if (!releases.length) {
-    return tag
-  }
-  if (firstTag === tag) {
-    if (tag !== releases[0].tag) {
-      return  `${tag} (not release yet)`
-    }
   }
   return tag
 }
 
-function buildChanges(infos) {
-  let _releases = []
-  try {
-    const fetch = require('./fetch-github')
-    _releases = require(getPath('../docs/releases.json'))
-  } catch (e) {
-
-  }
+function buildChanges(infos, lang = 'zh-CN') {
 
   const toolInfos = require(getPath('../src/tools/changes.json'))
   const pluginInfos = require(getPath('../src/plugins/changes.json'))
@@ -719,12 +705,12 @@ function buildChanges(infos) {
         if (!rs[i]) {
           rs[i] = {}
         }
-        rs[i][name] = metas.changes[i]['zh-CN']
+        rs[i][name] = metas.changes[i][lang]
       }
     }
   })
   let str = `---
-nav: zh-CN
+nav: ${lang}
 ---\n`
 
   rs = sortObj(rs, {
@@ -745,13 +731,13 @@ nav: zh-CN
   for (let i in rs) {
     releases[i] = {}
     // releases += `\n # ${i}\n`
-    str += `\n### ${parseTag(firstTag, i, _releases)}_COM\n`
+    str += `\n### ${parseTag(firstTag, i)}_COM\n`
     for (let j in rs[i]) {
       // releases += `\n## ${_camelCase(j)}\n`
       releases[i][j] = []
       str += `\n#### ${_camelCase(j)}\n`
       str += `<ul>`
-      rs[i][j].forEach(one => {
+      rs[i][j] && rs[i][j].forEach(one => {
         str += `${parseChange(getChangeTagHTML(one))}`
         // releases += `- ${one}\n`
         releases[i][j].push(one)
@@ -777,6 +763,6 @@ nav: zh-CN
 
   str += '\n'
 
-  fs.writeFileSync(getPath(`../docs/zh-CN/changes.md`), str)
+  fs.writeFileSync(getPath(`../docs/${lang}/changes.md`), str)
 }
 
