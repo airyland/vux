@@ -70,28 +70,30 @@ const http = Vue.http
 * 请不要直接复制下面代码
 */
 
-wx.ready(() => {
-  console.log('wechat ready')
-  wx.onMenuShareAppMessage({
-    title: 'VUX', // 分享标题
-    desc: '基于 WeUI 和 Vue 的移动端 UI 组件库',
-    link: 'https://vux.li?x-page=wechat_share_message',
-    imgUrl: 'https://static.vux.li/logo_520.png'
+if (process.env.NODE_ENV === 'production') {
+  wx.ready(() => {
+    console.log('wechat ready')
+    wx.onMenuShareAppMessage({
+      title: 'VUX', // 分享标题
+      desc: '基于 WeUI 和 Vue 的移动端 UI 组件库',
+      link: 'https://vux.li?x-page=wechat_share_message',
+      imgUrl: 'https://static.vux.li/logo_520.png'
+    })
+
+    wx.onMenuShareTimeline({
+      title: 'VUX', // 分享标题
+      desc: '基于 WeUI 和 Vue 的移动端 UI 组件库',
+      link: 'https://vux.li?x-page=wechat_share_timeline',
+      imgUrl: 'https://static.vux.li/logo_520.png'
+    })
   })
 
-  wx.onMenuShareTimeline({
-    title: 'VUX', // 分享标题
-    desc: '基于 WeUI 和 Vue 的移动端 UI 组件库',
-    link: 'https://vux.li?x-page=wechat_share_timeline',
-    imgUrl: 'https://static.vux.li/logo_520.png'
+  const permissions = JSON.stringify(['onMenuShareTimeline', 'onMenuShareAppMessage'])
+  const url = document.location.href
+  http.post('https://vux.li/jssdk?url=' + encodeURIComponent(url.split('#')[0]) + '&jsApiList=' + permissions).then(res => {
+    wx.config(res.data.data)
   })
-})
-
-const permissions = JSON.stringify(['onMenuShareTimeline', 'onMenuShareAppMessage'])
-const url = document.location.href
-http.post('https://vux.li/jssdk?url=' + encodeURIComponent(url.split('#')[0]) + '&jsApiList=' + permissions).then(res => {
-  wx.config(res.data.data)
-})
+}
 
 import objectAssign from 'object-assign'
 
@@ -162,8 +164,10 @@ router.beforeEach(function (to, from, next) {
 
 router.afterEach(function (to) {
   store.commit('updateLoadingStatus', {isLoading: false})
-  ga && ga('set', 'page', to.fullPath)
-  ga && ga('send', 'pageview')
+  if (process.env.NODE_ENV === 'production') {
+    ga && ga('set', 'page', to.fullPath)
+    ga && ga('send', 'pageview')
+  }
 })
 
 new Vue({
