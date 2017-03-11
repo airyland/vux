@@ -484,7 +484,7 @@ function getComponentInfo(one, lang, docs, name) {
     // prop title
     docs += `\n<span class="vux-props-title">Props</span>\n`
     docs += `\n| ${t('名字')}   | ${t('类型')} | ${t('默认')}  |  version | ${t('说明')}   |
-|-------|-------|-------|-------|
+|-------|-------|-------|-------|-------|
 `
     for (let i in one.props) {
       let prop = one.props[i][lang]
@@ -496,7 +496,7 @@ function getComponentInfo(one, lang, docs, name) {
     // slot title
     docs += `\n<span class="vux-props-title">Slots</span>\n`
     docs += `\n| ${t('名字')}    | ${t('说明')}   |  ${t('版本')} |
-|-------|-------|
+|-------|-------|-------|
 `
     for (let i in one.slots) {
       let slot = one.slots[i][lang]
@@ -520,13 +520,13 @@ function getComponentInfo(one, lang, docs, name) {
   if (one.methods) {
     // slot title
     docs += `\n<span class="vux-props-title">Methods</span>\n`
-    docs += `\n| ${t('名字')}    | ${t('参数')}   | ${t('说明')} |
-|-------|-------|-------|
+    docs += `\n| ${t('名字')}    | ${t('参数')}   | ${t('说明')} | ${t('版本')} |
+|-------|-------|-------|-------|
 `
     for (let i in one.methods) {
       let intro = one.methods[i][lang]
       let params = one.methods[i]['params']
-      docs += `| ${getKeyHTML(i)} |   ${params || '&nbsp;'} | ${intro} |\n`
+      docs += `| ${getKeyHTML(i)} |   ${params || '&nbsp;'} | ${intro} |${getVersion(one.methods[i].version)} | \n`
     }
   }
 

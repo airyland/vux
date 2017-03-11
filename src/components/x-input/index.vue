@@ -262,6 +262,12 @@ export default {
     }
   },
   methods: {
+    reset (value = '') {
+      this.dirty = false
+      this.currentValue = value
+      this.firstError = ''
+      this.valid = true
+    },
     clear () {
       this.currentValue = ''
       this.$refs.input.focus()
