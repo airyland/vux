@@ -85,8 +85,11 @@ export default {
         }, 200)
       }
     },
-    value (val) {
-      this.show = val
+    value: {
+      handler: function (val) {
+        this.show = val
+      },
+      immediate: true
     }
   },
   beforeDestroy () {
