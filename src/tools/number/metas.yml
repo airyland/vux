@@ -1,0 +1,6 @@
+changes:
+  next:
+    en:
+      - '[feature] Add numberRange tool function'
+    zh-CN:
+      - '[feature] 添加数字范围生成函数'
