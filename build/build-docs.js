@@ -754,7 +754,7 @@ nav: ${lang}
 
   for (let i in releases) {
     const release = releases[i]
-    let file = getPath(`../docs/zh-CN/changes/${i}.md`)
+    let file = getPath(`../docs/zh-CN/changes/${i}_${lang}.md`)
     let content = ''
     for (let j in release) {
       content += `\n## ${_camelCase(j)}\n`
