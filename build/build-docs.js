@@ -49,8 +49,13 @@ function getPath(dir) {
 let gComponents = []
 
 let maps = {}
+saveMaps('numberRange', 'src/tools/number/range.js')
+saveMaps('dateRange', 'src/tools/date/range.js')
 
 function saveMaps(key, value) {
+  if (key === 'RangeTool') {
+    return
+  }
   if (/vux/.test(value)) {
     let index = value.indexOf('src/components')
     if (/Filter$/.test(key)) {

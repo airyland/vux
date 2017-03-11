@@ -838,7 +838,7 @@ querystring.stringify({a:'b',c:'d'}) // 'a=b&c=d'，注意不支持复杂嵌套�
 
 ``` bash
 yarn // 使用 yarn.lock 保证依赖版本一致
-yarn run dev
+yarn dev
 ```
 
 ### 本地查看文档

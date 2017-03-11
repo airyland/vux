@@ -118,7 +118,7 @@ slots:
     zh-CN: 提示内容
 events:
   on-show:
-    en: emits when dialog is show
+    en: emits when dialog shows
     zh-CN: 弹窗显示时触发
 changes:
   v2.0.0:
