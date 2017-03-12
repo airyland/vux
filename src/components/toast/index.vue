@@ -142,6 +142,9 @@ export default {
 .weui-toast.weui-toast_forbidden {
   color: #F76260;
 }
+.weui-toast.weui-toast_forbidden .weui-toast__content {
+  margin-top: 10px;  
+}
 .weui-toast.weui-toast_text{
   min-height: 0;
 }
@@ -163,7 +166,7 @@ export default {
 .weui-toast_cancel .weui-icon_toast:before {
   content: "\EA0D";
 }
-.weui-toast_forbidden .weui-icon_toast:before {
+.weui-toast_forbidden .weui-icon_toast.weui-icon-success-no-circle:before {
   content: "\EA0B";
   color: #F76260;
 }
