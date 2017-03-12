@@ -119,6 +119,7 @@ export default {
     },
     onFocus () {
       this.isFocus = true
+      this.$emit('on-focus')
       this.touch()
     },
     onBlur () {

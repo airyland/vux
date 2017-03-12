@@ -2,9 +2,9 @@
   <div>
     <img src="../assets/demo/filter_bg.jpg" style="width: 100%">
     <br>
-    <search @on-submit="onSubmit" :auto-fixed="autoFixed"></search>
+    <search @on-submit="onSubmit" :auto-fixed="autoFixed" @on-focus="onFocus"></search>
     <divider>set value</divider>
-    <search @on-submit="onSubmit" :auto-fixed="false" v-model="value2"></search>
+    <search @on-submit="onSubmit" :auto-fixed="false" v-model="value2" @on-focus="onFocus"></search>
   </div>
 </template>
 
@@ -25,6 +25,9 @@ export default {
     },
     onSubmit (val) {
       window.alert('on submit' + val)
+    },
+    onFocus () {
+      console.log('on focus')
     }
   },
   data () {
