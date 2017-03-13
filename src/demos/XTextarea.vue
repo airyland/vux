@@ -1,7 +1,7 @@
 <template>
   <div>
     <group title="textarea">
-      <x-textarea :max="20" placeholder="请填写详细信息"></x-textarea>
+      <x-textarea :max="20" placeholder="请填写详细信息" @on-focus="onEvent('focus')" @on-blur="onEvent('blur')"></x-textarea>
     </group>
     <group title="和input一起使用">
       <x-input placeholder="标题"></x-input>
@@ -35,6 +35,11 @@
       XTextarea,
       Group,
       XInput
+    },
+    methods: {
+      onEvent (event) {
+        console.log('on', event)
+      }
     },
     mounted () {
       Autosize(this.$refs.autosize.$refs.textarea)

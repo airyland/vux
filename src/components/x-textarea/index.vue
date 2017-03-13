@@ -22,6 +22,8 @@
         :rows="rows"
         :cols="cols"
         v-model="currentValue"
+        @focus="$emit('on-focus')"
+        @blur="$emit('on-blur')"
         :style="textareaStyle"
         :maxlength="max"
         ref="textarea"></textarea>
