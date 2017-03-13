@@ -52,6 +52,11 @@ slots:
     en: content area
     zh-CN: 提示文字区域
 changes:
+  next:
+    en: 
+      - '[enhance] Reset prop data when used as plugin'
+    zh-CN:
+      - '[enhance] 以插件形式使用时强制重置属性值'
   v2.0.1:
     zh-CN:
       - '[fix] i18n 无配置'
