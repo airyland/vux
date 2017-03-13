@@ -35,8 +35,10 @@ export default {
         },
         onClose () {
           _this.show = false
-          if (Object.keys(window.__$vuxPopups).length >= 1) return
-          _this.fixSafariOverflowScrolling('touch')
+          if (Object.keys(window.__$vuxPopups).length > 1) return
+          setTimeout(() => {
+            _this.fixSafariOverflowScrolling('touch')
+          }, 300)
         }
       })
       this.$overflowScrollingList = document.querySelectorAll('.vux-fix-safari-overflow-scrolling')
