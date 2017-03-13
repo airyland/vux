@@ -1,5 +1,5 @@
 import ToastComponent from '../../components/toast'
-import objectAssign from 'object-assign'
+import { mergeOptions } from '../../libs/plugin_helper'
 
 let $vm
 let watcher
@@ -29,10 +29,7 @@ const plugin = {
         if (typeof options === 'string') {
           $vm.text = options
         } else if (typeof options === 'object') {
-          const _options = objectAssign({}, defaults, options)
-          for (let i in _options) {
-            $vm[i] = _options[i]
-          }
+          mergeOptions($vm, options)
         }
         if (typeof options === 'object' && options.onShow || options.onHide) {
           watcher = $vm.$watch('show', (val) => {
