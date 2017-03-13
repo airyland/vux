@@ -55,8 +55,10 @@ changes:
   next:
     en: 
       - '[enhance] Reset prop data when used as plugin'
+      - '[enhance] Add fade transition'
     zh-CN:
       - '[enhance] 以插件形式使用时强制重置属性值'
+      - '[enhance] 添加渐现动画'
   v2.0.1:
     zh-CN:
       - '[fix] i18n 无配置'
