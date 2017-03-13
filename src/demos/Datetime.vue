@@ -4,6 +4,10 @@
       <datetime v-model="value1" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
 
+     <group :title="$t('format display value')">
+      <datetime v-model="formatValue" :display-format="formatValueFunction" @on-change="change" :title="$t('Birthday')"></datetime>
+    </group>
+
     <p class="center" @click="value1 = '2017-11-11'">{{ $t('click to change value to: 2017-11-11') }}</p>
     
     <group :title="$t('Limit hours')">
@@ -90,6 +94,8 @@ set start-date and end-date:
   zh-CN: 设置开始时间和结束日期
 'click to change value to: 2017-11-11':
   zh-CN: 设置时间为 2017-11-11
+format display value:
+  zh-CN: 格式化显示
 </i18n>
 
 <script>
@@ -113,7 +119,11 @@ export default {
       value8: '',
       limitHourValue: '',
       startDate: '2015-11-11',
-      endDate: '2017-10-11'
+      endDate: '2017-10-11',
+      formatValue: '2017-10-11',
+      formatValueFunction (val) {
+        return val.replace(/-/g, '$')
+      }
     }
   },
   methods: {

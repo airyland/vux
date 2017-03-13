@@ -107,12 +107,22 @@ props:
     default: false
     en: is required
     zh-CN: 是否必填
+  display-format:
+    version: next
+    type: Function
+    en: used to format display value
+    zh-CN: 自定义显示值
 events:
   on-change:
     params: '`(value)`'
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
+  next:
+    en:
+      - '[feature] Support prop:display-format #1086 @greedying'
+    zh-CN:
+      - '[feature] 支持格式化显示 prop:display-format #1086 @greedying'
   v2.1.1-rc.7:
     en:
       - '[enhance] Support PC mouse drag  #1039 @michael829'

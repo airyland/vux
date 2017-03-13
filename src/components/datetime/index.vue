@@ -6,7 +6,7 @@
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </div>
       <div class="weui-cell__ft vux-cell-primary vux-datetime-value" :style="{textAlign: valueTextAlign}">
-        {{ currentValue || placeholder}}
+        {{ _value }}
         <icon class="vux-input-icon" type="warn" v-show="!valid" :title="firstError"></icon>
       </div>
     </slot>
@@ -87,7 +87,8 @@ export default {
     },
     startDate: String,
     endDate: String,
-    valueTextAlign: String
+    valueTextAlign: String,
+    displayFormat: Function
   },
   created () {
     this.currentValue = this.value
@@ -108,6 +109,13 @@ export default {
     })
   },
   computed: {
+    _value () {
+      if (!this.currentValue) {
+        return this.placeholder || ''
+      } else {
+        return this.displayFormat ? this.displayFormat(this.currentValue) : this.currentValue
+      }
+    },
     pickerOptions () {
       const _this = this
       const options = {
