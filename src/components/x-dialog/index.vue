@@ -1,9 +1,8 @@
 <template>
-  <div class="vux-x-dialog fix_ios_fixed" @touchmove="onTouchMove">
+  <div class="vux-x-dialog" @touchmove="onTouchMove">
     <transition :name="maskTransition">
       <div class="weui-mask" @click="hideOnBlur && (currentValue = false)" v-show="currentValue"></div>
     </transition>
-    <input style="display:none" v-model="currentValue">
     <transition :name="dialogTransition">
       <div class="weui-dialog" v-show="currentValue" >
         <slot></slot>

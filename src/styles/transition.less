@@ -9,19 +9,19 @@
 
 .vux-dialog-enter-active,.vux-dialog-leave-active {
   opacity: 1;
-  transition-duration: .4s;
+  transition-duration: 400ms;
   transform: translate(-50%, -50%) scale(1)!important;
   transition-property: transform, opacity!important;
 }
 
-.vux-dialog-enter, .vux-dialog-leave-to {
+.vux-dialog-enter, .vux-dialog-leave-active {
   opacity: 0;
-}
-
-.vux-dialog-enter {
   transform: translate(-50%, -50%) scale(1.185)!important;
 }
 
-.vux-dialog-leave-to {
-  transform: translate(-50%, -50%) scale(1)!important;
+.vux-mask-enter, .vux-mask-leave-active {
+  opacity: 0;
+}
+.vux-mask-leave-active, .vux-mask-enter-active {
+  transition: opacity 300ms;
 }
