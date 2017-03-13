@@ -1,6 +1,8 @@
 <template>
   <div style="height:100%;">
-    <loading v-model="isLoading"></loading>
+    <div v-transfer-dom>
+      <loading v-model="isLoading"></loading>
+    </div>
     <view-box ref="viewBox" body-padding-top="46px" body-padding-bottom="55px">
       <x-header slot="header" style="width:100%;position:absolute;left:0;top:0;z-index:100;" :left-options="leftOptions"
       :title="title"
@@ -36,10 +38,13 @@
 </template>
 
 <script>
-import { ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem, Loading } from 'vux'
+import { ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem, Loading, TransferDomDirective as TransferDom } from 'vux'
 import { mapState, mapActions } from 'vuex'
 
 export default {
+  directives: {
+    TransferDom
+  },
   components: {
     ButtonTab,
     ButtonTabItem,

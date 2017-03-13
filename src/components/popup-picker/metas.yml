@@ -53,8 +53,10 @@ changes:
   next:
     en:
       - '[enhance] Fix mask render slowly in Safari. #1083 @sixiakun'
+      - '[enhance] Enable transfer-dom by default'
     zh-CN:
       - '[enhance] 修复 Safari 下遮罩层渲染慢的问题 #1083 @sixiakun'
+      - '[enhance] 默认开启 transfer-dom，解决非 Safari 也会出现的 z-index 问题'
   v2.1.1-rc.8:
     en:
       - '[enhance] Update header style and add less variables'
