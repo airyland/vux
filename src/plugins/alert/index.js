@@ -1,4 +1,6 @@
 import AlertComponent from '../../components/alert'
+import { mergeOptions } from '../../libs/plugin_helper'
+
 let $vm
 
 const plugin = {
@@ -14,12 +16,9 @@ const plugin = {
     const alert = {
       show (options) {
         if (typeof options === 'object') {
-          for (let i in options) {
-            if (i !== 'content' && i !== 'onHide') {
-              $vm[i] = options[i]
-            } else {
-              $vm.$el.querySelector('.weui-dialog__bd').innerHTML = options['content']
-            }
+          mergeOptions($vm, options)
+          if (options.content) {
+            $vm.$el.querySelector('.weui-dialog__bd').innerHTML = options['content']
           }
         } else if (typeof options === 'string') {
           $vm.$el.querySelector('.weui-dialog__bd').innerHTML = options

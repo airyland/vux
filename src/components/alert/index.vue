@@ -15,7 +15,7 @@
       <div class="weui-dialog__ft">
         <a href="javascript:;"
         class="weui-dialog__btn weui-dialog__btn_primary"
-        @click="onHide">{{buttonText || $t('button_text')}}</a>
+        @click="_onHide">{{buttonText || $t('button_text')}}</a>
       </div>
     </x-dialog>
   </div>
@@ -58,7 +58,7 @@ export default {
     }
   },
   methods: {
-    onHide () {
+    _onHide () {
       this.showValue = false
     }
   },

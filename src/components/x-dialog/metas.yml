@@ -11,7 +11,7 @@ extra:
     if you use `XDialog` inside `ViewBox` or use `overflowScrolling:touch`，please should import `directive:transfer-dom` to fix `z-index` invalid issue。
     <br>
     <br>
-    otherwise, you don's need to use `v-transfer-dom`.
+    otherwise, you don't need to use `v-transfer-dom`.
     </p>
 
     ``` js
