@@ -28,7 +28,10 @@ const popupDialog = function (option) {
     div = option.container
   }
 
-  div.className = 'vux-popup-dialog vux-popup-dialog-' + this.uuid
+  div.className = `vux-popup-dialog vux-popup-dialog-${this.uuid}`
+  if (!this.params.hideOnBlur) {
+    div.className += ' vux-popup-mask-disabled'
+  }
 
   this.div = div
 
@@ -53,7 +56,7 @@ const popupDialog = function (option) {
 }
 
 popupDialog.prototype.onClickMask = function () {
-  this.params.onClose()
+  this.params.hideOnBlur && this.params.onClose()
 }
 
 popupDialog.prototype._bindEvents = function () {

@@ -36,6 +36,7 @@ export default {
         onClose () {
           _this.show = false
           if (Object.keys(window.__$vuxPopups).length > 1) return
+          if (document.querySelector('.vux-popup-dialog.vux-popup-mask-disabled')) return
           setTimeout(() => {
             _this.fixSafariOverflowScrolling('touch')
           }, 300)
