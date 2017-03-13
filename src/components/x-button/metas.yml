@@ -45,7 +45,7 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
-  next:
+  v2.1.1-rc.10:
     en:
       - '[feature] Add default disabled bg color. #896'
     zh-CN:

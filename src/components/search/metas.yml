@@ -58,11 +58,11 @@ events:
     en: emits when result item is clicked
     zh-CN: '点击结果条目时触发，原来的`result-click`事件不符合规范已经废弃'
   on-focus:
-    version: next
+    version: v2.1.1-rc.10
     en: when input gets focus
     zh-CN: 输入框获取到焦点时触发
 changes:
-  next:
+  v2.1.1-rc.10:
     en:
       - '[feature] Add event on-focus'
     zh-CN:
