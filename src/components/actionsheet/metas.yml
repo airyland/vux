@@ -116,6 +116,11 @@ events:
     en: triggers when clicking on the cancel menu
     zh-CN: 点击取消菜单时触发
 changes:
+  next:
+    en:
+      - '[enhance] Better transition for mask'
+    zh-CN:
+      - '[enhance] 更加流畅的遮罩层动画'
   v2.1.0:
     en:
       - '[feature] support array type of menu #950 @wuchuguang'

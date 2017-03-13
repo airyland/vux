@@ -1,6 +1,8 @@
 <template>
   <div class="vux-actionsheet">
-    <div class="weui-mask weui-mask_transparent" :class="{'weui-actionsheet_toggle': show}" :style="{display: show ? 'block' : 'none'}" @click="onClickingMask"></div>
+    <transition name="vux-actionsheet-mask">
+      <div class="weui-mask weui-mask_transparent" @click="onClickingMask" v-show="show"></div>
+    </transition>
     <div class="weui-actionsheet" :class="{'weui-actionsheet_toggle': show}">
       <div class="weui-actionsheet__menu">
         <div class="weui-actionsheet__cell" v-for="(text, key) in menus" @click="onMenuClick(text, key)" v-html="$t(text.label || text)" :class="`vux-actionsheet-menu-${text.type || 'default'}`">
@@ -121,5 +123,11 @@ export default {
 }
 .vux-actionsheet-menu-disabled {
   color: @actionsheet-label-disabled-color;
+}
+.vux-actionsheet-mask-enter, .vux-actionsheet-mask-leave-active {
+  opacity: 0;
+}
+.vux-actionsheet-mask-leave-active, .vux-actionsheet-mask-enter-active {
+  transition: opacity 300ms;
 }
 </style>
