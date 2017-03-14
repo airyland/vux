@@ -96,8 +96,8 @@ export default {
       }
     },
     cancel () {
-      this.currentValue = ''
       this.isCancel = true
+      this.currentValue = ''
       this.isFixed = false
       this.$emit('on-cancel')
     },
@@ -151,8 +151,10 @@ export default {
       this.currentValue = val
     },
     currentValue (val) {
-      this.$emit('on-change', val)
-      this.$emit('input', val)
+      if (!this.isCancel) {
+        this.$emit('on-change', val)
+        this.$emit('input', val)
+      }
     }
   }
 }
