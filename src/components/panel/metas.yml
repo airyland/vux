@@ -1,21 +1,28 @@
 icon: '&#xe658;'
 props:
   header:
+    en: header title
     zh-CN: 头部文字
   footer:
     type: 'Object'
+    en: 'footer config, `{url: url, title: title}`'
     zh-CN: '尾部配置，`{url: url, title: title}`'
   list:
     type: 'Array'
+    en: content list `[{title, desc, src}]`
     zh-CN: '内容列表，[{title, desc, src}]'
   type:
     default: '1'
+    en: one of '1', '2', '3'
     zh-CN: 布局类型，可选值 ['1', '2', '3']
 events:
   on-click-header:
+    en: emits when clicking header
     zh-CN: 点击头部时触发
   on-click-item:
+    en: emits when clicking item
     params: '`(item)`'
     zh-CN: 点击内容列表时触发
   on-click-footer:
+    en: emits when clicking footer
     zh-CN: 点击尾部时触发

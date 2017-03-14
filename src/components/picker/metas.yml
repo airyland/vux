@@ -110,13 +110,16 @@ props:
     zh-CN: 选项列表数据
   columns:
     type: Number
+    en: how many columns in chained-mode
     zh-CN: 指定联动模式下的列数，当不指定时表示非联动
   fixed-columns:
     type: Number
+    en: how many columns will show
     zh-CN: 指定显示多少列，隐藏多余的
 events:
   on-change:
     params: '`(value)`'
+    en: emits when value is changed
     zh-CN: 选择值变化时触发
 changes:
   v2.1.1-rc.7:

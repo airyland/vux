@@ -14,7 +14,7 @@ props:
     zh-CN: 加载失败时添加到 img 元素上的类名
   success-class:
     en: a class name will be added to the img element if loading successfully
-    zh-cn: 加载成功时添加到 img 元素上的类名
+    zh-CN: 加载成功时添加到 img 元素上的类名
   offset:
     type: Number
     default: 100

@@ -91,16 +91,20 @@ props:
   min-hour:
     type: Number
     default: 0
+    en: min hour
     zh-CN: 限定小时最小值
   max-hour:
     type: Number
     default: 23
+    en: max hour
     zh-CN: 限定小时最大值
   start-date:
     type: String
+    en: start date
     zh-CN: '限定最小日期，注意该限制只能限定到日期，不能限定到小时分钟。小时限定请使用`min-hour`和`max-hour`'
   end-date:
     type: String
+    en: end date
     zh-CN: 限定最大日期，注意该限制只能限定到日期，不能限定到小时分钟
   required:
     type: Boolean

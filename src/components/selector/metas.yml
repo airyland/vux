@@ -30,18 +30,25 @@ tips:
 props:
   value:
     type: String,Number,Object
+    en: form value, use `v-model` for binding
     zh-CN: 表单值，使用v-model绑定
   title:
+    en: label text
     zh-CN: 标题
   direction:
+    en: align value
     zh-CN: 选项对齐方式
   options:
     type: Array
+    en: "option list, `['one', 'two']` or `[{ key: KEY, value: VALUE }]`"
     zh-CN: '选项列表，可以为简单数组，或者 `{ key: KEY, value: VALUE }` 结构的键值对数组。当使用键值对时，返回的`value`为`key`的值。'
   name:
+    en: form name
     zh-CN: 表单的name名字
   placeholder:
+    en: placeholder
     zh-CN: 提示文字
   readonly:
     default: 'false'
+    en: if the select is readonly
     zh-CN: 是否不可选择

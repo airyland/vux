@@ -16,7 +16,7 @@ props:
   type:
     type: String
     default: default
-    en:
+    en: button style type, one of default, primary, warn
     zh-CN: 按钮类型，可选值为 `default,primary,warn`
   disabled:
     type: Boolean
@@ -39,6 +39,7 @@ props:
     en: if use plain styles which has no backgroundColor
     zh-CN: 是否是plain样式，没有背景色
   action-type:
+    en: button's type value, one of `submit`, `button`, `reset`
     zh-CN: '`button`的type属性，默认为浏览器默认(submit)，可选为 `submit` `button` `reset`'
 slots:
   default:
