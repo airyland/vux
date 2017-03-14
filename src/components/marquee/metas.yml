@@ -29,6 +29,11 @@ marquee-item:
       en: content slot
       zh-CN: 内容插槽
 changes:
+  next:
+    en:
+      - '[feature] Support async marquee-item'
+    zh-CN:
+      - '[feature] 支持异步数据渲染'
   v2.1.0:
     en:
       - '[feature] new component'

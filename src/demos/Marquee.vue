@@ -13,6 +13,11 @@
         </marquee>
       </cell>
     </group>
+    <br>
+    <divider>{{ $t('Async data')}}</divider>
+    <marquee>
+      <marquee-item v-for="i in asyncCount" :key="i" @click.native="onClick(i)" class="align-middle">hello world {{i}}</marquee-item>
+    </marquee>
   </div>
 </template>
 
@@ -23,6 +28,8 @@ Used in a cell:
   zh-CN: 在 cell 中使用
 News:
   zh-CN: 公告
+Async data:
+  zh-CN: 异步数据
 </i18n>
 
 <script>
@@ -36,9 +43,19 @@ export default {
     Cell,
     Divider
   },
+  mounted () {
+    setTimeout(() => {
+      this.asyncCount = 5
+    }, 1000)
+  },
   methods: {
     onClick (i) {
       console.log(i)
+    }
+  },
+  data () {
+    return {
+      asyncCount: 0
     }
   }
 }
