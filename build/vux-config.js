@@ -15,12 +15,7 @@ module.exports = {
     env: 'dev'
   },
   plugins: [
-    {
-      name: 'vux-ui'
-    },
-    {
-      name: 'inline-manifest'
-    },
+    'vux-ui', 'inline-manifest', 'progress-bar',
     {
       name: 'js-parser',
       test: /main\.js/,
