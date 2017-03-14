@@ -17,6 +17,7 @@ docs/en/*
 !docs/**/vux-loader.md
 !docs/**/upgrade-to-2.md
 /docs/demos
+/docs/changes
 *.vue.vux.*
 src/locales/components.yml
 /dist/**/*
