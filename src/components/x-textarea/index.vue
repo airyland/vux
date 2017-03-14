@@ -27,7 +27,7 @@
         :style="textareaStyle"
         :maxlength="max"
         ref="textarea"></textarea>
-      <div class="weui-textarea-counter" v-show="showCounter && max"><span>{{count}}</span>/{{max}}</div>
+      <div class="weui-textarea-counter" v-show="showCounter && max" @click="focus"><span>{{count}}</span>/{{max}}</div>
     </div>
   </div>
 </template>
@@ -139,6 +139,11 @@
       },
       labelWidth () {
         return this.title.replace(/[^x00-xff]/g, '00').length / 2 + 1
+      }
+    },
+    methods: {
+      focus () {
+        this.$refs.textarea.focus()
       }
     }
   }
