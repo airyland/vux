@@ -4,7 +4,7 @@
     padding: 8px 10px;
     display: flex;
     box-sizing: border-box;
-    background-color: #EFEFF4;
+    background-color: @search-bg-color;
     &:before {
         .setTopLine(#D7D6DC);
     }
@@ -83,7 +83,7 @@
     z-index: 2;
     border-radius: 3px;
     text-align: center;
-    color: #9B9B9B;
+    color: @search-placeholder-font-color;
     background: #FFFFFF;
     span {
         display: inline-block;
@@ -98,7 +98,7 @@
     display: none;
     margin-left: 10px;
     line-height: 28px;
-    color: #09BB07;
+    color: @search-cancel-font-color;
     white-space: nowrap;
 }
 .weui-search-bar__input:not(:valid) ~ .weui-icon-clear {
