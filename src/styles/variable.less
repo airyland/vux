@@ -1,7 +1,5 @@
 @namespace: vux;
 
-@color-wechat-green: #04BE02;
-
 @theme-color: #04BE02;
 @opacity-disabled: 0.5;
 
@@ -169,7 +167,7 @@
 @button-tab-active-border-color: @button-tab-border-color;
 
 @button-tab-default-background-color: #fdfdfd;
-@button-tab-active-background-color: @color-wechat-green;
+@button-tab-active-background-color: @theme-color;
 
 @button-tab-active-font-color: #FFF; /* alias */
 @button-tab-active-text-color: @button-tab-active-font-color;
@@ -228,6 +226,7 @@
 @toast-top: 180px;
 @toast-position-top-offset: 10px;
 @toast-position-bottom-offset: 10px;
+@toast-z-index: 5000;
 
 
 /**
@@ -243,3 +242,8 @@
 @calendar-selected-bg-color: @theme-color;
 @calendar-disabled-font-color: #c0c0c0;
 @calendar-today-font-color: @theme-color;
+
+/**
+* search
+*/
+@search-cancel-font-color: #09BB07;
