@@ -6059,9 +6059,9 @@ vux-blazy@^1.6.4:
   version "1.6.4"
   resolved "http://registry.npm.taobao.org/vux-blazy/download/vux-blazy-1.6.4.tgz#e33073d902e0a3844ef1a463cce3ca2e0aab47bf"
 
-vux-loader@^1.0.55:
-  version "1.0.55"
-  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.0.55.tgz#80268e79177ed1759dd0e54c7dabec48c455a279"
+vux-loader@^1.0.56:
+  version "1.0.56"
+  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.0.56.tgz#db6b3c8984ce4e352a12a1260a312d12b524f0f9"
   dependencies:
     compare-versions "^3.0.0"
     cssnano "^3.7.4"
