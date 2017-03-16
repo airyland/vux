@@ -34,6 +34,20 @@
         <span class="vux-close" @click="showNoScroll=false"></span>
       </x-dialog>
     </div>
+
+    <group style="padding-top: 300px">
+      <x-switch v-model="showScrollBox" title="主体内容滚动"></x-switch>
+    </group>
+    <div v-transfer-dom>
+      <x-dialog v-model="showScrollBox" class="dialog-demo">
+        <p class="dialog-title">Long content</p>
+        <div class="img-box" style="height:100px;padding:15px 0;overflow:scroll;-webkit-overflow-scrolling:touch;">
+          <p v-for="i in 20">{{i}}</p>
+        </div>
+        <span class="vux-close" @click="showScrollBox=false"></span>
+      </x-dialog>
+    </div>
+
   </div>
 </template>
 
@@ -59,7 +73,8 @@ export default {
     return {
       show: false,
       showNoScroll: false,
-      showHideOnBlur: false
+      showHideOnBlur: false,
+      showScrollBox: false
     }
   }
 }
