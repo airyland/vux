@@ -1,10 +1,10 @@
 <template>
   <div>
-    <scroller :lock-x :scrollbar-y height="600px" v-ref:scroller style="border-bottom:1px solid green">
+    <scroller lock-x scrollbar-y height="600px" ref="scroller" style="border-bottom:1px solid green">
       <div>
         <div v-for="src in list" style="background-color:yellow;text-align:center;">
           <span style="font-size:20px;">Loading</span>
-          <x-img :src="src" :scroller="$refs.scroller" @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="300"></x-img>
+          <x-img style="min-height:100px;" :src="src" v-if="render" :scroller="$refs.scroller" @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="300"></x-img>
         </div>
       </div>
     </scroller>
@@ -17,6 +17,12 @@ export default {
   components: {
     XImg,
     Scroller
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.$refs.scroller.reset()
+      this.render = true
+    })
   },
   methods: {
     success (src, ele) {
@@ -32,6 +38,7 @@ export default {
   },
   data () {
     return {
+      render: false,
       list: [
         'https://o5omsejde.qnssl.com/demo/test1.jpg',
         'https://o5omsejde.qnssl.com/demo/test2.jpg',
