@@ -103,6 +103,11 @@ events:
     en: emits when being open
     zh-CN: 显示时触发
 changes:
+  next:
+    en:
+      - '[enhance] Simpify Address data #1101'
+    zh-CN:
+      - '[enhance] 简化市辖区数据'
   v2.1.1-rc.7:
     en:
       - '[enhance] Support PC mouse drag  #1039 @michael829'

@@ -45,7 +45,7 @@ export default {
       title: '默认为空',
       value: [],
       title2: '设置值',
-      value2: ['广东省', '深圳市', '南山区'],
+      value2: ['天津市', '市辖区', '和平区'],
       value3: ['广东省', '中山市', '--'],
       addressData: ChinaAddressData,
       value4: [],

@@ -45,7 +45,7 @@
     "autosize": "^3.0.20",
     "axios": "^0.15.3",
     "blueimp-md5": "^2.6.0",
-    "china-area-data": "^2.0.0",
+    "china-area-data": "^2.1.0",
     "countup.js": "^1.8.1",
     "fastclick": "^1.0.6",
     "lodash.debounce": "^4.0.8",
