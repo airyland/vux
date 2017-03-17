@@ -104,6 +104,13 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 npm install vux --save
 ```
 
+或者使用 `yarn`
+
+``` js
+yarn add vux // 安装
+yarn upgrade vux // 更新
+```
+
 如果你是从`0.x`更新，请参考： <a router-link="/zh-CN/upgrade-to-2" style="color:#42b983;">更新到`2.x`</a>
 
 
@@ -133,14 +140,37 @@ vux@0.x 已经停止维护，请尽快迁移到 vue@2.x & vuex@2.x & vux@2.x，�
 
 > 默认为 webpack2 模板，如果你需要使用`webpack1`，请使用 vue init airyland/vux2#webpack1 projectPath
 
-``` js
+``` bash
 npm install vue-cli -g // 如果还没安装
 vue init airyland/vux2 projectPath
 
 cd projectPath
-npm install // 使用 cnpm 安装可能会出现问题，推荐使用 npm --registry=https://registry.npm.taobao.org
+npm install --registry=https://registry.npm.taobao.org
 npm run dev
 ```
+
+<p class="warning">
+
+  请特别注意，直接使用 `cnpm` 可能会导致依赖不正确。强烈建议给 npm 设置 taobao 的 registry。
+  <br>
+
+  ```
+  npm install --registry=https://registry.npm.taobao.org
+  ```
+
+  <br>
+  <br>
+
+  如果你已经用上了 `yarn`，建议这样
+  <br>
+  ```
+  yarn config set registry https://registry.npm.taobao.org
+  ```
+  <br>
+  ```
+  yarn
+  ```
+</p>
 
 ### 调用示例
 
