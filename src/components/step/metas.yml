@@ -6,3 +6,9 @@ step:
   props: 
 step-item:
   props:
+changes:
+  next:
+    en:
+      - '[fix] use export instead of module.exports'
+    zh-CN:
+      - '[fix] 修复 import 和 module.exports 混用的问题'
