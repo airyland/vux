@@ -106,7 +106,7 @@ events:
     en: emits when being open
     zh-CN: 显示时触发
 changes:
-  next:
+  v2.1.1-rc.12:
     en:
       - '[enhance] Simpify Address data #1101'
     zh-CN:

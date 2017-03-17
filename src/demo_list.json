@@ -94,5 +94,6 @@
   "XIcon",
   "ScrollerSwiper",
   "TabbarIcon",
-  "DatetimeRange"
+  "DatetimeRange",
+  "XImgScroller#/demo/x-img-scroller"
 ]

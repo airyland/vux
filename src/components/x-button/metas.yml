@@ -63,7 +63,7 @@ changes:
   v2.1.0-rc.46:
       zh-CN:
         - '[feature] 添加`less`变量 #896 @erguotou520'
-  next:
+  v2.1.1-rc.12:
       en:
         - '[fix] Fix primary button active background-color'
       zh-CN:
