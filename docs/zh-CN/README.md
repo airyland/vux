@@ -517,12 +517,18 @@ FastClick.attach(document.body)
 <%=htmlWebpackPlugin.files.webpackManifest%>
 ```
 
-然后在`vux-loader`配置中加入`inline-manifest`插件
+然后在`vux-loader`配置的 `plugins` 列表中加入`inline-manifest`插件
 
 ``` js
 {
   name: 'inline-manifest'
 }
+```
+
+或者简化写法直接使用名字：
+
+``` js
+'inline-manifest'
 ```
 
 ## 开发
