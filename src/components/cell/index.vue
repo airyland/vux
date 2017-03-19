@@ -5,7 +5,7 @@
     </div>
     <div class="vux-cell-bd" :class="{'vux-cell-primary':primary==='title'}">
       <p>
-        <label class="weui-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title">{{title}}</label>
+        <label class="vux-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title">{{title}}</label>
         <slot name="after-title"></slot>
       </p>
       <inline-desc>{{inlineDesc}}</inline-desc>
@@ -56,5 +56,10 @@ export default {
 
 .vux-cell-primary {
   flex: 1;
+}
+.vux-label {
+  display: block;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 </style>
