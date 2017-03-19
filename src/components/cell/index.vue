@@ -5,7 +5,7 @@
     </div>
     <div class="vux-cell-bd" :class="{'vux-cell-primary':primary==='title'}">
       <p>
-        {{title}}
+        <label class="weui-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title">{{title}}</label>
         <slot name="after-title"></slot>
       </p>
       <inline-desc>{{inlineDesc}}</inline-desc>
