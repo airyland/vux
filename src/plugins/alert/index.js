@@ -14,7 +14,7 @@ const plugin = {
     }
 
     const alert = {
-      show (options) {
+      show (options = {}) {
         if (typeof options === 'object') {
           mergeOptions($vm, options)
           if (options.content) {

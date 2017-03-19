@@ -16,7 +16,7 @@ const plugin = {
     }
 
     const loading = {
-      show (options) {
+      show (options = {}) {
         // destroy watcher
         watcher && watcher()
         if (typeof options === 'string') {

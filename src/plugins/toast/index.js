@@ -5,7 +5,7 @@ let $vm
 let watcher
 
 const plugin = {
-  install (vue, options) {
+  install (vue, options = {}) {
     const Toast = vue.extend(ToastComponent)
 
     if (!$vm) {
@@ -23,7 +23,7 @@ const plugin = {
     }
 
     const toast = {
-      show (options) {
+      show (options = {}) {
         // destroy watcher
         watcher && watcher()
         if (typeof options === 'string') {

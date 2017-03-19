@@ -4,7 +4,7 @@ import { mergeOptions } from '../../libs/plugin_helper'
 let $vm
 
 const plugin = {
-  install (vue, options) {
+  install (vue, options = {}) {
     const Confirm = vue.extend(ConfirmComponent)
 
     if (!$vm) {
