@@ -80,13 +80,11 @@ export default {
   },
   watch: {
     show (val) {
-      this.fixSafariOverflowScrolling('auto')
-
       if (val) {
         this.$emit('input', true)
         this.$emit('on-show')
-      }
-      if (val) {
+        this.fixSafariOverflowScrolling('auto')
+
         clearTimeout(this.timeout)
         this.timeout = setTimeout(() => {
           this.show = false
@@ -143,7 +141,7 @@ export default {
   color: #F76260;
 }
 .weui-toast.weui-toast_forbidden .weui-toast__content {
-  margin-top: 10px;  
+  margin-top: 10px;
 }
 .weui-toast.weui-toast_text{
   min-height: 0;
