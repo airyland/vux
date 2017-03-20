@@ -22,7 +22,7 @@
         <div class="vux-popup-picker-container">
           <div class="vux-popup-picker-header">
             <flexbox>
-              <flexbox-item class="vux-popup-picker-header-menu" @click.native="onHide(false)">{{cancelText || $t('cancel_text')}}</flexbox-item>
+              <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-cancel" @click.native="onHide(false)">{{cancelText || $t('cancel_text')}}</flexbox-item>
               <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-header-menu-right" @click.native="onHide(true)">{{confirmText || $t('confirm_text')}}</flexbox-item>
             </flexbox>
           </div>
@@ -262,5 +262,8 @@ export default {
   top: 50%;
   right: 15px;
   margin-top: -3px;
+}
+.vux-popup-picker-cancel {
+  color: @popup-picker-header-cancel-text-color;
 }
 </style>
