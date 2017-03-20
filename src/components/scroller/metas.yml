@@ -144,7 +144,7 @@ props:
     type: String
     default: 'viewport height'
     en: "scroller's height, you can use `height=-40` to make scroller set to height: `viewportHeight - 40px`"
-    zh-CN: '容器高度，默认为整个viewport高度，如果你希望scroller自动计算除去头部尾部的高度，请设置成负数，如`height="-40"`'
+    zh-CN: '容器高度，默认为整个viewport高度，注意，该属性接受的是 String 类型，比如 200px，如果你希望scroller自动计算除去头部尾部的高度，请这样设置让组件自动计算，如`height="-40"`'
   lock-x:
     type: Boolean
     default: false
