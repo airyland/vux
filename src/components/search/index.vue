@@ -16,6 +16,7 @@
         </label>
       </form>
       <a href="javascript:" class="weui-search-bar__cancel-btn" @click="cancel">{{cancelText || $t('cancel_text')}}</a>
+      <slot name="right"></slot>
     </div>
     <div class="weui-cells vux-search_show" v-show="isFixed">
       <slot></slot>

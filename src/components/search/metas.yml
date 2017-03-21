@@ -62,6 +62,11 @@ events:
     en: when input gets focus
     zh-CN: 输入框获取到焦点时触发
 changes:
+  next:
+    en:
+      - '[feature] Add slot:right'
+    zh-CN:
+      - '[feature] 添加 slot=right'
   v2.1.1-rc.12:
     en:
       - '[enhance] do not emit on-change is isCancel = true'
