@@ -66,7 +66,7 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  v2.1.1-rc.13:
     en:
       - '[enhance] Use gray for cancel text color'
     zh-CN:

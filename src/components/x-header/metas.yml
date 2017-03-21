@@ -55,7 +55,7 @@ events:
     en: triggers when title is clicked
     zh-CN: 点击标题时触发
 changes:
-  next:
+  v2.1.1-rc.13:
     en:
       - '[fix] Fix cannot set empty backText #1109 @erguotou520'
     zh-CN:

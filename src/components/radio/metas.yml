@@ -75,7 +75,7 @@ props:
     en: label for fill input
     zh-CN: 可填写时的label文字
 changes:
-  next:
+  v2.1.1-rc.13:
     en:
       - '[fix] Fix not support Number and not reactive #1115'
     zh-CN:

@@ -7,7 +7,7 @@ step:
 step-item:
   props:
 changes:
-  next:
+  v2.1.1-rc.13:
     en:
       - '[fix] use export instead of module.exports'
     zh-CN:

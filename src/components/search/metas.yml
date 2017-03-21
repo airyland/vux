@@ -62,7 +62,7 @@ events:
     en: when input gets focus
     zh-CN: 输入框获取到焦点时触发
 changes:
-  next:
+  v2.1.1-rc.13:
     en:
       - '[feature] Add slot:right'
     zh-CN:
