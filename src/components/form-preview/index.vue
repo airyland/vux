@@ -20,10 +20,10 @@
 import { go } from '../../libs/router'
 
 export default {
-  props: ['headerLabel', 'headerValue', 'bodyItems', 'footerButtons'],
+  props: ['headerLabel', 'headerValue', 'bodyItems', 'footerButtons', 'name'],
   methods: {
     onButtonClick (cb, link) {
-      cb && cb()
+      cb && cb(this.name)
       if (link) {
         go(link, this.$router)
       }
