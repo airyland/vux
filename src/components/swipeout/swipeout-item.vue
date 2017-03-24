@@ -115,7 +115,7 @@ export default {
         this.direction = this.distX > 0 ? 'left' : 'right'
       }
 
-      if ((this.direction === 'right' && this.distX > 0) || (this.direction === 'left' && this.distX < 0)) {
+      if ((this.direction === 'right' && this.distX > 0 && this.hasRightMenu) || (this.direction === 'left' && this.distX < 0 && this.hasLeftMenu)) {
         this.valid = true
         ev.preventDefault()
       }
@@ -253,14 +253,15 @@ export default {
     leftButtonBoxStyle () {
       let styles = JSON.parse(JSON.stringify(this.buttonBoxStyle))
       if (this.transitionMode === 'follow') {
-        styles.transform = `translate3d(-${this.leftMenuWidth - this.distX}px, 0, 0)`
+        let offset = this.styles.transform.indexOf('(0px, 0, 0)') === -1 ? this.leftMenuWidth - this.distX : this.leftMenuWidth
+        styles.transform = `translate3d(-${offset}px, 0, 0)`
       }
       return styles
     },
     rightButtonBoxStyle () {
       let styles = JSON.parse(JSON.stringify(this.buttonBoxStyle))
       if (this.transitionMode === 'follow') {
-        let offset = this.rightMenuWidth - Math.abs(this.distX)
+        let offset = this.styles.transform.indexOf('(0px, 0, 0)') === -1 ? this.rightMenuWidth - Math.abs(this.distX) : this.rightMenuWidth
         if (offset < 0) {
           offset = 0
         }
