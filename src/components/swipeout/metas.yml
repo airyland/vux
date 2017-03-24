@@ -80,3 +80,8 @@ changes:
   v2.1.0-rc.50:
     zh-CN:
       - '[feature] `swipeout`组件`beta`版本'
+  next:
+    en:
+      - '[fix] Fix left-menu is shown when sliding back and forth #1139'
+    zh-CN:
+      - '[fix] 修复来回滑动时左侧菜单可能会被滑出 #1139'
