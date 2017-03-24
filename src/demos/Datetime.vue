@@ -8,8 +8,8 @@
       <datetime v-model="formatValue" :display-format="formatValueFunction" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
 
-    <p class="center" @click="value1 = '2017-11-11'">{{ $t('click to change value to: 2017-11-11') }}</p>
-    
+    <p class="center" @click="formatValue = '2017-11-11'">{{ $t('click to change value to: 2017-11-11') }}</p>
+
     <group :title="$t('Limit hours')">
       <datetime v-model="limitHourValue" format="YYYY-MM-DD HH:mm" :min-hour=9 :max-hour=18 @on-change="change" :title="$t('Limit hours')" :inline-desc="$t('09-18')"></datetime>
     </group>
