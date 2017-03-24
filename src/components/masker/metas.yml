@@ -10,6 +10,11 @@ props:
     default: 0.5
     en: the opacity of the mask
     zh-CN: 遮罩透明度
+  fullscreen:
+    type: Boolean
+    default: false
+    en: if masker is fullscreen
+    zh-CN: 遮罩是否全屏
 slots:
   default:
     en: content below the mask
@@ -17,3 +22,9 @@ slots:
   content:
     en: content above the mask
     zh-CN: 遮罩上方内容，一般显示标题消息
+changes:
+  next:
+    en:
+      - '[feature] Support prop:fullscreen'
+    zh-CN:
+      - '[feature] 支持通过prop设置是否全屏显示'
