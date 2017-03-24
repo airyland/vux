@@ -52,3 +52,12 @@ props:
     default: 'false'
     en: if the select is readonly
     zh-CN: 是否不可选择
+
+changes:
+  next:
+    en:
+      - '[fix] fix can not set Selector name attrbiute bug #1133'
+      - '[enhance] Selector value support Boolean. @rbao'
+    zh-CN:
+      - '[fix] 修复Selector不能设置name属性的问题#1133'
+      - '[enhance] Selector的value支持布尔型. @rbao'
