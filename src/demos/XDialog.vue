@@ -64,11 +64,6 @@ export default {
     Group,
     XSwitch
   },
-  ready () {
-    setTimeout(() => {
-      this.show = true
-    }, 10)
-  },
   data () {
     return {
       show: false,

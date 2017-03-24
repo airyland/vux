@@ -38,8 +38,11 @@ export default {
     }
   },
   watch: {
-    value (val) {
-      this.currentValue = val
+    value: {
+      handler: function (val) {
+        this.currentValue = val
+      },
+      immediate: true
     },
     currentValue (val) {
       this.$emit(val ? 'on-show' : 'on-hide')
