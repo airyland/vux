@@ -4,7 +4,7 @@
       <label for="" class="weui-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}">{{title}}</label>
     </div>
     <div class="weui-cell__bd" v-if="!readonly">
-      <select class="weui-select" v-model="currentValue" :style="{direction: direction}">
+      <select class="weui-select" v-model="currentValue" :name="name" :style="{direction: direction}">
         <option value="" v-if="typeof value === 'undefined' && placeholder" :selected="typeof value === 'undefined' && placeholder">{{placeholder}}</option>
         <option disabled v-if="!placeholder && typeof value === 'undefined' && isIOS && title"></option>
         <option :value="one.key" v-for="one in processOptions">{{one.value}}</option>
@@ -68,7 +68,7 @@ export default {
     name: String,
     placeholder: String,
     readonly: Boolean,
-    value: [String, Number, Object]
+    value: [String, Number, Object, Boolean]
   },
   data () {
     return {

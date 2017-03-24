@@ -5,7 +5,7 @@
     </group>
 
     <group title="with placeholder">
-      <selector placeholder="请选择省份" title="省份" :options="list" @on-change="onChange"></selector>
+      <selector placeholder="请选择省份" title="省份" name="district" :options="list" @on-change="onChange"></selector>
     </group>
 
     <group title="without title">
@@ -28,6 +28,10 @@
       <selector placeholder="请选择省份" title="省份" :options="list"></selector>
       <selector v-model="value2" title="省份" :options="list"></selector>
     </group>
+
+    <group :title="'boolean selector: ' + value3">
+      <selector v-model="value3" title="Vux Is Cool" :options="list2"></selector>
+    </group>
   </div>
 </template>
 
@@ -44,8 +48,10 @@ export default {
       defaultValue: '',
       plainList: ['广东', '广西'],
       list: [{key: 'gd', value: '广东'}, {key: 'gx', value: '广西'}],
+      list2: [{key: true, value: '是'}, {key: false, value: '否'}],
       value1: '广西',
       value2: 'gd',
+      value3: true,
       list1: ['A', 'B', 'C']
     }
   },
