@@ -27,7 +27,7 @@ props:
       button list, [{style: 'primary', text: 'text', onButtonClick: fn(prop:name), link: '/path'}]
     zh-CN: '底部按钮列表，default为灰色样式，primary文字为高亮颜色， [{style: "primary", text: "text", onButtonClick: fn(prop:name), link: "/path"}]'
 changes:
-  next:
+  v2.1.1-rc.14:
     en:
       - '[fix] Fix variable: form-preview-button-primary-color'
       - '[feature] Support prop:name #1123'

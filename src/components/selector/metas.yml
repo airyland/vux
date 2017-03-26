@@ -54,7 +54,7 @@ props:
     zh-CN: 是否不可选择
 
 changes:
-  next:
+  v2.1.1-rc.14:
     en:
       - '[fix] fix can not set Selector name attrbiute bug #1133'
       - '[enhance] Selector value support Boolean. @rbao'
