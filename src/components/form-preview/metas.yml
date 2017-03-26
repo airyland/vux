@@ -24,8 +24,8 @@ props:
     type: Array
     default: '[]'
     en: |
-      button list, [{style: 'primary', text: 'text', onButtonClick: fn, link: '/path'}]
-    zh-CN: '底部按钮列表，default为灰色样式，primary文字为高亮颜色， [{style: "primary", text: "text", onButtonClick: fn(), link: "/path"}]'
+      button list, [{style: 'primary', text: 'text', onButtonClick: fn(prop:name), link: '/path'}]
+    zh-CN: '底部按钮列表，default为灰色样式，primary文字为高亮颜色， [{style: "primary", text: "text", onButtonClick: fn(prop:name), link: "/path"}]'
 changes:
   next:
     en:
