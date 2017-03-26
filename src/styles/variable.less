@@ -1,12 +1,23 @@
-/**
-* Before v1.0, the variable names may change anytime.
-*/
 @namespace: vux;
-
-@color-wechat-green: #04BE02;
 
 @theme-color: #04BE02;
 @opacity-disabled: 0.5;
+
+
+/**
+* actionsheet
+*/
+@actionsheet-label-primary-color: #1AAD19;
+@actionsheet-label-warn-color: #E64340;
+@actionsheet-label-default-color: #000;
+@actionsheet-label-disabled-color: #ccc;
+
+/**
+* datetime
+*/
+@datetime-header-item-font-color: @theme-color;
+@datetime-header-item-cancel-font-color: @datetime-header-item-font-color;
+@datetime-header-item-confirm-font-color: @datetime-header-item-font-color;
 
 /**
 * tabbar
@@ -32,6 +43,11 @@
 */
 @number-button-font-color: #3cc51f;
 @number-input-font-color: #666;
+@number-button-enabled-border-color: #ececec;
+@number-square-button-enabled-border-color: @number-button-enabled-border-color;
+@number-round-button-enabled-border-color: @number-button-font-color;
+@number-button-disabled-border-color: @number-button-enabled-border-color;
+@number-round-button-disabled-border-color: @number-button-enabled-border-color;
 
 /**
 * checkbox
@@ -47,6 +63,8 @@
 * Cell
 */
 @cell-label-color: #000;
+@cell-font-size: 17px;
+@cell-tips-font-size: 14px;
 
 /**
 * Mask
@@ -88,8 +106,37 @@
 /**
 * Button
 */
-@button-warn-bg-color: #EF4F4F;
-@button-warn-active-color: #C13E3E;
+
+@button-global-border-radius: 5px;
+@button-global-font-color: #FFFFFF;
+@button-global-margin-top: 15px;
+@button-global-height: 42px;
+@button-global-disabled-font-color: rgba(255,255,255,.6);
+@button-global-active-font-color: rgba(255,255,255,.6);
+@button-global-font-size: 18px;
+
+@button-warn-bg-color: #E64340;
+@button-warn-active-color: #CE3C39;
+
+@button-default-bg-color: #F8F8F8;
+@button-default-font-color: #000000;
+@button-default-active-bg-color: #DEDEDE;
+@button-default-disabled-font-color: rgba(0,0,0,.3);
+@button-default-disabled-bg-color: #F7F7F7;
+@button-default-active-font-color: rgba(0,0,0,.6);
+
+@button-primary-bg-color: #1AAD19;
+@button-primary-active-bg-color: #179B16;
+
+/**
+* swipeout
+*/
+@swipeout-button-primary-bg-color: @button-primary-bg-color;
+@swipeout-button-warn-bg-color: @button-warn-bg-color;
+@swipeout-button-default-bg-color: #c8c7cd;
+
+@swipeout-content-bg-color: #FFF;
+@swipeout-button-font-color: #FFF;
 
 /**
 * Cell
@@ -112,9 +159,22 @@
 /**
 * Button tab
 */
-@button-tab-active-border-color: @color-wechat-green;
-@button-tab-active-background-color: @color-wechat-green;
-@button-tab-active-font-color: #FFF;
+@button-tab-border-width: 1px;
+@button-tab-border-radius: 16px;
+
+@button-tab-border-color: @theme-color;
+@button-tab-default-border-color: @button-tab-border-color;
+@button-tab-active-border-color: @button-tab-border-color;
+
+@button-tab-default-background-color: #fdfdfd;
+@button-tab-active-background-color: @theme-color;
+
+@button-tab-active-font-color: #FFF; /* alias */
+@button-tab-active-text-color: @button-tab-active-font-color;
+@button-tab-default-text-color: #999;
+
+@button-tab-height: 30px;
+@button-tab-line-height: 31px;
 
 /**
 * Swiper
@@ -130,6 +190,14 @@
 * popup-picker
 */
 @popup-picker-header-text-color: @theme-color;
+@popup-picker-header-bg-color: #fbf9fe;
+@popup-picker-header-font-size: 16px;
+@popup-picker-header-cancel-text-color: #828282;
+
+/**
+* popup
+*/
+@popup-background-color: #eee;
 
 /**
 * form-preview
@@ -140,3 +208,45 @@
 * load-more
 */
 @load-more-line-color: #E5E5E5;
+
+/**
+* sticky
+*/
+@sticky-zindex: 500;
+
+/**
+* group
+*/
+@group-title-margin-top: .77em;
+@group-title-margin-bottom: .3em;
+
+/**
+* toast
+*/
+@toast-content-font-size: 16px;
+@toast-top: 180px;
+@toast-position-top-offset: 10px;
+@toast-position-bottom-offset: 10px;
+@toast-z-index: 5000;
+
+
+/**
+* icon
+*/
+@icon-success-color: #09BB07;
+
+/**
+* calendar
+*/
+@calendar-arrow-color: @theme-color;
+@calendar-highlight-color: #E59313;
+@calendar-selected-bg-color: @theme-color;
+@calendar-disabled-font-color: #c0c0c0;
+@calendar-today-font-color: @theme-color;
+
+/**
+* search
+*/
+@search-cancel-font-color: #09BB07;
+@search-bg-color: #EFEFF4;
+@search-placeholder-font-color: #9B9B9B;

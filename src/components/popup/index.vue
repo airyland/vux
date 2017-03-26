@@ -1,6 +1,6 @@
 <template>
   <transition name="vux-popup-animate">
-    <div v-show="show" :style="{height:height}" class="vux-popup">
+    <div v-show="show" :style="styles" class="vux-popup">
       <slot></slot>
     </div>
   </transition>
@@ -16,6 +16,7 @@ export default {
       type: String,
       default: 'auto'
     },
+    isTransparent: Boolean,
     hideOnBlur: {
       type: Boolean,
       default: true
@@ -34,8 +35,11 @@ export default {
         },
         onClose () {
           _this.show = false
-          if (Object.keys(window.__$vuxPopups).length >= 1) return
-          _this.fixSafariOverflowScrolling('touch')
+          if (Object.keys(window.__$vuxPopups).length > 1) return
+          if (document.querySelector('.vux-popup-dialog.vux-popup-mask-disabled')) return
+          setTimeout(() => {
+            _this.fixSafariOverflowScrolling('touch')
+          }, 300)
         }
       })
       this.$overflowScrollingList = document.querySelectorAll('.vux-fix-safari-overflow-scrolling')
@@ -48,7 +52,7 @@ export default {
     */
     fixSafariOverflowScrolling (type) {
       if (!this.$overflowScrollingList.length) return
-      if (!/iphone/i.test(navigator.userAgent)) return
+      // if (!/iphone/i.test(navigator.userAgent)) return
       for (let i = 0; i < this.$overflowScrollingList.length; i++) {
         this.$overflowScrollingList[i].style.webkitOverflowScrolling = type
       }
@@ -60,18 +64,33 @@ export default {
       show: this.value
     }
   },
+  computed: {
+    styles () {
+      let styles = {
+        height: this.height
+      }
+      if (this.isTransparent) {
+        styles['background'] = 'transparent'
+      }
+      return styles
+    }
+  },
   watch: {
     show (val) {
       this.$emit('input', val)
       if (val) {
         this.popup.show()
         this.$emit('on-show')
+        this.fixSafariOverflowScrolling('auto')
         if (!this.hasFirstShow) {
           this.$emit('on-first-show')
           this.hasFirstShow = true
         }
       } else {
         this.$emit('on-hide')
+        if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
+          this.fixSafariOverflowScrolling('touch')
+        }
         this.show = false
         this.popup.hide(false)
       }
@@ -87,14 +106,16 @@ export default {
 }
 </script>
 
-<style>
-.vux-popup-dialog {
+<style lang="less">
+@import '../../styles/variable.less';
+
+.vux-popup-dialog,.vux-popup {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background: #eee;
-  z-index: 101;
+  background: @popup-background-color;
+  z-index: 501;
   transition-property: transform;
   transition-duration: 300ms;
 }
@@ -109,11 +130,10 @@ export default {
   opacity: 0;
   tap-highlight-color: rgba(0,0,0,0);
   z-index: -1;
+  transition: opacity 400ms;
 }
 .vux-popup-mask.vux-popup-show {
   opacity: 1;
-  z-index: 100;
-  transition: opacity 0.3s;
 }
 .vux-popup-animate-transiton {}
 .vux-popup-animate-enter {

@@ -10,31 +10,38 @@ tags:
     - 星级
     - 评分
 props:
-  max: 
+  max:
     type: Number
     default: 5
+    en: total star number
     zh-CN: 最多可选个数
   value:
     type: Number
     default: 0
+    en: selected value, use `v-model` for binding
     zh-CN: 值，使用 v-model 绑定
-  disabled: 
+  disabled:
     type: Boolean
     default: false
+    en: if disabled
     zh-CN: 是否禁用
   star:
     type: String
     default: '★'
+    en: start's symbol text
     zh-CN: 字符
   active-color:
-    type: String,
+    type: String
     default: '#fc6'
+    en: symbol color when selected
     zh-CN: 选中时的颜色
   margin:
     type: Number
     default: 2
+    en: margin value
     zh-CN: 间隙值
-  fontSize:
+  font-size:
     type: Number
     default: 25
+    en: font size
     zh-CN: 字体大小

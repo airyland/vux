@@ -1,6 +1,8 @@
 // https://www.deboy.cn/set-wechat-title-in-vuejs-spa.html
-export default {
-  install(Vue, opts) {
+// This plugin no longer works for wechat(WKWebView)
+
+const plugin = {
+  install (Vue, opts) {
     if (!Vue.$vux) {
       Vue.$vux = {
         setTitle: setTitle
@@ -31,3 +33,6 @@ var setTitle = function (title, url = '/favicon.ico') {
     document.body.appendChild(iframe)
   }
 }
+
+export default plugin
+export const install = plugin.install

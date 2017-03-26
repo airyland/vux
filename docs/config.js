@@ -35,6 +35,10 @@ self.$config = {
         {
           title: '布局',
           path: '/zh-CN/components_layout'
+        },
+        {
+          title: '样式工具',
+          path: '/zh-CN/css'
         }]
       },
       {
@@ -42,14 +46,14 @@ self.$config = {
         path: '/zh-CN/vux-loader'
       },
       {
-        title: '更新到v2.x',
+        title: '版本更新',
         type: 'dropdown',
         items: [{
-          title: '更新到v2.x',
-          path: '/zh-CN/upgrade-to-2'
-        },{
           title: '版本更新历史',
           path: '/zh-CN/changes'
+        }, {
+          title: '更新到v2.x',
+          path: '/zh-CN/upgrade-to-2'
         }]
         
       },

@@ -1,42 +1,54 @@
 icon: '&#xe60b;'
 tags:
-  - range
-  - form
-  - 选择
-  - 表单
+  en:
+    - range
+    - form
+  zh-CN:
+    - 选择
+    - 表单
 props:
   value:
     type: Number
     default: 0
+    en: form value, use `v-model` for binding
     zh-CN: 表单值，使用`v-model`绑定
   decimal:
     type: Boolean
     default: false
+    en: if show decimals when value is changed
     zh-CN: 是否在变化时显示小数
   min:
     type: Number
     default: 0
+    en: min number
     zh-CN: 可选最小值
   max:
     type: Number
     default: 100
+    en: max number
     zh-CN: 可选最大值
   step:
     type: Number
     default: 1
+    en: step value
     zh-CN: 步长
   disabled:
     type: Boolean
     default: false
+    en: if disabled
     zh-CN: 是否禁用
   minHTML:
+    en: custom html template for min value
     zh-CN: 最小值显示的html模板
   maxHTML:
+    en: custom html template for max value
     zh-CN: 最大值显示的html模板
-  disabledOpacity:
+  disabled-opacity:
     type: Number
+    en: opacity value when is disabled
     zh-CN: 禁用样式的透明度
   rangeBarHeight:
     type: Number
     default: 1
+    en: range bar's height
     zh-CN: 高度

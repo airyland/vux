@@ -2,16 +2,40 @@
   <div>
 
     <group title="禁用内置验证及显示成功或者错误样式">
-      <x-input title="禁用验证" placeholder="I'm placeholder" novalidate :icon-type="iconType" :show-clear="false"></x-input>
+      <x-input title="禁用验证" placeholder="I'm placeholder" novalidate :icon-type="iconType" :show-clear="false" @on-blur="onBlur" placeholder-align="right"></x-input>
     </group>
-    <br>
-    <x-button @click.native="iconType = 'success'"> set success</x-button>
-    <x-button @click.native="iconType = 'error'"> set error</x-button>
-    <x-button @click.native="iconType = ''"> set empty</x-button>
+    <div style="padding:15px;">
+      <x-button @click.native="iconType = 'success'" type="primary"> set success</x-button>
+      <x-button @click.native="iconType = 'error'" type="primary"> set error</x-button>
+      <x-button @click.native="iconType = ''" type="primary"> set empty</x-button>
+    </div>
 
     <group title="is-type传入function">
       <x-input title="必须输入2333" :is-type="be2333" placeholder="I'm placeholder"></x-input>
     </group>
+
+    <group title="使用icon代替title">
+      <x-input title="必须输入2333" :is-type="be2333" placeholder="I'm placeholder">
+        <img slot="label" style="padding-right:10px;display:block;" src="http://dn-placeholder.qbox.me/110x110/FF2D55/000" width="24" height="24">
+      </x-input>
+    </group>
+
+    <group title="max is alias to maxlength">
+      <x-input title='max=5' :max="5" @on-change="change" v-model="maxValue"></x-input>
+    </group>
+
+    <group title="debounce = 1000">
+      <x-input title='debounce' :debounce="500" @on-change="change" v-model="debounceValue"></x-input>
+    </group>
+
+    <group title="disabled">
+      <x-input title='value' disabled v-model="disabledValue"></x-input>
+    </group>
+
+    <group title="set type = tel">
+      <x-input title='value' type="tel"></x-input>
+    </group>
+
 
     <group title="html title">
       <x-input :title='`<span style="${style}">hello</span>`' placeholder="I'm placeholder"></x-input>
@@ -26,6 +50,10 @@
 
     <group title="不显示清除按钮">
       <x-input title="message" required placeholder="I'm placeholder" :show-clear="false" autocapitalize="characters"></x-input>
+    </group>
+
+    <group title="focus事件">
+      <x-input title="focus-handler" placeholder="focus me!" :show-clear="true" @on-focus="onFocus"></x-input>
     </group>
 
     <group title="set is-type=china-name">
@@ -49,12 +77,12 @@
       <x-input title="请确认6位数字" v-model="password2" type="text" placeholder="" :equal-with="password"></x-input>
     </group>
 
-    <group title="验证码" class="weui_cells_form">
-      <x-input title="验证码" class="weui_vcode">
-        <img slot="right" src="http://weui.github.io/weui/images/vcode.jpg">
+    <group title="验证码" class="weui-cells_form">
+      <x-input title="验证码" class="weui-cell_vcode">
+        <img slot="right" class="weui-vcode-img" src="http://weui.github.io/weui/images/vcode.jpg">
       </x-input>
-      <x-input title="发送验证码" class="weui_vcode">
-        <x-button slot="right" type="primary">发送验证码</x-button>
+      <x-input title="发送验证码" class="weui-vcode">
+        <x-button slot="right" type="primary" mini>发送验证码</x-button>
       </x-input>
     </group>
 
@@ -94,7 +122,10 @@ export default {
           msg: 'Must be 2333'
         }
       },
-      style: ''
+      style: '',
+      disabledValue: 'hello',
+      debounceValue: '',
+      maxValue: ''
     }
   },
   methods: {
@@ -106,16 +137,17 @@ export default {
     },
     change (val) {
       console.log(val)
+    },
+    onBlur (val) {
+      console.log('on blur', val)
+    },
+    onFocus (val) {
+      console.log('on focus', val)
     }
   }
 }
 </script>
 <style scoped>
-.weui_cell_ft .weui_btn {
-  margin-left: 5px;
-  vertical-align: middle;
-  display: inline-block;
-}
 .red {
   color: red;
 }

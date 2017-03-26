@@ -2,15 +2,23 @@
   <div class="inline-calendar" :class="{'is-weekend-highlight': highlightWeekend}">
     <div class="calendar-header" v-show="!hideHeader">
       <div class="calendar-year">
-        <a class="year-prev vux-prev-icon" href="javascript:" @click="go(year - 1, month)"></a>
+        <span @click="go(year - 1, month)">
+          <a class="year-prev vux-prev-icon" href="javascript:"></a>
+        </span>
         <a class="calendar-year-txt calendar-title" href="javascript:">{{year}}</a>
-        <a class="year-next vux-next-icon" href="javascript:" @click="go(year + 1, month)"></a>
+        <span class="calendar-header-right-arrow" @click="go(year + 1, month)">
+          <a class="year-next vux-next-icon" href="javascript:"></a>
+        </span>
       </div>
 
       <div class="calendar-month">
-        <a @click="prev" class="month-prev vux-prev-icon" href="javascript:"></a>
+        <span @click="prev">
+          <a class="month-prev vux-prev-icon" href="javascript:"></a>
+        </span>
         <a class="calendar-month-txt calendar-title" href="javascript:">{{months[month]}}</a>
-        <a @click="next" class="month-next vux-next-icon" href="javascript:"></a>
+        <span @click="next" class="calendar-header-right-arrow">
+          <a class="month-next vux-next-icon" href="javascript:"></a>
+        </span>
       </div>
     </div>
 
@@ -23,9 +31,9 @@
       <tbody>
         <tr v-for="(day,k1) in days">
           <td
+          v-for="(child,k2) in day"
           :data-date="formatDate(year, month, child)"
           :data-current="currentValue"
-          v-for="(child,k2) in day"
           :class="buildClass(k2, child, formatDate(year, month, child) === currentValue && !child.isLastMonth && !child.isNextMonth)"
           @click="select(k1,k2,$event)">
             <span
@@ -92,6 +100,9 @@ export default {
       }
       this.$emit('on-change', val)
       this.$emit('input', val)
+    },
+    renderFunction () {
+      this.render(this.year, this.month, this.currentValue)
     },
     returnSixRows (val) {
       this.render(this.year, this.month, this.currentValue)
@@ -170,7 +181,23 @@ export default {
 }
 </script>
  
-<style>
+<style lang="less">
+@import '../../styles/variable.less';
+
+.calendar-year > span, .calendar-month > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  padding: 8px;
+  width: 24px;
+  height: 24px;
+}
+
+.calendar-year > span.calendar-header-right-arrow, .calendar-month > span.calendar-header-right-arrow {
+  left: auto;
+  right: 0;
+}
 .vux-prev-icon, .vux-next-icon {
   position: absolute;
   left: 0;
@@ -178,7 +205,7 @@ export default {
   display: inline-block;
   width: 12px;
   height: 12px;
-  border: 1px solid #04be02;
+  border: 1px solid @calendar-arrow-color;
   border-radius: 0;
   border-top: none;
   border-right: none;
@@ -192,19 +219,11 @@ export default {
   top: 14px;
   right: 15px;
 }
-.vux-prev-icon:before {
-  display: block;
-  width: 12px;
-  height: 12px;
-  border: 1px solid #04be02;
-  border-width: 1px 0 0 1px;
-  transform: rotate(315deg)
-}
 .is-weekend-highlight td.is-week-list-0,
 .is-weekend-highlight td.is-week-list-6,
 .is-weekend-highlight td.is-week-0,
 .is-weekend-highlight td.is-week-6 {
-  color: #E59313;
+  color: @calendar-highlight-color;
 }
 .inline-calendar a {
   text-decoration: none;
@@ -224,7 +243,7 @@ export default {
   text-align: center;
   overflow: hidden;
 }
-.calendar-header a:last-of-type {
+.calendar-header span:last-of-type {
   float: right;
   vertical-align: bottom;
 }
@@ -264,7 +283,7 @@ export default {
   transition: all .5s ease;
 }
 .inline-calendar td.is-today, .inline-calendar td.is-today.is-disabled {
-  color: #04be02;
+  color: @calendar-today-font-color;
 }
 .calendar-enter, .calendar-leave-active {
   opacity: 0;
@@ -334,7 +353,7 @@ export default {
   cursor: default !important;
 }
 .inline-calendar td.is-disabled {
-  color: #c0c0c0;
+  color: @calendar-disabled-font-color;
   pointer-events:none !important;
   cursor: default !important;
 }
@@ -346,56 +365,8 @@ export default {
   border-radius: 50%;
   text-align: center;
 }
-.inline-calendar td.placeholder {
-}
-.vux-calendar-range.inline-calendar td.current {
-  background-color: #04be02;
-}
-.vux-calendar-range table {
-  margin-bottom: 10px;
-}
 .inline-calendar td.current > span {
-  background-color: #04be02;
+  background-color: @calendar-selected-bg-color;
   color: #fff;
-}
-.inline-calendar .timer{
-  margin:10px 0;
-  text-align: center;
-}
-.inline-calendar .timer input{
-  border-radius: 2px;
-  padding:5px;
-  font-size: 14px;
-  line-height: 18px;
-  color: #5e7a88;
-  width: 50px;
-  text-align: center;
-  border:1px solid #efefef;
-}
-.inline-calendar .timer input:focus{
-  border:1px solid #5e7a88;
-}
-.calendar-button{
-  text-align: center;
-}
-.calendar-button button{
-  border:none;
-  cursor: pointer;
-  display: inline-block;
-  min-height: 1em;
-  min-width: 8em;
-  vertical-align: baseline;
-  background:#5e7a88;
-  color:#fff;
-  margin: 0 .25em 0 0;
-  padding: .8em 2.5em;
-  font-size: 1em;
-  line-height: 1em;
-  text-align: center;
-  border-radius: .3em;
-}
-.calendar-button button.cancel{
-  background:#efefef;
-  color:#666;
 }
 </style>

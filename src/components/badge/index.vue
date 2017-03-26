@@ -24,6 +24,7 @@ export default {
   border-radius: 8px;
   padding: 0 6px;
   background-clip: padding-box;
+  vertical-align: middle;
 }
 .vux-badge-single {
   padding: 0;

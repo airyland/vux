@@ -3,78 +3,63 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 var fs = require('fs')
+var vueLoaderConfig = require('./vue-loader.conf')
 
 var argv = require('yargs').argv
 argv.simulate = argv.simulate || false
 
-var env = process.env.NODE_ENV
-// check env & config/index.js to decide whether to enable CSS source maps for the
-// various preprocessor loaders added to vue-loader at the end of this file
-var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
-var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
-var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
 
-const webpackConfig = module.exports = {
+const webpackConfig = {
   entry: {
     app: './src/main.js'
   },
   output: {
     path: config.build.assetsRoot,
-    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: process.env.NODE_ENV === 'production'
+      ? config.build.assetsPublicPath
+      : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['', '.js', '.vue', '.json'],
-    fallback: [path.join(__dirname, '../node_modules')],
+    extensions: ['.js', '.vue', '.json'],
+    modules: [
+      resolve('src'),
+      resolve('node_modules')
+    ],
     alias: {
       'vue$': 'vue/dist/vue.common.js',
-      'src': path.resolve(__dirname, '../src'),
-      'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components')
+      'src': resolve('src'),
+      'assets': resolve('src/assets'),
+      'components': resolve('src/components')
     }
   },
-  resolveLoader: {
-    fallback: [path.join(__dirname, '../node_modules')]
-  },
   module: {
-    preLoaders: [
+    rules: [
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: "pre",
+        include: [resolve('src'), resolve('test')],
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
+      },
       {
         test: /\.vue$/,
-        loader: 'eslint',
-        include: [
-          path.join(projectRoot, 'src')
-        ],
-        exclude: /node_modules/
+        loader: 'vue-loader',
+        options: vueLoaderConfig
       },
       {
         test: /\.js$/,
-        loader: 'eslint',
-        include: [
-          path.join(projectRoot, 'src')
-        ],
-        exclude: /node_modules/
-      }
-    ],
-    loaders: [
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        include: [
-          path.join(projectRoot, 'src')
-        ],
-        exclude: /node_modules/
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
+        loader: 'babel-loader',
+        include: [resolve('src'), resolve('test')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
@@ -82,91 +67,17 @@ const webpackConfig = module.exports = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
     ]
-  },
-  eslint: {
-    formatter: require('eslint-friendly-formatter')
-  },
-  vue: {
-    loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
-    postcss: [
-      require('autoprefixer')({
-        browsers: ['last 2 versions']
-      })
-    ]
   }
 }
-
 
 const vuxLoader = require('vux-loader')
+const vuxConfig = require('./vux-config')
+module.exports = vuxLoader.merge(webpackConfig, vuxConfig)
 
-const demoPath = path.resolve(__dirname, '../src/demo_list.json')
-
-module.exports = vuxLoader.merge(webpackConfig, {
-  options: {
-    vuxDev: !argv.simulate, // true
-    vuxSetBabel: argv.simulate, // false
-    vuxWriteFile: true,
-    env: 'dev'
-  },
-  plugins: [
-    {
-      name: 'vux-ui'
-    },
-    {
-      name: 'js-parser',
-      test: /main\.js/,
-      fn: function (source) {
-        this.addDependency(demoPath)
-        let list = fs.readFileSync(demoPath, 'utf-8')
-        list = JSON.parse(list)
-        let str = []
-        list.forEach(one => {
-          str.push(`{
-  path: '/component/${toDash(one)}',
-  component: function (resolve) {
-    require(['./demos/${one}.vue'], resolve)
-  }
-}`)
-        })
-
-        // 404 page
-        str.push(`{
-  path: '*',
-  component: function (resolve) {
-    require(['./demos/NotFoundComponent.vue'], resolve)
-  }
-}`)
-
-        str = `[${str.join(',\n')}]`
-        source = source.replace('const routes = []', 'const routes = ' + str)
-        return source
-      }
-    },
-    {
-      name: 'duplicate-style'
-    },
-    {
-      name: 'i18n',
-      staticReplace: false,
-      extractToFiles: 'src/locales/components.yml',
-      localeList: ['en', 'zh-CN']
-    },
-    {
-      name: 'less-theme',
-      path: 'src/theme.less'
-    }
-  ]
-})
-
-function toDash(str) {
-  return str.replace(/([A-Z])/g, function (m, w) {
-    return '-' + w.toLowerCase();
-  }).replace('-', '')
-}

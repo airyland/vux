@@ -76,7 +76,7 @@ export default {
   height: 1px;
   position: absolute;
   left: 0;
-  top: 10px;
+  top: 12px;
   padding: 0 0;
   transition: all 0.4s ease 0s;
 }
@@ -89,9 +89,18 @@ export default {
   background: #CCC none repeat scroll 0 0;
 }
 
+.vux-step-item-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  text-align: center;
+}
+
 .vux-step-item-checked::before {
-  font-size: 15px;
-  transform: translateY(-10%);
+  font-size: 15px!important;
+  line-height: 22px;
+  margin: 0!important;
+  transform: translateY(-4px);
 }
 
 .vux-step-item-title {
@@ -104,11 +113,12 @@ export default {
   margin-right: -4px;
 
   .vux-step-item-head-inner {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
     border-radius: 99px;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 14px;
     transition: all 0.4s ease 0s;
     background: #fff none repeat scroll 0 0;
   }

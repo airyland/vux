@@ -22,6 +22,7 @@
   margin: 0 auto;
   width: 100%;
   z-index: 3;
+  transform: translateZ(0px);
   background-image:
     -webkit-linear-gradient(top, rgba(255,255,255,0.95), rgba(255,255,255,0.6)),
     -webkit-linear-gradient(bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.6));

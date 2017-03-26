@@ -1,10 +1,11 @@
 import ToastComponent from '../../components/toast'
+import { mergeOptions } from '../../libs/plugin_helper'
 
 let $vm
 let watcher
 
-export default {
-  install (vue, options) {
+const plugin = {
+  install (vue, options = {}) {
     const Toast = vue.extend(ToastComponent)
 
     if (!$vm) {
@@ -14,16 +15,21 @@ export default {
       document.body.appendChild($vm.$el)
     }
 
+    const defaults = {}
+    for (let i in $vm.$options.props) {
+      if (i !== 'value') {
+        defaults[i] = $vm.$options.props[i].default
+      }
+    }
+
     const toast = {
-      show (options) {
+      show (options = {}) {
         // destroy watcher
         watcher && watcher()
         if (typeof options === 'string') {
           $vm.text = options
         } else if (typeof options === 'object') {
-          for (let i in options) {
-            $vm[i] = options[i]
-          }
+          mergeOptions($vm, options)
         }
         if (typeof options === 'object' && options.onShow || options.onHide) {
           watcher = $vm.$watch('show', (val) => {
@@ -54,3 +60,7 @@ export default {
     })
   }
 }
+
+export default plugin
+export const install = plugin.install
+

@@ -1,15 +1,16 @@
 <template>
-  <i :class="className"></i>
+  <i :class="[className, isMsg ? 'weui-icon_msg' : '']"></i>
 </template>
 
 <script>
 export default {
   props: {
-    type: String
+    type: String,
+    isMsg: Boolean
   },
   computed: {
-    className () {
-      return `weui_icon weui_icon_${this.type}`
+    className () { // compatible with old type param
+      return `weui-icon weui_icon_${this.type} weui-icon-${this.type.replace(/_/g, '-')}`
     }
   }
 }
@@ -18,11 +19,10 @@ export default {
 <style lang="less">
 @import '../../styles/weui/icon/weui_icon_font';
 
-.icon_big:before {
-  font-size: 104px;
-}
-
-.icon_small:before {
-  font-size: 12px;
+/**
+following styles will be removed after v3.0.0
+*/
+.icon-big:before {
+  font-size: 93px;
 }
 </style>

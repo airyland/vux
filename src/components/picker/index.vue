@@ -1,7 +1,7 @@
 <template>
   <div class="vux-picker">
     <flexbox :gutter="0">
-      <flexbox-item v-for="(one, index) in currentData" style="margin-left:0;">
+      <flexbox-item v-for="(one, index) in currentData" :key="index" style="margin-left:0;">
         <div class="vux-picker-item" :id="'vux-picker-' + uuid + '-' + index"></div>
       </flexbox-item>
     </flexbox>

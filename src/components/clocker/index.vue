@@ -6,7 +6,8 @@
 </template>
 
 <script>
-const Clocker = require('./clocker')
+import Clocker from './clocker'
+
 export default {
   mounted () {
     this.$nextTick(() => {

@@ -33,6 +33,10 @@
     "icon": "&#xe658;"
   },
   {
+    "name": "cell-box",
+    "icon": "&#xe62a;"
+  },
+  {
     "name": "cell",
     "icon": "&#xe62a;"
   },
@@ -68,6 +72,10 @@
   {
     "name": "countup",
     "icon": "&#xe63e;"
+  },
+  {
+    "name": "datetime-range",
+    "icon": "&#xe60a;"
   },
   {
     "name": "datetime",
@@ -118,8 +126,20 @@
     "icon": "&#xe610;"
   },
   {
+    "name": "marquee",
+    "icon": "&#xe662;",
+    "items": [
+      "marquee",
+      "marquee-item"
+    ]
+  },
+  {
     "name": "masker",
     "icon": "&#xe651;"
+  },
+  {
+    "name": "msg",
+    "icon": "&#xe619;"
   },
   {
     "name": "panel",
@@ -191,6 +211,15 @@
     "icon": "&#xe623;"
   },
   {
+    "name": "swipeout",
+    "icon": "&#xe641;",
+    "items": [
+      "swipeout",
+      "swipeout-item",
+      "swipeout-button"
+    ]
+  },
+  {
     "name": "swiper",
     "icon": "&#xe612;"
   },
@@ -219,6 +248,10 @@
     "icon": "&#xe625;"
   },
   {
+    "name": "view-box",
+    "icon": "&#xe641;"
+  },
+  {
     "name": "wechat-emotion",
     "icon": "&#xe63c;"
   },
@@ -241,6 +274,10 @@
   {
     "name": "x-header",
     "icon": "&#xe654;"
+  },
+  {
+    "name": "x-icon",
+    "icon": "&#xe619;"
   },
   {
     "name": "x-img",

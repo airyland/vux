@@ -1,15 +1,16 @@
 <template>
-   <div class="weui_cell" :class="{'weui_select_after':title, 'weui_cell_select':!readonly}">
-    <div class="weui_cell_hd" v-if="title" :class="{'weui_cell_primary':readonly}">
-      <label for="" class="weui_label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}">{{title}}</label>
+   <div class="vux-selector weui-cell" :class="{'weui-cell_select':!readonly, 'weui-cell_select-after':title}">
+    <div class="weui-cell__hd" v-if="title">
+      <label for="" class="weui-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}">{{title}}</label>
     </div>
-    <div class="weui_cell_bd weui_cell_primary" v-if="!readonly">
-      <select class="weui_select" :class="{'vux-selector-no-padding':!title}" :name="name" v-model="currentValue" :style="{direction: direction}">
-        <option value="" v-if="placeholder" :selected="placeholder && !value">{{placeholder}}</option>
+    <div class="weui-cell__bd" v-if="!readonly">
+      <select class="weui-select" v-model="currentValue" :name="name" :style="{direction: direction}">
+        <option value="" v-if="typeof value === 'undefined' && placeholder" :selected="typeof value === 'undefined' && placeholder">{{placeholder}}</option>
+        <option disabled v-if="!placeholder && typeof value === 'undefined' && isIOS && title"></option>
         <option :value="one.key" v-for="one in processOptions">{{one.value}}</option>
       </select>
     </div>
-    <div class="weui_cell_ft" v-else>
+    <div class="weui-cell__ft vux-selector-readonly" v-else>
       {{value | findByKey(processOptions)}}
     </div>
   </div>
@@ -27,7 +28,7 @@ const findByKey = function (key, options) {
 
 export default {
   created () {
-    if (this.value) {
+    if (typeof this.value !== 'undefined') {
       this.currentValue = this.value
     }
   },
@@ -67,11 +68,12 @@ export default {
     name: String,
     placeholder: String,
     readonly: Boolean,
-    value: [String, Number, Object]
+    value: [String, Number, Object, Boolean]
   },
   data () {
     return {
-      currentValue: ''
+      currentValue: '',
+      isIOS: /iPad|iPhone|iPod/.test(window.navigator.userAgent)
     }
   }
 }
@@ -81,8 +83,18 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_access';
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
-@import '../../styles/weui/widget/weui_cell/weui_form/weui_select_after';
+@import '../../styles/weui/widget/weui_cell/weui_form/weui_select';
+
 .vux-selector-no-padding {
   padding-left: 0;
+}
+.vux-selector.weui-cell_select {
+  padding: 0;
+}
+.vux-selector.weui-cell_select-after {
+  padding-left: 15px;
+}
+.vux-selector-readonly {
+  width: 100%;
 }
 </style>

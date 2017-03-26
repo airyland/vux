@@ -32,7 +32,7 @@
 
     <group-title>use swiper-item for image list</group-title>
     <swiper :aspect-ratio="300/800">
-      <swiper-item class="swiper-demo-img" v-for="item in demo04_list"><img :src="item"></swiper-item>
+      <swiper-item class="swiper-demo-img" v-for="(item, index) in demo04_list" :key="index"><img :src="item"></swiper-item>
     </swiper>
 
     <br>
@@ -40,7 +40,7 @@
 
     <group-title>set index = 1 with swiper-item</group-title>
     <swiper :aspect-ratio="300/800" @on-index-change="onSwiperItemIndexChange" v-model="swiperItemIndex">
-      <swiper-item class="swiper-demo-img" v-for="item in demo04_list">
+      <swiper-item class="swiper-demo-img" v-for="(item, index) in demo04_list" :key="index">
         <img :src="item">
       </swiper-item>
     </swiper>
@@ -192,8 +192,6 @@ export default {
 </script>
 
 <style scoped>
-@import '~vux/src/styles/center.less';
-
 .copyright {
   font-size: 12px;
   color: #ccc;

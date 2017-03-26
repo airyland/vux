@@ -9,13 +9,13 @@ const parentMixin = {
   },
   methods: {
     updateIndex () {
-      if (!this.$children) return
+      if (!this.$children || !this.$children.length) return
       this.number = this.$children.length
       let children = this.$children
       for (let i = 0; i < children.length; i++) {
         children[i].currentIndex = i
         if (children[i].currentSelected) {
-          this.currentIndex = i
+          this.index = i
         }
       }
     }
@@ -26,7 +26,7 @@ const parentMixin = {
   watch: {
     currentIndex (val, oldVal) {
       oldVal > -1 && this.$children[oldVal] && (this.$children[oldVal].currentSelected = false)
-      val > -1 && (this.$children[val].currentSelected = true)
+      val > -1 && this.$children[val] && (this.$children[val].currentSelected = true)
       this.$emit('input', val)
     },
     index (val) {
@@ -66,7 +66,9 @@ const childMixin = {
       if (typeof this.disabled === 'undefined' || this.disabled === false) {
         this.currentSelected = true
         this.$parent.currentIndex = this.currentIndex
-        this.$emit('on-item-click')
+        this.$nextTick(() => {
+          this.$emit('on-item-click')
+        })
       }
       if (hasLink === true) {
         go(this.link, this.$router)

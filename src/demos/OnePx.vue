@@ -1,6 +1,16 @@
 <template>
   <div class="vux-demo">
-    <br/>
+    <div style="padding: 10px;">
+      <br>
+      <div style="height:10px;" class="vux-1px-tb"></div>
+      <br>
+      <div style="height:10px;" class="vux-1px"></div>
+      <br>
+      <p>{{ $t('对比不做处理的1px边框') }}</p>
+      <br/>
+      <div style="height:10px;border:1px solid #e0e0e0"></div>
+      <br>
+    </div>
     <flexbox class="vux-1px-tb" :gutter="0">
       <flexbox-item class="vux-1px-r test"><div>{{ $t('北京') }}</div></flexbox-item>
       <flexbox-item class="vux-1px-r test"><div>{{ $t('上海') }}</div></flexbox-item>
@@ -19,7 +29,6 @@
       <flexbox-item class="vux-1px-r test"><div>{{ $t('成都') }}</div></flexbox-item>
       <flexbox-item class="vux-1px-r test"><div></div></flexbox-item>
     </flexbox>
-    <br/>
     <br/>
     <flexbox class="vux-1px-tb" :gutter="0">
       <flexbox-item class="vux-1px-r">
@@ -73,13 +82,7 @@
         </a>
       </flexbox-item>
     </flexbox>
-    <br/>
-    <br/>
-    <div style="padding: 10px;">
-      <p>{{ $t('对比不做处理的1px边框') }}</p>
-      <br/>
-      <div style="height:10px;border:1px solid #e0e0e0"></div>
-    </div>
+    <br>
   </div>
 </template>
 

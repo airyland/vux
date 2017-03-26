@@ -1,28 +1,24 @@
 @import "../../../base/fn";
 
-.weui_cell_select {
-    padding-top: 0!important;
-    padding-bottom: 0!important;
-    .weui_select {
+.weui-cell_select {
+    padding: 0;
+    .weui-select {
         padding-right: 30px;
     }
-    .weui_access_icon {
-
-    }
-    .weui_cell_bd{
+    .weui-cell__bd{
         &:after{
             content: " ";
-            .setArrow_Wap(right, 6px, #C8C8CD, 2px);
+            .setArrow(right, 6px, #C8C8CD, 2px);
 
             position: absolute;
             top: 50%;
             right: @weuiCellGapH;
-            margin-top: -3px;
+            margin-top: -4px;
         }
     }
 }
 
-.weui_select {
+.weui-select {
     -webkit-appearance: none;
     border: 0;
     outline: 0;
@@ -34,4 +30,40 @@
     position: relative;
     z-index: 1;
     padding-left: @weuiCellGapH;
+}
+
+.weui-cell_select-before {
+    padding-right:@weuiCellGapH;
+    .weui-select{
+        width:@weuiCellLabelWidth;
+        box-sizing: border-box;
+    }
+    .weui-cell__hd {
+        position:relative;
+        &:after {
+            .setRightLine(@weuiCellBorderColor);
+        }
+        &:before{
+            content: " ";
+            .setArrow(right, 6px, #C8C8CD, 2px);
+
+            position: absolute;
+            top: 50%;
+            right: @weuiCellGapH;
+            margin-top: -4px;
+        }
+    }
+    .weui-cell__bd {
+        padding-left:@weuiCellGapH;
+        &:after{
+            display:none;
+        }
+    }
+}
+
+.weui-cell_select-after {
+    padding-left:@weuiCellGapH;
+    .weui-select {
+        padding-left:0;
+    }
 }

@@ -1,44 +1,66 @@
 icon: '&#xe655;'
+extra:
+  en: |
+  
+    `Checker` is a more flexible component than `Radio` and `Checklist`.
+
+  zh-CN: |
+
+    `Checker` 是比`Radio`或者`Checklist`更加灵活的选择组件，可以自定义需要的布局样式。
+
 items:
   - checker
   - checker-item
 tags:
-  - form
-  - checker
-  - select
-  - 选择
+  en:
+    - form
+    - checker
+    - select
+  zh-CN:
+    - 表单
+    - 选择
 checker:
   props:
     default-item-class:
+      en: default checker-item classname
       zh-CN: 默认状态class
     selected-item-class:
+      en: selected check-item classname
       zh-CN: 选中样式class
     disabled-item-class:
+      en: disabled check-item classname
       zh-CN: 不可选样式class
     type:
       default: radio
+      en: checker type, should be raido or checkbox
       zh-CN: 类型，单选为`radio`, 多选为`checkbox`
     value:
       type: Array
+      en: selected value ,use `v-model` for binding
       zh-CN: 表单值，使用`v-model`绑定
     max:
       type: Number
+      en: max selected number when type = checkbox
       zh-CN: 最多可选个数，多选时可用
   events:
     on-change:
       params: '`(value)`'
+      en: emits when value is changed
       zh-CN: value值变化时触发
 checker-item:
   props:
     value:
+      en: value of current checker-item
       zh-CN: 当前项的值
     disabled:
       type: Boolean
       default: false
+      en: if current item is disabled
       zh-CN: 是否为不可选
   events:
     on-item-click:
       params: '`(itemValue, itemDisabled)`'
+      en: emits when current checker-item is clicked
       zh-CN: 当前项被点击时触发
 changes:
   v2.0.0:

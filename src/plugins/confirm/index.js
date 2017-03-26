@@ -1,10 +1,10 @@
 import ConfirmComponent from '../../components/confirm'
+import { mergeOptions } from '../../libs/plugin_helper'
 
 let $vm
-let hasWatch = false
 
-export default {
-  install (vue, options) {
+const plugin = {
+  install (vue, options = {}) {
     const Confirm = vue.extend(ConfirmComponent)
 
     if (!$vm) {
@@ -20,32 +20,27 @@ export default {
     const confirm = {
       show (options) {
         if (typeof options === 'object') {
-          for (let i in options) {
-            $vm[i] = options[i]
-          }
+          mergeOptions($vm, options)
         }
         if (typeof options === 'object' && (options.onShow || options.onHide)) {
           options.onShow && options.onShow()
         }
-        if (!hasWatch) {
-          $vm.$watch('showValue', (val) => {
-            if (!val && options && options.onHide) {
-              options.onHide()
-            }
-          })
-          $vm.$on('on-cancel', () => {
-            options && options.onCancel && options.onCancel()
-            $vm.showValue = false
-          })
-          $vm.$on('on-confirm', () => {
-            options && options.onConfirm && options.onConfirm()
-            $vm.showValue = false
-          })
-          hasWatch = true
-          $vm.$el.querySelector('.weui_dialog_ft').addEventListener('click', function () {
-            $vm.showValue = false
-          }, false)
-        }
+        this.$watcher && this.$watcher()
+        this.$watcher = $vm.$watch('showValue', (val) => {
+          if (!val && options && options.onHide) {
+            options.onHide()
+          }
+        })
+
+        $vm.$off('on-cancel')
+        $vm.$off('on-confirm')
+
+        $vm.$on('on-cancel', () => {
+          options && options.onCancel && options.onCancel()
+        })
+        $vm.$on('on-confirm', () => {
+          options && options.onConfirm && options.onConfirm()
+        })
         $vm.showValue = true
       },
       hide () {
@@ -69,3 +64,7 @@ export default {
     })
   }
 }
+
+export default plugin
+export const install = plugin.install
+

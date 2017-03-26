@@ -24,9 +24,19 @@ props:
     type: Array
     default: '[]'
     en: |
-      button list, [{style: 'primary', text: 'text'}]
-    zh-CN: '底部按钮列表，default为灰色样式，primary文字为高亮颜色， [{style: "primary", text: "text"}]'
+      button list, [{style: 'primary', text: 'text', onButtonClick: fn, link: '/path'}]
+    zh-CN: '底部按钮列表，default为灰色样式，primary文字为高亮颜色， [{style: "primary", text: "text", onButtonClick: fn(), link: "/path"}]'
 changes:
+  next:
+    en:
+      - '[fix] Fix variable: form-preview-button-primary-color'
+      - '[feature] Support prop:name #1123'
+    zh-CN:
+      - '[fix] 修复 less 变量：form-preview-button-primary-color'
+      - '[feature] 支持 prop:name 以方便函数调用 #1123'
+  v2.1.0-rc.49:
+    zh-CN:
+      - '[fix] 修复出现滚动条 #920 @asingingfish'
   v2.0.0:
     zh-CN:
       - '[feature] 增加`form-preview`组件'

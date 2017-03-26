@@ -1,3 +1,5 @@
+import Eventor from '../../libs/eventor'
+
 // https://github.com/MoeKit/clocker
 var instances = []
 var matchers = []
@@ -138,7 +140,7 @@ var Countdown = function (finalDate, option) {
   // Set the final date and start
   this.setFinalDate(finalDate)
 }
-var Eventor = require('../../libs/eventor')
+
 Eventor.mixTo(Countdown)
 var pro = Countdown.prototype
 
@@ -233,4 +235,4 @@ for (var i in fns) {
   pro[i] = fns[i]
 }
 
-module.exports = Countdown
+export default Countdown

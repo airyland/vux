@@ -1,11 +1,13 @@
 <template>
-  <div class="weui_loading_toast" v-show="show">
-    <div class="weui_mask_transparent"></div>
-    <div class="weui_toast" :style="{ position: position }">
-      <i class="weui-loading weui-icon_toast"></i>
-      <p class="weui_toast_content">{{ $t(text) || $t('loading') }}<slot></slot></p>
+  <transition name="vux-mask">
+    <div class="weui-loading_toast" v-show="show">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast" :style="{ position: position }">
+        <i class="weui-loading weui-icon_toast"></i>
+        <p class="weui-toast__content">{{ $t(text) || $t('loading') }}<slot></slot></p>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <i18n>
@@ -46,21 +48,19 @@ export default {
 <style lang="less">
 @import '../../styles/weui/widget/weui_tips/weui_mask';
 @import '../../styles/weui/widget/weui_tips/weui_toast';
-@import '../../styles/weui/widget/weui-loading/index.less';
+@import '../../styles/weui/widget/weui-loading/weui-loading.less';
 
 .weui-icon_toast.weui-loading {
   margin: 30px 0 0;
   width: 38px;
   height: 38px;
   vertical-align: baseline;
+  display: inline-block;
 }
-.weui_loading_toast .weui_toast_content {
-  margin-top: 0!important;
+.vux-mask-enter, .vux-mask-leave-active {
+  opacity: 0;
 }
-.weui-icon_toast.weui-loading {
-  margin: 30px 0 0;
-  width: 38px;
-  height: 38px;
-  vertical-align: baseline;
+.vux-mask-leave-active, .vux-mask-enter-active {
+  transition: opacity 300ms;
 }
 </style>

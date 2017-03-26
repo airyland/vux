@@ -3,6 +3,8 @@ items:
   - tabbar
   - tabbar-item
 import_code: "import { Tabbar, TabbarItem } from 'vux'"
+extra: |
+  支持简单模式，即不指定`icon`，`label`将垂直居中显示。
 tags:
   en:
     - tabbar
@@ -19,15 +21,22 @@ tabbar:
       zh-CN: tabbar主体内容，只允许tabbar-item
 tabbar-item:
   props:
+    selected:
+      type: Boolean
+      default: false
+      en: 'if selected, you can also use `v-model="index"` on tabbar to set item selected'
+      zh-CN: '是否选中当前项，你也可以使用`v-model`来指定选中的`tabbar-item`的`index`'
     badge:
       en: badge text, if not specified, the badge will not show
       zh-CN: 徽标文字，不指定则不显示
     show-dot:
+      type: Boolean
+      default: false
       en: if show the red dot
       zh-CN: 是否显示红点
     link:
-      en: the url for current tabbar item, can be a url or a `v-link` value
-      zh-CN: 链接，可以为普通url或者用`v-link`写法
+      en: the url for current tabbar item, can be a url or a `vue-router` link value
+      zh-CN: 链接，可以为普通url或者用`vue-link`的路径写法
     icon-class:
       en: the classname for current icon, if tabbar and tabbar-item both specify icon-class, tabbar-item's will be usePulldown
       zh-CN: 图标类名，如果tabbar也同时定义了icon-class, 会使用tabbar-item的
@@ -35,6 +44,10 @@ tabbar-item:
     icon:
       en: icon area
       zh-CN: 图标区域
+    icon-active:
+      version: v2.1.1-rc.8
+      en: will show when current item is activated
+      zh-CN: 如果存在，当前 tabbar-item 点击时会显示，用于切换图标
     label:
       en: label text
       zh-CN: 图标下方文字
@@ -42,3 +55,19 @@ tabbar-item:
     on-item-click:
       en: triggers when tabbar item is click
       zh-CN: 点击菜单项时触发
+changes:
+  v2.1.1-rc.8:
+    en:
+      - '[feature] Support slot:active-icon'
+    zh-CN:
+      - '[feature] 支持点击时切换图标'
+  v2.1.1-rc.4:
+    en:
+      - '[fix] fix this.$slots undefined #1000 @asingingfish'
+    zh-CN:
+      - '[fix] 修复 this.$slots 不存在 #1000 @asingingfish'
+  v2.1.1-rc.1:
+    en:
+      - '[fix] fix variable @tabbar-text-active-color #982 @marsal1212'
+    zh-CN:
+      - '[fix] 修复 less 变量 @tabbar-text-active-color #982 @marsal1212'

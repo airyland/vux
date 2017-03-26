@@ -17,14 +17,14 @@
     <divider>{{ $t('radio: object value') }}</divider>
     <div class="box">
       <checker v-model="demo11" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
-        <checker-item :value="item" v-for="item in items1">{{item.value}}</checker-item>
+        <checker-item :value="item" v-for="(item, index) in items1" :key="index">{{item.value}}</checker-item>
       </checker>
       <br>
       <span>{{ $t('current value is') }}: {{demo11}}</span>
       <br>
       <br>
       <checker v-model="demo12" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
-        <checker-item :value="item" v-for="item in items1">{{item.value}}</checker-item>
+        <checker-item :value="item" v-for="(item, index) in items1" :key="index">{{item.value}}</checker-item>
       </checker>
       <br>
       <span>{{ $t('current value is') }}: {{demo12}}</span>
@@ -34,21 +34,21 @@
     <divider>{{ $t('checkbox: object value') }}</divider>
     <div class="box">
       <checker v-model="demo21" type="checkbox" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
-        <checker-item :value="item" v-for="item in items1">{{item.value}}</checker-item>
+        <checker-item :value="item" v-for="(item, index) in items1" :key="index">{{item.value}}</checker-item>
       </checker>
       <br>
       <span>{{ $t('current value is') }}: {{demo21}}</span>
       <br>
       <br>
       <checker v-model="demo22" type="checkbox" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
-        <checker-item :value="item" v-for="item in items1">{{item.value}}</checker-item>
+        <checker-item :value="item" v-for="(item, index) in items1" :key="index">{{item.value}}</checker-item>
       </checker>
       <br>
       <span>{{ $t('current value is') }}: {{demo22}}</span>
        <br>
       <br>
       <checker v-model="demo23" type="checkbox" default-item-class="demo1-item" selected-item-class="demo1-item-selected" :max="2">
-        <checker-item :value="item" v-for="item in items1">{{item.value}}</checker-item>
+        <checker-item :value="item" v-for="(item, index) in items1" :key="index">{{item.value}}</checker-item>
       </checker>
       <br>
       <span>{{ $t('current value is') }}: {{demo23}}</span>
@@ -121,11 +121,10 @@
         v-model="demo4"
         default-item-class="demo4-item"
         selected-item-class="demo4-item-selected"
-        disabled-item-class="demo4-item-disabled"
-        @on-item-click="showPopup=false">
-          <checker-item value="花跟叶">花跟叶</checker-item>
-          <checker-item value="鸟与树">鸟与树</checker-item>
-          <checker-item value="我和你">我和你</checker-item>
+        disabled-item-class="demo4-item-disabled">
+          <checker-item value="花跟叶" @on-item-click="showPopup=false">花跟叶</checker-item>
+          <checker-item value="鸟与树" @on-item-click="showPopup=false">鸟与树</checker-item>
+          <checker-item value="我和你" @on-item-click="showPopup=false">我和你</checker-item>
           <checker-item value="全套礼品装" disabled>全套礼品装</checker-item>
         </checker>
       </div>
@@ -137,7 +136,7 @@
     default-item-class="demo5-item"
     selected-item-class="demo5-item-selected"
     >
-      <checker-item v-for="i in [1, 2, 3]" :value="i">￥{{i*300}}</checker-item>
+      <checker-item v-for="i in [1, 2, 3]" :key="i" :value="i">￥{{i*300}}</checker-item>
     </checker>
     <br/>
     <divider>{{ $t('A real world checkbox example') }} {{demo6}}</divider>
@@ -147,7 +146,7 @@
     default-item-class="demo5-item"
     selected-item-class="demo5-item-selected"
     >
-      <checker-item v-for="i in [1, 2, 3]" :value="i">{{[$t('good'), $t('nice'),$t('awesome')][i - 1]}}</checker-item>
+      <checker-item v-for="i in [1, 2, 3]" :key="i" :value="i">{{[$t('good'), $t('nice'),$t('awesome')][i - 1]}}</checker-item>
     </checker>
   </div>
 </template>
@@ -247,9 +246,6 @@ export default {
 <style scoped>
 .box {
   padding: 0 15px;
-}
-.checker-popup {
-  background: rgba(255,255,255,0.5);
 }
 .demo1-item {
   border: 1px solid #ececec;

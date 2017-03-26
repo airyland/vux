@@ -16,7 +16,7 @@
       :hide-week-list="hideWeekList"
       :replace-text-list="replaceTextList"
       :weeks-list="weeksList"
-      :custom-slot-fn="customSlotFn"
+      :render-function="renderFunction"
       :render-on-value-change="renderOnValueChange"
       :disable-past="disablePast"
       :disable-future="disableFuture"
@@ -54,12 +54,15 @@ export default {
     onSelect (val) {
       this.show = false
       this.currentValue = val
-      this.$emit('on-change', val)
     }
   },
   watch: {
     value (val) {
       this.currentValue = val
+    },
+    currentValue (val) {
+      this.$emit('input', val)
+      this.$emit('on-change', val)
     }
   },
   data () {

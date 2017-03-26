@@ -3,23 +3,23 @@ after_extra: |
   ``` html
   <icon type="success"></icon>
   <icon type="info"></icon>
-  <icon type="info_circle"></icon>
+  <icon type="info-circle"></icon>
   <icon type="warn"></icon>
   <icon type="waiting"></icon>
-  <icon type="waiting_circle"></icon>
-  <icon type="safe_success"></icon>
-  <icon type="safe_warn"></icon>
-  <icon type="success_circle"></icon>
-  <icon type="success_no_circle"></icon>
+  <icon type="waiting-circle"></icon>
+  <icon type="safe-success"></icon>
+  <icon type="safe-warn"></icon>
+  <icon type="success-circle"></icon>
+  <icon type="success-no-circle"></icon>
   <icon type="circle"></icon>
   <icon type="download"></icon>
   <icon type="cancel"></icon>
   <icon type="search"></icon>
   <icon type="clear"></icon>
-  <icon type="success" class="icon_big"></icon>
-  <icon type="info" class="icon_big"></icon>
-  <icon type="safe_success" class="icon_big"></icon>
-  <icon type="safe_warn" class="icon_big"></icon>
+  <icon type="success" is-msg></icon>
+  <icon type="info" is-msg></icon>
+  <icon type="safe-success" is-msg></icon>
+  <icon type="safe-warn" is-msg></icon>
   ```
 tags:
   en:
@@ -32,3 +32,18 @@ props:
     default: ''
     en: icon name
     zh-CN: 图标名字，可选值见demo
+  is-msg:
+    type: Boolean
+    default: false
+    en: if used as msg icon, icon's font-size will be bigger(93px) than default
+    zh-CN: 是否用作消息提示页面图标，图标尺寸会使用93px
+changes:
+  v2.1.1-rc.4:
+    en:
+      - '[change] No more built-in `icon-big` classname, use `is-msg` instead. #988 @greedying'
+    zh-CN:
+      - '[change] 不再内置类名 `icon-big`, 改用 prop:`is-msg` #988 @greedying'
+  v2.1.0:
+    zh-CN:
+      - '[feature] 更新`WeUI`样式到最新版本'
+      - '[change] `type`参数由下划线变为中划线，组件内部做了兼容保证升级时无影响'

@@ -1,6 +1,6 @@
 <template>
-  <div class="weui_tab">
-    <div class="weui_tab_bd">
+  <div class="weui-tab">
+    <div class="weui-tab__panel">
       <p v-for="i in 100">{{i}}</p>
     </div>
     <tabbar>

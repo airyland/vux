@@ -39,6 +39,12 @@ export default () => ({
     type: Boolean,
     default: false
   },
+  replaceTextList: {
+    type: Object,
+    default () {
+      return {}
+    }
+  },
   weeks: {
     type: Array,
     default () {

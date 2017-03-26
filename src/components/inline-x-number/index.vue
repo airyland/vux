@@ -71,7 +71,7 @@ export default {
   float:left;
   height:20px;
   font-size:20px;
-  color: @x-number-number-color;
+  color: @number-input-font-color;
   appearance: none;
   border:1px solid #ececec;
   padding:3px 0;
@@ -83,7 +83,7 @@ export default {
   height:20px;
   font-size:25px;
   line-height:18px;
-  color: @x-number-button-color;
+  color: @number-button-font-color;
   border:1px solid #ececec;
 }
 .vux-number-selector.vux-number-disabled{

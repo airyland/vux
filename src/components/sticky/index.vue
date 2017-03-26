@@ -1,5 +1,7 @@
 <template>
-  <div><slot></slot></div>
+  <div class="vux-sticky-box">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -8,13 +10,23 @@ import sticky from './sticky'
 export default {
   mounted () {
     this.$nextTick(() => {
-      sticky(this.$el)
+      sticky(this.$el, {
+        scrollBox: this.scrollBox,
+        offset: this.offset,
+        checkStickySupport: typeof this.checkStickySupport === 'undefined' ? true : this.checkStickySupport
+      })
     })
-  }
+  },
+  props: ['scrollBox', 'offset', 'checkStickySupport']
 }
 </script>
 
-<style>
+<style lang="less">
+@import '../../styles/variable.less';
+
+.vux-sticky-box {
+  z-index: @sticky-zindex;
+}
 .vux-sticky {
   width: 100%;
   position: sticky;
@@ -26,4 +38,3 @@ export default {
   top: 0;
 }
 </style>
-

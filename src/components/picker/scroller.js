@@ -13,8 +13,8 @@ const TEMPLATE = `
 </div>
 `
 
-import Animate from './animate'
-import { getElement, getComputedStyle, easeOutCubic, easeInOutCubic } from './util'
+const Animate = require('./animate')
+const { getElement, getComputedStyle, easeOutCubic, easeInOutCubic } = require('./util')
 
 var Scroller = function (container, options) {
   var self = this
@@ -75,21 +75,30 @@ var Scroller = function (container, options) {
   }
   self.select(self.options.defaultValue, false)
 
-  component.addEventListener('touchstart', function (e) {
+  const touchStartHandler = function (e) {
     if (e.target.tagName.match(/input|textarea|select/i)) {
       return
     }
     e.preventDefault()
-    self.__doTouchStart(e.touches, e.timeStamp)
-  }, false)
+    self.__doTouchStart(e, e.timeStamp)
+  }
 
-  component.addEventListener('touchmove', function (e) {
-    self.__doTouchMove(e.touches, e.timeStamp)
-  }, false)
+  const touchMoveHandler = function (e) {
+    self.__doTouchMove(e, e.timeStamp)
+  }
 
-  component.addEventListener('touchend', function (e) {
+  const touchEndHandler = function (e) {
     self.__doTouchEnd(e.timeStamp)
-  }, false)
+  }
+
+  component.addEventListener('touchstart', touchStartHandler, false)
+  component.addEventListener('mousedown', touchStartHandler, false)
+
+  component.addEventListener('touchmove', touchMoveHandler, false)
+  component.addEventListener('mousemove', touchMoveHandler, false)
+
+  component.addEventListener('touchend', touchEndHandler, false)
+  component.addEventListener('mouseup', touchEndHandler, false)
 }
 
 var members = {
@@ -214,10 +223,13 @@ var members = {
     }
   },
 
-  __doTouchStart (touches, timeStamp) {
-    var self = this
+  __doTouchStart (ev, timeStamp) {
+    const touches = ev.touches
+    const self = this
+    const target = ev.touches ? ev.touches[0] : ev
+    const isMobile = !!ev.touches
 
-    if (touches.length == null) {
+    if (ev.touches && touches.length == null) {
       throw new Error('Invalid touch list: ' + touches)
     }
     if (timeStamp instanceof Date) {
@@ -243,11 +255,11 @@ var members = {
 
     // Use center point when dealing with two fingers
     var currentTouchTop
-    var isSingleTouch = touches.length === 1
+    var isSingleTouch = (isMobile && touches.length === 1) || !isMobile
     if (isSingleTouch) {
-      currentTouchTop = touches[0].pageY
+      currentTouchTop = target.pageY
     } else {
-      currentTouchTop = Math.abs(touches[0].pageY + touches[1].pageY) / 2
+      currentTouchTop = Math.abs(target.pageY + touches[1].pageY) / 2
     }
 
     self.__initialTouchTop = currentTouchTop
@@ -262,10 +274,13 @@ var members = {
     self.__positions = []
   },
 
-  __doTouchMove (touches, timeStamp, scale) {
-    var self = this
+  __doTouchMove (ev, timeStamp, scale) {
+    const self = this
+    const touches = ev.touches
+    const target = ev.touches ? ev.touches[0] : ev
+    const isMobile = !!ev.touches
 
-    if (touches.length == null) {
+    if (touches && touches.length == null) {
       throw new Error('Invalid touch list: ' + touches)
     }
     if (timeStamp instanceof Date) {
@@ -283,10 +298,10 @@ var members = {
     var currentTouchTop
 
     // Compute move based around of center of fingers
-    if (touches.length === 2) {
-      currentTouchTop = Math.abs(touches[0].pageY + touches[1].pageY) / 2
+    if (isMobile && touches.length === 2) {
+      currentTouchTop = Math.abs(target.pageY + touches[1].pageY) / 2
     } else {
-      currentTouchTop = touches[0].pageY
+      currentTouchTop = target.pageY
     }
 
     var positions = self.__positions
@@ -534,3 +549,4 @@ for (var key in members) {
 }
 
 module.exports = Scroller
+

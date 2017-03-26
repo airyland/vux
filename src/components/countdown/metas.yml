@@ -10,12 +10,16 @@ tags:
 props:
   value:
     type: number
+    en: total sections
     zh-CN: 时间，秒为单位
   start:
     type: Boolean
     default: true
+    en: if start counting down
     zh-CN: 是否开始计数
 changes:
   v2.0.0:
+    en:
+      - '[deprecated] This component is no longer maintained'
     zh-CN:
       - '[deprecated] 下一版本开始不再维护'

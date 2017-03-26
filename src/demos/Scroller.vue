@@ -1,5 +1,11 @@
 <template>
   <div>
+    <group>
+      <cell is-link title="pullup" link="/component/pullup">Pullup</cell>
+      <cell is-link title="pulldown" link="/component/pulldown">Pulldown</cell>
+      <cell is-link title="pulldownpullup" link="/component/pulldown-pullup">PulldownPullup</cell>
+    </group>
+
     <divider>{{ $t('A Horizontal Scroller without Scrollbar') }}</divider>
     <scroller lock-y :scrollbar-x=false>
       <div class="box1">
@@ -21,12 +27,14 @@
       </div>
     </scroller>
 
-    <divider>{{ $t('A Vertical Scroller') }}</divider>
-    <scroller lock-x height="200px">
+    <divider>{{ $t('A Vertical Scroller') }} scrollTop: {{scrollTop}}</divider>
+    <scroller lock-x height="200px" @on-scroll="onScroll" ref="scrollerEvent">
       <div class="box2">
         <p v-for="i in 80">placeholder {{i}}</p>
       </div>
     </scroller>
+
+    <x-button type="primary" @click.native="$refs.scrollerEvent.reset({top:0})">reset</x-button>
 
     <divider>{{ $t('A Vertical Scroller with scrollbar') }}</divider>
     <scroller lock-x scrollbar-y height="200px" ref="scroller">
@@ -34,6 +42,9 @@
         <p v-for="i in 20" v-if="showList1">placeholder {{ i + '' + i }}</p>
         <p v-for="i in 10" v-if="!showList1">placeholder {{ i }}</p>
         <x-button style="margin:10px 0;" type="primary" @click.native="onClickButton">{{ $t('Button') }}</x-button>
+        <group>
+          <cell @click.native="onCellClick" title="Title" value="Value"></cell>
+        </group>
       </div>
     </scroller>
     <x-button @click.native="changeList" type="primary">{{ $t('show another list') }}</x-button>
@@ -44,7 +55,7 @@
 A Horizontal Scroller without Scrollbar:
   zh-CN: 不带滚动条的水平 scroller
 A Horizontal Scroller with Scrollbar:
-  zh-CN: 显示滚动条的水平 scroller 
+  zh-CN: 显示滚动条的水平 scroller
 A Horizontal Scroller without bounce effect:
   zh-CN: 没有边缘回滚效果的水平 scroller
 A Vertical Scroller:
@@ -58,21 +69,36 @@ Button:
 </i18n>
 
 <script>
-import { Scroller, Divider, Spinner, XButton } from 'vux'
+import { Scroller, Divider, Spinner, XButton, Group, Cell } from 'vux'
 
 export default {
   components: {
     Scroller,
     Divider,
     Spinner,
-    XButton
+    XButton,
+    Group,
+    Cell
   },
   data () {
     return {
-      showList1: true
+      showList1: true,
+      scrollTop: 0
     }
   },
+  mounted () {
+    this.$nextTick(() => {
+      this.$refs.scrollerEvent.reset({top: 0})
+    })
+  },
   methods: {
+    onScroll (pos) {
+      console.log('on scroll', pos)
+      this.scrollTop = pos.top
+    },
+    onCellClick () {
+      window.alert('cell click')
+    },
     onClickButton () {
       window.alert('click')
     },

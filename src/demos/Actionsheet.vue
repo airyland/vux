@@ -4,6 +4,7 @@
       <x-switch :title="$t('Basic Usage')" v-model="show1"></x-switch>
       <x-switch :title="$t('Show cancel menu')" v-model="show2"></x-switch>
       <x-switch :title="$t('menu as tips')" v-model="show3"></x-switch>
+      <x-switch :title="$t('Array menu')" v-model="show5"></x-switch>
     </group>
 
     <group :title="$t('prevent closing when clicking mask')">
@@ -17,6 +18,8 @@
     <actionsheet v-model="show2" :menus="menus2" @on-click-menu="click" show-cancel></actionsheet>
 
     <actionsheet v-model="show3" :menus="menus3" @on-click-menu="click" @on-click-menu-delete="onDelete" show-cancel></actionsheet>
+
+    <actionsheet v-model="show5" :menus="menus5" show-cancel @on-click-menu="click"></actionsheet>
     
     <toast v-model="showSuccess">{{$t('Deleted~') }}</toast>
   </div>
@@ -43,6 +46,8 @@ Choose from photos:
   zh-CN: '确定咩?<br/><span style="color:#666;font-size:12px;">删除后就无法撤消了哦</span>'
 '<span style="color:red">Delete</span>':
   zh-CN: '<span style="color:red">删除</span>'
+Array menu:
+  zh-CN: 使用数组定义菜单
 </i18n>
 
 <script>
@@ -75,6 +80,23 @@ export default {
       },
       show3: false,
       show4: false,
+      show5: false,
+      menus5: [{
+        label: 'Are you sure?<br/><span style="color:#666;font-size:12px;">Once deleted, you will never find it.</span>',
+        type: 'info'
+      }, {
+        label: 'Primary',
+        type: 'primary',
+        value: 'primary'
+      }, {
+        label: 'Warn',
+        type: 'warn'
+      }, {
+        label: 'Disabled',
+        type: 'disabled'
+      }, {
+        label: 'Default'
+      }],
       showSuccess: false,
       menus3: {
         'title.noop': 'Are you sure?<br/><span style="color:#666;font-size:12px;">Once deleted, you will never find it.</span>',

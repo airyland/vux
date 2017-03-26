@@ -4,23 +4,31 @@ props:
     type: String
     default: ''
     zh-CN: 头部标题，不指定则不显示
+    en: title of header, not show without specify content
   footer.title:
     type: String
     default: ''
     zh-CN: 底部标题，不指定则不显示
+    en: title of footer, not show without specify content
   footer.link:
     type: String
     default: ''
     zh-CN: 底部链接，普通url或者v-link参数
+    en: link in the bottom, normal url or a v-link argument
 events:
   on-click-footer:
     zh-CN: 点击底部时触发
+    en: emits when clicking the footer
   on-click-header:
     zh-CN: 点击头部时触发
+    en: emits when clicking the header
 slots:
   header:
     zh-CN: 头部位置
+    en: header
   content:
     zh-CN: 中间主体位置
+    en: content, the main body part
   footer:
     zh-CN: 底部位置
+    en: footer

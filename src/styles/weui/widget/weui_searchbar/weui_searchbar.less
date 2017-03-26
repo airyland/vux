@@ -1,26 +1,26 @@
 @import "../../base/fn";
-.weui_search_bar {
+.weui-search-bar {
     position: relative;
     padding: 8px 10px;
     display: flex;
     box-sizing: border-box;
-    background-color: #EFEFF4;
+    background-color: @search-bg-color;
     &:before {
-        .setTopLine();
+        .setTopLine(#D7D6DC);
     }
     &:after {
-        .setBottomLine();
+        .setBottomLine(#D7D6DC);
     }
-    &.weui_search_focusing{
-        .weui_search_cancel{
+    &.weui-search-bar_focusing{
+        .weui-search-bar__cancel-btn{
             display: block;
         }
-        .weui_search_text{
+        .weui-search-bar__label{
             display: none;
         }
     }
 }
-.weui_search_outer {
+.weui-search-bar__form {
     position: relative;
     flex: auto;
     background-color: #EFEFF4;
@@ -39,7 +39,7 @@
         background: #FFFFFF;
     }
 }
-.weui_search_inner {
+.weui-search-bar__box {
     position: relative;
     padding-left: 30px;
     padding-right: 30px;
@@ -47,7 +47,7 @@
     width: 100%;
     box-sizing: border-box;
     z-index: 1;
-    .weui_search_input {
+    .weui-search-bar__input {
         padding: 4px 0;
         width: 100%;
         height: 20/14em;
@@ -60,21 +60,21 @@
             outline: none;
         }
     }
-    .weui_icon_search {
+    .weui-icon-search {
         position: absolute;
         left: 10px;
-        top: -2px;
+        top: 0;
         line-height: 28px;
     }
-    .weui_icon_clear {
+    .weui-icon-clear {
         position: absolute;
-        top: -2px;
+        top: 0;
         right: 0;
         padding: 0 10px;
         line-height: 28px;
     }
 }
-.weui_search_text {
+.weui-search-bar__label {
     position: absolute;
     top: 1px;
     right: 1px;
@@ -83,25 +83,25 @@
     z-index: 2;
     border-radius: 3px;
     text-align: center;
-    color: #9B9B9B;
+    color: @search-placeholder-font-color;
     background: #FFFFFF;
     span {
         display: inline-block;
         font-size: 14px;
         vertical-align: middle;
     }
-    .weui_icon_search {
+    .weui-icon-search {
         margin-right: 5px;
     }
 }
-.weui_search_cancel {
+.weui-search-bar__cancel-btn {
     display: none;
     margin-left: 10px;
     line-height: 28px;
+    color: @search-cancel-font-color;
     white-space: nowrap;
-    color: #09BB07;
 }
-.weui_search_input:not(:valid) ~ .weui_icon_clear {
+.weui-search-bar__input:not(:valid) ~ .weui-icon-clear {
     display: none;
 }
 

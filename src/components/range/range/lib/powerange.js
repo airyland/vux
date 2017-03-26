@@ -2,7 +2,7 @@
  * Require classes.
  */
 
-var Horizontal = require('./horizontal')
+import Horizontal from './horizontal'
 
 /**
  * Set default values.
@@ -27,7 +27,7 @@ var defaults = {
  * Expose proper type of `Powerange`.
  */
 
-module.exports = function (element, options) {
+export default function (element, options) {
   options = options || {}
 
   for (var i in defaults) {

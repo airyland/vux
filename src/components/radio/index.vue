@@ -1,21 +1,24 @@
 <template>
-  <div class="weui_cells_radio">
-    <label class="weui_cell weui_cell_radio weui_check_label" :for="`radio_${uuid}_${index}`" v-for="(one, index) in options">
-      <div class="weui_cell_bd weui_cell_primary">
-        <p>{{one | getValue}}</p>
+  <div class="weui-cells_radio">
+    <label class="weui-cell weui-cell_radio weui-check__label" :for="`radio_${uuid}_${index}`" v-for="(one, index) in options">
+      <div class="weui-cell__bd">
+        <p>
+          <img class="vux-radio-icon" :src="one.icon" v-show="one && one.icon">
+          <span class="vux-radio-label">{{one | getValue}}</span>
+        </p>
       </div>
-      <div class="weui_cell_ft">
-        <input type="radio" class="weui_check" v-model="currentValue" :id="`radio_${uuid}_${index}`" :value="getKey(one)">
-        <span class="weui_icon_checked"></span>
+      <div class="weui-cell__ft">
+        <input type="radio" class="weui-check" v-model="currentValue" :id="`radio_${uuid}_${index}`" :value="getKey(one)">
+        <span class="weui-icon-checked"></span>
       </div>
     </label>
-    <div class="weui_cell" v-show="fillMode">
-      <div class="weui_cell_hd"><label for="" class="weui_label">{{fillLabel}}</label></div>
-      <div class="weui_cell_bd weui_cell_primary">
-        <input class="weui_input needsclick" type="text" v-model="fillValue" :placeholder="fillPlaceholder" @blur="isFocus=false" @focus="onFocus()">
+    <div class="weui-cell" v-show="fillMode">
+      <div class="weui-cell__hd"><label for="" class="weui-label">{{fillLabel}}</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input needsclick" type="text" v-model="fillValue" :placeholder="fillPlaceholder" @blur="isFocus=false" @focus="onFocus()">
       </div>
-      <div class="weui_cell_ft" v-show="value==='' && !isFocus">
-        <i class="weui_icon_warn"></i>
+      <div class="weui-cell__ft" v-show="value==='' && !isFocus">
+        <i class="weui-icon-warn"></i>
       </div>
     </div>
   </div>
@@ -36,7 +39,7 @@ export default {
       type: Array,
       required: true
     },
-    value: String,
+    value: [String, Number],
     fillMode: {
       type: Boolean,
       default: false
@@ -61,6 +64,9 @@ export default {
     }
   },
   watch: {
+    value (val) {
+      this.currentValue = val
+    },
     currentValue (newVal) {
       var isOption = contains(this.options, newVal)
       if (newVal !== '' && isOption) {
@@ -99,7 +105,17 @@ function contains (a, obj) {
 @import '../../styles/weui/widget/weui_cell/weui_check';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
 @import '../../styles/weui/icon/weui_icon_font';
-.weui_cell_radio > * {
+.weui-cell_radio > * {
   pointer-events: none;
+}
+.vux-radio-icon {
+  width: 24px;
+  height:24px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.vux-radio-label {
+  vertical-align: middle;
 }
 </style>

@@ -3,13 +3,15 @@
     <group>
       <x-switch :title="$t('Toggle')" v-model="show"></x-switch>
     </group>
-    <confirm v-model="show" :title="$t('confirm deleting the item')"
-    @on-cancel="onCancel"
-    @on-confirm="onConfirm"
-    @on-show="onShow"
-    @on-hide="onHide">
-      <p style="text-align:center;">{{ $t('Are you sure?') }}</p>
-    </confirm>
+    <div v-transfer-dom>
+      <confirm v-model="show" :title="$t('confirm deleting the item')"
+      @on-cancel="onCancel"
+      @on-confirm="onConfirm"
+      @on-show="onShow"
+      @on-hide="onHide">
+        <p style="text-align:center;">{{ $t('Are you sure?') }}</p>
+      </confirm>
+    </div>
     <br>
     <div style="padding:15px;">
       <x-button @click.native="showPlugin" type="primary">Show</x-button>
@@ -33,8 +35,11 @@ confirm deleting the item:
 </i18n>
 
 <script>
-import { Confirm, Group, XSwitch, XButton } from 'vux'
+import { Confirm, Group, XSwitch, XButton, TransferDomDirective as TransferDom } from 'vux'
 export default {
+  directives: {
+    TransferDom
+  },
   components: {
     Confirm,
     Group,
@@ -87,7 +92,10 @@ export default {
       this.$vux.confirm.show({
         title: 'Title',
         content: 'Content',
-        hideOnBlur: true
+        hideOnBlur: true,
+        onConfirm () {
+          console.log('plugin confirm 3')
+        }
       })
     }
   }

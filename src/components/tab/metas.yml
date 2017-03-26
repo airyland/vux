@@ -21,20 +21,27 @@ extra: |
 
 tab:
   props:
-    lineWidth:
-      type: Number,
+    line-width:
+      type: Number
       default: 3
       zh-CN: 线条宽度
-    activeColor:
+    active-color:
       zh-CN: 选中时文字颜色
     defaultColor:
       zh-CN: 默认文字颜色
-    disabledColor:
+    disabled-color:
       zh-CN: 不可点击时文字颜色
+    bar-active-color:
+      zh-CN: '设置底部`bar`颜色，该颜色也可以通过`less`变量`@tab-bar-active-color`设置。'
     animate:
       type: Boolean
       default: true
       zh-CN: 切换时是否需要动画
+    custom-bar-width:
+      type: String, Function
+      version: v2.1.1-rc.7
+      en: 'set active bar width, like `50px`. or you can use function, param is `(currentInex)`'
+      zh-CN: '设置底部`bar`宽度，默认宽度是整体tab宽度平分，比如`50px`。使用函数时参数为当前索引`index`，你可以定义不同`tab-item`对应的`bar`宽度。'
 tab-item:
   props:
     disabled:
@@ -43,3 +50,14 @@ tab-item:
       zh-CN: 是否不可选
     active-class:
       zh-CN: 当前项选中时的class
+changes:
+  v2.1.1-rc.7:
+    en:
+      - '[feature] Support setting bar width with prop:custom-bar-width'
+      - '[fix] Fix errors when initializing without tab-item #1038 @liu2010y'
+    zh-CN:
+      - '[feature] 支持定义 bar 宽度'
+      - '[fix] 修复初始化时没有 tab-item 时导致报错 #1038 @liu2010y'
+  v2.1.0-rc.46:
+    zh-CN:
+      - '[feature] 支持设置 `bar-active-color` #715 @greedying'

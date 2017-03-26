@@ -27,6 +27,10 @@ props:
     default: ''
     en: the text below title
     zh-CN: 标题下面文字，一般为说明文字
+  link:
+    type: String, Object
+    en: redirect link when being clicked
+    zh-CN: 点击链接，可以为http(s)协议，也可以是 vue-router 支持的地址形式
   is-link:
     type: Boolean
     default: false
@@ -53,3 +57,17 @@ slots:
   child:
     en: the child element of the cell, you can add an element with absolute position
     zh-CN: cell的直接子元素，因此可以添加一个相对于cell绝对定位的元素
+changes:
+  v2.1.1-rc.13:
+    en:
+      - '[fix] Support Group label styles #1110'
+    zh-CN:
+      - '[fix] 修复 label 宽度不受控于 Group #1110'
+  v2.1.1-rc.3:
+    en:
+      - '[feature] Add font-size variable #990 @wg5945'
+    zh-CN:
+      - '[feature] 支持字体变量 #990 @wg5945'
+  v2.1.0-rc.47:
+    zh-CN:
+      - '[enhance] 修复内容多时的箭头位置 #715 @greedying '

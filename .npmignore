@@ -17,3 +17,6 @@ bower.json
 /assets/
 .babelrc
 docs/
+*.vue.vux.*
+nuxt/
+yarn.lock

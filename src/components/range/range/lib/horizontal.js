@@ -3,7 +3,7 @@
  *
  */
 
-var inherits = require('./lib/super')
+import { inherits } from './lib/super'
 var closest = require('./lib/closest-num')
 var percentage = require('./lib/percentage-calc')
 
@@ -11,13 +11,13 @@ var percentage = require('./lib/percentage-calc')
  * Require main class.
  */
 
-var Powerange = require('./main')
+import Powerange from './main'
 
 /**
  * Expose `Horizontal`.
  */
 
-module.exports = Horizontal
+export default Horizontal
 
 /**
  * Create horizontal slider object.

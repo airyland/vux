@@ -5,8 +5,8 @@
       <cell title="上面value值" :value="value"></cell>
     </group>
     <br>
-    <group>
-      <x-address :title="title2" v-model="value2" raw-value :list="addressData"></x-address>
+    <group label-width="4em" label-align="left">
+      <x-address :title="title2" v-model="value2" raw-value :list="addressData" value-text-align="left"></x-address>
     </group>
     <br/>
     <div style="padding: 0 15px;">
@@ -18,7 +18,7 @@
       <x-address title="二级省市" v-model="value3" raw-value :list="addressData"></x-address>
     </group>
     <group>
-      <x-address title="只显示省市" v-model="value4" raw-value :list="addressData" hide-district></x-address ref="demo2">
+      <x-address title="只显示省市" v-model="value4" raw-value :list="addressData" hide-district></x-address>
       <cell title="value值" :value="value4"></cell>
       <cell title="转换成文字值" :value="getName(value4)"></cell>
     </group>
@@ -45,7 +45,7 @@ export default {
       title: '默认为空',
       value: [],
       title2: '设置值',
-      value2: ['广东省', '深圳市', '南山区'],
+      value2: ['天津市', '市辖区', '和平区'],
       value3: ['广东省', '中山市', '--'],
       addressData: ChinaAddressData,
       value4: [],

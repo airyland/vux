@@ -1,16 +1,31 @@
 icon: '&#xe62b;'
 extra:
-  zh-CN: >
+  zh-CN: |
+
     ```html
       <group>
         <calendar title="title" v-model="value"></calendar>
       </group>
     ```
-    
+
     <p class="tip">`calendar`只能在`Group`中使用
     <br>
-     除了`title`和 `value`, 其他`props`和`inline-calendar`完全一致。</p>
- 
+     除了`title`和 `value`, 其他`props`和`inline-calendar`完全一致。
+    </p>
+
+  en: |
+
+    ```html
+      <group>
+        <calendar title="title" v-model="value"></calendar>
+      </group>
+    ```
+
+    <p class="tip">`calendar` can be only used in `Group`
+    <br>
+    Except `title` and `value`, other `props` are the same as those of `inline-calendar`.
+    </p>
+
 tags:
   - calendar
   - 日历
@@ -21,15 +36,18 @@ extends:
   - cell
 intro:
   zh-CN: 扩展自inline-calendar, 相关属性可查看inline-calendar文档
+  en: extends from inline-calendar, Related props can be found in the document of inline-calendar
 props:
   value:
     type: String
     default: ''
     zh-CN: 表单值, v-model 绑定
+    en: form value, binding by v-model
   title:
     type: String
     default: ''
     zh-CN: label文字
+    en: text of label
 events:
   on-change:
     params: (value)

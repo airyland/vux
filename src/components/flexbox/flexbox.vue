@@ -22,12 +22,17 @@ export default {
   },
   computed: {
     styles () {
-      return {
+      const styles = {
         'justify-content': this.justify,
+        '-webkit-justify-content': this.justify,
         'align-items': this.align,
+        '-webkit-align-items': this.align,
         'flex-wrap': this.wrap,
-        'flex-direction': this.direction
+        '-webkit-flex-wrap': this.wrap,
+        'flex-direction': this.direction,
+        '-webkit-flex-direction': this.direction
       }
+      return styles
     }
   }
 }
@@ -38,11 +43,13 @@ export default {
   width: 100%;
   text-align: left;
   display: flex;
+  display: -webkit-flex;
   box-align: center;
   align-items: center;
 }
 .vux-flexbox .vux-flexbox-item {
   flex: 1;
+  -webkit-flex: 1;
   min-width: 20px;
   width: 0%;
 }

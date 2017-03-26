@@ -4,7 +4,23 @@
       <datetime v-model="value1" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
 
-    <p class="center" @click="value1 = '2017-11-11'">{{ $t('click to change value to: 2017-11-11') }}</p>
+     <group :title="$t('format display value')">
+      <datetime v-model="formatValue" :display-format="formatValueFunction" @on-change="change" :title="$t('Birthday')"></datetime>
+    </group>
+
+    <p class="center" @click="formatValue = '2017-11-11'">{{ $t('click to change value to: 2017-11-11') }}</p>
+
+    <group :title="$t('Limit hours')">
+      <datetime v-model="limitHourValue" format="YYYY-MM-DD HH:mm" :min-hour=9 :max-hour=18 @on-change="change" :title="$t('Limit hours')" :inline-desc="$t('09-18')"></datetime>
+    </group>
+
+    <group :title="$t('set start-date and end-date') + ' 2015-11-11 ~ 2017-10-11'">
+      <datetime v-model="limitHourValue" :start-date="startDate" :end-date="endDate" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('start time')"></datetime>
+    </group>
+
+    <div style="padding:15px;">
+      <x-button @click.native="reRender" type="primary">2016-11-11 ~ 2018-10-11</x-button>
+    </div>
 
     <group :title="$t('format: YYYY-MM-DD HH:mm')">
       <datetime v-model="value2" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('start time')"></datetime>
@@ -34,6 +50,9 @@
       <datetime v-model="value7" @on-change="change" :title="$t('Birthday')" clear-text="today" @on-clear="setToday">
         <x-button>{{$t('Click me')}}</x-button>
       </datetime>
+    </group>
+    <group :title="$t('required')">
+      <datetime v-model="value8" :title="$t('Required')" clear-text="clear" @on-clear="clearValue8" :required="true"></datetime>
     </group>
   </div>
 </template>
@@ -67,6 +86,16 @@ Click me:
   zh-CN: 点我
 custom trigger slot:
   zh-CN: 自定义触发内容
+Limit hours:
+  zh-CN: 限定小时范围
+09-18:
+  zh-CN: 工作时间 09-18
+set start-date and end-date:
+  zh-CN: 设置开始时间和结束日期
+'click to change value to: 2017-11-11':
+  zh-CN: 设置时间为 2017-11-11
+format display value:
+  zh-CN: 格式化显示
 </i18n>
 
 <script>
@@ -80,21 +109,36 @@ export default {
   },
   data () {
     return {
-      value1: '2016-02-11',
+      value1: '2015-11-12',
       value2: '',
       value3: '',
       value4: '',
       value5: '',
       value6: '2016-08-18',
-      value7: ''
+      value7: '',
+      value8: '',
+      limitHourValue: '',
+      startDate: '2015-11-11',
+      endDate: '2017-10-11',
+      formatValue: '2017-10-11',
+      formatValueFunction (val) {
+        return val.replace(/-/g, '$')
+      }
     }
   },
   methods: {
+    reRender () {
+      this.startDate = '2016-11-11'
+      this.endDate = '2018-10-11'
+    },
     change (value) {
       console.log('change', value)
     },
     clearValue (value) {
       this.$data.value6 = ''
+    },
+    clearValue8 (value) {
+      this.$data.value8 = ''
     },
     setToday (value) {
       let now = new Date()

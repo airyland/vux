@@ -6,7 +6,17 @@ const isIpod = /(iPod)(.*OS\s([\d_]+))?/.test(ua)
 const isIphone = !isIpad && /(iPhone\sOS)\s([\d_]+)/.test(ua)
 const isWechat = /micromessenger/i.test(ua)
 
-export default function (Vue) {
+const plugin = function (Vue) {
+  // Vue.$device will be removed
+  if (!Vue.$device || !Vue.device) {
+    Vue.$device = Vue.device = {
+      isAndroid,
+      isIpad,
+      isIpod,
+      isIphone,
+      isWechat
+    }
+  }
   Vue.mixin({
     created: function () {
       this.$device = {
@@ -19,3 +29,5 @@ export default function (Vue) {
     }
   })
 }
+
+export default plugin

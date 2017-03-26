@@ -2,3 +2,9 @@ icon: '&#xe656;'
 import_code: "import { Timeline, TimelineItem } from 'vux'"
 extra: |
   待补充
+changes:
+  v2.1.1-rc.10:
+    en:
+      - '[fix] Fix icon position'
+    zh-CN:
+      - '[fix] 修复图标位置'
