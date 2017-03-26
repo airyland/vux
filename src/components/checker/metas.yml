@@ -63,6 +63,11 @@ checker-item:
       en: emits when current checker-item is clicked
       zh-CN: 当前项被点击时触发
 changes:
+  next:
+    en:
+      - '[enhance] Now disabled item also emits event:on-item-click #1144'
+    zh-CN:
+      - '[enhance] 不可选项同样触发事件 on-item-click #1144'
   v2.0.0:
     en:
       - '[feature] Support Object value #705'
