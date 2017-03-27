@@ -85,3 +85,8 @@ changes:
       - '[fix] Fix left-menu is shown when sliding back and forth #1139'
     zh-CN:
       - '[fix] 修复来回滑动时左侧菜单可能会被滑出 #1139'
+  next:
+    en:
+      - '[fix] Fix cannot scroll when disabled'
+    zh-CN:
+      - '[fix] 修复disabled时不能上下滚动问题'
