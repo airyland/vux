@@ -58,7 +58,7 @@
     "vue": "^2.2.2",
     "vue-hot-reload-api": "^2.0.11",
     "vux-blazy": "^1.6.4",
-    "vux-xscroll": "^3.1.8",
+    "vux-xscroll": "^3.1.9",
     "webp-support": "^1.0.3",
     "weixin-js-sdk": "^1.2.0"
   },
