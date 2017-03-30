@@ -13,9 +13,6 @@ export default {
   props: {
     title: String,
     titleColor: String,
-    labelWidth: String,
-    labelAlign: String,
-    labelMarginRight: String,
     gutter: String
   }
 }
