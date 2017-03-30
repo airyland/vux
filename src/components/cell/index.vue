@@ -11,9 +11,9 @@
       <inline-desc>{{inlineDesc}}</inline-desc>
     </div>
     <div class="weui-cell__ft" :class="{'vux-cell-primary':primary==='content'}">
-      {{value}}
       <slot name="value"></slot>
-      <slot></slot>
+      <slot>{{value}}</slot>
+      <i class="weui-loading" v-if="isLoading"></i>
     </div>
     <slot name="child"></slot>
   </div>
@@ -31,6 +31,7 @@ export default {
     title: String,
     value: [String, Number, Array],
     isLink: Boolean,
+    isLoading: Boolean,
     inlineDesc: [String, Number],
     primary: {
       type: String,
@@ -53,6 +54,7 @@ export default {
 @import '../../styles/tap.less';
 @import '../../styles/weui/base/mixin/setArrow.less';
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
+@import '../../styles/weui/widget/weui-loading/weui-loading.less';
 
 .vux-cell-primary {
   flex: 1;
@@ -61,5 +63,8 @@ export default {
   display: block;
   word-wrap: break-word;
   word-break: break-all;
+}
+.weui-cell__ft .weui-loading {
+  display: block;
 }
 </style>

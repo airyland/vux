@@ -2,6 +2,7 @@
   <div>
     <group>
       <cell :title="$t('My Account')" :value="$t('Protected')" @click.native="onClick"></cell>
+      <cell :title="$t('Money')" @click.native="onClick" :is-loading="!money" :value="money"></cell>
     </group>
 
     <group :title="$t('use is-link to show arrow')">
@@ -61,12 +62,19 @@ Go to Demo:
   zh-CN: 前往Demo页面
 http link:
   zh-CN: 站外链接
+Money:
+  zh-CN: 余额
 </i18n>
 
 <script>
 import { Cell, Group } from 'vux'
 
 export default {
+  mounted () {
+    setTimeout(() => {
+      this.money = -1024
+    }, 2000)
+  },
   components: {
     Group,
     Cell
@@ -74,6 +82,11 @@ export default {
   methods: {
     onClick () {
       console.log('on click')
+    }
+  },
+  data () {
+    return {
+      money: null
     }
   }
 }
