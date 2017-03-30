@@ -160,10 +160,10 @@ export default {
   },
   methods: {
     render () {
-      if (this.picker) {
-        this.picker.destroy()
-      }
-      this.picker = new Picker(this.pickerOptions)
+      this.$nextTick(() => {
+        this.picker && this.picker.destroy()
+        this.picker = new Picker(this.pickerOptions)
+      })
     },
     validate () {
       if (!this.currentValue && this.required) {
@@ -190,7 +190,6 @@ export default {
     value (val) {
       if (this.currentValue !== val) {
         this.currentValue = val
-        this.picker.destroy()
         this.render()
       }
     }
