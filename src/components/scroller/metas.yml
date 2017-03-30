@@ -194,3 +194,9 @@ slots:
   default:
     en: scroller content, should has only one `div` root
     zh-CN: scroller 内容，必须是一个 `div` 元素
+changes:
+  next:
+    en:
+      - '[fix] Fix resize listener not being destroyed #1183'
+    zh-CN:
+      - '[fix] 修复 resize 事件没有移除导致切换页面报错 #1183'
