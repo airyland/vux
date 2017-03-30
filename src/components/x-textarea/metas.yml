@@ -65,6 +65,11 @@ props:
     default: 0
     en: height
     zh-CN: 高度
+  readonly:
+    type: Boolean
+    default: false
+    en: textarea's readonly attribute
+    zh-CN: textarea 标签属性 readonly
 slots:
   label:
     version: v2.1.1-rc.8
