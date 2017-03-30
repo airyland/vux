@@ -104,14 +104,6 @@ export default {
 @import '../../styles/weui/widget/weui_tips/weui_mask';
 @import '../../styles/weui/widget/weui_tips/weui_actionsheet';
 
-.vux-actionsheet-gap {
-  height: 8px;
-  width: 100%;
-  background-color: #eee;
-}
-.vux-actionsheet-cancel:before {
-  border-top: none;
-}
 .vux-actionsheet-menu-primary {
   color: @actionsheet-label-primary-color;
 }
