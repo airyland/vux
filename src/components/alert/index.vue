@@ -10,7 +10,7 @@
         <strong class="weui-dialog__title">{{title}}</strong>
       </div>
       <div class="weui-dialog__bd">
-        <slot></slot>
+        <slot>{{content}}</slot>
       </div>
       <div class="weui-dialog__ft">
         <a href="javascript:;"
