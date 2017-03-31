@@ -3,9 +3,15 @@
     <group>
       <x-switch :title="$t('Show Me')" v-model="show"></x-switch>
     </group>
-
     <div v-transfer-dom>
       <alert v-model="show" :title="$t('Congratulations')" @on-show="onShow" @on-hide="onHide"> {{ $t('Your Message is sent successfully~') }}</alert>
+    </div>
+
+    <group title="prop:content">
+      <x-switch :title="$t('Show Me')" v-model="show2"></x-switch>
+    </group>
+    <div v-transfer-dom>
+      <alert v-model="show2" :title="$t('Congratulations')" :content="$t('Your Message is sent successfully~')"></alert>
     </div>
 
     <group :title="$t('Use as a plugin')">
@@ -46,7 +52,8 @@ export default {
   data () {
     return {
       show: false,
-      show1: false
+      show1: false,
+      show2: false
     }
   },
   methods: {
@@ -58,7 +65,7 @@ export default {
     },
     showPlugin () {
       this.$vux.alert.show({
-        title: 'Vux is Cool',
+        title: 'VUX is Cool',
         content: this.$t('Do you agree?'),
         onShow () {
           console.log('Plugin: I\'m showing')
