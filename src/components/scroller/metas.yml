@@ -197,6 +197,8 @@ slots:
 changes:
   next:
     en:
+      - '[fix] Fix issue when redirecting on scrolling #1187'
       - '[fix] Fix resize listener not being destroyed #1183'
     zh-CN:
       - '[fix] 修复 resize 事件没有移除导致切换页面报错 #1183'
+      - '[fix] 修复滚动情况下跳转页面报错 #1187'

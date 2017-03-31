@@ -230,10 +230,12 @@ export default {
       })
 
       this._xscroll.on('scroll', () => {
-        this.$emit('on-scroll', {
-          top: this._xscroll.getScrollTop(),
-          left: this._xscroll.getScrollLeft()
-        })
+        if (this._xscroll) {
+          this.$emit('on-scroll', {
+            top: this._xscroll.getScrollTop(),
+            left: this._xscroll.getScrollLeft()
+          })
+        }
       })
 
       if (this.usePulldown) {
