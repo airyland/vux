@@ -88,5 +88,7 @@ changes:
   next:
     en:
       - '[fix] Fix cannot scroll when disabled'
+      - '[fix] Fix unable to trigger click event when disabled on android'
     zh-CN:
       - '[fix] 修复disabled时不能上下滚动问题'
+      - '[fix] 修复disabled时，安卓手机上不能触发点击事件的问题'
