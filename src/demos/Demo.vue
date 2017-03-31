@@ -1,11 +1,11 @@
 <template>
-  <div class="vux-1px-b">
+  <div class="vux-1px-b demo-list-box">
     <flexbox :gutter="0" v-for="(list, index) in components" :key="index">
       <flexbox-item :span="1/3" v-for="component in list" :key="component.name" class="cbox vux-1px-t vux-tap-active" @click.native="go(component.name.toLowerCase())">
         <div class="vux-1px-r cbox-inner">
           <span class="demo-icon" v-html="component.icon" :style="{color: component.color}"></span>
           <br>
-          <span class="cname">{{component.name}}</span>
+          <span>{{component.name | camelCase}}</span>
         </div>
       </flexbox-item>
     </flexbox>
@@ -16,10 +16,24 @@
 import { Flexbox, FlexboxItem, VuxComponentListData as components } from 'vux'
 import { mapState } from 'vuex'
 
+function camelCase (input) {
+  let str = input.toLowerCase().replace(/-(.)/g, function (match, group1) {
+    return group1.toUpperCase()
+  })
+
+  str = str.replace(/_(.)/g, function (match, group1) {
+    return group1.toUpperCase()
+  })
+  return str.slice(0, 1).toUpperCase() + str.slice(1)
+}
+
 export default {
   components: {
     Flexbox,
     FlexboxItem
+  },
+  filters: {
+    camelCase
   },
   methods: {
     go (name) {
@@ -57,7 +71,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-.cname {
-  text-transform: capitalize;
+.demo-list-box {
+  background-color: #fff;
 }
 </style>

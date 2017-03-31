@@ -215,8 +215,12 @@ html, body {
 
 .demo-icon {
   font-family: 'vux-demo';
-  font-size:20px;
+  font-size: 20px;
   color: #04BE02;
+}
+
+.demo-icon-big {
+  font-size: 28px;
 }
 
 .demo-icon:before {
