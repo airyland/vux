@@ -1,5 +1,10 @@
 icon: '&#xe65b;'
 color: '#f74c31'
+references:
+  zh-CN:
+    - 
+      title: 这个控件叫：Badge/徽标/小红点
+      link: https://zhuanlan.zhihu.com/p/26107887
 props:
   text:
     type: String
