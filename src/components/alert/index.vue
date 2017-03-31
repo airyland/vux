@@ -10,7 +10,9 @@
         <strong class="weui-dialog__title">{{title}}</strong>
       </div>
       <div class="weui-dialog__bd">
-        <slot></slot>
+        <slot>
+          <div v-html="content"></div>
+        </slot>
       </div>
       <div class="weui-dialog__ft">
         <a href="javascript:;"
@@ -42,6 +44,7 @@ export default {
   props: {
     value: Boolean,
     title: String,
+    content: String,
     buttonText: String,
     maskTransition: {
       type: String,
