@@ -445,7 +445,7 @@ export default {
 .vux-x-input .vux-x-input-placeholder-center input::-webkit-input-placeholder {
   text-align: center;
 }
-.vux-input-icon.vux-input-icon {
+.vux-x-input .vux-input-icon {
   font-size: 21px;
 }
 .vux-input-icon.weui-icon-warn:before, .vux-input-icon.weui-icon-success:before {
