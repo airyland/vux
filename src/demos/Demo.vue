@@ -3,7 +3,7 @@
     <flexbox :gutter="0" v-for="(list, index) in components" :key="index">
       <flexbox-item :span="1/3" v-for="component in list" :key="component.name" class="cbox vux-1px-t vux-tap-active" @click.native="go(component.name.toLowerCase())">
         <div class="vux-1px-r cbox-inner">
-          <span class="demo-icon" v-html="component.icon" :style="{color: component.color}"></span>
+          <span class="demo-icon demo-icon-big" v-html="component.icon" :style="{color: component.color}"></span>
           <br>
           <span>{{component.name | camelCase}}</span>
         </div>
