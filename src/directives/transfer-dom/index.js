@@ -16,6 +16,7 @@ function getTarget (node) {
 
 const directive = {
   inserted (el, { value }, vnode) {
+    el.className = el.className ? el.className + ' v-transfer-dom' : 'v-transfer-dom'
     const parentNode = el.parentNode
     var home = document.createComment('')
     var hasMovedOut = false
@@ -58,6 +59,7 @@ const directive = {
     }
   },
   unbind: function unbind (el, binding) {
+    el.className = el.className.replace('v-transfer-dom', '')
     if (el.__transferDomData.hasMovedOut === true) {
       el.__transferDomData.parentNode && el.__transferDomData.parentNode.appendChild(el)
     }

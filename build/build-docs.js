@@ -54,6 +54,7 @@ let gComponents = []
 let maps = {}
 saveMaps('numberRange', 'src/tools/number/range.js')
 saveMaps('dateRange', 'src/tools/date/range.js')
+saveMaps('TransferDom', 'src/directives/transfer-dom/index.js')
 
 function saveMaps(key, value) {
   if (key === 'RangeTool') {
@@ -228,6 +229,19 @@ glob(getPath('../src/plugins/**/metas.yml'), {}, function (err, files) {
     })
   })
   fs.writeFileSync(getPath('../src/plugins/changes.json'), JSON.stringify(rs, null, 2))
+})
+
+glob(getPath('../src/directives/**/metas.yml'), {}, function (err, files) {
+  let rs = []
+  files.forEach(function (file) {
+    const name = file.split('directives/')[1].replace('/metas.yml', '')
+    const json = yaml.safeLoad(fs.readFileSync(file, 'utf-8'))
+    rs.push({
+      name: name,
+      metas: json
+    })
+  })
+  fs.writeFileSync(getPath('../src/directives/changes.json'), JSON.stringify(rs, null, 2))
 })
 
 function getComponentName(path) {
@@ -719,8 +733,11 @@ function buildChanges(infos, lang = 'zh-CN') {
 
   const toolInfos = require(getPath('../src/tools/changes.json'))
   const pluginInfos = require(getPath('../src/plugins/changes.json'))
+  const directiveInfos = require(getPath('../src/directives/changes.json'))
+
   infos = infos.concat(toolInfos)
   infos = infos.concat(pluginInfos)
+  infos = infos.concat(directiveInfos)
   let rs = {}
   infos.forEach(one => {
     let name = one.name
