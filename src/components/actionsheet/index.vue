@@ -71,6 +71,9 @@ export default {
       }
     },
     fixIos (zIndex) {
+      if (this.$el.parentNode && this.$el.parentNode.className.indexOf('v-transfer-dom') !== -1) {
+        return
+      }
       if (this.$tabbar && /iphone/i.test(navigator.userAgent)) {
         this.$tabbar.style.zIndex = zIndex
       }

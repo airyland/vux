@@ -110,6 +110,7 @@
   "Tip": "src/components/tip/index.vue",
   "Toast": "src/components/toast/index.vue",
   "ToastPlugin": "src/plugins/toast/index.js",
+  "TransferDom": "src/directives/transfer-dom/index.js",
   "TransferDomDirective": "src/directives/transfer-dom/index.js",
   "Value2nameFilter": "src/filters/value2name.js",
   "Video": "src/components/video/index.vue",
