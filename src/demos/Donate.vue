@@ -1,7 +1,6 @@
 <template>
   <div>
-    <img src="../assets/demo/wechat_pay_10_24.jpg">
-    <divider>Proudly sponsored by </divider>
+    <img src="../assets/demo/wechat_pay_10_24.jpg" class="donate-img">
   </div>
 </template>
 
@@ -14,3 +13,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.donate-img {
+  max-width: 100%;
+}
+</style>
