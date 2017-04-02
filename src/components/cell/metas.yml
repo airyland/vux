@@ -47,6 +47,11 @@ props:
     default: false
     en: if show loading icon
     zh-CN: 是否显示加载图标，适用于异步加载数据的场景
+  value-align:
+    version: next
+    default: left
+    en: value's text-align，primary will be set to content if value-align value is right
+    zh-CN: 文字值对齐方式，当设为 right 时，primary 值将会设为 content
 slots:
   default:
     en: "right area, you can use default slot instead of prop:value so you can use complexed layout"

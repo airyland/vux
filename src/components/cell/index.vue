@@ -3,14 +3,14 @@
     <div class="weui-cell__hd">
       <slot name="icon"></slot>
     </div>
-    <div class="vux-cell-bd" :class="{'vux-cell-primary':primary==='title'}">
+    <div class="vux-cell-bd" :class="{'vux-cell-primary': primary === 'title' && valueAlign !== 'left'}">
       <p>
         <label class="vux-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title">{{title}}</label>
         <slot name="after-title"></slot>
       </p>
       <inline-desc>{{inlineDesc}}</inline-desc>
     </div>
-    <div class="weui-cell__ft" :class="{'vux-cell-primary':primary==='content'}">
+    <div class="weui-cell__ft" :class="{'vux-cell-primary': primary === 'content' || valueAlign === 'left', 'vux-cell-align-left': valueAlign === 'left'}">
       <slot name="value"></slot>
       <slot>{{value}}</slot>
       <i class="weui-loading" v-if="isLoading"></i>
@@ -39,7 +39,8 @@ export default {
     },
     link: {
       type: [String, Object]
-    }
+    },
+    valueAlign: String
   },
   methods: {
     onClick () {
@@ -66,5 +67,8 @@ export default {
 }
 .weui-cell__ft .weui-loading {
   display: block;
+}
+.weui-cell__ft.vux-cell-align-left {
+  text-align: left;
 }
 </style>
