@@ -18,9 +18,7 @@
       @on-click-more="onClickMore"></x-header>
 
       <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
-        <keep-alive>
-          <router-view class="router-view"></router-view>
-        </keep-alive>
+        <router-view class="router-view"></router-view>
       </transition>
 
       <tabbar class="vux-demo-tabbar" icon-class="vux-center" v-show="!isTabbarDemo" slot="bottom">
