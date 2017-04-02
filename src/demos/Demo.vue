@@ -1,14 +1,16 @@
 <template>
-  <div class="vux-1px-b demo-list-box">
-    <flexbox :gutter="0" v-for="(list, index) in components" :key="index">
-      <flexbox-item :span="1/3" v-for="component in list" :key="component.name" class="cbox vux-1px-t vux-tap-active" @click.native="go(component.name.toLowerCase())">
-        <div class="vux-1px-r cbox-inner">
-          <span class="demo-icon demo-icon-big" v-html="component.icon" :style="{color: component.color}"></span>
-          <br>
-          <span>{{component.name | camelCase}}</span>
-        </div>
-      </flexbox-item>
-    </flexbox>
+  <div>
+    <div class="demo-list-box" id="demo_list_box" :style="{height: `${height}px`}">
+      <flexbox :gutter="0" v-for="(list, index) in components" :key="index">
+        <flexbox-item :span="1/3" v-for="component in list" :key="component.name" class="cbox vux-1px-t vux-tap-active" @click.native="go(component.name.toLowerCase())">
+          <div class="vux-1px-r cbox-inner">
+            <span class="demo-icon demo-icon-big" v-html="component.icon" :style="{color: component.color}"></span>
+            <br>
+            <span>{{component.name | camelCase}}</span>
+          </div>
+        </flexbox-item>
+      </flexbox>
+    </div>
   </div>
 </template>
 
@@ -35,6 +37,9 @@ export default {
   filters: {
     camelCase
   },
+  activated () {
+    document.querySelector('#demo_list_box').scrollTop = this.demoTop
+  },
   methods: {
     go (name) {
       this.$router.push(`/component/${name}`)
@@ -51,6 +56,7 @@ export default {
   },
   data () {
     return {
+      height: window.innerHeight - 46 - 53,
       components: this.split(components)
     }
   },
@@ -72,6 +78,10 @@ export default {
   height: 100%;
 }
 .demo-list-box {
+  margin-bottom: 10px;
   background-color: #fff;
+  width: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 </style>
