@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="less">
-.vux-flexbox{
+.vux-flexbox {
   width: 100%;
   text-align: left;
   display: flex;
@@ -57,7 +57,7 @@ export default {
   width: 100%;
 }
 
-.vux-flexbox .vux-flexbox-item:first-child{
+.vux-flexbox .vux-flexbox-item:first-child {
   margin-left: 0!important;
   margin-top: 0!important;
 }
