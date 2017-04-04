@@ -17,6 +17,7 @@
   "Card": "src/components/card/index.vue",
   "Cell": "src/components/cell/index.vue",
   "CellBox": "src/components/cell-box/index.vue",
+  "CellFormPreview": "src/components/cell-form-preview/index.vue",
   "Checker": "src/components/checker/checker.vue",
   "CheckerItem": "src/components/checker/checker-item.vue",
   "CheckIcon": "src/components/check-icon/index.vue",

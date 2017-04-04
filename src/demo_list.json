@@ -95,5 +95,6 @@
   "ScrollerSwiper",
   "TabbarIcon",
   "DatetimeRange",
-  "XImgScroller#/demo/x-img-scroller"
+  "XImgScroller#/demo/x-img-scroller",
+  "CellFormPreview"
 ]

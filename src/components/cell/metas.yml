@@ -9,8 +9,12 @@ extra:
     
     <p class="tip">cell只能在`Group`中使用</p>
 tags:
-  - cell
-  - form
+  en:
+    - cell
+    - form
+  zh-CN:
+    - 表单
+    - 列表
 props:
   title:
     type: String

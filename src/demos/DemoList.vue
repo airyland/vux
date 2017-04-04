@@ -5,7 +5,7 @@
           <div class="vux-1px-r cbox-inner">
             <span class="demo-icon demo-icon-big" v-html="component.icon" :style="{color: component.color}"></span>
             <br>
-            <span>{{component.name | camelCase}}</span>
+            <span :style="{fontSize: component.name.length > 12 ? '12px' : ''}">{{component.name | camelCase}}</span>
           </div>
         </flexbox-item>
       </flexbox>
@@ -52,7 +52,18 @@ export default {
         chunks.push(array.slice((count - 1) * 3, count * 3))
         count--
       }
-      return chunks.reverse()
+      chunks = chunks.reverse()
+      const lastList = chunks[chunks.length - 1]
+      const lastLength = lastList.length
+      if (lastLength < 3) {
+        for (let i = 0; i < 3 - lastLength; i++) {
+          lastList.push({
+            name: '----',
+            icon: ''
+          })
+        }
+      }
+      return chunks
     }
   },
   data () {
