@@ -1,6 +1,6 @@
 <template>
   <div>
-    <popup-picker :data="list" :title="title" :display-format="cellFormat" v-model="currentValue" :inline-desc="inlineDesc" :placeholder="placeholder" @on-hide="emitHide" @on-show="$emit('on-show')" :value-text-align="valueTextAlign"></popup-picker>
+    <popup-picker :data="list" :title="title" :display-format="cellFormat" v-model="currentValue" :inline-desc="inlineDesc" :placeholder="placeholder" @on-hide="emitHide" @on-show="$emit('on-show')" :value-text-align="valueTextAlign" :column-width="[1/2, 1/6]"></popup-picker>
   </div>
 </template>
 
