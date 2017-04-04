@@ -5,12 +5,9 @@
         <button-tab-item>{{ $t('Today') }}</button-tab-item>
         <button-tab-item selected>{{ $t('This Week') }}</button-tab-item>
         <button-tab-item>{{ $t('This Month') }}</button-tab-item>
-      </button-tab>
+      </button-tab>      
       <br>
-      <button-tab>
-        <button-tab-item selected>{{ $t('Articles') }}</button-tab-item>
-        <button-tab-item>{{ $t('Products') }}</button-tab-item>
-      </button-tab>
+      <divider>{{ $t('Use v-model to set selected item') }}</divider>
       <br>
       <button-tab v-model="demo01">
         <button-tab-item @on-item-click="consoleIndex()">{{ $t('Articles') }}</button-tab-item>
@@ -23,6 +20,7 @@
       </button-tab>
       <br>
       <divider>{{ $t('Red Dot') }}</divider>
+      <br>
       <button-tab>
         <button-tab-item selected>{{ $t('All Messages') }}</button-tab-item>
         <button-tab-item><span class="vux-reddot-s">{{ $t('New Messages') }}</span></button-tab-item>
@@ -52,6 +50,8 @@ New Messages:
   zh-CN: 新消息
 Red Dot:
   zh-CN: 红点
+Use v-model to set selected item:
+  zh-CN: 使用 v-model 设置当前选中项
 </i18n>
 
 <script>

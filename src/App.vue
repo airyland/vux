@@ -235,6 +235,8 @@ html, body {
   width: 100%;
   height: 100%;
   top: 46px;
+  backface-visibility: hidden;
+  perspective: 1000;
 }
 .vux-pop-out-enter-active,
 .vux-pop-out-leave-active,
