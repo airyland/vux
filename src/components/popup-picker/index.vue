@@ -32,7 +32,8 @@
           @on-change="onPickerChange"
           :columns="columns"
           :fixed-columns="fixedColumns"
-          :container="'#vux-popup-picker-'+uuid"></picker>
+          :container="'#vux-popup-picker-'+uuid"
+          :column-width="columnWidth"></picker>
         </div>
       </popup>
     </div>
@@ -126,7 +127,8 @@ export default {
     isTransferDom: {
       type: Boolean,
       default: true
-    }
+    },
+    columnWidth: Array
   },
   methods: {
     value2name,

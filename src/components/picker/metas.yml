@@ -116,6 +116,11 @@ props:
     type: Number
     en: how many columns will show
     zh-CN: 指定显示多少列，隐藏多余的
+  column-width:
+    type: Array
+    version: next
+    en: 'custom width for each picker column, for example for a 3-column picker: [1/2, 1/5] '
+    zh-CN: 定义每一列宽度，只需要定义除最后一列宽度，最后一列自动宽度， 比如对于3列选择，可以这样：[1/2, 1/5]
 events:
   on-change:
     params: '`(value)`'
