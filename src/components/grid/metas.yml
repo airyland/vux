@@ -33,6 +33,13 @@ grid-item:
       en: slot for label, the same func as prop:label
       zh-CN: label文字的slot，作用同prop:label
 changes:
+  next:
+    en:
+      - '[feature] Support dynamic rows'
+      - '[enhance] Hide slot:icon and slot:label if not being set'
+    zh-CN:
+      - '[feature] 支持定义列数'
+      - ']enhance] 如果没有使用 icon 和 label，则直接隐藏 slot:icon 和 slot:label'
   v2.0.14:
     en:
       - '[feature] Add component `grid`'
