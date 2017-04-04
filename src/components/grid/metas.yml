@@ -1,5 +1,13 @@
 icon: '&#xe661;'
 import_code: import { Grid, GridItem } from 'vux'
+tags:
+  en:
+    - grid
+    - layout
+  zh-CN:
+    - 宫格
+    - 九宫格
+    - 布局
 items:
   - grid
   - grid-item
@@ -13,6 +21,13 @@ extra: |
   </grid>
   ```
 grid:
+  props:
+    rows:
+      type: Number
+      version: next
+      default: 3
+      en: rows number
+      zh-CN: 宫格列数，建议少于`5`
   slots:
     default:
       en: 'default slot for `grid-item` list'
