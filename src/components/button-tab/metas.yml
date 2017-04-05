@@ -36,7 +36,7 @@ button-tab-item:
       en: emits when item being clicked
       zh-CN: 当前按钮点击时触发
 changes:
-  next:
+  v2.2.0:
     en:
       - '[enhance] Update border style(1px)'
     zh-CN:

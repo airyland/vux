@@ -49,12 +49,12 @@ extra: |
 slots:
 props:
   list:
-    version: next
+    version: v2.2.0
     type: Array
     en: label and value list
     zh-CN: 内容列表
 changes:
-  next:
+  v2.2.0:
     en:
       - '[feature] new component'
     zh-CN:

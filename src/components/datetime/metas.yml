@@ -122,7 +122,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.2.0:
     en:
       - '[fix] render picker on nextTick #1180'
     zh-CN:

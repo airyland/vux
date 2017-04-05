@@ -195,7 +195,7 @@ slots:
     en: scroller content, should has only one `div` root
     zh-CN: scroller 内容，必须是一个 `div` 元素
 changes:
-  next:
+  v2.2.0:
     en:
       - '[fix] Fix issue when redirecting on scrolling #1187'
       - '[fix] Fix resize listener not being destroyed #1183'

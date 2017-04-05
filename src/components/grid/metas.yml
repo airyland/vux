@@ -24,7 +24,7 @@ grid:
   props:
     rows:
       type: Number
-      version: next
+      version: v2.2.0
       default: 3
       en: rows number
       zh-CN: 宫格列数，建议少于`5`
@@ -48,7 +48,7 @@ grid-item:
       en: slot for label, the same func as prop:label
       zh-CN: label文字的slot，作用同prop:label
 changes:
-  next:
+  v2.2.0:
     en:
       - '[feature] Support dynamic rows'
       - '[enhance] Hide slot:icon and slot:label if not being set'

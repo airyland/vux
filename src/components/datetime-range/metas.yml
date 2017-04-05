@@ -53,7 +53,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.2.0:
     en:
       - '[enhance] Use better column width'
     zh-CN:

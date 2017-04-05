@@ -116,7 +116,7 @@ events:
     en: triggers when clicking on the cancel menu
     zh-CN: 点击取消菜单时触发
 changes:
-  next:
+  v2.2.0:
     en:
       - '[enhance] Donot update handel z-index in Safari when using v-transfer-dom'
     zh-CN:

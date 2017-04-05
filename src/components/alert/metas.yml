@@ -101,7 +101,7 @@ props:
     en: title
     zh-CN: 弹窗标题
   content:
-    version: next
+    version: v2.2.0
     type: String
     default: ''
     en: alert content, and will be replaced if using slot:default
@@ -130,7 +130,7 @@ events:
     en: emits when dialog shows
     zh-CN: 弹窗显示时触发
 changes:
-  next:
+  v2.2.0:
     en:
       - '[feature] Add prop:content'
     zh-CN:

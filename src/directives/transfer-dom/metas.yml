@@ -1,5 +1,5 @@
 changes:
-  next:
+  v2.2.0:
     en:
       - '[enhance] Support simple entry name: TransferDom'
       - '[enhance] Add classname v-transfer-dom'

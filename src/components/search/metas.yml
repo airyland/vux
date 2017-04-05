@@ -62,7 +62,7 @@ events:
     en: when input gets focus
     zh-CN: 输入框获取到焦点时触发
 changes:
-  next:
+  v2.2.0:
     en:
       - '[enhance] emit on-change after input'
     zh-CN:

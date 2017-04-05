@@ -45,7 +45,7 @@ props:
     en: icon size
     zh-CN: 尺寸大小
 changes:
-  next:
+  v2.2.0:
     en:
       - '[enhance] Support all attributes #1147'
     zh-CN:
