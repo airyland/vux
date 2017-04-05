@@ -153,8 +153,8 @@ export default {
     },
     currentValue (val) {
       if (!this.isCancel) {
-        this.$emit('on-change', val)
         this.$emit('input', val)
+        this.$emit('on-change', val)
       }
     }
   }
