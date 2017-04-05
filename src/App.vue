@@ -233,7 +233,6 @@ html, body {
 
 .router-view {
   width: 100%;
-  height: 100%;
   top: 46px;
   backface-visibility: hidden;
   perspective: 1000;
@@ -245,6 +244,7 @@ html, body {
   will-change: transform;
   backface-visibility: hidden;
   transition: all 500ms;
+  height: 100%;
   top: 46px;
   position: absolute;
 }
