@@ -54,7 +54,7 @@ changes:
       - '[enhance] Hide slot:icon and slot:label if not being set'
     zh-CN:
       - '[feature] 支持定义列数'
-      - ']enhance] 如果没有使用 icon 和 label，则直接隐藏 slot:icon 和 slot:label'
+      - '[enhance] 如果没有使用 icon 和 label，则直接隐藏 slot:icon 和 slot:label'
   v2.0.14:
     en:
       - '[feature] Add component `grid`'
