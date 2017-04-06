@@ -234,19 +234,18 @@ html, body {
 .router-view {
   width: 100%;
   top: 46px;
-  backface-visibility: hidden;
-  perspective: 1000;
 }
 .vux-pop-out-enter-active,
 .vux-pop-out-leave-active,
 .vux-pop-in-enter-active,
 .vux-pop-in-leave-active {
   will-change: transform;
-  backface-visibility: hidden;
   transition: all 500ms;
   height: 100%;
   top: 46px;
   position: absolute;
+  backface-visibility: hidden;
+  perspective: 1000;
 }
 .vux-pop-out-enter {
   opacity: 0;
