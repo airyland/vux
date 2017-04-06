@@ -1,6 +1,6 @@
 <template>
   <div class="vux-cell-box weui-cell" :class="{'vux-tap-active': isLink || !!link, 'weui-cell_access': isLink || !!link}" @click="onClick">
-    <div><slot></slot></div>
+    <div class="vux-cell-primary"><slot></slot></div>
   </div>
 </template>
 
