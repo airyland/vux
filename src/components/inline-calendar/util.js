@@ -55,6 +55,11 @@ function isBetween (value, start, end) {
   return isGte && isLte
 }
 
+function _isBetween (year, month, day, start, end) {
+  let _format = format(new Date(year + '/' + (month + 1) + '/' + day), 'YYYY/MM/DD')
+  return isBetween(_format, start, end)
+}
+
 export function getDays ({year, month, value, isRange = false, rangeBegin, rangeEnd, returnSixRows = true, disablePast = false, disableFuture = false}) {
   let today = format(new Date(), 'YYYY-MM-DD')
   let startOfToday = new Date()
@@ -108,6 +113,7 @@ export function getDays ({year, month, value, isRange = false, rangeBegin, range
           year: rs.year,
           month: rs.month,
           month_str: rs.month + 1,
+          isBetween: _isBetween(rs.year, rs.month, k, rangeBegin, rangeEnd),
           day: k,
           disabled: true,
           isLastMonth: true
@@ -124,6 +130,7 @@ export function getDays ({year, month, value, isRange = false, rangeBegin, range
       day: i,
       isCurrent: value && format(new Date(value), 'YYYY/MM/DD') === _format,
       disabled: !isBetween(_format, rangeBegin, rangeEnd),
+      isBetween: _isBetween(year, month, i, rangeBegin, rangeEnd),
       isToday: format(new Date(), 'YYYY/MM/DD') === _format
     }
     temp[line].push(options)
@@ -140,6 +147,7 @@ export function getDays ({year, month, value, isRange = false, rangeBegin, range
           month_str: rs.month + 1,
           day: k,
           disabled: true,
+          isBetween: _isBetween(rs.year, rs.month, k, rangeBegin, rangeEnd),
           isNextMonth: true
         })
         k++
@@ -152,12 +160,14 @@ export function getDays ({year, month, value, isRange = false, rangeBegin, range
     let start = temp[4][6].isNextMonth ? temp[4][6].day : 0
     temp[5] = []
     for (let i = 0; i < 7; i++) {
+      let day = ++start
       temp[5].push({
         year: rs.year,
         month: rs.month,
         month_str: rs.month + 1,
-        day: ++start,
+        day: day,
         disabled: true,
+        isBetween: _isBetween(rs.year, rs.month, day, rangeBegin, rangeEnd),
         isNextMonth: true
       })
     }
@@ -170,20 +180,24 @@ export function getDays ({year, month, value, isRange = false, rangeBegin, range
     temp[4] = []
     temp[5] = []
     for (let i = 0; i < 7; i++) {
+      let day = ++start
       temp[4].push({
         year: rs.year,
         month: rs.month,
         month_str: rs.month + 1,
-        day: ++start,
+        day: day,
         disabled: true,
+        isBetween: _isBetween(rs.year, rs.month, day, rangeBegin, rangeEnd),
         isNextMonth: true
       })
+      day = ++start
       temp[5].push({
         year: rs.year,
         month: rs.month,
         month_str: rs.month + 1,
-        day: ++start,
+        day: day,
         disabled: true,
+        isBetween: _isBetween(rs.year, rs.month, day, rangeBegin, rangeEnd),
         isNextMonth: true
       })
     }

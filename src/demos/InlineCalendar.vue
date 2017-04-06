@@ -5,7 +5,7 @@
   :show.sync="show"
   v-model="value"
   start-date="2016-04-01"
-  end-date="2017-06-18"
+  end-date="2018-05-30"
   :range="range"
   :show-last-month="showLastMonth"
   :show-next-month="showNextMonth"
@@ -22,6 +22,8 @@
 
   <group>
     <cell title="current value" :value="value"></cell>
+    <cell title="start date" value="2016-04-01"></cell>
+    <cell title="end date" value="2018-05-30"></cell>
   </group>
 
   <group title="control days" style="margin-top: 30px;">

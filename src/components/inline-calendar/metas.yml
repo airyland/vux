@@ -88,6 +88,11 @@ props:
     en: if disable future days
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
 changes:
+  next:
+    en:
+      - "[enhance] Now next month's day can be clicked and will automatically switch to next month's view #1192"
+    zh-CN:
+      - '[enhance] 可以点击下个月日期并自动切换到下个月 #1192'
   v2.1.1-rc.10:
     en:
       - '[feature] Add more less variables. #896'

@@ -35,7 +35,7 @@
           :data-date="formatDate(year, month, child)"
           :data-current="currentValue"
           :class="buildClass(k2, child, formatDate(year, month, child) === currentValue && !child.isLastMonth && !child.isNextMonth)"
-          @click="select(k1,k2,$event)">
+          @click="select(k1,k2,child)">
             <span
             v-show="(!child.isLastMonth && !child.isNextMonth ) || (child.isLastMonth && showLastMonth) || (child.isNextMonth && showNextMonth)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
             <div v-html="renderFunction(k1, k2, child)"></div>
@@ -58,7 +58,6 @@ export default {
       year: 0,
       month: 0,
       days: [],
-      current: [],
       today: format(new Date(), 'YYYY-MM-DD'),
       months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
       currentValue: ''
@@ -98,8 +97,8 @@ export default {
       } else {
         this.render(this.year, this.month, this.currentValue)
       }
-      this.$emit('on-change', val)
       this.$emit('input', val)
+      this.$emit('on-change', val)
     },
     renderFunction () {
       this.render(this.year, this.month, this.currentValue)
@@ -169,13 +168,16 @@ export default {
     go (year, month) {
       this.render(year, month)
     },
-    select (k1, k2) {
-      if (this.current.length > 0) {
-        this.days[this.current[0]][this.current[1]].isCurrent = false
+    select (k1, k2, data) {
+      if (!data.isBetween) {
+        return
       }
-      this.days[k1][k2].current = true
-      this.current = [k1, k2]
-      this.currentValue = [this.year, zero(this.month + 1), zero(this.days[k1][k2].day)].join('-')
+      if (!data.isLastMonth && !data.isNextMonth) {
+        this.days[k1][k2].current = true
+        this.currentValue = [this.year, zero(this.month + 1), zero(this.days[k1][k2].day)].join('-')
+      } else {
+        this.currentValue = [data.year, zero(data.month + 1), zero(data.day)].join('-')
+      }
     }
   }
 }
@@ -354,8 +356,6 @@ export default {
 }
 .inline-calendar td.is-disabled {
   color: @calendar-disabled-font-color;
-  pointer-events:none !important;
-  cursor: default !important;
 }
 .inline-calendar td > span {
   display: inline-block;
