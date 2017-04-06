@@ -18,7 +18,7 @@
     </div>
 
     <div v-transfer-dom="isTransferDom">
-      <popup v-model="showValue" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid" @on-hide="onPopupHide" @on-show="$emit('on-show')">
+      <popup v-model="showValue" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid" @on-hide="onPopupHide" @on-show="onPopupShow">
         <div class="vux-popup-picker-container">
           <div class="vux-popup-picker-header">
             <flexbox>
@@ -150,6 +150,11 @@ export default {
           this.tempValue = getObject(this.currentValue)
         }
       }
+    },
+    onPopupShow () {
+      // reset close type to false
+      this.closeType = false
+      this.$emit('on-show')
     },
     onPopupHide (val) {
       if (this.value.length > 0) {

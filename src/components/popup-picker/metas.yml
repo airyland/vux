@@ -66,6 +66,11 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[fix] Fix wrong closeType #1209'
+    zh-CN:
+      - '[fix] 修复错误的弹窗关闭类型 #1209'
   v2.1.1-rc.13:
     en:
       - '[enhance] Use gray for cancel text color'
