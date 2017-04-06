@@ -54,13 +54,13 @@ props:
     en: label and value list
     zh-CN: 内容列表
   border-intent:
-    version: next
+    version: v2.2.1-rc.1
     type: Boolean
     default: true
     en: if set border intent
     zh-CN: 是否显示边框与左边的间隙
 changes:
-  next:
+  v2.2.1-rc.1:
     en:
       - '[feature] Support prop:border-intent'
     zh-CN:

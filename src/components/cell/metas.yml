@@ -57,13 +57,13 @@ props:
     en: value's text-align，primary will be set to content if value-align value is right
     zh-CN: 文字值对齐方式，当设为 right 时，primary 值将会设为 content
   border-intent:
-    version: next
+    version: v2.2.1-rc.1
     type: Boolean
     default: true
     en: if set border intent
     zh-CN: 是否显示边框与左边的间隙
   arrow-direction:
-    version: next
+    version: v2.2.1-rc.1
     type: String
     en: arrow direction, one of up, down
     zh-CN: 右侧箭头方向，可选有 up down
@@ -84,7 +84,7 @@ slots:
     en: the child element of the cell, you can add an element with absolute position
     zh-CN: cell的直接子元素，因此可以添加一个相对于cell绝对定位的元素
 changes:
-  next:
+  v2.2.1-rc.1:
     en:
       - '[feature] Support prop:border-intent'
       - '[feature] Support prop:arrow-direction'

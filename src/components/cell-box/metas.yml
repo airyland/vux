@@ -26,7 +26,7 @@ props:
     en: redirect link when being clicked
     zh-CN: 点击链接，可以为http(s)协议，也可以是 vue-router 支持的地址形式
   border-intent:
-    version: next
+    version: v2.2.1-rc.1
     type: Boolean
     default: true
     en: if set border intent
@@ -36,7 +36,7 @@ slots:
     en: content body
     zh-CN: 内容区域
 changes:
-  next:
+  v2.2.1-rc.1:
     en:
       - '[feature] Support prop:border-intent'
     zh-CN:

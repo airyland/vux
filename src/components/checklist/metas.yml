@@ -41,7 +41,7 @@ props:
     en: if shuffing options
     zh-CN: 是否随机打乱选项顺序
   check-disabled:
-    version: next
+    version: v2.2.1-rc.1
     type: Boolean
     default: true
     en: if disabled item when selectedItems.length === total.length, by using this prop:max no longer works
@@ -52,7 +52,7 @@ events:
     en: emits when value changes
     zh-CN: 值变化时触发，参数为 (value)
 changes:
-  next:
+  v2.2.1-rc.1:
     en:
       - '[feature] Support prop:check-disabled'
     zh-CN:
