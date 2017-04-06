@@ -1,5 +1,5 @@
 <template>
-  <div class="weui-cell" :class="{'vux-tap-active': isLink || !!link, 'weui-cell_access': isLink || !!link}" @click="onClick">
+  <div class="weui-cell" :class="{'vux-tap-active': isLink || !!link, 'weui-cell_access': isLink || !!link, 'vux-cell-no-border-intent': !borderIntent}" @click="onClick">
     <div class="weui-cell__hd">
       <slot name="icon"></slot>
     </div>
@@ -10,7 +10,7 @@
       </p>
       <inline-desc>{{inlineDesc}}</inline-desc>
     </div>
-    <div class="weui-cell__ft" :class="{'vux-cell-primary': primary === 'content' || valueAlign === 'left', 'vux-cell-align-left': valueAlign === 'left'}">
+    <div class="weui-cell__ft" :class="valueClass">
       <slot name="value"></slot>
       <slot>{{value}}</slot>
       <i class="weui-loading" v-if="isLoading"></i>
@@ -40,7 +40,23 @@ export default {
     link: {
       type: [String, Object]
     },
-    valueAlign: String
+    valueAlign: String,
+    borderIntent: {
+      type: Boolean,
+      default: true
+    },
+    arrowDirection: String // down or up
+  },
+  computed: {
+    valueClass () {
+      return {
+        'vux-cell-primary': this.primary === 'content' || this.valueAlign === 'left',
+        'vux-cell-align-left': this.valueAlign === 'left',
+        'vux-cell-arrow-transition': !!this.arrowDirection,
+        'vux-cell-arrow-up': this.arrowDirection === 'up',
+        'vux-cell-arrow-down': this.arrowDirection === 'down'
+      }
+    }
   },
   methods: {
     onClick () {
@@ -70,5 +86,17 @@ export default {
 }
 .weui-cell__ft.vux-cell-align-left {
   text-align: left;
+}
+.weui-cell.vux-cell-no-border-intent:before {
+  left: 0;
+}
+.weui-cell_access .weui-cell__ft.vux-cell-arrow-down:after {
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0) rotate(90deg);
+}
+.weui-cell_access .weui-cell__ft.vux-cell-arrow-up:after {
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0) rotate(-90deg);
+}
+.vux-cell-arrow-transition:after {
+  transition: transform 300ms;
 }
 </style>

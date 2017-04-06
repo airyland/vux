@@ -13,6 +13,44 @@
       </cell>
     </group>
 
+    <group :title="$t('Collapse')">
+      <cell
+      :title="$t('Title 001')"
+      is-link
+      :border-intent="false"
+      :arrow-direction="showContent001 ? 'up' : 'down'"
+      @click.native="showContent001 = !showContent001"></cell>
+      
+      <template v-if="showContent001">
+        <cell-box :border-intent="false" class="sub-item" is-link>content 001</cell-box>
+        <cell-box class="sub-item" is-link>content 001</cell-box>
+        <cell-box class="sub-item" is-link>content 001</cell-box>
+      </template>
+
+      <cell
+      :title="$t('Title 002')"
+      is-link
+      :border-intent="false"
+      :arrow-direction="showContent002 ? 'up' : 'down'"
+      @click.native="showContent002 = !showContent002"></cell>
+
+      <template v-if="showContent002">
+        <cell-form-preview :border-intent="false" :list="list"></cell-form-preview>
+      </template>
+
+      <cell
+      :title="$t('Title 003')"
+      is-link
+      :border-intent="false"
+      :arrow-direction="showContent003 ? 'up' : 'down'"
+      @click.native="showContent003 = !showContent003"></cell>
+
+      <template v-if="showContent003">
+        <cell-box :border-intent="false" class="sub-item">I'm content 003</cell-box>
+      </template>
+
+    </group>
+
     <group>
       <cell :title="$t('Notifications')" :value="$t('Enabled')"></cell>
     </group>
@@ -64,10 +102,18 @@ http link:
   zh-CN: 站外链接
 Money:
   zh-CN: 余额
+Collapse:
+  zh-CN: 折叠
+Title 001:
+  zh-CN: 标题一
+Title 002:
+  zh-CN: 标题二
+Title 003:
+  zh-CN: 标题三
 </i18n>
 
 <script>
-import { Cell, Group } from 'vux'
+import { Cell, CellBox, CellFormPreview, Group } from 'vux'
 
 export default {
   mounted () {
@@ -77,7 +123,9 @@ export default {
   },
   components: {
     Group,
-    Cell
+    Cell,
+    CellFormPreview,
+    CellBox
   },
   methods: {
     onClick () {
@@ -86,8 +134,27 @@ export default {
   },
   data () {
     return {
-      money: null
+      list: [{
+        label: 'Apple',
+        value: '3.29'
+      }, {
+        label: 'Banana',
+        value: '1.04'
+      }, {
+        label: 'Fish',
+        value: '8.00'
+      }],
+      money: null,
+      showContent001: false,
+      showContent002: false,
+      showContent003: false
     }
   }
 }
 </script>
+
+<style scoped>
+.sub-item {
+  color: #888;
+}
+</style>

@@ -53,6 +53,12 @@ props:
     type: Array
     en: label and value list
     zh-CN: 内容列表
+  border-intent:
+    version: next
+    type: Boolean
+    default: true
+    en: if set border intent
+    zh-CN: 是否显示边框与左边的间隙
 changes:
   next:
     en:

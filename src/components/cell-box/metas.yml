@@ -25,6 +25,12 @@ props:
     type: String, Object
     en: redirect link when being clicked
     zh-CN: 点击链接，可以为http(s)协议，也可以是 vue-router 支持的地址形式
+  border-intent:
+    version: next
+    type: Boolean
+    default: true
+    en: if set border intent
+    zh-CN: 是否显示边框与左边的间隙
 slots:
   default:
     en: content body
