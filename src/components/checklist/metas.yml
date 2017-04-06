@@ -52,6 +52,11 @@ events:
     en: emits when value changes
     zh-CN: 值变化时触发，参数为 (value)
 changes:
+  next:
+    en:
+      - '[feature] Support prop:check-disabled'
+    zh-CN:
+      - '[feature] 支持 prop:check-disabled'
   v2.0.0:
     en:
       - '[change] it does not show errors by default, handle errors by on-error events'
