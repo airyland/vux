@@ -79,6 +79,11 @@ props:
     en: index value, use `v-model` for binding
     zh-CN: index 绑定，使用`v-model`，一般不需要绑定
 changes:
+  next:
+    en:
+      - '[enhance] Use document width as swiper width if initial width is 0 #1188'
+    zh-CN:
+      - '[enhance] 如果初始化时获取不到宽度则直接使用视口宽度 #1188'
   v2.1.1-rc.3:
     en:
       - '[fix] Fix nodes list forEach function is undefined #991 @howyhuang'
