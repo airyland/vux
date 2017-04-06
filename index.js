@@ -17,12 +17,15 @@ import Calendar from './src/components/calendar/index.vue'
 import Card from './src/components/card/index.vue'
 import Cell from './src/components/cell/index.vue'
 import CellBox from './src/components/cell-box/index.vue'
+import CellFormPreview from './src/components/cell-form-preview/index.vue'
 import Checker from './src/components/checker/checker.vue'
 import CheckerItem from './src/components/checker/checker-item.vue'
 import CheckIcon from './src/components/check-icon/index.vue'
 import Checklist from './src/components/checklist/index.vue'
 import ChinaAddressData from './src/datas/china_address.json'
 import ChinaAddressV1Data from './src/datas/china_address_v1.json'
+import ChinaAddressV2Data from './src/datas/china_address_v2.json'
+import ChinaAddressV3Data from './src/datas/china_address_v3.json'
 import ClickOutsideDirective from './src/directives/click-outside/index.js'
 import Clocker from './src/components/clocker/index.vue'
 import ColorPicker from './src/components/color-picker/index.vue'
@@ -32,7 +35,9 @@ import cookie from './src/tools/cookie/index.js'
 import Countdown from './src/components/countdown/index.vue'
 import Countup from './src/components/countup/index.vue'
 import dateFormat from './src/tools/date/format.js'
+import dateRange from './src/tools/date/range.js'
 import Datetime from './src/components/datetime/index.vue'
+import DatetimeRange from './src/components/datetime-range/index.vue'
 import debounce from './src/tools/debounce/index.js'
 import Demobasic from './src/components/fullpage/DemoBasic.vue'
 import Demoindex from './src/components/popover/DemoIndex.vue'
@@ -50,6 +55,7 @@ import GridItem from './src/components/grid/grid-item.vue'
 import Group from './src/components/group/index.vue'
 import GroupTitle from './src/components/group-title/index.vue'
 import Icon from './src/components/icon/index.vue'
+import IndexBar from './src/components/index-bar/index.vue'
 import InlineCalendar from './src/components/inline-calendar/index.vue'
 import InlineDesc from './src/components/inline-desc/index.vue'
 import InlineXNumber from './src/components/inline-x-number/index.vue'
@@ -67,6 +73,7 @@ import Name2valueFilter from './src/filters/name2value.js'
 import numberComma from './src/tools/number/comma.js'
 import numberPad from './src/tools/number/pad.js'
 import numberRandom from './src/tools/number/random.js'
+import numberRange from './src/tools/number/range.js'
 import NumberRoller from './src/components/number-roller/index.vue'
 import Panel from './src/components/panel/index.vue'
 import Picker from './src/components/picker/index.vue'
@@ -79,6 +86,7 @@ import querystring from './src/tools/querystring/index.js'
 import Radio from './src/components/radio/index.vue'
 import Range from './src/components/range/index.vue'
 import Rater from './src/components/rater/index.vue'
+import ScriptLoaderPlugin from './src/plugins/script-loader/index.js'
 import Scroller from './src/components/scroller/index.vue'
 import Search from './src/components/search/index.vue'
 import Selector from './src/components/selector/index.vue'
@@ -101,9 +109,9 @@ import throttle from './src/tools/throttle/index.js'
 import Timeline from './src/components/timeline/timeline.vue'
 import TimelineItem from './src/components/timeline/timeline-item.vue'
 import Tip from './src/components/tip/index.vue'
-import TitlePlugin from './src/plugins/title/index.js'
 import Toast from './src/components/toast/index.vue'
 import ToastPlugin from './src/plugins/toast/index.js'
+import TransferDom from './src/directives/transfer-dom/index.js'
 import TransferDomDirective from './src/directives/transfer-dom/index.js'
 import Value2nameFilter from './src/filters/value2name.js'
 import Video from './src/components/video/index.vue'
@@ -143,12 +151,15 @@ export {
   Card,
   Cell,
   CellBox,
+  CellFormPreview,
   Checker,
   CheckerItem,
   CheckIcon,
   Checklist,
   ChinaAddressData,
   ChinaAddressV1Data,
+  ChinaAddressV2Data,
+  ChinaAddressV3Data,
   ClickOutsideDirective,
   Clocker,
   ColorPicker,
@@ -158,7 +169,9 @@ export {
   Countdown,
   Countup,
   dateFormat,
+  dateRange,
   Datetime,
+  DatetimeRange,
   debounce,
   Demobasic,
   Demoindex,
@@ -176,6 +189,7 @@ export {
   Group,
   GroupTitle,
   Icon,
+  IndexBar,
   InlineCalendar,
   InlineDesc,
   InlineXNumber,
@@ -193,6 +207,7 @@ export {
   numberComma,
   numberPad,
   numberRandom,
+  numberRange,
   NumberRoller,
   Panel,
   Picker,
@@ -205,6 +220,7 @@ export {
   Radio,
   Range,
   Rater,
+  ScriptLoaderPlugin,
   Scroller,
   Search,
   Selector,
@@ -227,9 +243,9 @@ export {
   Timeline,
   TimelineItem,
   Tip,
-  TitlePlugin,
   Toast,
   ToastPlugin,
+  TransferDom,
   TransferDomDirective,
   Value2nameFilter,
   Video,
