@@ -1,5 +1,5 @@
 <template>
-  <div class="vux-cell-box weui-cell" :class="{'vux-tap-active': isLink || !!link, 'weui-cell_access': isLink || !!link}" @click="onClick">
+  <div class="vux-cell-box weui-cell" :class="{'vux-tap-active': isLink || !!link, 'weui-cell_access': isLink || !!link, 'vux-cell-no-border-intent': !borderIntent}" @click="onClick">
     <div><slot></slot></div>
   </div>
 </template>
@@ -10,7 +10,11 @@ import { go } from '../../libs/router'
 export default {
   props: {
     isLink: Boolean,
-    link: [String, Object]
+    link: [String, Object],
+    borderIntent: {
+      type: Boolean,
+      default: true
+    }
   },
   methods: {
     onClick () {
@@ -31,5 +35,8 @@ export default {
 }
 .vux-cell-primary {
   flex: 1;
+}
+.weui-cell.vux-cell-no-border-intent:before {
+  left: 0;
 }
 </style>
