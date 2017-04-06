@@ -53,7 +53,11 @@ export default {
     max: Number,
     min: Number,
     fillMode: Boolean,
-    randomOrder: Boolean
+    randomOrder: Boolean,
+    checkDisabled: {
+      type: Boolean,
+      default: true
+    }
   },
   data () {
     return {
@@ -76,6 +80,9 @@ export default {
     getValue,
     getKey,
     ifDisable (key) {
+      if (!this.checkDisabled) {
+        return false
+      }
       return this.currentValue.indexOf(key) === -1 && this.currentValue.length === this._max
     }
   },
