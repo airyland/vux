@@ -54,6 +54,11 @@ props:
     en: label and value list
     zh-CN: 内容列表
 changes:
+  next:
+    en:
+      - '[feature] Support prop:border-intent'
+    zh-CN:
+      - '[feature] 支持 prop:border-intent, 用以不显示边框与左边间隙'
   v2.2.0:
     en:
       - '[feature] new component'

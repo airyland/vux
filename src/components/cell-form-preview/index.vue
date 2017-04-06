@@ -1,5 +1,5 @@
 <template>
-  <div class="weui-cell vux-cell-form-preview">
+  <div class="weui-cell vux-cell-form-preview" :class="{'vux-cell-no-border-intent': !borderIntent}">
     <div class="weui-form-preview__bd">
       <div class="weui-form-preview__item" v-for="item in list">
         <label class="weui-form-preview__label" v-html="$t(item.label)"></label>
@@ -11,7 +11,13 @@
 
 <script>
 export default {
-  props: ['list']
+  props: {
+    list: Array,
+    borderIntent: {
+      type: Boolean,
+      default: true
+    }
+  }
 }
 </script>
 
