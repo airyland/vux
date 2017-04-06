@@ -50,6 +50,32 @@ nav: zh-CN
   <br>
 </p>
 
+<p class="warning">
+
+  请国内开发者特别注意，直接使用 `cnpm` 可能会导致依赖不正确。强烈建议给 npm 设置 taobao 的 registry。
+  <br>
+
+  ```
+  npm install --registry=https://registry.npm.taobao.org
+  ```
+
+  <br>
+  <br>
+
+  如果你已经用上了 `yarn`，建议这样
+  <br>
+  ```
+  yarn config set registry https://registry.npm.taobao.org
+  ```
+  <br>
+  ```
+  yarn
+  ```
+  <br>
+  <br>
+  如果你遇到 `$t` 报错问题，`请不要开 issue`，先重装依赖。
+</p>
+
 <p class="tip">
   2.1.0 ~ 3.0.0 之间版本不会有影响升级的 `break change`，请放心及时更新版本。
   <br>
