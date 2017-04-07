@@ -106,6 +106,12 @@ export default {
     returnSixRows (val) {
       this.render(this.year, this.month, this.currentValue)
     },
+    startDate (val) {
+      this.render(this.year, this.month, this.currentValue)
+    },
+    endDate (val) {
+      this.render(this.year, this.month, this.currentValue)
+    },
     disablePast () {
       this.render(this.year, this.month, this.currentValue)
     },
