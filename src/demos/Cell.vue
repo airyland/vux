@@ -49,6 +49,15 @@
         <cell-box :border-intent="false" class="sub-item">I'm content 003</cell-box>
       </template>
 
+      <cell
+      :title="$t('Animated')"
+      is-link
+      :border-intent="false"
+      :arrow-direction="showContent004 ? 'up' : 'down'"
+      @click.native="showContent004 = !showContent004"></cell>
+
+      <p class="slide" :class="showContent004?'animate':''">blablabla...<br/>blablabla...<br/>blablabla...<br/>blablabla...</p>
+
     </group>
 
     <group>
@@ -110,6 +119,8 @@ Title 002:
   zh-CN: 标题二
 Title 003:
   zh-CN: 标题三
+Animated:
+  zh-CN: 动画效果
 </i18n>
 
 <script>
@@ -147,7 +158,8 @@ export default {
       money: null,
       showContent001: false,
       showContent002: false,
-      showContent003: false
+      showContent003: false,
+      showContent004: false
     }
   }
 }
@@ -156,5 +168,16 @@ export default {
 <style scoped>
 .sub-item {
   color: #888;
+}
+.slide {
+  padding: 0 20px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .5s cubic-bezier(0, 1, 0, 1) -.1s;
+}
+.animate {
+  max-height: 9999px;
+  transition-timing-function: cubic-bezier(0.5, 0, 1, 0);
+  transition-delay: 0s;
 }
 </style>
