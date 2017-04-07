@@ -52,7 +52,7 @@ nav: zh-CN
 
 <p class="warning">
 
-  请国内开发者特别注意，直接使用 `cnpm` 可能会导致依赖不正确。强烈建议给 npm 设置 taobao 的 registry。
+  国内开发者请特别注意，直接使用 `cnpm` 可能会导致依赖不正确。强烈建议给 npm 设置 taobao 的 registry。
   <br>
 
   ```
@@ -73,7 +73,18 @@ nav: zh-CN
   ```
   <br>
   <br>
-  如果你遇到 `$t` 报错问题，`请不要开 issue`，先重装依赖。
+  如果你遇到 `$t` 报错问题，`请不要开 issue`，先删除 node_modules 再重装依赖。
+  <br>
+  <br>
+  vux 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
+  <br>
+  vux 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
+  <br>
+  vux 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
+  <br>
+  <br>
+  开此类 issue 一律关闭并拉黑名单。
+  <br>
 </p>
 
 <p class="tip">
