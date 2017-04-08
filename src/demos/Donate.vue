@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="donate">
     <img src="../assets/demo/wechat_pay_10_24.jpg" class="donate-img">
   </div>
 </template>
@@ -15,6 +15,10 @@ export default {
 </script>
 
 <style scoped>
+.donate {
+  text-align: center;
+  background-color: #fff;
+}
 .donate-img {
   max-width: 100%;
 }

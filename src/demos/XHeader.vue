@@ -1,5 +1,6 @@
 <template>
   <div>
+    <br>
     <x-header>This is the page title.</x-header>
     <br>
     <x-header :left-options="{showBack: false}">do not show Back</x-header>

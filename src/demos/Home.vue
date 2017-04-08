@@ -22,15 +22,8 @@
         <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
       </cell>
     </group>
-    <p class="demo-tip">{{$t('demo tip')}}</p>
   </div>
 </template>
-
-<i18n>
-demo tip:
-  en: It takes time when switching pages not because of slow rendering each component but because of code splitting for each page. 
-  zh-CN: demo 为了避免打包过大，每个路由都进行了代码分割，因此并非组件渲染慢，而是切换路由时异步加载代码需要时间。
-</i18n>
 
 <script>
 import { Cell, Group, Badge } from 'vux'
