@@ -12,8 +12,8 @@ props:
     en: text of the Badge
     zh-CN: 显示的文字
 changes:
-  v2.0.0:
+  next:
     en:
-      - '[todo] when used in a cell, it might not be that center'
+      - '[fix] Fix className:vux-badge-single not work for number #1223'
     zh-CN:
-      - '[todo] 在cell使用时，似乎不够居中'
+      - '[fix] 修复个位数字样式不正确 #1223'
