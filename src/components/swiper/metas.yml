@@ -5,6 +5,9 @@ extra: |
   </p>
   <p class="warning">
   不要在`swiper`里嵌套`scroller`，在`web`上过于复杂化而且手势会有冲突，相关`Issue`将不会处理。
+  <br>
+  <br>
+  该组件场景是固定高度的内容列表，不支持为不同 swiper-item 设置不同高度。
   </p>
 props:
   list:
