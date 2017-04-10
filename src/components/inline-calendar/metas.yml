@@ -88,7 +88,7 @@ props:
     en: if disable future days
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
 changes:
-  next:
+  v2.2.1-rc.2:
     en:
       - "[enhance] Now next month's day can be clicked and will automatically switch to next month's view #1192"
       - "[fix] fix start-date and end-date not reactive #1219"

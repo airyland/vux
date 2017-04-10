@@ -12,7 +12,7 @@ props:
     en: text of the Badge
     zh-CN: 显示的文字
 changes:
-  next:
+  v2.2.1-rc.2:
     en:
       - '[fix] Fix className:vux-badge-single not work for number #1223'
     zh-CN:

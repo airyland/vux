@@ -82,7 +82,7 @@ props:
     en: index value, use `v-model` for binding
     zh-CN: index 绑定，使用`v-model`，一般不需要绑定
 changes:
-  next:
+  v2.2.1-rc.2:
     en:
       - '[enhance] Use document width as swiper width if initial width is 0 #1188'
       - '[fix] Fix initial index > 0 not works'
