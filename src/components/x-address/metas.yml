@@ -110,7 +110,7 @@ events:
     en: emits when being open
     zh-CN: 显示时触发
 changes:
-  next:
+  v2.2.1-rc.3:
     en:
       - '[feature] Support prop:confirm-text and prop:cancel-text. #1233'
     zh-CN:

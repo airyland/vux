@@ -127,7 +127,7 @@ events:
     en: emits when value is changed
     zh-CN: 选择值变化时触发
 changes:
-  next:
+  v2.2.1-rc.3:
     en:
       - '[fix] Fix no re-rendering when value is set to empty array. #1230'
     zh-CN:
