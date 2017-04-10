@@ -55,7 +55,6 @@ import GridItem from './src/components/grid/grid-item.vue'
 import Group from './src/components/group/index.vue'
 import GroupTitle from './src/components/group-title/index.vue'
 import Icon from './src/components/icon/index.vue'
-import IndexBar from './src/components/index-bar/index.vue'
 import InlineCalendar from './src/components/inline-calendar/index.vue'
 import InlineDesc from './src/components/inline-desc/index.vue'
 import InlineXNumber from './src/components/inline-x-number/index.vue'
@@ -86,7 +85,6 @@ import querystring from './src/tools/querystring/index.js'
 import Radio from './src/components/radio/index.vue'
 import Range from './src/components/range/index.vue'
 import Rater from './src/components/rater/index.vue'
-import ScriptLoaderPlugin from './src/plugins/script-loader/index.js'
 import Scroller from './src/components/scroller/index.vue'
 import Search from './src/components/search/index.vue'
 import Selector from './src/components/selector/index.vue'
@@ -189,7 +187,6 @@ export {
   Group,
   GroupTitle,
   Icon,
-  IndexBar,
   InlineCalendar,
   InlineDesc,
   InlineXNumber,
@@ -220,7 +217,6 @@ export {
   Radio,
   Range,
   Rater,
-  ScriptLoaderPlugin,
   Scroller,
   Search,
   Selector,
