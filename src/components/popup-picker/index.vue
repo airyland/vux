@@ -18,7 +18,7 @@
     </div>
 
     <div v-transfer-dom="isTransferDom">
-      <popup v-model="showValue" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid" @on-hide="onPopupHide" @on-show="onPopupShow">
+      <popup v-model="showValue" class="vux-popup-picker" :id="`vux-popup-picker-${uuid}`" @on-hide="onPopupHide" @on-show="onPopupShow">
         <div class="vux-popup-picker-container">
           <div class="vux-popup-picker-header">
             <flexbox>
