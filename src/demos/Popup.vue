@@ -9,14 +9,16 @@
       <x-switch title="Popup address" v-model="show6"></x-switch>
     </group>
     
-    <popup v-model="show" @on-hide="log('hide')" @on-show="log('show')">
-      <div class="popup0">
-        <group>
-          <x-switch title="Another XSwitcher" v-model="show"></x-switch>
-          <x-switch title="Show Toast" v-model="showToast"></x-switch>
-        </group>
-      </div>
-    </popup>
+    <div v-transfer-dom>
+      <popup v-model="show" @on-hide="log('hide')" @on-show="log('show')">
+        <div class="popup0">
+          <group>
+            <x-switch title="Another XSwitcher" v-model="show"></x-switch>
+            <x-switch title="Show Toast" v-model="showToast"></x-switch>
+          </group>
+        </div>
+      </popup>
+    </div>
 
     <toast v-model="showToast">You did it!</toast>
 
@@ -95,9 +97,12 @@
 </template>
 
 <script>
-import { Popup, Group, Cell, XButton, XSwitch, Scroller, Toast, XAddress, ChinaAddressData } from 'vux'
+import { TransferDom, Popup, Group, Cell, XButton, XSwitch, Scroller, Toast, XAddress, ChinaAddressData } from 'vux'
 
 export default {
+  directives: {
+    TransferDom
+  },
   components: {
     Popup,
     Group,
