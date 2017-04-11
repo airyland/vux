@@ -5,7 +5,7 @@
         <slot name="restricted-label"></slot>
       </div>
       <slot name="label">
-        <label class="weui-label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
+        <label class="weui-label" :style="{width: labelWidth || $parent.labelWidth || labelWidthComputed, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </slot>
     </div>
@@ -232,12 +232,13 @@ export default {
     },
     iconType: String,
     debounce: Number,
-    placeholderAlign: String
+    placeholderAlign: String,
+    labelWidth: String
   },
   computed: {
     labelStyles () {
       return {
-        width: this.$parent.labelWidth || (this.labelWidth + 'em'),
+        width: this.labelWidthComputed || this.$parent.labelWidth || this.labelWidthComputed,
         textAlign: this.$parent.labelAlign,
         marginRight: this.$parent.labelMarginRight
       }
@@ -247,8 +248,11 @@ export default {
         return '[0-9]*'
       }
     },
-    labelWidth () {
-      return this.title.replace(/[^x00-xff]/g, '00').length / 2 + 1
+    labelWidthComputed () {
+      const width = this.title.replace(/[^x00-xff]/g, '00').length / 2 + 1
+      if (width < 10) {
+        return width + 'em'
+      }
     },
     hasErrors () {
       return Object.keys(this.errors).length > 0
