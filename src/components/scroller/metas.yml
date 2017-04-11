@@ -194,7 +194,29 @@ slots:
   default:
     en: scroller content, should has only one `div` root
     zh-CN: scroller 内容，必须是一个 `div` 元素
+methods:
+  reset:
+    params: '`(position, duration, easing)`'
+    en: 'reset scroller to reset height whenever your data is changed. easing can be one of ease-in, ease-in-out, ease, bezier(n, n, n, n)'
+    zh-CN: '在内容变化(v-for渲染，异步数据加载)后需要调用，用以重新渲染，避免新加的内容无法上拉看到，一般在 $nextTick 回调里调用。easing 可以为 ease-in, ease-in-out, ease, bezier(n, n, n, n)'
+  donePullup:
+    en: set pullup done after new data is fetched
+    zh-CN: 设置上拉刷新操作完成，在数据加载后执行
+  disablePullup:
+    en: disable pullup plugin when there is no more data
+    zh-CN: 禁用上拉刷新，在没有更多数据时执行
+  enablePullup:
+    en: enable pullup plugin
+    zh-CN: 启用上拉刷新插件
+  donePulldown:
+    en: set pulldown done after new data is fetched
+    zh-CN: 设置下拉刷新操作完成，在数据加载后执行
 changes:
+  next:
+    en:
+      - '[feature] Support duration and easing for reset function. #1240'
+    zh-CN:
+      - '[feature] 支持在滚回顶部时设置时间和缓动 #1240'
   v2.2.0:
     en:
       - '[fix] Fix issue when redirecting on scrolling #1187'
