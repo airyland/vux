@@ -23,7 +23,7 @@
     </div>
     <div>
       <load-more tip="cell-bordered=false" :show-loading="false" background-color="#fbf9fe"></load-more>
-      <x-table :cell-bordered="false">
+      <x-table :cell-bordered="false" style="background-color:#fff;">
         <thead>
           <tr>
             <th>Product</th>
@@ -47,7 +47,7 @@
 
       <load-more tip="content-bordered=false" :show-loading="false" background-color="#fbf9fe"></load-more>
 
-      <x-table :cell-bordered="false" :content-bordered="false">
+      <x-table :cell-bordered="false" :content-bordered="false" style="background-color:#fff;">
         <thead>
           <tr style="background-color: #F7F7F7">
             <th>Product</th>
@@ -71,7 +71,7 @@
       </div>
       <div style="padding:15px;">
         <load-more tip="full-bordered" :show-loading="false" background-color="#fbf9fe"></load-more>
-        <x-table full-bordered>
+        <x-table full-bordered style="background-color:#fff;">
           <thead>
             <tr>
               <th>Product</th>
