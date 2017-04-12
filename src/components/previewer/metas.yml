@@ -29,6 +29,10 @@ extra: |
   ``` js
   this.$refs.previewer.show(index)
   ```
+
+events:
+  on-close:
+    zh-CN: 关闭时触发
 props:
   list: 
     type: Array
@@ -36,3 +40,11 @@ props:
   options:
     type: 'Object'
     zh-CN: '`photoswipe`的设置'
+
+
+changes:
+  next:
+    en:
+      - '[enhance] Increase the closing event'
+    zh-CN:
+      - '[enhance] 增加关闭事件'
