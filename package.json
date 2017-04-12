@@ -145,9 +145,6 @@
     "yaml-loader": "^0.4.0",
     "yargs": "^6.6.0"
   },
-  "peerDependencies": {
-    "vux-loader": "^1.0.50"
-  },
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
