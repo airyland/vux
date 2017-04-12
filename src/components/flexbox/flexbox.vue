@@ -53,9 +53,6 @@ export default {
   min-width: 20px;
   width: 0%;
 }
-.vux-flexbox-item > .vux-flexbox {
-  width: 100%;
-}
 
 .vux-flexbox .vux-flexbox-item:first-child {
   margin-left: 0!important;
