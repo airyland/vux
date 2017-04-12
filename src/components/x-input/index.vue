@@ -181,10 +181,6 @@ export default {
     InlineDesc
   },
   props: {
-    required: {
-      type: Boolean,
-      default: false
-    },
     title: {
       type: String,
       default: ''
