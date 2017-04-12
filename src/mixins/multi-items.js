@@ -67,7 +67,7 @@ const childMixin = {
         this.currentSelected = true
         this.$parent.currentIndex = this.currentIndex
         this.$nextTick(() => {
-          this.$emit('on-item-click')
+          this.$emit('on-item-click', this.currentIndex)
         })
       }
       if (hasLink === true) {
