@@ -37,6 +37,10 @@
     "icon": "&#xe62a;"
   },
   {
+    "name": "cell-form-preview",
+    "icon": "&#xe62a;"
+  },
+  {
     "name": "cell",
     "icon": "&#xe62a;"
   },
@@ -72,6 +76,10 @@
   {
     "name": "countup",
     "icon": "&#xe63e;"
+  },
+  {
+    "name": "datetime-range",
+    "icon": "&#xe60a;"
   },
   {
     "name": "datetime",

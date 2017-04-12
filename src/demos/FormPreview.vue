@@ -57,8 +57,8 @@ export default {
       buttons2: [{
         style: 'primary',
         text: '点击事件',
-        onButtonClick: () => {
-          alert('clicking')
+        onButtonClick: (name) => {
+          alert(`clicking ${name}`)
         }
       }]
     }

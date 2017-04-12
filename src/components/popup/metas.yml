@@ -2,28 +2,59 @@ icon: '&#xe61e;'
 tags:
   en:
     - popup
+    - dialog
   zh-CN:
     - 弹窗
 props:
   value:
     type: Boolean
+    en: visibility of popup, use `v-model` for binding
     zh-CN: 是否关闭，使用`v-model`绑定
   height:
     type: String
     default: 'auto'
+    en: popup height
     zh-CN: 高度，设置`100%`为整屏高度
   hide-on-blur:
     type: Boolean
     default: true
+    en: if closing popup when mask being clicked
     zh-CN: 点击遮罩时是否自动关闭
+  is-transparent:
+    version: v2.1.1-rc.9
+    type: Boolean
+    default: false
+    en: if using transparent background
+    zh-CN: 是否为透明背景
 events:
   on-hide:
+    en: emits when then popup is closed
     zh-CN: 关闭时触发
   on-show:
+    en: emits when the popup shows
     zh-CN: 显示时触发
   on-first-show:
-    zh-CN: 第一次显示时触发
+    en: emits at the first time the popup shows
+    zh-CN: 第一次显示时触发，可以在该事件回调里初始化数据或者界面
+slots:
+  default:
+    en: content body
+    zh-CN: 弹窗主体内容
 changes:
+  v2.1.1-rc.11:
+    en:
+      - '[fix] Fix wrong overflowScrolling when mask is disabled'
+    zh-CN:
+      - '[fix] 修复遮罩禁用点击时错误设置 overflowScrolling 的问题'
+  v2.1.1-rc.9:
+    en:
+      - '[enhance] Better mask transition'
+      - '[feature] Support tranparent background'
+      - '[feature] Support less variable: @popup-background-color'
+    zh-CN:
+      - '[enhance] 更流畅的遮罩层动画'
+      - '[feature] 支持透明背景'
+      - '[feature] 支持背影颜色变量 @popup-background-color'
   v2.1.1-rc.6:
     en:
       - '[fix] Fix wrong setting of overflow-scrolling when using multi popup on Safari #1015 @think2011'

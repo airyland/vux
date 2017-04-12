@@ -13,7 +13,9 @@ export default {
     classes () {
       return {
         'vux-button-group-current': this.currentIndex === this.$parent.currentIndex,
-        'no-border-right': this.shouldRemoveBorder
+        'vux-button-tab-item-first': this.currentIndex === 0,
+        'vux-button-tab-item-last': this.currentIndex === this.$parent.$children.length - 1,
+        'vux-button-tab-item-middle': this.currentIndex > 0 && this.currentIndex !== this.$parent.$children.length - 1
       }
     },
     style () {
@@ -23,11 +25,6 @@ export default {
           lineHeight: `${this.$parent.height}px`
         }
       }
-    }
-  },
-  data () {
-    return {
-      shouldRemoveBorder: false
     }
   }
 }

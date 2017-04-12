@@ -35,16 +35,23 @@ extra:
     import { XAddress } from 'vux'
 
     // 如果你需要引入数据
-    import { XAddress, ChinaAddressData } from 'vux'
+    import { XAddress, ChinaAddressV3Data } from 'vux'
 
     // 如果需要引入旧版数据
-    import { XAddress, ChinaAddressV1Data } from 'vux'
+    import { XAddress, ChinaAddressV2Data } from 'vux'
     ```
     <p class="tip">
     如果你需要单独引入地址数据，可以在源码[src/datas](https://github.com/airyland/vux/tree/v2/src/datas)找到。
     </p>
 
-    <p class="tip">`x-address`只能在`Group`中使用</p>
+    <p class="tip">`x-address`只能在`Group`中使用
+    <br>
+    从 `2.1.1-rc.12` 开始，`直辖区`做了简化，原来是 北京市-北京市市辖区-东城区，现在是 北京市-市辖区-东城区。组件内部做了兼容，你以`raw-value`方式传入两种写法表现和旧版本一致，不会出错。
+    <br>
+    从 `2.1.1-rc.15` 开始，数据必须指定版本，原来的 `ChinaAddressData` 废弃并停留在 `v2` 版本不再更新。
+    <br>
+    不同版本数据差异可以从[这里](https://github.com/airyland/china-area-data)找到。
+    </p>
 tags:
   en:
     - form
@@ -103,6 +110,21 @@ events:
     en: emits when being open
     zh-CN: 显示时触发
 changes:
+  v2.2.1-rc.3:
+    en:
+      - '[feature] Support prop:confirm-text and prop:cancel-text. #1233'
+    zh-CN:
+      - '[feature] 支持设置 取消 和 确定 文字. #1233'
+  v2.2.0:
+    en:
+      - '[enhance] Upgrade datas #1101'
+    zh-CN:
+      - '[enhance] 更新地区数据 #1101'
+  v2.1.1-rc.12:
+    en:
+      - '[enhance] Simpify Address data #1101'
+    zh-CN:
+      - '[enhance] 简化市辖区数据'
   v2.1.1-rc.7:
     en:
       - '[enhance] Support PC mouse drag  #1039 @michael829'

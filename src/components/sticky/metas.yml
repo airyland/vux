@@ -41,17 +41,21 @@ extra: |
 props:
   scroll-box:
     default: window
+    en: scroll tagget
     zh-CN: '滚动容器，默认为`window`，如果你使用了viewbox，那么你需要指定容器id：`vux_view_box_body`'
   check-sticky-support:
     type: Boolean
     default: 'true'
+    en: if check if sticky is supported on current browser
     zh-CN: 是否检测当前浏览器是否支持sticky特性，禁用则在`iPhone`设置上也使用`scroll`实现
   offset:
     type: Number
     default: 0
+    en: top distance
     zh-CN: '距离顶部高度，在存在头部（如使用了`x-header`）的情况下需要设置一个距离'
 slots:
   default:
+    en: content
     zh-CN: 内容插槽
 changes:
   v2.1.1-rc.1:

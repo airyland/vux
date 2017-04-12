@@ -1,0 +1,65 @@
+icon: '&#xe60a;'
+extra: |
+  <p class="tip">
+  该组件和 `Datetime` 组件不同的地方是`年月日`集中显示在一栏，适合范围不大的日期选择。
+  <br />
+  需要在`Group`组件里使用
+  </p>
+tags:
+  en:
+    - date
+    - datetime
+    - form
+  zh-CN:
+    - 日期
+    - 选择
+    - 表单
+props:
+  title:
+    type: String
+    default: ''
+    en: label text
+    zh-CN: 标题文字
+  value: 
+    type: String
+    default: ''
+    en: form's value, use `v-model` for binding
+    zh-CN: 表单值，`v-model`绑定
+  inline-desc:
+    type: String
+    default: ''
+    en: description of the cell
+    zh-CN: 描述字符
+  placeholder:
+    type: String
+    default: ''
+    en: placeholder
+    zh-CN: 提示文字
+  start-date:
+    type: String
+    en: start date
+    zh-CN: '限定最小日期，注意该限制只能限定到日期，不能限定到小时分钟'
+  end-date:
+    type: String
+    en: end date
+    zh-CN: 限定最大日期，注意该限制只能限定到日期，不能限定到小时分钟
+  format:
+    default: 'YYYY-MM-DD'
+    en: display format for date column
+    zh-CN: 日期栏的显示格式
+events:
+  on-change:
+    params: '`(value)`'
+    en: $emits when value changes, `(newVal)`
+    zh-CN: 表单值变化时触发, 参数 `(newVal)`
+changes:
+  v2.2.0:
+    en:
+      - '[enhance] Use better column width'
+    zh-CN:
+      - '[enhance] 优化宽度，避免日期栏和左边缘距离过近'
+  v2.1.1-rc.9:
+    en:
+      - '[feature] new component #970 @327326724'
+    zh-CN:
+      - '[feature] 新组件 #970 @327326724'

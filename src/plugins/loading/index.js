@@ -1,4 +1,5 @@
 import LoadingComponent from '../../components/loading'
+import { mergeOptions } from '../../libs/plugin_helper'
 
 let $vm
 let watcher
@@ -15,15 +16,13 @@ const plugin = {
     }
 
     const loading = {
-      show (options) {
+      show (options = {}) {
         // destroy watcher
         watcher && watcher()
         if (typeof options === 'string') {
           $vm.text = options
         } else if (typeof options === 'object') {
-          for (let i in options) {
-            $vm[i] = options[i]
-          }
+          mergeOptions($vm, options)
         }
         if (typeof options === 'object' && options.onShow || options.onHide) {
           watcher = $vm.$watch('show', (val) => {

@@ -22,14 +22,8 @@ export default {
       default: 'up'
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      this.init()
-      this.start()
-    })
-  },
   beforeDestroy () {
-    this.timer && clearInterval(this.timer)
+    this.destroy()
   },
   data () {
     return {
@@ -41,18 +35,32 @@ export default {
     }
   },
   methods: {
+    destroy () {
+      this.timer && clearInterval(this.timer)
+    },
     init () {
-      let cloneNode
+      this.destroy()
+
+      if (this.cloneNode) {
+        this.$refs.box.removeChild(this.cloneNode)
+      }
+
+      this.cloneNode = null
       let firstItem = this.$refs.box.firstElementChild
+      if (!firstItem) {
+        return false
+      }
       this.length = this.$refs.box.children.length
       this.height = firstItem.offsetHeight
+
       if (this.direction === 'up') {
-        cloneNode = firstItem.cloneNode(true)
-        this.$refs.box.appendChild(cloneNode)
+        this.cloneNode = firstItem.cloneNode(true)
+        this.$refs.box.appendChild(this.cloneNode)
       } else {
-        cloneNode = this.$refs.box.lastElementChild.cloneNode(true)
-        this.$refs.box.insertBefore(cloneNode, firstItem)
+        this.cloneNode = this.$refs.box.lastElementChild.cloneNode(true)
+        this.$refs.box.insertBefore(this.cloneNode, firstItem)
       }
+      return true
     },
     start () {
       if (this.direction === 'down') this.go(false)

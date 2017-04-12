@@ -18,3 +18,5 @@ bower.json
 .babelrc
 docs/
 *.vue.vux.*
+nuxt/
+yarn.lock

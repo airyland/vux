@@ -22,6 +22,9 @@
         <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
       </cell>
     </group>
+    <group title="to be released">
+      <cell title="XTable" link="/component/x-table"></cell>
+    </group>
   </div>
 </template>
 
@@ -67,5 +70,12 @@ export default {
 body {
   font-family: Helvetica, sans-serif;
   background-color: #fbf9fe;
+}
+.demo-tip {
+  background-color: #fefcec;
+  color: #f76a24;
+  font-size: 12px;
+  padding: 5px 10px;
+  margin-top: 15px;
 }
 </style>

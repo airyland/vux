@@ -1,4 +1,6 @@
 import AlertComponent from '../../components/alert'
+import { mergeOptions } from '../../libs/plugin_helper'
+
 let $vm
 
 const plugin = {
@@ -11,29 +13,27 @@ const plugin = {
       document.body.appendChild($vm.$el)
     }
 
-    const closeHandler = function () {
-      $vm.showValue === true && ($vm.showValue = false)
-    }
-
     const alert = {
-      show (options) {
+      show (options = {}) {
         if (typeof options === 'object') {
-          for (let i in options) {
-            if (i !== 'content') {
-              $vm[i] = options[i]
-            } else {
-              $vm.$el.querySelector('.weui-dialog__bd').innerHTML = options['content']
-            }
-          }
+          mergeOptions($vm, options)
         } else if (typeof options === 'string') {
-          $vm.$el.querySelector('.weui-dialog__bd').innerHTML = options
+          $vm.content = options
         }
-        $vm.$el.querySelector('.weui-dialog__ft').addEventListener('click', closeHandler, false)
+        this.watcher && this.watcher()
+        this.watcher = $vm.$watch('showValue', (val) => {
+          val && options.onShow && options.onShow($vm)
+          if (val === false && options.onHide) {
+            options.onHide($vm)
+            this.watcher && this.watcher()
+          }
+        })
         $vm.showValue = true
-        options.onShow && options.onShow($vm)
       },
       hide () {
         $vm.showValue = false
+        this.watcher && this.watcher()
+        this.watcher = null
       }
     }
 

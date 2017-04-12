@@ -1,25 +1,10 @@
-<!--为了节省大家时间，请阅读清楚下面要求再提issue-->
+<!--麻烦提一个认真的问题，请别要求维护者像客服一样耐心来让再你补充版本、代码(格式化并不带业务代码)、截图、重现步骤。-->
 
-<!--不要使用”不能用“，”没效果“，”有问题“这类没有任何帮助浪费大家时间的描述，将直接关闭不会做任何反馈-->
+<!--马虎的 issue、文档已经写了解决方法的一律关闭。-->
 
-<!--1.从npm安装麻烦说明版本号。不说明将被直接关闭-->
-<!--2.代码没有正确格式化将被直接关闭-->
-<!--3.提组件需求但没有给出描述，截图，交互方式等具体信息的将被直接关闭-->
-<!--4.Android相关问题麻烦说明品牌机型及浏览器方便重现，如 小米 2S 微信webview-->
+<!--关闭了的 issue 补充信息后可以 reopen, 不是让你重开一个 issue，别犯蠢。-->
 
-### Version
 
-### Android or iOS
 
-> For Android issues, please specify the brand, model and browser
 
-### Your Codes 
-
-``` html
-<!--put your code here-->
-```
-
-### Expected behavior and actual behavior.
-
-### Steps to reproduce the problem
 

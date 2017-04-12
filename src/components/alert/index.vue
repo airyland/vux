@@ -10,12 +10,14 @@
         <strong class="weui-dialog__title">{{title}}</strong>
       </div>
       <div class="weui-dialog__bd">
-        <slot></slot>
+        <slot>
+          <div v-html="content"></div>
+        </slot>
       </div>
       <div class="weui-dialog__ft">
         <a href="javascript:;"
         class="weui-dialog__btn weui-dialog__btn_primary"
-        @click="onHide">{{buttonText || $t('button_text')}}</a>
+        @click="_onHide">{{buttonText || $t('button_text')}}</a>
       </div>
     </x-dialog>
   </div>
@@ -42,6 +44,7 @@ export default {
   props: {
     value: Boolean,
     title: String,
+    content: String,
     buttonText: String,
     maskTransition: {
       type: String,
@@ -58,7 +61,7 @@ export default {
     }
   },
   methods: {
-    onHide () {
+    _onHide () {
       this.showValue = false
     }
   },

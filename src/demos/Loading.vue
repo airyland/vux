@@ -3,7 +3,9 @@
     <group>
       <x-switch :title="$t('Toggle')" v-model="show1" @on-change="show1change"></x-switch>
     </group>
-    <loading v-model="show1" :text="text1"></loading>
+    <div v-transfer-dom>
+      <loading v-model="show1" :text="text1"></loading>
+    </div>
     <div style="padding: 15px;">
       <x-button @click.native="showLoading" type="primary">显示loading(2s后关闭)</x-button>
     </div>
@@ -14,9 +16,12 @@
 </i18n>
 
 <script>
-import { Loading, Group, XSwitch, XButton } from 'vux'
+import { Loading, Group, XSwitch, XButton, TransferDomDirective as TransferDom } from 'vux'
 
 export default {
+  directives: {
+    TransferDom
+  },
   components: {
     Loading,
     Group,
@@ -43,7 +48,6 @@ export default {
         tick(0, (percent) => {
           if (percent === 100) {
             this.show1 = false
-            this.text1 = 'Start processing'
             return
           }
           this.text1 = `${percent}%`
@@ -60,6 +64,6 @@ function tick (i, cb) {
     if (i < 100) {
       tick(i, cb)
     }
-  }, 50)
+  }, 10)
 }
 </script>

@@ -10,7 +10,7 @@ props:
   value:
     type: String
     default: ''
-    en:
+    en: calendar value, use `v-modle` for binding
     zh-CN: 当前选中日期，使用`v-model`绑定，默认为空，即选中当天日期
   render-month:
     type: Array
@@ -88,6 +88,18 @@ props:
     en: if disable future days
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
 changes:
+  v2.2.1-rc.2:
+    en:
+      - "[enhance] Now next month's day can be clicked and will automatically switch to next month's view #1192"
+      - "[fix] fix start-date and end-date not reactive #1219"
+    zh-CN:
+      - '[enhance] 可以点击下个月日期并自动切换到下个月 #1192'
+      - '[fix] 修复 start-date 和 end-date 变化后不重新渲染的问题 #1219'
+  v2.1.1-rc.10:
+    en:
+      - '[feature] Add more less variables. #896'
+    zh-CN:
+      - '[feature] 支持多个 less 变量. #896'
   v2.1.1-rc.5:
     en:
       - '[fix] fix render-function not reactive'

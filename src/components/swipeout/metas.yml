@@ -67,6 +67,11 @@ swipeout-item:
     on-close:
       zh-CN: 菜单完全关闭时触发
 changes:
+  v2.1.1-rc.9:
+    en:
+      - '[fix] Fix left-menu is shown when swiping right quickly'
+    zh-CN:
+      - '[fix] 修复向右快速滑动时左侧菜单可能会被滑出'
   v2.1.1-rc.7:
     en:
       - '[fix] Fix button click on Android. #1044 @tangtaoit'
@@ -75,3 +80,15 @@ changes:
   v2.1.0-rc.50:
     zh-CN:
       - '[feature] `swipeout`组件`beta`版本'
+  v2.1.1-rc.14:
+    en:
+      - '[fix] Fix left-menu is shown when sliding back and forth #1139'
+    zh-CN:
+      - '[fix] 修复来回滑动时左侧菜单可能会被滑出 #1139'
+  v2.2.0:
+    en:
+      - '[fix] Fix cannot scroll when disabled'
+      - '[fix] Fix unable to trigger click event when disabled on android'
+    zh-CN:
+      - '[fix] 修复disabled时不能上下滚动问题'
+      - '[fix] 修复disabled时，安卓手机上不能触发点击事件的问题'

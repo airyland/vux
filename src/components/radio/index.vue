@@ -39,7 +39,7 @@ export default {
       type: Array,
       required: true
     },
-    value: String,
+    value: [String, Number],
     fillMode: {
       type: Boolean,
       default: false
@@ -64,6 +64,9 @@ export default {
     }
   },
   watch: {
+    value (val) {
+      this.currentValue = val
+    },
     currentValue (newVal) {
       var isOption = contains(this.options, newVal)
       if (newVal !== '' && isOption) {

@@ -1,7 +1,5 @@
 @namespace: vux;
 
-@color-wechat-green: #04BE02;
-
 @theme-color: #04BE02;
 @opacity-disabled: 0.5;
 
@@ -124,6 +122,7 @@
 @button-default-font-color: #000000;
 @button-default-active-bg-color: #DEDEDE;
 @button-default-disabled-font-color: rgba(0,0,0,.3);
+@button-default-disabled-bg-color: #F7F7F7;
 @button-default-active-font-color: rgba(0,0,0,.6);
 
 @button-primary-bg-color: #1AAD19;
@@ -168,7 +167,7 @@
 @button-tab-active-border-color: @button-tab-border-color;
 
 @button-tab-default-background-color: #fdfdfd;
-@button-tab-active-background-color: @color-wechat-green;
+@button-tab-active-background-color: @theme-color;
 
 @button-tab-active-font-color: #FFF; /* alias */
 @button-tab-active-text-color: @button-tab-active-font-color;
@@ -193,6 +192,12 @@
 @popup-picker-header-text-color: @theme-color;
 @popup-picker-header-bg-color: #fbf9fe;
 @popup-picker-header-font-size: 16px;
+@popup-picker-header-cancel-text-color: #828282;
+
+/**
+* popup
+*/
+@popup-background-color: #eee;
 
 /**
 * form-preview
@@ -222,9 +227,26 @@
 @toast-top: 180px;
 @toast-position-top-offset: 10px;
 @toast-position-bottom-offset: 10px;
+@toast-z-index: 5000;
 
 
 /**
 * icon
 */
 @icon-success-color: #09BB07;
+
+/**
+* calendar
+*/
+@calendar-arrow-color: @theme-color;
+@calendar-highlight-color: #E59313;
+@calendar-selected-bg-color: @theme-color;
+@calendar-disabled-font-color: #c0c0c0;
+@calendar-today-font-color: @theme-color;
+
+/**
+* search
+*/
+@search-cancel-font-color: #09BB07;
+@search-bg-color: #EFEFF4;
+@search-placeholder-font-color: #9B9B9B;

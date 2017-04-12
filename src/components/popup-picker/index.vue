@@ -17,23 +17,26 @@
       </div>
     </div>
 
-    <popup v-model="showValue" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid" @on-hide="onPopupHide" @on-show="$emit('on-show')">
-      <div class="vux-popup-picker-container">
-        <div class="vux-popup-picker-header">
-          <flexbox>
-            <flexbox-item class="vux-popup-picker-header-menu" @click.native="onHide(false)">{{cancelText || $t('cancel_text')}}</flexbox-item>
-            <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-header-menu-right" @click.native="onHide(true)">{{confirmText || $t('confirm_text')}}</flexbox-item>
-          </flexbox>
+    <div v-transfer-dom="isTransferDom">
+      <popup v-model="showValue" class="vux-popup-picker" :id="`vux-popup-picker-${uuid}`" @on-hide="onPopupHide" @on-show="onPopupShow">
+        <div class="vux-popup-picker-container">
+          <div class="vux-popup-picker-header">
+            <flexbox>
+              <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-cancel" @click.native="onHide(false)">{{cancelText || $t('cancel_text')}}</flexbox-item>
+              <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-header-menu-right" @click.native="onHide(true)">{{confirmText || $t('confirm_text')}}</flexbox-item>
+            </flexbox>
+          </div>
+          <picker
+          :data="data"
+          v-model="tempValue"
+          @on-change="onPickerChange"
+          :columns="columns"
+          :fixed-columns="fixedColumns"
+          :container="'#vux-popup-picker-'+uuid"
+          :column-width="columnWidth"></picker>
         </div>
-        <picker
-        :data="data"
-        v-model="tempValue"
-        @on-change="onPickerChange"
-        :columns="columns"
-        :fixed-columns="fixedColumns"
-        :container="'#vux-popup-picker-'+uuid"></picker>
-      </div>
-    </popup>
+      </popup>
+    </div>
 
   </div>
 </template>
@@ -56,12 +59,16 @@ import { Flexbox, FlexboxItem } from '../flexbox'
 import array2string from '../../filters/array2String'
 import value2name from '../../filters/value2name'
 import uuidMixin from '../../libs/mixin_uuid'
+import TransferDom from '../../directives/transfer-dom'
 
 const getObject = function (obj) {
   return JSON.parse(JSON.stringify(obj))
 }
 
 export default {
+  directives: {
+    TransferDom
+  },
   created () {
     if (typeof this.show !== 'undefined') {
       this.showValue = this.show
@@ -116,7 +123,12 @@ export default {
       default: true
     },
     show: Boolean,
-    displayFormat: Function
+    displayFormat: Function,
+    isTransferDom: {
+      type: Boolean,
+      default: true
+    },
+    columnWidth: Array
   },
   methods: {
     value2name,
@@ -138,6 +150,11 @@ export default {
           this.tempValue = getObject(this.currentValue)
         }
       }
+    },
+    onPopupShow () {
+      // reset close type to false
+      this.closeType = false
+      this.$emit('on-show')
     },
     onPopupHide (val) {
       if (this.value.length > 0) {
@@ -252,5 +269,8 @@ export default {
   top: 50%;
   right: 15px;
   margin-top: -3px;
+}
+.vux-popup-picker-cancel {
+  color: @popup-picker-header-cancel-text-color;
 }
 </style>

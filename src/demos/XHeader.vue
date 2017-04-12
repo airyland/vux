@@ -1,8 +1,11 @@
 <template>
   <div>
+    <br>
     <x-header>This is the page title.</x-header>
     <br>
     <x-header :left-options="{showBack: false}">do not show Back</x-header>
+    <br>
+    <x-header :left-options="{backText: ''}">set empty back text</x-header>
     <br>
     <x-header :right-options="{showMore: true}" @on-click-more="showMenus = true">with more menu</x-header>
     <br>

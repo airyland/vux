@@ -1,9 +1,9 @@
 <template>
   <div>
     <tab>
-      <tab-item selected>已发货</tab-item>
-      <tab-item>未发货</tab-item>
-      <tab-item>全部订单</tab-item>
+      <tab-item selected @on-item-click="onItemClick">已发货</tab-item>
+      <tab-item @on-item-click="onItemClick">未发货</tab-item>
+      <tab-item @on-item-click="onItemClick">全部订单</tab-item>
     </tab>
     <br/>
     <br/>
@@ -140,6 +140,9 @@ export default {
     }
   },
   methods: {
+    onItemClick (index) {
+      console.log('on item click:', index)
+    },
     addTab () {
       if (this.list2.length < 5) {
         this.list2 = list().slice(0, this.list2.length + 1)

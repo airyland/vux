@@ -1,0 +1,72 @@
+name: cell-form-preview
+icon: '&#xe62a;'
+tags:
+  en:
+    - form
+    - cell-form-preview
+  zh-CN:
+    - 表单
+    - 预览
+extra: |
+  
+  <p class="warning">
+    `CellFromPreview` 需要在 `Group` 组件中使用。
+  </p>
+
+
+  ```  html
+    <group>
+      <cell title="Total" value="￥1024"></cell>
+      <cell-form-preview :list="list"></cell-form-preview>
+    </group>
+  ```
+
+  ``` js
+  import { CellFormPreview, Group, Cell } from 'vux'
+
+  export default {
+    components: {
+      CellFormPreview,
+      Group,
+      Cell
+    },
+    data () {
+      return {
+        list: [{
+          label: 'Apple',
+          value: '3.29'
+        }, {
+          label: 'Banana',
+          value: '1.04'
+        }, {
+          label: 'Fish',
+          value: '8.00'
+        }]
+      }
+    }
+  }
+  ```
+slots:
+props:
+  list:
+    version: v2.2.0
+    type: Array
+    en: label and value list
+    zh-CN: 内容列表
+  border-intent:
+    version: v2.2.1-rc.1
+    type: Boolean
+    default: true
+    en: if set border intent
+    zh-CN: 是否显示边框与左边的间隙
+changes:
+  v2.2.1-rc.1:
+    en:
+      - '[feature] Support prop:border-intent'
+    zh-CN:
+      - '[feature] 支持 prop:border-intent, 用以不显示边框与左边间隙'
+  v2.2.0:
+    en:
+      - '[feature] new component'
+    zh-CN:
+      - '[feature] 新组件'

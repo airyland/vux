@@ -10,8 +10,8 @@
       <div class="weui-dialog__hd"><strong class="weui-dialog__title">{{title}}</strong></div>
       <div class="weui-dialog__bd"><slot><div v-html="content"></div></slot></div>
       <div class="weui-dialog__ft">
-        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" @click="onCancel">{{cancelText || $t('cancel_text')}}</a>
-        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" @click="onConfirm">{{confirmText || $t('confirm_text')}}</a>
+        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" @click="_onCancel">{{cancelText || $t('cancel_text')}}</a>
+        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" @click="_onConfirm">{{confirmText || $t('confirm_text')}}</a>
       </div>
     </x-dialog>
   </div>
@@ -74,11 +74,11 @@ export default {
     }
   },
   methods: {
-    onConfirm () {
+    _onConfirm () {
       this.showValue = false
       this.$emit('on-confirm')
     },
-    onCancel () {
+    _onCancel () {
       this.showValue = false
       this.$emit('on-cancel')
     }

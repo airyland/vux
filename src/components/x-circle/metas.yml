@@ -10,20 +10,25 @@ props:
   stroke-width:
     type: Number
     default: 1
+    en: top line's width
     zh-CN: 线条宽度
   stoke-color:
     type: String
     default: '#3FC7FA'
+    en: top line's color
     zh-CN: 线条颜色
   trail-width:
     type: Number
     default: 1
+    en: bottom line's width
     zh-CN: 背景线条宽度
   trail-color:
     type: String
     default: '#D9D9D9'
+    en: bottom line's color
     zh-CN: 背景线条颜色
   percent:
     type: Number
     default: 0
+    en: percentage value
     zh-CN: 进度百分比

@@ -122,10 +122,10 @@
         default-item-class="demo4-item"
         selected-item-class="demo4-item-selected"
         disabled-item-class="demo4-item-disabled">
-          <checker-item value="花跟叶" @on-item-click="showPopup=false">花跟叶</checker-item>
-          <checker-item value="鸟与树" @on-item-click="showPopup=false">鸟与树</checker-item>
-          <checker-item value="我和你" @on-item-click="showPopup=false">我和你</checker-item>
-          <checker-item value="全套礼品装" disabled>全套礼品装</checker-item>
+          <checker-item value="花跟叶" @on-item-click="onItemClick">花跟叶</checker-item>
+          <checker-item value="鸟与树" @on-item-click="onItemClick">鸟与树</checker-item>
+          <checker-item value="我和你" @on-item-click="onItemClick">我和你</checker-item>
+          <checker-item value="全套礼品装" disabled @on-item-click="onItemClick">全套礼品装</checker-item>
         </checker>
       </div>
     </popup>
@@ -211,6 +211,14 @@ export default {
     Group,
     Cell,
     Popup
+  },
+  methods: {
+    onItemClick (value, disabled) {
+      console.log(value, disabled)
+      if (!this.disabled) {
+        this.showPopup = false
+      }
+    }
   },
   data () {
     return {

@@ -105,13 +105,13 @@ export default {
     }
   },
   methods: {
-    reset (scrollPosition) {
+    reset (scrollPosition, duration, easing) {
       if (scrollPosition) {
         if (typeof scrollPosition.left !== 'undefined') {
-          this._xscroll.scrollLeft(scrollPosition.left)
+          this._xscroll.scrollLeft(scrollPosition.left, duration, easing)
         }
         if (typeof scrollPosition.top !== 'undefined') {
-          this._xscroll.scrollTop(scrollPosition.top)
+          this._xscroll.scrollTop(scrollPosition.top, duration, easing)
         }
       }
       this._xscroll && this._xscroll.resetSize()
@@ -230,10 +230,12 @@ export default {
       })
 
       this._xscroll.on('scroll', () => {
-        this.$emit('on-scroll', {
-          top: this._xscroll.getScrollTop(),
-          left: this._xscroll.getScrollLeft()
-        })
+        if (this._xscroll) {
+          this.$emit('on-scroll', {
+            top: this._xscroll.getScrollTop(),
+            left: this._xscroll.getScrollLeft()
+          })
+        }
       })
 
       if (this.usePulldown) {

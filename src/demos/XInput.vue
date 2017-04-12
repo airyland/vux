@@ -38,11 +38,13 @@
 
 
     <group title="html title">
-      <x-input :title='`<span style="${style}">hello</span>`' placeholder="I'm placeholder"></x-input>
+      <x-input label-width="4em" :title='`<span style="${style}">hello</span>`' placeholder="I'm placeholder"></x-input>
     </group>
-    <x-button @click.native="style = 'color:red;'">set red</x-button>
-    <x-button @click.native="style = 'color:green'">set green</x-button>
-    <x-button @click.native="style = 'color:#000'">set default</x-button>
+    <div style="padding:15px;">
+      <x-button @click.native="style = 'color:red;'" type="primary">set red</x-button>
+      <x-button @click.native="style = 'color:green'" type="primary">set green</x-button>
+      <x-button @click.native="style = 'color:#000'" type="primary">set default</x-button>
+    </div>
 
     <group title="Default">
       <x-input title="message" placeholder="I'm placeholder"></x-input>

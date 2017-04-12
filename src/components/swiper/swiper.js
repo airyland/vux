@@ -53,7 +53,7 @@ class Swiper {
   }
 
   updateItemWidth () {
-    this._width = this.$box.offsetWidth
+    this._width = this.$box.offsetWidth || document.documentElement.offsetWidth
     this._distance = this._options.direction === 'horizontal' ? this._width : this._height
   }
 
@@ -71,7 +71,7 @@ class Swiper {
       setTimeout(() => {
         me.updateItemWidth()
         me._setOffset()
-        me._setTransfrom()
+        me._setTransform()
       }, 100)
     }
     window.addEventListener('orientationchange', this.resizeHandler, false)
@@ -86,7 +86,7 @@ class Swiper {
     this._initPosition()
     this._activate(this._current)
     this._setOffset()
-    this._setTransfrom()
+    this._setTransform()
     if (this._loop()) {
       this._loopRender()
     }
@@ -127,7 +127,7 @@ class Swiper {
     })
   }
 
-  _setTransfrom (offset) {
+  _setTransform (offset) {
     const me = this
     offset = offset || 0
     arrayFrom(me.$items).forEach(function ($item, key) {
@@ -160,7 +160,7 @@ class Swiper {
         distance = distanceX
       }
       if (((me._options.minMovingDistance && Math.abs(distance) >= me._options.minMovingDistance) || !me._options.minMovingDistance) && noScrollerY) {
-        me._setTransfrom(distance)
+        me._setTransform(distance)
       }
 
       noScrollerY && e.preventDefault()
@@ -240,7 +240,7 @@ class Swiper {
     me.$items[1] && me.$items[1].addEventListener('webkitTransitionEnd', me.transitionEndHandler, false)
     me._movePosition(num)
     me._setOffset()
-    me._setTransfrom()
+    me._setTransform()
   }
 
   getDistance (distance) {
@@ -288,7 +288,7 @@ class Swiper {
     me._moveIndex(index)
     me._setOffset()
     me._setTransition()
-    me._setTransfrom()
+    me._setTransform()
     me._auto()
     return this
   }
@@ -319,10 +319,11 @@ class Swiper {
       item.removeEventListener('webkitTransitionEnd', this.transitionEndHandler, false)
     })
   }
+
   destroy () {
     this.stop()
     this._current = 0
-    this._setTransfrom(0)
+    this._setTransform(0)
     window.removeEventListener('orientationchange', this.resizeHandler, false)
     this.$container.removeEventListener('touchstart', this.touchstartHandler, false)
     this.$container.removeEventListener('touchmove', this.touchmoveHandler, false)

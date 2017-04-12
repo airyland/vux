@@ -16,6 +16,7 @@
         </label>
       </form>
       <a href="javascript:" class="weui-search-bar__cancel-btn" @click="cancel">{{cancelText || $t('cancel_text')}}</a>
+      <slot name="right"></slot>
     </div>
     <div class="weui-cells vux-search_show" v-show="isFixed">
       <slot></slot>
@@ -96,8 +97,8 @@ export default {
       }
     },
     cancel () {
-      this.currentValue = ''
       this.isCancel = true
+      this.currentValue = ''
       this.isFixed = false
       this.$emit('on-cancel')
     },
@@ -119,6 +120,7 @@ export default {
     },
     onFocus () {
       this.isFocus = true
+      this.$emit('on-focus')
       this.touch()
     },
     onBlur () {
@@ -150,8 +152,10 @@ export default {
       this.currentValue = val
     },
     currentValue (val) {
-      this.$emit('on-change', val)
-      this.$emit('input', val)
+      if (!this.isCancel) {
+        this.$emit('input', val)
+        this.$emit('on-change', val)
+      }
     }
   }
 }

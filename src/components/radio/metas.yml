@@ -7,6 +7,30 @@ tags:
     - 表单
     - 单选
 extra:
+  en: |
+
+    ```html
+      <group>
+        <radio title="title" :options="options" v-model="value"></radio>
+      </group>
+    ```
+    `options` can be plain array, or object list with key=> value:
+    
+    ``` js
+    const options = [ 'China', 'Japan' ]
+
+    const options2 = [{
+      icon: 'http://dn-placeholder.qbox.me/110x110/FF2D55/000',
+      key: '001',
+      value: 'radio001'
+    }, {
+      icon: 'http://dn-placeholder.qbox.me/110x110/FF2D55/000',
+      key: '002',
+      value: 'radio002'
+    }]
+    ```
+    
+    <p class="tip">`radio` should be used in `Group`.</p>
   zh-CN: |
 
     ```html
@@ -33,19 +57,29 @@ extra:
     <p class="tip">`radio`只能在`Group`中使用</p>
 props:
   value:
+    en: radio value, use `v-model` for binding
     zh-CN: 表单值，使用`v-model`绑定
   options:
     type: Array
-    zh-CN: 可选列表，可以用字符串组成的数组或者key=>value的形式
+    en: option list, can be plain array or array with `key=>value`
+    zh-CN: 可选列表，可以用字符串组成的数组或者 `key=>value` 的形式
   fill-mode:
     type: Boolean
     default: false
+    en: if add an option user can fill 
     zh-CN: 是否可填写
   fill-placeholder:
+    en: placeholder for fill input
     zh-CN: 可填写时的提示文字
   fill-label:
+    en: label for fill input
     zh-CN: 可填写时的label文字
 changes:
+  v2.1.1-rc.13:
+    en:
+      - '[fix] Fix not support Number and not reactive #1115'
+    zh-CN:
+      - '[fix] 修复未响应数据变更的 bug #1115'
   v2.1.1-rc.1:
     en:
       - '[feature] Support icon'

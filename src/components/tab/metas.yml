@@ -50,7 +50,18 @@ tab-item:
       zh-CN: 是否不可选
     active-class:
       zh-CN: 当前项选中时的class
+  events:
+    on-item-click:
+      params: '`(index)`'
+      version: next
+      en: emits when current tabItem is clicked
+      zh-CN: 当前 tabItem 被点击时触发
 changes:
+  next:
+    en:
+      - '[enhance] Support param:index on event:on-item-click'
+    zh-CN:
+      - '[enhance] 支持 on-item-click 带上 index 参数'
   v2.1.1-rc.7:
     en:
       - '[feature] Support setting bar width with prop:custom-bar-width'

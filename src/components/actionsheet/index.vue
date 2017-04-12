@@ -1,6 +1,8 @@
 <template>
   <div class="vux-actionsheet">
-    <div class="weui-mask weui-mask_transparent" :class="{'weui-actionsheet_toggle': show}" :style="{display: show ? 'block' : 'none'}" @click="onClickingMask"></div>
+    <transition name="vux-actionsheet-mask">
+      <div class="weui-mask weui-mask_transparent" @click="onClickingMask" v-show="show"></div>
+    </transition>
     <div class="weui-actionsheet" :class="{'weui-actionsheet_toggle': show}">
       <div class="weui-actionsheet__menu">
         <div class="weui-actionsheet__cell" v-for="(text, key) in menus" @click="onMenuClick(text, key)" v-html="$t(text.label || text)" :class="`vux-actionsheet-menu-${text.type || 'default'}`">
@@ -69,6 +71,9 @@ export default {
       }
     },
     fixIos (zIndex) {
+      if (this.$el.parentNode && this.$el.parentNode.className.indexOf('v-transfer-dom') !== -1) {
+        return
+      }
       if (this.$tabbar && /iphone/i.test(navigator.userAgent)) {
         this.$tabbar.style.zIndex = zIndex
       }
@@ -85,8 +90,11 @@ export default {
         }, 200)
       }
     },
-    value (val) {
-      this.show = val
+    value: {
+      handler: function (val) {
+        this.show = val
+      },
+      immediate: true
     }
   },
   beforeDestroy () {
@@ -99,14 +107,6 @@ export default {
 @import '../../styles/weui/widget/weui_tips/weui_mask';
 @import '../../styles/weui/widget/weui_tips/weui_actionsheet';
 
-.vux-actionsheet-gap {
-  height: 8px;
-  width: 100%;
-  background-color: #eee;
-}
-.vux-actionsheet-cancel:before {
-  border-top: none;
-}
 .vux-actionsheet-menu-primary {
   color: @actionsheet-label-primary-color;
 }
@@ -118,5 +118,11 @@ export default {
 }
 .vux-actionsheet-menu-disabled {
   color: @actionsheet-label-disabled-color;
+}
+.vux-actionsheet-mask-enter, .vux-actionsheet-mask-leave-active {
+  opacity: 0;
+}
+.vux-actionsheet-mask-leave-active, .vux-actionsheet-mask-enter-active {
+  transition: opacity 300ms;
 }
 </style>

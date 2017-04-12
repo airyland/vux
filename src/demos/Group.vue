@@ -1,6 +1,8 @@
 <template>
   <div>
-    <group label-width="4em" label-margin-right="2em" label-align="right">
+    <group label-width="4.5em" label-margin-right="2em" label-align="right">
+      <cell title="Cell" value="value" is-link></cell>
+      <cell title="Cell" value="value" is-link value-align="left"></cell>
       <x-input title="上报人" v-model="value1"></x-input>
       <x-input placeholder="I'm placeholder">
         <img slot="restricted-label" style="display:inline-block;vertical-align:middle;" src="http://dn-placeholder.qbox.me/110x110/FF2D55/000" width="24" height="24">

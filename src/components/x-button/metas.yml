@@ -16,7 +16,7 @@ props:
   type:
     type: String
     default: default
-    en:
+    en: button style type, one of default, primary, warn
     zh-CN: 按钮类型，可选值为 `default,primary,warn`
   disabled:
     type: Boolean
@@ -39,12 +39,18 @@ props:
     en: if use plain styles which has no backgroundColor
     zh-CN: 是否是plain样式，没有背景色
   action-type:
+    en: button's type value, one of `submit`, `button`, `reset`
     zh-CN: '`button`的type属性，默认为浏览器默认(submit)，可选为 `submit` `button` `reset`'
 slots:
   default:
     en: button text
     zh-CN: 按钮文字
 changes:
+  v2.1.1-rc.10:
+    en:
+      - '[feature] Add default disabled bg color. #896'
+    zh-CN:
+      - '[feature] 添加禁用背景颜色. #896'
   v2.1.1-rc.3:
     en:
       - '[fix] Fix no loading style if not using Loading component #986 @malaimoo'
@@ -57,3 +63,8 @@ changes:
   v2.1.0-rc.46:
       zh-CN:
         - '[feature] 添加`less`变量 #896 @erguotou520'
+  v2.1.1-rc.12:
+      en:
+        - '[fix] Fix primary button active background-color'
+      zh-CN:
+        - '[fix] 修复primary类型按钮active时的background-color'

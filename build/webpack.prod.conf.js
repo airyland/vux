@@ -10,6 +10,8 @@ var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
 
+var argv = require('yargs').argv
+
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
@@ -20,6 +22,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: false, // config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
+    publicPath: argv.cdn ? 'https://static.vux.li/demos/v2/' : './',
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },

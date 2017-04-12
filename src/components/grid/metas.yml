@@ -1,5 +1,13 @@
 icon: '&#xe661;'
 import_code: import { Grid, GridItem } from 'vux'
+tags:
+  en:
+    - grid
+    - layout
+  zh-CN:
+    - 宫格
+    - 九宫格
+    - 布局
 items:
   - grid
   - grid-item
@@ -13,6 +21,13 @@ extra: |
   </grid>
   ```
 grid:
+  props:
+    rows:
+      type: Number
+      version: v2.2.0
+      default: 3
+      en: rows number
+      zh-CN: 宫格列数，建议少于`5`
   slots:
     default:
       en: 'default slot for `grid-item` list'
@@ -33,6 +48,13 @@ grid-item:
       en: slot for label, the same func as prop:label
       zh-CN: label文字的slot，作用同prop:label
 changes:
+  v2.2.0:
+    en:
+      - '[feature] Support dynamic rows'
+      - '[enhance] Hide slot:icon and slot:label if not being set'
+    zh-CN:
+      - '[feature] 支持定义列数'
+      - '[enhance] 如果没有使用 icon 和 label，则直接隐藏 slot:icon 和 slot:label'
   v2.0.14:
     en:
       - '[feature] Add component `grid`'

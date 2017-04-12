@@ -1,7 +1,7 @@
 <template>
   <div class="vux-picker">
     <flexbox :gutter="0">
-      <flexbox-item v-for="(one, index) in currentData" :key="index" style="margin-left:0;">
+      <flexbox-item :span="columnWidth && columnWidth[index]" v-for="(one, index) in currentData" :key="index" style="margin-left:0;">
         <div class="vux-picker-item" :id="'vux-picker-' + uuid + '-' + index"></div>
       </flexbox-item>
     </flexbox>
@@ -44,7 +44,8 @@ export default {
     itemClass: {
       type: String,
       default: 'scroller-item'
-    }
+    },
+    columnWidth: Array
   },
   methods: {
     getId (i) {
@@ -164,10 +165,14 @@ export default {
           }
         }
       } else {
-        for (let i = 0; i < val.length; i++) {
-          if (this.scroller[i] && this.scroller[i].value !== val[i]) {
-            this.scroller[i].select(val[i])
+        if (val.length) {
+          for (let i = 0; i < val.length; i++) {
+            if (this.scroller[i] && this.scroller[i].value !== val[i]) {
+              this.scroller[i].select(val[i])
+            }
           }
+        } else {
+          this.render(this.currentData, [])
         }
       }
     },

@@ -30,10 +30,10 @@ extra:
 
     目前并不支持 `svg sprite`，将在后面版本支持。
 
-    示例如下，需要严格按照下面格式来写，以免解析出错。
+    示例(请更新 vux-loader 到 v1.0.57 以上，否则不支持传除 type 和 size 之外的属性)：
 
     ``` html
-    <x-icon type="ios-arrow-up"></x-icon>
+    <x-icon type="ios-arrow-up" class="icon-red"></x-icon>
     <x-icon type="ios-arrow-up" size="30"></x-icon>
     ```
 props:
@@ -45,6 +45,11 @@ props:
     en: icon size
     zh-CN: 尺寸大小
 changes:
+  v2.2.0:
+    en:
+      - '[enhance] Support all attributes #1147'
+    zh-CN:
+      - '[enhance] 支持传任意属性 #1147'
   v2.1.1-rc.4:
     en:
       - '[feature] new component'

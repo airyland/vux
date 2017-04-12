@@ -3,7 +3,6 @@ nav: zh-CN
 ---
 
 <p align="center">
-  <span class="big-title">VUX</span>
   <br>
    <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
     <img src="https://static.vux.li/demo_v2_doc_home.png" width="100" alt="">
@@ -51,6 +50,43 @@ nav: zh-CN
   <br>
 </p>
 
+<p class="warning">
+
+  国内开发者请特别注意，直接使用 `cnpm` 可能会导致依赖不正确。强烈建议给 npm 设置 taobao 的 registry。
+  <br>
+
+  ```
+  npm install --registry=https://registry.npm.taobao.org
+  ```
+
+  <br>
+  <br>
+
+  如果你已经用上了 `yarn`，建议这样
+  <br>
+  ```
+  yarn config set registry https://registry.npm.taobao.org
+  ```
+  <br>
+  ```
+  yarn
+  ```
+  <br>
+  <br>
+  如果你遇到 `$t` 报错问题，`请不要开 issue`，先删除 node_modules 再重装依赖。
+  <br>
+  <br>
+  vux 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
+  <br>
+  vux 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
+  <br>
+  vux 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
+  <br>
+  <br>
+  开此类 issue 一律关闭并拉黑名单。
+  <br>
+</p>
+
 <p class="tip">
   2.1.0 ~ 3.0.0 之间版本不会有影响升级的 `break change`，请放心及时更新版本。
   <br>
@@ -83,13 +119,17 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 
 ## 使用案例
 
-> 如果你的产品在使用`VUX`, 欢迎邮箱发送`Logo+链接`给我。
+> 如果你的产品在使用`VUX`, 欢迎邮箱发送`Logo+链接`给我（统一格式：二维码必须无白边框）。
 
 <img src="https://static.vux.li/showcase/ssy.png" width="150">
 <img src="https://static.vux.li/showcase/jkda51.png?v2" width="150">
 <img src="https://static.vux.li/showcase/voez.png?v2" width="150">
 <img src="https://static.vux.li/showcase/xmb.png?v2" width="150">
 <img src="https://static.vux.li/showcase/jkny.png" width="150">
+<img src="https://static.vux.li/showcase/linkup.jpg" width="150">
+<img src="https://static.vux.li/showcase/xingshifu.png" width="150">
+<img src="https://static.vux.li/showcase/dsxqian.jpg" width="150">
+<img src="https://static.vux.li/showcase/ljwk.jpg" width="150">
 
 ## 安装使用(webpack)
 
@@ -103,6 +143,13 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 npm install vux --save
 ```
 
+或者使用 `yarn`
+
+``` js
+yarn add vux // 安装
+yarn upgrade vux // 更新
+```
+
 如果你是从`0.x`更新，请参考： <a router-link="/zh-CN/upgrade-to-2" style="color:#42b983;">更新到`2.x`</a>
 
 
@@ -112,13 +159,10 @@ vux2必须配合`vux-loader`使用, 请在`build/webpack.base.conf.js`里参照�
 
 ``` js
 const vuxLoader = require('vux-loader')
+const webpackConfig = originalConfig // 原来的 module.exports 代码赋值给变量 webpackConfig
+
 module.exports = vuxLoader.merge(webpackConfig, {
-  options: {},
-  plugins: [
-    {
-      name: 'vux-ui'
-    }
-	]
+  plugins: ['vux-ui']
 })
 ```
 
@@ -132,14 +176,37 @@ vux@0.x 已经停止维护，请尽快迁移到 vue@2.x & vuex@2.x & vux@2.x，�
 
 > 默认为 webpack2 模板，如果你需要使用`webpack1`，请使用 vue init airyland/vux2#webpack1 projectPath
 
-``` js
+``` bash
 npm install vue-cli -g // 如果还没安装
 vue init airyland/vux2 projectPath
 
 cd projectPath
-npm install // 使用 cnpm 安装可能会出现问题，推荐使用 npm --registry=https://registry.npm.taobao.org
+npm install --registry=https://registry.npm.taobao.org
 npm run dev
 ```
+
+<p class="warning">
+
+  请特别注意，直接使用 `cnpm` 可能会导致依赖不正确。强烈建议给 npm 设置 taobao 的 registry。
+  <br>
+
+  ```
+  npm install --registry=https://registry.npm.taobao.org
+  ```
+
+  <br>
+  <br>
+
+  如果你已经用上了 `yarn`，建议这样
+  <br>
+  ```
+  yarn config set registry https://registry.npm.taobao.org
+  ```
+  <br>
+  ```
+  yarn
+  ```
+</p>
 
 ### 调用示例
 
@@ -365,20 +432,6 @@ console.log(Vue.wechat) // 可以直接访问 wx 对象。
   `AjaxPlugin`在`vux@^2.1.0-rc.20`开始支持
 </p>
 
-`ajax`请求推荐使用 [axios](https://github.com/mzabriskie/axios)
-
-需要注意的是`axios`是基于`Promise`的，因此如果你需要兼容低版本浏览器([caniuse](http://caniuse.com/#feat=promises))，需要引入`polyfill`。
-
-`Polyfill` 推荐使用 [es6-promise](https://github.com/stefanpenner/es6-promise)
-
-``` js
-require('es6-promise').polyfill()
-```
-
---- 
-
-如果你非常非常懒并且觉得`axios`名字比较奇怪，`VUX`直接把`axios`封装成插件，你可以直接引用插件。
-
 ``` js
 import { AjaxPlugin } from 'vux'
 Vue.use(AjaxPlugin)
@@ -387,6 +440,16 @@ console.log(Vue.http)
 ```
 
 然后你可以和`vue-resource`一样在组件内使用`this.$http`进行调用了。
+
+---
+
+`AjaxPlugin` 插件依赖于 [axios](https://github.com/mzabriskie/axios)，需要注意的是`axios`是基于`Promise`的，因此如果你需要兼容低版本浏览器([caniuse](http://caniuse.com/#feat=promises))，需要引入`polyfill`。
+
+`Polyfill` 推荐使用 [es6-promise](https://github.com/stefanpenner/es6-promise)
+
+``` js
+require('es6-promise').polyfill()
+```
 
 ## 优化
 
@@ -490,12 +553,18 @@ FastClick.attach(document.body)
 <%=htmlWebpackPlugin.files.webpackManifest%>
 ```
 
-然后在`vux-loader`配置中加入`inline-manifest`插件
+然后在`vux-loader`配置的 `plugins` 列表中加入`inline-manifest`插件
 
 ``` js
 {
   name: 'inline-manifest'
 }
+```
+
+或者简化写法直接使用名字：
+
+``` js
+'inline-manifest'
 ```
 
 ## 开发
@@ -843,7 +912,7 @@ querystring.stringify({a:'b',c:'d'}) // 'a=b&c=d'，注意不支持复杂嵌套�
 
 ``` bash
 yarn // 使用 yarn.lock 保证依赖版本一致
-yarn run dev
+yarn dev
 ```
 
 ### 本地查看文档

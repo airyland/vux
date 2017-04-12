@@ -9,14 +9,16 @@
       <x-switch title="Popup address" v-model="show6"></x-switch>
     </group>
     
-    <popup v-model="show" @on-hide="log('hide')" @on-show="log('show')">
-      <div class="popup0">
-        <group>
-          <x-switch title="Another XSwitcher" v-model="show"></x-switch>
-          <x-switch title="Show Toast" v-model="showToast"></x-switch>
-        </group>
-      </div>
-    </popup>
+    <div v-transfer-dom>
+      <popup v-model="show" @on-hide="log('hide')" @on-show="log('show')">
+        <div class="popup0">
+          <group>
+            <x-switch title="Another XSwitcher" v-model="show"></x-switch>
+            <x-switch title="Show Toast" v-model="showToast"></x-switch>
+          </group>
+        </div>
+      </popup>
+    </div>
 
     <toast v-model="showToast">You did it!</toast>
 
@@ -75,20 +77,41 @@
       </div>
     </popup>
 
+    <group>
+      <x-switch title="transparent background" v-model="show7"></x-switch>
+    </group>
+    <popup v-model="show7" height="270px" is-transparent>
+      <div style="width: 95%;background-color:#fff;height:250px;margin:0 auto;border-radius:5px;padding-top:10px;">
+       <group>
+        <cell title="Product" value="Donate"></cell>
+        <cell title="Total" value="$10.24"></cell>
+       </group>
+       <div style="padding:20px 15px;">
+        <x-button type="primary">Pay</x-button>
+        <x-button @click.native="show7 = false">Cancel</x-button>
+       </div>
+      </div>
+    </popup>
+
   </div>
 </template>
 
 <script>
-import { Popup, Group, XSwitch, Scroller, Toast, XAddress, ChinaAddressData } from 'vux'
+import { TransferDom, Popup, Group, Cell, XButton, XSwitch, Scroller, Toast, XAddress, ChinaAddressData } from 'vux'
 
 export default {
+  directives: {
+    TransferDom
+  },
   components: {
     Popup,
     Group,
+    Cell,
     XSwitch,
     Scroller,
     Toast,
-    XAddress
+    XAddress,
+    XButton
   },
   data () {
     return {
@@ -102,6 +125,7 @@ export default {
       show6: false,
       title6: '默认空的',
       value6: [],
+      show7: false,
       showToast: false
     }
   },

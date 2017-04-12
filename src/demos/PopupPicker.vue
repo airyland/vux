@@ -5,6 +5,7 @@
     </group>
     <br>
     <div class="picker-buttons">
+       <x-button type="primary" @click.native="value1=[]">将值置为空</x-button>
        <x-button type="primary" @click.native="changeList10">重新赋值列表</x-button>
        <x-button type="primary" @click.native="changeList11">push方式更改列表</x-button>
      </div>

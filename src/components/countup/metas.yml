@@ -11,23 +11,31 @@ props:
   start-val:
     type: Number
     default: 0
+    en: min number
     zh-CN: 开始数字
   end-val:
     type: Number
+    en: max number
     zh-CN: 结束数字
   decimals:
     type: Number
     default: 0
+    en: decimal length
     zh-CN: 小数点位数
   options:
     type: 'Object'
+    en: options for `countup.js`
     zh-CN: '`countup.js`的设置项'
   start:
     type: Boolean
     default: true
+    en: if start the counting
     zh-CN: 是否自动开始计数
 changes:
   v2.0.0:
+    en:
+      - '[feature] Add prop:start'
+      - '[change] Update countup -> countup.js'
     zh-CN:
       - '[feature] 添加 prop:`start`, 现在你可以手动开始计数了'
       - '[change] 更新依赖`countup`为`countup.js`'
