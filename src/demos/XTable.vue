@@ -82,8 +82,7 @@
           <tbody>
             <tr>
               <td>Apple</td>
-              <td>$1.25</td>
-              <td>x 10</td>
+              <td colspan="2">$1.25 x 10</td>
             </tr>
             <tr>
               <td>Banana</td>

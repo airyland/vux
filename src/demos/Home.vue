@@ -22,6 +22,9 @@
         <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
       </cell>
     </group>
+    <group title="to be released">
+      <cell title="XTable" link="/component/x-table"></cell>
+    </group>
   </div>
 </template>
 
