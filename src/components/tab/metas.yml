@@ -53,11 +53,11 @@ tab-item:
   events:
     on-item-click:
       params: '`(index)`'
-      version: next
+      version: v2.2.1-rc.4
       en: emits when current tabItem is clicked
       zh-CN: 当前 tabItem 被点击时触发
 changes:
-  next:
+  v2.2.1-rc.4:
     en:
       - '[enhance] Support param:index on event:on-item-click'
     zh-CN:

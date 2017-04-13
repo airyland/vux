@@ -212,7 +212,7 @@ methods:
     en: set pulldown done after new data is fetched
     zh-CN: 设置下拉刷新操作完成，在数据加载后执行
 changes:
-  next:
+  v2.2.1-rc.4:
     en:
       - '[feature] Support duration and easing for reset function. #1240'
     zh-CN:

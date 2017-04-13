@@ -79,6 +79,7 @@ import Picker from './src/components/picker/index.vue'
 import Popover from './src/components/popover/index.vue'
 import Popup from './src/components/popup/index.vue'
 import PopupPicker from './src/components/popup-picker/index.vue'
+import PopupRadio from './src/components/popup-radio/index.vue'
 import Previewer from './src/components/previewer/index.vue'
 import Qrcode from './src/components/qrcode/index.vue'
 import querystring from './src/tools/querystring/index.js'
@@ -129,6 +130,7 @@ import XInput from './src/components/x-input/index.vue'
 import XNumber from './src/components/x-number/index.vue'
 import XProgress from './src/components/x-progress/index.vue'
 import XSwitch from './src/components/x-switch/index.vue'
+import XTable from './src/components/x-table/index.vue'
 import XTextarea from './src/components/x-textarea/index.vue'
 
 export {
@@ -211,6 +213,7 @@ export {
   Popover,
   Popup,
   PopupPicker,
+  PopupRadio,
   Previewer,
   Qrcode,
   querystring,
@@ -261,5 +264,6 @@ export {
   XNumber,
   XProgress,
   XSwitch,
+  XTable,
   XTextarea
 }
