@@ -1,7 +1,7 @@
 icon: '&#xe60f;'
 extra:
-  en: props are the same as cell's and radio's
-  zh-CN: 属性同 cell 和 Radio 的属性
+  en: props are the same as cell's and radio's. Be aware that it doesnot support fillMode.
+  zh-CN: 属性同 cell 和 Radio 的属性，需要注意的是不支持 fillMode。
 tags:
   en:
     - radio
