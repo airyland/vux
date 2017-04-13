@@ -22,31 +22,13 @@
 <script>
 import InlineDesc from '../inline-desc'
 import { go } from '../../libs/router'
+import props from './props'
 
 export default {
   components: {
     InlineDesc
   },
-  props: {
-    title: String,
-    value: [String, Number, Array],
-    isLink: Boolean,
-    isLoading: Boolean,
-    inlineDesc: [String, Number],
-    primary: {
-      type: String,
-      default: 'title'
-    },
-    link: {
-      type: [String, Object]
-    },
-    valueAlign: String,
-    borderIntent: {
-      type: Boolean,
-      default: true
-    },
-    arrowDirection: String // down or up
-  },
+  props: props(),
   computed: {
     valueClass () {
       return {
