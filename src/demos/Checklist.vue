@@ -1,16 +1,18 @@
 <template>
   <div>
-    <checklist :title="$t('Basic Usage')" required :options="commonList" v-model="checklist001" @on-change="change"></checklist>
+    <checklist :title="$t('Basic Usage')" :label-position="labelPosition" required :options="commonList" v-model="checklist001" @on-change="change"></checklist>
     <div style="padding:15px;">
+      <x-button @click.native="labelPosition = labelPosition === 'left' ? '' : 'left'" type="primary">切换 label 位置</x-button>
       <x-button @click.native="selectFirst" type="primary">选择第1个值</x-button>
       <x-button @click.native="selectFirstTwo" type="primary">选择前两个值</x-button>
       <x-button @click.native="selectLeft" type="primary">选择剩下值</x-button>
     </div>
+
     <checklist :title="$t('handle errors')" required :options="commonList" show-error v-model="checklist0011" @on-change="change" @on-error="onError" @on-clear-error="onNoError" name="demo1" :max="2">
       <p slot="footer" v-show="error" class="error">{{error}}</p>
     </checklist>
 
-    <checklist :title="$t('preselect China and Japan')" :options="commonList" v-model="checklist002" @on-change="change"></checklist>
+    <checklist :title="$t('preselect China and Japan')" label-position="left" :options="commonList" v-model="checklist002" @on-change="change"></checklist>
 
     <checklist :title="$t('set max=2')" :options="commonList" v-model="checklist003" :max=2 @on-change="change"></checklist>
 
@@ -83,6 +85,7 @@ export default {
   },
   data () {
     return {
+      labelPosition: '',
       error: '',
       commonList: [ 'China', 'Japan', 'America' ],
       checklist001: [],
