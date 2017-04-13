@@ -1,0 +1,17 @@
+icon: '&#xe60f;'
+extra:
+  en: props are the same as cell's and radio's
+  zh-CN: 属性同 cell 和 Radio 的属性
+tags:
+  en:
+    - radio
+    - form
+  zh-CN:
+    - 表单
+    - 单选
+changes:
+  next:
+    en:
+      - '[feature] new component'
+    zh-CN:
+      - '[feature] 新组件'

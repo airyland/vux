@@ -80,6 +80,7 @@
   "Popover": "src/components/popover/index.vue",
   "Popup": "src/components/popup/index.vue",
   "PopupPicker": "src/components/popup-picker/index.vue",
+  "PopupRadio": "src/components/popup-radio/index.vue",
   "Previewer": "src/components/previewer/index.vue",
   "Qrcode": "src/components/qrcode/index.vue",
   "querystring": "src/tools/querystring/index.js",

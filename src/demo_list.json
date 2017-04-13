@@ -98,5 +98,7 @@
   "XImgScroller#/demo/x-img-scroller",
   "CellFormPreview",
   "Issue1211#/issue/1211",
-  "XTable"
+  "XTable",
+  "CheckIcon",
+  "PopupRadio"
 ]
