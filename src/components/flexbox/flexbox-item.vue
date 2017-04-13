@@ -33,7 +33,7 @@ export default {
 
       if (this.span) {
         for (let i = 0; i < prefixList.length; i++) {
-          styles[prefixList[i] + 'flex'] = `0 0 ${this.buildWidth(this.span) * 100}%`
+          styles[`${prefixList[i]}flex`] = `0 0 ${this.buildWidth(this.span) * 100}%`
         }
       }
       if (typeof this.order !== 'undefined') {
