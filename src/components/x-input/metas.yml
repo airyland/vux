@@ -78,7 +78,7 @@ props:
     zh-CN: placeholder 文字对齐方式
   label-width:
     type: String
-    version: next
+    version: v2.2.1-rc.4
     en: set label width which will not be overwritten by $parent.labelWidth
     zh-CN: label 宽度，权重比 group 的 labelWidth 高。不设定时将进行自动宽度计算，但超过15个字符时不会进行宽度设定。
 slots:
@@ -108,7 +108,7 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
-  next:
+  v2.2.1-rc.4:
     en:
       - '[feature] Support labelWidth #1186'
     zh-CN:

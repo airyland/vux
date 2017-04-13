@@ -10,7 +10,7 @@ tags:
     - 表单
     - 单选
 changes:
-  next:
+  v2.2.1-rc.4:
     en:
       - '[feature] new component'
     zh-CN:
