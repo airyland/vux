@@ -1,7 +1,7 @@
 export default function () {
   return {
     title: [String, Number],
-    value: [String, Number, Array, Boolean],
+    value: [String, Number, Array],
     isLink: Boolean,
     isLoading: Boolean,
     inlineDesc: [String, Number],

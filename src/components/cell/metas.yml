@@ -84,11 +84,6 @@ slots:
     en: the child element of the cell, you can add an element with absolute position
     zh-CN: cell的直接子元素，因此可以添加一个相对于cell绝对定位的元素
 changes:
-  next:
-    en:
-      - '[enhance] Support Boolean-value'
-    zh-CN:
-      - '[enhance] value 值支持 Boolean 类型'
   v2.2.1-rc.1:
     en:
       - '[feature] Support prop:border-intent'
