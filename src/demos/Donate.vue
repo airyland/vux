@@ -1,6 +1,12 @@
 <template>
   <div class="donate">
     <img src="../assets/demo/wechat_pay_10_24.jpg" class="donate-img">
+    <p class="desc">感谢捐赠，但是捐赠并不会让你在该项目上有任何特权。
+    <br>
+    购买【世界和我】产品也是支持该项目发展。
+    <br>
+    （天猫搜索 livingearth）
+    </p>
   </div>
 </template>
 
@@ -21,5 +27,9 @@ export default {
 }
 .donate-img {
   max-width: 100%;
+}
+.desc {
+  color: #999;
+  font-size: 12px;
 }
 </style>
