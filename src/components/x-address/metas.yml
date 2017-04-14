@@ -13,7 +13,7 @@ extra:
     import { XAddress } from 'vux'
 
     // you can import built-in data
-    import { XAddress, ChinaAddressData } from 'vux'
+    import { XAddress, ChinaAddressV3Data } from 'vux'
 
     // if you need older data
     import { XAddress, ChinaAddressV1Data } from 'vux'
@@ -34,7 +34,7 @@ extra:
     ``` js
     import { XAddress } from 'vux'
 
-    // 如果你需要引入数据
+    // 如果你需要引入数据，如果你的版本低于 v2.2.0，请使用 ChinaAddressData
     import { XAddress, ChinaAddressV3Data } from 'vux'
 
     // 如果需要引入旧版数据
