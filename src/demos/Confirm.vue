@@ -4,7 +4,8 @@
       <x-switch :title="$t('Toggle')" v-model="show"></x-switch>
     </group>
     <div v-transfer-dom>
-      <confirm v-model="show" :title="$t('confirm deleting the item')"
+      <confirm v-model="show"
+      :title="$t('confirm deleting the item')"
       @on-cancel="onCancel"
       @on-confirm="onConfirm"
       @on-show="onShow"
@@ -14,13 +15,10 @@
     </div>
     <br>
     <div style="padding:15px;">
-      <x-button @click.native="showPlugin" type="primary">Show</x-button>
+      <x-button @click.native="showPlugin" type="primary">{{ $t('Show') }}</x-button>
     </div>
     <div style="padding:15px;">
-      <x-button @click.native="showPlugin2" type="primary">Hide after 3s</x-button>
-    </div>
-    <div style="padding:15px;">
-      <x-button @click.native="showPlugin3" type="primary">Hide On Blur</x-button>
+      <x-button @click.native="showPlugin2" type="primary">{{ $t('Plugin usage') }}</x-button>
     </div>
   </div>
 </template>
@@ -32,6 +30,10 @@ Are you sure?:
   zh-CN: 确定咩？
 confirm deleting the item:
   zh-CN: 操作提示
+Plugin usage:
+  zh-CN: 插件形式调用
+Show:
+  zh-CN: 显示
 </i18n>
 
 <script>
