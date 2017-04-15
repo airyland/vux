@@ -91,6 +91,11 @@ events:
     en: blur event
     zh-CN: blur 事件
 changes:
+  next:
+    en:
+      - '[enhance] set label align to flex-start'
+    zh-CN:
+      - '[enhance] 标签上对齐'
   v2.1.1-rc.12:
     en:
       - '[enhance] trigger focus event of x-textarea when click counter'

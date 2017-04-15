@@ -1,5 +1,5 @@
 <template>
-  <div class="weui-cell">
+  <div class="weui-cell vux-x-textarea">
     <div class="weui-cell__hd">
       <div :style="labelStyles" v-if="hasRestrictedLabel">
         <slot name="restricted-label"></slot>
@@ -150,6 +150,10 @@
 </script>
 
 <style lang="less">
-  @import '../../styles/weui/widget/weui_cell/weui_cell_global';
-  @import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
+@import '../../styles/weui/widget/weui_cell/weui_cell_global';
+@import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
+
+.vux-x-textarea.weui-cell  {
+  align-items: flex-start;
+}
 </style>
