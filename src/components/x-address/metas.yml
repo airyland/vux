@@ -110,6 +110,11 @@ events:
     en: emits when being open
     zh-CN: 显示时触发
 changes:
+  next:
+    en:
+      - '[feature] Support prop:display-format'
+    zh-CN:
+      - '[feature] 支持属性  display-format'
   v2.2.1-rc.3:
     en:
       - '[feature] Support prop:confirm-text and prop:cancel-text. #1233'
