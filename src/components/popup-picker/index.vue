@@ -9,8 +9,8 @@
         <div class="vux-popup-picker-select" :style="{textAlign: valueTextAlign}">
           <span class="vux-popup-picker-value" v-if="!displayFormat && !showName && value.length">{{value | array2string}}</span>
           <span class="vux-popup-picker-value" v-if="!displayFormat && showName && value.length">{{value | value2name(data)}}</span>
-          <span class="vux-popup-picker-value" v-if="displayFormat && value.length">{{ displayFormat(value) }}</span>
-          <span v-if="!value.length && placeholder" v-html="placeholder"></span>
+          <span class="vux-popup-picker-value" v-if="displayFormat && value.length">{{ displayFormat(value, value2name(value, data)) }}</span>
+          <span v-if="!value.length && placeholder" v-html="placeholder" class="vux-popup-picker-placeholder"></span>
         </div>
       </div>
       <div class="weui-cell__ft">
@@ -251,9 +251,6 @@ export default {
   width: 100%;
   position: relative;
 }
-.vux-popup-picker-select span {
-  padding-right: 15px;
-}
 .vux-popup-picker-select-box.weui-cell__bd:after {
   content: " ";
   display: inline-block;
@@ -272,5 +269,8 @@ export default {
 }
 .vux-popup-picker-cancel {
   color: @popup-picker-header-cancel-text-color;
+}
+.vux-popup-picker-placeholder {
+  color: #999;
 }
 </style>

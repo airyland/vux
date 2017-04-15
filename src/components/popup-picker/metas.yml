@@ -66,6 +66,11 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[enhance] Add param names for display-format'
+    zh-CN:
+      - '[enhance] display-format 支持 names 作为第二个参数'
   v2.2.1-rc.1:
     en:
       - '[fix] Fix wrong closeType #1209'
