@@ -8,7 +8,7 @@
         <label class="vux-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title">{{title}}</label>
         <slot name="after-title"></slot>
       </p>
-      <inline-desc>{{inlineDesc}}</inline-desc>
+      <inline-desc><slot name="inline-desc">{{inlineDesc}}</slot></inline-desc>
     </div>
     <div class="weui-cell__ft" :class="valueClass">
       <slot name="value"></slot>
