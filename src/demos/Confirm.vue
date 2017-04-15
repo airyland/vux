@@ -86,19 +86,6 @@ export default {
     },
     showPlugin2 () {
       this.showPlugin()
-      setTimeout(() => {
-        this.$vux.confirm.hide()
-      }, 3000)
-    },
-    showPlugin3 () {
-      this.$vux.confirm.show({
-        title: 'Title',
-        content: 'Content',
-        hideOnBlur: true,
-        onConfirm () {
-          console.log('plugin confirm 3')
-        }
-      })
     }
   }
 }
