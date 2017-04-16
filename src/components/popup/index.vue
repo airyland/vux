@@ -103,11 +103,13 @@ export default {
         }
       } else {
         this.$emit('on-hide')
-        if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
-          this.fixSafariOverflowScrolling('touch')
-        }
         this.show = false
         this.popup.hide(false)
+        setTimeout(() => {
+          if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
+            this.fixSafariOverflowScrolling('touch')
+          }
+        }, 200)
       }
     },
     value (val) {
