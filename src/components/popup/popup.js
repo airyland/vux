@@ -28,7 +28,7 @@ const popupDialog = function (option) {
     div = option.container
   }
 
-  div.className = `vux-popup-dialog vux-popup-dialog-${this.uuid}`
+  div.className += ` vux-popup-dialog vux-popup-dialog-${this.uuid}`
   if (!this.params.hideOnBlur) {
     div.className += ' vux-popup-mask-disabled'
   }
