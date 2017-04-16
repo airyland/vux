@@ -1,6 +1,6 @@
 <template>
-  <transition name="vux-popup-animate">
-    <div v-show="show" :style="styles" class="vux-popup">
+  <transition :name="`vux-popup-animate-${position}`">
+    <div v-show="show" :style="styles" class="vux-popup" :class="`vux-popup-${position}`">
       <slot></slot>
     </div>
   </transition>
@@ -16,16 +16,29 @@ export default {
       type: String,
       default: 'auto'
     },
+    width: {
+      type: String,
+      default: 'auto'
+    },
+    showMask: {
+      type: Boolean,
+      default: true
+    },
     isTransparent: Boolean,
     hideOnBlur: {
       type: Boolean,
       default: true
+    },
+    position: {
+      type: String,
+      default: 'bottom'
     }
   },
   mounted () {
     this.$nextTick(() => {
       const _this = this
       this.popup = new Popup({
+        showMask: _this.showMask,
         container: _this.$el,
         innerHTML: '',
         hideOnBlur: _this.hideOnBlur,
@@ -66,12 +79,14 @@ export default {
   },
   computed: {
     styles () {
-      let styles = {
-        height: this.height
+      const styles = {}
+      if (!this.position || this.position === 'bottom' || this.position === 'top') {
+        styles.height = this.height
+      } else {
+        styles.width = this.width
       }
-      if (this.isTransparent) {
-        styles['background'] = 'transparent'
-      }
+
+      this.isTransparent && (styles['background'] = 'transparent')
       return styles
     }
   },
@@ -109,7 +124,7 @@ export default {
 <style lang="less">
 @import '../../styles/variable.less';
 
-.vux-popup-dialog,.vux-popup {
+.vux-popup-dialog, .vux-popup {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -118,6 +133,29 @@ export default {
   z-index: 501;
   transition-property: transform;
   transition-duration: 300ms;
+}
+.vux-popup-dialog.vux-popup-left {
+  width: auto;
+  height: 100%;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+}
+.vux-popup-dialog.vux-popup-right {
+  width: auto;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
+}
+.vux-popup-dialog.vux-popup-top {
+  width: 100%;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
 }
 .vux-popup-mask {
   display: block;
@@ -135,11 +173,20 @@ export default {
 .vux-popup-mask.vux-popup-show {
   opacity: 1;
 }
-.vux-popup-animate-transiton {}
-.vux-popup-animate-enter {
+
+.vux-popup-animate-bottom-enter, .vux-popup-animate-bottom-leave-active {
   transform: translate3d(0, 100%, 0);
 }
-.vux-popup-animate-leave-active {
-  transform: translate3d(0, 100%, 0);
+
+.vux-popup-animate-left-enter, .vux-popup-animate-left-leave-active {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.vux-popup-animate-right-enter, .vux-popup-animate-right-leave-active {
+  transform: translate3d(100%, 0, 0);
+}
+
+.vux-popup-animate-top-enter, .vux-popup-animate-top-leave-active {
+  transform: translate3d(0, -100%, 0);
 }
 </style>

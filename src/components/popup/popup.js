@@ -11,7 +11,8 @@ const popupDialog = function (option) {
       innerHTML: option.innerHTML || '',
       hideOnBlur: option.hideOnBlur,
       onOpen: option.onOpen || function () {},
-      onClose: option.onClose || function () {}
+      onClose: option.onClose || function () {},
+      showMask: option.showMask
     }
   }
   if (!!document.querySelectorAll('.vux-popup-mask').length <= 0) {
@@ -64,8 +65,10 @@ popupDialog.prototype._bindEvents = function () {
 }
 
 popupDialog.prototype.show = function () {
-  this.mask.classList.add('vux-popup-show')
-  this.mask.style['zIndex'] = 500
+  if (this.params.showMask) {
+    this.mask.classList.add('vux-popup-show')
+    this.mask.style['zIndex'] = 500
+  }
   this.container.classList.add('vux-popup-show')
   if (this.container.classList.contains('vux-popup')) {
     this.container.classList.remove('vux-popup')

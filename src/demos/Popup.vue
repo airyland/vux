@@ -93,6 +93,36 @@
       </div>
     </popup>
 
+    <group title="set position">
+      <x-switch title="left(100% width)" v-model="show8"></x-switch>
+      <x-switch title="right" v-model="show9"></x-switch>
+      <x-switch title="top(no mask)" v-model="show10"></x-switch>
+      <x-switch title="bottom" v-model="show11"></x-switch>
+    </group>
+
+    <popup v-model="show8" position="left" width="100%">
+      <div class="position-horizontal-demo">
+        <span class="vux-close" @click="show8 = false"></span>
+      </div>
+    </popup>
+
+    <popup v-model="show9" position="right">
+      <div style="width:200px;">
+      </div>
+    </popup>
+
+    <popup v-model="show10" position="top" :show-mask="false">
+      <div class="position-vertical-demo">
+      I'm on top. Hide in 1s.
+      </div>
+    </popup>
+
+    <popup v-model="show11" position="bottom">
+      <div class="position-vertical-demo">
+      I'm on bottom.
+      </div>
+    </popup>
+
   </div>
 </template>
 
@@ -126,7 +156,11 @@ export default {
       title6: '默认空的',
       value6: [],
       show7: false,
-      showToast: false
+      showToast: false,
+      show8: false,
+      show9: false,
+      show10: false,
+      show11: false
     }
   },
   methods: {
@@ -138,11 +172,22 @@ export default {
     log (str) {
       console.log(str)
     }
+  },
+  watch: {
+    show10 (val) {
+      if (val) {
+        setTimeout(() => {
+          this.show10 = false
+        }, 1000)
+      }
+    }
   }
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+@import '~vux/src/styles/close.less';
+
 .popup0 {
   padding-bottom:15px;
   height:200px;
@@ -154,5 +199,22 @@ export default {
 .popup2 {
   padding-bottom:15px;
   height:400px;
+}
+.position-vertical-demo {
+  background-color: #ffe26d;
+  color: #000;
+  text-align: center;
+  padding: 15px;
+}
+.position-horizontal-demo {
+  position: relative;
+  height: 100%;
+  .vux-close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(4);
+    color: #000;
+  }
 }
 </style>
