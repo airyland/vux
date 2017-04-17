@@ -128,6 +128,10 @@ events:
     params: '`(position)`'
     en: emits when user scrolls
     zh-CN: '容器滚动时触发，参数为`top`和`left`位置'
+  on-scroll-bottom:
+    version: next
+    en: emits when user scrolls to bottom. The event may emit multiple times, so you should use a variable for keeping status if you need fetching data
+    zh-CN: 滚动到底部时触发，注意事件会触发多次，如果你需要进行数据获取，记得设置一个状态值
   on-pulldown-loading:
     en: emits when scroller is on pulldown-loading status
     zh-CN: 用户触发下拉刷新状态，监听该事件以获取加载新数据
@@ -190,6 +194,12 @@ props:
     default: see below
     en: config for pullup plugin
     zh-CN: 上拉组件配置
+  scroll-bottom-offset:
+    version: next
+    type: Number
+    default: 0
+    en: where to emit event:on-scroll-bottom before reaching bottom
+    zh-CN: 在距离底部多长距离时触发事件 on-scroll-bottom
 slots:
   default:
     en: scroller content, should has only one `div` root
@@ -212,6 +222,11 @@ methods:
     en: set pulldown done after new data is fetched
     zh-CN: 设置下拉刷新操作完成，在数据加载后执行
 changes:
+  next:
+    en:
+      - '[feature] Support event:on-scroll-bottom'
+    zh-CN:
+      - '[feature] 支持滚动到底部时触发事件 on-scroll-bottom'
   v2.2.1-rc.4:
     en:
       - '[feature] Support duration and easing for reset function. #1240'

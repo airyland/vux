@@ -102,6 +102,10 @@ export default {
     enableHorizontalSwiping: {
       type: Boolean,
       default: false
+    },
+    scrollBottomOffset: {
+      type: Number,
+      default: 0
     }
   },
   methods: {
@@ -231,10 +235,16 @@ export default {
 
       this._xscroll.on('scroll', () => {
         if (this._xscroll) {
+          const top = this._xscroll.getScrollTop()
           this.$emit('on-scroll', {
-            top: this._xscroll.getScrollTop(),
+            top: top,
             left: this._xscroll.getScrollLeft()
           })
+          const containerHeight = this._xscroll.containerHeight
+          const scrollHeight = this._xscroll.height
+          if (top >= containerHeight - scrollHeight - this.scrollBottomOffset) {
+            this.$emit('on-scroll-bottom')
+          }
         }
       })
 
