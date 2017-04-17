@@ -27,19 +27,19 @@ props:
     en: if using transparent background
     zh-CN: 是否为透明背景
   width:
-    version: next
+    version: v2.2.1-rc.6
     type: String
     default: auto
     en: if you want to set 100% width, you should use this prop. only works when position is left or right
     zh-CN: 设置 100% 宽度必须使用该属性。在 position 为 left 或者 right 时有效。
   position:
-    version: next
+    version: v2.2.1-rc.6
     type: String
     default: bottom
     en: popup position, shoule be one of ['left', 'right', 'top', 'bottom']
     zh-CN: 位置，可取值 ['left', 'right', 'top', 'bottom']
   show-mask:
-    version: next
+    version: v2.2.1-rc.6
     type: Boolean
     default: true
     en: whether show mask
@@ -59,7 +59,7 @@ slots:
     en: content body
     zh-CN: 弹窗主体内容
 changes:
-  next:
+  v2.2.1-rc.6:
     en:
       - '[fix] Fix popup classname get lost'
       - '[feature] Support prop:show-mask'

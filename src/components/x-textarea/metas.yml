@@ -71,7 +71,7 @@ props:
     en: textarea's readonly attribute
     zh-CN: textarea 标签属性 readonly
   autosize:
-    version: next
+    version: v2.2.1-rc.6
     type: Boolean
     default: false
     en: whether set auto height for textarea
@@ -97,7 +97,7 @@ events:
     en: blur event
     zh-CN: blur 事件
 changes:
-  next:
+  v2.2.1-rc.6:
     en:
       - '[enhance] set label align to flex-start'
       - '[feature] Support prop:autosize'

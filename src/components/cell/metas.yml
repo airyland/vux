@@ -84,11 +84,11 @@ slots:
     en: the child element of the cell, you can add an element with absolute position
     zh-CN: cell的直接子元素，因此可以添加一个相对于cell绝对定位的元素
   inline-desc:
-    version: next
+    version: v2.2.1-rc.6
     en: inline-desc slot, the same function as prop:inline-desc but can use html
     zh-CN: inline-desc 内容，和 prop:inline-desc 功能一样，但是可以使用 html
 changes:
-  next:
+  v2.2.1-rc.6:
     en:
       - '[feature] Support slot:inline-desc'
     zh-CN:

@@ -54,7 +54,7 @@ props:
     zh-CN: 是否不可选择
 
 changes:
-  next:
+  v2.2.1-rc.6:
     en:
       - '[fix] fix placeholder. #1273'
     zh-CN:
