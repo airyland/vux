@@ -66,6 +66,11 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[fix] Fix popup-picker filter issue on v2.2.1-rc.6'
+    zh-CN:
+      - '[fix] 修复 popup-picker 上个版本转换值的问题'
   v2.2.1-rc.6:
     en:
       - '[enhance] Add param names for display-format'
