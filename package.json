@@ -55,13 +55,13 @@
     "shake.js": "^1.2.2",
     "validator": "^6.2.1",
     "vux-blazy": "^1.6.4",
-    "vux-xscroll": "^3.1.9",
+    "vux-xscroll": "^3.1.10",
     "webp-support": "^1.0.3",
     "weixin-js-sdk": "^1.2.0"
   },
   "devDependencies": {
-    "autosize": "^3.0.20",
     "autoprefixer": "^6.7.2",
+    "autosize": "^3.0.20",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.3.2",

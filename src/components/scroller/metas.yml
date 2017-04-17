@@ -225,8 +225,10 @@ changes:
   next:
     en:
       - '[feature] Support event:on-scroll-bottom'
+      - '[fix] Disable trigger click'
     zh-CN:
       - '[feature] 支持滚动到底部时触发事件 on-scroll-bottom'
+      - '[fix] 禁止点击事件触发，修复 pc 上触发两次的问题'
   v2.2.1-rc.4:
     en:
       - '[feature] Support duration and easing for reset function. #1240'
