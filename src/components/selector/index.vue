@@ -5,8 +5,8 @@
     </div>
     <div class="weui-cell__bd" v-if="!readonly">
       <select class="weui-select" v-model="currentValue" :name="name" :style="{direction: direction}">
-        <option value="" v-if="typeof value === 'undefined' && placeholder" :selected="typeof value === 'undefined' && placeholder">{{placeholder}}</option>
-        <option disabled v-if="!placeholder && typeof value === 'undefined' && isIOS && title"></option>
+        <option value="" v-if="showPlaceholder" :selected="typeof value === 'undefined' && placeholder">{{placeholder}}</option>
+        <option disabled v-if="!placeholder && typeof (value === 'undefined' || value === '') && isIOS && title"></option>
         <option :value="one.key" v-for="one in processOptions">{{one.value}}</option>
       </select>
     </div>
@@ -44,6 +44,12 @@ export default {
           }
         })
       }
+    },
+    showPlaceholder () {
+      if ((typeof this.value === 'undefined' || this.value === '') && this.placeholder) {
+        return true
+      }
+      return false
     }
   },
   filters: {
@@ -54,8 +60,8 @@ export default {
       this.currentValue = val
     },
     currentValue (val) {
-      this.$emit('on-change', val)
       this.$emit('input', val)
+      this.$emit('on-change', val)
     }
   },
   props: {
@@ -68,7 +74,7 @@ export default {
     name: String,
     placeholder: String,
     readonly: Boolean,
-    value: [String, Number, Object, Boolean]
+    value: [Boolean, String, Number, Object]
   },
   data () {
     return {

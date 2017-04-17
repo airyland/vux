@@ -5,11 +5,11 @@
     </group>
 
     <group title="with placeholder">
-      <selector placeholder="请选择省份" title="省份" name="district" :options="list" @on-change="onChange"></selector>
+      <selector placeholder="请选择省份" v-model="demo01" title="省份" name="district" :options="list" @on-change="onChange"></selector>
     </group>
 
     <group title="without title">
-      <selector placeholder="请选择省份" :options="list"></selector>
+      <selector placeholder="请选择省份" v-model="demo02" :options="list"></selector>
     </group>
 
     <group title="set value=广西">
@@ -45,6 +45,8 @@ export default {
   },
   data () {
     return {
+      demo01: '',
+      demo02: '',
       defaultValue: '',
       plainList: ['广东', '广西'],
       list: [{key: 'gd', value: '广东'}, {key: 'gx', value: '广西'}],
