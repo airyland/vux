@@ -10,6 +10,11 @@ tags:
     - 表单
     - 单选
 changes:
+  next:
+    en:
+      - '[fix] fix label width'
+    zh-CN:
+      - '[fix] 修复 label 宽度'
   v2.2.1-rc.4:
     en:
       - '[feature] new component'

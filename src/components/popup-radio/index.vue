@@ -1,6 +1,6 @@
 <template>
-  <cell @click.native="show" :title="title" :value="currentValue" is-link>
-    {{currentValue}}
+  <cell @click.native="show" :title="title" :value="currentValue" is-link :value-align="valueAlign">
+    {{currentValue || placeholder}}
     <div v-transfer-dom>
       <popup v-model="showPopup" style="background-color:#fff;">
         <radio :options="options" v-model="currentValue" :fill-mode="false" @on-change="onValueChange"></radio>
@@ -27,6 +27,7 @@ export default {
     TransferDom
   },
   props: {
+    placeholder: String,
     ...cellProps(),
     ...radioProps()
   },

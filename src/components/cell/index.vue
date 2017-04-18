@@ -5,7 +5,7 @@
     </div>
     <div class="vux-cell-bd" :class="{'vux-cell-primary': primary === 'title' && valueAlign !== 'left'}">
       <p>
-        <label class="vux-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title">{{title}}</label>
+        <label class="vux-label" :style="getLabelStyles()" v-if="title">{{title}}</label>
         <slot name="after-title"></slot>
       </p>
       <inline-desc><slot name="inline-desc">{{inlineDesc}}</slot></inline-desc>
@@ -41,6 +41,13 @@ export default {
     }
   },
   methods: {
+    getLabelStyles () {
+      return {
+        width: this.$parent.labelWidth || this.$parent.$parent.labelWidth,
+        textAlign: this.$parent.labelAlign || this.$parent.$parent.labelAlign,
+        marginRight: this.$parent.labelMarginRight || this.$parent.$parent.labelMarginRight
+      }
+    },
     onClick () {
       go(this.link, this.$router)
     }
