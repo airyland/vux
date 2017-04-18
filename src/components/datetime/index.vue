@@ -19,6 +19,7 @@ import Picker from './datetimepicker'
 import Group from '../group'
 import InlineDesc from '../inline-desc'
 import Base from '../../libs/base'
+import format from '../../tools/date/format'
 
 export default {
   mixins: [Base],
@@ -104,7 +105,7 @@ export default {
   mounted () {
     const uuid = this.uuid
     this.$nextTick(() => {
-      this.$el.setAttribute('id', 'vux-datetime-' + uuid)
+      this.$el.setAttribute('id', `vux-datetime-${uuid}`)
       this.render()
     })
   },
@@ -185,6 +186,12 @@ export default {
       this.render()
     },
     endDate () {
+      this.render()
+    },
+    format (val) {
+      if (this.currentValue) {
+        this.currentValue = format(this.currentValue, val)
+      }
       this.render()
     },
     value (val) {
