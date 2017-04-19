@@ -65,7 +65,7 @@ export default {
     },
     preventDefault: {
       type: Boolean,
-      default: true
+      default: false
     },
     stopPropagation: Boolean,
     boundryCheck: {

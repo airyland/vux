@@ -222,6 +222,11 @@ methods:
     en: set pulldown done after new data is fetched
     zh-CN: 设置下拉刷新操作完成，在数据加载后执行
 changes:
+  next:
+    en:
+      - '[change] set prop:prevent-default to false by default'
+    zh-CN:
+      - '[change] prop:prevent-default 默认设为 false'
   v2.2.1-rc.6:
     en:
       - '[feature] Support event:on-scroll-bottom'
