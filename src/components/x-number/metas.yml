@@ -69,6 +69,11 @@ props:
     en: align setting of the selecting area
     zh-CN: '按钮部分位置，默认在右边(right)，可选值为`left`和`right`'
 changes:
+  next:
+    en:
+      - '[fix] fix cannot edit first number character when fillable'
+    zh-CN:
+      - '[fix] 当 `fillable` 为true时，修复数字第一位无法编辑的问题'
   v2.1.1-rc.7:
     en:
       - '[fix] Emit on-change after nextTick'
