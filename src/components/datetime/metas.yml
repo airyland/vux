@@ -122,7 +122,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.2.1-rc.8:
     en:
       - '[enhance] now changing prop:format will trigger re-rendering'
     zh-CN:
