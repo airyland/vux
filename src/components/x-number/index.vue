@@ -31,7 +31,14 @@ export default {
       default: 1
     },
     value: {
-      type: Number,
+      validator (value) {
+        if (typeof value === 'number') {
+          return true
+        } else if (typeof value === 'string') {
+          return value === ''
+        }
+        return false
+      },
       default: 0
     },
     name: String,
@@ -63,10 +70,10 @@ export default {
   },
   computed: {
     disabledMin () {
-      return typeof this.min === 'undefined' ? false : this.currentValue <= this.min
+      return typeof this.min === 'undefined' ? false : (this.currentValue === '' ? true : this.currentValue <= this.min)
     },
     disabledMax () {
-      return typeof this.max === 'undefined' ? false : this.currentValue >= this.max
+      return typeof this.max === 'undefined' ? false : (this.currentValue === '' ? true : this.currentValue >= this.max)
     }
   },
   watch: {
@@ -101,11 +108,7 @@ export default {
     },
     blur () {
       if (this.currentValue === '') {
-        if (this.min) {
-          this.currentValue = this.min
-        } else {
-          this.currentValue = 0
-        }
+        this.currentValue = 0
       }
     }
   }
