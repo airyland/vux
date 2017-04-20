@@ -76,6 +76,11 @@ props:
     version: v2.1.1-rc.8
     en: placeholder align value
     zh-CN: placeholder 文字对齐方式
+  text-align:
+    type:String
+    default: left
+    en: text-align setting for value
+    zh-CN: 值对齐方式
   label-width:
     type: String
     version: v2.2.1-rc.4
