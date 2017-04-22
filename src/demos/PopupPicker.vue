@@ -1,7 +1,7 @@
 <template>
   <div>
     <group title="single column">
-      <popup-picker :title="title1" :data="list1" v-model="value1" @on-show="onShow" @on-hide="onHide" @on-change="onChange"></popup-picker>
+      <popup-picker :title="title1" :data="list1" v-model="value1" @on-show="onShow" @on-hide="onHide" @on-change="onChange" :placeholder="$t('please select')"></popup-picker>
     </group>
     <br>
     <div class="picker-buttons">
@@ -48,6 +48,11 @@
      </group>
   </div>
 </template>
+
+<i18n>
+please select:
+  zh-CN: 请选择
+</i18n>
 
 <script>
 import { PopupPicker, Group, Cell, Picker, XButton, Divider, XSwitch } from 'vux'
