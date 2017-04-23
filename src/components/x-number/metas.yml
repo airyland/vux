@@ -69,7 +69,7 @@ props:
     en: align setting of the selecting area
     zh-CN: '按钮部分位置，默认在右边(right)，可选值为`left`和`right`'
 changes:
-  next:
+  v2.2.1:
     en:
       - '[fix] delete prop-check-warning message, and disable `add` and `sub` method when `value` is empty string'
     zh-CN:
