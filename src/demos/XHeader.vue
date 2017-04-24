@@ -16,14 +16,19 @@
     <x-header>with left slot<a slot="left">Close</a></x-header>
     <br>
     <x-header style="background-color:#000;">custom background color</x-header>
-    <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
+    <div v-transfer-dom>
+      <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
+    </div>
   </div>
 </template>
 
 <script>
-import { XHeader, Actionsheet } from 'vux'
+import { XHeader, Actionsheet, TransferDom } from 'vux'
 
 export default {
+  directives: {
+    TransferDom
+  },
   components: {
     XHeader,
     Actionsheet
