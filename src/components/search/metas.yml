@@ -61,6 +61,10 @@ events:
     version: v2.1.1-rc.10
     en: when input gets focus
     zh-CN: 输入框获取到焦点时触发
+methods:
+  setFocus:
+    en: "set focus on input. you should call this method in a click event's callback function on Safari"
+    zh-CN: 获取 input 焦点，在 Safari 上你必须在 click 事件回调里使用才能生效
 changes:
   next:
     en:
