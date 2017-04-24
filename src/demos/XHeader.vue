@@ -15,6 +15,11 @@
     <br>
     <x-header>with left slot<a slot="left">Close</a></x-header>
     <br>
+    <x-header>
+      <span>overwrite-left</span>
+      <x-icon slot="overwrite-left" type="navicon" size="35" style="fill:#fff;position:relative;top:-8px;left:-3px;"></x-icon>
+    </x-header>
+    <br>
     <x-header style="background-color:#000;">custom background color</x-header>
     <div v-transfer-dom>
       <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>

@@ -1,12 +1,14 @@
 <template>
   <div class="vux-header">
     <div class="vux-header-left">
-      <transition :name="transition">
-        <a class="vux-header-back" @click.preventDefault v-show="_leftOptions.showBack" @click="onClickBack">{{ typeof _leftOptions.backText === 'undefined' ? $t('back_text') : _leftOptions.backText}}</a>
-      </transition>
-      <transition :name="transition">
-        <div class="left-arrow" @click="onClickBack" v-show="_leftOptions.showBack"></div>
-      </transition>
+      <slot name="overwrite-left">
+        <transition :name="transition">
+          <a class="vux-header-back" @click.preventDefault v-show="_leftOptions.showBack" @click="onClickBack">{{ typeof _leftOptions.backText === 'undefined' ? $t('back_text') : _leftOptions.backText}}</a>
+        </transition>
+        <transition :name="transition">
+          <div class="left-arrow" @click="onClickBack" v-show="_leftOptions.showBack"></div>
+        </transition>
+      </slot>
       <slot name="left"></slot>
     </div>
     <h1 class="vux-header-title" @click="$emit('on-click-title')">
