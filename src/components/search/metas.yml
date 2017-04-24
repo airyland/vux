@@ -62,6 +62,11 @@ events:
     en: when input gets focus
     zh-CN: 输入框获取到焦点时触发
 changes:
+  next:
+    en:
+      - '[enhance] Show search text on iOS keyboard'
+    zh-CN:
+      - '[enhance] 在 iOS 键盘上显示 search'
   v2.2.0:
     en:
       - '[enhance] emit on-change after input'

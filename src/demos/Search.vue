@@ -1,7 +1,7 @@
 <template>
   <div>
     <img src="../assets/demo/filter_bg.jpg" style="width: 100%">
-    <search @result-click="resultClick" @on-change="getResult" :results="results" v-model="value" position="absolute" auto-scroll-to-top top="46px" @on-focus="onFocus" @on-cancel="onCancel"></search>
+    <search @result-click="resultClick" @on-change="getResult" :results="results" v-model="value" position="absolute" auto-scroll-to-top top="46px" @on-focus="onFocus" @on-cancel="onCancel" @on-submit="onSubmit"></search>
     <br>
     <group>
       <cell title="static position demo" is-link link="/component/search-static"></cell>
@@ -24,6 +24,13 @@ export default {
     },
     getResult (val) {
       this.results = val ? getResult(this.value) : []
+    },
+    onSubmit () {
+      this.$vux.toast.show({
+        type: 'text',
+        position: 'top',
+        text: 'on submit'
+      })
     },
     onFocus () {
       console.log('on focus')
