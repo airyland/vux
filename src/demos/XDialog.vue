@@ -1,12 +1,16 @@
 <template>
   <div style="height: 1000px">
+
     <group>
       <x-switch v-model="show" :title="$t('Toggle')"></x-switch>
       <x-switch v-model="showHideOnBlur" :title="$t('hide on clicking mask')"></x-switch>
+      <x-switch v-model="showDialogStyle" :title="$t('Toggle')" :inline-desc="$t('custom dialog style')"></x-switch>
     </group>
+
     <group style="padding-top: 300px">
       <x-switch v-model="showNoScroll" :title="$t('disable background scrolling')"></x-switch>
     </group>
+
     <div v-transfer-dom>
       <x-dialog v-model="show" class="dialog-demo">
         <div class="img-box">
@@ -17,8 +21,9 @@
         </div>
       </x-dialog>
     </div>
+
     <div v-transfer-dom>
-      <x-dialog v-model="showHideOnBlur" class="dialog-demo" :hideOnBlur="true">
+      <x-dialog v-model="showHideOnBlur" class="dialog-demo" hide-on-blur>
         <div class="img-box">
           <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
         </div>
@@ -27,6 +32,18 @@
         </div>
       </x-dialog>
     </div>
+
+    <div v-transfer-dom>
+      <x-dialog v-model="showDialogStyle" hide-on-blur :dialog-style="{'max-width': '100%', width: '100%', height: '50%', 'background-color': 'transparent'}">
+        <p style="color:#fff;text-align:center;" @click="showDialogStyle = false">
+          <span style="font-size:30px;">HELLO WORLD</span>
+          <br>
+          <br>
+          <x-icon type="ios-close-outline" style="fill:#fff;"></x-icon>
+        </p>
+      </x-dialog>
+    </div>
+
     <div v-transfer-dom>
       <x-dialog v-model="showNoScroll" class="dialog-demo" :scroll="false">
         <div class="img-box">
@@ -41,6 +58,7 @@
     <group style="padding-top: 300px">
       <x-switch v-model="showScrollBox" :title="$t('long long content')"></x-switch>
     </group>
+
     <div v-transfer-dom>
       <x-dialog v-model="showScrollBox" class="dialog-demo">
         <p class="dialog-title">Long content</p>
@@ -65,6 +83,8 @@ disable background scrolling:
   zh-CN: 背景不可滚动
 long long content:
   zh-CN: 很长很长的内容
+custom dialog style:
+  zh-CN: 自定义 dialog 容器样式
 </i18n>
 
 <script>
@@ -85,7 +105,8 @@ export default {
       show: false,
       showNoScroll: false,
       showHideOnBlur: false,
-      showScrollBox: false
+      showScrollBox: false,
+      showDialogStyle: false
     }
   }
 }
