@@ -41,9 +41,12 @@ slots:
   default:
     en: title
     zh-CN: 标题
+  left:
+    en: left slot
+    zh-CN: 左侧部分插槽
   right:
-    en: right part
-    zh-CN: 右侧部分
+    en: right slot
+    zh-CN: 右侧部分插槽
 events:
   on-click-more:
     en: triggers when more icon is clicked
