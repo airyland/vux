@@ -91,6 +91,7 @@ export default {
     currentValue (val) {
       this.range && this.range.setStart(val)
       this.$emit('input', val)
+      this.$emit('on-change', val)
     },
     value (val) {
       this.currentValue = val

@@ -52,3 +52,9 @@ props:
     default: 1
     en: range bar's height
     zh-CN: 高度
+events:
+  on-change:
+    version: next
+    params: '`(value)`'
+    en: emits when value is changed
+    zh-CN: 绑定值变化时触发事件
