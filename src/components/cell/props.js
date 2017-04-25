@@ -15,6 +15,7 @@ export default function () {
       type: Boolean,
       default: true
     },
+    disabled: Boolean,
     arrowDirection: String // down or up
   }
 }

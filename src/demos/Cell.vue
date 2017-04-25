@@ -3,6 +3,7 @@
     <group>
       <cell :title="$t('My Account')" :value="$t('Protected')" @click.native="onClick"></cell>
       <cell :title="$t('Money')" @click.native="onClick" :is-loading="!money" :value="money"></cell>
+      <cell :title="$t('Withdraw')" disabled is-link></cell>
     </group>
 
     <group :title="$t('use is-link to show arrow')">
@@ -121,6 +122,8 @@ Title 003:
   zh-CN: 标题三
 Animated:
   zh-CN: 动画效果
+Withdraw:
+  zh-CN: 提现
 </i18n>
 
 <script>

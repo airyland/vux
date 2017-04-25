@@ -1,5 +1,13 @@
 <template>
-  <div class="weui-cell" :class="{'vux-tap-active': isLink || !!link, 'weui-cell_access': isLink || !!link, 'vux-cell-no-border-intent': !borderIntent}" @click="onClick">
+  <div
+    class="weui-cell"
+    :class="{
+      'vux-tap-active': isLink || !!link,
+      'weui-cell_access': isLink || !!link,
+      'vux-cell-no-border-intent': !borderIntent,
+      'vux-cell-disabled': disabled
+    }"
+    @click="onClick">
     <div class="weui-cell__hd">
       <slot name="icon"></slot>
     </div>
@@ -8,7 +16,9 @@
         <label class="vux-label" :style="getLabelStyles()" v-if="title">{{title}}</label>
         <slot name="after-title"></slot>
       </p>
-      <inline-desc><slot name="inline-desc">{{inlineDesc}}</slot></inline-desc>
+      <inline-desc>
+        <slot name="inline-desc">{{inlineDesc}}</slot>
+      </inline-desc>
     </div>
     <div class="weui-cell__ft" :class="valueClass">
       <slot name="value"></slot>
@@ -49,7 +59,7 @@ export default {
       }
     },
     onClick () {
-      go(this.link, this.$router)
+      !this.disabled && go(this.link, this.$router)
     }
   }
 }
@@ -87,5 +97,13 @@ export default {
 }
 .vux-cell-arrow-transition:after {
   transition: transform 300ms;
+}
+.vux-cell-disabled {
+  .vux-label {
+    color: #b2b2b2;
+  }
+  &.weui-cell_access .weui-cell__ft:after {
+    border-color: #e2e2e2;
+  }
 }
 </style>
