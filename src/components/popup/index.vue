@@ -1,6 +1,6 @@
 <template>
   <transition :name="`vux-popup-animate-${position}`">
-    <div v-show="show" :style="styles" class="vux-popup" :class="`vux-popup-${position}`">
+    <div v-show="show" :style="styles" class="vux-popup-dialog" :class="[`vux-popup-${position}`, show ? 'vux-popup-show' : '']">
       <slot></slot>
     </div>
   </transition>
@@ -40,7 +40,6 @@ export default {
       this.popup = new Popup({
         showMask: _this.showMask,
         container: _this.$el,
-        innerHTML: '',
         hideOnBlur: _this.hideOnBlur,
         onOpen () {
           _this.fixSafariOverflowScrolling('auto')
@@ -126,7 +125,7 @@ export default {
 <style lang="less">
 @import '../../styles/variable.less';
 
-.vux-popup-dialog, .vux-popup {
+.vux-popup-dialog {
   position: fixed;
   left: 0;
   bottom: 0;
