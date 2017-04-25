@@ -51,40 +51,10 @@ nav: zh-CN
 </p>
 
 <p class="warning">
-
-  国内开发者请特别注意，直接使用 `cnpm` 可能会导致依赖不正确。强烈建议给 npm 设置 taobao 的 registry。
-  <br>
-
-  ```
-  npm install --registry=https://registry.npm.taobao.org
-  ```
-
+  如果你遇到 `$t` 报错问题，`请不要开 issue`，升级 `vux-loader >= 1.0.58`。
   <br>
   <br>
-
-  如果你已经用上了 `yarn`，建议这样
-  <br>
-  ```
-  yarn config set registry https://registry.npm.taobao.org
-  ```
-  <br>
-  ```
-  yarn
-  ```
-  <br>
-  <br>
-  如果你遇到 `$t` 报错问题，`请不要开 issue`，先删除 node_modules 再重装依赖。
-  <br>
-  <br>
-  vux 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
-  <br>
-  vux 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
-  <br>
-  vux 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
-  <br>
-  <br>
-  开此类 issue 一律关闭并拉黑名单。
-  <br>
+  VUX 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
 </p>
 
 <p class="tip">
