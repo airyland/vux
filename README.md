@@ -57,6 +57,17 @@
 + [中文文档](https://vux.li/)
 + English(working)
 
+## Quick Start
+
+``` bash
+npm install vue-cli -g
+vue init airyland/vux2 projectPath
+
+cd projectPath
+npm install // or yarn
+npm run dev // or yarn dev
+```
+
 ## Maintainers
 + [airyland](https://github.com/airyland)
 + [lichunqiang](https://github.com/lichunqiang)
