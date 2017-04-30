@@ -37,7 +37,7 @@
           :class="buildClass(k2, child, formatDate(year, month, child) === currentValue && !child.isLastMonth && !child.isNextMonth)"
           @click="select(k1,k2,child)">
             <span
-            v-show="(!child.isLastMonth && !child.isNextMonth ) || (child.isLastMonth && showLastMonth) || (child.isNextMonth && showNextMonth)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
+            v-show="showChild(year, month, child)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
             <div v-html="renderFunction(k1, k2, child)"></div>
           </td>
         </tr>
@@ -121,7 +121,12 @@ export default {
   },
   methods: {
     replaceText (day, formatDay) {
-      return this._replaceTextList[formatDay] || day
+      let text = this._replaceTextList[formatDay]
+      if (!text && typeof(text) === 'undefined') {
+        return day
+      } else {
+        return text
+      }
     },
     convertDate (date) {
       return date === 'TODAY' ? this.today : date
@@ -183,6 +188,13 @@ export default {
         this.currentValue = [this.year, zero(this.month + 1), zero(this.days[k1][k2].day)].join('-')
       } else {
         this.currentValue = [data.year, zero(data.month + 1), zero(data.day)].join('-')
+      }
+    },
+    showChild (year, month, child) {
+      if (this.replaceText(child.day, this.formatDate(year, month, child))) {
+        return (!child.isLastMonth && !child.isNextMonth ) || (child.isLastMonth && this.showLastMonth) || (child.isNextMonth && this.showNextMonth)
+      } else {
+        return false
       }
     }
   }
