@@ -88,6 +88,11 @@ props:
     en: if disable future days
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
 changes:
+  next:
+    en:
+      - "[enhance] when replace text of date is empty string, span of date will not show"
+    zh-CN:
+      - '[enhance] 当日期的替代文字为空字符串时，包含日期的 `span` 元素将不显示'
   v2.2.1-rc.2:
     en:
       - "[enhance] Now next month's day can be clicked and will automatically switch to next month's view #1192"
