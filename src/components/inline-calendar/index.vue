@@ -122,7 +122,7 @@ export default {
   methods: {
     replaceText (day, formatDay) {
       let text = this._replaceTextList[formatDay]
-      if (!text && typeof(text) === 'undefined') {
+      if (!text && typeof text === 'undefined') {
         return day
       } else {
         return text
@@ -192,7 +192,7 @@ export default {
     },
     showChild (year, month, child) {
       if (this.replaceText(child.day, this.formatDate(year, month, child))) {
-        return (!child.isLastMonth && !child.isNextMonth ) || (child.isLastMonth && this.showLastMonth) || (child.isNextMonth && this.showNextMonth)
+        return (!child.isLastMonth && !child.isNextMonth) || (child.isLastMonth && this.showLastMonth) || (child.isNextMonth && this.showNextMonth)
       } else {
         return false
       }
