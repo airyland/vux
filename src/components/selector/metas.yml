@@ -52,7 +52,11 @@ props:
     default: 'false'
     en: if the select is readonly
     zh-CN: 是否不可选择
-
+events:
+  on-change:
+    params: '`(value)`'
+    en: emits when value is changed
+    zh-CN: 值变化时触发
 changes:
   v2.2.1-rc.6:
     en:
