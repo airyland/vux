@@ -112,7 +112,7 @@ export default {
       this.currentValue = val
     },
     currentValue (newVal) {
-      if (this.max && newVal > this.max) {
+      if (this.max && newVal && newVal.length > this.max) {
         this.currentValue = newVal.slice(0, this.max)
       }
       this.$emit('input', this.currentValue)
