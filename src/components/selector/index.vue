@@ -1,10 +1,10 @@
 <template>
    <div class="vux-selector weui-cell" :class="{'weui-cell_select':!readonly, 'weui-cell_select-after':title}">
     <div class="weui-cell__hd" v-if="title">
-      <label for="" class="weui-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}">{{title}}</label>
+      <label :for="`vux-selector-${uuid}`" class="weui-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}">{{title}}</label>
     </div>
     <div class="weui-cell__bd" v-if="!readonly">
-      <select class="weui-select" v-model="currentValue" :name="name" :style="{direction: direction}">
+      <select :id="`vux-selector-${uuid}`" class="weui-select" v-model="currentValue" :name="name" :style="{direction: direction}">
         <option value="" v-if="showPlaceholder" :selected="typeof value === 'undefined' && placeholder">{{placeholder}}</option>
         <option disabled v-if="!placeholder && typeof (value === 'undefined' || value === '') && isIOS && title"></option>
         <option :value="one.key" v-for="one in processOptions">{{one.value}}</option>
@@ -18,6 +18,7 @@
 
 <script>
 import find from 'array-find'
+import uuidMixin from '../../mixins/uuid'
 
 const findByKey = function (key, options) {
   const _rs = find(options, function (item) {
@@ -27,6 +28,7 @@ const findByKey = function (key, options) {
 }
 
 export default {
+  mixins: [uuidMixin],
   created () {
     if (typeof this.value !== 'undefined') {
       this.currentValue = this.value

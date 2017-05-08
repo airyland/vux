@@ -58,6 +58,11 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
+  next:
+    en:
+      - '[fix] fix label:for missing'
+    zh-CN:
+      - '[fix] 修复 label for 属性值缺失'
   v2.2.1-rc.6:
     en:
       - '[fix] fix placeholder. #1273'
