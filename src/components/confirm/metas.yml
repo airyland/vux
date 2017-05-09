@@ -32,7 +32,7 @@ extra: |
     onConfirm () {}
   })
   // 隐藏
-  this.$vux.alert.hide()
+  this.$vux.confirm.hide()
   ```
 props:
   show:
