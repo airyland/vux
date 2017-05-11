@@ -77,9 +77,15 @@ export default {
       if (value > this.max) {
         value = this.max
       }
-      this.range.reInit({min: this.min, max: this.max, value: value})
+      this.range.reInit({
+        min: this.min,
+        max: this.max,
+        step: this.step,
+        value
+      })
       this.currentValue = value
       this.range.setStart(this.currentValue)
+      this.range.setStep()
     }
   },
   data () {
@@ -97,6 +103,9 @@ export default {
       this.currentValue = val
     },
     min () {
+      this.update()
+    },
+    step () {
       this.update()
     },
     max () {

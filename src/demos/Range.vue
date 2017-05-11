@@ -2,7 +2,7 @@
   <div>
     <group title="default range">
       <cell title="Default" :inline-desc="'value: '+data1" primary="content">
-        <range v-model="data1"></range>
+        <range v-model="data1" @on-change="onChange"></range>
       </cell>
       <cell title="allow decimals" :inline-desc="'value is: '+data2" primary="content">
         <range v-model="data2" decimal></range>
@@ -22,13 +22,13 @@
         <range v-model="data6" :min="7" :max="77"></range>
       </cell>
       <cell title="change min and max" primary="content">
-        <range v-model="dynamiValue" :min="min" :max="max"></range>
+        <range v-model="dynamiValue" :min="min" :max="max" :step="step"></range>
       </cell>
       <cell title="current value" :value="dynamiValue + ''"></cell>
     </group>
     <br>
     <div style="margin:0 10px;">
-      <x-button type="primary" @click.native="update">update min and max</x-button>
+      <x-button type="primary" @click.native="update">update min = {{min}}, max = {{max}} and step = {{step}}</x-button>
     </div>
 
     <group title="Step">
@@ -113,13 +113,18 @@ export default {
       showData13: false,
       min: 0,
       max: 100,
+      step: 1,
       dynamiValue: 0
     }
   },
   methods: {
+    onChange (val) {
+      console.log('change', val)
+    },
     update () {
       this.min = Math.floor(Math.random() * 30)
       this.max = Math.floor(50 + Math.random() * 100)
+      this.step = 1 + Math.floor(Math.random() * 10)
     }
   }
 }

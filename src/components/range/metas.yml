@@ -58,3 +58,9 @@ events:
     params: '`(value)`'
     en: emits when value is changed
     zh-CN: 绑定值变化时触发事件
+changes:
+  next:
+    en:
+      - '[feature] Support dynamically setting step #1394'
+    zh-CN:
+      - '[feature] 支持动态设置 step #1394'

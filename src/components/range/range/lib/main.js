@@ -309,6 +309,7 @@ Powerange.prototype.reInit = function (opts) {
   this.options.start = opts.value
   this.options.min = opts.min
   this.options.max = opts.max
+  this.options.step = opts.step
   this.disable(true)
   this.init()
 }
