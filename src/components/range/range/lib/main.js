@@ -199,7 +199,7 @@ Powerange.prototype.step = function (sliderSize, handleSize) {
   var interval = percentage.of(part, dimension)
   var steps = []
 
-  for (var i = 0; i <= dimension; i += interval) {
+  for (let i = 0; i <= dimension; i += interval) {
     steps.push(i)
   }
 
