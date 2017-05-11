@@ -110,6 +110,11 @@ events:
     en: emits when being open
     zh-CN: 显示时触发
 changes:
+  next:
+    en:
+      - '[feature] Support setting value by labels(beta)'
+    zh-CN:
+      - '[feature] 支持使用地址文字直接赋值(测试)'
   v2.2.1-rc.6:
     en:
       - '[feature] Support prop:display-format'
