@@ -38,7 +38,7 @@
           @click="select(k1,k2,child)">
             <span
             v-show="showChild(year, month, child)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
-            <div v-html="renderFunction(k1, k2, child)"></div>
+            <div v-html="renderFunction(k1, k2, child)" v-show="showChild(year, month, child)"></div>
           </td>
         </tr>
       </tbody>

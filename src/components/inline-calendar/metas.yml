@@ -88,6 +88,11 @@ props:
     en: if disable future days
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
 changes:
+  next:
+    en:
+      - '[fix] Fix render-function-generated-content visibility issue #1409'
+    zh-CN:
+      - '[fix] 修复 render-function 生成的内容错误显示问题 #1409'
   v2.2.2:
     en:
       - "[enhance] when replace text of date is empty string, span of date will not show"
