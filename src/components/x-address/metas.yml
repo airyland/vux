@@ -110,7 +110,7 @@ events:
     en: emits when being open
     zh-CN: 显示时触发
 changes:
-  next:
+  v2.2.2:
     en:
       - '[feature] Support setting value by labels(beta)'
     zh-CN:

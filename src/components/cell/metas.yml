@@ -68,7 +68,7 @@ props:
     en: arrow direction, one of up, down
     zh-CN: 右侧箭头方向，可选有 up down
   disabled:
-    version: next
+    version: v2.2.2
     type: Boolean
     en: set disabled style for label and arrow(if is-link is true)
     zh-CN: 对 label 和箭头(如果使用 is-link)显示不可操作样式
@@ -93,7 +93,7 @@ slots:
     en: inline-desc slot, the same function as prop:inline-desc but can use html
     zh-CN: inline-desc 内容，和 prop:inline-desc 功能一样，但是可以使用 html
 changes:
-  next:
+  v2.2.2:
     en:
       - '[feature] Support prop:disabled'
     zh-CN:

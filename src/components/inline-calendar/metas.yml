@@ -88,7 +88,7 @@ props:
     en: if disable future days
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
 changes:
-  next:
+  v2.2.2:
     en:
       - "[enhance] when replace text of date is empty string, span of date will not show"
     zh-CN:

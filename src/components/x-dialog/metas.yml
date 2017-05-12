@@ -80,7 +80,7 @@ props:
     en: if body content can scroll when scrolling on dialog
     zh-CN: 是否在弹窗上滚动时 body 内容也滚动
   dialog-style:
-    version: next
+    version: v2.2.2
     type: Object
     en: set dialog styles, you can use it for overwritting default width and background style
     zh-CN: 设置内部弹窗样式，覆盖原有的宽度、背景颜色等样式
@@ -96,7 +96,7 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
-  next:
+  v2.2.2:
     en:
       - '[feature] Support prop:dialog-style #1282'
     zh-CN:

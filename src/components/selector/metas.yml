@@ -58,7 +58,7 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
-  next:
+  v2.2.2:
     en:
       - '[fix] fix label:for missing'
     zh-CN:

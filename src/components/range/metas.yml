@@ -54,12 +54,12 @@ props:
     zh-CN: 高度
 events:
   on-change:
-    version: next
+    version: v2.2.2
     params: '`(value)`'
     en: emits when value is changed
     zh-CN: 绑定值变化时触发事件
 changes:
-  next:
+  v2.2.2:
     en:
       - '[feature] Support dynamically setting step #1394'
     zh-CN:

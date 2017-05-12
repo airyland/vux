@@ -45,7 +45,7 @@ slots:
     en: left slot after backText
     zh-CN: 左侧部分插槽，在返回文字后，不会影响到原有的图标
   overwrite-left:
-    version: next
+    version: v2.2.2
     en: overwrite left icon and text
     zh-CN: 重写左侧部分的返回文字及图标
   right:
@@ -62,7 +62,7 @@ events:
     en: triggers when title is clicked
     zh-CN: 点击标题时触发
 changes:
-  next:
+  v2.2.2:
     en:
       - '[feature] Add slot:overwrite-left'
     zh-CN:
