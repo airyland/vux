@@ -1,0 +1,11 @@
+icon: '&#xe656;'
+items:
+  - flow
+  - flow-state
+  - flow-line
+flow:
+  props:
+flow-state:
+  props:
+flow-line:
+  props:

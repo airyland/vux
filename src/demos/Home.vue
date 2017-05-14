@@ -23,6 +23,7 @@
       </cell>
     </group>
     <group title="to be released">
+      <cell title="Flow" link="/component/flow"></cell>
       <cell title="XTable" link="/component/x-table"></cell>
       <cell title="PopupRadio" link="/component/popup-radio"></cell>
     </group>

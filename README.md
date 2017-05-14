@@ -84,6 +84,7 @@ npm run dev // or yarn dev
 + [Ionic](https://github.com/driftyco/ionic)
 + [SUI Mobile](https://github.com/sdc-alibaba/SUI-Mobile)
 + [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe)
++ [WePayUI](https://github.com/wepayui/wepayui)
 
 ## License
 
