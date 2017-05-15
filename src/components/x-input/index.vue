@@ -27,7 +27,7 @@
       :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
-      @blur="blur"
+      @blur="onBlur"
       ref="input"/>
       <input
       v-if="type === 'number'"
@@ -46,7 +46,7 @@
       :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
-      @blur="blur"
+      @blur="onBlur"
       ref="input"/>
       <input
       v-if="type === 'email'"
@@ -65,7 +65,7 @@
       :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
-      @blur="blur"
+      @blur="onBlur"
       ref="input"/>
       <input
       v-if="type === 'password'"
@@ -84,7 +84,7 @@
       :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
-      @blur="blur"
+      @blur="onBlur"
       ref="input"/>
       <input
       v-if="type === 'tel'"
@@ -103,7 +103,7 @@
       :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
-      @blur="blur"
+      @blur="onBlur"
       ref="input"/>
     </div>
     <div class="weui-cell__ft">
@@ -275,10 +275,13 @@ export default {
     focus () {
       this.$refs.input.focus()
     },
+    blur () {
+      this.$refs.input.blur()
+    },
     focusHandler () {
       this.$emit('on-focus', this.currentValue)
     },
-    blur () {
+    onBlur () {
       this.setTouched()
       this.validate()
       this.$emit('on-blur', this.currentValue)

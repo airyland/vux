@@ -107,12 +107,20 @@ methods:
   focus:
     en: get input focus
     zh-CN: 手动获得焦点
+  blur:
+    en: remove focus from input
+    zh-CN: 手动设置 input 失去焦点
   reset:
     version: v2.1.1-rc.10
     params: "`(value = '')`"
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[feature] Add blur function #1422'
+    zh-CN:
+      - '[feature] 添加 blur 方法 #1422'
   v2.2.1-rc.4:
     en:
       - '[feature] Support labelWidth #1186'
