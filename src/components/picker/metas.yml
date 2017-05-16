@@ -126,7 +126,17 @@ events:
     params: '`(value)`'
     en: emits when value is changed
     zh-CN: 选择值变化时触发
+methods:
+  getNameValues:
+    version: next
+    en: get labels of current value
+    zh-CN: 根据 value 获取字面值
 changes:
+  next:
+    en:
+      - '[feature] Add getNameValues Method #1418'
+    zh-CN:
+      - '[feature] 增加获取对应文字方法 #1418'
   v2.2.1-rc.3:
     en:
       - '[fix] Fix no re-rendering when value is set to empty array. #1230'
@@ -137,8 +147,3 @@ changes:
       - '[enhance] Support PC mouse drag  #1039 @michael829'
     zh-CN:
       - '[enhance] 支持 PC 上鼠标选择 #1039 @michael829'
-next:
-    en:
-      - '[feature] Add getNameValues Method #1418'
-    zh-CN:
-      - '[feature] 增加获取对应文字方法 #1418'
