@@ -12,6 +12,7 @@
 import Scroller from './scroller'
 import { Flexbox, FlexboxItem } from '../flexbox'
 import Manager from './chain'
+import value2name from '../../filters/value2name'
 
 export default {
   components: {
@@ -48,6 +49,9 @@ export default {
     columnWidth: Array
   },
   methods: {
+    getNameValues () {
+      return value2name(this.currentValue, this.data)
+    },
     getId (i) {
       return `#vux-picker-${this.uuid}-${i}`
     },
