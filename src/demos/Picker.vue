@@ -28,8 +28,8 @@
     <group-title>五列</group-title>
     <picker :data='year6' v-model='year6Value' @on-change='change'></picker>
     <br>
-    <group-title>地区联动: 当前值{{year7Value}}</group-title>
-    <picker :data='year7' :columns=3 v-model='year7Value' @on-change='change'></picker>
+    <group-title>地区联动: 当前值{{year7Value}} <br> 获取值对应的文字: {{$refs.picker1&&$refs.picker1.getNameValues()}}</group-title>
+    <picker :data='year7' :columns=3 v-model='year7Value' @on-change='change' ref="picker1"></picker>
     <x-button @click.native="setData1" type="primary">set Value to ["USA", "usa002", "0005"]</x-button>
     <x-button @click.native="setData2" type="primary">set Value to ["china", "china002", "gz"]</x-button>
     <x-button @click.native="setList" type="primary">set List</x-button>

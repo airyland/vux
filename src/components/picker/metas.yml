@@ -137,3 +137,8 @@ changes:
       - '[enhance] Support PC mouse drag  #1039 @michael829'
     zh-CN:
       - '[enhance] 支持 PC 上鼠标选择 #1039 @michael829'
+next:
+    en:
+      - '[feature] Add getNameValues Method #1418'
+    zh-CN:
+      - '[feature] 增加获取对应文字方法 #1418'
