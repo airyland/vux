@@ -1,6 +1,6 @@
 <template>
   <cell @click.native="show" :title="title" :value="currentValue" is-link :value-align="valueAlign">
-    {{currentValue || placeholder}}
+    {{ displayValue || placeholder}}
     <div v-transfer-dom>
       <popup v-model="showPopup" style="background-color:#fff;">
         <radio :options="options" v-model="currentValue" :fill-mode="false" @on-change="onValueChange"></radio>
@@ -16,6 +16,10 @@ import Radio from '../radio'
 import radioProps from '../radio/props'
 import cellProps from '../cell/props'
 import TransferDom from '../../directives/transfer-dom'
+import find from 'array-find'
+
+const _cellProps = cellProps()
+delete _cellProps.value
 
 export default {
   components: {
@@ -28,8 +32,24 @@ export default {
   },
   props: {
     placeholder: String,
-    ...cellProps(),
+    ..._cellProps,
     ...radioProps()
+  },
+  computed: {
+    displayValue () {
+      if (!this.options.length) {
+        return ''
+      }
+      if (typeof this.options[0] === 'object') {
+        const match = find(this.options, option => {
+          return option.key === this.currentValue
+        })
+        if (match) {
+          return match.value
+        }
+      }
+      return this.currentValue
+    }
   },
   methods: {
     onValueChange (val) {

@@ -10,6 +10,11 @@ tags:
     - 表单
     - 单选
 changes:
+  next:
+    en:
+      - '[fix] fix cell display value'
+    zh-CN:
+      - '[fix] 修复文字值显示'
   v2.2.1-rc.8:
     en:
       - '[fix] fix label width'
