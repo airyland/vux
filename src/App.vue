@@ -89,8 +89,10 @@ export default {
       if (path === '/demo') {
         setTimeout(() => {
           this.box = document.querySelector('#demo_list_box')
-          this.box.removeEventListener('scroll', this.handler, false)
-          this.box.addEventListener('scroll', this.handler, false)
+          if (this.box) {
+            this.box.removeEventListener('scroll', this.handler, false)
+            this.box.addEventListener('scroll', this.handler, false)
+          }
         }, 1000)
       } else {
         this.box && this.box.removeEventListener('scroll', this.handler, false)
