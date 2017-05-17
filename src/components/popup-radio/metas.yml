@@ -10,7 +10,7 @@ tags:
     - 表单
     - 单选
 changes:
-  next:
+  v2.3.1:
     en:
       - '[fix] fix cell display value'
     zh-CN:

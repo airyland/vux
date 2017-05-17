@@ -85,7 +85,7 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
-  next:
+  v2.3.1:
     en:
       - '[feature] Add text method for plugin'
     zh-CN:

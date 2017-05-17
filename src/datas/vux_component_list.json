@@ -98,6 +98,15 @@
     ]
   },
   {
+    "name": "flow",
+    "icon": "&#xe656;",
+    "items": [
+      "flow",
+      "flow-state",
+      "flow-line"
+    ]
+  },
+  {
     "name": "form-preview",
     "icon": "&#xe699;"
   },
@@ -160,6 +169,10 @@
   {
     "name": "popup-picker",
     "icon": "&#xe626;"
+  },
+  {
+    "name": "popup-radio",
+    "icon": "&#xe60f;"
   },
   {
     "name": "popup",
@@ -302,6 +315,10 @@
   {
     "name": "x-switch",
     "icon": "&#xe61c;"
+  },
+  {
+    "name": "x-table",
+    "icon": "&#xe66d;"
   },
   {
     "name": "x-textarea",

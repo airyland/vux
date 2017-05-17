@@ -128,11 +128,11 @@ events:
     zh-CN: 选择值变化时触发
 methods:
   getNameValues:
-    version: next
+    version: v2.3.1
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
-  next:
+  v2.3.1:
     en:
       - '[feature] Add getNameValues Method #1418'
     zh-CN:
