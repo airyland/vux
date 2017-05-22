@@ -1,4 +1,7 @@
 module.exports = function (date, fmt = 'YYYY-MM-DD HH:mm:ss') {
+  if (!date) {
+    return ''
+  }
   if (typeof date === 'string') {
     date = new Date(date.replace(/-/g, '/'))
   }
