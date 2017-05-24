@@ -4,9 +4,13 @@
       <label :for="`vux-selector-${uuid}`" class="weui-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}">{{title}}</label>
     </div>
     <div class="weui-cell__bd" v-if="!readonly">
-      <select :id="`vux-selector-${uuid}`" class="weui-select" v-model="currentValue" :name="name" :style="{direction: direction}">
+      <select :id="`vux-selector-${uuid}`" :ddd="color" style="color:red;" class="weui-select" v-model="currentValue" :name="name"
+      :style="{
+        direction: direction,
+        color: color
+      }">
         <option value="" v-if="showPlaceholder" :selected="typeof value === 'undefined' && placeholder">{{placeholder}}</option>
-        <option disabled v-if="!placeholder && typeof (value === 'undefined' || value === '') && isIOS && title"></option>
+        <option disabled v-if="fixIos"></option>
         <option :value="one.key" v-for="one in processOptions">{{one.value}}</option>
       </select>
     </div>
@@ -35,6 +39,12 @@ export default {
     }
   },
   computed: {
+    fixIos () {
+      return !this.placeholder && typeof (this.value === 'undefined' || this.value === '') && this.isIOS && this.title
+    },
+    color () {
+      return this.showPlaceholder ? '#A9A9A9' : ''
+    },
     processOptions () {
       if (this.options.length && {}.hasOwnProperty.call(this.options[0], 'key')) {
         return this.options
