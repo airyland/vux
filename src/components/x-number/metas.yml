@@ -69,6 +69,11 @@ props:
     en: align setting of the selecting area
     zh-CN: '按钮部分位置，默认在右边(right)，可选值为`left`和`right`'
 changes:
+  next:
+    en:
+      - '[fix] fix undefined-min detecting logic. #1459'
+    zh-CN:
+      - '[fix] 修复 min 不存在的判断 #1459'
   v2.2.1:
     en:
       - '[fix] delete prop-check-warning message, and disable `add` and `sub` method when `value` is empty string'
