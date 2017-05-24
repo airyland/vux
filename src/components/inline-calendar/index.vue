@@ -34,7 +34,7 @@
           v-for="(child,k2) in day"
           :data-date="formatDate(year, month, child)"
           :data-current="currentValue"
-          :class="buildClass(k2, child, formatDate(year, month, child) === currentValue && !child.isLastMonth && !child.isNextMonth)"
+          :class="buildClass(k2, child)"
           @click="select(k1,k2,child)">
             <span
             v-show="showChild(year, month, child)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import format from '../datetime/format'
 import { getDays, zero } from './util'
 import props from './props'
@@ -59,7 +60,7 @@ export default {
       month: 0,
       days: [],
       today: format(new Date(), 'YYYY-MM-DD'),
-      months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+      months: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
       currentValue: ''
     }
   },
@@ -90,16 +91,24 @@ export default {
     value (val) {
       this.currentValue = val
     },
-    currentValue (val) {
-      this.currentValue = this.convertDate(val)
-      if (this.renderOnValueChange) {
-        this.render(null, null, val)
-      } else {
-        this.render(this.year, this.month, this.currentValue)
-      }
-      this.$emit('input', val)
-      this.$emit('on-change', val)
-    },
+    // currentValue (val) {
+    //   // debugger
+    //   if(this.multi && typeof val !== 'string'){
+    //     for(let i = 0; i< val.length;i++){
+    //        this.currentValue[i] = this.convertDate(val[i]) // 存在数组修改问题
+    //       //  Vue.set(this.currentValue, i, this.convertDate(val[i]))
+    //     }
+    //   }else{
+    //     this.currentValue = this.convertDate(val)
+    //   }
+    //   if (this.renderOnValueChange) {
+    //     this.render(null, null, val)
+    //   } else {
+    //     this.render(this.year, this.month, this.currentValue)
+    //   }
+    //   this.$emit('input', val)
+    //   this.$emit('on-change', val)
+    // },
     renderFunction () {
       this.render(this.year, this.month, this.currentValue)
     },
@@ -131,7 +140,16 @@ export default {
     convertDate (date) {
       return date === 'TODAY' ? this.today : date
     },
-    buildClass (index, child, isCurrent) {
+    buildClass (index, child) {
+      let isCurrent = false
+      // value.indexOf(formatDate(year, month, child)) > -1 && !child.isLastMonth && !child.isNextMonth
+      if(!child.isLastMonth && !child.isNextMonth){
+        if(typeof this.currentValue !== 'string' && this.currentValue.length>0){
+          isCurrent = this.currentValue.indexOf(this.formatDate(this.year, this.month, child)) > -1
+        }else if(typeof this.currentValue === 'string'){
+          isCurrent = this.currentValue === this.formatDate(this.year, this.month, child)
+        }
+      }
       const className = {
         current: child.current || isCurrent,
         'is-disabled': child.disabled,
@@ -141,19 +159,37 @@ export default {
       return className
     },
     render (year, month) {
-      let data = getDays({
-        year: year,
-        month: month,
-        value: this.currentValue,
-        rangeBegin: this.convertDate(this.startDate),
-        rangeEnd: this.convertDate(this.endDate),
-        returnSixRows: this.returnSixRows,
-        disablePast: this.disablePast,
-        disableFuture: this.disableFuture
-      })
+      // debugger
+      let data = null
+      if(this.multi && typeof this.currentValue !== 'string'){
+          data = getDays({
+            year: year,
+            month: month,
+            value: this.currentValue[this.currentValue.length - 1],
+            rangeBegin: this.convertDate(this.startDate),
+            rangeEnd: this.convertDate(this.endDate),
+            returnSixRows: this.returnSixRows,
+            disablePast: this.disablePast,
+            disableFuture: this.disableFuture
+          })
+
+      }else{
+        // this.currentValue = this.convertDate(val)
+        data = getDays({
+          year: year,
+          month: month,
+          value: this.currentValue,
+          rangeBegin: this.convertDate(this.startDate),
+          rangeEnd: this.convertDate(this.endDate),
+          returnSixRows: this.returnSixRows,
+          disablePast: this.disablePast,
+          disableFuture: this.disableFuture
+        })
+      }
       this.days = data.days
       this.year = data.year
       this.month = data.month
+
     },
     formatDate: (year, month, child) => {
       return [year, zero(child.month + 1), zero(child.day)].join('-')
@@ -183,12 +219,50 @@ export default {
       if (!data.isBetween) {
         return
       }
+      let _currentValue = null
       if (!data.isLastMonth && !data.isNextMonth) {
         this.days[k1][k2].current = true
-        this.currentValue = [this.year, zero(this.month + 1), zero(this.days[k1][k2].day)].join('-')
+        _currentValue = [this.year, zero(this.month + 1), zero(this.days[k1][k2].day)].join('-')
       } else {
-        this.currentValue = [data.year, zero(data.month + 1), zero(data.day)].join('-')
+        _currentValue = [data.year, zero(data.month + 1), zero(data.day)].join('-')
       }
+      if(this.multi){
+        if(typeof this.currentValue === 'string'){
+          if(this.currentValue && this.currentValue.length > 0){
+            this.currentValue = [this.currentValue]
+          }else{
+            this.currentValue = []
+          }
+        }
+        let index = this.currentValue.indexOf(_currentValue)
+        if(index >- 1){
+          this.currentValue.splice(index,1)
+        }else{
+          this.currentValue.push(_currentValue)
+        }
+      }else{
+        this.currentValue = this.currentValue === _currentValue ? '' : _currentValue
+      }
+
+      this.currentValueChange()
+    },
+    currentValueChange(){
+         // 是数组 就不能使用watch 了 会存在循环watch问题
+      if(this.multi && typeof this.currentValue !== 'string'){
+        for(let i = 0; i< this.currentValue.length;i++){
+          //  this.currentValue[i] = this.convertDate(val[i]) // 存在数组修改问题
+           Vue.set(this.currentValue, i, this.convertDate(this.currentValue[i]))
+        }
+      }else{
+        this.currentValue = this.convertDate(this.currentValue)
+      }
+      if (this.renderOnValueChange) {
+        this.render(null, null, this.currentValue)
+      } else {
+        this.render(this.year, this.month, this.currentValue)
+      }
+      this.$emit('input', this.currentValue)
+      this.$emit('on-change', this.currentValue)
     },
     showChild (year, month, child) {
       if (this.replaceText(child.day, this.formatDate(year, month, child))) {
@@ -200,7 +274,7 @@ export default {
   }
 }
 </script>
- 
+
 <style lang="less">
 @import '../../styles/variable.less';
 
