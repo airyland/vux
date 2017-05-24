@@ -63,6 +63,11 @@ checker-item:
       en: emits when current checker-item is clicked
       zh-CN: 当前项被点击时触发
 changes:
+  next:
+    en:
+      - '[enhance] Support unselecting current item when clicking again in radio mode #1468'
+    zh-CN:
+      - '[enhance] 支持在单选的情况下第二次点击时变成不选中当前项 #1468'
   v2.1.1-rc.14:
     en:
       - '[enhance] Now disabled item also emits event:on-item-click #1144'

@@ -63,8 +63,13 @@ export default {
       }
     },
     selectRadio () {
+      console.log()
       if (!this.disabled) {
-        this.$parent.currentValue = this.value
+        if (this.$parent.currentValue === this.value) {
+          this.$parent.currentValue = ''
+        } else {
+          this.$parent.currentValue = this.value
+        }
       }
       this.$emit('on-item-click', this.value, this.disabled)
     },
