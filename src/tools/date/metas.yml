@@ -1,5 +1,5 @@
 changes:
-  next:
+  v2.3.2:
     en:
       - '[enhance] return empty string when no date is specified'
     zh-CN:
