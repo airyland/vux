@@ -7,6 +7,8 @@
       <x-switch title="Multi popup (first)" v-model="show3"></x-switch>
       <x-switch title="Mask disable" v-model="show5"></x-switch>
       <x-switch title="Popup address" v-model="show6"></x-switch>
+      <x-switch title="default max-height=100%" v-model="show12"></x-switch>
+      <x-switch title="set max-height=50%" v-model="show13"></x-switch>
     </group>
     
     <div v-transfer-dom>
@@ -146,6 +148,28 @@
       </popup>
     </div>
 
+    <div v-transfer-dom>
+      <popup v-model="show12" position="bottom">
+        <group>
+          <cell v-for="i in 20" :key="i" :title="i"></cell>
+        </group>
+        <div style="padding: 15px;">
+          <x-button @click.native="show12 = false" plain type="primary"> Close Me </x-button>
+        </div>
+      </popup>
+    </div>
+
+    <div v-transfer-dom>
+      <popup v-model="show13" position="bottom" max-height="50%">
+        <group>
+          <cell v-for="i in 20" :key="i" :title="i"></cell>
+        </group>
+        <div style="padding: 15px;">
+          <x-button @click.native="show13 = false" plain type="primary"> Close Me </x-button>
+        </div>
+      </popup>
+    </div>
+
   </div>
 </template>
 
@@ -183,7 +207,9 @@ export default {
       show8: false,
       show9: false,
       show10: false,
-      show11: false
+      show11: false,
+      show12: false,
+      show13: false
     }
   },
   methods: {

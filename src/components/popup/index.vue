@@ -32,7 +32,8 @@ export default {
     position: {
       type: String,
       default: 'bottom'
-    }
+    },
+    maxHeight: String
   },
   mounted () {
     this.$nextTick(() => {
@@ -85,6 +86,10 @@ export default {
         styles.width = this.width
       }
 
+      if (this.maxHeight) {
+        styles['max-height'] = this.maxHeight
+      }
+
       this.isTransparent && (styles['background'] = 'transparent')
       return styles
     }
@@ -134,6 +139,9 @@ export default {
   z-index: 501;
   transition-property: transform;
   transition-duration: 300ms;
+  max-height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .vux-popup-dialog.vux-popup-left {
   width: auto;
