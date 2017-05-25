@@ -1,6 +1,5 @@
 export default () => ({
   value: {
-    // type: String,
     default: ''
   },
   multi: {

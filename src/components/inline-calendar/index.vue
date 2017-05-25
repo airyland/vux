@@ -68,7 +68,14 @@ export default {
     this.currentValue = this.value
   },
   mounted () {
-    this.currentValue = this.convertDate(this.currentValue)
+    if(this.multi && typeof this.currentValue !== 'string'){
+      for(let i = 0; i< this.currentValue.length;i++){
+          Vue.set(this.currentValue, i, this.convertDate(this.currentValue[i]))
+      }
+    }else{
+      this.currentValue = this.convertDate(this.currentValue)
+    }
+
     this.render(this.renderMonth[0], this.renderMonth[1] - 1)
   },
   computed: {
@@ -91,24 +98,6 @@ export default {
     value (val) {
       this.currentValue = val
     },
-    // currentValue (val) {
-    //   // debugger
-    //   if(this.multi && typeof val !== 'string'){
-    //     for(let i = 0; i< val.length;i++){
-    //        this.currentValue[i] = this.convertDate(val[i]) // 存在数组修改问题
-    //       //  Vue.set(this.currentValue, i, this.convertDate(val[i]))
-    //     }
-    //   }else{
-    //     this.currentValue = this.convertDate(val)
-    //   }
-    //   if (this.renderOnValueChange) {
-    //     this.render(null, null, val)
-    //   } else {
-    //     this.render(this.year, this.month, this.currentValue)
-    //   }
-    //   this.$emit('input', val)
-    //   this.$emit('on-change', val)
-    // },
     renderFunction () {
       this.render(this.year, this.month, this.currentValue)
     },
@@ -142,7 +131,6 @@ export default {
     },
     buildClass (index, child) {
       let isCurrent = false
-      // value.indexOf(formatDate(year, month, child)) > -1 && !child.isLastMonth && !child.isNextMonth
       if(!child.isLastMonth && !child.isNextMonth){
         if(typeof this.currentValue !== 'string' && this.currentValue.length>0){
           isCurrent = this.currentValue.indexOf(this.formatDate(this.year, this.month, child)) > -1
@@ -159,7 +147,6 @@ export default {
       return className
     },
     render (year, month) {
-      // debugger
       let data = null
       if(this.multi && typeof this.currentValue !== 'string'){
           data = getDays({
@@ -174,7 +161,6 @@ export default {
           })
 
       }else{
-        // this.currentValue = this.convertDate(val)
         data = getDays({
           year: year,
           month: month,
@@ -247,10 +233,8 @@ export default {
       this.currentValueChange()
     },
     currentValueChange(){
-         // 是数组 就不能使用watch 了 会存在循环watch问题
       if(this.multi && typeof this.currentValue !== 'string'){
         for(let i = 0; i< this.currentValue.length;i++){
-          //  this.currentValue[i] = this.convertDate(val[i]) // 存在数组修改问题
            Vue.set(this.currentValue, i, this.convertDate(this.currentValue[i]))
         }
       }else{
