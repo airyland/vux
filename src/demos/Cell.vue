@@ -7,6 +7,9 @@
     </group>
 
     <group :title="$t('use is-link to show arrow')">
+      <cell is-link>
+        <span slot="title" style="color:green;"><span style="vertical-align:middle;">{{ $t('Important News') }}</span> <badge text="1"></badge></span>
+      </cell>
       <cell :title="$t('Notifications')" is-link></cell>
       <cell :title="$t('Privacy')" is-link></cell>
       <cell :title="$t('General')" is-link>
@@ -124,10 +127,12 @@ Animated:
   zh-CN: 动画效果
 Withdraw:
   zh-CN: 提现
+Important News:
+  zh-CN: 重要消息
 </i18n>
 
 <script>
-import { Cell, CellBox, CellFormPreview, Group } from 'vux'
+import { Cell, CellBox, CellFormPreview, Group, Badge } from 'vux'
 
 export default {
   mounted () {
@@ -139,7 +144,8 @@ export default {
     Group,
     Cell,
     CellFormPreview,
-    CellBox
+    CellBox,
+    Badge
   },
   methods: {
     onClick () {

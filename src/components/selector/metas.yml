@@ -58,6 +58,11 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
+  next:
+    en:
+      - '[enhance] set placeholder color. #1465'
+    zh-CN:
+      - '[enhance] 设置 placeholder 颜色. #1465'
   v2.2.2:
     en:
       - '[fix] fix label:for missing'

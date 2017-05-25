@@ -79,17 +79,15 @@ export default {
   watch: {
     currentValue (newValue, old) {
       if (newValue !== '') {
-        if (this.min && this.currentValue < this.min) {
+        if (typeof this.min !== 'undefined' && this.currentValue < this.min) {
           this.currentValue = this.min
         }
         if (this.max && this.currentValue > this.max) {
           this.currentValue = this.max
         }
       }
-      this.$nextTick(() => {
-        this.$emit('on-change', this.currentValue)
-        this.$emit('input', this.currentValue)
-      })
+      this.$emit('input', this.currentValue)
+      this.$emit('on-change', this.currentValue)
     },
     value (newValue) {
       this.currentValue = newValue
