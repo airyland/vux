@@ -63,9 +63,11 @@ changes:
     en:
       - '[enhance] Set max-height:100% by default'
       - '[feature] Support prop:max-height'
+      - '[fix] disable mask scrolling on mobile #1475 @xiaobinhong1'
     zh-CN:
       - '[enhance] 默认 max-height 设为 100%，避免不设置高度时内容过长无法滚动'
       - '[feature] 支持 prop:max-height'
+      - '[fix] 禁止遮罩层在手机上滚动 #1475 @xiaobinhong1'
   v2.2.2:
     en:
       - '[fix] Fix mask closing issue in some situation. #1312'
@@ -106,8 +108,4 @@ changes:
       - '[fix] Fix overflow-scrolling setting in safari #311 @linhaobin'
     zh-CN:
       - '[fix] 修复 `overflow-scrolling` 设置逻辑遗漏问题 #311 @linhaobin'
- changes:
-    en:
-      - '[fix] disable mask scrolling on mobile #1475 @xiaobinhong1'
-    zh-CN:
-      - '[fix] 禁止遮罩层在手机上滚动 #1475 @xiaobinhong1'
+    
