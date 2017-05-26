@@ -106,3 +106,8 @@ changes:
       - '[fix] Fix overflow-scrolling setting in safari #311 @linhaobin'
     zh-CN:
       - '[fix] 修复 `overflow-scrolling` 设置逻辑遗漏问题 #311 @linhaobin'
+ changes:
+    en:
+      - '[fix] disable mask scrolling on mobile #1475 @xiaobinhong1'
+    zh-CN:
+      - '[fix] 禁止遮罩层在手机上滚动 #1475 @xiaobinhong1'
