@@ -55,7 +55,10 @@ popupDialog.prototype.onClickMask = function () {
 }
 
 popupDialog.prototype._bindEvents = function () {
-  this.params.hideOnBlur && this.mask.addEventListener('click', this.onClickMask.bind(this), false)
+  if (this.params.hideOnBlur) {
+    this.mask.addEventListener('click', this.onClickMask.bind(this), false)
+    this.mask.addEventListener('touchmove', e => e.preventDefault(), false)
+  }
 }
 
 popupDialog.prototype.show = function () {
