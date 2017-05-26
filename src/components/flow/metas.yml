@@ -1,0 +1,17 @@
+icon: '&#xe656;'
+items:
+  - flow
+  - flow-state
+  - flow-line
+flow:
+  props:
+flow-state:
+  props:
+flow-line:
+  props:
+changes:
+  v2.3.1:
+    en:
+      - '[feature] new component'
+    zh-CN:
+      - '[feature] 新组件'

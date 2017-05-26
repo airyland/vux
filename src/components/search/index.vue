@@ -1,7 +1,7 @@
 <template>
   <div class="vux-search-box" :class="{'vux-search-fixed':isFixed}" :style="{top: isFixed ? top : '', position: fixPosition }">
     <div class="weui-search-bar" :class="{'weui-search-bar_focusing': !isCancel || currentValue}">
-      <form class="weui-search-bar__form" @submit.prevent="$emit('on-submit', value)">
+      <form class="weui-search-bar__form" @submit.prevent="$emit('on-submit', value)" action=".">
         <div class="vux-search-mask" @click="touch" v-show="!isFixed && autoFixed"></div>
         <div class="weui-search-bar__box">
           <i class="weui-icon-search"></i>
@@ -152,10 +152,8 @@ export default {
       this.currentValue = val
     },
     currentValue (val) {
-      if (!this.isCancel) {
-        this.$emit('on-change', val)
-        this.$emit('input', val)
-      }
+      this.$emit('input', val)
+      this.$emit('on-change', val)
     }
   }
 }

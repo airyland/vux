@@ -1,11 +1,11 @@
 <template>
-	<div class="vux-x-input weui-cell" :class="{'weui-cell_warn': !valid}">
+	<div class="vux-x-input weui-cell" :class="{'weui-cell_warn': !novalidate && !valid}">
     <div class="weui-cell__hd">
       <div :style="labelStyles" v-if="hasRestrictedLabel">
         <slot name="restricted-label"></slot>
       </div>
       <slot name="label">
-        <label class="weui-label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
+        <label class="weui-label" :style="{width: labelWidth || $parent.labelWidth || labelWidthComputed, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </slot>
     </div>
@@ -27,7 +27,7 @@
       :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
-      @blur="blur"
+      @blur="onBlur"
       ref="input"/>
       <input
       v-if="type === 'number'"
@@ -46,7 +46,7 @@
       :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
-      @blur="blur"
+      @blur="onBlur"
       ref="input"/>
       <input
       v-if="type === 'email'"
@@ -65,7 +65,7 @@
       :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
-      @blur="blur"
+      @blur="onBlur"
       ref="input"/>
       <input
       v-if="type === 'password'"
@@ -84,7 +84,7 @@
       :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
-      @blur="blur"
+      @blur="onBlur"
       ref="input"/>
       <input
       v-if="type === 'tel'"
@@ -103,7 +103,7 @@
       :disabled="disabled"
       v-model="currentValue"
       @focus="focusHandler"
-      @blur="blur"
+      @blur="onBlur"
       ref="input"/>
     </div>
     <div class="weui-cell__ft">
@@ -181,10 +181,6 @@ export default {
     InlineDesc
   },
   props: {
-    required: {
-      type: Boolean,
-      default: false
-    },
     title: {
       type: String,
       default: ''
@@ -232,12 +228,13 @@ export default {
     },
     iconType: String,
     debounce: Number,
-    placeholderAlign: String
+    placeholderAlign: String,
+    labelWidth: String
   },
   computed: {
     labelStyles () {
       return {
-        width: this.$parent.labelWidth || (this.labelWidth + 'em'),
+        width: this.labelWidthComputed || this.$parent.labelWidth || this.labelWidthComputed,
         textAlign: this.$parent.labelAlign,
         marginRight: this.$parent.labelMarginRight
       }
@@ -247,8 +244,11 @@ export default {
         return '[0-9]*'
       }
     },
-    labelWidth () {
-      return this.title.replace(/[^x00-xff]/g, '00').length / 2 + 1
+    labelWidthComputed () {
+      const width = this.title.replace(/[^x00-xff]/g, '00').length / 2 + 1
+      if (width < 10) {
+        return width + 'em'
+      }
     },
     hasErrors () {
       return Object.keys(this.errors).length > 0
@@ -270,15 +270,18 @@ export default {
     },
     clear () {
       this.currentValue = ''
-      this.$refs.input.focus()
+      this.focus()
     },
     focus () {
       this.$refs.input.focus()
     },
+    blur () {
+      this.$refs.input.blur()
+    },
     focusHandler () {
       this.$emit('on-focus', this.currentValue)
     },
-    blur () {
+    onBlur () {
       this.setTouched()
       this.validate()
       this.$emit('on-blur', this.currentValue)
@@ -445,7 +448,7 @@ export default {
 .vux-x-input .vux-x-input-placeholder-center input::-webkit-input-placeholder {
   text-align: center;
 }
-.vux-input-icon.vux-input-icon {
+.vux-x-input .vux-input-icon {
   font-size: 21px;
 }
 .vux-input-icon.weui-icon-warn:before, .vux-input-icon.weui-icon-success:before {

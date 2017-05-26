@@ -10,7 +10,9 @@
     </group>
     <br/>
     <div style="padding: 0 15px;">
-      <x-button type="primary" @click.native="changeData">改变数据</x-button>
+      <x-button type="primary" @click.native="changeData">改变数据（通过 id）</x-button>
+      <x-button type="primary" @click.native="changeDataByLabels">改变数据（通过文字值）</x-button>
+      <x-button type="primary" @click.native="changeDataByLabels2">改变数据（两级，通过文字值）</x-button>
     </div>
     <br/>
 
@@ -31,7 +33,7 @@
 </template>
 
 <script>
-import { Group, XAddress, ChinaAddressData, XButton, Cell, Value2nameFilter as value2name } from 'vux'
+import { Group, XAddress, ChinaAddressV3Data, XButton, Cell, Value2nameFilter as value2name } from 'vux'
 
 export default {
   components: {
@@ -47,7 +49,7 @@ export default {
       title2: '设置值',
       value2: ['天津市', '市辖区', '和平区'],
       value3: ['广东省', '中山市', '--'],
-      addressData: ChinaAddressData,
+      addressData: ChinaAddressV3Data,
       value4: [],
       value5: ['广东省', '深圳 市', '南山区']
     }
@@ -56,8 +58,14 @@ export default {
     changeData () {
       this.value2 = ['430000', '430400', '430407']
     },
+    changeDataByLabels () {
+      this.value2 = ['广东省', '广州市', '天河区']
+    },
+    changeDataByLabels2 () {
+      this.value2 = ['广东省', '中山市', '--']
+    },
     getName (value) {
-      return value2name(value, ChinaAddressData)
+      return value2name(value, ChinaAddressV3Data)
     },
     logHide (str) {
       console.log('on-hide', str)

@@ -95,7 +95,6 @@ export default {
     },
     move (ev) {
       if (this.disabled) {
-        ev.preventDefault()
         return
       }
       if (ev.target.nodeName.toLowerCase() === 'button') {
@@ -145,7 +144,6 @@ export default {
     },
     end (ev) {
       if (this.disabled) {
-        ev.preventDefault()
         return
       }
       if (ev.target.nodeName.toLowerCase() === 'button') {

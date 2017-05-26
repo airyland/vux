@@ -122,6 +122,16 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
+  v2.2.1-rc.8:
+    en:
+      - '[enhance] now changing prop:format will trigger re-rendering'
+    zh-CN:
+      - '[enhance] 修改 prop:format 会触发重新渲染'
+  v2.2.0:
+    en:
+      - '[fix] render picker on nextTick #1180'
+    zh-CN:
+      - '[fix] 在 nextTick 回调渲染 picker 避免赋值报错 #1180'
   v2.1.1-rc.11:
     en:
       - '[feature] Support prop:display-format #1086 @greedying'

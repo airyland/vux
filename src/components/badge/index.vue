@@ -1,5 +1,5 @@
 <template>
-  <span v-text="text" :class="['vux-badge', {'vux-badge-single': text.length === 1}]"></span>
+  <span v-text="text" :class="['vux-badge', {'vux-badge-single': typeof text !== 'undefined' && text.toString().length === 1}]"></span>
 </template>
 
 <script>

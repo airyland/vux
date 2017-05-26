@@ -71,6 +71,9 @@ export default {
       }
     },
     fixIos (zIndex) {
+      if (this.$el.parentNode && this.$el.parentNode.className.indexOf('v-transfer-dom') !== -1) {
+        return
+      }
       if (this.$tabbar && /iphone/i.test(navigator.userAgent)) {
         this.$tabbar.style.zIndex = zIndex
       }
@@ -104,14 +107,6 @@ export default {
 @import '../../styles/weui/widget/weui_tips/weui_mask';
 @import '../../styles/weui/widget/weui_tips/weui_actionsheet';
 
-.vux-actionsheet-gap {
-  height: 8px;
-  width: 100%;
-  background-color: #eee;
-}
-.vux-actionsheet-cancel:before {
-  border-top: none;
-}
 .vux-actionsheet-menu-primary {
   color: @actionsheet-label-primary-color;
 }

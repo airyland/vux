@@ -61,7 +61,21 @@ events:
     version: v2.1.1-rc.10
     en: when input gets focus
     zh-CN: 输入框获取到焦点时触发
+methods:
+  setFocus:
+    en: "set focus on input. you should call this method in a click event's callback function on Safari"
+    zh-CN: 获取 input 焦点，在 Safari 上你必须在 click 事件回调里使用才能生效
 changes:
+  v2.2.2:
+    en:
+      - '[enhance] Show search text on iOS keyboard'
+    zh-CN:
+      - '[enhance] 在 iOS 键盘上显示 search'
+  v2.2.0:
+    en:
+      - '[enhance] emit on-change after input'
+    zh-CN:
+      - '[enhance] 在 input 后触发 on-change 事件(否则此时 v-model 绑定的值和参数不一致)'
   v2.1.1-rc.13:
     en:
       - '[feature] Add slot:right'

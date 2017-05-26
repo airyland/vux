@@ -1,10 +1,11 @@
 <template>
   <div>
     <group title="single column">
-      <popup-picker :title="title1" :data="list1" v-model="value1" @on-show="onShow" @on-hide="onHide" @on-change="onChange"></popup-picker>
+      <popup-picker :title="title1" :data="list1" v-model="value1" @on-show="onShow" @on-hide="onHide" @on-change="onChange" :placeholder="$t('please select')"></popup-picker>
     </group>
     <br>
     <div class="picker-buttons">
+       <x-button type="primary" @click.native="value1=[]">将值置为空</x-button>
        <x-button type="primary" @click.native="changeList10">重新赋值列表</x-button>
        <x-button type="primary" @click.native="changeList11">push方式更改列表</x-button>
      </div>
@@ -47,6 +48,11 @@
      </group>
   </div>
 </template>
+
+<i18n>
+please select:
+  zh-CN: 请选择
+</i18n>
 
 <script>
 import { PopupPicker, Group, Cell, Picker, XButton, Divider, XSwitch } from 'vux'

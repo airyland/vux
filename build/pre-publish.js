@@ -21,7 +21,7 @@ glob(getPath('../src/**/**/metas.yml'), {}, function (err, files) {
       console.log(line)
       if (/next:/.test(line)) {
         return line.replace('next', `${version}`)
-      } else if (/version:\d*next/.test(line)) {
+      } else if (/version: next/.test(line)) {
         return line.replace('next', `${version}`)
       }
       return line

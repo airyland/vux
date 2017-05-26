@@ -27,6 +27,7 @@
 <script>
 import Base from '../../libs/base'
 import { getValue, getKey } from '../checklist/object-filter'
+import props from './props'
 
 export default {
   mixins: [Base],
@@ -34,25 +35,7 @@ export default {
     getValue,
     getKey
   },
-  props: {
-    options: {
-      type: Array,
-      required: true
-    },
-    value: [String, Number],
-    fillMode: {
-      type: Boolean,
-      default: false
-    },
-    fillPlaceholder: {
-      type: String,
-      default: '其他'
-    },
-    fillLabel: {
-      type: String,
-      default: '其他'
-    }
-  },
+  props: props(),
   mounted () {
     this.handleChangeEvent = true
   },

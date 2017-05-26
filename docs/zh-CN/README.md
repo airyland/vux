@@ -50,6 +50,13 @@ nav: zh-CN
   <br>
 </p>
 
+<p class="warning">
+  如果你遇到 `$t` 报错问题，`请不要开 issue`，升级 `vux-loader >= 1.0.58`。
+  <br>
+  <br>
+  VUX 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
+</p>
+
 <p class="tip">
   2.1.0 ~ 3.0.0 之间版本不会有影响升级的 `break change`，请放心及时更新版本。
   <br>
@@ -82,7 +89,7 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 
 ## 使用案例
 
-> 如果你的产品在使用`VUX`, 欢迎邮箱发送`Logo+链接`给我。
+> 如果你的产品在使用`VUX`, 欢迎邮箱发送`Logo+链接`给我（统一格式：二维码必须无白边框）。
 
 <img src="https://static.vux.li/showcase/ssy.png" width="150">
 <img src="https://static.vux.li/showcase/jkda51.png?v2" width="150">
@@ -91,6 +98,10 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 <img src="https://static.vux.li/showcase/jkny.png" width="150">
 <img src="https://static.vux.li/showcase/linkup.jpg" width="150">
 <img src="https://static.vux.li/showcase/xingshifu.png" width="150">
+<img src="https://static.vux.li/showcase/dsxqian.jpg" width="150">
+<img src="https://static.vux.li/showcase/ljwk.jpg" width="150">
+<img src="https://static.vux.li/showcase/bianjibang.jpg" width="150">
+<img src="https://static.vux.li/showcase/timemgt.jpg" width="150">
 
 ## 安装使用(webpack)
 
@@ -120,13 +131,10 @@ vux2必须配合`vux-loader`使用, 请在`build/webpack.base.conf.js`里参照�
 
 ``` js
 const vuxLoader = require('vux-loader')
+const webpackConfig = originalConfig // 原来的 module.exports 代码赋值给变量 webpackConfig
+
 module.exports = vuxLoader.merge(webpackConfig, {
-  options: {},
-  plugins: [
-    {
-      name: 'vux-ui'
-    }
-	]
+  plugins: ['vux-ui']
 })
 ```
 

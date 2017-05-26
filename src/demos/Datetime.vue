@@ -7,8 +7,10 @@
      <group :title="$t('format display value')">
       <datetime v-model="formatValue" :display-format="formatValueFunction" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
-
-    <p class="center" @click="formatValue = '2017-11-11'">{{ $t('click to change value to: 2017-11-11') }}</p>
+    
+    <div style="padding:15px;">
+      <x-button type="primary" @click.native="formatValue = '2017-11-11'">{{ $t('set value: 2017-11-11') }}</x-button>
+    </div>
 
     <group :title="$t('Limit hours')">
       <datetime v-model="limitHourValue" format="YYYY-MM-DD HH:mm" :min-hour=9 :max-hour=18 @on-change="change" :title="$t('Limit hours')" :inline-desc="$t('09-18')"></datetime>
@@ -22,9 +24,13 @@
       <x-button @click.native="reRender" type="primary">2016-11-11 ~ 2018-10-11</x-button>
     </div>
 
-    <group :title="$t('format: YYYY-MM-DD HH:mm')">
-      <datetime v-model="value2" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('start time')"></datetime>
+    <group :title="$t('format: ' + format)">
+      <datetime v-model="value2" :format="format" @on-change="change" :title="$t('start time')"></datetime>
     </group>
+
+    <div style="padding:15px;">
+      <x-button type="primary" @click.native="toggleFormat">{{ $t('toggle format') }}</x-button>
+    </div>
 
     <group :title="$t('Placeholder')">
       <datetime v-model="value3" format="YYYY-MM-DD" :placeholder="$t('Please select')" @on-change="change" :title="$t('start time')"></datetime>
@@ -60,8 +66,8 @@
 <i18n>
 'default format: YYYY-MM-DD':
   zh-CN: 默认格式：YYYY-MM-DD
-'format: YYYY-MM-DD HH:mm':
-  zh-CN: 格式：YYYY-MM-DD HH:mm
+'format:':
+  zh-CN: 格式：
 start time:
   zh-CN: 开始时间
 Placeholder:
@@ -96,6 +102,8 @@ set start-date and end-date:
   zh-CN: 设置时间为 2017-11-11
 format display value:
   zh-CN: 格式化显示
+toggle format:
+  zh-CN: 改变格式
 </i18n>
 
 <script>
@@ -109,6 +117,7 @@ export default {
   },
   data () {
     return {
+      format: 'YYYY-MM-DD HH:mm',
       value1: '2015-11-12',
       value2: '',
       value3: '',
@@ -127,6 +136,9 @@ export default {
     }
   },
   methods: {
+    toggleFormat () {
+      this.format = this.format === 'YYYY-MM-DD HH:mm' ? 'YYYY-MM-DD' : 'YYYY-MM-DD HH:mm'
+    },
     reRender () {
       this.startDate = '2016-11-11'
       this.endDate = '2018-10-11'

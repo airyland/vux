@@ -31,7 +31,7 @@ export default {
   mounted () {
     this.$nextTick(() => {
       if (!(this.list && this.list.length === 0)) {
-        this.render()
+        this.render(this.index)
       }
       this.xheight = this.getHeight()
     })

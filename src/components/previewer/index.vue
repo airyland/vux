@@ -62,6 +62,9 @@ export default {
       }, this.options)
       this.photoswipe = new PhotoSwipe(this.$el, UI, this.list, options)
       this.photoswipe.init()
+      this.photoswipe.listen('close', () => {
+        this.$emit('on-close')
+      })
     },
     show (index) {
       this.init(index)

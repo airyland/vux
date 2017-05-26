@@ -65,6 +65,17 @@ props:
     default: 0
     en: height
     zh-CN: 高度
+  readonly:
+    type: Boolean
+    default: false
+    en: textarea's readonly attribute
+    zh-CN: textarea 标签属性 readonly
+  autosize:
+    version: v2.2.1-rc.6
+    type: Boolean
+    default: false
+    en: whether set auto height for textarea
+    zh-CN: 是否根据内容自动设置高度
 slots:
   label:
     version: v2.1.1-rc.8
@@ -86,6 +97,13 @@ events:
     en: blur event
     zh-CN: blur 事件
 changes:
+  v2.2.1-rc.6:
+    en:
+      - '[enhance] set label align to flex-start'
+      - '[feature] Support prop:autosize'
+    zh-CN:
+      - '[enhance] 标签上对齐'
+      - '[feature] 支持属性  prop:autosize 自动更新高度'
   v2.1.1-rc.12:
     en:
       - '[enhance] trigger focus event of x-textarea when click counter'

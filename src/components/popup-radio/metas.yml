@@ -1,0 +1,27 @@
+icon: '&#xe60f;'
+extra:
+  en: props are the same as cell's and radio's. Be aware that it doesnot support fillMode.
+  zh-CN: 属性同 cell 和 Radio 的属性，需要注意的是不支持 fillMode。
+tags:
+  en:
+    - radio
+    - form
+  zh-CN:
+    - 表单
+    - 单选
+changes:
+  v2.3.1:
+    en:
+      - '[fix] fix cell display value'
+    zh-CN:
+      - '[fix] 修复文字值显示'
+  v2.2.1-rc.8:
+    en:
+      - '[fix] fix label width'
+    zh-CN:
+      - '[fix] 修复 label 宽度'
+  v2.2.1-rc.4:
+    en:
+      - '[feature] new component'
+    zh-CN:
+      - '[feature] 新组件'

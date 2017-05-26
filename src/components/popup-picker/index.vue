@@ -9,8 +9,8 @@
         <div class="vux-popup-picker-select" :style="{textAlign: valueTextAlign}">
           <span class="vux-popup-picker-value" v-if="!displayFormat && !showName && value.length">{{value | array2string}}</span>
           <span class="vux-popup-picker-value" v-if="!displayFormat && showName && value.length">{{value | value2name(data)}}</span>
-          <span class="vux-popup-picker-value" v-if="displayFormat && value.length">{{ displayFormat(value) }}</span>
-          <span v-if="!value.length && placeholder" v-html="placeholder"></span>
+          <span class="vux-popup-picker-value" v-if="displayFormat && value.length">{{ displayFormat(value, value2name(value, data)) }}</span>
+          <span v-if="!value.length && placeholder" v-html="placeholder" class="vux-popup-picker-placeholder"></span>
         </div>
       </div>
       <div class="weui-cell__ft">
@@ -18,7 +18,7 @@
     </div>
 
     <div v-transfer-dom="isTransferDom">
-      <popup v-model="showValue" class="vux-popup-picker" :id="'vux-popup-picker-'+uuid" @on-hide="onPopupHide" @on-show="$emit('on-show')">
+      <popup v-model="showValue" class="vux-popup-picker" :id="`vux-popup-picker-${uuid}`" @on-hide="onPopupHide" @on-show="onPopupShow">
         <div class="vux-popup-picker-container">
           <div class="vux-popup-picker-header">
             <flexbox>
@@ -32,7 +32,8 @@
           @on-change="onPickerChange"
           :columns="columns"
           :fixed-columns="fixedColumns"
-          :container="'#vux-popup-picker-'+uuid"></picker>
+          :container="'#vux-popup-picker-'+uuid"
+          :column-width="columnWidth"></picker>
         </div>
       </popup>
     </div>
@@ -126,7 +127,8 @@ export default {
     isTransferDom: {
       type: Boolean,
       default: true
-    }
+    },
+    columnWidth: Array
   },
   methods: {
     value2name,
@@ -148,6 +150,11 @@ export default {
           this.tempValue = getObject(this.currentValue)
         }
       }
+    },
+    onPopupShow () {
+      // reset close type to false
+      this.closeType = false
+      this.$emit('on-show')
     },
     onPopupHide (val) {
       if (this.value.length > 0) {
@@ -244,9 +251,6 @@ export default {
   width: 100%;
   position: relative;
 }
-.vux-popup-picker-select span {
-  padding-right: 15px;
-}
 .vux-popup-picker-select-box.weui-cell__bd:after {
   content: " ";
   display: inline-block;
@@ -265,5 +269,8 @@ export default {
 }
 .vux-popup-picker-cancel {
   color: @popup-picker-header-cancel-text-color;
+}
+.vux-popup-picker-placeholder {
+  color: #999;
 }
 </style>

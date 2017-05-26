@@ -37,6 +37,10 @@
     "icon": "&#xe62a;"
   },
   {
+    "name": "cell-form-preview",
+    "icon": "&#xe62a;"
+  },
+  {
     "name": "cell",
     "icon": "&#xe62a;"
   },
@@ -91,6 +95,15 @@
     "items": [
       "flexbox",
       "flexbox-item"
+    ]
+  },
+  {
+    "name": "flow",
+    "icon": "&#xe656;",
+    "items": [
+      "flow",
+      "flow-state",
+      "flow-line"
     ]
   },
   {
@@ -156,6 +169,10 @@
   {
     "name": "popup-picker",
     "icon": "&#xe626;"
+  },
+  {
+    "name": "popup-radio",
+    "icon": "&#xe60f;"
   },
   {
     "name": "popup",
@@ -298,6 +315,10 @@
   {
     "name": "x-switch",
     "icon": "&#xe61c;"
+  },
+  {
+    "name": "x-table",
+    "icon": "&#xe66d;"
   },
   {
     "name": "x-textarea",

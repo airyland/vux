@@ -65,7 +65,7 @@ export default {
     },
     preventDefault: {
       type: Boolean,
-      default: true
+      default: false
     },
     stopPropagation: Boolean,
     boundryCheck: {
@@ -102,16 +102,20 @@ export default {
     enableHorizontalSwiping: {
       type: Boolean,
       default: false
+    },
+    scrollBottomOffset: {
+      type: Number,
+      default: 0
     }
   },
   methods: {
-    reset (scrollPosition) {
+    reset (scrollPosition, duration, easing) {
       if (scrollPosition) {
         if (typeof scrollPosition.left !== 'undefined') {
-          this._xscroll.scrollLeft(scrollPosition.left)
+          this._xscroll.scrollLeft(scrollPosition.left, duration, easing)
         }
         if (typeof scrollPosition.top !== 'undefined') {
-          this._xscroll.scrollTop(scrollPosition.top)
+          this._xscroll.scrollTop(scrollPosition.top, duration, easing)
         }
       }
       this._xscroll && this._xscroll.resetSize()
@@ -230,10 +234,18 @@ export default {
       })
 
       this._xscroll.on('scroll', () => {
-        this.$emit('on-scroll', {
-          top: this._xscroll.getScrollTop(),
-          left: this._xscroll.getScrollLeft()
-        })
+        if (this._xscroll) {
+          const top = this._xscroll.getScrollTop()
+          this.$emit('on-scroll', {
+            top: top,
+            left: this._xscroll.getScrollLeft()
+          })
+          const containerHeight = this._xscroll.containerHeight
+          const scrollHeight = this._xscroll.height
+          if (top >= containerHeight - scrollHeight - this.scrollBottomOffset) {
+            this.$emit('on-scroll-bottom')
+          }
+        }
       })
 
       if (this.usePulldown) {

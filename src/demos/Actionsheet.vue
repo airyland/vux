@@ -60,12 +60,6 @@ export default {
     XSwitch,
     Toast
   },
-  mounted () {
-    document.title = 'actionsheet'
-    setTimeout(() => {
-      document.title = 'actionsheet again'
-    }, 5000)
-  },
   data () {
     return {
       show1: false,

@@ -40,12 +40,33 @@ props:
     default: false
     en: if shuffing options
     zh-CN: 是否随机打乱选项顺序
+  check-disabled:
+    version: v2.2.1-rc.1
+    type: Boolean
+    default: true
+    en: if disabled item when selectedItems.length === total.length, by using this prop:max no longer works
+    zh-CN: 是否进行可选检测，默认情况下当选择个数等于可选个数(max)时，其他项不可选择。该选项主要适用于从多个选项列表中收集值的场景。注意的该选项设为 false 时 max 设置将失效。
+  label-position:
+    version: v2.2.1-rc.4
+    type: String
+    en: label position, can be set to left
+    zh-CN: label 位置，可以设置为 left
 events:
   on-change:
     params: '(value)'
     en: emits when value changes
     zh-CN: 值变化时触发，参数为 (value)
 changes:
+  v2.2.1-rc.4:
+    en:
+      - '[feature] Support prop:label-position'
+    zh-CN:
+      - '[feature] 支持通过 prop:label-position 设置 label位置'
+  v2.2.1-rc.1:
+    en:
+      - '[feature] Support prop:check-disabled'
+    zh-CN:
+      - '[feature] 支持 prop:check-disabled'
   v2.0.0:
     en:
       - '[change] it does not show errors by default, handle errors by on-error events'

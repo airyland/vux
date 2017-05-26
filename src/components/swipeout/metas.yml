@@ -80,8 +80,15 @@ changes:
   v2.1.0-rc.50:
     zh-CN:
       - '[feature] `swipeout`组件`beta`版本'
-  next:
+  v2.1.1-rc.14:
     en:
       - '[fix] Fix left-menu is shown when sliding back and forth #1139'
     zh-CN:
       - '[fix] 修复来回滑动时左侧菜单可能会被滑出 #1139'
+  v2.2.0:
+    en:
+      - '[fix] Fix cannot scroll when disabled'
+      - '[fix] Fix unable to trigger click event when disabled on android'
+    zh-CN:
+      - '[fix] 修复disabled时不能上下滚动问题'
+      - '[fix] 修复disabled时，安卓手机上不能触发点击事件的问题'

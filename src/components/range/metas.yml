@@ -52,3 +52,15 @@ props:
     default: 1
     en: range bar's height
     zh-CN: 高度
+events:
+  on-change:
+    version: v2.2.2
+    params: '`(value)`'
+    en: emits when value is changed
+    zh-CN: 绑定值变化时触发事件
+changes:
+  v2.2.2:
+    en:
+      - '[feature] Support dynamically setting step #1394'
+    zh-CN:
+      - '[feature] 支持动态设置 step #1394'

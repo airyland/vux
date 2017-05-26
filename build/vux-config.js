@@ -15,7 +15,7 @@ module.exports = {
     env: 'dev'
   },
   plugins: [
-    'vux-ui', 'inline-manifest', 'progress-bar',
+    'vux-ui', 'inline-manifest', 'progress-bar', 'duplicate-style',
     {
       name: 'js-parser',
       test: /main\.js/,
@@ -65,9 +65,6 @@ module.exports = {
         source = source.replace('const routes = []', 'const routes = ' + str)
         return source
       }
-    },
-    {
-      name: 'duplicate-style'
     },
     {
       name: 'i18n',

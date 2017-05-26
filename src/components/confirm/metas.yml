@@ -18,21 +18,21 @@ extra: |
   ``` js
   import  { ConfirmPlugin } from 'vux'
   Vue.use(ConfirmPlugin)
-
-  // 或者umd方式
-  // 引入构建的js文件
-  Vue.use(vuxConfirmPlugin)
   ```
 
   ``` js
   // 显示
+  const _this = this // 需要注意 onCancel 和 onConfirm 的 this 指向
   this.$vux.confirm.show({
     // 组件除show外的属性
-    onCancel () {},
+    onCancel () {
+      console.log(this) // 非当前 vm
+      console.log(_this) // 当前 vm
+    },
     onConfirm () {}
   })
   // 隐藏
-  this.$vux.alert.hide()
+  this.$vux.confirm.hide()
   ```
 props:
   show:

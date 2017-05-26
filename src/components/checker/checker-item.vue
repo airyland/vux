@@ -63,10 +63,15 @@ export default {
       }
     },
     selectRadio () {
+      console.log()
       if (!this.disabled) {
-        this.$parent.currentValue = this.value
-        this.$emit('on-item-click', this.value, this.disabled)
+        if (this.$parent.currentValue === this.value) {
+          this.$parent.currentValue = ''
+        } else {
+          this.$parent.currentValue = this.value
+        }
       }
+      this.$emit('on-item-click', this.value, this.disabled)
     },
     selectCheckbox () {
       if (!this.$parent.currentValue || this.$parent.currentValue === null) {
@@ -90,8 +95,8 @@ export default {
             this.$parent.currentValue.push(this.value)
           }
         }
-        this.$emit('on-item-click', this.value, this.disabled)
       }
+      this.$emit('on-item-click', this.value, this.disabled)
     }
   }
 }

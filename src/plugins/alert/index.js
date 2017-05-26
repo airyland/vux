@@ -17,11 +17,8 @@ const plugin = {
       show (options = {}) {
         if (typeof options === 'object') {
           mergeOptions($vm, options)
-          if (options.content) {
-            $vm.$el.querySelector('.weui-dialog__bd').innerHTML = options['content']
-          }
         } else if (typeof options === 'string') {
-          $vm.$el.querySelector('.weui-dialog__bd').innerHTML = options
+          $vm.content = options
         }
         this.watcher && this.watcher()
         this.watcher = $vm.$watch('showValue', (val) => {

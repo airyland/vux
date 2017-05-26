@@ -39,6 +39,14 @@ const plugin = {
         }
         $vm.show = true
       },
+      text (text, position = 'default') {
+        this.show({
+          type: 'text',
+          width: 'auto',
+          position,
+          text
+        })
+      },
       hide () {
         $vm.show = false
       }

@@ -3,17 +3,19 @@
     <div v-transfer-dom>
       <loading v-model="isLoading"></loading>
     </div>
+    <div v-transfer-dom>
+      <actionsheet :menus="menus" v-model="showMenu" @on-click-menu="changeLocale"></actionsheet>
+    </div>
+
     <view-box ref="viewBox" body-padding-top="46px" body-padding-bottom="55px">
-      <x-header slot="header" style="width:100%;position:absolute;left:0;top:0;z-index:100;" :left-options="leftOptions"
+      
+      <x-header slot="header"
+      style="width:100%;position:absolute;left:0;top:0;z-index:100;"
+      :left-options="leftOptions"
+      :right-options="rightOptions"
       :title="title"
       :transition="headerTransition"
-      @on-click-title="scrollTop"></x-header>
-      <div style="padding: 15px 15px;" v-show="isShowBar">
-        <button-tab>
-          <button-tab-item :selected="$i18n.locale() === 'zh-CN'" @click.native="setLocale('zh-CN')">中文</button-tab-item>
-          <button-tab-item :selected="$i18n.locale() === 'en'" @click.native="setLocale('en')">English</button-tab-item>
-        </button-tab>
-      </div>
+      @on-click-more="onClickMore"></x-header>
 
       <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
         <router-view class="router-view"></router-view>
@@ -38,7 +40,7 @@
 </template>
 
 <script>
-import { ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem, Loading, TransferDomDirective as TransferDom } from 'vux'
+import { Actionsheet, ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem, Loading, TransferDom } from 'vux'
 import { mapState, mapActions } from 'vuex'
 
 export default {
@@ -52,32 +54,27 @@ export default {
     XHeader,
     Tabbar,
     TabbarItem,
-    Loading
+    Loading,
+    Actionsheet
   },
   methods: {
-    reload () {
-      document.location.reload()
+    onClickMore () {
+      this.showMenu = true
     },
-    scrollTop () {
-      this.$refs.viewBox.scrollTo(0)
+    changeLocale (locale) {
+      this.$i18n.set(locale)
+      this.$locale.set(locale)
     },
     ...mapActions([
       'updateDemoPosition'
-    ]),
-    setLocale (locale) {
-      this.$i18n.set(locale)
-      this.$locale.set(locale)
-    }
+    ])
   },
   mounted () {
     this.handler = () => {
       if (this.path === '/demo') {
-        this.updateDemoPosition(this.$refs.viewBox.getScrollTop())
+        this.box = document.querySelector('#demo_list_box')
+        this.updateDemoPosition(this.box.scrollTop)
       }
-    }
-    this.box = this.$refs.viewBox.getScrollBody()
-    if (this.path === '/demo') {
-      this.box.addEventListener('scroll', this.handler, false)
     }
   },
   beforeDestroy () {
@@ -90,21 +87,15 @@ export default {
         return
       }
       if (path === '/demo') {
-        this.box.removeEventListener('scroll', this.handler, false)
-        this.box.addEventListener('scroll', this.handler, false)
+        setTimeout(() => {
+          this.box = document.querySelector('#demo_list_box')
+          if (this.box) {
+            this.box.removeEventListener('scroll', this.handler, false)
+            this.box.addEventListener('scroll', this.handler, false)
+          }
+        }, 1000)
       } else {
-        this.box.removeEventListener('scroll', this.handler, false)
-      }
-      if (path === '/demo' && this.demoTop) {
-        this.$nextTick(() => {
-          setTimeout(() => {
-            this.box.scrollTop = this.demoTop
-          }, 550)
-        })
-      } else {
-        this.$nextTick(() => {
-          this.box.scrollTop = 0
-        })
+        this.box && this.box.removeEventListener('scroll', this.handler, false)
       }
     }
   },
@@ -128,6 +119,11 @@ export default {
         showBack: this.route.path !== '/'
       }
     },
+    rightOptions () {
+      return {
+        showMore: true
+      }
+    },
     headerTransition () {
       return this.direction === 'forward' ? 'vux-header-fade-in-right' : 'vux-header-fade-in-left'
     },
@@ -148,6 +144,16 @@ export default {
       if (this.route.path === '/project/donate') return 'Donate'
       if (this.route.path === '/demo') return 'Demo list'
       return this.componentName ? `Demo/${this.componentName}` : 'Demo/~~'
+    }
+  },
+  data () {
+    return {
+      showMenu: false,
+      menus: {
+        'language.noop': '<span class="menu-title">Language</span>',
+        'zh-CN': '中文',
+        'en': 'English'
+      }
     }
   }
 }
@@ -215,81 +221,51 @@ html, body {
 
 .demo-icon {
   font-family: 'vux-demo';
-  font-size:20px;
+  font-size: 20px;
   color: #04BE02;
+}
+
+.demo-icon-big {
+  font-size: 28px;
 }
 
 .demo-icon:before {
   content: attr(icon);
 }
 
-/**
-* vue-router transition
-*/
 .router-view {
   width: 100%;
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  backface-visibility: hidden;
+  top: 46px;
 }
 .vux-pop-out-enter-active,
 .vux-pop-out-leave-active,
 .vux-pop-in-enter-active,
 .vux-pop-in-leave-active {
   will-change: transform;
+  transition: all 500ms;
   height: 100%;
+  top: 46px;
   position: absolute;
-  left: 0;
+  backface-visibility: hidden;
+  perspective: 1000;
 }
-.vux-pop-out-enter-active {
-  animation-name: popInLeft;
+.vux-pop-out-enter {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
 }
 .vux-pop-out-leave-active {
-  animation-name: popOutRight;
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
 }
-.vux-pop-in-enter-active {
-  perspective: 1000;
-  animation-name: popInRight;
+.vux-pop-in-enter {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
 }
 .vux-pop-in-leave-active {
-  animation-name: popOutLeft;
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
 }
-@keyframes popInLeft {
-  from {
-    opacity: 0;
-    transform: translate3d(-100%, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes popOutLeft {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-@keyframes popInRight {
-  from {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes popOutRight {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
+.menu-title {
+  color: #888;
 }
 </style>

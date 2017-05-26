@@ -1,14 +1,19 @@
 <template>
   <div>
     <img class="previewer-demo-img" v-for="(item, index) in list" :src="item.src" width="100" @click="show(index)">
-    <previewer :list="list" ref="previewer" :options="options"></previewer>
+    <div v-transfer-dom>
+      <previewer :list="list" ref="previewer" :options="options"></previewer>
+    </div>
   </div>
 </template>
 
 <script>
-import { Previewer } from 'vux'
+import { Previewer, TransferDom } from 'vux'
 
 export default {
+  directives: {
+    TransferDom
+  },
   components: {
     Previewer
   },
@@ -20,12 +25,12 @@ export default {
   data () {
     return {
       list: [{
-        src: 'https://placekitten.com/800/400',
-        w: 600,
+        src: 'https://ooo.0o0.ooo/2017/05/17/591c271ab71b1.jpg',
+        w: 800,
         h: 400
       },
       {
-        src: 'https://placekitten.com/1200/900',
+        src: 'https://ooo.0o0.ooo/2017/05/17/591c271acea7c.jpg',
         w: 1200,
         h: 900
       }],

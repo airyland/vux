@@ -28,6 +28,10 @@ extra: |
  this.$vux.toast.show({
   text: 'Loading'
  })
+
+ // 显示文字
+ this.$vux.toast.text('hello', 'top')
+ 
  // 隐藏
  this.$vux.toast.hide()
  ```
@@ -81,6 +85,11 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
+  v2.3.1:
+    en:
+      - '[feature] Add text method for plugin'
+    zh-CN:
+      - '[feature] 为插件添加 text 方法方便调用'
   v2.1.1-rc.13:
     en:
       - '[fix] fix After the call is not set webkitOverflowScrolling for touch'

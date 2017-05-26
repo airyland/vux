@@ -9,6 +9,10 @@ tags:
     - 滚动
 extra: |
   <p class="warning">
+  该组件已经不再维护，也不建议使用，建议使用第三方相关组件，大部分情况下也不需要用到该组件。
+  </p>
+
+  <p class="warning">
   `Scroller`的内容必须是一个`div`，并且只能有一个`div`
   <br>
   `Scroller` 希望解决的是简单的列表问题而不是一个内嵌各种复杂标签交互的容器，很容易发生性能或者交互问题。
@@ -128,6 +132,10 @@ events:
     params: '`(position)`'
     en: emits when user scrolls
     zh-CN: '容器滚动时触发，参数为`top`和`left`位置'
+  on-scroll-bottom:
+    version: v2.2.1-rc.6
+    en: emits when user scrolls to bottom. The event may emit multiple times, so you should use a variable for keeping status if you need fetching data
+    zh-CN: 滚动到底部时触发，注意事件会触发多次，如果你需要进行数据获取，记得设置一个状态值
   on-pulldown-loading:
     en: emits when scroller is on pulldown-loading status
     zh-CN: 用户触发下拉刷新状态，监听该事件以获取加载新数据
@@ -190,7 +198,55 @@ props:
     default: see below
     en: config for pullup plugin
     zh-CN: 上拉组件配置
+  scroll-bottom-offset:
+    version: v2.2.1-rc.6
+    type: Number
+    default: 0
+    en: where to emit event:on-scroll-bottom before reaching bottom
+    zh-CN: 在距离底部多长距离时触发事件 on-scroll-bottom
 slots:
   default:
     en: scroller content, should has only one `div` root
     zh-CN: scroller 内容，必须是一个 `div` 元素
+methods:
+  reset:
+    params: '`(position, duration, easing)`'
+    en: 'reset scroller to reset height whenever your data is changed. easing can be one of ease-in, ease-in-out, ease, bezier(n, n, n, n)'
+    zh-CN: '在内容变化(v-for渲染，异步数据加载)后需要调用，用以重新渲染，避免新加的内容无法上拉看到，一般在 $nextTick 回调里调用。easing 可以为 ease-in, ease-in-out, ease, bezier(n, n, n, n)'
+  donePullup:
+    en: set pullup done after new data is fetched
+    zh-CN: 设置上拉刷新操作完成，在数据加载后执行
+  disablePullup:
+    en: disable pullup plugin when there is no more data
+    zh-CN: 禁用上拉刷新，在没有更多数据时执行
+  enablePullup:
+    en: enable pullup plugin
+    zh-CN: 启用上拉刷新插件
+  donePulldown:
+    en: set pulldown done after new data is fetched
+    zh-CN: 设置下拉刷新操作完成，在数据加载后执行
+changes:
+  v2.2.1-rc.8:
+    en:
+      - '[change] set prop:prevent-default to false by default'
+    zh-CN:
+      - '[change] prop:prevent-default 默认设为 false'
+  v2.2.1-rc.6:
+    en:
+      - '[feature] Support event:on-scroll-bottom'
+      - '[fix] Disable trigger click'
+    zh-CN:
+      - '[feature] 支持滚动到底部时触发事件 on-scroll-bottom'
+      - '[fix] 禁止点击事件触发，修复 pc 上触发两次的问题'
+  v2.2.1-rc.4:
+    en:
+      - '[feature] Support duration and easing for reset function. #1240'
+    zh-CN:
+      - '[feature] 支持在滚回顶部时设置时间和缓动 #1240'
+  v2.2.0:
+    en:
+      - '[fix] Fix issue when redirecting on scrolling #1187'
+      - '[fix] Fix resize listener not being destroyed #1183'
+    zh-CN:
+      - '[fix] 修复 resize 事件没有移除导致切换页面报错 #1183'
+      - '[fix] 修复滚动情况下跳转页面报错 #1187'

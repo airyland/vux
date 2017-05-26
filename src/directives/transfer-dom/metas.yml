@@ -1,0 +1,8 @@
+changes:
+  v2.2.0:
+    en:
+      - '[enhance] Support simple entry name: TransferDom'
+      - '[enhance] Add classname v-transfer-dom'
+    zh-CN:
+      - '[enhance] 支持更简洁的引入方式：TransferDom'
+      - '[enhance] 添加类名 v-transfer-dom'

@@ -64,6 +64,10 @@ Horizontal.prototype.setStart = function (start) {
   this.setValue(this.handle.style.left, this.slider.offsetWidth - this.handle.offsetWidth)
 }
 
+Horizontal.prototype.setStep = function () {
+  this.step(getWidth(this.slider) || this.options.initialBarWidth, getWidth(this.handle))
+}
+
 /**
  * Set horizontal slider current position.
  *

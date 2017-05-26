@@ -1,0 +1,31 @@
+icon: '&#xe66d;'
+props:
+  full-bordered:
+    version: v2.2.1-rc.4
+    type: Boolean
+    default: false
+    en: if show left and right border of the table
+    zh-CN: 是否显示表格左右边框
+  content-bordered:
+    version: v2.2.1-rc.4
+    type: Boolean
+    default: true
+    en: if show body tr's bottom border
+    zh-CN: 是否显示 body tr 的下边框
+  cell-bordered:
+    version: v2.2.1-rc.4
+    type: Boolean
+    default: true
+    en: if show the right border of ths and tds
+    zh-CN: 是否显示表格的右边边框
+slots:
+  default:
+    version: v2.2.1-rc.4
+    en: table content
+    zh-CN: 表格内容
+changes:
+  v2.2.1-rc.4:
+    en:
+      - '[feature] new component'
+    zh-CN:
+      - '[feature] 新组件'

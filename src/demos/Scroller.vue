@@ -36,6 +36,14 @@
 
     <x-button type="primary" @click.native="$refs.scrollerEvent.reset({top:0})">reset</x-button>
 
+    <divider>{{ $t('event:on-scroll-bottom') }} </divider>
+    <scroller lock-x height="200px" @on-scroll-bottom="onScrollBottom" ref="scrollerBottom" :scroll-bottom-offst="200">
+      <div class="box2">
+        <p v-for="i in bottomCount">placeholder {{i}}</p>
+        <load-more tip="loading"></load-more>
+      </div>
+    </scroller>
+
     <divider>{{ $t('A Vertical Scroller with scrollbar') }}</divider>
     <scroller lock-x scrollbar-y height="200px" ref="scroller">
       <div class="box2">
@@ -66,10 +74,12 @@ show another list:
   zh-CN: 改变显示的内容
 Button:
   zh-CN: 按钮
+event:on-scroll-bottom:
+  zh-CN: 检查是否滚动到底部
 </i18n>
 
 <script>
-import { Scroller, Divider, Spinner, XButton, Group, Cell } from 'vux'
+import { Scroller, Divider, Spinner, XButton, Group, Cell, LoadMore } from 'vux'
 
 export default {
   components: {
@@ -78,22 +88,41 @@ export default {
     Spinner,
     XButton,
     Group,
-    Cell
+    Cell,
+    LoadMore
   },
   data () {
     return {
       showList1: true,
-      scrollTop: 0
+      scrollTop: 0,
+      onFetching: false,
+      bottomCount: 20
     }
   },
   mounted () {
     this.$nextTick(() => {
       this.$refs.scrollerEvent.reset({top: 0})
     })
+    this.$nextTick(() => {
+      this.$refs.scrollerBottom.reset({top: 0})
+    })
   },
   methods: {
+    onScrollBottom () {
+      if (this.onFetching) {
+        // do nothing
+      } else {
+        this.onFetching = true
+        setTimeout(() => {
+          this.bottomCount += 10
+          this.$nextTick(() => {
+            this.$refs.scrollerBottom.reset()
+          })
+          this.onFetching = false
+        }, 2000)
+      }
+    },
     onScroll (pos) {
-      console.log('on scroll', pos)
       this.scrollTop = pos.top
     },
     onCellClick () {

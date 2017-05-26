@@ -62,3 +62,14 @@ props:
     type: 'Object'
     en: options for `photoswipe`
     zh-CN: '`photoswipe`的设置'
+events:
+  on-close:
+    version: v2.2.1-rc.4
+    en: emits after closing
+    zh-CN: 关闭时触发
+changes:
+  v2.2.1-rc.4:
+    en:
+      - '[enhance] Increase the closing event #1245'
+    zh-CN:
+      - '[enhance] 增加关闭事件 #1245'
