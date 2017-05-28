@@ -3,6 +3,7 @@
     {{ displayValue || placeholder}}
     <div v-transfer-dom>
       <popup v-model="showPopup" style="background-color:#fff;">
+        <slot name="popup-header" :options="options" :value="currentValue"></slot>
         <radio :options="options" v-model="currentValue" :fill-mode="false" @on-change="onValueChange"></radio>
       </popup>
     </div>
