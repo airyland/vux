@@ -11,11 +11,11 @@ tags:
     - 单选
 slots:
   popup-header:
-    version: next
+    version: v2.3.3
     en: popup header slot
     zh-CN: 弹窗顶部
 changes:
-  next:
+  v2.3.3:
     en:
       - '[feature] Support slot:popup-header'
     zh-CN:

@@ -12,7 +12,7 @@ props:
     en: text of the Badge
     zh-CN: 显示的文字
 changes:
-  next:
+  v2.3.3:
     en:
       - '[feature] Use dot styles if no text is specified'
     zh-CN:
