@@ -1,5 +1,5 @@
 <template>
-	<div class="vux-x-input weui-cell" :class="{'weui-cell_warn': !novalidate && !valid}">
+	<div class="vux-x-input weui-cell" :class="{'weui-cell_warn': !novalidate && touched && !valid}">
     <div class="weui-cell__hd">
       <div :style="labelStyles" v-if="hasRestrictedLabel">
         <slot name="restricted-label"></slot>
