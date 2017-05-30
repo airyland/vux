@@ -60,6 +60,7 @@
   "Icon": "src/components/icon/index.vue",
   "InlineCalendar": "src/components/inline-calendar/index.vue",
   "InlineDesc": "src/components/inline-desc/index.vue",
+  "InlineLoading": "src/components/inline-loading/index.vue",
   "InlineXNumber": "src/components/inline-x-number/index.vue",
   "InviewDirective": "src/directives/inview/index.js",
   "Loading": "src/components/loading/index.vue",

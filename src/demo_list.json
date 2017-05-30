@@ -100,5 +100,6 @@
   "Issue1211#/issue/1211",
   "XTable",
   "PopupRadio",
-  "Flow"
+  "Flow",
+  "InlineLoading"
 ]
