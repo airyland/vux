@@ -213,6 +213,10 @@ class Swiper {
         div.innerHTML = this.$items[i].outerHTML
         $item = div.querySelector(this._options.item)
         $item.classList.add(`${this._options.item.replace('.', '')}-clone`)
+        // issue #1484 clone event
+        $item.addEventListener('click', (e) => {
+          me.$container.querySelector(`${this._options.item}[data-index="${i}"]`).click();
+        }, false)
         this.$container.appendChild($item)
       }
       this.realCount = 4
