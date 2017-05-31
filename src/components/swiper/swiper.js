@@ -78,9 +78,6 @@ class Swiper {
   }
 
   _init () {
-    if (this._options.loop) {
-      this._loopTwoItems()
-    }
     this._height = this._options.height === 'auto' ? 'auto' : this._options.height - 0
     this.updateItemWidth()
     this._initPosition()
@@ -202,21 +199,6 @@ class Swiper {
     me.$container.addEventListener('touchmove', me.touchmoveHandler, false)
     me.$container.addEventListener('touchend', me.touchendHandler, false)
     me.$items[1] && me.$items[1].addEventListener('webkitTransitionEnd', me.transitionEndHandler, false)
-  }
-
-  _loopTwoItems () {
-    // issue #596 (support when onlt two)
-    if (this.count === 2) {
-      let div = document.createElement('div')
-      let $item
-      for (let i = this.$items.length - 1; i >= 0; i--) {
-        div.innerHTML = this.$items[i].outerHTML
-        $item = div.querySelector(this._options.item)
-        $item.classList.add(`${this._options.item.replace('.', '')}-clone`)
-        this.$container.appendChild($item)
-      }
-      this.realCount = 4
-    }
   }
 
   _loopRender () {
