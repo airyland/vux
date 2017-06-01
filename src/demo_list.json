@@ -101,5 +101,6 @@
   "XTable",
   "PopupRadio",
   "Flow",
-  "InlineLoading"
+  "InlineLoading",
+  "InlineCalendarEachDaySlot#/demo/inline-calendar-each-day-slot"
 ]
