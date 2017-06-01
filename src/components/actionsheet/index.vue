@@ -61,6 +61,7 @@ export default {
       }
     },
     onClickingMask () {
+      this.$emit('on-click-mask')
       this.closeOnClickingMask && (this.show = false)
     },
     emitEvent (event, menu, shouldClose = true) {

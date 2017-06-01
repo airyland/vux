@@ -115,7 +115,16 @@ events:
   on-click-menu-cancel:
     en: triggers when clicking on the cancel menu
     zh-CN: 点击取消菜单时触发
+  on-click-mask:
+    version: next
+    en: triggers when clicking on mask
+    zh-CN: 点击遮罩时触发
 changes:
+  next:
+    en:
+      - '[feature] Support event: on-click-mask #1496'
+    zh-CN:
+      - '[feature] 支持遮罩点击事件 on-click-mask #1496'
   v2.2.0:
     en:
       - '[enhance] Donot update handel z-index in Safari when using v-transfer-dom'
