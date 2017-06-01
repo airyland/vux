@@ -74,7 +74,17 @@ props:
   fill-label:
     en: label for fill input
     zh-CN: 可填写时的label文字
+slots:
+  each-item:
+    version: next
+    en: custom how to display each item
+    zh-CN: 自定义如何显示每一项
 changes:
+  next:
+    en:
+      - '[feature] Support slot:each-item'
+    zh-CN:
+      - '[feature] 支持自定义渲染第一列 slot:each-item'
   v2.1.1-rc.13:
     en:
       - '[fix] Fix not support Number and not reactive #1115'

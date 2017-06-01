@@ -2,10 +2,12 @@
   <div class="weui-cells_radio">
     <label class="weui-cell weui-cell_radio weui-check__label" :for="`radio_${uuid}_${index}`" v-for="(one, index) in options">
       <div class="weui-cell__bd">
-        <p>
-          <img class="vux-radio-icon" :src="one.icon" v-show="one && one.icon">
-          <span class="vux-radio-label">{{one | getValue}}</span>
-        </p>
+        <slot name="each-item" :icon="one.icon" :label="getValue(one)" :index="index">
+          <p>
+            <img class="vux-radio-icon" :src="one.icon" v-show="one && one.icon">
+            <span class="vux-radio-label">{{one | getValue}}</span>
+          </p>
+        </slot>
       </div>
       <div class="weui-cell__ft">
         <input type="radio" class="weui-check" v-model="currentValue" :id="`radio_${uuid}_${index}`" :value="getKey(one)">
@@ -40,6 +42,7 @@ export default {
     this.handleChangeEvent = true
   },
   methods: {
+    getValue,
     getKey,
     onFocus () {
       this.currentValue = this.fillValue || ''

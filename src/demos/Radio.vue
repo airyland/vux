@@ -19,6 +19,16 @@
     <group title="object options">
       <radio fill-mode fill-label="Other" fill-placeholder="other" :options="radio003" @on-change="change"></radio>
     </group>
+
+    <group title="slot:each-item">
+      <radio :options="radio001">
+        <template scope="props" slot="each-item">
+          <p>
+            V{{ props.index + 1 }} <img src="http://dn-placeholder.qbox.me/110x110/FF2D55/000" class="vux-radio-icon"> {{ props.label }}
+          </p>
+        </template>
+      </radio>
+    </group>
   </div>
 </template>
 
