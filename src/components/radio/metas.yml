@@ -84,7 +84,7 @@ changes:
     en:
       - '[feature] Support slot:each-item'
     zh-CN:
-      - '[feature] 支持自定义渲染第一列 slot:each-item'
+      - '[feature] 支持自定义渲染每一列 slot:each-item'
   v2.1.1-rc.13:
     en:
       - '[fix] Fix not support Number and not reactive #1115'
