@@ -5,6 +5,9 @@
     </transition>
     <div class="weui-actionsheet" :class="{'weui-actionsheet_toggle': show}">
       <div class="weui-actionsheet__menu">
+        <div class="weui-actionsheet__cell" v-if="hasHeaderSlot">
+          <slot name="header"></slot>
+        </div>
         <div class="weui-actionsheet__cell" v-for="(text, key) in menus" @click="onMenuClick(text, key)" v-html="$t(text.label || text)" :class="`vux-actionsheet-menu-${text.type || 'default'}`">
         </div>
       </div>
@@ -24,6 +27,7 @@ cancel:
 <script>
 export default {
   mounted () {
+    this.hasHeaderSlot = !!this.$slots.header
     this.$nextTick(() => {
       this.$tabbar = document.querySelector('.weui-tabbar')
     })
@@ -43,6 +47,7 @@ export default {
   },
   data () {
     return {
+      hasHeaderSlot: false,
       show: false
     }
   },

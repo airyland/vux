@@ -120,6 +120,11 @@ events:
     en: triggers when clicking on mask
     zh-CN: 点击遮罩时触发
 changes:
+  next:
+    en:
+      - '[feature] Support slot:header #1381'
+    zh-CN:
+      - '[feature] 支持 slot:header #1381'
   v2.3.4:
     en:
       - '[feature] Support event: on-click-mask #1496'
