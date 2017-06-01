@@ -122,7 +122,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.3.4:
     en:
       - '[fix] do not trigger on-change on first-value-setting'
     zh-CN:
