@@ -157,6 +157,7 @@ export default {
     }
     if (this.required && !this.currentValue) {
       this.valid = false
+      this.getError()
     }
     this.handleChangeEvent = true
     if (this.debounce) {
