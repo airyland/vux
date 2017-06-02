@@ -21,6 +21,7 @@
 </template>
 
 <script>
+const Big = require('big.js')
 export default {
   props: {
     min: Number,
@@ -96,12 +97,15 @@ export default {
   methods: {
     add () {
       if (!this.disabledMax) {
-        this.currentValue += this.step
+        const x = new Big(this.currentValue)
+        this.currentValue = x.plus(this.step)
+        // this.currentValue += this.step
       }
     },
     sub () {
       if (!this.disabledMin) {
-        this.currentValue -= this.step
+        const x = new Big(this.currentValue)
+        this.currentValue = x.minus(this.step)
       }
     },
     blur () {
