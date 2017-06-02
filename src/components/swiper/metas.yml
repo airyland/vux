@@ -82,6 +82,11 @@ props:
     en: index value, use `v-model` for binding
     zh-CN: index 绑定，使用`v-model`，一般不需要绑定
 changes:
+  v2.3.4:
+    en:
+      - '[fix] Fix click to fail when only two swiper-item and loop #1484 @unclay'
+    zh-CN:
+      - '[fix] 修复只有两个轮播图且为 loop 时点击失效问题 #1484 @unclay'
   v2.2.1-rc.2:
     en:
       - '[enhance] Use document width as swiper width if initial width is 0 #1188'

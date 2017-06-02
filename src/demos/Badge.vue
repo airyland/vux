@@ -5,6 +5,12 @@
     <badge text="123"></badge>
     <br>
     <group :title="$t('Used in a Cell')">
+      <cell :title="$t('red dot')" is-link>
+        <div class="badge-value" slot="value">
+          <span class="vertical-middle">{{ $t('New Message') }} &nbsp;</span>
+          <badge></badge>
+        </div>
+      </cell>
       <cell :title="$t('single digit')" is-link>
         <div class="badge-value" slot="value">
           <span class="vertical-middle">{{ $t('New Message') }} &nbsp;</span>
@@ -30,6 +36,8 @@ single digit:
   zh-CN: 个位数
 Big Number:
   zh-CN: 多位数
+red dot:
+  zh-CN: 红点
 </i18n>
 
 <script>

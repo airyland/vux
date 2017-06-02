@@ -42,17 +42,17 @@ export function parseRow (tmpl, value) {
 
 // parse Date String
 export function parseDate (format, value) {
-  var formatParts = format.split(/[^A-Za-z]+/)
-  var valueParts = value.split(/\D+/)
+  const formatParts = format.split(/[^A-Za-z]+/)
+  let valueParts = value.split(/\D+/)
   if (formatParts.length !== valueParts.length) {
     // if it is error date, use current date
-    var date = formater(new Date(), format)
+    const date = formater(new Date(), format)
     valueParts = date.split(/\D+/)
   }
 
-  var result = {}
+  let result = {}
 
-  for (var i = 0; i < formatParts.length; i++) {
+  for (let i = 0; i < formatParts.length; i++) {
     if (formatParts[i]) {
       result[formatParts[i]] = valueParts[i]
     }
@@ -65,7 +65,7 @@ export function getElement (expr) {
 }
 
 export function toElement (html) {
-  var tempContainer = document.createElement('div')
+  const tempContainer = document.createElement('div')
   tempContainer.innerHTML = html
   return tempContainer.firstElementChild
 }

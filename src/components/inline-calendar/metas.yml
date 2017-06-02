@@ -92,7 +92,17 @@ props:
     default: false
     en: if disable future days
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
+slots:
+  each-day:
+    version: next
+    en: you can custom how to display each day
+    zh-CN: 用以自定义每一天的显示渲染，使用该 slot 就不需要 render-function 了
 changes:
+  next:
+    en:
+      - '[feature] Support slot:each-day'
+    zh-CN:
+      - '[feature] 支持自定义每一天的 html 渲染 slot:each-day'
   v2.3.1:
     en:
       - '[fix] Fix render-function-generated-content visibility issue #1409'

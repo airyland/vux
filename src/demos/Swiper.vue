@@ -98,7 +98,7 @@
     <swiper loop auto :list="demo06_list" :index="demo06_index" @on-index-change="demo06_onIndexChange"></swiper>
     <p>current index: {{demo06_index}}</p>
 
-    <group-title>循环模式（只有两个）</group-title>
+    <group-title>循环模式（只有两个且可点击）</group-title>
     <swiper loop auto :list="demo07_list" :index="demo07_index" @on-index-change="demo07_onIndexChange"></swiper>
     <p>current index: {{demo07_index}}</p>
   </div>
@@ -138,7 +138,10 @@ const demoList = imgList.map((one, index) => ({
   img: one
 }))
 
-const only2List = baseList.slice(0, 2)
+const only2ClickList = baseList.slice(0, 2).map(item => {
+  item.url = 'http://m.baidu.com'
+  return item
+})
 
 export default {
   components: {
@@ -179,7 +182,7 @@ export default {
       demo04_list: imgList,
       demo05_list: [],
       demo06_list: urlList,
-      demo07_list: only2List,
+      demo07_list: only2ClickList,
       demo01_index: 0,
       demo02_index: 1,
       demo05_index: 0,

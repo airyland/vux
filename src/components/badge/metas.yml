@@ -12,6 +12,11 @@ props:
     en: text of the Badge
     zh-CN: 显示的文字
 changes:
+  v2.3.3:
+    en:
+      - '[feature] Use dot styles if no text is specified'
+    zh-CN:
+      - '[feature] 支持没有指定文字时为 红点 样式'
   v2.2.1-rc.2:
     en:
       - '[fix] Fix className:vux-badge-single not work for number #1223'

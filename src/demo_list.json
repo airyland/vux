@@ -100,5 +100,7 @@
   "Issue1211#/issue/1211",
   "XTable",
   "PopupRadio",
-  "Flow"
+  "Flow",
+  "InlineLoading",
+  "InlineCalendarEachDaySlot#/demo/inline-calendar-each-day-slot"
 ]

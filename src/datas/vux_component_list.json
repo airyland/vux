@@ -131,6 +131,10 @@
     "icon": "&#xe62b;"
   },
   {
+    "name": "inline-loading",
+    "icon": "&#xe610;"
+  },
+  {
     "name": "load-more",
     "icon": "&#xe610;"
   },

@@ -1,0 +1,7 @@
+icon: '&#xe610;'
+changes:
+  v2.3.4:
+    en:
+      - '[feature] new component'
+    zh-CN:
+      - '[feature] 新组件'

@@ -3,7 +3,6 @@
     <group>
       <x-switch :title="$t('Basic Usage')" v-model="show1"></x-switch>
       <x-switch :title="$t('Show cancel menu')" v-model="show2"></x-switch>
-      <x-switch :title="$t('menu as tips')" v-model="show3"></x-switch>
       <x-switch :title="$t('Array menu')" v-model="show5"></x-switch>
     </group>
 
@@ -11,7 +10,12 @@
       <x-switch :title="$t('Basic Usage')" v-model="show4"></x-switch>
     </group>
 
-    <actionsheet v-model="show4" :menus="menus1" :close-on-clicking-mask="false" show-cancel></actionsheet>
+    <group>
+      <x-switch :title="$t('menu as tips')" v-model="show3"></x-switch>
+      <x-switch :title="$t('slot:header')" v-model="show6"></x-switch>
+    </group>
+
+    <actionsheet v-model="show4" :menus="menus1" :close-on-clicking-mask="false" show-cancel @on-click-mask="console('on click mask')"></actionsheet>
 
     <actionsheet v-model="show1" :menus="menus1" @on-click-menu="click"></actionsheet>
 
@@ -20,12 +24,20 @@
     <actionsheet v-model="show3" :menus="menus3" @on-click-menu="click" @on-click-menu-delete="onDelete" show-cancel></actionsheet>
 
     <actionsheet v-model="show5" :menus="menus5" show-cancel @on-click-menu="click"></actionsheet>
+
+    <actionsheet v-model="show6" :menus="menus1">
+      <p slot="header" v-html="$t('actionsheet header')"></p>
+    </actionsheet>
     
-    <toast v-model="showSuccess">{{$t('Deleted~') }}</toast>
+    <toast v-model="showSuccess">{{ $t('Deleted~') }}</toast>
   </div>
 </template>
 
 <i18n>
+Deleted~:
+  zh-CN: 删除成功
+slot:header:
+  zh-CN: 使用 header slot
 Basic Usage:
   zh-CN: 基本使用
 Show cancel menu:
@@ -42,7 +54,8 @@ Take Photo:
   zh-CN: 拍照
 Choose from photos:
   zh-CN: 从相册选择
-'Are you sure?<br/><span style="color:#666;font-size:12px;">Once deleted, you will never find it.</span>':
+actionsheet header:
+  en: 'Are you sure?<br/><span style="color:#666;font-size:12px;">Once deleted, you will never find it.</span>'
   zh-CN: '确定咩?<br/><span style="color:#666;font-size:12px;">删除后就无法撤消了哦</span>'
 '<span style="color:red">Delete</span>':
   zh-CN: '<span style="color:red">删除</span>'
@@ -75,8 +88,9 @@ export default {
       show3: false,
       show4: false,
       show5: false,
+      show6: false,
       menus5: [{
-        label: 'Are you sure?<br/><span style="color:#666;font-size:12px;">Once deleted, you will never find it.</span>',
+        label: 'actionsheet header',
         type: 'info'
       }, {
         label: 'Primary',
@@ -93,12 +107,15 @@ export default {
       }],
       showSuccess: false,
       menus3: {
-        'title.noop': 'Are you sure?<br/><span style="color:#666;font-size:12px;">Once deleted, you will never find it.</span>',
+        'title.noop': 'actionsheet header',
         delete: '<span style="color:red">Delete</span>'
       }
     }
   },
   methods: {
+    console (msg) {
+      console.log(msg)
+    },
     click (key) {
       console.log(key)
     },

@@ -36,9 +36,20 @@
           :data-current="currentValue"
           :class="buildClass(k2, child)"
           @click="select(k1,k2,child)">
-            <span
-            v-show="showChild(year, month, child)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
-            <div v-html="renderFunction(k1, k2, child)" v-show="showChild(year, month, child)"></div>
+            <slot
+            :year="year"
+            :month="month"
+            :child="child"
+            :row="k1"
+            :col="k2"
+            :raw-date="formatDate(year, month, child)"
+            :show-date="replaceText(child.day, formatDate(year, month, child))"
+            :is-show="showChild(year, month, child)"
+            name="each-day">
+              <span
+              v-show="showChild(year, month, child)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
+              <div v-html="renderFunction(k1, k2, child)" v-show="showChild(year, month, child)"></div>
+            </slot>
           </td>
         </tr>
       </tbody>

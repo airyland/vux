@@ -93,11 +93,11 @@ slots:
     en: inline-desc slot, the same function as prop:inline-desc but can use html
     zh-CN: inline-desc 内容，和 prop:inline-desc 功能一样，但是可以使用 html
   title:
-    version: next
+    version: v2.3.3
     en: title slot
     zh-CN: title 插槽，方便自定义样式
 changes:
-  next:
+  v2.3.3:
     en:
       - '[feature] Support slot:title'
     zh-CN:

@@ -92,6 +92,7 @@ export default {
     displayFormat: Function
   },
   created () {
+    this.isFirstSetValue = false
     this.currentValue = this.value
     this.handleChangeEvent = true
   },
@@ -177,9 +178,14 @@ export default {
     }
   },
   watch: {
-    currentValue (val) {
-      this.$emit('on-change', val)
+    currentValue (val, oldVal) {
       this.$emit('input', val)
+      if (!this.isFirstSetValue) {
+        this.isFirstSetValue = true
+        oldVal && this.$emit('on-change', val)
+      } else {
+        this.$emit('on-change', val)
+      }
       this.validate()
     },
     startDate () {
