@@ -47,11 +47,11 @@ var Scroller = function (container, options) {
   var html = ''
   if (data.length && data[0].constructor === Object) {
     data.forEach(function (row) {
-      html += '<div class="' + self.options.itemClass + '" data-value="' + row.value + '">' + row.name + '</div>'
+      html += '<div class="' + self.options.itemClass + '" data-value=' + JSON.stringify({value: row.value}) + '>' + row.name + '</div>'
     })
   } else {
     data.forEach(function (val) {
-      html += '<div class="' + self.options.itemClass + '" data-value="' + val + '">' + val + '</div>'
+      html += '<div class="' + self.options.itemClass + '" data-value=' + JSON.stringify({value: val}) + '>' + val + '</div>'
     })
   }
   content.innerHTML = html
@@ -156,7 +156,7 @@ var members = {
 
     var children = self.__content.children
     for (var i = 0, len = children.length; i < len; i++) {
-      if (children[i].dataset.value === value) {
+      if (JSON.parse(children[i].dataset.value).value === value) {
         self.selectByIndex(i, animate)
         return
       }
@@ -208,7 +208,7 @@ var members = {
       self.__prevValue = self.value
     }
 
-    self.value = selectedItem.dataset.value
+    self.value = JSON.parse(selectedItem.dataset.value).value
   },
 
   __scrollingComplete () {
@@ -548,5 +548,4 @@ for (var key in members) {
   Scroller.prototype[key] = members[key]
 }
 
-module.exports = Scroller
-
+export default Scroller
