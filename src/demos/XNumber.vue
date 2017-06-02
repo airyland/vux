@@ -20,6 +20,10 @@
       <x-number :title="$t('Quantity')" :step="0.5"></x-number>
     </group>
 
+    <group :title="$t('set step=0.1')">
+      <x-number :title="$t('Quantity')" :step="0.1"></x-number>
+    </group>
+
     <group :title="$t('set value=1, min=-5 and max=8')">
       <x-number :title="$t('Quantity')" :min="-5" :max="8" :value="1"></x-number>
     </group>
