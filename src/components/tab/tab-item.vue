@@ -1,6 +1,7 @@
 <template>
   <div class="vux-tab-item" :class="[currentSelected ? activeClass : '', {'vux-tab-selected': currentSelected, 'vux-tab-disabled': disabled}]" :style="style" @click="onItemClick">
     <slot></slot>
+    <span :style="{background: statusBackGround, color: statusColor}" class="vux-tab-item-status" v-if="statusLabel !== undefined && statusLabel !== ''">{{statusLabel}}</span>
   </div>
 </template>
 
@@ -11,7 +12,10 @@ export default {
   mixins: [childMixin],
   props: {
     activeClass: String,
-    disabled: Boolean
+    disabled: Boolean,
+    statusBackGround: String,
+    statusColor: String,
+    statusLabel: String
   },
   computed: {
     style () {
