@@ -65,7 +65,14 @@
     <br/>
     <br/>
     <br/>
-
+    <divider>tab-item status</divider>
+    <tab>
+      <tab-item selected statusBackGround="#f74c31" statusColor="#fff" statusLabel="1">收到的消息</tab-item>
+      <tab-item statusBackGround="#38C972" statusColor="#fff" statusLabel="2">发出的消息</tab-item>
+    </tab>
+    <br/>
+    <br/>
+    <br/>
     <div>
        <tab :line-width=2 active-color='#fc378c' v-model="index">
         <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">{{item}}</tab-item>
