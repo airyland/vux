@@ -137,7 +137,7 @@ export default {
       demo2: '美食',
       list3: ['收到的消息', '发出的消息'],
       demo3: '收到的消息',
-      list4: ['正在正映', '即将上映'],
+      list4: ['正在放映', '即将上映'],
       demo4: '即将上映',
       demoDisabled: 'A',
       index: 0,
