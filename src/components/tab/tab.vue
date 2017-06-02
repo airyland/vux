@@ -166,4 +166,20 @@ export default {
   height: 100%;
   transition: width 0.3s @easing-in-out;
 }
+
+.vux-tab-item-status {
+  position: absolute;
+  top:0;
+  bottom:0;
+  display: inline-block;
+  height: 18px;
+  min-width: 18px;
+  padding: 0 4px;
+  border-radius: 30px;
+  margin: auto 0 auto 4px;
+  line-height: 18px;
+  font-size: 11px;
+  background-clip: padding-box;
+  vertical-align: middle;
+}
 </style>
