@@ -42,6 +42,23 @@ tab:
       version: v2.1.1-rc.7
       en: 'set active bar width, like `50px`. or you can use function, param is `(currentInex)`'
       zh-CN: '设置底部`bar`宽度，默认宽度是整体tab宽度平分，比如`50px`。使用函数时参数为当前索引`index`，你可以定义不同`tab-item`对应的`bar`宽度。'
+    badge-label:
+      version: next
+      type: String
+      en: badge label
+      zh-CN: 徽标文字
+    badge-background:
+      version: next
+      type: String
+      default: #f74c31
+      en: badge background color
+      zh-CN: 徽标背景颜色
+    badge-color:
+      version: next
+      type: String
+      default: #fff
+      en: badge font color
+      zh-CN: 徽标文字颜色
 tab-item:
   props:
     disabled:

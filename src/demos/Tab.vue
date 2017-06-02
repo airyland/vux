@@ -65,7 +65,14 @@
     <br/>
     <br/>
     <br/>
-
+    <divider>tab-item badge</divider>
+    <tab>
+      <tab-item selected badge-label="1">收到的消息</tab-item>
+      <tab-item badge-background="#38C972" badge-color="#fff" badge-label="2">发出的消息</tab-item>
+    </tab>
+    <br/>
+    <br/>
+    <br/>
     <div>
        <tab :line-width=2 active-color='#fc378c' v-model="index">
         <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">{{item}}</tab-item>
@@ -130,7 +137,7 @@ export default {
       demo2: '美食',
       list3: ['收到的消息', '发出的消息'],
       demo3: '收到的消息',
-      list4: ['正在正映', '即将上映'],
+      list4: ['正在放映', '即将上映'],
       demo4: '即将上映',
       demoDisabled: 'A',
       index: 0,
