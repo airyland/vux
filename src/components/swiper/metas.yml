@@ -104,3 +104,8 @@ changes:
       - '[fix] Fix es6 iterator compability, use forEach'
     zh-CN:
       - '[fix] 修复部分机子不支持 for of 遍历'
+next:
+    en:
+      - '[fix] Fix repeat render bug #1458'
+    zh-CN:
+      - '[fix] 修复重复渲染问题 #1458'

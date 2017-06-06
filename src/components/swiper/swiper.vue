@@ -79,9 +79,10 @@ export default {
       }
     },
     rerender () {
-      if (!this.$el) {
+      if (!this.$el || this.hasRender) {
         return
       }
+      this.hasRender = true
       this.hasTwoLoopItem()
       this.$nextTick(() => {
         this.index = this.value || 0
@@ -163,6 +164,7 @@ export default {
   },
   data () {
     return {
+      hasRender: false,
       current: this.index || 0,
       xheight: 'auto',
       length: this.list.length,
