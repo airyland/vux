@@ -17,6 +17,11 @@ after_extra:
 
       `value`: event name，if not specified, no `on-click-menu` will be emitted
 
+      `theme`:
+        
+        - `ios` ios theme
+        - `android` android theme
+
       `type`: 
 
         - `primary` primary color
@@ -50,6 +55,11 @@ after_extra:
       `label`: 菜单名字，支持文字及`html`。
 
       `value`: 英文字符，表示触发事件的名字，如果不设置不会触发`on-click-menu`事件。
+
+      `theme`: 菜单风格，可选值如下
+
+        - `ios` ios风格
+        - `android` android风格
 
       `type`: 类型，可选值如下
 
@@ -92,6 +102,11 @@ props:
     default: 'cancel(取消)'
     en: text of cancel menu
     zh-CN: 取消菜单文字
+  theme:
+    type: String
+    default: 'ios'
+    en: theme of menus
+    zh-CN: 菜单风格
   menus:
     type: Object,Array
     default: '{}'

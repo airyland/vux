@@ -2,6 +2,7 @@
   <div>
     <group>
       <x-switch :title="$t('Basic Usage')" v-model="show1"></x-switch>
+      <x-switch :title="$t('Android Theme')" v-model="show7"></x-switch>
       <x-switch :title="$t('Show cancel menu')" v-model="show2"></x-switch>
       <x-switch :title="$t('Array menu')" v-model="show5"></x-switch>
     </group>
@@ -28,6 +29,9 @@
     <actionsheet v-model="show6" :menus="menus1">
       <p slot="header" v-html="$t('actionsheet header')"></p>
     </actionsheet>
+
+    <actionsheet v-model="show7" :menus="menu7" theme="android" @on-click-menu="click">
+    </actionsheet>
     
     <toast v-model="showSuccess">{{ $t('Deleted~') }}</toast>
   </div>
@@ -40,6 +44,8 @@ slot:header:
   zh-CN: 使用 header slot
 Basic Usage:
   zh-CN: 基本使用
+Android Theme:
+  zh-CN: 安卓风格
 Show cancel menu:
   zh-CN: 显示取消菜单
 menu as tips:
@@ -89,6 +95,7 @@ export default {
       show4: false,
       show5: false,
       show6: false,
+      show7: false,
       menus5: [{
         label: 'actionsheet header',
         type: 'info'
@@ -105,6 +112,11 @@ export default {
       }, {
         label: 'Default'
       }],
+      menu7: {
+        menu1: '北京烤鸭',
+        menu2: '陕西油泼面',
+        menu3: '西安肉夹馍'
+      },
       showSuccess: false,
       menus3: {
         'title.noop': 'actionsheet header',

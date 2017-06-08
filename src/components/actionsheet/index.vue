@@ -3,7 +3,18 @@
     <transition name="vux-actionsheet-mask">
       <div class="weui-mask weui-mask_transparent" @click="onClickingMask" v-show="show"></div>
     </transition>
-    <div class="weui-actionsheet" :class="{'weui-actionsheet_toggle': show}">
+    <div class="weui-skin_android" v-if="theme === 'android'">
+      <transition name="vux-android-actionsheet">
+        <div class="weui-actionsheet" v-show="show">
+          <div class="weui-actionsheet__menu">
+            <div class="weui-actionsheet__cell" v-for="(text, key) in menus" @click="
+              onMenuClick(text, key)" v-html="$t(text.label || text)">
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <div class="weui-actionsheet" :class="{'weui-actionsheet_toggle': show}" v-else>
       <div class="weui-actionsheet__menu">
         <div class="weui-actionsheet__cell" v-if="hasHeaderSlot">
           <slot name="header"></slot>
@@ -36,6 +47,10 @@ export default {
     value: Boolean,
     showCancel: Boolean,
     cancelText: String,
+    theme: {
+      type: String,
+      default: 'ios'
+    },
     menus: {
       type: [Object, Array],
       default: () => ({})
@@ -125,10 +140,16 @@ export default {
 .vux-actionsheet-menu-disabled {
   color: @actionsheet-label-disabled-color;
 }
-.vux-actionsheet-mask-enter, .vux-actionsheet-mask-leave-active {
+.vux-actionsheet-mask-enter,
+.vux-actionsheet-mask-leave-active,
+.vux-android-actionsheet-enter,
+.vux-android-actionsheet-leave-active {
   opacity: 0;
 }
-.vux-actionsheet-mask-leave-active, .vux-actionsheet-mask-enter-active {
-  transition: opacity 300ms;
+.vux-actionsheet-mask-leave-active,
+.vux-actionsheet-mask-enter-active,
+.vux-android-actionsheet-leave-active,
+.vux-android-actionsheet-enter-active {
+  transition: opacity 300ms!important;
 }
 </style>
