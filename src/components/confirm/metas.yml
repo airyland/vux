@@ -43,6 +43,10 @@ props:
   title:
     en: dialog title
     zh-CN: 弹窗标题
+  content:
+    type: String
+    en: dialog content
+    zh-CN: 弹窗内容，作为slot默认内容，可以是html片段，如果使用slot该字段会失效
   confirm-text:
     default: 确认(confirm)
     en: confirm button text
