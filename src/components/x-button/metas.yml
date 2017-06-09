@@ -41,6 +41,10 @@ props:
   action-type:
     en: button's type value, one of `submit`, `button`, `reset`
     zh-CN: '`button`的type属性，默认为浏览器默认(submit)，可选为 `submit` `button` `reset`'
+  link:
+    version: next
+    en: 'vue-router path, `BACK` is alias to `go(-1)`'
+    zh-CN: 'vue-router 路由, 值为 `BACK` 等同于 `go(-1)`'
 slots:
   default:
     en: button text

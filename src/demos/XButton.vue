@@ -6,6 +6,10 @@
       <x-button type="primary">primary</x-button>
       <x-button type="warn">Delete</x-button>
 
+      <divider>link</divider>
+      <x-button type="primary" link="/demo">Go to demo list</x-button>
+      <x-button type="default" link="BACK">Back</x-button>
+
       <divider>action type</divider>
       <x-button type="primary" action-type="button">submit</x-button>
       <x-button type="warn" action-type="reset">reset</x-button>
