@@ -74,6 +74,11 @@ tab-item:
       en: emits when current tabItem is clicked
       zh-CN: 当前 tabItem 被点击时触发
 changes:
+  next:
+    en:
+      - '[feature] Support badge #1513'
+    zh-CN:
+      - '[feature] 支持设置 badge #1513'
   v2.2.1-rc.4:
     en:
       - '[enhance] Support param:index on event:on-item-click'
