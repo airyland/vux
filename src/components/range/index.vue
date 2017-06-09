@@ -26,7 +26,7 @@ export default {
     },
     step: {
       type: Number,
-      default: 0
+      default: 1
     },
     disabled: Boolean,
     disabledOpacity: Number,
