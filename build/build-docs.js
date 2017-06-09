@@ -55,6 +55,7 @@ let maps = {}
 saveMaps('numberRange', 'src/tools/number/range.js')
 saveMaps('dateRange', 'src/tools/date/range.js')
 saveMaps('TransferDom', 'src/directives/transfer-dom/index.js')
+saveMaps('trim', 'src/tools/string/trim')
 
 function saveMaps(key, value) {
   if (key === 'RangeTool') {
