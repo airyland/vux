@@ -11,6 +11,11 @@ if (!version) {
   throw('no version specified')
 }
 
+const pkg = require(getPath('../package.json'))
+pkg.version = version.replace('v', '')
+
+fs.writeFileSync(getPath('../package.json'), JSON.stringify(pkg, null, 2))
+
 glob(getPath('../src/**/**/metas.yml'), {}, function (err, files) {
   let rs = []
   files.forEach(function (file) {

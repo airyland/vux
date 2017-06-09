@@ -66,7 +66,7 @@ slots:
     en: slot on the right of input
     zh-CN: 输入框右侧 slot
   left:
-    version: next
+    version: v2.3.5
     en: slot on the left of input
     zh-CN: 输入框左侧 slot
 methods:
@@ -74,7 +74,7 @@ methods:
     en: "set focus on input. you should call this method in a click event's callback function on Safari"
     zh-CN: 获取 input 焦点，在 Safari 上你必须在 click 事件回调里使用才能生效
 changes:
-  next:
+  v2.3.5:
     en:
       - '[feature] Add slot:left'
     zh-CN:

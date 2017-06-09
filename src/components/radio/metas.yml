@@ -76,11 +76,11 @@ props:
     zh-CN: 可填写时的label文字
 slots:
   each-item:
-    version: next
+    version: v2.3.5
     en: custom how to display each item
     zh-CN: 自定义如何显示每一项
 changes:
-  next:
+  v2.3.5:
     en:
       - '[feature] Support slot:each-item'
     zh-CN:

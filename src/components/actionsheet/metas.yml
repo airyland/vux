@@ -135,7 +135,7 @@ events:
     en: triggers when clicking on mask
     zh-CN: 点击遮罩时触发
 changes:
-  next:
+  v2.3.5:
     en:
       - '[feature] Support slot:header #1381'
     zh-CN:

@@ -89,11 +89,11 @@ props:
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
 slots:
   each-day:
-    version: next
+    version: v2.3.5
     en: you can custom how to display each day
     zh-CN: 用以自定义每一天的显示渲染，使用该 slot 就不需要 render-function 了
 changes:
-  next:
+  v2.3.5:
     en:
       - '[feature] Support slot:each-day'
     zh-CN:
