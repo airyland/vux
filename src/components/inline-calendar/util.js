@@ -207,6 +207,16 @@ export function getDays ({year, month, value, isRange = false, rangeBegin, range
     year: year,
     month: month,
     month_str: month + 1,
-    days: temp
+    days: temp.map(line => {
+      /**
+      * https://github.com/airyland/vux/issues/1361
+      * @todo day will be changed to week-day after v3.0
+      */
+      line.map(item => {
+        item.date = item.day
+        return item
+      })
+      return line
+    })
   }
 }

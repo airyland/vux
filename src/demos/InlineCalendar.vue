@@ -111,7 +111,7 @@ export default {
     },
     useCustomFn (val) {
       this.buildSlotFn = val ? (line, index, data) => {
-        return /8/.test(data.day) ? '<div style="font-size:12px;text-align:center;"><span style="display:inline-block;width:5px;height:5px;background-color:red;border-radius:50%;"></span></div>' : ''
+        return /8/.test(data.date) ? '<div style="font-size:12px;text-align:center;"><span style="display:inline-block;width:5px;height:5px;background-color:red;border-radius:50%;"></span></div>' : '<div style="height:19px;"></div>'
       } : () => ''
     },
     changeWeeksList (val) {
