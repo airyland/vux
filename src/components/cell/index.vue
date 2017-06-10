@@ -113,7 +113,7 @@ export default {
     color: #b2b2b2;
   }
   &.weui-cell_access .weui-cell__ft:after {
-    border-color: #e2e2e2;
+    border-color: @cell-disabled-arrow-color;
   }
 }
 </style>

@@ -97,6 +97,11 @@ slots:
     en: title slot
     zh-CN: title 插槽，方便自定义样式
 changes:
+  next:
+    en:
+      - '[feature] Support arrow less variables'
+    zh-CN:
+      - '[feature] 支持多个箭头样式变量'
   v2.3.3:
     en:
       - '[feature] Support slot:title'
