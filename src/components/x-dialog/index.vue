@@ -33,11 +33,6 @@ export default {
       default: true
     }
   },
-  created () {
-    if (typeof this.value !== 'undefined') {
-      this.currentValue = this.value
-    }
-  },
   watch: {
     value: {
       handler: function (val) {
