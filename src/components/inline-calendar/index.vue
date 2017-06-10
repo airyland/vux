@@ -336,36 +336,6 @@ export default {
   border:5px solid rgba(0, 0, 0, 0);
   border-bottom-color: #fff;
 }
-.calendar-tools{
-  height:32px;
-  font-size: 20px;
-  line-height: 32px;
-  color: #04be02;
-}
-.calendar-tools .float.left{
-  float:left;
-}
-.calendar-tools .float.right{
-  float:right;
-}
-.calendar-tools input{
-  font-size: 20px;
-  line-height: 32px;
-  color: #04be02;
-  width: 70px;
-  text-align: center;
-  border:none;
-  background-color: transparent;
-}
-.calendar-tools>i{
-  margin:0 16px;
-  line-height: 32px;
-  cursor: pointer;
-  color:#707070;
-}
-.calendar-tools>i:hover{
-  color:#5e7a88;
-}
 .inline-calendar table {
   clear: both;
   width: 100%;
