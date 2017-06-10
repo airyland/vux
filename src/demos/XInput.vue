@@ -79,6 +79,11 @@
       <x-input title="请确认6位数字" v-model="password2" type="text" placeholder="" :equal-with="password"></x-input>
     </group>
 
+    <group title="enter事件">
+      <x-input title="输入完成后回车" type="text" placeholder="" v-model="enterText"
+        @on-enter="onEnter"></x-input>
+    </group>
+
     <group title="验证码" class="weui-cells_form">
       <x-input title="验证码" class="weui-cell_vcode">
         <img slot="right" class="weui-vcode-img" src="http://weui.github.io/weui/images/vcode.jpg">
@@ -115,6 +120,7 @@ export default {
     return {
       password: '123465',
       password2: '',
+      enterText: '',
       valid1: false,
       valid2: false,
       iconType: '',
@@ -145,6 +151,9 @@ export default {
     },
     onFocus (val) {
       console.log('on focus', val)
+    },
+    onEnter (val) {
+      console.log('click enter!', val)
     }
   }
 }
