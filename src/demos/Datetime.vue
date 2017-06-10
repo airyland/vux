@@ -4,6 +4,10 @@
       <datetime v-model="value1" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
 
+    <group title="readonly">
+      <datetime v-model="valueReadonly" readonly @on-change="change" :title="$t('Birthday')"></datetime>
+    </group>
+
      <group :title="$t('format display value')">
       <datetime v-model="formatValue" :display-format="formatValueFunction" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
@@ -119,6 +123,7 @@ export default {
     return {
       format: 'YYYY-MM-DD HH:mm',
       value1: '2015-11-12',
+      valueReadonly: '2015-11-12',
       value2: '',
       value3: '',
       value4: '',

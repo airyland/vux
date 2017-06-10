@@ -1,5 +1,5 @@
 <template>
-  <a class="vux-datetime weui-cell weui-cell_access" href="javascript:">
+  <a class="vux-datetime weui-cell" :class="{'weui-cell_access': !readonly}" href="javascript:">
     <slot>
       <div>
         <slot name="title">
@@ -91,7 +91,8 @@ export default {
     startDate: String,
     endDate: String,
     valueTextAlign: String,
-    displayFormat: Function
+    displayFormat: Function,
+    readonly: Boolean
   },
   created () {
     this.isFirstSetValue = false
@@ -107,10 +108,12 @@ export default {
   },
   mounted () {
     const uuid = this.uuid
-    this.$nextTick(() => {
-      this.$el.setAttribute('id', `vux-datetime-${uuid}`)
-      this.render()
-    })
+    if (!this.readonly) {
+      this.$nextTick(() => {
+        this.$el.setAttribute('id', `vux-datetime-${uuid}`)
+        this.render()
+      })
+    }
   },
   computed: {
     _value () {
@@ -210,7 +213,7 @@ export default {
     }
   },
   beforeDestroy () {
-    this.picker.destroy()
+    this.picker && this.picker.destroy()
   }
 }
 </script>
@@ -340,6 +343,9 @@ export default {
   text-align: center;
 }
 
+.vux-datetime {
+  color: #000;
+}
 .vux-datetime .vux-input-icon {
   float: right;
 }

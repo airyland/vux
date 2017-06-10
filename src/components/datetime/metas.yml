@@ -116,6 +116,10 @@ props:
     type: Function
     en: used to format display value
     zh-CN: 自定义显示值
+  readonly:
+    version: next
+    en: readonly mode, show like a cell
+    zh-CN: 只读模式，显示类似于 cell
 slots:
   title:
     version: next
@@ -130,8 +134,10 @@ changes:
   next:
     en:
       - '[feature] Add slot:title'
+      - '[feature] Add prop:readonly'
     zh-CN:
       - '[feature] 添加 slot:title'
+      - '[feature] 添加 prop:readonly'
   v2.3.4:
     en:
       - '[fix] do not trigger on-change on first-value-setting'
