@@ -9,12 +9,22 @@ tags:
   zh-CN:
     - 表单
     - 单选
+props:
+  readonly:
+    version: next
+    en: readonly, shown like a cell
+    zh-CN: 只读样式，类似于 cell
 slots:
   popup-header:
     version: v2.3.3
     en: popup header slot
     zh-CN: 弹窗顶部
 changes:
+  next:
+    en:
+      - '[feature] Add prop:readonly'
+    zh-CN:
+      - '[feature] 添加 prop:readonly'
   v2.3.3:
     en:
       - '[feature] Support slot:popup-header'

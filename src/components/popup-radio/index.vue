@@ -1,5 +1,5 @@
 <template>
-  <cell @click.native="show" :title="title" :value="currentValue" is-link :value-align="valueAlign">
+  <cell @click.native="show" :title="title" :value="currentValue" :is-link="!readonly" :value-align="valueAlign">
     {{ displayValue || placeholder}}
     <div v-transfer-dom>
       <popup v-model="showPopup" style="background-color:#fff;">
@@ -33,6 +33,7 @@ export default {
   },
   props: {
     placeholder: String,
+    readonly: Boolean,
     ..._cellProps,
     ...radioProps()
   },
@@ -57,7 +58,9 @@ export default {
       this.hide()
     },
     show () {
-      this.showPopup = true
+      if (!this.readonly) {
+        this.showPopup = true
+      }
     },
     hide () {
       this.showPopup = false

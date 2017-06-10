@@ -13,6 +13,12 @@
         <p slot="popup-header" class="vux-1px-b demo3-slot">Please select</p>
       </popup-radio>
     </group>
+
+    <group>
+      <popup-radio title="readonly" readonly :options="options3" v-model="option4">
+        <p slot="popup-header" class="vux-1px-b demo3-slot">Please select</p>
+      </popup-radio>
+    </group>
   </div>
 </template>
 
@@ -37,7 +43,8 @@ export default {
         value: 'label B'
       }],
       option3: 'C',
-      options3: ['A', 'B', 'C']
+      options3: ['A', 'B', 'C'],
+      option4: 'B'
     }
   }
 }
