@@ -28,6 +28,7 @@
       v-model="currentValue"
       @focus="focusHandler"
       @blur="onBlur"
+      @keyup="onKeyUp"
       ref="input"/>
       <input
       v-if="type === 'number'"
@@ -47,6 +48,7 @@
       v-model="currentValue"
       @focus="focusHandler"
       @blur="onBlur"
+      @keyup="onKeyUp"
       ref="input"/>
       <input
       v-if="type === 'email'"
@@ -66,6 +68,7 @@
       v-model="currentValue"
       @focus="focusHandler"
       @blur="onBlur"
+      @keyup="onKeyUp"
       ref="input"/>
       <input
       v-if="type === 'password'"
@@ -85,6 +88,7 @@
       v-model="currentValue"
       @focus="focusHandler"
       @blur="onBlur"
+      @keyup="onKeyUp"
       ref="input"/>
       <input
       v-if="type === 'tel'"
@@ -104,6 +108,7 @@
       v-model="currentValue"
       @focus="focusHandler"
       @blur="onBlur"
+      @keyup="onKeyUp"
       ref="input"/>
     </div>
     <div class="weui-cell__ft">
@@ -288,6 +293,12 @@ export default {
       this.setTouched()
       this.validate()
       this.$emit('on-blur', this.currentValue)
+    },
+    onKeyUp (e) {
+      if (e.key === 'Enter') {
+        e.target.blur()
+        this.$emit('on-enter', this.currentValue)
+      }
     },
     getError () {
       let key = Object.keys(this.errors)[0]

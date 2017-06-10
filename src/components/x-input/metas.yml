@@ -100,6 +100,9 @@ events:
   on-focus:
     params: '`(value)`'
     zh-CN: 'input的`focus`事件'
+  on-enter:
+    params: '`(value)`'
+    zh-CN: 'input输入完成后点击`enter(确认)`事件'
   on-change:
     params: '`(value)`'
     zh-CN: '输入值变化时触发。如果你使用了`debounce`，那么触发将不会是实时的。'
