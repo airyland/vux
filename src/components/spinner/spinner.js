@@ -33,7 +33,7 @@ var SPIN_ANIMATION = {
   dur: DURATION
 }
 
-function createSvgElement (tagName, data, parent, spinnerName) {
+function createSvgElement (tagName, data, parent, spinnerName, size) {
   var ele = document.createElement(SHORTCUTS[tagName] || tagName)
   var k, x, y
 
@@ -52,7 +52,9 @@ function createSvgElement (tagName, data, parent, spinnerName) {
       setSvgAttribute(ele, k, data[k])
     }
   }
-
+  if (size && size !== '28px') {
+    setSvgAttribute(ele, 'style', `width: ${size}; height: ${size}`)
+  }
   parent.appendChild(ele)
 }
 
@@ -396,14 +398,14 @@ function easeInOutCubic (t, c) {
   return 1 / 2 * (t * t * t + 2)
 }
 
-export default function (el, icon) {
+export default function (el, icon, size) {
   var spinnerName, anim // eslint-disable-line
   spinnerName = icon
   var container = document.createElement('div')
   createSvgElement('svg', {
     viewBox: '0 0 64 64',
     g: [spinners[spinnerName]]
-  }, container, spinnerName)
+  }, container, spinnerName, size)
 
   // Specifically for animations to work,
   // Android 4.3 and below requires the element to be

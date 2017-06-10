@@ -1,8 +1,8 @@
 <template>
   <div>
     <group>
-      <cell v-for="type in types" :title="type" :key="type">
-        <spinner :type="type" slot="value"></spinner>
+      <cell v-for="(type, index) in types" :title="type" :key="type" :inline-desc="index === 3 ? 'size=40px' : ''">
+        <spinner :type="type" slot="value" :size="index === 3 ? '40px' : ''"></spinner>
       </cell>
     </group>
   </div>

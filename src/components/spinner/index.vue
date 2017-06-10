@@ -1,5 +1,5 @@
 <template>
-  <span class="vux-spinner" :class="className"></span>
+  <span class="vux-spinner" :class="className" :style="styles"></span>
 </template>
 
 <script>
@@ -9,16 +9,25 @@ const types = ['android', 'ios', 'ios-small', 'bubbles', 'circles', 'crescent', 
 export default {
   mounted () {
     this.$nextTick(() => {
-      Spinner(this.$el, this.type)
+      Spinner(this.$el, this.type, this.size)
     })
   },
   props: {
     type: {
       type: String,
       default: 'ios'
-    }
+    },
+    size: String
   },
   computed: {
+    styles () {
+      if (typeof this.size !== 'undefined' && this.size !== '28px') {
+        return {
+          width: this.size,
+          height: this.size
+        }
+      }
+    },
     className () {
       let rs = {}
       for (let i = 0; i < types.length; i++) {

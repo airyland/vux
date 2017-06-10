@@ -5,3 +5,9 @@ props:
     default: 'ios'
     en: icon type
     zh-CN: 图标类型
+changes:
+  next:
+    en:
+      - '[feature] Support prop:size #1447'
+    zh-CN:
+      - '[feature] 支持 prop:size #1447'
