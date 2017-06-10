@@ -119,6 +119,9 @@ export default {
     setFocus () {
       this.$refs.input.focus()
     },
+    setBlur () {
+      this.$refs.input.blur()
+    },
     onFocus () {
       this.isFocus = true
       this.$emit('on-focus')

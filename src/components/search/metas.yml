@@ -73,7 +73,16 @@ methods:
   setFocus:
     en: "set focus on input. you should call this method in a click event's callback function on Safari"
     zh-CN: 获取 input 焦点，在 Safari 上你必须在 click 事件回调里使用才能生效
+  setBlur:
+    version: next
+    en: make input lost focus
+    zh-CN: 手动设置 input 失去焦点，一般用于在 on-submit 事件中实现隐藏手机键盘
 changes:
+  next:
+    en:
+      - '[feature] Add method:setBlur'
+    zh-CN:
+      - '[feature] 添加方法 setBlur'
   v2.3.5:
     en:
       - '[feature] Add slot:left'
