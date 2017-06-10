@@ -116,12 +116,22 @@ props:
     type: Function
     en: used to format display value
     zh-CN: 自定义显示值
+slots:
+  title:
+    version: next
+    en: title slot
+    zh-CN: title slot
 events:
   on-change:
     params: '`(value)`'
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
+  next:
+    en:
+      - '[feature] Add slot:title'
+    zh-CN:
+      - '[feature] 添加 slot:title'
   v2.3.4:
     en:
       - '[fix] do not trigger on-change on first-value-setting'
