@@ -47,6 +47,7 @@
             :is-show="showChild(year, month, child)"
             name="each-day">
               <span
+              class="vux-calendar-each-date"
               v-show="showChild(year, month, child)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
               <div v-html="renderFunction(k1, k2, child)" v-show="showChild(year, month, child)"></div>
             </slot>
@@ -346,7 +347,7 @@ export default {
   padding:5px 0;
   text-align: center;
   vertical-align: middle;
-  font-size:16px;
+  font-size: @calendar-date-item-font-size;
   position: relative;
 }
 .inline-calendar td.week{
@@ -356,7 +357,7 @@ export default {
 .inline-calendar td.is-disabled {
   color: @calendar-disabled-font-color;
 }
-.inline-calendar td > span {
+.inline-calendar td > span.vux-calendar-each-date {
   display: inline-block;
   width: 26px;
   height: 26px;
@@ -364,8 +365,8 @@ export default {
   border-radius: 50%;
   text-align: center;
 }
-.inline-calendar td.current > span {
+.inline-calendar td.current > span.vux-calendar-each-date {
   background-color: @calendar-selected-bg-color;
-  color: #fff;
+  color: #fff!important;
 }
 </style>
