@@ -21,7 +21,7 @@
     </div>
     <div class="weui-cells vux-search_show" v-show="isFixed">
       <slot></slot>
-      <div class="weui-cell weui-cell_access" v-for="item in results" @click="handleResultClick(item)" v-on:touchmove.prevent>
+      <div class="weui-cell weui-cell_access" v-for="item in results" @click="handleResultClick(item)">
         <div class="weui-cell__bd weui-cell_primary">
           <p>{{item.title}}</p>
         </div>
@@ -180,6 +180,15 @@ export default {
 .weui-cells.vux-search_show {
   margin-top: 0!important;
   overflow-y: auto;
+  max-height: 400px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::after {
+    display: none;
+  }
 }
 .vux-search-mask {
   position: absolute;
