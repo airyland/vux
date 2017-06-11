@@ -1,6 +1,9 @@
 <template>
   <cell @click.native="show" :title="title" :value="currentValue" :is-link="!readonly" :value-align="valueAlign">
     {{ displayValue || placeholder}}
+    <span slot="icon">
+      <slot name="icon"></slot>
+    </span>
     <div v-transfer-dom>
       <popup v-model="showPopup" style="background-color:#fff;">
         <slot name="popup-header" :options="options" :value="currentValue"></slot>

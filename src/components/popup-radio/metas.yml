@@ -23,8 +23,10 @@ changes:
   next:
     en:
       - '[feature] Add prop:readonly'
+      - '[feature] Add slot:icon'
     zh-CN:
       - '[feature] 添加 prop:readonly'
+      - '[feature] 添加 slot:icon'
   v2.3.3:
     en:
       - '[feature] Support slot:popup-header'
