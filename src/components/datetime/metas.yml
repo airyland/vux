@@ -131,6 +131,11 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
+  next:
+    en:
+      - '[fix] Fix range error with format YYYY-MM #1528'
+    zh-CN:
+      - '[fix] 修复格式为 YYYY-MM 时的日期范围错误 #1528'
   v2.3.6:
     en:
       - '[feature] Add slot:title'

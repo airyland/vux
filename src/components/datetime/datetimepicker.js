@@ -198,18 +198,19 @@ DatetimePicker.prototype = {
         self[type + 'Scroller'] = renderScroller(div, data, trimZero(newValueMap[type]), function (currentValue) {
           config.onSelect.call(self, type, currentValue)
           var currentDay
-          if (!self.dayScroller) {
-            return
-          }
           if (type === 'year') {
             var currentMonth = self.monthScroller ? self.monthScroller.value : config.currentMonth
-            currentDay = self.dayScroller.value
             self._setMonthScroller(currentValue, currentMonth)
-            self._setDayScroller(currentValue, currentMonth, currentDay)
+            if (self.dayScroller) {
+              currentDay = self.dayScroller.value
+              self._setDayScroller(currentValue, currentMonth, currentDay)
+            }
           } else if (type === 'month') {
             var currentYear = self.yearScroller ? self.yearScroller.value : config.currentYear
-            currentDay = self.dayScroller.value
-            self._setDayScroller(currentYear, currentValue, currentDay)
+            if (self.dayScroller) {
+              currentDay = self.dayScroller.value
+              self._setDayScroller(currentYear, currentValue, currentDay)
+            }
           }
         })
       })
@@ -315,8 +316,10 @@ DatetimePicker.prototype = {
     self.monthScroller = renderScroller(div, self._makeData('month'), month, function (currentValue) {
       self.config.onSelect.call(self, 'month', currentValue)
       var currentYear = self.yearScroller ? self.yearScroller.value : self.config.currentYear
-      const currentDay = self.dayScroller.value
-      self._setDayScroller(currentYear, currentValue, currentDay)
+      if (self.dayScroller) {
+        const currentDay = self.dayScroller.value
+        self._setDayScroller(currentYear, currentValue, currentDay)
+      }
     })
   },
 
