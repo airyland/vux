@@ -66,12 +66,15 @@ var DEFAULT_CONFIG = {
 }
 
 function renderScroller (el, data, value, fn) {
-  var scroller = new Scroller(el, {
-    data: data,
-    defaultValue: value,
+  data = data.map(one => {
+    one.value = one.value + ''
+    return one
+  })
+  return new Scroller(el, {
+    data,
+    defaultValue: value + '',
     onSelect: fn
   })
-  return scroller
 }
 
 function showMask () {

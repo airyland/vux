@@ -135,9 +135,11 @@ changes:
     en:
       - '[feature] Add slot:title'
       - '[feature] Add prop:readonly'
+      - '[fix] Fix a bug caused by scroller #1406'
     zh-CN:
       - '[feature] 添加 slot:title'
       - '[feature] 添加 prop:readonly'
+      - '[fix] 修复 scroller 支持数字类型引入的 bug #1406'
   v2.3.4:
     en:
       - '[fix] do not trigger on-change on first-value-setting'
