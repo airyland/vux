@@ -6,7 +6,7 @@ props:
     en: icon type
     zh-CN: 图标类型
 changes:
-  next:
+  v2.3.6:
     en:
       - '[feature] Support prop:size #1447'
     zh-CN:

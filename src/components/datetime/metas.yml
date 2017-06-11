@@ -117,12 +117,12 @@ props:
     en: used to format display value
     zh-CN: 自定义显示值
   readonly:
-    version: next
+    version: v2.3.6
     en: readonly mode, show like a cell
     zh-CN: 只读模式，显示类似于 cell
 slots:
   title:
-    version: next
+    version: v2.3.6
     en: title slot
     zh-CN: title slot
 events:
@@ -131,7 +131,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.3.6:
     en:
       - '[feature] Add slot:title'
       - '[feature] Add prop:readonly'

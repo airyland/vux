@@ -97,7 +97,7 @@ slots:
     en: title slot
     zh-CN: title 插槽，方便自定义样式
 changes:
-  next:
+  v2.3.6:
     en:
       - '[feature] Support arrow less variables'
     zh-CN:

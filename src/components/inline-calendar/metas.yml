@@ -93,7 +93,7 @@ slots:
     en: you can custom how to display each day
     zh-CN: 用以自定义每一天的显示渲染，使用该 slot 就不需要 render-function 了
 changes:
-  next:
+  v2.3.6:
     en:
       - '[change] render-function params day => date #1361'
     zh-CN:

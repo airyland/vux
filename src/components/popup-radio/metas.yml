@@ -11,7 +11,7 @@ tags:
     - 单选
 props:
   readonly:
-    version: next
+    version: v2.3.6
     en: readonly, shown like a cell
     zh-CN: 只读样式，类似于 cell
 slots:
@@ -20,7 +20,7 @@ slots:
     en: popup header slot
     zh-CN: 弹窗顶部
 changes:
-  next:
+  v2.3.6:
     en:
       - '[feature] Add prop:readonly'
       - '[feature] Add slot:icon'

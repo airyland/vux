@@ -1,5 +1,5 @@
 changes:
-  next:
+  v2.3.6:
     en:
       - '[enhance] trim is now alias to stringTrim'
     zh-CN:
