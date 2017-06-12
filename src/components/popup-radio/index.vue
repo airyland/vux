@@ -9,7 +9,12 @@
         <slot name="popup-header" :options="options" :value="currentValue"></slot>
         <radio :options="options" v-model="currentValue" :fill-mode="false" @on-change="onValueChange">
           <template slot="each-item" scope="props">
-            <slot name="each-item" :icon="props.icon" :label="props.label" :index="props.index"></slot>
+            <slot name="each-item" :icon="props.icon" :label="props.label" :index="props.index">
+              <p>
+                <img class="vux-radio-icon" :src="props.icon" v-show="props.icon">
+                <span class="vux-radio-label">{{ props.label }}</span>
+              </p>
+            </slot>
           </template>
         </radio>
       </popup>
