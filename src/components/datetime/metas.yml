@@ -134,8 +134,10 @@ changes:
   next:
     en:
       - '[fix] Fix range error with format YYYY-MM #1528'
+      - '[feature] Add prop:hourList prop:minuteList'
     zh-CN:
       - '[fix] 修复格式为 YYYY-MM 时的日期范围错误 #1528'
+      - '[feature] 支持通过 prop:hourList prop:minuteList 自定义小时和分钟列表'
   v2.3.6:
     en:
       - '[feature] Add slot:title'

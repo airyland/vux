@@ -92,7 +92,9 @@ export default {
     endDate: String,
     valueTextAlign: String,
     displayFormat: Function,
-    readonly: Boolean
+    readonly: Boolean,
+    hourList: Array,
+    minuteList: Array
   },
   created () {
     this.isFirstSetValue = false
@@ -142,6 +144,8 @@ export default {
         maxHour: this.maxHour,
         startDate: this.startDate,
         endDate: this.endDate,
+        hourList: this.hourList,
+        minuteList: this.minuteList,
         onConfirm (value) {
           _this.currentValue = value
         },

@@ -4,6 +4,14 @@
       <datetime v-model="value1" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
 
+    <group :title="$t('custom minute list: every 15 minutes')">
+      <datetime v-model="minuteListValue" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']" @on-change="change" :title="$t('Birthday')"></datetime>
+    </group>
+
+    <group :title="$t('custom hour list')">
+      <datetime v-model="hourListValue" format="YYYY-MM-DD HH:mm" :hour-list="['09', '10', '11', '12', '2', '3', '4', '5']" :minute-list="['00', '15', '30', '45']" @on-change="change" :title="$t('Birthday')"></datetime>
+    </group>
+
     <group title="readonly">
       <datetime v-model="valueReadonly" readonly @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
@@ -108,6 +116,10 @@ format display value:
   zh-CN: 格式化显示
 toggle format:
   zh-CN: 改变格式
+'custom minute list: every 15 minutes':
+  zh-CN: 自定义分钟列表（每15分钟）
+custom hour list:
+  zh-CN: 定义小时列表
 </i18n>
 
 <script>
@@ -121,6 +133,8 @@ export default {
   },
   data () {
     return {
+      minuteListValue: '2017-06-12 09:00',
+      hourListValue: '2017-06-12 09:00',
       format: 'YYYY-MM-DD HH:mm',
       value1: '2015-11-12',
       valueReadonly: '2015-11-12',

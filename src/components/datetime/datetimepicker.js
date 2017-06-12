@@ -46,6 +46,8 @@ var DEFAULT_CONFIG = {
   maxYear: 2030,
   minHour: 0,
   maxHour: 23,
+  hourList: null,
+  minuteList: null,
   startDate: null,
   endDate: null,
   yearRow: '{value}',
@@ -303,6 +305,22 @@ DatetimePicker.prototype = {
       data.push({
         name: name,
         value: i
+      })
+    }
+    if (type === 'hour' && this.config.hourList) {
+      data = this.config.hourList.map(hour => {
+        return {
+          name: parseRow(config['hourRow'], hour),
+          value: addZero(hour)
+        }
+      })
+    }
+    if (type === 'minute' && this.config.minuteList) {
+      data = this.config.minuteList.map(minute => {
+        return {
+          name: parseRow(config['minuteRow'], minute),
+          value: addZero(minute)
+        }
       })
     }
     return data
