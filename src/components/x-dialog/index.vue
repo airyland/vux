@@ -4,7 +4,7 @@
       <div class="weui-mask" @click="hideOnBlur && (currentValue = false)" v-show="currentValue"></div>
     </transition>
     <transition :name="dialogTransition">
-      <div class="weui-dialog" v-show="currentValue" :style="dialogStyle">
+      <div :class="dialogClass" v-show="currentValue" :style="dialogStyle">
         <slot></slot>
       </div>
     </transition>
@@ -25,6 +25,10 @@ export default {
     dialogTransition: {
       type: String,
       default: 'vux-dialog'
+    },
+    dialogClass: {
+      type: String,
+      default: 'weui-dialog'
     },
     hideOnBlur: Boolean,
     dialogStyle: Object,
