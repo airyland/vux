@@ -19,7 +19,16 @@ slots:
     version: v2.3.3
     en: popup header slot
     zh-CN: 弹窗顶部
+  each-item:
+    version: next
+    en: custom how label displays
+    zh-CN: 自定义每个条目显示内容
 changes:
+  next:
+    en:
+      - '[feature] Add slot:each-item'
+    zh-CN:
+      - '[feature] 添加 slot:each-item'
   v2.3.6:
     en:
       - '[feature] Add prop:readonly'

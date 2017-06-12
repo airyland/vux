@@ -19,6 +19,19 @@
         <p slot="popup-header" class="vux-1px-b demo3-slot">Please select</p>
       </popup-radio>
     </group>
+
+    <group>
+      <popup-radio title="slot:each-item" :options="options3" v-model="option5">
+        <template scope="props" slot="each-item">
+          <p>
+            custom item <img src="http://dn-placeholder.qbox.me/110x110/FF2D55/000" class="vux-radio-icon"> {{ props.label }}
+            <br>
+            <span style="color:#666;">{{ props.index + 1 }} another line</span>
+          </p>
+        </template>
+      </popup-radio>
+    </group>
+
   </div>
 </template>
 
@@ -44,7 +57,8 @@ export default {
       }],
       option3: 'C',
       options3: ['A', 'B', 'C'],
-      option4: 'B'
+      option4: 'B',
+      option5: 'B'
     }
   }
 }

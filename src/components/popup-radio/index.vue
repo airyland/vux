@@ -7,7 +7,11 @@
     <div v-transfer-dom>
       <popup v-model="showPopup" style="background-color:#fff;">
         <slot name="popup-header" :options="options" :value="currentValue"></slot>
-        <radio :options="options" v-model="currentValue" :fill-mode="false" @on-change="onValueChange"></radio>
+        <radio :options="options" v-model="currentValue" :fill-mode="false" @on-change="onValueChange">
+          <template slot="each-item" scope="props">
+            <slot name="each-item" :icon="props.icon" :label="props.label" :index="props.index"></slot>
+          </template>
+        </radio>
       </popup>
     </div>
   </cell>
