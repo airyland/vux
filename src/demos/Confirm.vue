@@ -3,6 +3,9 @@
     <group>
       <x-switch :title="$t('Toggle')" v-model="show"></x-switch>
     </group>
+    <group>
+      <x-switch :title="$t('Toggle_android')" v-model="show2"></x-switch>
+    </group>
     <div v-transfer-dom>
       <confirm v-model="show"
       :title="$t('confirm deleting the item')"
@@ -11,6 +14,18 @@
       @on-show="onShow"
       @on-hide="onHide">
         <p style="text-align:center;">{{ $t('Are you sure?') }}</p>
+      </confirm>
+    </div>
+    <br>
+    <div v-transfer-dom>
+      <confirm v-model="show2"
+      :title="$t('confirm deleting the item')"
+      theme="android"
+      @on-cancel="onCancel"
+      @on-confirm="onConfirm"
+      @on-show="onShow"
+      @on-hide="onHide">
+        <p style="text-align:center;">{{ $t('I miss u sunyi') }}</p>
       </confirm>
     </div>
     <br>
@@ -26,6 +41,8 @@
 <i18n>
 Toggle:
   zh-CN: 显示
+Toggle_android:
+  zh-CN: 安卓风格
 Are you sure?:
   zh-CN: 确定咩？
 confirm deleting the item:
@@ -50,7 +67,8 @@ export default {
   },
   data () {
     return {
-      show: false
+      show: false,
+      show2: false
     }
   },
   methods: {
