@@ -1,7 +1,15 @@
 <template>
   <div>
-    <group title="single column">
+    <group title="single column" label-width="5em">
       <popup-picker :title="title1" :data="list1" v-model="value1" @on-show="onShow" @on-hide="onHide" @on-change="onChange" :placeholder="$t('please select')"></popup-picker>
+      <popup-picker :title="title1" :data="list1" v-model="value1_1" @on-show="onShow" @on-hide="onHide" @on-change="onChange" :placeholder="$t('please select')">
+        <template slot="title" scope="props">
+          <span :class="props.labelClass" :style="props.labelStyle" style="height:24px;">
+            <span class="demo-icon demo-icon-big" style="font-size:20px;vertical-align:middle;"></span>
+            <span style="vertical-align:middle;">手机</span>
+          </span>
+        </template>
+      </popup-picker>
     </group>
     <br>
     <div class="picker-buttons">
@@ -160,6 +168,7 @@ export default {
         parent: 'usa002'
       }],
       value1: ['iPhone'],
+      value1_1: ['iPhone'],
       value2: ['iPhone', '华为3'],
       value3: [],
       value4: [],

@@ -53,6 +53,11 @@ props:
     version: v2.1.1-rc.7
     en: 'used to format display text on cell, param: (currentValue)'
     zh-CN: 自定义在cell上的显示格式，参数为当前 value，使用该属性时，show-name 属性将失效
+slots:
+  title:
+    version: next
+    en: title slot, use scope.labelClass and scope.labelStyle to inherit label styles
+    zh-CN: 标题插槽，使用 scope.labelClass 和 scope.labelStyle 继承原有样式(实现样式受控于 group label 设置)
 events:
   on-change:
     params: '`(value)`'

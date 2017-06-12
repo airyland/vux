@@ -2,8 +2,10 @@
   <div class="vux-cell-box">
     <div class="weui-cell vux-tap-active weui-cell_access" @click="onClick" v-show="showCell">
       <div class="weui-cell__hd">
-        <label class="weui-label" :style="{display: 'block', width: $parent.labelWidth || $parent.$parent.labelWidth, textAlign: $parent.labelAlign || $parent.$parent.labelAlign, marginRight: $parent.labelMarginRight || $parent.$parent.labelMarginRight}" v-if="title" v-html="title"></label>
-        <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+        <slot name="title" label-class="weui-label" :label-style="labelStyles" a="b">
+          <label class="weui-label" :style="labelStyles" v-if="title" v-html="title"></label>
+        </slot>
+        <inline-desc v-if="inlineDesc">{{ inlineDesc }}</inline-desc>
       </div>
       <div class="vux-cell-primary vux-popup-picker-select-box">
         <div class="vux-popup-picker-select" :style="{textAlign: valueTextAlign}">
@@ -22,8 +24,8 @@
         <div class="vux-popup-picker-container">
           <div class="vux-popup-picker-header">
             <flexbox>
-              <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-cancel" @click.native="onHide(false)">{{cancelText || $t('cancel_text')}}</flexbox-item>
-              <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-header-menu-right" @click.native="onHide(true)">{{confirmText || $t('confirm_text')}}</flexbox-item>
+              <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-cancel" @click.native="onHide(false)">{{ cancelText || $t('cancel_text') }}</flexbox-item>
+              <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-header-menu-right" @click.native="onHide(true)">{{ confirmText || $t('confirm_text') }}</flexbox-item>
             </flexbox>
           </div>
           <picker
@@ -129,6 +131,16 @@ export default {
       default: true
     },
     columnWidth: Array
+  },
+  computed: {
+    labelStyles () {
+      return {
+        display: 'block',
+        width: this.$parent.labelWidth || this.$parent.$parent.labelWidth,
+        textAlign: this.$parent.labelAlign || this.$parent.$parent.labelAlign,
+        marginRight: this.$parent.labelMarginRight || this.$parent.$parent.labelMarginRight
+      }
+    }
   },
   methods: {
     value2name,
