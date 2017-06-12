@@ -40,6 +40,14 @@ props:
     default: false
     en: visibility of the component
     zh-CN: 是否显示，使用`v-model`绑定
+  theme:
+    type: String
+    default: ios
+    en: dialog's style
+    zh-CN: 弹窗风格，可以是ios或android
+    enum:
+      - ios
+      - android
   title:
     en: dialog title
     zh-CN: 弹窗标题
