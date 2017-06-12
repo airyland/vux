@@ -71,6 +71,11 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[feature] Add slot:title'
+    zh-CN:
+      - '[feature] 添加 slot:title'
   v2.2.1-rc.7:
     en:
       - '[fix] Fix popup-picker filter issue on v2.2.1-rc.6'
