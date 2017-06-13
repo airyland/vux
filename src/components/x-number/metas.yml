@@ -69,7 +69,7 @@ props:
     en: align setting of the selecting area
     zh-CN: '按钮部分位置，默认在右边(right)，可选值为`left`和`right`'
 changes:
-  next:
+  v2.3.7:
     en:
       - '[fix] fix value type #1554'
     zh-CN:

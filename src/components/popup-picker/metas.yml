@@ -55,7 +55,7 @@ props:
     zh-CN: 自定义在cell上的显示格式，参数为当前 value，使用该属性时，show-name 属性将失效
 slots:
   title:
-    version: next
+    version: v2.3.7
     en: title slot, use scope.labelClass and scope.labelStyle to inherit label styles
     zh-CN: 标题插槽，使用 scope.labelClass 和 scope.labelStyle 继承原有样式(实现样式受控于 group label 设置)
 events:
@@ -71,7 +71,7 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  v2.3.7:
     en:
       - '[feature] Add slot:title'
     zh-CN:

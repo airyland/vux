@@ -121,7 +121,7 @@ props:
     en: readonly mode, show like a cell
     zh-CN: 只读模式，显示类似于 cell
   show:
-    version: next
+    version: v2.3.7
     en: control visibility of datetime, require vue^2.3
     zh-CN: 控制显示，要求 vue^2.3
 slots:
@@ -135,7 +135,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.3.7:
     en:
       - '[feature] Add prop:show to control visibility #1538'
       - '[fix] Fix range error with format YYYY-MM #1358'

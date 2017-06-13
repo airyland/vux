@@ -20,11 +20,11 @@ slots:
     en: popup header slot
     zh-CN: 弹窗顶部
   each-item:
-    version: next
+    version: v2.3.7
     en: custom how label displays
     zh-CN: 自定义每个条目显示内容
 changes:
-  next:
+  v2.3.7:
     en:
       - '[feature] Add slot:each-item'
     zh-CN:
