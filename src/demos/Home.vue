@@ -27,27 +27,41 @@
       <cell title="XTable" link="/component/x-table"></cell>
       <cell title="PopupRadio" link="/component/popup-radio"></cell>
     </group>
+
+    <br>
+    <p class="vue-version">current vue version: {{ vueVersion }}</p>
   </div>
 </template>
 
 <script>
-import { Cell, Group, Badge } from 'vux'
-const version = require('../../package.json').version
+import { Cell, Group, Badge, Divider } from 'vux'
+
+const pkg = require('../../package.json')
+const version = pkg.version
+const vueVersion = pkg.devDependencies.vue
+
 export default {
   components: {
     Cell,
     Group,
-    Badge
+    Badge,
+    Divider
   },
   data () {
     return {
-      version: version
+      version,
+      vueVersion
     }
   }
 }
 </script>
 
 <style scoped>
+.vue-version {
+  text-align: center;
+  font-size: 12px;
+  color: #ccc;
+}
 .center {
   margin-top: 15px;
   text-align: center;
