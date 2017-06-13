@@ -20,11 +20,11 @@ import Icon from '../icon'
 import Picker from './datetimepicker'
 import Group from '../group'
 import InlineDesc from '../inline-desc'
-import Base from '../../libs/base'
+import Uuid from '../../mixins/uuid'
 import format from '../../tools/date/format'
 
 export default {
-  mixins: [Base],
+  mixins: [Uuid],
   components: {
     Group,
     InlineDesc,
