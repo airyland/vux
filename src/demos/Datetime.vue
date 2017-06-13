@@ -72,6 +72,13 @@
     <group :title="$t('required')">
       <datetime v-model="value8" :title="$t('Required')" clear-text="clear" @on-clear="clearValue8" :required="true"></datetime>
     </group>
+
+    <group :title="$t('use prop:show.sync(vue^2.3) to control visibility')">
+      <datetime v-model="value9" @on-change="change" :title="$t('Birthday')" :show.sync="visibility"></datetime>
+    </group>
+    <div style="padding:15px;">
+      <x-button type="primary" plain @click.native="visibility = true">显示</x-button>
+    </div>
   </div>
 </template>
 
@@ -120,6 +127,8 @@ toggle format:
   zh-CN: 自定义分钟列表（每15分钟）
 custom hour list:
   zh-CN: 定义小时列表
+'use prop:show.sync(vue^2.3) to control visibility':
+  zh-CN: 使用 prop:show 控制显示(vue^2.3)
 </i18n>
 
 <script>
@@ -151,7 +160,9 @@ export default {
       formatValue: '2017-10-11',
       formatValueFunction (val) {
         return val.replace(/-/g, '$')
-      }
+      },
+      value9: '',
+      visibility: false
     }
   },
   methods: {
