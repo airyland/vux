@@ -4,8 +4,8 @@
       <radio :options="radio001" @on-change="change"></radio>
     </group>
 
-    <group title="preselect 'China'">
-      <radio :options="radio001" value="China"></radio>
+    <group :title="$t('pre-select China(disabled)')">
+      <radio :options="radio001" value="China" disabled></radio>
     </group>
 
     <group :title="'fill mode value is '+radio001Value">
@@ -31,6 +31,11 @@
     </group>
   </div>
 </template>
+
+<i18n>
+'pre-select China(disabled)':
+  zh-CN: 默认值 China(禁用操作)
+</i18n>
 
 <script>
 import { Radio, Group } from 'vux'

@@ -1,21 +1,21 @@
 <template>
-  <div class="weui-cells_radio">
+  <div class="weui-cells_radio" :class="disabled ? 'vux-radio-disabled' : ''">
     <label class="weui-cell weui-cell_radio weui-check__label" :for="`radio_${uuid}_${index}`" v-for="(one, index) in options">
       <div class="weui-cell__bd">
         <slot name="each-item" :icon="one.icon" :label="getValue(one)" :index="index">
           <p>
             <img class="vux-radio-icon" :src="one.icon" v-show="one && one.icon">
-            <span class="vux-radio-label">{{one | getValue}}</span>
+            <span class="vux-radio-label">{{ one | getValue }}</span>
           </p>
         </slot>
       </div>
       <div class="weui-cell__ft">
-        <input type="radio" class="weui-check" v-model="currentValue" :id="`radio_${uuid}_${index}`" :value="getKey(one)">
+        <input type="radio" class="weui-check" v-model="currentValue" :id="disabled ? '' : `radio_${uuid}_${index}`" :value="getKey(one)">
         <span class="weui-icon-checked"></span>
       </div>
     </label>
     <div class="weui-cell" v-show="fillMode">
-      <div class="weui-cell__hd"><label for="" class="weui-label">{{fillLabel}}</label></div>
+      <div class="weui-cell__hd"><label for="" class="weui-label">{{ fillLabel }}</label></div>
       <div class="weui-cell__bd">
         <input class="weui-input needsclick" type="text" v-model="fillValue" :placeholder="fillPlaceholder" @blur="isFocus=false" @focus="onFocus()">
       </div>
@@ -91,6 +91,7 @@ function contains (a, obj) {
 @import '../../styles/weui/widget/weui_cell/weui_check';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
 @import '../../styles/weui/icon/weui_icon_font';
+
 .weui-cell_radio > * {
   pointer-events: none;
 }
@@ -103,5 +104,8 @@ function contains (a, obj) {
 }
 .vux-radio-label {
   vertical-align: middle;
+}
+.weui-cells_radio.vux-radio-disabled .weui-check:checked + .weui-icon-checked:before {
+  opacity: 0.5;
 }
 </style>

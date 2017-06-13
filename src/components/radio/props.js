@@ -18,6 +18,7 @@ export default function () {
     fillLabel: {
       type: String,
       default: '其他'
-    }
+    },
+    disabled: Boolean
   }
 }
