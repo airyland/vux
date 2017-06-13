@@ -52,6 +52,19 @@
       <x-button @click.native="$refs.swipeoutItem.open('right')" type="primary">{{ $t('open right menu') }}</x-button>
       <x-button @click.native="$refs.swipeoutItem.close()" type="warn">{{ $t('close menu') }}</x-button>
     </div>
+    <br>
+    <group-title>use vux-1px to style items</group-title>
+    <swipeout class="vux-1px-tb">
+      <swipeout-item transition-mode="follow" v-for="i in 3" :key="i">
+        <div slot="right-menu">
+          <swipeout-button type="primary">{{$t('Yes')}}</swipeout-button>
+          <swipeout-button type="warn">{{$t('Right')}}</swipeout-button>
+        </div>
+        <div slot="content" :class="{'vux-1px-b': i !== 3, 'vux-1px-t': i === 1}" style="padding:12px;">{{ $t('JavaScript is the best language') }}</div>
+      </swipeout-item>
+    </swipeout>
+    <br>
+    <br>
   </div>
 </template>
 
@@ -87,10 +100,11 @@ Ignore:
 </i18n>
 
 <script>
-import { Swipeout, SwipeoutItem, SwipeoutButton, XButton } from 'vux'
+import { GroupTitle, Swipeout, SwipeoutItem, SwipeoutButton, XButton } from 'vux'
 
 export default {
   components: {
+    GroupTitle,
     Swipeout,
     SwipeoutItem,
     SwipeoutButton,
