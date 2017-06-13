@@ -37,6 +37,7 @@
   "dateFormat": "src/tools/date/format.js",
   "dateRange": "src/tools/date/range.js",
   "Datetime": "src/components/datetime/index.vue",
+  "DatetimePlugin": "src/plugins/datetime/index.js",
   "DatetimeRange": "src/components/datetime-range/index.vue",
   "debounce": "src/tools/debounce/index.js",
   "Demobasic": "src/components/fullpage/DemoBasic.vue",

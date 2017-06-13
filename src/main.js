@@ -47,7 +47,8 @@ store.registerModule('vux', {
 Vue.use(vuexI18n.plugin, store)
 
 // plugins
-import { LocalePlugin, DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin, AppPlugin } from 'vux'
+import { DatetimePlugin, LocalePlugin, DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin, AppPlugin } from 'vux'
+
 Vue.use(DevicePlugin)
 Vue.use(ToastPlugin)
 Vue.use(AlertPlugin)
@@ -56,6 +57,7 @@ Vue.use(LoadingPlugin)
 Vue.use(WechatPlugin)
 Vue.use(AjaxPlugin)
 Vue.use(LocalePlugin)
+Vue.use(DatetimePlugin)
 
 // test
 if (process.env.platform === 'app') {

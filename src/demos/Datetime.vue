@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div style="padding:15px;">
+      <x-button type="primary" plain @click.native="showPlugin">Used as a plugin(Hide in 2s)</x-button>
+    </div>
+
     <group :title="$t('default format: YYYY-MM-DD')">
       <datetime v-model="value1" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
@@ -78,7 +82,8 @@
     </group>
     <div style="padding:15px;">
       <x-button type="primary" plain @click.native="visibility = true">显示</x-button>
-    </div>
+    </div>    
+
   </div>
 </template>
 
@@ -166,6 +171,26 @@ export default {
     }
   },
   methods: {
+    showPlugin () {
+      this.$vux.datetime.show({
+        cancelText: '取消',
+        confirmText: '确定',
+        format: 'YYYY-MM-DD HH',
+        value: '2017-05-20 18',
+        onConfirm (val) {
+          console.log('plugin confirm', val)
+        },
+        onShow () {
+          console.log('plugin show')
+        },
+        onHide () {
+          console.log('plugin hide')
+        }
+      })
+      setTimeout(() => {
+        this.$vux.datetime.hide()
+      }, 2000)
+    },
     toggleFormat () {
       this.format = this.format === 'YYYY-MM-DD HH:mm' ? 'YYYY-MM-DD' : 'YYYY-MM-DD HH:mm'
     },

@@ -64,7 +64,8 @@ var DEFAULT_CONFIG = {
   onHide () {},
   confirmText: 'ok',
   clearText: '',
-  cancelText: 'cancel'
+  cancelText: 'cancel',
+  destroyOnHide: false
 }
 
 function renderScroller (el, data, value, fn) {
@@ -359,6 +360,9 @@ DatetimePicker.prototype = {
   },
 
   hide () {
+    if (!this.container) {
+      return
+    }
     var self = this
     self.container.style.removeProperty('transform')
     self.container.style.removeProperty('-webkit-transform')
@@ -370,6 +374,11 @@ DatetimePicker.prototype = {
     hideMask()
 
     self.config.onHide.call(self)
+    if (self.config.destroyOnHide) {
+      setTimeout(() => {
+        self.destroy()
+      }, 500)
+    }
   },
 
   select (type, value) {
