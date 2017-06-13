@@ -2,7 +2,7 @@
   <div class="vux-cell-box">
     <div class="weui-cell vux-tap-active weui-cell_access" @click="onClick" v-show="showCell">
       <div class="weui-cell__hd">
-        <slot name="title" label-class="weui-label" :label-style="labelStyles" a="b">
+        <slot name="title" label-class="weui-label" :label-style="labelStyles" :label-title="title">
           <label class="weui-label" :style="labelStyles" v-if="title" v-html="title"></label>
         </slot>
         <inline-desc v-if="inlineDesc">{{ inlineDesc }}</inline-desc>
