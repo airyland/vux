@@ -159,7 +159,7 @@ export default {
         },
         onShow () {
           _this.$emit('on-show')
-        },
+        }
       }
       if (this.minYear) {
         options.minYear = this.minYear

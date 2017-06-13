@@ -378,7 +378,7 @@ DatetimePicker.prototype = {
 
   destroy () {
     var self = this
-    this.trigger.removeEventListener('click', this.triggerHandler, false)
+    this.trigger && this.trigger.removeEventListener('click', this.triggerHandler, false)
     removeElement(MASK)
     removeElement(self.container)
     MASK = null
