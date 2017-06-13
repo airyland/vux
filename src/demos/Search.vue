@@ -42,6 +42,7 @@ export default {
       this.results = val ? getResult(this.value) : []
     },
     onSubmit () {
+      this.$refs.search.setBlur()
       this.$vux.toast.show({
         type: 'text',
         position: 'top',
