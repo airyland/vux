@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div :class="disabled ? 'vux-checklist-disabled' : ''">
     <div v-show="title" class="weui-cells__title">{{title}}</div>
     <slot name="after-title"></slot>
     <div class="weui-cells weui-cells_checkbox">
       <label class="weui-cell weui-check_label" :class="{'vux-checklist-label-left': labelPosition === 'left'}" :for="`checkbox_${uuid}_${index}`" v-for="(one, index) in currentOptions">
         <div class="weui-cell__hd">
-          <input type="checkbox" class="weui-check" :name="`vux-checkbox-${uuid}`" :value="getKey(one)" v-model="currentValue" :id="`checkbox_${uuid}_${index}`" :disabled="ifDisable(getKey(one))">
+          <input type="checkbox" class="weui-check" :name="`vux-checkbox-${uuid}`" :value="getKey(one)" v-model="currentValue" :id="disabled ? '' : `checkbox_${uuid}_${index}`" :disabled="ifDisable(getKey(one))">
           <i class="weui-icon-checked vux-checklist-icon-checked"></i>
         </div>
         <div class="weui-cell__bd">
@@ -58,7 +58,8 @@ export default {
       type: Boolean,
       default: true
     },
-    labelPosition: String
+    labelPosition: String,
+    disabled: Boolean
   },
   data () {
     return {
@@ -178,7 +179,9 @@ function pure (obj) {
 .weui-cells_checkbox > label > * {
   pointer-events: none;
 }
-
+.vux-checklist-disabled .vux-checklist-icon-checked:before {
+  opacity: 0.5;
+}
 .vux-checklist-label-left {
   flex-direction: row-reverse;
 }

@@ -12,7 +12,7 @@
       <p slot="footer" v-show="error" class="error">{{error}}</p>
     </checklist>
 
-    <checklist :title="$t('preselect China and Japan')" label-position="left" :options="commonList" v-model="checklist002" @on-change="change"></checklist>
+    <checklist :title="$t('preselect China and Japan(disabled)')" disabled label-position="left" :options="commonList" v-model="checklist002" @on-change="change"></checklist>
 
     <checklist :title="$t('set max=2')" :options="commonList" v-model="checklist003" :max=2 @on-change="change"></checklist>
 
@@ -32,8 +32,8 @@
 <i18n>
 handle errors:
   zh-CN: 处理错误
-preselect China and Japan:
-  zh-CN: 默认选中China和Japan
+preselect China and Japan(disabled):
+  zh-CN: 默认选中China和Japan(禁用操作)
 set max=2:
   zh-CN: 最多可选中2个
 set random order:

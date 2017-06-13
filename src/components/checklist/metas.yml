@@ -51,12 +51,21 @@ props:
     type: String
     en: label position, can be set to left
     zh-CN: label 位置，可以设置为 left
+  disabled:
+    version: next
+    en: if disable user from selecting
+    zh-CN: 是否禁用操作
 events:
   on-change:
     params: '(value)'
     en: emits when value changes
     zh-CN: 值变化时触发，参数为 (value)
 changes:
+  next:
+    en:
+      - '[feature] Add prop:disabled #1254'
+    zh-CN:
+      - '[feature] 支持 prop:disabled 禁用操作 #1254'
   v2.2.1-rc.4:
     en:
       - '[feature] Support prop:label-position'
