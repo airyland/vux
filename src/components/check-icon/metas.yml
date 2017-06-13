@@ -1,0 +1,12 @@
+icon: '&#xe619;'
+tags:
+  en:
+    - icon
+  zh-CN:
+    - 图标
+props:
+  value:
+    type: Boolean
+    version: next
+    en: selected value, use :value.sync
+    zh-CN: 是否选中的值，使用 :value.sync 双向绑定

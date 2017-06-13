@@ -102,5 +102,6 @@
   "PopupRadio",
   "Flow",
   "InlineLoading",
-  "InlineCalendarEachDaySlot#/demo/inline-calendar-each-day-slot"
+  "InlineCalendarEachDaySlot#/demo/inline-calendar-each-day-slot",
+  "CheckIcon"
 ]

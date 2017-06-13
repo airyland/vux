@@ -1,5 +1,5 @@
 <template>
-  <div class="vux-check-icon" @click="value = !value">
+  <div class="vux-check-icon" @click="updateValue">
     <icon type="success" v-show="type === 'default' && value"></icon>
     <icon type="success_circle" v-show="type === 'plain' && value"></icon>
     <icon type="circle" v-show="!value"></icon>
@@ -14,8 +14,16 @@ export default {
   components: {
     Icon
   },
+  methods: {
+    updateValue () {
+      this.$emit('update:value', !this.value)
+    }
+  },
   props: {
-    value: Boolean,
+    value: {
+      type: Boolean,
+      default: false
+    },
     type: {
       type: String,
       default: 'default'
@@ -30,10 +38,10 @@ export default {
 .vux-check-icon {
   display: inline-block;
 }
-.vux-check-icon span {
-  line-height: 20px;
+.vux-check-icon > span {
+  line-height: 23px;
   color: #222;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 .vux-check-icon > .weui-icon-success:before, .vux-check-icon > .weui-icon-success-circle:before {
   color: @check-icon-color-checked;

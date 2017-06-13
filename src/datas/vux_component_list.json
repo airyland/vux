@@ -45,6 +45,10 @@
     "icon": "&#xe62a;"
   },
   {
+    "name": "check-icon",
+    "icon": "&#xe619;"
+  },
+  {
     "name": "checker",
     "icon": "&#xe655;",
     "items": [
