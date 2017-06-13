@@ -1,6 +1,6 @@
 <template>
   <transition :name="`vux-popup-animate-${position}`">
-    <div v-show="show" :style="styles" class="vux-popup-dialog" :class="[`vux-popup-${position}`, show ? 'vux-popup-show' : '']">
+    <div v-show="show && !initialShow" :style="styles" class="vux-popup-dialog" :class="[`vux-popup-${position}`, show ? 'vux-popup-show' : '']">
       <slot></slot>
     </div>
   </transition>
@@ -36,6 +36,7 @@ export default {
     maxHeight: String
   },
   mounted () {
+    this.$overflowScrollingList = document.querySelectorAll('.vux-fix-safari-overflow-scrolling')
     this.$nextTick(() => {
       const _this = this
       this.popup = new Popup({
@@ -48,14 +49,17 @@ export default {
         },
         onClose () {
           _this.show = false
-          if (Object.keys(window.__$vuxPopups).length > 1) return
+          if (window.__$vuxPopups && Object.keys(window.__$vuxPopups).length > 1) return
           if (document.querySelector('.vux-popup-dialog.vux-popup-mask-disabled')) return
           setTimeout(() => {
             _this.fixSafariOverflowScrolling('touch')
           }, 300)
         }
       })
-      this.$overflowScrollingList = document.querySelectorAll('.vux-fix-safari-overflow-scrolling')
+      if (this.value) {
+        this.popup.show()
+      }
+      this.initialShow = false
     })
   },
   methods: {
@@ -73,6 +77,7 @@ export default {
   },
   data () {
     return {
+      initialShow: true,
       hasFirstShow: false,
       show: this.value
     }
@@ -95,10 +100,13 @@ export default {
     }
   },
   watch: {
+    value (val) {
+      this.show = val
+    },
     show (val) {
       this.$emit('input', val)
       if (val) {
-        this.popup.show()
+        this.popup && this.popup.show()
         this.$emit('on-show')
         this.fixSafariOverflowScrolling('auto')
         if (!this.hasFirstShow) {
@@ -115,9 +123,6 @@ export default {
           }
         }, 200)
       }
-    },
-    value (val) {
-      this.show = val
     }
   },
   beforeDestroy () {
