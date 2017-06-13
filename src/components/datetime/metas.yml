@@ -135,9 +135,11 @@ changes:
     en:
       - '[fix] Fix range error with format YYYY-MM #1528'
       - '[feature] Add prop:hourList prop:minuteList'
+      - '[fix] startDate year should overwrite minYear #1358'
     zh-CN:
       - '[fix] 修复格式为 YYYY-MM 时的日期范围错误 #1528'
       - '[feature] 支持通过 prop:hourList prop:minuteList 自定义小时和分钟列表'
+      - '[fix] 开始日期年份应该覆盖最小年份(minYear) #1358'
   v2.3.6:
     en:
       - '[feature] Add slot:title'

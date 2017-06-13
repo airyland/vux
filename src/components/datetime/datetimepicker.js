@@ -268,8 +268,8 @@ DatetimePicker.prototype = {
       max = config.maxYear
       if (this.reMakeData) {
         const { minYear, maxYear } = getYears(this.config.startDate, this.config.endDate)
-        min = Math.max(min, minYear)
-        max = Math.min(max, maxYear)
+        min = minYear
+        max = maxYear
       }
     } else if (type === 'month') {
       min = 1
