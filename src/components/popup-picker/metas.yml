@@ -71,6 +71,11 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[fix] Fix placeholder missing on iOS9 and iOS8 #1293'
+    zh-CN:
+      - '[fix] 修复 iOS 低版本下 placeholder 无法显示的问题 #1293'
   v2.3.7:
     en:
       - '[feature] Add slot:title'
