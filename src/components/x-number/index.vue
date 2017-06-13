@@ -98,13 +98,13 @@ export default {
     add () {
       if (!this.disabledMax) {
         const x = new Big(this.currentValue)
-        this.currentValue = x.plus(this.step)
+        this.currentValue = x.plus(this.step) * 1
       }
     },
     sub () {
       if (!this.disabledMin) {
         const x = new Big(this.currentValue)
-        this.currentValue = x.minus(this.step)
+        this.currentValue = x.minus(this.step) * 1
       }
     },
     blur () {

@@ -69,6 +69,11 @@ props:
     en: align setting of the selecting area
     zh-CN: '按钮部分位置，默认在右边(right)，可选值为`left`和`right`'
 changes:
+  next:
+    en:
+      - '[fix] fix value type #1554'
+    zh-CN:
+      - '[fix] 修复值类型 #1554'
   v2.3.2:
     en:
       - '[fix] fix undefined-min detecting logic. #1459'
