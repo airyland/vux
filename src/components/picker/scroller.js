@@ -58,7 +58,7 @@ var Scroller = function (container, options) {
 
   self.__container.appendChild(component)
 
-  self.__itemHeight = parseInt(getComputedStyle(indicator, 'height'), 10)
+  self.__itemHeight = parseFloat(getComputedStyle(indicator, 'height'), 10)
 
   self.__callback = options.callback || function (top) {
     content.style.webkitTransform = 'translate3d(0, ' + (-top) + 'px, 0)'
@@ -71,7 +71,7 @@ var Scroller = function (container, options) {
   self.__setDimensions(component.clientHeight, content.offsetHeight)
 
   if (component.clientHeight === 0) {
-    self.__setDimensions(parseInt(getComputedStyle(component, 'height'), 10), 204)
+    self.__setDimensions(parseFloat(getComputedStyle(component, 'height'), 10), 204)
   }
   self.select(self.options.defaultValue, false)
 

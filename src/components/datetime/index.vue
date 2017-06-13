@@ -100,7 +100,6 @@ export default {
   created () {
     this.isFirstSetValue = false
     this.currentValue = this.value
-    this.handleChangeEvent = true
   },
   data () {
     return {
@@ -156,7 +155,11 @@ export default {
         onHide () {
           _this.$emit('update:show', false)
           _this.validate()
-        }
+          _this.$emit('on-hide')
+        },
+        onShow () {
+          _this.$emit('on-show')
+        },
       }
       if (this.minYear) {
         options.minYear = this.minYear
