@@ -120,6 +120,10 @@ props:
     version: v2.3.6
     en: readonly mode, show like a cell
     zh-CN: 只读模式，显示类似于 cell
+  show:
+    version: next
+    en: control visibility of datetime, require vue^2.3
+    zh-CN: 控制显示，要求 vue^2.3
 slots:
   title:
     version: v2.3.6
@@ -133,10 +137,12 @@ events:
 changes:
   next:
     en:
-      - '[fix] Fix range error with format YYYY-MM #1528'
+      - '[feature] Add prop:show to control visibility #1538'
+      - '[fix] Fix range error with format YYYY-MM #1358'
       - '[feature] Add prop:hourList prop:minuteList'
       - '[fix] startDate year should overwrite minYear #1358'
     zh-CN:
+      - '[feature] 可以使用 :show.sync 来控制控件显示 #1358'
       - '[fix] 修复格式为 YYYY-MM 时的日期范围错误 #1528'
       - '[feature] 支持通过 prop:hourList prop:minuteList 自定义小时和分钟列表'
       - '[fix] 开始日期年份应该覆盖最小年份(minYear) #1358'

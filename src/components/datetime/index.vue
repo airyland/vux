@@ -94,7 +94,8 @@ export default {
     displayFormat: Function,
     readonly: Boolean,
     hourList: Array,
-    minuteList: Array
+    minuteList: Array,
+    show: Boolean
   },
   created () {
     this.isFirstSetValue = false
@@ -153,6 +154,7 @@ export default {
           _this.$emit('on-clear', value)
         },
         onHide () {
+          _this.$emit('update:show', false)
           _this.validate()
         }
       }
@@ -187,6 +189,11 @@ export default {
     }
   },
   watch: {
+    show (val) {
+      if (val) {
+        this.picker && this.picker.show(this.currentValue)
+      }
+    },
     currentValue (val, oldVal) {
       this.$emit('input', val)
       if (!this.isFirstSetValue) {
