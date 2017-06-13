@@ -80,6 +80,11 @@ slots:
     en: custom how to display each item
     zh-CN: 自定义如何显示每一项
 changes:
+  next:
+    en:
+      - '[feature] Add less:@radio-checked-icon-color #896'
+    zh-CN:
+      - '[feature] 支持 less 变量 @radio-checked-icon-color #896'
   v2.3.5:
     en:
       - '[feature] Support slot:each-item'
