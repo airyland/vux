@@ -75,7 +75,7 @@ props:
     en: label for fill input
     zh-CN: 可填写时的label文字
   disabled:
-    version: next
+    version: v2.3.8
     en: disable selecting
     zh-CN: 禁用操作
 slots:
@@ -84,7 +84,7 @@ slots:
     en: custom how to display each item
     zh-CN: 自定义如何显示每一项
 changes:
-  next:
+  v2.3.8:
     en:
       - '[feature] Add prop:disabled #1254'
       - '[feature] Add less:@radio-checked-icon-color #896'

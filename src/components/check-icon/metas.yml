@@ -7,6 +7,6 @@ tags:
 props:
   value:
     type: Boolean
-    version: next
+    version: v2.3.8
     en: selected value, use :value.sync
     zh-CN: 是否选中的值，使用 :value.sync 双向绑定

@@ -121,7 +121,7 @@ props:
   closeOnClickingMenu:
     type: Boolean
     default: true
-    version: next
+    version: v2.3.8
     en: if auto hide when clicking on menus
     zh-CN: 点击菜单时是否自动隐藏
 events:

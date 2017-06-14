@@ -104,7 +104,7 @@ props:
     zh-CN: 'value 对齐方式(text-align), `v2.1.0-rc.49`开始支持'
 slots:
   title:
-    version: next
+    version: v2.3.8
     en: title slot
     zh-CN: title 插槽，可以使用它来添加 icon 等自定义样式，受控于 group 需要从 scope 里继承 class 和 样式
 events:
@@ -115,7 +115,7 @@ events:
     en: emits when being open
     zh-CN: 显示时触发
 changes:
-  next:
+  v2.3.8:
     en:
       - '[feature] Add slot:title #1389'
     zh-CN:

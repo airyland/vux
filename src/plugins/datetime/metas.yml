@@ -1,5 +1,5 @@
 changes:
-  next:
+  v2.3.8:
     zh-CN:
       - '[feature] 是的，Datetime 可以作为插件直接调用了'
     en:
