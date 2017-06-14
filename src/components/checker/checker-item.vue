@@ -13,6 +13,13 @@ export default {
     },
     disabled: Boolean
   },
+  watch: {
+    disabled (val) {
+      if (val && this.$parent.type === 'radio' && this.value === this.$parent.currentValue) {
+        this.$parent.currentValue = ''
+      }
+    }
+  },
   computed: {
     classNames () {
       const isSimpleValue = typeof this.value === 'string' || typeof this.value === 'number'
@@ -63,7 +70,6 @@ export default {
       }
     },
     selectRadio () {
-      console.log()
       if (!this.disabled) {
         if (this.$parent.currentValue === this.value) {
           this.$parent.currentValue = ''
