@@ -58,6 +58,10 @@ export default {
     closeOnClickingMask: {
       type: Boolean,
       default: true
+    },
+    closeOnClickingMenu: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -84,11 +88,11 @@ export default {
       this.$emit('on-click-mask')
       this.closeOnClickingMask && (this.show = false)
     },
-    emitEvent (event, menu, shouldClose = true) {
+    emitEvent (event, menu) {
       if (event === 'on-click-menu' && !/.noop/.test(menu)) {
         this.$emit(event, menu)
         this.$emit(`${event}-${menu}`)
-        shouldClose && (this.show = false)
+        this.closeOnClickingMenu && (this.show = false)
       }
     },
     fixIos (zIndex) {
