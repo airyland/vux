@@ -192,6 +192,12 @@ export default {
       this.render(year, month)
     },
     select (k1, k2, data) {
+      if (data.isLastMonth && !this.showLastMonth) {
+        return
+      }
+      if (data.isNextMonth && !this.showNextMonth) {
+        return
+      }
       if (!data.isBetween) {
         return
       }
