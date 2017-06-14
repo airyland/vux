@@ -158,6 +158,7 @@ export default {
           _this.$emit('on-hide')
         },
         onShow () {
+          _this.$emit('update:show', true)
           _this.$emit('on-show')
         }
       }
