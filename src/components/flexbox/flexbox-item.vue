@@ -12,6 +12,9 @@ export default {
     span: [Number, String],
     order: [Number, String]
   },
+  beforeMount () {
+    this.bodyWidth = document.documentElement.offsetWidth
+  },
   methods: {
     buildWidth (width) {
       if (typeof width === 'number') {
@@ -44,7 +47,7 @@ export default {
   },
   data () {
     return {
-      bodyWidth: document.documentElement.offsetWidth
+      bodyWidth: 0
     }
   }
 }
