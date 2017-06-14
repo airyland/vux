@@ -34,6 +34,13 @@ extra: |
 
   如果你想保存滚动距离，推荐使用`vuex`实现，在特定`path`对`scrollBody`监听`scroll`事件，并获取滚动距离保存到`vuex`的`state`里。示例可以参考vux源码的`App.vue`
 
+props:
+  body-padding-top:
+    type: String
+    zh-CN: 主体的`padding-top`值，当顶部存在`x-header`等`absolute`定位元素时需要设置
+  body-padding-bottom:
+    type: String
+    zh-CN: 主体的`padding-bottom`值，当底部存在`tabbar`等`absolute`定位元素时需要设置
 slots:
   header:
     zh-CN: 顶部区域，如果要使用统一的XHeader，可以使用该slot
@@ -41,10 +48,6 @@ slots:
     zh-CN: '主体内容，可滚动的区域'
   bottom:
     zh-CN: 底部区域，Tabbar可以使用该slot
-  body-padding-top:
-    zh-CN: 主体的`padding-top`值，当底部存在`x-header`等`absolute`定位元素时需要设置
-  body-padding-bottom:
-    zh-CN: 主体的`padding-bottom`值，当底部存在`tabbar`等`absolute`定位元素时需要设置
 methods:
   scrollTo:
     params: '`(top)`'
