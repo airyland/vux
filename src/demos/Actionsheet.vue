@@ -14,6 +14,7 @@
     <group>
       <x-switch :title="$t('menu as tips')" v-model="show3"></x-switch>
       <x-switch :title="$t('slot:header')" v-model="show6"></x-switch>
+      <x-switch :title="$t('Prevent auto closing')" v-model="show8"></x-switch>
     </group>
 
     <actionsheet v-model="show4" :menus="menus1" :close-on-clicking-mask="false" show-cancel @on-click-mask="console('on click mask')"></actionsheet>
@@ -34,10 +35,19 @@
     </actionsheet>
     
     <toast v-model="showSuccess">{{ $t('Deleted~') }}</toast>
+
+    <div v-transfer-dom>
+      <actionsheet v-model="show8" :menus="menus8" @on-click-menu="demo8doClose" :close-on-clicking-mask="false" :close-on-clicking-menu="false">
+      </actionsheet>
+    </div>
   </div>
 </template>
 
 <i18n>
+Prevent auto closing:
+  zh-CN: 不自动关闭
+Close me:
+  zh-CN: 点我关闭
 Deleted~:
   zh-CN: 删除成功
 slot:header:
@@ -70,7 +80,7 @@ Array menu:
 </i18n>
 
 <script>
-import { Actionsheet, Group, XSwitch, Toast } from 'vux'
+import { TransferDom, Actionsheet, Group, XSwitch, Toast } from 'vux'
 
 export default {
   components: {
@@ -78,6 +88,9 @@ export default {
     Group,
     XSwitch,
     Toast
+  },
+  directives: {
+    TransferDom
   },
   data () {
     return {
@@ -96,6 +109,7 @@ export default {
       show5: false,
       show6: false,
       show7: false,
+      show8: false,
       menus5: [{
         label: 'actionsheet header',
         type: 'info'
@@ -121,10 +135,23 @@ export default {
       menus3: {
         'title.noop': 'actionsheet header',
         delete: '<span style="color:red">Delete</span>'
+      },
+      menus8: {
+        menu1: 'Close me',
+        menu2: 'Close me'
       }
     }
   },
   methods: {
+    demo8doClose () {
+      this.$vux.loading.show({
+        text: 'processing'
+      })
+      setTimeout(() => {
+        this.$vux.loading.hide()
+        this.show8 = false
+      }, 1000)
+    },
     console (msg) {
       console.log(msg)
     },

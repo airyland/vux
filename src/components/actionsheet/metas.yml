@@ -118,6 +118,12 @@ props:
     version: v2.0.0
     en: if closing actionsheet when clicking on mask
     zh-CN: 点击遮罩时是否关闭菜单，适用于一些进入页面时需要强制选择的场景。
+  closeOnClickingMenu:
+    type: Boolean
+    default: true
+    version: next
+    en: if auto hide when clicking on menus
+    zh-CN: 点击菜单时是否自动隐藏
 events:
   on-click-menu:
     params: (menuKey)
