@@ -2,7 +2,7 @@
   <div class="vux-picker">
     <flexbox :gutter="0">
       <flexbox-item :span="columnWidth && columnWidth[index]" v-for="(one, index) in currentData" :key="index" style="margin-left:0;">
-        <div class="vux-picker-item" :id="'vux-picker-' + uuid + '-' + index"></div>
+        <div class="vux-picker-item" :id="`vux-picker-${uuid}-${index}`"></div>
       </flexbox-item>
     </flexbox>
   </div>
@@ -27,6 +27,7 @@ export default {
     }
   },
   mounted () {
+    this.uuid = Math.random().toString(36).substring(3, 8)
     this.$nextTick(() => {
       this.render(this.currentData, this.currentValue)
     })
@@ -145,7 +146,7 @@ export default {
     return {
       scroller: [],
       count: 0,
-      uuid: Math.random().toString(36).substring(3, 8),
+      uuid: '',
       currentData: this.data,
       currentValue: this.value
     }
@@ -214,7 +215,7 @@ export default {
   },
   beforeDestroy () {
     for (let i = 0; i < this.count; i++) {
-      this.scroller[i].destroy()
+      this.scroller[i] && this.scroller[i].destroy()
       this.scroller[i] = null
     }
   }
