@@ -55,6 +55,9 @@ export default {
   computed: {
     imgs () {
       return this.list.map(one => {
+        if (!one.msrc) {
+          one.msrc = one.src
+        }
         if (typeof one.w === 'undefined') {
           one.w = 0
           one.h = 0

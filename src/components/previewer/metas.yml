@@ -70,8 +70,10 @@ events:
 changes:
   next:
     en:
+      - '[enhance] Use src as msrc by default'
       - '[enhance] No more force setting width and height #1426'
     zh-CN:
+      - '[enhance] 使用图片作为缩略图，防止先显示黑色区域'
       - '[enhance] 不再强制要求设置宽高 #1426'
   v2.2.1-rc.4:
     en:
