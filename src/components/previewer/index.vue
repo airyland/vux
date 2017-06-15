@@ -52,15 +52,55 @@ import UI from 'photoswipe/dist/photoswipe-ui-default'
 import objectAssign from 'object-assign'
 
 export default {
+  computed: {
+    imgs () {
+      return this.list.map(one => {
+        if (typeof one.w === 'undefined') {
+          one.w = 0
+          one.h = 0
+        }
+        return one
+      })
+    }
+  },
   methods: {
     init (index) {
+      const self = this
+      const showItem = this.imgs[index]
+      if (!showItem.w || !showItem.h || showItem.w < 5 || showItem.h < 5) {
+        const img = new Image()
+        img.onload = function () {
+          showItem.w = this.width
+          showItem.h = this.height
+          self._init(index)
+        }
+        img.src = showItem.src
+      } else {
+        this._init(index)
+      }
+    },
+    _init (index) {
+      const self = this
       let options = objectAssign({
         history: false,
         shareEl: false,
         tapToClose: true,
         index: index
       }, this.options)
-      this.photoswipe = new PhotoSwipe(this.$el, UI, this.list, options)
+      this.photoswipe = new PhotoSwipe(this.$el, UI, this.imgs, options)
+
+      this.photoswipe.listen('gettingData', function (index, item) {
+        if (!item.w || !item.h || item.w < 1 || item.h < 1) {
+          const img = new Image()
+          img.onload = function () {
+            item.w = this.width
+            item.h = this.height
+            self.photoswipe.updateSize(true)
+          }
+          img.src = item.src
+        }
+      })
+
       this.photoswipe.init()
       this.photoswipe.listen('close', () => {
         this.$emit('on-close')

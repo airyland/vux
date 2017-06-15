@@ -30,9 +30,9 @@ export default {
         h: 400
       },
       {
-        src: 'https://ooo.0o0.ooo/2017/05/17/591c271acea7c.jpg',
-        w: 1200,
-        h: 900
+        src: 'https://ooo.0o0.ooo/2017/05/17/591c271acea7c.jpg'
+      }, {
+        src: 'https://ooo.0o0.ooo/2017/06/15/59425a592b949.jpeg'
       }],
       options: {
         getThumbBoundsFn (index) {

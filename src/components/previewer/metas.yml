@@ -68,6 +68,11 @@ events:
     en: emits after closing
     zh-CN: 关闭时触发
 changes:
+  next:
+    en:
+      - '[enhance] No more force setting width and height #1426'
+    zh-CN:
+      - '[enhance] 不再强制要求设置宽高 #1426'
   v2.2.1-rc.4:
     en:
       - '[enhance] Increase the closing event #1245'
