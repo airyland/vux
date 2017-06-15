@@ -1,5 +1,7 @@
 // THIS FILE IS ONLY FOR IDE ENTRY CHECKING NOT FOR REAL USAGE
 
+console.warn('VUX: 如果你看到这一行，说明 vux-loader 配置有问题或者代码书写规范的原因导致无法解析成按需引入组件，会导致打包体积过大。请升级到最新版本 vux-loader，建议开启 eslint(standard)。')
+
 import Actionsheet from './src/components/actionsheet/index.vue'
 import Agree from './src/components/agree/index.vue'
 import AjaxPlugin from './src/plugins/ajax/index.js'
@@ -37,6 +39,7 @@ import Countup from './src/components/countup/index.vue'
 import dateFormat from './src/tools/date/format.js'
 import dateRange from './src/tools/date/range.js'
 import Datetime from './src/components/datetime/index.vue'
+import DatetimePlugin from './src/plugins/datetime/index.js'
 import DatetimeRange from './src/components/datetime-range/index.vue'
 import debounce from './src/tools/debounce/index.js'
 import Demobasic from './src/components/fullpage/DemoBasic.vue'
@@ -46,6 +49,9 @@ import DevTip from './src/components/dev-tip/index.vue'
 import Divider from './src/components/divider/index.vue'
 import Flexbox from './src/components/flexbox/flexbox.vue'
 import FlexboxItem from './src/components/flexbox/flexbox-item.vue'
+import Flow from './src/components/flow/flow.vue'
+import FlowLine from './src/components/flow/flow-line.vue'
+import FlowState from './src/components/flow/flow-state.vue'
 import FormatTimeFilter from './src/filters/format-time.js'
 import FormPreview from './src/components/form-preview/index.vue'
 import FriendlyTimeFilter from './src/filters/friendly-time.js'
@@ -57,6 +63,7 @@ import GroupTitle from './src/components/group-title/index.vue'
 import Icon from './src/components/icon/index.vue'
 import InlineCalendar from './src/components/inline-calendar/index.vue'
 import InlineDesc from './src/components/inline-desc/index.vue'
+import InlineLoading from './src/components/inline-loading/index.vue'
 import InlineXNumber from './src/components/inline-x-number/index.vue'
 import InviewDirective from './src/directives/inview/index.js'
 import Loading from './src/components/loading/index.vue'
@@ -112,6 +119,7 @@ import Toast from './src/components/toast/index.vue'
 import ToastPlugin from './src/plugins/toast/index.js'
 import TransferDom from './src/directives/transfer-dom/index.js'
 import TransferDomDirective from './src/directives/transfer-dom/index.js'
+import trim from './src/tools/string/trim'
 import Value2nameFilter from './src/filters/value2name.js'
 import Video from './src/components/video/index.vue'
 import ViewBox from './src/components/view-box/index.vue'
@@ -171,6 +179,7 @@ export {
   dateFormat,
   dateRange,
   Datetime,
+  DatetimePlugin,
   DatetimeRange,
   debounce,
   Demobasic,
@@ -180,6 +189,9 @@ export {
   Divider,
   Flexbox,
   FlexboxItem,
+  Flow,
+  FlowLine,
+  FlowState,
   FormatTimeFilter,
   FormPreview,
   FriendlyTimeFilter,
@@ -191,6 +203,7 @@ export {
   Icon,
   InlineCalendar,
   InlineDesc,
+  InlineLoading,
   InlineXNumber,
   InviewDirective,
   Loading,
@@ -246,6 +259,7 @@ export {
   ToastPlugin,
   TransferDom,
   TransferDomDirective,
+  trim,
   Value2nameFilter,
   Video,
   ViewBox,
