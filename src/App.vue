@@ -7,47 +7,87 @@
       <actionsheet :menus="menus" v-model="showMenu" @on-click-menu="changeLocale"></actionsheet>
     </div>
 
-    <view-box ref="viewBox" body-padding-top="46px" body-padding-bottom="55px">
-      
-      <x-header slot="header"
-      style="width:100%;position:absolute;left:0;top:0;z-index:100;"
-      :left-options="leftOptions"
-      :right-options="rightOptions"
-      :title="title"
-      :transition="headerTransition"
-      @on-click-more="onClickMore"></x-header>
+    <drawer
+    width="200px;"
+    :show.sync="drawerVisibility"
+    :show-mode="showModeValue"
+    :placement="showPlacementValue"
+    :drawer-style="{'background-color':'#35495e', width: '200px'}">
 
-      <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
-        <router-view class="router-view"></router-view>
-      </transition>
+      <!-- drawer content -->
+      <div slot="drawer">
+        <group title="Drawer demo(beta)" style="margin-top:20px;">
+          <cell title="Demo" link="/demo" value="演示" @click.native="drawerVisibility = false">
+          </cell>
+          <cell title="Buy me a coffee" link="project/donate" @click.native="drawerVisibility = false">
+          </cell>
+          <cell title="Github" link="http://github.com/airyland/vux" value="Star me" @click.native="drawerVisibility = false">
+          </cell>
+        </group>
+        <group title="showMode">
+          <radio v-model="showMode" :options="['push', 'overlay']" @on-change="onShowModeChange"></radio>
+        </group>
+        <group title="placement">
+          <radio v-model="showPlacement" :options="['left', 'right']" @on-change="onPlacementChange"></radio>
+        </group>
+      </div>
 
-      <tabbar class="vux-demo-tabbar" icon-class="vux-center" v-show="!isTabbarDemo" slot="bottom">
-        <tabbar-item :link="{path:'/'}" :selected="route.path === '/'">
-          <span class="demo-icon-22 vux-demo-tabbar-icon-home" slot="icon" style="position:relative;top: -2px;">&#xe637;</span>
-          <span slot="label">Home</span>
-        </tabbar-item>
-        <tabbar-item :link="{path:'/demo'}" :selected="isDemo" badge="9">
-          <span class="demo-icon-22" slot="icon">&#xe633;</span>
-          <span slot="label"><span v-if="componentName" class="vux-demo-tabbar-component">{{componentName}}</span><span v-else>Demos</span></span>
-        </tabbar-item>
-        <tabbar-item :link="{path:'/project/donate'}" :selected="route.path === '/project/donate'" show-dot>
-          <span class="demo-icon-22" slot="icon">&#xe630;</span>
-          <span slot="label">Donate</span>
-        </tabbar-item>
-      </tabbar>
-  </view-box>
+      <!-- main content -->
+      <view-box ref="viewBox" body-padding-top="46px" body-padding-bottom="55px">
+        
+        <x-header slot="header"
+        style="width:100%;position:absolute;left:0;top:0;z-index:100;"
+        :left-options="leftOptions"
+        :right-options="rightOptions"
+        :title="title"
+        :transition="headerTransition"
+        @on-click-more="onClickMore">
+          <span v-if="route.path === '/'" slot="overwrite-left" @click="drawerVisibility = !drawerVisibility">
+            <x-icon type="navicon" size="35" style="fill:#fff;position:relative;top:-8px;left:-3px;"></x-icon>
+          </span>
+        </x-header>
+
+        <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
+          <router-view class="router-view"></router-view>
+        </transition>
+
+        <tabbar class="vux-demo-tabbar" icon-class="vux-center" v-show="!isTabbarDemo" slot="bottom">
+          <tabbar-item :link="{path:'/'}" :selected="route.path === '/'">
+            <span class="demo-icon-22 vux-demo-tabbar-icon-home" slot="icon" style="position:relative;top: -2px;">&#xe637;</span>
+            <span slot="label">Home</span>
+          </tabbar-item>
+          <tabbar-item :link="{path:'/demo'}" :selected="isDemo" badge="9">
+            <span class="demo-icon-22" slot="icon">&#xe633;</span>
+            <span slot="label"><span v-if="componentName" class="vux-demo-tabbar-component">{{componentName}}</span><span v-else>Demos</span></span>
+          </tabbar-item>
+          <tabbar-item :link="{path:'/project/donate'}" :selected="route.path === '/project/donate'" show-dot>
+            <span class="demo-icon-22" slot="icon">&#xe630;</span>
+            <span slot="label">Donate</span>
+          </tabbar-item>
+        </tabbar>
+        
+      </view-box>
+    </drawer>
   </div>
 </template>
 
 <script>
-import { Actionsheet, ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem, Loading, TransferDom } from 'vux'
+import { Radio, Group, Cell, Badge, Drawer, Actionsheet, ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem, Loading, TransferDom } from 'vux'
 import { mapState, mapActions } from 'vuex'
+
+const pkg = require('../../package.json')
+const version = pkg.version
 
 export default {
   directives: {
     TransferDom
   },
   components: {
+    Radio,
+    Group,
+    Cell,
+    Badge,
+    Drawer,
     ButtonTab,
     ButtonTabItem,
     ViewBox,
@@ -58,6 +98,20 @@ export default {
     Actionsheet
   },
   methods: {
+    onShowModeChange (val) {
+      /** hide drawer before changing showMode **/
+      this.drawerVisibility = false
+      setTimeout(one => {
+        this.showModeValue = val
+      }, 400)
+    },
+    onPlacementChange (val) {
+      /** hide drawer before changing position **/
+      this.drawerVisibility = false
+      setTimeout(one => {
+        this.showPlacementValue = val
+      }, 400)
+    },
     onClickMore () {
       this.showMenu = true
     },
@@ -78,7 +132,7 @@ export default {
     }
   },
   beforeDestroy () {
-    this.box.removeEventListener('scroll', this.handler, false)
+    this.box && this.box.removeEventListener('scroll', this.handler, false)
   },
   watch: {
     path (path) {
@@ -153,7 +207,13 @@ export default {
         'language.noop': '<span class="menu-title">Language</span>',
         'zh-CN': '中文',
         'en': 'English'
-      }
+      },
+      drawerVisibility: false,
+      version,
+      showMode: 'push',
+      showModeValue: 'push',
+      showPlacement: 'left',
+      showPlacementValue: 'left'
     }
   }
 }

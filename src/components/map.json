@@ -45,6 +45,7 @@
   "DevicePlugin": "src/plugins/device/index.js",
   "DevTip": "src/components/dev-tip/index.vue",
   "Divider": "src/components/divider/index.vue",
+  "Drawer": "src/components/drawer/index.vue",
   "Flexbox": "src/components/flexbox/flexbox.vue",
   "FlexboxItem": "src/components/flexbox/flexbox-item.vue",
   "Flow": "src/components/flow/flow.vue",
