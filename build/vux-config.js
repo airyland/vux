@@ -38,9 +38,7 @@ module.exports = {
           }
           str.push(`{
   path: '${path}',
-  component: function (resolve) {
-    require(['./demos/${filename}.vue'], resolve)
-  }
+  component: () => import('./demos/${filename}.vue')
 }`)
         })
 
