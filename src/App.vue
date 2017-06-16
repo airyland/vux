@@ -65,7 +65,7 @@
             <span slot="label">Donate</span>
           </tabbar-item>
         </tabbar>
-        
+
       </view-box>
     </drawer>
   </div>
@@ -74,9 +74,6 @@
 <script>
 import { Radio, Group, Cell, Badge, Drawer, Actionsheet, ButtonTab, ButtonTabItem, ViewBox, XHeader, Tabbar, TabbarItem, Loading, TransferDom } from 'vux'
 import { mapState, mapActions } from 'vuex'
-
-const pkg = require('../../package.json')
-const version = pkg.version
 
 export default {
   directives: {
@@ -209,7 +206,6 @@ export default {
         'en': 'English'
       },
       drawerVisibility: false,
-      version,
       showMode: 'push',
       showModeValue: 'push',
       showPlacement: 'left',
