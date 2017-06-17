@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Powerange from './range/lib/powerange'
+import Powerange from './powerange'
 
 export default {
   props: {
@@ -66,10 +66,15 @@ export default {
       const handleTop = (this.rangeHandleHeight - this.rangeBarHeight) / 2
       this.$el.querySelector('.range-handle').style.top = `-${handleTop}px`
       this.$el.querySelector('.range-bar').style.height = `${this.rangeBarHeight}px`
+      this.handleOrientationchange = () => {
+        this.update()
+      }
+      window.addEventListener('orientationchange', this.handleOrientationchange, false)
     })
   },
   methods: {
     update () {
+      console.log('update', this.currentValue)
       let value = this.currentValue
       if (value < this.min) {
         value = this.min
@@ -111,6 +116,9 @@ export default {
     max () {
       this.update()
     }
+  },
+  beforeDestroy () {
+    window.removeEventListener('orientationchange', this.handleOrientationchange, false)
   }
 }
 </script>

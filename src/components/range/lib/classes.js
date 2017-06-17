@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 
-var index = require('./indexof')
+const index = require('../utils').indexof
 
 /**
  * Whitespace regexp.
