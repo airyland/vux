@@ -1,27 +1,29 @@
 <template>
   <div>
     <cell :title="title" primary="content" :value="currentValue" @click.native="onClick" is-link></cell>
-    <popup v-model="show">
-      <inline-calendar
-      v-model="currentValue"
-      @on-change="onSelect"
-      :render-month="renderMonth"
-      :start-date="startDate"
-      :end-date="endDate"
-      :show-last-month="showLastMonth"
-      :show-next-month="showNextMonth"
-      :highlight-weekend="highlightWeekend"
-      :return-six-rows="returnSixRows"
-      :hide-header="hideHeader"
-      :hide-week-list="hideWeekList"
-      :replace-text-list="replaceTextList"
-      :weeks-list="weeksList"
-      :render-function="renderFunction"
-      :render-on-value-change="renderOnValueChange"
-      :disable-past="disablePast"
-      :disable-future="disableFuture"
-      ></inline-calendar>
-    </popup>
+    <div v-transfer-dom>
+      <popup v-model="show">
+        <inline-calendar
+        v-model="currentValue"
+        @on-change="onSelect"
+        :render-month="renderMonth"
+        :start-date="startDate"
+        :end-date="endDate"
+        :show-last-month="showLastMonth"
+        :show-next-month="showNextMonth"
+        :highlight-weekend="highlightWeekend"
+        :return-six-rows="returnSixRows"
+        :hide-header="hideHeader"
+        :hide-week-list="hideWeekList"
+        :replace-text-list="replaceTextList"
+        :weeks-list="weeksList"
+        :render-function="renderFunction"
+        :render-on-value-change="renderOnValueChange"
+        :disable-past="disablePast"
+        :disable-future="disableFuture"
+        ></inline-calendar>
+      </popup>
+    </div>
   </div>
 </template>
 
@@ -30,6 +32,7 @@ import InlineCalendar from '../inline-calendar'
 import Popup from '../popup'
 import Cell from '../cell'
 import props from '../inline-calendar/props'
+import TransferDom from '../../directives/transfer-dom'
 
 const Props = props()
 Props.title = {
@@ -38,6 +41,9 @@ Props.title = {
 }
 
 export default {
+  directives: {
+    TransferDom
+  },
   components: {
     InlineCalendar,
     Popup,
