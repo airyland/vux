@@ -9,25 +9,19 @@
       <p class="vux-notice">v{{version}}</p>
     </div>
     <group>
-      <cell title="Demo" link="/demo" value="演示">
+      <cell title="Live Demo" link="/demo">
         <span class="demo-icon" slot="icon" style="color:#F70968">&#xe633;</span>
       </cell>
     </group>
     <group>
       <cell title="Buy me a coffee" link="project/donate">
         <span class="demo-icon" slot="icon" style="color:red;">&#xe630;</span>
-        <badge text="捐赠"></badge>
+        <badge text="donate"></badge>
       </cell>
       <cell title="Github" link="http://github.com/airyland/vux" value="Star me">
         <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
       </cell>
     </group>
-    <group title="to be released">
-      <cell title="Flow" link="/component/flow"></cell>
-      <cell title="XTable" link="/component/x-table"></cell>
-      <cell title="PopupRadio" link="/component/popup-radio"></cell>
-    </group>
-
     <br>
     <p class="vue-version">current vue version: {{ vueVersion }}</p>
   </div>

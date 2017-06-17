@@ -11,7 +11,7 @@
   </a>
   <br>
   <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
-    online demo >>
+    Live Demo >>
   </a>
   <br>
   <br>
