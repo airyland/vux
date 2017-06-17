@@ -2,6 +2,8 @@ vux.actionsheet.cancel: cancel
 vux.alert.button_text: OK
 vux.confirm.confirm_text: confirm
 vux.confirm.cancel_text: cancel
+vux.datetime.cancel_text: cancel
+vux.datetime.confirm_text: done
 vux.loading.loading: loading
 vux.popup-picker.cancel_text: cancel
 vux.popup-picker.confirm_text: ok

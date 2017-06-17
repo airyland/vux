@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="padding:15px;">
-      <x-button type="primary" plain @click.native="showPlugin">Used as a plugin(Hide in 2s)</x-button>
+      <x-button type="primary" plain @click.native="showPlugin">{{ $t('Used as a plugin(Hide in 2s)') }}</x-button>
     </div>
 
     <group :title="$t('default format: YYYY-MM-DD')">
@@ -134,6 +134,8 @@ custom hour list:
   zh-CN: 定义小时列表
 'use prop:show.sync(vue^2.3) to control visibility':
   zh-CN: 使用 prop:show 控制显示(vue^2.3)
+Used as a plugin(Hide in 2s):
+  zh-CN: 插件形式调用
 </i18n>
 
 <script>

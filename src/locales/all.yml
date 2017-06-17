@@ -4,6 +4,8 @@ en:
   vux.alert.button_text: OK
   vux.confirm.confirm_text: confirm
   vux.confirm.cancel_text: cancel
+  vux.datetime.cancel_text: cancel
+  vux.datetime.confirm_text: done
   vux.loading.loading: loading
   vux.popup-picker.cancel_text: cancel
   vux.popup-picker.confirm_text: ok
@@ -15,6 +17,8 @@ zh-CN:
   vux.alert.button_text: 确定
   vux.confirm.confirm_text: 确定
   vux.confirm.cancel_text: 取消
+  vux.datetime.cancel_text: 取消
+  vux.datetime.confirm_text: 确定
   vux.loading.loading: 加载中
   vux.popup-picker.cancel_text: 取消
   vux.popup-picker.confirm_text: 完成

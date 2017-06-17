@@ -1,5 +1,10 @@
 <template>
-  <a class="vux-datetime weui-cell" :class="{'weui-cell_access': !readonly}" href="javascript:">
+  <a
+  class="vux-datetime weui-cell"
+  :class="{'weui-cell_access': !readonly}"
+  :data-cancel-text="$t('cancel_text')"
+  :data-confirm-text="$t('confirm_text')"
+  href="javascript:">
     <slot>
       <div>
         <slot name="title">
@@ -14,6 +19,15 @@
     </slot>
   </a>
 </template>
+
+<i18n>
+cancel_text:
+  en: cancel
+  zh-CN: 取消
+confirm_text:
+  en: done
+  zh-CN: 确定
+</i18n>
 
 <script>
 import Icon from '../icon'
@@ -47,14 +61,8 @@ export default {
     placeholder: String,
     minYear: Number,
     maxYear: Number,
-    confirmText: {
-      type: String,
-      default: 'ok'
-    },
-    cancelText: {
-      type: String,
-      default: 'cancel'
-    },
+    confirmText: String,
+    cancelText: String,
     clearText: String,
     yearRow: {
       type: String,
@@ -132,8 +140,8 @@ export default {
         format: this.format,
         value: this.currentValue,
         output: '.vux-datetime-value',
-        confirmText: this.confirmText,
-        cancelText: _this.cancelText,
+        confirmText: _this.getButtonText('confirm'),
+        cancelText: _this.getButtonText('cancel'),
         clearText: _this.clearText,
         yearRow: this.yearRow,
         monthRow: this.monthRow,
@@ -176,6 +184,14 @@ export default {
     }
   },
   methods: {
+    getButtonText (type) {
+      if (type === 'cancel' && this.cancelText) {
+        return this.cancelText
+      } else if (type === 'confirm' && this.confirmText) {
+        return this.confirmText
+      }
+      return this.$el.getAttribute(`data-${type}-text`)
+    },
     render () {
       this.$nextTick(() => {
         this.picker && this.picker.destroy()
@@ -329,7 +345,7 @@ export default {
 
 .dp-header .dp-item {
   color: @datetime-header-item-font-color;
-  font-size: 18px;
+  font-size: 16px;
   height: 44px;
   line-height: 44px;
   cursor: pointer;
@@ -355,9 +371,15 @@ export default {
 .dp-content .dp-item {
   box-sizing: border-box;
   flex: 1;
-  text-align: center;
 }
-
+.vux-datetime-cancel {
+  text-align: left;
+  padding-left: 15px;
+}
+.vux-datetime-confirm {
+  text-align: right;
+  padding-right: 15px;
+}
 .vux-datetime {
   color: #000;
 }
