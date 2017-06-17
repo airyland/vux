@@ -9,7 +9,7 @@
     </group>
 
     <group :title="'fill mode value is '+radio001Value">
-      <radio fill-mode :options="radio001" v-model="radio001Value" @on-change="change"></radio>
+      <radio :selected-label-style="{color: '#FF9900'}" fill-mode :options="radio001" v-model="radio001Value" @on-change="change"></radio>
     </group>
 
     <group title="fill mode with custom placeholder and label">

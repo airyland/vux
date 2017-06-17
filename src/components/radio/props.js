@@ -19,6 +19,7 @@ export default function () {
       type: String,
       default: '其他'
     },
-    disabled: Boolean
+    disabled: Boolean,
+    selectedLabelStyle: Object
   }
 }
