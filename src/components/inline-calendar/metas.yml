@@ -97,6 +97,11 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
+  next:
+    en:
+      - '[enhance] re-render when render-month is changed'
+    zh-CN:
+      - '[enhance] 当 render-month 变化时重新渲染日历'
   v2.3.8:
     en:
       - '[enhance] prevent from clicking invisiable date #1564'

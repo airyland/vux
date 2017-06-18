@@ -115,6 +115,11 @@ export default {
     renderFunction () {
       this.render(this.year, this.month, this.currentValue)
     },
+    renderMonth (val) {
+      if (val && val.length === 2) {
+        this.render(val[0], val[1] - 1)
+      }
+    },
     returnSixRows (val) {
       this.render(this.year, this.month, this.currentValue)
     },
