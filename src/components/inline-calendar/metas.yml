@@ -97,7 +97,7 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
-  next:
+  v2.4.0:
     en:
       - '[enhance] re-render when render-month is changed'
     zh-CN:

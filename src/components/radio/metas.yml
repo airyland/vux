@@ -81,7 +81,7 @@ props:
     zh-CN: 禁用操作
   selected-label-style:
     type: Object
-    version: next
+    version: v2.4.0
     en: set selected label style
     zh-CN: 设置选中时的 label 样式，比如使用其他颜色更容易区分是否为选中项
 slots:
@@ -90,7 +90,7 @@ slots:
     en: custom how to display each item
     zh-CN: 自定义如何显示每一项
 changes:
-  next:
+  v2.4.0:
     en:
       - '[feature] Add prop:selected-label-style'
     zh-CN:

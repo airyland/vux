@@ -135,7 +135,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.4.0:
     en:
       - '[enhance] use the same popup header style as popup-picker'
     zh-CN:

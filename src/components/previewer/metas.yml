@@ -68,7 +68,7 @@ events:
     en: emits after closing
     zh-CN: 关闭时触发
 changes:
-  next:
+  v2.4.0:
     en:
       - '[enhance] Use src as msrc by default'
       - '[enhance] No more force setting width and height #1426'

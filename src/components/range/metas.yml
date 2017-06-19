@@ -59,7 +59,7 @@ events:
     en: emits when value is changed
     zh-CN: 绑定值变化时触发事件
 changes:
-  next:
+  v2.4.0:
     en:
       - '[fix] Fix the situation cannot drag to max value #1556'
     zh-CN:

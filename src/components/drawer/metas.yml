@@ -4,45 +4,45 @@ extra:
   zh-CN: '当前组件 forked 自 https://github.com/bajian/vue-drawer'
 props:
   show:
-    version: next
+    version: v2.4.0
     type: Boolean
     default: false
     en: visibility of the component, use :show.sync to control the visibility(vue@^2.3.3)
     zh-CN: 是否展开，使用 :show.sync 绑定(vue@^2.3.3)
   drawer-style:
-    version: next
+    version: v2.4.0
     en: menu container styles
     zh-CN: 菜单样式
   show-mode:
-    version: next
+    version: v2.4.0
     default: overlay
     en: animation type, can be push or overlay
     zh-CN: 展示方式，push(推开内容区域)或者 overlay(在内容上显示)
   placement:
-    version: next
+    version: v2.4.0
     default: left
     en: placement, left or right
     zh-CN: 显示位置，可以为 left 或者 right
 slots:
   default:
-    version: next
+    version: v2.4.0
     en: page content container
     zh-CN: 主体内容插槽
   drawer:
-    version: next
+    version: v2.4.0
     en: drawer menu container
     zh-CN: 侧边栏内容插槽
 event:
   on-show:
-    version: next
+    version: v2.4.0
     en: emits when drawer is shown
     zh-CN: 侧边栏显示时触发
   on-hidde:
-    version: next
+    version: v2.4.0
     en: emits when drawer is hidden
     zh-CN: 侧边栏关闭时触发
 changes:
-  next:
+  v2.4.0:
     en:
       - '[feature] new component'
     zh-CN:
