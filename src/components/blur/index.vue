@@ -8,6 +8,7 @@
 import Blur from './blur'
 
 export default {
+  name: 'blur',
   mounted () {
     this.$nextTick(() => {
       this._blur = new Blur(this.$el, {

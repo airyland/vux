@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'flow',
   props: {
     orientation: {
       type: String,

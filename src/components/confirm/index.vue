@@ -30,6 +30,7 @@ cancel_text:
 <script>
 import XDialog from '../x-dialog'
 export default {
+  name: 'confirm',
   components: {
     XDialog
   },

@@ -32,6 +32,7 @@ import { getValue, getKey } from '../checklist/object-filter'
 import props from './props'
 
 export default {
+  name: 'radio',
   mixins: [Base],
   filters: {
     getValue,

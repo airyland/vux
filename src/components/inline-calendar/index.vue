@@ -64,6 +64,7 @@ import { getDays, zero } from './util'
 import props from './props'
 
 export default {
+  name: 'inline-calendar',
   props: props(),
   data () {
     return {

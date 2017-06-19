@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: 'flow-state',
   props: {
     state: [String, Number],
     title: String,

@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'flexbox',
   props: {
     gutter: {
       type: Number,

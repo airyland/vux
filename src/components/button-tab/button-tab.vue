@@ -8,6 +8,7 @@
 import { parentMixin } from '../../mixins/multi-items'
 
 export default {
+  name: 'button-tab',
   mixins: [parentMixin],
   props: {
     height: Number

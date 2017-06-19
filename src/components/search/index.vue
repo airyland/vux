@@ -43,6 +43,7 @@ placeholder:
 import uuidMixin from '../../mixins/uuid'
 
 export default {
+  name: 'search',
   mixins: [uuidMixin],
   props: {
     required: {

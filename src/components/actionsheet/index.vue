@@ -37,6 +37,7 @@ cancel:
 
 <script>
 export default {
+  name: 'actionsheet',
   mounted () {
     this.hasHeaderSlot = !!this.$slots.header
     this.$nextTick(() => {

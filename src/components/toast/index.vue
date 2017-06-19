@@ -15,6 +15,7 @@
 import SafariFixIssue from '../../mixins/safari-fix'
 
 export default {
+  name: 'toast',
   mixins: [SafariFixIssue],
   props: {
     value: Boolean,

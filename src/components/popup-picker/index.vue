@@ -73,6 +73,7 @@ const getObject = function (obj) {
 }
 
 export default {
+  name: 'popup-picker',
   directives: {
     TransferDom
   },

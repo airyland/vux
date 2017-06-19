@@ -8,6 +8,7 @@
 const prefixList = ['-moz-box-', '-webkit-box-', '']
 
 export default {
+  name: 'flexbox-item',
   props: {
     span: [Number, String],
     order: [Number, String]

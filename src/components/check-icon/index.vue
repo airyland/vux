@@ -11,6 +11,7 @@
 import Icon from '../icon'
 
 export default {
+  name: 'icon',
   components: {
     Icon
   },

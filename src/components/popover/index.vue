@@ -22,6 +22,7 @@
 import ClickOutside from '../../directives/click-outside'
 
 export default {
+  name: 'popover',
   mounted () {
     this.$nextTick(() => {
       const trigger = this.$refs.trigger.children[0]

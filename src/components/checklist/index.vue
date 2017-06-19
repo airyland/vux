@@ -25,6 +25,7 @@ import { getValue, getKey } from './object-filter'
 import shuffle from 'array-shuffle'
 
 export default {
+  name: 'checklist',
   components: {
     Tip,
     Icon

@@ -33,6 +33,7 @@ button_text:
 import XDialog from '../x-dialog'
 
 export default {
+  name: 'alert',
   components: {
     XDialog
   },

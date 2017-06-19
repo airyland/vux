@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'rater',
   created () {
     this.currentValue = this.value
   },

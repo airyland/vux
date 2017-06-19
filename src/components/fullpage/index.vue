@@ -8,6 +8,7 @@
 import Fullpage from './lib'
 
 export default {
+  name: 'fullpage',
   mounted () {
     const self = this
     this.$nextTick(() => {

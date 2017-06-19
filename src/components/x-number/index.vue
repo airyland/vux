@@ -23,6 +23,7 @@
 <script>
 const Big = require('big.js')
 export default {
+  name: 'x-number',
   props: {
     min: Number,
     max: Number,

@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: 'swipeout-button'
   props: {
     text: String,
     backgroundColor: String,

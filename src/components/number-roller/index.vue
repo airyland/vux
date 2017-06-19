@@ -6,6 +6,7 @@
 import Roller from './lib'
 
 export default {
+  name: 'number-roller',
   props: {
     number: Number,
     width: {

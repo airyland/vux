@@ -8,6 +8,7 @@ import webpSupport from 'webp-support'
 import uuidMixin from '../../libs/mixin_uuid'
 
 export default {
+  name: 'x-img',
   mixins: [uuidMixin],
   mounted () {
     this.$nextTick(() => {

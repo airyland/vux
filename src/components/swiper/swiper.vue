@@ -28,6 +28,7 @@ import Swiper from './swiper.js'
 import { go } from '../../libs/router'
 
 export default {
+  name: 'swiper',
   created () {
     this.index = this.value || 0
     if (this.index) {

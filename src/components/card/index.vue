@@ -18,6 +18,7 @@
 import { go } from '../../libs/router'
 
 export default {
+  name: 'card',
   props: {
     header: Object,
     footer: Object

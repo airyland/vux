@@ -8,6 +8,7 @@
 import { go } from '../../libs/router'
 
 export default {
+  name: 'cell-box',
   props: {
     isLink: Boolean,
     link: [String, Object],

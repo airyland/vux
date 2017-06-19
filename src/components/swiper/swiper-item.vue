@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'swiper-item',
   mounted () {
     this.$nextTick(() => {
       this.$parent.rerender()

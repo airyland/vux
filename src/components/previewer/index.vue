@@ -52,6 +52,7 @@ import UI from 'photoswipe/dist/photoswipe-ui-default'
 import objectAssign from 'object-assign'
 
 export default {
+  name: 'previewer',
   computed: {
     imgs () {
       return this.list.map(one => {

@@ -20,6 +20,7 @@
 import { go } from '../../libs/router'
 
 export default {
+  name: 'form-preview',
   props: ['headerLabel', 'headerValue', 'bodyItems', 'footerButtons', 'name'],
   methods: {
     onButtonClick (cb, link) {

@@ -18,6 +18,7 @@ loading:
 
 <script>
 export default {
+  name: 'loading',
   props: {
     value: {
       type: Boolean,

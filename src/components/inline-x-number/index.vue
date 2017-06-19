@@ -8,6 +8,7 @@
 
 <script>
 export default {
+   name: 'inline-x-number',
   props: {
     min: Number,
     max: Number,

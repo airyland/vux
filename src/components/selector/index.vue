@@ -32,6 +32,7 @@ const findByKey = function (key, options) {
 }
 
 export default {
+  name: 'selector',
   mixins: [uuidMixin],
   created () {
     if (typeof this.value !== 'undefined') {

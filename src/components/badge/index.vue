@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'badge',
   props: {
     text: [String, Number]
   }

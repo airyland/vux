@@ -35,6 +35,7 @@ back_text:
 import objectAssign from 'object-assign'
 
 export default {
+  name: 'x-header',
   props: {
     leftOptions: Object,
     title: String,

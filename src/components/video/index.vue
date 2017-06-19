@@ -11,6 +11,7 @@
 import Media from './zy.media.js'
 
 export default {
+  name: 'video',
   props: {
     cover: String,
     video: String

@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'grid',
   props: {
     rows: {
       type: Number,

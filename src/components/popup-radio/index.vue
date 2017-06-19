@@ -35,6 +35,7 @@ const _cellProps = cellProps()
 delete _cellProps.value
 
 export default {
+  name: 'popup-radio',
   components: {
     Popup,
     Radio,

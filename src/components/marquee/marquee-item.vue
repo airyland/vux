@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'marquee-item',
   mounted () {
     this.$nextTick(() => {
       this.$parent.destroy()

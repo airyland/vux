@@ -41,6 +41,7 @@ Props.title = {
 }
 
 export default {
+  name: 'calendar',
   directives: {
     TransferDom
   },

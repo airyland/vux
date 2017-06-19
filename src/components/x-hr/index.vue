@@ -2,6 +2,12 @@
   <p class="vux-x-hr"></p>
 </template>
 
+<script>
+export default {
+  name: 'x-hr'
+}
+</script>
+
 <style lang="less">
 @import '../../styles/weui/base/mixin/setOnepx.less';
 

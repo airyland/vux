@@ -5,6 +5,7 @@
 <script>
 import Shake from 'shake.js'
 export default {
+  name: 'shake',
   props: {
     stop: Boolean,
     threshold: {

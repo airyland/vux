@@ -6,6 +6,7 @@
 import Countup from 'countup.js'
 
 export default {
+  name: 'countup',
   mounted () {
     this.$nextTick(() => {
       this._countup = new Countup(this.$el, this.startVal, this.endVal, this.decimals, this.duration, this.options)

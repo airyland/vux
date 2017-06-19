@@ -50,6 +50,7 @@
 import { go, getUrl } from '../../libs/router'
 
 export default {
+  name: 'panel',
   props: {
     header: String,
     footer: Object,

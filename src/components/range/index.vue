@@ -8,6 +8,7 @@
 import Powerange from './powerange'
 
 export default {
+  name: 'range',
   props: {
     decimal: Boolean,
     value: {

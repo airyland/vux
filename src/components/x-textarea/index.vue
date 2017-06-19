@@ -40,6 +40,7 @@ import InlineDesc from '../inline-desc'
 import Autosize from 'autosize' // prop.autosize
 
 export default {
+  name: 'x-textarea',
   minxins: [Base],
   mounted () {
     if (this.$slots && this.$slots['restricted-label']) {

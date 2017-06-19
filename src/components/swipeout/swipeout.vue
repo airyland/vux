@@ -4,6 +4,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'swipeout'
+}
+</script>
+
 <style lang="less">
 @import '../../styles/variable.less';
 

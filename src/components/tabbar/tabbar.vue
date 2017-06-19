@@ -8,6 +8,7 @@
 import { parentMixin } from '../../mixins/multi-items'
 
 export default {
+  name: 'tabbar',
   mixins: [parentMixin],
   props: {
     iconClass: String

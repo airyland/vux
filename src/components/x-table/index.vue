@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'x-table',
   props: {
     fullBordered: Boolean,
     cellBordered: {

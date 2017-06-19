@@ -10,6 +10,7 @@
 import Popup from './popup'
 
 export default {
+  name: 'popup',
   props: {
     value: Boolean,
     height: {

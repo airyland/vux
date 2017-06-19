@@ -20,6 +20,7 @@
 
 <script scoped>
 export default {
+  name: 'drawer',
   props: {
     show: {
       type: Boolean,

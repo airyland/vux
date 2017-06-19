@@ -21,6 +21,7 @@
 import { go } from '../../libs/router'
 
 export default {
+  name: 'msg',
   props: ['icon', 'title', 'description', 'buttons'],
   methods: {
     onClick (handler, link) {

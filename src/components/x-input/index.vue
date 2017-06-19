@@ -155,6 +155,7 @@ const validators = {
   }
 }
 export default {
+  name: 'x-input',
   created () {
     this.currentValue = this.value || ''
     if (!this.title && !this.placeholder && !this.currentValue) {

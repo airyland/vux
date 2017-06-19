@@ -7,6 +7,7 @@ import Spinner from './spinner'
 const types = ['android', 'ios', 'ios-small', 'bubbles', 'circles', 'crescent', 'dots', 'lines', 'ripple', 'spiral']
 
 export default {
+  name: 'spinner',
   mounted () {
     this.$nextTick(() => {
       Spinner(this.$el, this.type, this.size)

@@ -15,6 +15,7 @@ import Manager from './chain'
 import value2name from '../../filters/value2name'
 
 export default {
+  name: 'picker',
   components: {
     Flexbox,
     FlexboxItem

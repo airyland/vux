@@ -23,6 +23,7 @@
 
 <script>
 export default {
+  name: 'wepay-input',
   props: ['title', 'description', 'placeholder', 'info', 'label', 'value'],
   created () {
     this.currentValue = this.value

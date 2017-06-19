@@ -8,6 +8,7 @@
 import sticky from './sticky'
 
 export default {
+  name: 'sticky',
   mounted () {
     this.$nextTick(() => {
       sticky(this.$el, {

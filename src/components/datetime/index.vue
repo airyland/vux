@@ -38,6 +38,7 @@ import Uuid from '../../mixins/uuid'
 import format from '../../tools/date/format'
 
 export default {
+  name: 'datetime',
   mixins: [Uuid],
   components: {
     Group,

@@ -9,6 +9,7 @@
 import Clocker from './clocker'
 
 export default {
+  name: 'clocker',
   mounted () {
     this.$nextTick(() => {
       this.slot = this.$el.querySelector('.vux-clocker-tpl')

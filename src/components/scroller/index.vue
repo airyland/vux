@@ -36,6 +36,7 @@ const pullupDefaultConfig = () => ({
 })
 
 export default {
+  name: 'scroller',
   props: {
     value: {
       type: Object,

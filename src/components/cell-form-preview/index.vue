@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: 'cell-form-preview',
   props: {
     list: Array,
     borderIntent: {

@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'checker-item',
   props: {
     value: {
       type: [String, Number, Object],

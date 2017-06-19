@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: 'x-dialog',
   props: {
     value: {
       type: Boolean,

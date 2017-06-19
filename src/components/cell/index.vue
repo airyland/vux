@@ -37,6 +37,7 @@ import { go } from '../../libs/router'
 import props from './props'
 
 export default {
+  name: 'cell',
   components: {
     InlineDesc
   },

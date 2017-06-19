@@ -15,6 +15,7 @@
 */
 
 export default {
+  name: 'x-circle',
   props: {
     strokeWidth: {
       type: Number,

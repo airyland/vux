@@ -9,6 +9,7 @@
 import { go } from '../../libs/router'
 
 export default {
+  name: 'x-button',
   props: {
     type: {
       default: 'default'

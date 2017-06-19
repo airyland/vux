@@ -8,6 +8,7 @@
 import { childMixin } from '../../mixins/multi-items'
 
 export default {
+  name: 'button-tab-item',
   mixins: [childMixin],
   computed: {
     classes () {

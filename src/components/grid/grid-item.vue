@@ -16,6 +16,7 @@
 import { go } from '../../libs/router'
 
 export default {
+  name: 'grid-item',
   props: ['icon', 'label', 'link'],
   mounted () {
     this.$slots.icon && (this.hasIconSlot = true)

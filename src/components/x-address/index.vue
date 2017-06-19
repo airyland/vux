@@ -16,6 +16,7 @@ import value2name from '../../filters/value2name'
 import PopupPicker from '../popup-picker'
 
 export default {
+  name: 'x-address',
   components: {
     PopupPicker
   },

@@ -9,6 +9,7 @@
 import { childMixin } from '../../mixins/multi-items'
 
 export default {
+  name: 'tab-item',
   mixins: [childMixin],
   props: {
     activeClass: String,

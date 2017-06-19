@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: 'flow-line',
   props: {
     tip: String,
     tipDirection: String,

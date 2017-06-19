@@ -11,6 +11,7 @@ import getDateRange from '../../tools/date/range'
 import getNumberRange from '../../tools/number/range'
 
 export default {
+  name: 'datetime-range',
   components: {
     PopupPicker
   },

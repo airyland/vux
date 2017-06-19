@@ -11,6 +11,7 @@
 import { parentMixin } from '../../mixins/multi-items'
 
 export default {
+  name: 'tab',
   mixins: [parentMixin],
   mounted () {
     // stop bar anmination on first loading

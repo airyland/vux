@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: 'marquee',
   props: {
     interval: {
       type: Number,

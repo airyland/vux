@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: 'view-box',
   props: ['bodyPaddingTop', 'bodyPaddingBottom'],
   methods: {
     scrollTo (top) {

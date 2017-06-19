@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: 'group',
   props: {
     title: String,
     titleColor: String,

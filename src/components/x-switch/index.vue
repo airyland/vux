@@ -14,6 +14,7 @@
 import InlineDesc from '../inline-desc'
 
 export default {
+  name: 'x-switch',
   components: {
     InlineDesc
   },

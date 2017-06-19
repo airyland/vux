@@ -13,6 +13,7 @@ import QRCodeImpl from 'qr.js/lib/QRCode'
 import ErrorCorrectLevel from 'qr.js/lib/ErrorCorrectLevel'
 
 export default {
+  name: 'qrcode',
   props: {
     value: String,
     size: {

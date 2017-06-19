@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'checker',
   props: {
     defaultItemClass: String,
     selectedItemClass: String,
