@@ -103,5 +103,6 @@
   "Flow",
   "InlineLoading",
   "InlineCalendarEachDaySlot#/demo/inline-calendar-each-day-slot",
-  "CheckIcon"
+  "CheckIcon",
+  "Drawer"
 ]

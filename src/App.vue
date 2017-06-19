@@ -42,7 +42,7 @@
         :title="title"
         :transition="headerTransition"
         @on-click-more="onClickMore">
-          <span v-if="route.path === '/'" slot="overwrite-left" @click="drawerVisibility = !drawerVisibility">
+          <span v-if="route.path === '/' || route.path === '/component/drawer'" slot="overwrite-left" @click="drawerVisibility = !drawerVisibility">
             <x-icon type="navicon" size="35" style="fill:#fff;position:relative;top:-8px;left:-3px;"></x-icon>
           </span>
         </x-header>
