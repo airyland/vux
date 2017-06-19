@@ -254,6 +254,10 @@ export default {
 <style lang="less">
 @import '../../styles/variable.less';
 
+.vux-datetime-clear {
+  text-align: center;
+}
+
 .scroller-component {
   display: block;
   position: relative;
