@@ -124,6 +124,10 @@ props:
     version: v2.3.7
     en: control visibility of datetime, require vue^2.3
     zh-CN: 控制显示，要求 vue^2.3
+  default-selected-value:
+    version: next
+    en: set default selected value, works only when value is empty
+    zh-CN: 设置默认选中日期，当前 value 为空时有效
 slots:
   title:
     version: v2.3.6
@@ -135,6 +139,11 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
+  next:
+    en:
+      - '[feature] Support prop:default-selected-value #1576'
+    zh-CN:
+      - '[feature] 支持通过 prop:default-selected-value 设置默认选中日期 #1576'
   v2.4.0:
     en:
       - '[enhance] use the same popup header style as popup-picker'

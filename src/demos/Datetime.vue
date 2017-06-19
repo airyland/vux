@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <div style="padding:15px;">
       <x-button type="primary" plain @click.native="showPlugin">{{ $t('Used as a plugin(Hide in 2s)') }}</x-button>
     </div>
@@ -49,9 +50,13 @@
     </div>
 
     <group :title="$t('Placeholder')">
-      <datetime v-model="value3" format="YYYY-MM-DD" :placeholder="$t('Please select')" @on-change="change" :title="$t('start time')"></datetime>
+      <datetime v-model="value3" default-selected-value="2017-06-18 13" format="YYYY-MM-DD HH" :placeholder="$t('Please select')" @on-change="change" :title="$t('start time')"></datetime>
     </group>
 
+    <group :title="$t('set default-selected-value to 2017-11-11')">
+      <datetime v-model="value3_1" default-selected-value="2017-11-11" format="YYYY-MM-DD" :placeholder="$t('Please select')" @on-change="change" :title="$t('start time')" :inline-desc="`current value: ${value3_1}`"></datetime>
+    </group>
+    
     <group :title="$t('set min-year and max-year')">
       <datetime v-model="value4" :placeholder="$t('Please select')" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('years after 2000')"></datetime>
     </group>
@@ -73,6 +78,7 @@
         <x-button>{{$t('Click me')}}</x-button>
       </datetime>
     </group>
+
     <group :title="$t('required')">
       <datetime v-model="value8" :title="$t('Required')" clear-text="clear" @on-clear="clearValue8" :required="true"></datetime>
     </group>
@@ -80,9 +86,10 @@
     <group :title="$t('use prop:show.sync(vue^2.3) to control visibility')">
       <datetime v-model="value9" @on-change="change" :title="$t('Birthday')" :show.sync="visibility"></datetime>
     </group>
+
     <div style="padding:15px;">
       <x-button type="primary" plain @click.native="visibility = true">显示</x-button>
-    </div>    
+    </div>
 
   </div>
 </template>
@@ -136,6 +143,8 @@ custom hour list:
   zh-CN: 使用 prop:show 控制显示(vue^2.3)
 Used as a plugin(Hide in 2s):
   zh-CN: 插件形式调用
+set default-selected-value to 2017-11-11:
+  zh-CN: 设置默认选中值为 2017-11-11
 </i18n>
 
 <script>
@@ -156,6 +165,7 @@ export default {
       valueReadonly: '2015-11-12',
       value2: '',
       value3: '',
+      value3_1: '',
       value4: '',
       value5: '',
       value6: '2016-08-18',

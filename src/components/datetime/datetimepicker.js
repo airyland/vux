@@ -118,6 +118,10 @@ function DatetimePicker (config) {
     self.config[key] = config[key] || val
   })
 
+  if (config.defaultSelectedValue && !config.value) {
+    self.config.value = config.defaultSelectedValue
+  }
+
   if (typeof this.config.startDate === 'string') {
     this.config.startDate = new Date(this.config.startDate.replace(/-/g, '/'))
   }

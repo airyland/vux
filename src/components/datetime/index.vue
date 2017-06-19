@@ -103,7 +103,8 @@ export default {
     readonly: Boolean,
     hourList: Array,
     minuteList: Array,
-    show: Boolean
+    show: Boolean,
+    defaultSelectedValue: String
   },
   created () {
     this.isFirstSetValue = false
@@ -154,6 +155,7 @@ export default {
         endDate: this.endDate,
         hourList: this.hourList,
         minuteList: this.minuteList,
+        defaultSelectedValue: this.defaultSelectedValue,
         onConfirm (value) {
           _this.currentValue = value
         },
