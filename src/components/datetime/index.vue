@@ -120,9 +120,9 @@ export default {
   },
   mounted () {
     const uuid = this.uuid
+    this.$el.setAttribute('id', `vux-datetime-${uuid}`)
     if (!this.readonly) {
       this.$nextTick(() => {
-        this.$el.setAttribute('id', `vux-datetime-${uuid}`)
         this.render()
       })
     }
@@ -212,6 +212,13 @@ export default {
     }
   },
   watch: {
+    readonly (val) {
+      if (val) {
+        this.picker && this.picker.destroy()
+      } else {
+        this.render()
+      }
+    },
     show (val) {
       if (val) {
         this.picker && this.picker.show(this.currentValue)

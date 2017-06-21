@@ -18,8 +18,11 @@
     </group>
 
     <group title="readonly">
-      <datetime v-model="valueReadonly" readonly @on-change="change" :title="$t('Birthday')"></datetime>
+      <datetime v-model="valueReadonly" :readonly="readonly" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
+    <div style="padding:15px">
+      <x-button type="primary" plain @click.native="readonly = !readonly">toggle readonly</x-button>
+    </div>
 
      <group :title="$t('format display value')">
       <datetime v-model="formatValue" :display-format="formatValueFunction" @on-change="change" :title="$t('Birthday')"></datetime>
@@ -158,6 +161,7 @@ export default {
   },
   data () {
     return {
+      readonly: true,
       minuteListValue: '2017-06-12 09:00',
       hourListValue: '2017-06-12 09:00',
       format: 'YYYY-MM-DD HH:mm',

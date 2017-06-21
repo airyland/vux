@@ -141,8 +141,10 @@ events:
 changes:
   next:
     en:
+      - '[fix] Re-render when readonly is changed #1593'
       - '[feature] Support prop:default-selected-value #1576'
     zh-CN:
+      - '[fix] readonly 值变化时重新渲染 #1593'
       - '[feature] 支持通过 prop:default-selected-value 设置默认选中日期 #1576'
   v2.4.0:
     en:
