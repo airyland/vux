@@ -27,7 +27,7 @@
       @on-hide="onPopupHide"
       @on-show="onPopupShow">
         <div class="vux-popup-picker-container">
-          <div class="vux-popup-picker-header">
+          <div class="vux-popup-picker-header" @touchmove.prevent>
             <flexbox>
               <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-cancel" @click.native="onHide(false)">{{ cancelText || $t('cancel_text') }}</flexbox-item>
               <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-header-menu-right" @click.native="onHide(true)">{{ confirmText || $t('confirm_text') }}</flexbox-item>
