@@ -71,6 +71,11 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[fix] popup-picker-header add touchmove.prevent event #1596'
+    zh-CN:
+      - '[fix] popup-picker头部区域屏蔽滑动事件 #1596'
   v2.3.8:
     en:
       - '[fix] Fix placeholder missing on iOS9 and iOS8 #1293'
