@@ -74,18 +74,26 @@ export default {
       for (let i = 0; i < this.$overflowScrollingList.length; i++) {
         this.$overflowScrollingList[i].style.webkitOverflowScrolling = type
       }
+    },
+    updateZIndex () {
+      window.popupIndex = window.popupIndex || 250
+      window.popupIndex += 1
+      this.showIndex = window.popupIndex * 2 + 1
     }
   },
   data () {
     return {
       initialShow: true,
       hasFirstShow: false,
-      show: this.value
+      show: this.value,
+      showIndex: 501
     }
   },
   computed: {
     styles () {
-      const styles = {}
+      const styles = {
+        'z-index': this.showIndex
+      }
       if (!this.position || this.position === 'bottom' || this.position === 'top') {
         styles.height = this.height
       } else {
@@ -107,6 +115,7 @@ export default {
     show (val) {
       this.$emit('input', val)
       if (val) {
+        this.updateZIndex()
         this.popup && this.popup.show()
         this.$emit('on-show')
         this.fixSafariOverflowScrolling('auto')

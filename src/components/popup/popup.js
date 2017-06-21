@@ -11,13 +11,11 @@ const popupDialog = function (option) {
       showMask: option.showMask
     }
   }
-  if (!!document.querySelectorAll('.vux-popup-mask').length <= 0) {
-    this.divMask = document.createElement('a')
-    this.divMask.className = 'vux-popup-mask'
-    this.divMask.dataset.uuid = ''
-    this.divMask.href = 'javascript:void(0)'
-    document.body.appendChild(this.divMask)
-  }
+  this.divMask = document.createElement('a')
+  this.divMask.className = 'vux-popup-mask'
+  this.divMask.dataset.uuid = ''
+  this.divMask.href = 'javascript:void(0)'
+  document.body.appendChild(this.divMask)
   let div
   if (!option.container) {
     div = document.createElement('div')
@@ -36,7 +34,7 @@ const popupDialog = function (option) {
     document.body.appendChild(div)
   }
   this.container = document.querySelector('.vux-popup-dialog-' + this.uuid)
-  this.mask = document.querySelector('.vux-popup-mask')
+  this.mask = this.divMask
   this.mask.dataset.uuid += `,${this.uuid}`
   this._bindEvents()
   option = null
@@ -64,7 +62,7 @@ popupDialog.prototype._bindEvents = function () {
 popupDialog.prototype.show = function () {
   if (this.params.showMask) {
     this.mask.classList.add('vux-popup-show')
-    this.mask.style['zIndex'] = 500
+    this.mask.style['zIndex'] = (window.popupIndex || 250) * 2
   }
   this.container.classList.add('vux-popup-show')
   this.params.onOpen && this.params.onOpen(this)
@@ -73,12 +71,10 @@ popupDialog.prototype.show = function () {
 
 popupDialog.prototype.hide = function (shouldCallback = true) {
   this.container.classList.remove('vux-popup-show')
-  if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
-    this.mask.classList.remove('vux-popup-show')
-    setTimeout(() => {
-      this.mask && !/show/.test(this.mask.className) && (this.mask.style['zIndex'] = -1)
-    }, 400)
-  }
+  this.mask.classList.remove('vux-popup-show')
+  setTimeout(() => {
+    this.mask && !/show/.test(this.mask.className) && (this.mask.style['zIndex'] = -1)
+  }, 400)
   shouldCallback === false && this.params.onClose && this.params.hideOnBlur && this.params.onClose(this)
   this.isShow = false
   delete window.__$vuxPopups[this.uuid]

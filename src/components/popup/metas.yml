@@ -113,4 +113,8 @@ changes:
       - '[fix] Fix overflow-scrolling setting in safari #311 @linhaobin'
     zh-CN:
       - '[fix] 修复 `overflow-scrolling` 设置逻辑遗漏问题 #311 @linhaobin'
-    
+  next:
+    en:
+      - '[feature] Support multiple popup'
+    zh-CN:
+      - '[feature] 支持多层popup'
