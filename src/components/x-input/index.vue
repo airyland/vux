@@ -29,6 +29,7 @@
       @focus="focusHandler"
       @blur="onBlur"
       @keyup="onKeyUp"
+      @input="onInput"
       ref="input"/>
       <input
       v-if="type === 'number'"
@@ -49,6 +50,7 @@
       @focus="focusHandler"
       @blur="onBlur"
       @keyup="onKeyUp"
+      @input="onInput"
       ref="input"/>
       <input
       v-if="type === 'email'"
@@ -69,6 +71,7 @@
       @focus="focusHandler"
       @blur="onBlur"
       @keyup="onKeyUp"
+      @input="onInput"
       ref="input"/>
       <input
       v-if="type === 'password'"
@@ -89,6 +92,7 @@
       @focus="focusHandler"
       @blur="onBlur"
       @keyup="onKeyUp"
+      @input="onInput"
       ref="input"/>
       <input
       v-if="type === 'tel'"
@@ -109,6 +113,7 @@
       @focus="focusHandler"
       @blur="onBlur"
       @keyup="onKeyUp"
+      @input="onInput"
       ref="input"/>
     </div>
     <div class="weui-cell__ft">
@@ -299,6 +304,11 @@ export default {
       if (e.key === 'Enter') {
         e.target.blur()
         this.$emit('on-enter', this.currentValue)
+      }
+    },
+    onInput () {
+      if (this.max && this.currentValue.length > this.max) {
+        this.currentValue = this.currentValue.slice(0, this.max)
       }
     },
     getError () {
