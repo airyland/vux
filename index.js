@@ -47,6 +47,7 @@ import Demoindex from './src/components/popover/DemoIndex.vue'
 import DevicePlugin from './src/plugins/device/index.js'
 import DevTip from './src/components/dev-tip/index.vue'
 import Divider from './src/components/divider/index.vue'
+import Drawer from './src/components/drawer/index.vue'
 import Flexbox from './src/components/flexbox/flexbox.vue'
 import FlexboxItem from './src/components/flexbox/flexbox-item.vue'
 import Flow from './src/components/flow/flow.vue'
@@ -187,6 +188,7 @@ export {
   DevicePlugin,
   DevTip,
   Divider,
+  Drawer,
   Flexbox,
   FlexboxItem,
   Flow,

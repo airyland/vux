@@ -147,7 +147,7 @@ changes:
       - '[enhance] Support PC mouse drag  #1039 @michael829'
     zh-CN:
       - '[enhance] 支持 PC 上鼠标选择 #1039 @michael829'
-  next:
+  v2.4.1:
     en:
       - '[fix] Fix a bug caused by unexpected end of json value #1584'
     zh-CN:

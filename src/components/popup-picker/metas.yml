@@ -71,7 +71,7 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  v2.4.1:
     en:
       - '[fix] popup-picker-header add touchmove.prevent event #1596'
     zh-CN:
