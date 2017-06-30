@@ -45,14 +45,14 @@ export default {
   },
   computed: {
     sliceValue () {
-      const _val = this.currentValue.toString().split('.')
+      const _val = this.currentValue.toFixed(2).split('.')
       return _val.length === 1 ? [_val[0], 0] : _val
     },
     cutIndex () {
       return this.sliceValue[0] * 1
     },
     cutPercent () {
-      return this.sliceValue[1] * 10
+      return this.sliceValue[1] * 1
     }
   },
   methods: {
