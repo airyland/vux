@@ -94,6 +94,10 @@
     "icon": "&#xe65d;"
   },
   {
+    "name": "drawer",
+    "icon": "&#xe62a;"
+  },
+  {
     "name": "flexbox",
     "icon": "&#xe61f;",
     "items": [

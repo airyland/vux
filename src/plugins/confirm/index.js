@@ -38,10 +38,16 @@ const plugin = {
         $vm.$on('on-cancel', () => {
           options && options.onCancel && options.onCancel()
         })
-        $vm.$on('on-confirm', () => {
-          options && options.onConfirm && options.onConfirm()
+        $vm.$on('on-confirm', msg => {
+          options && options.onConfirm && options.onConfirm(msg)
         })
         $vm.showValue = true
+      },
+      prompt (placeholder, options) {
+        this.show(Object.assign({}, options, {
+          placeholder,
+          showInput: true
+        }))
       },
       hide () {
         $vm.showValue = false

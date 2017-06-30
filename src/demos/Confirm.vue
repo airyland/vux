@@ -4,6 +4,9 @@
       <x-switch :title="$t('Toggle')" v-model="show"></x-switch>
     </group>
     <group>
+      <x-switch :title="$t('Toggle_show_input')" v-model="show3"></x-switch>
+    </group>
+    <group>
       <x-switch :title="$t('Toggle_android')" v-model="show2"></x-switch>
     </group>
     <div v-transfer-dom>
@@ -14,6 +17,17 @@
       @on-show="onShow"
       @on-hide="onHide">
         <p style="text-align:center;">{{ $t('Are you sure?') }}</p>
+      </confirm>
+    </div>
+    <br>
+    <div v-transfer-dom>
+      <confirm v-model="show3"
+      show-input
+      :title="$t('confirm deleting the item')"
+      @on-cancel="onCancel"
+      @on-confirm="onConfirm"
+      @on-show="onShow"
+      @on-hide="onHide">
       </confirm>
     </div>
     <br>
@@ -35,18 +49,25 @@
     <div style="padding:15px;">
       <x-button @click.native="showPlugin2" type="primary">{{ $t('Plugin usage') }}</x-button>
     </div>
+    <div style="padding:15px;">
+      <x-button @click.native="showPlugin3" type="primary">插件形式调用promt</x-button>
+    </div>
   </div>
 </template>
 
 <i18n>
 Toggle:
   zh-CN: 显示
+Toggle_show_input:
+  zh-CN: 显示Promt
 Toggle_android:
   zh-CN: 安卓风格
 Are you sure?:
   zh-CN: 确定咩？
 confirm deleting the item:
   zh-CN: 操作提示
+please input something:
+  zh-CN: 请输入些什么
 Plugin usage:
   zh-CN: 插件形式调用
 Show:
@@ -68,15 +89,19 @@ export default {
   data () {
     return {
       show: false,
-      show2: false
+      show2: false,
+      show3: false
     }
   },
   methods: {
     onCancel () {
       console.log('on cancel')
     },
-    onConfirm () {
+    onConfirm (msg) {
       console.log('on confirm')
+      if (msg) {
+        alert(msg)
+      }
     },
     onHide () {
       console.log('on hide')
@@ -104,6 +129,23 @@ export default {
     },
     showPlugin2 () {
       this.showPlugin()
+    },
+    showPlugin3 () {
+      this.$vux.confirm.prompt('123', {
+        title: 'Title',
+        onShow () {
+          console.log('promt show')
+        },
+        onHide () {
+          console.log('prompt hide')
+        },
+        onCancel () {
+          console.log('prompt cancel')
+        },
+        onConfirm (msg) {
+          alert(msg)
+        }
+      })
     }
   }
 }
