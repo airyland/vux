@@ -94,6 +94,7 @@ export default {
       })
     },
     destroy () {
+      this.hasRender = false
       this.swiper && this.swiper.destroy()
     },
     getHeight () {
