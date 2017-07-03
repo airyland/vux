@@ -67,4 +67,4 @@ changes:
     en:
       - '[feature] we can use prop:prevent-default to prevent from setting value on being clicked #1606'
     zh-CN:
-      - '[feautre] 支持使用 prop:prevent-default 来阻止自动设定值 #1606'
+      - '[feature] 支持使用 prop:prevent-default 来阻止自动设定值 #1606'
