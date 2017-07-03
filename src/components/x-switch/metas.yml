@@ -47,8 +47,24 @@ props:
     default: ''
     en: desctiption text below the label
     zh-CN: 标签下文字
+  prevent-default:
+    type: Boolean
+    default: false
+    version: next
+    en: prevent from setting value on being clicked
+    zh-CN: 阻止点击时自动设定值
 events:
   on-change:
     params: '`(value)`'
     en: triggers when value change, params is (currentValue)
     zh-CN: 值变化时触发，参数为 (currentValue)
+  on-click:
+    params: '`(newVal, oldVal)`'
+    en: triggers when being clicked
+    zh-CN: 点击组件时触发
+changes:
+  next:
+    en:
+      - '[feature] we can use prop:prevent-default to prevent from setting value on being clicked #1606'
+    zh-CN:
+      - '[feautre] 支持使用 prop:prevent-default 来阻止自动设定值 #1606'

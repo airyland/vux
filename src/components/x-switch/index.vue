@@ -1,11 +1,11 @@
 <template>
   <div class="vux-x-switch weui-cell weui-cell_switch">
     <div class="weui-cell__bd">
-       <label class="weui-label" :style="labelStyle" v-html="title"></label>
-      <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+      <label class="weui-label" :style="labelStyle" v-html="title"></label>
+      <inline-desc v-if="inlineDesc">{{ inlineDesc }}</inline-desc>
     </div>
     <div class="weui-cell__ft">
-      <input class="weui-switch" type="checkbox" :disabled="disabled" v-model="currentValue"/>
+      <input class="weui-switch" type="checkbox" :disabled="disabled" v-model="currentValue" @click.prevent="onClick"/>
     </div>
   </div>
 </template>
@@ -28,6 +28,14 @@ export default {
       }
     }
   },
+  methods: {
+    onClick () {
+      this.$emit('on-click', !this.currentValue, this.currentValue)
+      if (!this.preventDefault) {
+        this.currentValue = !this.currentValue
+      }
+    }
+  },
   props: {
     title: {
       type: String,
@@ -38,7 +46,8 @@ export default {
       type: Boolean,
       default: false
     },
-    inlineDesc: [String, Boolean, Number]
+    inlineDesc: [String, Boolean, Number],
+    preventDefault: Boolean
   },
   data () {
     return {

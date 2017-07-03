@@ -8,6 +8,9 @@
       <x-switch :title="$t('default false')" disabled></x-switch>
       <x-switch :title="$t('default true')" :value="true" disabled></x-switch>
     </group>
+    <group :title="$t('prevent default')">
+      <x-switch :title="$t('default false')" prevent-default v-model="value2" @on-click="onClick"></x-switch>
+    </group>
     <group :title="$t('html title')">
       <x-switch disabled :title="$t('switch red')"></x-switch>
     </group>
@@ -36,9 +39,22 @@ export default {
     XSwitch,
     Group
   },
+  methods: {
+    onClick (newVal, oldVal) {
+      console.log(newVal, oldVal)
+      this.$vux.loading.show({
+        text: 'in processing'
+      })
+      setTimeout(() => {
+        this.$vux.loading.hide()
+        this.value2 = newVal
+      }, 1000)
+    }
+  },
   data () {
     return {
-      value1: true
+      value1: true,
+      value2: false
     }
   }
 }
