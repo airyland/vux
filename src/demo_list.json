@@ -104,5 +104,6 @@
   "InlineLoading",
   "InlineCalendarEachDaySlot#/demo/inline-calendar-each-day-slot",
   "CheckIcon",
-  "Drawer"
+  "Drawer",
+  "DatetimeView"
 ]

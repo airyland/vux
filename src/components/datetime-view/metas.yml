@@ -1,0 +1,12 @@
+icon: '&#xe60a;'
+methods:
+  render:
+    version: next
+    en: re-render component
+    zh-CN: 强制重新渲染组件，当主动修改值或者其他非响应属性时需要调用该方法
+changes:
+  next:
+    en:
+      - '[feature] new component'
+    zh-CN:
+      - '[feature] 新组件 DatetimeView'

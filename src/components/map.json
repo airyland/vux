@@ -39,6 +39,7 @@
   "Datetime": "src/components/datetime/index.vue",
   "DatetimePlugin": "src/plugins/datetime/index.js",
   "DatetimeRange": "src/components/datetime-range/index.vue",
+  "DatetimeView": "src/components/datetime-view/index.vue",
   "debounce": "src/tools/debounce/index.js",
   "Demobasic": "src/components/fullpage/DemoBasic.vue",
   "Demoindex": "src/components/popover/DemoIndex.vue",

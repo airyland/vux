@@ -65,7 +65,8 @@ const DEFAULT_CONFIG = {
   confirmText: 'ok',
   clearText: '',
   cancelText: 'cancel',
-  destroyOnHide: false
+  destroyOnHide: false,
+  renderInline: false
 }
 
 function renderScroller (el, data, value, fn) {
@@ -117,6 +118,8 @@ function DatetimePicker (config) {
     self.config[key] = config[key] || val
   })
 
+  this.renderInline = self.config.renderInline
+
   if (config.defaultSelectedValue && !config.value) {
     self.config.value = config.defaultSelectedValue
   }
@@ -135,16 +138,18 @@ function DatetimePicker (config) {
 
   this.reMakeData = !!this.config.startDate && !!this.config.endDate
 
-  let trigger = self.config.trigger
+  if (!this.renderInline) {
+    let trigger = self.config.trigger
 
-  this.triggerHandler = function (e) {
-    e.preventDefault()
-    self.show(self.value)
-  }
-  if (trigger) {
-    trigger = self.trigger = getElement(trigger)
-    this.trigger = trigger
-    this.trigger.addEventListener('click', this.triggerHandler, false)
+    this.triggerHandler = function (e) {
+      e.preventDefault()
+      self.show(self.value)
+    }
+    if (trigger) {
+      trigger = self.trigger = getElement(trigger)
+      this.trigger = trigger
+      this.trigger.addEventListener('click', this.triggerHandler, false)
+    }
   }
 }
 
@@ -154,6 +159,10 @@ DatetimePicker.prototype = {
     const self = this
 
     self.container.style.display = 'block'
+
+    if (this.renderInline) {
+      self.container.classList.add('vux-datetime-view')
+    }
 
     each(TYPE_MAP, function (type) {
       self[type + 'Scroller'] && self[type + 'Scroller'].select(trimZero(newValueMap[type]), false)
@@ -179,13 +188,13 @@ DatetimePicker.prototype = {
       self._show(newValueMap)
     } else {
       const container = self.container = toElement(config.template)
-      document.body.appendChild(container)
+      if (!self.renderInline) {
+        document.body.appendChild(container)
 
-      self.container.style.display = 'block'
-
-      container.addEventListener('touchstart', function (e) {
-        // e.preventDefault()
-      }, false)
+        self.container.style.display = 'block'
+      } else {
+        document.querySelector(self.config.trigger).appendChild(container)
+      }
 
       each(TYPE_MAP, function (type) {
         const div = self.find('[data-role=' + type + ']')
@@ -201,7 +210,7 @@ DatetimePicker.prototype = {
         }
 
         self[type + 'Scroller'] = renderScroller(div, data, trimZero(newValueMap[type]), function (currentValue) {
-          config.onSelect.call(self, type, currentValue)
+          config.onSelect.call(self, type, currentValue, self.getValue())
           let currentDay
           if (type === 'year') {
             const currentMonth = self.monthScroller ? self.monthScroller.value : config.currentMonth
@@ -220,7 +229,7 @@ DatetimePicker.prototype = {
         })
       })
 
-      if (!self.renderText) {
+      if (!self.renderText && !self.renderInline) {
         if (self.config.confirmText) {
           self.find('[data-role=confirm]').innerText = self.config.confirmText
         }
@@ -254,8 +263,10 @@ DatetimePicker.prototype = {
       }
     }
 
-    showMask()
-    config.onShow.call(self)
+    if (!this.renderInline) {
+      showMask()
+      config.onShow.call(self)
+    }
   },
 
   _makeData (type, year, month) {
@@ -335,7 +346,7 @@ DatetimePicker.prototype = {
     this.monthScroller.destroy()
     const div = self.find('[data-role=month]')
     self.monthScroller = renderScroller(div, self._makeData('month'), month, function (currentValue) {
-      self.config.onSelect.call(self, 'month', currentValue)
+      self.config.onSelect.call(self, 'month', currentValue, self.getValue())
       const currentYear = self.yearScroller ? self.yearScroller.value : self.config.currentYear
       if (self.dayScroller) {
         const currentDay = self.dayScroller.value
@@ -353,7 +364,7 @@ DatetimePicker.prototype = {
     self.dayScroller.destroy()
     const div = self.find('[data-role=day]')
     self.dayScroller = renderScroller(div, self._makeData('day', year, month), day, function (currentValue) {
-      self.config.onSelect.call(self, 'day', currentValue)
+      self.config.onSelect.call(self, 'day', currentValue, self.getValue())
     })
   },
 

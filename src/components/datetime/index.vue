@@ -50,10 +50,7 @@ export default {
       type: String,
       default: 'YYYY-MM-DD'
     },
-    title: {
-      type: String,
-      required: true
-    },
+    title: String,
     value: {
       type: String,
       default: ''
@@ -157,6 +154,12 @@ export default {
         hourList: this.hourList,
         minuteList: this.minuteList,
         defaultSelectedValue: this.defaultSelectedValue,
+        onSelect (type, val, wholeValue) {
+          if (_this.picker && _this.picker.config.renderInline) {
+            _this.$emit('input', wholeValue)
+            _this.$emit('on-change', wholeValue)
+          }
+        },
         onConfirm (value) {
           _this.currentValue = value
         },
@@ -247,6 +250,11 @@ export default {
       this.render()
     },
     value (val) {
+      // do not force render when renderInline is true
+      if (this.picker && this.picker.config.renderInline) {
+        this.currentValue = val
+        return
+      }
       if (this.currentValue !== val) {
         this.currentValue = val
         this.render()
@@ -261,6 +269,16 @@ export default {
 
 <style lang="less">
 @import '../../styles/variable.less';
+
+.dp-container {
+  &.vux-datetime-view {
+    position: static;
+    transition: none;
+    & .dp-header {
+      display: none;
+    }
+  }
+}
 
 .vux-datetime-clear {
   text-align: center;
