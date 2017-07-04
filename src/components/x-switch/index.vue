@@ -5,7 +5,8 @@
       <inline-desc v-if="inlineDesc">{{ inlineDesc }}</inline-desc>
     </div>
     <div class="weui-cell__ft">
-      <input class="weui-switch" type="checkbox" :disabled="disabled" v-model="currentValue" @click.prevent="onClick"/>
+      <input class="weui-switch" type="checkbox" :disabled="disabled" v-model="currentValue" />
+      <div v-if="preventDefault" class="vux-x-switch-overlay" @click="onClick"></div>
     </div>
   </div>
 </template>
@@ -31,9 +32,6 @@ export default {
   methods: {
     onClick () {
       this.$emit('on-click', !this.currentValue, this.currentValue)
-      if (!this.preventDefault) {
-        this.currentValue = !this.currentValue
-      }
     }
   },
   props: {
@@ -72,6 +70,8 @@ export default {
 
 .weui-cell_switch .weui-cell__ft {
   font-size: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 input.weui-switch[disabled] {
@@ -82,4 +82,14 @@ input.weui-switch[disabled] {
   padding-top: 6px;
   padding-bottom: 6px;
 }
+
+.vux-x-switch-overlay {
+  width: 60px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
 </style>
+
