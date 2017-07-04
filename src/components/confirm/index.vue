@@ -69,7 +69,11 @@ export default {
       type: String,
       default: 'vux-dialog'
     },
-    content: String
+    content: String,
+    closeOnConfirm: {
+      type: Boolean,
+      default: true
+    }
   },
   created () {
     this.showValue = this.show
@@ -101,7 +105,9 @@ export default {
   },
   methods: {
     _onConfirm () {
-      this.showValue = false
+      if (this.closeOnConfirm) {
+        this.showValue = false
+      }
       this.$emit('on-confirm', this.msg)
     },
     _onCancel () {

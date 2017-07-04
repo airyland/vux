@@ -9,6 +9,9 @@
     <group>
       <x-switch :title="$t('Toggle_android')" v-model="show2"></x-switch>
     </group>
+    <group>
+      <x-switch :title="$t('closeOnConfirm=false')" v-model="show4"></x-switch>
+    </group>
     <div v-transfer-dom>
       <confirm v-model="show"
       :title="$t('confirm deleting the item')"
@@ -43,6 +46,16 @@
       </confirm>
     </div>
     <br>
+    <div v-transfer-dom>
+      <confirm
+      v-model="show4"
+      :close-on-confirm="false"
+      :title="$t('confirm deleting the item')"
+      @on-confirm="onConfirm4">
+        <p style="text-align:center;">{{ $t('Are you sure?') }}</p>
+      </confirm>
+    </div>
+    <br>
     <div style="padding:15px;">
       <x-button @click.native="showPlugin" type="primary">{{ $t('Show') }}</x-button>
     </div>
@@ -72,6 +85,8 @@ Plugin usage:
   zh-CN: 插件形式调用
 Show:
   zh-CN: 显示
+closeOnConfirm=false:
+  zh-CN: 阻止自动关闭
 </i18n>
 
 <script>
@@ -90,7 +105,8 @@ export default {
     return {
       show: false,
       show2: false,
-      show3: false
+      show3: false,
+      show4: false
     }
   },
   methods: {
@@ -102,6 +118,17 @@ export default {
       if (msg) {
         alert(msg)
       }
+    },
+    onConfirm4 () {
+      console.log('on confirm')
+      this.$vux.loading.show({
+        transition: '',
+        text: 'processing'
+      })
+      setTimeout(() => {
+        this.$vux.loading.hide()
+        this.show4 = false
+      }, 1000)
     },
     onHide () {
       console.log('on hide')

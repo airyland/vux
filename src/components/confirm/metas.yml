@@ -88,6 +88,12 @@ props:
     default: 'vux-dialog'
     en: dialog's transition
     zh-CN: 弹窗动画
+  close-on-confirm:
+    version: next
+    type: Boolean
+    default: true
+    en: whether auto close when confirm button is clicked
+    zh-CN: 是否在点击确认按钮时自动关闭
 slots:
   default:
     en: body content of the dialog
@@ -103,8 +109,10 @@ events:
 changes:
   next:
     en:
+      - '[feature] Support prop:close-on-confirm'
       - '[feature] Support prop:show-input'
     zh-CN:
+      - '[feature] 支持 prop:close-on-confirm'
       - '[feature] 支持 prop:show-input'
   v2.1.1-rc.11:
     en:
