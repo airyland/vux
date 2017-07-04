@@ -50,7 +50,7 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
-  next:
+  v2.5.0:
     en:
       - '[feature] Add primary、warn disabled bg color. #1630'
     zh-CN:

@@ -50,7 +50,7 @@ props:
   prevent-default:
     type: Boolean
     default: false
-    version: next
+    version: v2.5.0
     en: prevent from setting value on being clicked
     zh-CN: 阻止点击时自动设定值
 events:
@@ -63,7 +63,7 @@ events:
     en: triggers when being clicked
     zh-CN: 点击组件时触发
 changes:
-  next:
+  v2.5.0:
     en:
       - '[feature] we can use prop:prevent-default to prevent from setting value on being clicked #1606'
     zh-CN:

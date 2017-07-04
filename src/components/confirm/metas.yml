@@ -46,13 +46,13 @@ props:
     en: visibility of the component
     zh-CN: 是否显示，使用`v-model`绑定
   show-input:
-    version: next
+    version: v2.5.0
     type: Boolean
     default: false
     en: whether show input or not
     zh-CN: 是否显示输入框，如果为true，slot会失效
   placeholder:
-    version: next
+    version: v2.5.0
     type: String
     default: ''
     en: placeholder of prompt
@@ -89,7 +89,7 @@ props:
     en: dialog's transition
     zh-CN: 弹窗动画
   close-on-confirm:
-    version: next
+    version: v2.5.0
     type: Boolean
     default: true
     en: whether auto close when confirm button is clicked
@@ -107,7 +107,7 @@ events:
     en: triggers when the confirm button is clicked
     zh-CN: 点击确定按钮时触发, 参数为prompt中输入的值
 changes:
-  next:
+  v2.5.0:
     en:
       - '[feature] Support prop:close-on-confirm'
       - '[feature] Support prop:show-input'
