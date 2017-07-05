@@ -23,15 +23,22 @@
         <img slot="restricted-label" style="display:inline-block;vertical-align:middle;" src="http://dn-placeholder.qbox.me/110x110/FF2D55/000" width="24" height="24">
       </x-textarea>
     </group>
+    <br>
+    <group>
+      <group-title slot="title">I'm a title<span style="float:right;">right</span></group-title>
+      <cell title="cell"></cell>
+    </group>
+    <br>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XInput, Selector, PopupPicker, Datetime, XNumber, ChinaAddressData, XAddress, XTextarea } from 'vux'
+  import { GroupTitle, Group, Cell, XInput, Selector, PopupPicker, Datetime, XNumber, ChinaAddressData, XAddress, XTextarea } from 'vux'
 
   export default {
     components: {
       Group,
+      GroupTitle,
       Cell,
       XInput,
       Selector,

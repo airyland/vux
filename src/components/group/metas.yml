@@ -46,7 +46,16 @@ slots:
   default:
     en: content body for child components
     zh-CN: 子组件插槽
+  title:
+    version: next
+    en: title slot
+    zh-CN: 标题插槽
 changes:
+  next:
+    en:
+      - '[feature] Add slot:title #1650'
+    zh-CN:
+      - '[feature] 添加 slot:title #1650'
   v2.3.2:
     en:
       - '[feature] prop:gutter could be a number'
