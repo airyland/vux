@@ -133,6 +133,7 @@ import InlineDesc from '../inline-desc'
 
 import isEmail from 'validator/lib/isEmail'
 import isMobilePhone from 'validator/lib/isMobilePhone'
+import isURL from 'validator/lib/isURL'
 
 import Debounce from '../../tools/debounce'
 
@@ -152,7 +153,11 @@ const validators = {
       return str.length >= 2 && str.length <= 6
     },
     msg: '中文姓名'
-  }
+  },
+	'url': {
+		fn: isURL,
+		msg: '网址'
+	}
 }
 export default {
   name: 'x-input',
@@ -317,19 +322,26 @@ export default {
         return
       }
 
-      if (!this.currentValue && this.required) {
-        this.valid = false
-        this.errors.required = '必填哦'
-        this.getError()
-        return
-      }
+			if (this.required) {
+				this.valid = !!this.currentValue
+
+				if (!this.valid) {
+					this.errors.required = this.title + '是必填项噢'
+					this.forceShowError = true
+					this.getError()
+	        return
+				} else {
+					delete this.errors.required
+				}
+			}
 
       if (typeof this.isType === 'string') {
         const validator = validators[this.isType]
         if (validator) {
           this.valid = validator[ 'fn' ](this.currentValue)
           if (!this.valid) {
-            this.errors.format = validator[ 'msg' ] + '格式不对哦~'
+            this.errors.format = validator[ 'msg' ] + '格式不正确哦~'
+            this.getError()
             return
           } else {
             delete this.errors.format
@@ -342,10 +354,8 @@ export default {
         this.valid = validStatus.valid
         if (!this.valid) {
           this.errors.format = validStatus.msg
-          this.forceShowError = true
-          if (!this.firstError) {
-            this.getError()
-          }
+          //this.forceShowError = true
+          this.getError()
           return
         } else {
           delete this.errors.format
@@ -356,9 +366,7 @@ export default {
         if (this.currentValue.length < this.min) {
           this.errors.min = `最少应该输入${this.min}个字符哦`
           this.valid = false
-          if (!this.firstError) {
-            this.getError()
-          }
+          this.getError()
           return
         } else {
           delete this.errors.min
@@ -370,6 +378,7 @@ export default {
           this.errors.max = `最多可以输入${this.max}个字符哦`
           this.valid = false
           this.forceShowError = true
+					this.getError()
           return
         } else {
           this.forceShowError = false
@@ -377,6 +386,7 @@ export default {
         }
       }
 
+			this.getError()
       this.valid = true
     },
     validateEqual () {
