@@ -154,10 +154,10 @@ const validators = {
     },
     msg: '中文姓名'
   },
-	'url': {
-		fn: isURL,
-		msg: '网址'
-	}
+  'url': {
+    fn: isURL,
+    msg: '网址'
+  }
 }
 export default {
   name: 'x-input',
@@ -322,18 +322,18 @@ export default {
         return
       }
 
-			if (this.required) {
-				this.valid = !!this.currentValue
+      if (this.required) {
+        this.valid = !!this.currentValue
 
-				if (!this.valid) {
-					this.errors.required = this.title + '是必填项噢'
-					this.forceShowError = true
-					this.getError()
-	        return
-				} else {
-					delete this.errors.required
-				}
-			}
+        if (!this.valid) {
+          this.errors.required = this.title + '是必填项噢'
+          this.forceShowError = true
+          this.getError()
+          return
+        } else {
+          delete this.errors.required
+        }
+      }
 
       if (typeof this.isType === 'string') {
         const validator = validators[this.isType]
@@ -378,7 +378,7 @@ export default {
           this.errors.max = `最多可以输入${this.max}个字符哦`
           this.valid = false
           this.forceShowError = true
-					this.getError()
+          this.getError()
           return
         } else {
           this.forceShowError = false
@@ -386,7 +386,7 @@ export default {
         }
       }
 
-			this.getError()
+      this.getError()
       this.valid = true
     },
     validateEqual () {
