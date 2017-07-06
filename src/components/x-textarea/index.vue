@@ -153,6 +153,9 @@ export default {
     }
   },
   methods: {
+    updateAutosize () {
+      Autosize.update(this.$refs.textarea)
+    },
     // prop.autosize
     bindAutosize () {
       Autosize(this.$refs.textarea)

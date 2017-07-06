@@ -96,7 +96,17 @@ events:
     version: v2.1.1-rc.11
     en: blur event
     zh-CN: blur 事件
+methods:
+  updateAutosize:
+    version: next
+    en: reset autosize, if value is not empty initially, you should call this function to update size
+    zh-CN: 重置 autosize 高度，如果绑定值不为空，需要调用该函数进行高度重置
 changes:
+  next:
+    en:
+      - '[feature] Add method:updateAutosize'
+    zh-CN:
+      - '[feature] 添加方法 updateAutosize 在存在默认值的情况下手动重置高度'
   v2.2.1-rc.6:
     en:
       - '[enhance] set label align to flex-start'
