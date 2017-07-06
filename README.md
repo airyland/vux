@@ -93,6 +93,7 @@ npm run dev // or yarn dev
 + [SUI Mobile](https://github.com/sdc-alibaba/SUI-Mobile)
 + [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe)
 + [WePayUI](https://github.com/wepayui/wepayui)
++ [autosize](https://github.com/jackmoore/autosize)(MIT)
 
 ## License
 
