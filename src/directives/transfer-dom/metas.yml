@@ -1,4 +1,9 @@
 changes:
+  next:
+    en:
+      - '[enhance] Do not re-render on event:componentUpdated'
+    zh-CN:
+      - '[enhance] 默认不在组件内容更新时自动重新渲染，修复 popup-picker 关闭闪现体验问题'
   v2.2.0:
     en:
       - '[enhance] Support simple entry name: TransferDom'
