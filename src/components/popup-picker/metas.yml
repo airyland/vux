@@ -53,6 +53,11 @@ props:
     version: v2.1.1-rc.7
     en: 'used to format display text on cell, param: (currentValue)'
     zh-CN: 自定义在cell上的显示格式，参数为当前 value，使用该属性时，show-name 属性将失效
+  popup-style:
+    version: next
+    type: Object
+    en: popup style
+    zh-CN: 弹窗样式，可以用于强制指定 z-index
 slots:
   title:
     version: v2.3.7
@@ -71,6 +76,11 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[feature] Add prop:popup-style #1656'
+    zh-CN:
+      - '[feature] 支持弹窗样式设置 prop:popup-style #1656'
   v2.4.1:
     en:
       - '[fix] popup-picker-header add touchmove.prevent event #1596'

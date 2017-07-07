@@ -25,7 +25,8 @@
       class="vux-popup-picker"
       :id="`vux-popup-picker-${uuid}`"
       @on-hide="onPopupHide"
-      @on-show="onPopupShow">
+      @on-show="onPopupShow"
+      :popup-style="popupStyle">
         <div class="vux-popup-picker-container">
           <div class="vux-popup-picker-header" @touchmove.prevent>
             <flexbox>
@@ -136,7 +137,8 @@ export default {
       type: Boolean,
       default: true
     },
-    columnWidth: Array
+    columnWidth: Array,
+    popupStyle: Object
   },
   computed: {
     labelStyles () {
@@ -203,8 +205,8 @@ export default {
       }
     },
     currentValue (val) {
-      this.$emit('on-change', getObject(val))
       this.$emit('input', getObject(val))
+      this.$emit('on-change', getObject(val))
     },
     show (val) {
       this.showValue = val

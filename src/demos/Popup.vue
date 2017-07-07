@@ -85,7 +85,7 @@
             <x-switch title="Popup address" v-model="show6"></x-switch>
           </group>
           <group>
-            <x-address :title="title6" v-model="value6" :list="addressData" placeholder="请选择地址" inline-desc="可以设置placeholder"></x-address>
+            <x-address :title="title6" v-model="value6" :list="addressData" placeholder="请选择地址" inline-desc="可以设置placeholder" :popup-style="{zIndex: 502}"></x-address>
           </group>
         </div>
       </popup>

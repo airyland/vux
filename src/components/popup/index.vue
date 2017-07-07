@@ -34,7 +34,8 @@ export default {
       type: String,
       default: 'bottom'
     },
-    maxHeight: String
+    maxHeight: String,
+    popupStyle: Object
   },
   mounted () {
     this.$overflowScrollingList = document.querySelectorAll('.vux-fix-safari-overflow-scrolling')
@@ -97,6 +98,11 @@ export default {
       }
 
       this.isTransparent && (styles['background'] = 'transparent')
+      if (this.popupStyle) {
+        for (let i in this.popupStyle) {
+          styles[i] = this.popupStyle[i]
+        }
+      }
       return styles
     }
   },
