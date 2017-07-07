@@ -98,11 +98,11 @@ events:
     zh-CN: blur 事件
 methods:
   updateAutosize:
-    version: next
+    version: v2.5.1
     en: reset autosize, if value is not empty initially, you should call this function to update size
     zh-CN: 重置 autosize 高度，如果绑定值不为空，需要调用该函数进行高度重置
 changes:
-  next:
+  v2.5.1:
     en:
       - '[feature] Add method:updateAutosize'
     zh-CN:

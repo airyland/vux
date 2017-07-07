@@ -82,7 +82,7 @@ props:
     en: index value, use `v-model` for binding
     zh-CN: index 绑定，使用`v-model`，一般不需要绑定
 changes:
-  next:
+  v2.5.1:
     en:
       - '[fix] Fix array-from issue with webpack@3 #1649'
     zh-CN:
