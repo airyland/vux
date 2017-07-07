@@ -1,6 +1,8 @@
 import Datetime from '../../components/datetime/datetimepicker'
 import ObjectAssign from 'object-assign'
 
+require('../../components/datetime/style.less')
+
 const libs = {
   show: function (options = {}) {
     options = ObjectAssign({
