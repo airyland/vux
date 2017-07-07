@@ -1,5 +1,5 @@
-import arrayFrom from 'array-from'
 import objectAssign from 'object-assign'
+const arrayFrom = (nodeList) => Array.prototype.slice.call(nodeList)
 
 class Swiper {
   constructor (options) {
