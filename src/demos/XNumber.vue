@@ -56,13 +56,14 @@ round style:
 </i18n>
 
 <script>
-import { Group, XNumber, XSwitch } from 'vux'
+import { Group, XNumber, XSwitch, Divider } from 'vux'
 
 export default {
   components: {
     XNumber,
     Group,
-    XSwitch
+    XSwitch,
+    Divider
   },
   data () {
     return {

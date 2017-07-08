@@ -1,0 +1,7 @@
+icon: '&#xe605;'
+changes:
+  next:
+    en:
+      - '[feature] now inline-x-number is available'
+    zh-CN:
+      - '[feature] 单独的 inline-x-number 组件可以正常使用了'
