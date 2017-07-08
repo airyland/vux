@@ -203,9 +203,6 @@ export default {
           console.log('plugin hide')
         }
       })
-      setTimeout(() => {
-        this.$vux.datetime.hide()
-      }, 2000)
     },
     toggleFormat () {
       this.format = this.format === 'YYYY-MM-DD HH:mm' ? 'YYYY-MM-DD' : 'YYYY-MM-DD HH:mm'
