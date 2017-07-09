@@ -137,8 +137,8 @@ export default {
     },
     currentValue (newVal) {
       const val = pure(newVal)
-      this.$emit('on-change', val)
       this.$emit('input', val)
+      this.$emit('on-change', val)
 
       let err = {}
       if (this._min) {
