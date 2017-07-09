@@ -1,0 +1,33 @@
+icon: '&#xe654;'
+props:
+  left-text:
+    version: next
+    en: left text
+    zh-CN: 左侧文字
+  right-text:
+    version: next
+    en: right text
+    zh-CN: 右侧文字
+  title:
+    version: next
+    en: title
+    zh-CN: 标题
+  show-bottom-border:
+    version: next
+    en: whether show bottom border
+    zh-CN: 是否显示底部边框
+events:
+  on-click-left:
+    version: next
+    en: emits when left text is clicked
+    zh-CN: 左侧文字点击时触发
+  on-click-right:
+    version: next
+    en: emits when right text is clicked
+    zh-CN: 右侧文字点击时触发
+changes:
+  next:
+    en:
+      - '[feature] new component'
+    zh-CN:
+      - '[feature] 新组件 popup-header, 配合 popup 使用统一头部样式'

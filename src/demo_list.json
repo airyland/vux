@@ -106,5 +106,6 @@
   "CheckIcon",
   "Drawer",
   "DatetimeView",
-  "InlineXNumber"
+  "InlineXNumber",
+  "PopupHeader"
 ]

@@ -187,6 +187,10 @@
     "icon": "&#xe65f;"
   },
   {
+    "name": "popup-header",
+    "icon": "&#xe654;"
+  },
+  {
     "name": "popup-picker",
     "icon": "&#xe626;"
   },

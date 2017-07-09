@@ -85,6 +85,7 @@
   "Picker": "src/components/picker/index.vue",
   "Popover": "src/components/popover/index.vue",
   "Popup": "src/components/popup/index.vue",
+  "PopupHeader": "src/components/popup-header/index.vue",
   "PopupPicker": "src/components/popup-picker/index.vue",
   "PopupRadio": "src/components/popup-radio/index.vue",
   "Previewer": "src/components/previewer/index.vue",
