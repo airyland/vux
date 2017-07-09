@@ -29,6 +29,7 @@ export default {
       type: Array,
       required: true
     },
+    labelWidth: String,
     inlineDesc: String,
     placeholder: String,
     hideDistrict: Boolean,
