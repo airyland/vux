@@ -37,6 +37,37 @@
             </div>
         </div>
       </template>
+      <!--type==='4'-->
+      <template v-if="type === '4'">
+        <div class="weui-media-box weui-media-box_text" v-for="item in list" @click.prevent="onItemClick(item)">
+          <h4 class="weui-media-box__title">{{item.title}}</h4>
+          <p class="weui-media-box__desc">{{item.desc}}</p>
+          <ul class="weui-media-box__info" v-if="item.meta">
+            <li class="weui-media-box__info__meta">{{item.meta.source}}</li>
+            <li class="weui-media-box__info__meta">{{item.meta.date}}</li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.meta.other}}</li>
+          </ul>
+        </div>
+      </template>
+      <!--type==='5'-->
+      <template v-if="type === '5'">
+        <div class="weui-media-box weui-media-box_text" v-for="item in list" @click.prevent="onItemClick(item)">
+          <div class="weui-media-box_appmsg">
+            <div class="weui-media-box__hd" v-if="item.src">
+              <img class="weui-media-box__thumb" :src="item.src" alt="">
+            </div>
+            <div class="weui-media-box__bd">
+              <h4 class="weui-media-box__title">{{item.title}}</h4>
+              <p class="weui-media-box__desc">{{item.desc}}</p>
+            </div>
+          </div>
+          <ul class="weui-media-box__info" v-if="item.meta">
+            <li class="weui-media-box__info__meta">{{item.meta.source}}</li>
+            <li class="weui-media-box__info__meta">{{item.meta.date}}</li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.meta.other}}</li>
+          </ul>
+        </div>
+      </template>
     </div>
     <div class="weui-panel__ft">
       <a class="weui-cell weui-cell_access weui-cell_link" :href="getUrl(footer.url)" v-if="footer && type !== '3'" @click.prevent="onClickFooter">

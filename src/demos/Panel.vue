@@ -1,7 +1,7 @@
 <template>
   <div>
     <group title="switch the type">
-      <radio title="type" v-model="type" :options="['1', '2', '3']"></radio>
+      <radio title="type" v-model="type" :options="['1', '2', '3','4','5']"></radio>
     </group>
     <panel header="图文组合列表" :footer="footer" :list="list" :type="type"></panel>
   </div>
@@ -31,6 +31,11 @@ export default {
         url: {
           path: '/component/radio',
           replace: false
+        },
+        meta: {
+          source: '来源信息',
+          date: '时间',
+          other: '其他信息'
         }
       }],
       footer: {
