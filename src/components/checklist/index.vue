@@ -10,6 +10,7 @@
         </div>
         <div class="weui-cell__bd">
           <p v-html="getValue(one)"></p>
+          <inline-desc v-if="getInlineDesc(one)">{{getInlineDesc(one)}}</inline-desc>
         </div>
       </label>
     </div>
@@ -21,14 +22,16 @@
 import Base from '../../libs/base'
 import Tip from '../tip'
 import Icon from '../icon'
-import { getValue, getKey } from './object-filter'
+import InlineDesc from '../inline-desc'
+import { getValue, getKey, getInlineDesc } from './object-filter'
 import shuffle from 'array-shuffle'
 
 export default {
   name: 'checklist',
   components: {
     Tip,
-    Icon
+    Icon,
+    InlineDesc
   },
   filters: {
     getValue,
@@ -82,6 +85,7 @@ export default {
   methods: {
     getValue,
     getKey,
+    getInlineDesc,
     ifDisable (key) {
       if (!this.checkDisabled) {
         return false

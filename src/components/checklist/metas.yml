@@ -24,7 +24,7 @@ props:
     type: Array
     default: []
     en: option list
-    zh-CN: 选项列表，可以为`[{key:'name',value:'value'}]`的形式
+    zh-CN: 选项列表，可以为`[{key:'name',value:'value',inlineDesc:'inlineDesc'}]`的形式
   max:
     type: Number
     default: ''
@@ -90,5 +90,7 @@ changes:
   next:
     en:
       - '[fix] emit event `input` before `on-change`'
+      - '[feature] add attribute `inlineDesc` to `options`'
     zh-CN:
       - '[fix] 在 `on-change` 事件之前 emit `input` 事件'
+      - '[feature] `options` 中增加 `inlineDesc` 属性'

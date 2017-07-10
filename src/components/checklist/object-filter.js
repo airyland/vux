@@ -5,3 +5,7 @@ export const getValue = function (item) {
 export const getKey = function (item) {
   return typeof item === 'object' ? item.key : item
 }
+
+export const getInlineDesc = function (item) {
+  return typeof item === 'object' ? item.inlineDesc : ''
+}
