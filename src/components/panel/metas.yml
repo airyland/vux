@@ -10,11 +10,11 @@ props:
   list:
     type: 'Array'
     en: content list `[{title, desc, src}]`
-    zh-CN: '内容列表，[{title, desc, src}]'
+    zh-CN: '内容列表，[{title, desc, src,meta:{source,date,other}}]'
   type:
     default: '1'
-    en: one of '1', '2', '3'
-    zh-CN: 布局类型，可选值 ['1', '2', '3']
+    en: one of '1', '2', '3', '4', '5'
+    zh-CN: 布局类型，可选值 ['1', '2', '3', '4', '5']
 events:
   on-click-header:
     en: emits when clicking header
@@ -26,3 +26,9 @@ events:
   on-click-footer:
     en: emits when clicking footer
     zh-CN: 点击尾部时触发
+changes:
+  next:
+    en:
+      - '[feature] Add type(4,5) and info meta(source,date,other)'
+    zh-CN:
+      - '[feature] 增加type类型(4,5)和描述信息(来源,时间和其他自定义信息)'
