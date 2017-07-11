@@ -41,6 +41,7 @@ import dateRange from './src/tools/date/range.js'
 import Datetime from './src/components/datetime/index.vue'
 import DatetimePlugin from './src/plugins/datetime/index.js'
 import DatetimeRange from './src/components/datetime-range/index.vue'
+import DatetimeView from './src/components/datetime-view/index.vue'
 import debounce from './src/tools/debounce/index.js'
 import Demobasic from './src/components/fullpage/DemoBasic.vue'
 import Demoindex from './src/components/popover/DemoIndex.vue'
@@ -86,6 +87,7 @@ import Panel from './src/components/panel/index.vue'
 import Picker from './src/components/picker/index.vue'
 import Popover from './src/components/popover/index.vue'
 import Popup from './src/components/popup/index.vue'
+import PopupHeader from './src/components/popup-header/index.vue'
 import PopupPicker from './src/components/popup-picker/index.vue'
 import PopupRadio from './src/components/popup-radio/index.vue'
 import Previewer from './src/components/previewer/index.vue'
@@ -182,6 +184,7 @@ export {
   Datetime,
   DatetimePlugin,
   DatetimeRange,
+  DatetimeView,
   debounce,
   Demobasic,
   Demoindex,
@@ -227,6 +230,7 @@ export {
   Picker,
   Popover,
   Popup,
+  PopupHeader,
   PopupPicker,
   PopupRadio,
   Previewer,
