@@ -54,7 +54,7 @@ props:
     en: 'used to format display text on cell, param: (currentValue)'
     zh-CN: 自定义在cell上的显示格式，参数为当前 value，使用该属性时，show-name 属性将失效
   popup-style:
-    version: next
+    version: v2.5.2
     type: Object
     en: popup style
     zh-CN: 弹窗样式，可以用于强制指定 z-index
@@ -76,7 +76,7 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  v2.5.2:
     en:
       - '[feature] Add prop:popup-style #1656'
     zh-CN:

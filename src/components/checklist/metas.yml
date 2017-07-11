@@ -87,7 +87,7 @@ changes:
       - '[feature] 添加插槽 footer、after-title'
       - '[change] 如果已经达到max上限，没有选中的选项将不能选择，因此不再和之前版本一样会出现最多可选max个的error信息'
       - '[change] 默认 required 值为false, 与html规范一致'
-  next:
+  v2.5.2:
     en:
       - '[fix] emit event `input` before `on-change`'
     zh-CN:

@@ -1,32 +1,32 @@
 icon: '&#xe654;'
 props:
   left-text:
-    version: next
+    version: v2.5.2
     en: left text
     zh-CN: 左侧文字
   right-text:
-    version: next
+    version: v2.5.2
     en: right text
     zh-CN: 右侧文字
   title:
-    version: next
+    version: v2.5.2
     en: title
     zh-CN: 标题
   show-bottom-border:
-    version: next
+    version: v2.5.2
     en: whether show bottom border
     zh-CN: 是否显示底部边框
 events:
   on-click-left:
-    version: next
+    version: v2.5.2
     en: emits when left text is clicked
     zh-CN: 左侧文字点击时触发
   on-click-right:
-    version: next
+    version: v2.5.2
     en: emits when right text is clicked
     zh-CN: 右侧文字点击时触发
 changes:
-  next:
+  v2.5.2:
     en:
       - '[feature] new component'
     zh-CN:

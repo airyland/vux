@@ -103,7 +103,7 @@ props:
     en: 'align setting of `value`'
     zh-CN: 'value 对齐方式(text-align), `v2.1.0-rc.49`开始支持'
   popup-style:
-    version: next
+    version: v2.5.2
     type: Object
     en: popup style
     zh-CN: 弹窗样式，可以用于强制指定 z-index
@@ -120,7 +120,7 @@ events:
     en: emits when being open
     zh-CN: 显示时触发
 changes:
-  next:
+  v2.5.2:
     en:
       - '[feature] Add prop:popup-style #1656'
     zh-CN:

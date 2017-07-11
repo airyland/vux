@@ -1,6 +1,6 @@
 icon: '&#xe605;'
 changes:
-  next:
+  v2.5.2:
     en:
       - '[feature] now inline-x-number is available'
     zh-CN:

@@ -45,7 +45,7 @@ props:
     en: whether show mask
     zh-CN: 是否显示遮罩
   popup-style:
-    version: next
+    version: v2.5.2
     type: Object
     en: popup style
     zh-CN: 弹窗样式，可以用于强制指定 z-index
@@ -64,7 +64,7 @@ slots:
     en: content body
     zh-CN: 弹窗主体内容
 changes:
-  next:
+  v2.5.2:
     en:
       - '[feature] Add prop:popup-style #1656'
     zh-CN:
