@@ -48,7 +48,7 @@ export default {
     hasTwoLoopItem () {
       if (this.list.length === 2 && this.loop) {
         this.listTwoLoopItem = this.list
-      }else{
+      } else {
         this.listTwoLoopItem = []
       }
     },
