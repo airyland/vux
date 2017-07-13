@@ -5,7 +5,7 @@
         <slot name="restricted-label"></slot>
       </div>
       <slot name="label">
-        <label class="weui-label" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
+        <label class="weui-label" :class="labelClass" :style="{width: $parent.labelWidth || (labelWidth + 'em'), textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </slot>
     </div>
@@ -150,6 +150,11 @@ export default {
     },
     labelWidth () {
       return this.title.replace(/[^x00-xff]/g, '00').length / 2 + 1
+    },
+    labelClass () {
+      return {
+        'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
+      }
     }
   },
   methods: {

@@ -3,7 +3,7 @@
     <div class="weui-cell vux-tap-active weui-cell_access" @click="onClick" v-show="showCell">
       <div class="weui-cell__hd">
         <slot name="title" label-class="weui-label" :label-style="labelStyles" :label-title="title">
-          <label class="weui-label" :style="labelStyles" v-if="title" v-html="title"></label>
+          <label class="weui-label" :class="labelClass" :style="labelStyles" v-if="title" v-html="title"></label>
         </slot>
         <inline-desc v-if="inlineDesc">{{ inlineDesc }}</inline-desc>
       </div>
@@ -147,6 +147,11 @@ export default {
         width: this.$parent.labelWidth || this.$parent.$parent.labelWidth,
         textAlign: this.$parent.labelAlign || this.$parent.$parent.labelAlign,
         marginRight: this.$parent.labelMarginRight || this.$parent.$parent.labelMarginRight
+      }
+    },
+    labelClass () {
+      return {
+        'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
       }
     }
   },
