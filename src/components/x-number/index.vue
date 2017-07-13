@@ -1,7 +1,7 @@
 <template>
   <div class="weui-cell">
     <div>
-      <p v-html="$t(title)" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}"></p>
+      <p v-html="$t(title)" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" :class="labelClass"></p>
     </div>
     <div class="weui-cell__ft vux-cell-primary" :class="{'vux-number-round': buttonStyle === 'round'}" v-show="!readonly" style="font-size:0">
       <div :style="{float:align}">
@@ -76,6 +76,11 @@ export default {
     },
     disabledMax () {
       return typeof this.max === 'undefined' ? false : (this.currentValue === '' ? true : this.currentValue >= this.max)
+    },
+    labelClass () {
+      return {
+        'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
+      }
     }
   },
   watch: {

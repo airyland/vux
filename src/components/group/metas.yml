@@ -7,7 +7,7 @@ tags:
     - 表单
     - 分组
 extra:
-  en: '`Group` is a special component for wrapping form elements' 
+  en: '`Group` is a special component for wrapping form elements'
   zh-CN: >
     `Group`是一个特殊的表单`wrapper`组件，主要用于将表单分组，单个表单元素也算一组。常见的表单组件都`必须`作为`Group`的子组件。
     属于`Group`子组件的有：Cell, XInput, XTextarea, XSwitch, Calendar, XNumber, Radio, XAddress, Datetime, Selector
@@ -51,6 +51,11 @@ slots:
     en: title slot
     zh-CN: 标题插槽
 changes:
+  next:
+    en:
+      - '[enhance] prop:labelAlign support justify #1574'
+    zh-CN:
+      - '[enhance] labelAlign 支持 justify #1574'
   v2.5.1:
     en:
       - '[feature] Add slot:title #1650'

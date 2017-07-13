@@ -1,7 +1,7 @@
 <template>
    <div class="vux-selector weui-cell" :class="{'weui-cell_select':!readonly, 'weui-cell_select-after':title}">
     <div class="weui-cell__hd" v-if="title">
-      <label :for="`vux-selector-${uuid}`" class="weui-label" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}">{{title}}</label>
+      <label :for="`vux-selector-${uuid}`" class="weui-label" :class="labelClass" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}">{{title}}</label>
     </div>
     <div class="weui-cell__bd" v-if="!readonly">
       <select :id="`vux-selector-${uuid}`" :ddd="color" style="color:red;" class="weui-select" v-model="currentValue" :name="name"
@@ -63,6 +63,11 @@ export default {
         return true
       }
       return false
+    },
+    labelClass () {
+      return {
+        'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
+      }
     }
   },
   filters: {

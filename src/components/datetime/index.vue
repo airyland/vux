@@ -8,7 +8,7 @@
     <slot>
       <div>
         <slot name="title">
-          <p :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-html="title"></p>
+          <p :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" :class="labelClass" v-html="title"></p>
         </slot>
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </div>
@@ -187,6 +187,11 @@ export default {
     firstError () {
       let key = Object.keys(this.errors)[0]
       return this.errors[key]
+    },
+    labelClass () {
+      return {
+        'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
+      }
     }
   },
   methods: {

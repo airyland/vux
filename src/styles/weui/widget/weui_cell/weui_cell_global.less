@@ -64,3 +64,13 @@
     text-align: right;
     color: @weuiTextColorGray;
 }
+.vux-cell-justify {
+  height: unit(@weuiCellLineHeight, em);
+  &&:after {
+    content: ".";
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+  }
+}
