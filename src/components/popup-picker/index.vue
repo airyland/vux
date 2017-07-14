@@ -144,7 +144,7 @@ export default {
     labelStyles () {
       return {
         display: 'block',
-        width: this.$parent.labelWidth || this.$parent.$parent.labelWidth,
+        width: this.$parent.labelWidth || this.$parent.$parent.labelWidth || 'auto',
         textAlign: this.$parent.labelAlign || this.$parent.$parent.labelAlign,
         marginRight: this.$parent.labelMarginRight || this.$parent.$parent.labelMarginRight
       }

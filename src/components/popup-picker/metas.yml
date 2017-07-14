@@ -76,6 +76,11 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[fix] Fix label style being overwrite after importing x-textarea #1696'
+    zh-CN:
+      - '[fix] 修复在 x-textarea 后引入 popup-picker label 宽度被覆盖 #1696'
   v2.5.2:
     en:
       - '[feature] Add prop:popup-style #1656'
