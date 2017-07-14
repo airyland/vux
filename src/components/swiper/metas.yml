@@ -82,6 +82,11 @@ props:
     en: index value, use `v-model` for binding
     zh-CN: index 绑定，使用`v-model`，一般不需要绑定
 changes:
+  next:
+    en:
+      - '[fix] clear listTtwoLoopItem when list size !== 2 #1684 @weizs'
+    zh-CN:
+      - '[fix] 轮播个数不为2时清除 listTtwoLoopItem 列表 #1684 @weizs'
   v2.5.1:
     en:
       - '[fix] Fix array-from issue with webpack@3 #1649'
