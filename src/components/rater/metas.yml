@@ -1,0 +1,40 @@
+icon: '&#xe606;'
+color: '#FF9900'
+tags:
+  en:
+    - form
+    - rate
+    - rater
+  zh-CN:
+    - 表单
+    - 星级
+    - 评分
+props:
+  max:
+    type: Number
+    default: 5
+    zh-CN: 最多可选个数
+  value:
+    type: Number
+    default: 0
+    zh-CN: 值，使用 v-model 绑定
+  disabled:
+    type: Boolean
+    default: false
+    zh-CN: 是否禁用
+  star:
+    type: String
+    default: '★'
+    zh-CN: 字符
+  active-color:
+    type: String
+    default: '#fc6'
+    zh-CN: 选中时的颜色
+  margin:
+    type: Number
+    default: 2
+    zh-CN: 间隙值
+  fontSize:
+    type: Number
+    default: 25
+    zh-CN: 字体大小

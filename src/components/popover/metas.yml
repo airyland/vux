@@ -1,14 +1,22 @@
-keywords:
-  - popover
-  - float menu
-  - tooltip
-  - 弹窗
-  - 菜单
+icon: '&#xe65f;'
+tags:
+  en:
+    - popover
+    - float menu
+    - tooltip
+  zh-CN:
+    - 弹窗
+    - 菜单
+    - 提示
 props:
   content:
+    type: String
+    default: ''
     en: content of the popover
     zh-CN: 弹出窗口内容
   placement:
+    type: String
+    default: ''
     en: position of the popover
     zh-CN: 弹出窗口位置
     enum:
@@ -16,9 +24,11 @@ props:
       - right
       - bottom
       - left
-    gutter:
-      en: the gutter between trigger element and popover arrow
-      zh-CN: 箭头和触发元素之间的距离
+  gutter:
+    type: Number
+    default: 5
+    en: the gutter between trigger element and popover arrow
+    zh-CN: 箭头和触发元素之间的距离
 slots:
   default:
     en: trigger element
@@ -33,3 +43,10 @@ events:
   on-hide:
     en: triggers when popover hides
     zh-CN: 弹窗隐藏时触发
+changes:
+  v2.0.0:
+    en:
+      - '[todo] wrong position if changing locale'
+    zh-CN:
+      - '[todo] 当切换i18n语言时，位置不正确'
+

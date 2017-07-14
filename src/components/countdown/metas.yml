@@ -1,0 +1,21 @@
+icon: '&#xe653;'
+status: 'deprecated'
+tags:
+  en:
+    - number
+    - countdown
+  zh-CN:
+    - 数字
+    - 倒数
+props:
+  value:
+    type: number
+    zh-CN: 时间，秒为单位
+  start:
+    type: Boolean
+    default: true
+    zh-CN: 是否开始计数
+changes:
+  v2.0.0:
+    zh-CN:
+      - '[deprecated] 下一版本开始不再维护'

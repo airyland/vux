@@ -1,24 +1,44 @@
 <template>
-  <div class="weui_loading_toast" v-show="show">
-    <div class="weui_mask_transparent"></div>
-    <div class="weui_toast" :style="{position: position}">
-      <div class="weui_loading">
-        <div class="weui_loading_leaf" v-for="i in 12" :class="['weui_loading_leaf_' + i]"></div>
-      </div>
-      <p class="weui_toast_content">{{text}}<slot></slot></p>
+  <div class="weui-loading_toast" v-show="show">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast" :style="{ position: position }">
+      <i class="weui-loading weui-icon_toast"></i>
+      <p class="weui-toast__content">{{ $t(text) || $t('loading') }}<slot></slot></p>
     </div>
   </div>
 </template>
 
+<i18n>
+loading:
+  en: loading
+  zh-CN: 加载中
+</i18n>
+
 <script>
 export default {
   props: {
-    show: Boolean,
-    text: {
-      type: String,
-      default: 'Loading'
+    value: {
+      type: Boolean,
+      default: false
     },
+    text: String,
     position: String
+  },
+  created () {
+    this.show = this.value
+  },
+  data () {
+    return {
+      show: false
+    }
+  },
+  watch: {
+    value (val) {
+      this.show = val
+    },
+    show (val) {
+      this.$emit('input', val)
+    }
   }
 }
 </script>
@@ -26,4 +46,13 @@ export default {
 <style lang="less">
 @import '../../styles/weui/widget/weui_tips/weui_mask';
 @import '../../styles/weui/widget/weui_tips/weui_toast';
+@import '../../styles/weui/widget/weui-loading/weui-loading.less';
+
+.weui-icon_toast.weui-loading {
+  margin: 30px 0 0;
+  width: 38px;
+  height: 38px;
+  vertical-align: baseline;
+  display: inline-block;
+}
 </style>

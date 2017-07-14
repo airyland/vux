@@ -1,3 +1,5 @@
+build/*.js
 src/assets/*/*.js
 src/libs/eventor.js
-src/components/x-swiper/swiper.dom.js
+config/*.js
+src/tools/*/*.js

@@ -7,13 +7,13 @@
 
     <group title="Use in cell">
       <cell title="Date:0801">
-        <clocker time="2016-08-01" slot="value"></clocker>
+        <clocker time="2017-08-01" slot="value"></clocker>
       </cell>
     </group>
 
     <group title="custom template">
       <cell title="Date:0801">
-        <clocker time="2016-08-01" slot="value">
+        <clocker time="2017-08-01" slot="value">
           <span style="color:red">%D 天</span>
           <span style="color:green">%H 小时</span>
           <span style="color:blue">%M 分 %S 秒</span>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { Clocker, Cell, Group } from '../components'
+import { Clocker, Cell, Group } from 'vux'
 
 export default {
   components: {
@@ -47,18 +47,18 @@ export default {
   },
   ready () {
     setTimeout(() => {
-      this.time1 = '2016-08-13 22:54'
+      this.time1 = '2017-08-13 22:54'
     }, 5000)
   },
   data () {
     return {
-      time1: '2016-07-13 21:54'
+      time1: '2017-07-13 21:54'
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .day {
   background-color:#000;
   color:#fff;

@@ -49,11 +49,12 @@
 <script>
 import PhotoSwipe from 'photoswipe/dist/photoswipe'
 import UI from 'photoswipe/dist/photoswipe-ui-default'
+import objectAssign from 'object-assign'
 
 export default {
   methods: {
     init (index) {
-      let options = Object.assign({
+      let options = objectAssign({
         history: false,
         shareEl: false,
         tapToClose: true,

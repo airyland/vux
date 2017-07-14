@@ -1,0 +1,21 @@
+# This file is built by build_locales.js, so don't try to modify it manually
+en:
+  vux.actionsheet.cancel: cancel
+  vux.alert.button_text: OK
+  vux.confirm.confirm_text: confirm
+  vux.confirm.cancel_text: cancel
+  vux.loading.loading: loading
+  vux.popup-picker.cancel_text: cancel
+  vux.popup-picker.confirm_text: ok
+  vux.search.cancel_text: cancel
+  vux.search.placeholder: Search
+zh-CN:
+  vux.actionsheet.cancel: 取消
+  vux.alert.button_text: 确定
+  vux.confirm.confirm_text: 确定
+  vux.confirm.cancel_text: 取消
+  vux.loading.loading: 加载中
+  vux.popup-picker.cancel_text: 取消
+  vux.popup-picker.confirm_text: 完成
+  vux.search.cancel_text: 取消
+  vux.search.placeholder: 搜索

@@ -377,7 +377,7 @@ var animations = {
         startTime = Date.now()
       }
 
-      requestAnimationFrame(run)
+      window.requestAnimationFrame(run)
     }
 
     return function () {

@@ -1,0 +1,36 @@
+icon: '&#xe662;'
+import_code: "import { Marquee, MarqueeItem } from 'vux'"
+items:
+  - marquee
+  - marquee-item
+marquee:
+  props:
+    interval:
+      type: Number
+      default: 2000
+      en: switch interval time
+      zh-CN: 切换时间间隙
+    duration:
+      type: Number
+      default: 300
+      en: animation time
+      zh-CN: 切换动画时间
+    direction:
+      default: up
+      en: direction of animation
+      zh-CN: 切换方向
+  slots:
+      default:
+        en: container of marquee items
+        zh-CN: 内容插槽
+marquee-item:
+  slots:
+    default:
+      en: content slot
+      zh-CN: 内容插槽
+changes:
+  v2.1.0:
+    en:
+      - '[feature] new component'
+    zh-CN:
+      - '[feature] 新组件'

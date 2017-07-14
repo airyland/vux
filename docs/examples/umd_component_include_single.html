@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>scripts</title>
+  <link rel="stylesheet" href="../../dist/styles/reset.css">
+  <link rel="stylesheet" href="../../dist/components/group/index.min.css">
+  <link rel="stylesheet" href="../../dist/components/cell/index.min.css">
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="demo">
+    <group>
+      <cell title="Vue" :value="how"></cell>
+    </group>
+  </div>
+
+  <script src="../../dist/components/group/index.min.js"></script>
+  <script src="../../dist/components/cell/index.min.js"></script>
+
+  <script>
+  Vue.component('group', vuxGroup)
+  Vue.component('cell', vuxCell)
+  new Vue({
+    el: '#demo',
+    data: {
+      how: 'Cool'
+    }
+  })
+  </script>
+</body>
+</html>

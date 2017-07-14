@@ -1,0 +1,36 @@
+icon: '&#xe61e;'
+tags:
+  en:
+    - popup
+  zh-CN:
+    - 弹窗
+props:
+  value:
+    type: Boolean
+    zh-CN: 是否关闭，使用`v-model`绑定
+  height:
+    type: String
+    default: 'auto'
+    zh-CN: 高度，设置`100%`为整屏高度
+  hide-on-blur:
+    type: Boolean
+    default: true
+    zh-CN: 点击遮罩时是否自动关闭
+events:
+  on-hide:
+    zh-CN: 关闭时触发
+  on-show:
+    zh-CN: 显示时触发
+  on-first-show:
+    zh-CN: 第一次显示时触发
+changes:
+  v2.1.1-rc.6:
+    en:
+      - '[fix] Fix wrong setting of overflow-scrolling when using multi popup on Safari #1015 @think2011'
+    zh-CN:
+      - '[fix] 修复 Safari 上关闭第二个popup导致的问题 #1015 @think2011'
+  v2.1.1-rc.1:
+    en:
+      - '[fix] Fix overflow-scrolling setting in safari #311 @linhaobin'
+    zh-CN:
+      - '[fix] 修复 `overflow-scrolling` 设置逻辑遗漏问题 #311 @linhaobin'

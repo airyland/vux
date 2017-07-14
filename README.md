@@ -3,91 +3,59 @@
     <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
   </a>
 </p>
-<p align="center">Be Cool with Vue and WeUI.</p>
-<p align="center">compatible with Vue@^1.0.24 (not yet support Vue@2.0)</p>
+<p align="center">Be Cool with Vue@2.x and WeUI.</p>
+
 <p align="center">
+   <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
+    <img src="https://static.vux.li/demo_v2_doc_home.png" width="100" alt="">
+  </a>
+  <br>
+  <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
+    预览地址>>
+  </a>
+  <br>
+  <br>
+  <a href="https://github.com/airyland/vux">
+    <img src="https://img.shields.io/github/stars/airyland/vux.svg?style=social&label=Star" alt="">
+  </a>
+  <a href="https://github.com/airyland/vux">
+    <img src="https://img.shields.io/github/forks/airyland/vux.svg?style=social&label=Fork" alt="">
+  </a>
+  <a href="https://github.com/airyland/vux">
+    <img src="https://img.shields.io/github/watchers/airyland/vux.svg?style=social&label=Watch" alt="">
+  </a>
+  <br>
+  <br>
+  <a href="https://github.com/airyland/vux/issues">
+    <img src="https://img.shields.io/github/issues/airyland/vux.svg?style=flat-square" alt="">
+  </a>
+  <a href="https://github.com/airyland/vux/issues">
+    <img src="http://isitmaintained.com/badge/resolution/airyland/vux.svg?style=flat-square" alt="">
+  </a>
+  <a href="https://github.com/airyland/vux/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/airyland/vux.svg?style=flat-square" alt="">
+  </a>
+  <br>
+  <a href="https://www.npmjs.com/package/vux">
+    <img src="https://img.shields.io/npm/l/vux.svg?style=flat-square" alt="">
+  </a>
   <a href="https://www.npmjs.com/package/vux">
     <img src="https://img.shields.io/npm/v/vux.svg?style=flat-square" alt="">
   </a>
   <a href="https://www.npmjs.com/package/vux">
     <img src="https://img.shields.io/npm/dm/vux.svg?style=flat-square" alt="">
   </a>
-  <a href="http://issuestats.com/github/airyland/vux">
-    <img src="http://issuestats.com/github/airyland/vux/badge/issue?style=flat-square" alt="">
+  <a href="https://www.npmjs.com/package/vux">
+    <img src="https://img.shields.io/npm/dt/vux.svg?style=flat-square" alt="">
   </a>
-  <a href="http://issuestats.com/github/airyland/vux">
-    <img src="http://issuestats.com/github/airyland/vux/badge/pr?style=flat-square" alt="">
-  </a>
+  <br>
+  <br>
 </p>
 
 ## Docs
 
-+ [中文文档](https://vuxjs.gitbooks.io/vux/content/)
-
-## Demo
-
-<p align="center">
-  <a href="https://vux.li/?x-page=github_readme">https://vux.li</a><br/>
-  (You can view the demos' codes in <a href="https://github.com/airyland/vux/tree/master/src/demos"><strong>/src/demos</strong></a>)<br/>
-  <img src="https://raw.githubusercontent.com/airyland/vux/master/assets/qr.png" width="300">
-</p>
-
-## Component List
-
-> If you need a new component, don't hesitate to raise an issue.
-
-> The diagram is made with [coggle](https://coggle.it/)
-
-<p align="center">
-	<img src="https://raw.githubusercontent.com/airyland/vux/master/assets/components.png" width="980">
-</p>
-
-## Quick Start
-
-``` bash
-# install vue-cli
-npm install -g vue-cli
-
-# init a webpack project with vuxjs/template
-vue init vuxjs/webpack my-project
-cd my-project
-# or cnpm install
-npm install
-npm run dev
-```
-
-## Development Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# you can also custom host and port
-npm run dev -- --host 127.0.0.1 --port 8085
-
-# build for production with minification
-npm run build
-
-# build components before publishing
-npm run xbuild
-
-# publish and deploy to gh-pages
-npm run xpublish
-
-# run unit tests
-npm test
-```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-## Components
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/airyland/vux/master/assets/vux.png" width="600">
-</p>
++ [中文文档](https://vux.li/)
++ English(working)
 
 ## Maintainers
 + [airyland](https://github.com/airyland)

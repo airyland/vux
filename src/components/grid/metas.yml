@@ -1,0 +1,40 @@
+icon: '&#xe661;'
+import_code: import { Grid, GridItem } from 'vux'
+items:
+  - grid
+  - grid-item
+extra: |
+
+  ``` html
+  <grid>
+    <grid-item label="Grid" v-for="i in 9">
+      <img slot="icon" src="../assets/grid_icon.png">
+    </grid-item>
+  </grid>
+  ```
+grid:
+  slots:
+    default:
+      en: 'default slot for `grid-item` list'
+      zh-CN: 用于`grid-item`的插槽
+grid-item:
+  props:
+    icon:
+      en: 'icon url. if using local resources, it is better to use `slot=icon`'
+      zh-CN: '图标地址，如果是线上地址，推荐使用该prop。如果是本地图标资源，使用`slot=icon`可以保证资源被正确打包'
+    label:
+      en: '`label` text'
+      zh-CN: '`label` 文字'
+  slots:
+    icon:
+      en: 'icon slot, use `<img>`'
+      zh-CN: 图标内容，`直接使用<img>标签`
+    label:
+      en: slot for label, the same func as prop:label
+      zh-CN: label文字的slot，作用同prop:label
+changes:
+  v2.0.14:
+    en:
+      - '[feature] Add component `grid`'
+    zh-CN:
+      - '[feature] 增加`grid`九宫格组件'

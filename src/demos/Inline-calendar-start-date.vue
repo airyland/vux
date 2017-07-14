@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { InlineCalendar, Divider } from '../components'
+import { InlineCalendar, Divider } from 'vux'
 
 export default {
   data () {

@@ -1,42 +1,49 @@
 <template>
   <div>
-    <dialog class="weui_dialog_confirm"
-    :show="show"
+    <x-dialog
+    v-model="showValue"
     :mask-transition="maskTransition"
     :dialog-transition="dialogTransition"
+    :hide-on-blur="hideOnBlur"
     @on-hide="$emit('on-hide')"
     @on-show="$emit('on-show')">
-      <div class="weui_dialog_hd"><strong class="weui_dialog_title">{{title}}</strong></div>
-      <div class="weui_dialog_bd"><slot></slot></div>
-      <div class="weui_dialog_ft">
-        <a href="javascript:;" class="weui_btn_dialog default" @click="onCancel">{{cancelText}}</a>
-        <a href="javascript:;" class="weui_btn_dialog primary" @click="onConfirm">{{confirmText}}</a>
+      <div class="weui-dialog__hd"><strong class="weui-dialog__title">{{title}}</strong></div>
+      <div class="weui-dialog__bd"><slot><div v-html="content"></div></slot></div>
+      <div class="weui-dialog__ft">
+        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" @click="onCancel">{{cancelText || $t('cancel_text')}}</a>
+        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" @click="onConfirm">{{confirmText || $t('confirm_text')}}</a>
       </div>
-    </dialog>
+    </x-dialog>
   </div>
 </template>
 
-<script>
-import Dialog from '../dialog'
+<i18n>
+confirm_text:
+  en: confirm
+  zh-CN: 确定
+cancel_text:
+  en: cancel
+  zh-CN: 取消
+</i18n>
 
+<script>
+import XDialog from '../x-dialog'
 export default {
   components: {
-    Dialog
+    XDialog
   },
   props: {
-    show: Boolean,
-    title: {
-      type: String,
-      required: true
+    value: {
+      type: Boolean,
+      default: false
     },
-    confirmText: {
-      type: String,
-      default: 'confirm'
+    hideOnBlur: {
+      type: Boolean,
+      default: false
     },
-    cancelText: {
-      type: String,
-      default: 'cancel'
-    },
+    title: String,
+    confirmText: String,
+    cancelText: String,
     maskTransition: {
       type: String,
       default: 'vux-fade'
@@ -44,15 +51,35 @@ export default {
     dialogTransition: {
       type: String,
       default: 'vux-dialog'
+    },
+    content: String
+  },
+  created () {
+    this.showValue = this.show
+    if (this.value) {
+      this.showValue = this.value
+    }
+  },
+  watch: {
+    value (val) {
+      this.showValue = val
+    },
+    showValue (val) {
+      this.$emit('input', val)
+    }
+  },
+  data () {
+    return {
+      showValue: false
     }
   },
   methods: {
     onConfirm () {
-      this.show = false
+      this.showValue = false
       this.$emit('on-confirm')
     },
     onCancel () {
-      this.show = false
+      this.showValue = false
       this.$emit('on-cancel')
     }
   }

@@ -1,6 +1,6 @@
 <template>
-  <button class="weui_btn" :class="classes" :disabled="disabled">
-    {{text}}<slot></slot>
+  <button class="weui-btn" :class="classes" :disabled="disabled" :type="actionType">
+    <i class="weui-loading" v-if="showLoading"></i><slot>{{text}}</slot>
   </button>
 </template>
 
@@ -13,17 +13,20 @@ export default {
     disabled: Boolean,
     mini: Boolean,
     plain: Boolean,
-    text: String
+    text: String,
+    actionType: String,
+    showLoading: Boolean
   },
   computed: {
     classes () {
       return [
         {
-          weui_btn_disabled: this.disabled,
-          weui_btn_mini: this.mini
+          'weui-btn_disabled': this.disabled,
+          'weui-btn_mini': this.mini
         },
-        `weui_btn_${this.type}`,
-        this.plain ? `weui_btn_plain_${this.type}` : ''
+        `weui-btn_${this.type}`,
+        this.plain ? `weui-btn_plain-${this.type}` : '',
+        this.showLoading ? `weui-btn_loading` : ''
       ]
     }
   }
@@ -31,5 +34,6 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/weui/widget/weui_button/weui_button.less';
+@import '../../styles/weui/widget/weui-button/weui-button.less';
+@import '../../styles/weui/widget/weui-loading/weui-loading.less';
 </style>

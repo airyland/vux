@@ -1,0 +1,39 @@
+icon: '&#xe61f;'
+items:
+  - flexbox
+  - flexbox-item
+tags:
+  en:
+    - flex
+    - flexbox
+  zh-CN:
+    - 布局
+    - 栅格
+flexbox:
+  props:
+    gutter:
+      type: Number
+      default: 8
+      zh-CN: 间隙像素大小
+    justify:
+      zh-CN: '`flex`的 `justify-content`属性'
+    align:
+      zh-CN: '`flex`的`align-items`属性'
+    wrap:
+      zh-CN: '`flex`的`flex-wrap`属性'
+    direction:
+      zh-CN: '`flex`的`flex-direction`属性'
+  slots:
+    default:
+      zh-CN: '`flexbox-item`的内容插槽'
+flexbox-item:
+  props:
+    span:
+      type: Number
+      zh-CN: 占用宽度，如果不设，所有flexbox-item将平分
+    order:
+      type: String
+      zh-CN: '`flex`的`order`属性'
+  slots:
+    default:
+      zh-CN: '内容插槽'

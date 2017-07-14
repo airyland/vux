@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { Group, Cell, Swiper, SwiperItem, PopupPicker } from '../components'
+import { Group, Cell, Swiper, SwiperItem, PopupPicker } from 'vux'
 
 export default {
   components: {

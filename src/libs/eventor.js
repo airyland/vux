@@ -192,4 +192,4 @@ function isFunction (func) {
   return Object.prototype.toString.call(func) === '[object Function]'
 }
 
-module.exports = Events
+export default Events

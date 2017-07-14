@@ -1,0 +1,2 @@
+pages_file_path: src/demos
+routes_config_path: src/demo_list.json

@@ -1,0 +1,101 @@
+icon: '&#xe614;'
+extra:
+  zh-CN: |
+    ```html
+      <group>
+        <x-input title="title" v-model="value"></x-input>
+      </group>
+    ```
+
+    <p class="tip">`x-input`只能在`Group`中使用</p>
+
+    如果你想实现在输入框右边按钮切换密码明文，请使用`slot=right`实现`type`切换。
+tags:
+  en:
+    - form
+    - input
+  zh-CN:
+    - 输入框
+    - 表单
+    - 单行输入框
+props:
+  value:
+    zh-CN: 表单值，使用`v-model`绑定
+  type:
+    type: String
+    default: text
+    zh-CN: '即input的`type`属性，目前支持 `text`,`number`,`email`,`password`,`tel`'
+  is-type:
+    type: String,Function
+    zh-CN: '内置验证器，支持`email`,`china-name`,`china-mobile`, 同样也支持直接传函数, 需要同步返回一个对象`{valid:true}`或者`{valid:false, msg:错误信息}`'
+  required:
+    type: Boolean
+    default: false
+    zh-CN: 是否必值，如果不禁用验证，当没有填写时会在右侧显示错误icon
+  title:
+    zh-CN: label文字
+  placeholder:
+    zh-CN: placeholder 提示
+  show-clear:
+    type: Boolean
+    default: true
+    zh-CN: 是否显示清除icon
+  min:
+    type: Number
+    zh-CN: 最小输入字符限制
+  max:
+    type: Number
+    zh-CN: '最大输入字符限制，等同于`maxlength`，达到限制到不能再输入'
+  disabled:
+    type: Boolean
+    default: false
+    zh-CN: 是否禁用填写
+  readonly:
+    type: Boolean
+    default: false
+    zh-CN: 同input的标准属性readonly
+  debounce:
+    type: Number
+    default: ''
+    zh-CN: '`debounce`用以限制`on-change`事件触发。如果你需要根据用户输入做`ajax`请求，建议开启以节省无效请求和服务器资源，单位为毫秒'
+slots:
+  label:
+    zh-CN: '用于自定义`label`(即 title)部分内容，比如使用`icon`'
+  restricted-label:
+    zh-CN: '用于自定义`label`部分，和`slot=label`不同的是，该slot宽度受到父组件`group`的限制'
+  right:
+    zh-CN: '用以在输入框右边显示内容，比如验证码图片，单位，切换密码显示方式等'
+events:
+  on-blur:
+    params: '`(value)`'
+    zh-CN: 'input的`blur`事件'
+  on-focus:
+    params: '`(value)`'
+    zh-CN: 'input的`focus`事件'
+  on-change:
+    params: '`(value)`'
+    zh-CN: '输入值变化时触发。如果你使用了`debounce`，那么触发将不会是实时的。'
+methods:
+  focus:
+    zh-CN: 手动获得焦点
+changes:
+  v2.1.0-rc.51:
+    zh-CN:
+      - '[fix] 修复`slots`判断问题 #936 @zscumt123'
+  v2.1.0-rc.49:
+    zh-CN:
+      - '[feature] 支持`slot=restricted-label` #918 @zqyadam'
+  v2.1.0-rc.48:
+    zh-CN:
+      - '[feature] 支持`debounce` #715 @YYmmlin'
+  v2.1.0-rc.46:
+    zh-CN:
+      - '[feature] 添加`slot=label`自定义label部分内容 #895 @erguotou520'
+  v2.0.0:
+    zh-CN:
+      - '[feature] 添加 `novalidate` 及 `iconType` 可以禁用组件验证，手动显示 error 或者 success 样式'
+      - '[feature] `is-type` 支持传入函数'
+      - '[change] 受限于vue2不能动态设置type，目前`type`支持 text password number email'
+  v2.0.1:
+    zh-CN:
+      - '[fix] 修复type未定义的问题'

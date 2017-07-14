@@ -1,0 +1,179 @@
+icon: '&#xe641;'
+tags:
+  en:
+    - layout
+    - scroll
+    - scroller
+  zh-CN:
+    - 布局
+    - 滚动
+extra: |
+  <p class="warning">
+  `Scroller`的内容必须是一个`div`，并且只能有一个`div`
+  <br>
+  `Scroller` 希望解决的是简单的列表问题而不是一个内嵌各种复杂标签交互的容器，很容易发生性能或者交互问题。
+  <br>
+  <br>
+  默认高度为整个视口高度，如果你加了`x-header`，那么你需要减去一个`x-header`的高度: `height="-46"`
+
+  <br>
+  <br>
+  请确保在你的数据更新后进行`reset`操作(参考下面文档)，如果你做了`reset`还有问题再开`issue`并附上代码，否则将`绝对不会被处理`。
+  </p>
+after_extra: |
+  pulldown 默认配置:
+
+  ``` js
+  {
+    content: 'Pull Down To Refresh',
+    height: 60,
+    autoRefresh: false,
+    downContent: 'Pull Down To Refresh',
+    upContent: 'Release To Refresh',
+    loadingContent: 'Loading...',
+    clsPrefix: 'xs-plugin-pulldown-'
+  }
+  ```
+
+  pullup 默认配置:
+
+  ``` js
+  {
+    content: 'Pull Up To Refresh',
+    pullUpHeight: 60,
+    height: 40,
+    autoRefresh: false,
+    downContent: 'Release To Refresh',
+    upContent: 'Pull Up To Refresh',
+    loadingContent: 'Loading...',
+    clsPrefix: 'xs-plugin-pullup-'
+  }
+  ```
+
+  <span class="vux-qa">QA 如何更新数据</span>
+
+  如果展示内容只是简单的增加或者减少，直接调用`reset`方法即可
+
+  ``` js
+  this.$nextTick(() => {
+    this.$refs.scroller.reset()
+  })
+  ```
+
+  如果展示内容完全重载，那么需要主动设置位置让其能正确回到顶部。适用于改变筛选条件后重载数据的情况
+
+  ``` js
+  this.$nextTick(() => {
+    this.$refs.scroller.reset({
+      top: 0
+    })
+  })
+  ```
+
+  <span class="vux-qa">QA 如何设置pullup完成</span>
+
+  方法1，直接调用ref的`donePullup`方法
+
+  ``` js
+  this.$refs.demo2.donePullup()
+  ```
+
+  方法2，绑定value, 重置状态
+
+  <p class="tip">自定义pullup模板同样是用v-model来绑定以获取状态变化</p>
+
+  ``` html
+  <scroller v-model="status"></scroller>
+  ```
+
+  ``` js
+  data () {
+    return {
+      status: {
+        pullupStatus: 'default'
+      }
+    }
+  }
+  ```
+
+  ```
+  // 重置状态为default
+  this.status.pullupStatus = 'default
+  ```
+
+  <span class="vux-qa">QA 如何设置pulldown完成</span>
+
+  参照`pullup`, 使用方法`donePulldown`或者绑定`pulldownStatus`然后重置为`default`。
+
+  <span class="vux-qa">QA 如何禁用或者启用pullup</span>
+
+  在有些情况下，比如数据不多不需要上拉加载或者已经加载完成，我们需要禁用pullup
+  同样可以调用方法 `disablePullup` 或者设置`pullupStatus`为`disabled`
+
+  反之，则调用方法 `enablePullup` 或者设置`pullupStatus`为`enabled`
+
+  <span class="vux-qa">启用keep-alive后滚动有问题</span>
+
+  需要在调用Scroller的页面上在 hook: `activated`上执行`reset`
+
+  ``` js
+  activated () {
+    this.$refs.scroller.reset()
+  }
+  ```
+
+
+events:
+  on-scroll:
+    params: '`(position)`'
+    en: emits when user scrolls
+    zh-CN: '容器滚动时触发，参数为`top`和`left`位置'
+  on-pulldown-loading:
+    zh-CN: 用户触发下拉刷新状态，监听该事件以获取加载新数据
+  on-pullup-loading:
+    zh-CN: 用户触发上拉加载状态，监听该事件以加载新数据
+props:
+  value:
+    type: 'Object'
+    default: ''
+    zh-CN: 对象，上拉或者下拉的状态双向绑定，使用 v-model 绑定，pulldownStatus 及 pullupStatus
+  height:
+    type: String
+    default: ''
+    zh-CN: '容器高度，默认为整个viewport高度，如果你希望scroller自动计算除去头部尾部的高度，请设置成负数，如`height="-40"`'
+  lockX:
+    type: Boolean
+    default: false
+    zh-CN: 锁定X方向
+  lockY:
+    type: Boolean
+    default: false
+    zh-CN: 锁定Y方向
+  scrollbarX:
+    type: Boolean
+    default: false
+    zh-CN: 是否显示横向滚动条
+  scrollbarY:
+    type: Boolean
+    default: false
+    zh-CN: 是否显示垂直方向滚动条
+  bounce:
+    type: Boolean
+    default: true
+    zh-CN: 是否显示边缘回弹效果
+  use-pulldown:
+    type: Boolean
+    default: false
+    zh-CN: 是否使用下拉组件
+  use-pullup:
+    type: Boolean
+    default: false
+    zh-CN: 是否使用上拉组件
+  pulldown-config:
+    type: Object
+    default: 见下面
+    zh-CN: 下拉组件配置
+  pullup-config:
+    type: Object
+    default: 见下面
+    zh-CN: 上拉组件配置

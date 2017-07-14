@@ -13,8 +13,8 @@ const TEMPLATE = `
 </div>
 `
 
-import Animate from './animate'
-import { getElement, getComputedStyle, easeOutCubic, easeInOutCubic } from './util'
+const Animate = require('./animate')
+const { getElement, getComputedStyle, easeOutCubic, easeInOutCubic } = require('./util')
 
 var Scroller = function (container, options) {
   var self = this
@@ -534,3 +534,4 @@ for (var key in members) {
 }
 
 module.exports = Scroller
+

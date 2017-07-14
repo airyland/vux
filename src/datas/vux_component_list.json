@@ -1,0 +1,302 @@
+[
+  {
+    "name": "actionsheet",
+    "icon": "&#xe624;"
+  },
+  {
+    "name": "alert",
+    "icon": "&#xe603;"
+  },
+  {
+    "name": "badge",
+    "icon": "&#xe65b;",
+    "color": "#f74c31"
+  },
+  {
+    "name": "blur",
+    "icon": "&#xe640;"
+  },
+  {
+    "name": "button-tab",
+    "icon": "&#xe659;",
+    "items": [
+      "button-tab",
+      "button-tab-item"
+    ]
+  },
+  {
+    "name": "calendar",
+    "icon": "&#xe62b;"
+  },
+  {
+    "name": "card",
+    "icon": "&#xe658;"
+  },
+  {
+    "name": "cell-box",
+    "icon": "&#xe62a;"
+  },
+  {
+    "name": "cell",
+    "icon": "&#xe62a;"
+  },
+  {
+    "name": "checker",
+    "icon": "&#xe655;",
+    "items": [
+      "checker",
+      "checker-item"
+    ]
+  },
+  {
+    "name": "checklist",
+    "icon": "&#xe61d;"
+  },
+  {
+    "name": "clocker",
+    "icon": "&#xe620;"
+  },
+  {
+    "name": "color-picker",
+    "icon": "&#xe63f;",
+    "color": "#f2c400"
+  },
+  {
+    "name": "confirm",
+    "icon": "&#xe608;"
+  },
+  {
+    "name": "countdown",
+    "icon": "&#xe653;"
+  },
+  {
+    "name": "countup",
+    "icon": "&#xe63e;"
+  },
+  {
+    "name": "datetime",
+    "icon": "&#xe60a;"
+  },
+  {
+    "name": "divider",
+    "icon": "&#xe65d;"
+  },
+  {
+    "name": "flexbox",
+    "icon": "&#xe61f;",
+    "items": [
+      "flexbox",
+      "flexbox-item"
+    ]
+  },
+  {
+    "name": "form-preview",
+    "icon": "&#xe699;"
+  },
+  {
+    "name": "grid",
+    "icon": "&#xe661;",
+    "items": [
+      "grid",
+      "grid-item"
+    ]
+  },
+  {
+    "name": "group",
+    "icon": "&#xe62a;"
+  },
+  {
+    "name": "icon",
+    "icon": "&#xe619;"
+  },
+  {
+    "name": "inline-calendar",
+    "icon": "&#xe62b;"
+  },
+  {
+    "name": "load-more",
+    "icon": "&#xe610;"
+  },
+  {
+    "name": "loading",
+    "icon": "&#xe610;"
+  },
+  {
+    "name": "marquee",
+    "icon": "&#xe662;",
+    "items": [
+      "marquee",
+      "marquee-item"
+    ]
+  },
+  {
+    "name": "masker",
+    "icon": "&#xe651;"
+  },
+  {
+    "name": "msg",
+    "icon": "&#xe619;"
+  },
+  {
+    "name": "panel",
+    "icon": "&#xe658;"
+  },
+  {
+    "name": "picker",
+    "icon": "&#xe627;"
+  },
+  {
+    "name": "popover",
+    "icon": "&#xe65f;"
+  },
+  {
+    "name": "popup-picker",
+    "icon": "&#xe626;"
+  },
+  {
+    "name": "popup",
+    "icon": "&#xe61e;"
+  },
+  {
+    "name": "previewer",
+    "icon": "&#xe65c;"
+  },
+  {
+    "name": "qrcode",
+    "icon": "&#xe65a;"
+  },
+  {
+    "name": "radio",
+    "icon": "&#xe60f;"
+  },
+  {
+    "name": "range",
+    "icon": "&#xe60b;"
+  },
+  {
+    "name": "rater",
+    "icon": "&#xe606;",
+    "color": "#FF9900"
+  },
+  {
+    "name": "scroller",
+    "icon": "&#xe641;"
+  },
+  {
+    "name": "search",
+    "icon": "&#xe63b;"
+  },
+  {
+    "name": "selector",
+    "icon": "&#xe607;"
+  },
+  {
+    "name": "spinner",
+    "icon": "&#xe610;"
+  },
+  {
+    "name": "step",
+    "icon": "&#xe65e;",
+    "items": [
+      "step",
+      "step-item"
+    ]
+  },
+  {
+    "name": "sticky",
+    "icon": "&#xe623;"
+  },
+  {
+    "name": "swipeout",
+    "icon": "&#xe641;",
+    "items": [
+      "swipeout",
+      "swipeout-item",
+      "swipeout-button"
+    ]
+  },
+  {
+    "name": "swiper",
+    "icon": "&#xe612;"
+  },
+  {
+    "name": "tab",
+    "icon": "&#xe615;",
+    "items": [
+      "tab",
+      "tab-item"
+    ]
+  },
+  {
+    "name": "tabbar",
+    "icon": "&#xe657;",
+    "items": [
+      "tabbar",
+      "tabbar-item"
+    ]
+  },
+  {
+    "name": "timeline",
+    "icon": "&#xe656;"
+  },
+  {
+    "name": "toast",
+    "icon": "&#xe625;"
+  },
+  {
+    "name": "view-box",
+    "icon": "&#xe641;"
+  },
+  {
+    "name": "wechat-emotion",
+    "icon": "&#xe63c;"
+  },
+  {
+    "name": "x-address",
+    "icon": "&#xe61b;"
+  },
+  {
+    "name": "x-button",
+    "icon": "&#xe616;"
+  },
+  {
+    "name": "x-circle",
+    "icon": "&#xe63d;"
+  },
+  {
+    "name": "x-dialog",
+    "icon": "&#xe608;"
+  },
+  {
+    "name": "x-header",
+    "icon": "&#xe654;"
+  },
+  {
+    "name": "x-icon",
+    "icon": "&#xe619;"
+  },
+  {
+    "name": "x-img",
+    "icon": "&#xe602;"
+  },
+  {
+    "name": "x-input",
+    "icon": "&#xe614;"
+  },
+  {
+    "name": "x-number",
+    "icon": "&#xe605;"
+  },
+  {
+    "name": "x-progress",
+    "icon": "&#xe618;"
+  },
+  {
+    "name": "x-switch",
+    "icon": "&#xe61c;"
+  },
+  {
+    "name": "x-textarea",
+    "icon": "&#xe611;"
+  }
+]

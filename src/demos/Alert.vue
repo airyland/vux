@@ -1,23 +1,40 @@
 <template>
   <div>
     <group>
-      <switch title="Toggle" :value.sync="show"></switch>
+      <x-switch :title="$t('Show Me')" v-model="show"></x-switch>
     </group>
-    <alert :show.sync="show" title="congratulations" @on-show="onShow" @on-hide="onHide">Message is sent successfully~</alert>
-    <group title="As a plugin(>=v0.1.3)">
-      <switch title="Show" :value.sync="show1" @on-change="onChange"></switch>
+    <alert v-model="show" :title="$t('Congratulations')" @on-show="onShow" @on-hide="onHide"> {{ $t('Your Message is sent successfully~') }}</alert>
+    <group :title="$t('Use as a plugin')">
+      <cell :title="$t('Show Me')" @click.native="showPlugin" is-link></cell>
+      <cell :title="$t('will auto close in 3s')" @click.native="showPluginAuto" is-link></cell>
     </group>
   </div>
 </template>
 
+<i18n>
+Show Me:
+  zh-CN: 显示
+Use as a plugin:
+  zh-CN: 以插件方式调用
+Congratulations:
+  zh-CN: 恭喜
+Your Message is sent successfully~:
+  zh-CN: 消息已成功发送
+Do you agree?:
+  zh-CN: 同意不?
+will auto close in 3s:
+  zh-CN: 3秒后关闭
+</i18n>
+
 <script>
-import { Alert, Group, Switch } from '../components'
+import { Alert, Group, XSwitch, Cell } from 'vux'
 
 export default {
   components: {
     Alert,
     Group,
-    Switch
+    XSwitch,
+    Cell
   },
   data () {
     return {
@@ -32,23 +49,23 @@ export default {
     onShow () {
       console.log('on show')
     },
-    onChange (val) {
-      const _this = this
-      if (val) {
-        this.$vux.alert.show({
-          title: 'Vux',
-          content: 'Be Careful',
-          onShow () {
-            console.log('Plugin: I\'m showing')
-          },
-          onHide () {
-            console.log('Plugin: I\'m hiding')
-            _this.show1 = false
-          }
-        })
-      } else {
+    showPlugin () {
+      this.$vux.alert.show({
+        title: 'Vux is Cool',
+        content: this.$t('Do you agree?'),
+        onShow () {
+          console.log('Plugin: I\'m showing')
+        },
+        onHide () {
+          console.log('Plugin: I\'m hiding now')
+        }
+      })
+    },
+    showPluginAuto () {
+      this.showPlugin()
+      setTimeout(() => {
         this.$vux.alert.hide()
-      }
+      }, 3000)
     }
   }
 }

@@ -1,3 +1,80 @@
+icon: '&#xe603;'
+extra:
+  zh-CN: |
+
+    该组件支持以`plugin`形式调用：
+
+    <p class="warning">
+    以插件形式调用时，和`template`中使用不同，属性名请使用`小驼峰式`，比如`buttonText`而不是`button-text`。
+    </p>
+
+    ``` js
+    import  { AlertPlugin } from 'vux'
+    Vue.use(AlertPlugin)
+
+    // 或者umd方式
+    // 引入构建的js文件
+    Vue.use(vuxAlertPlugin)
+    ```
+
+    ``` js
+    // 显示
+    this.$vux.alert.show({
+      title: 'Vux is Cool',
+      content: 'Do you agree?',
+      onShow () {
+        console.log('Plugin: I\'m showing')
+      },
+      onHide () {
+        console.log('Plugin: I\'m hiding')
+      }
+    })
+    // 隐藏
+    this.$vux.alert.hide()
+    ```
+  en: |
+
+    This component can be imported as plugin:
+
+    <p class="warning">
+    When importing it as plugin, the usage is different from it in `template`. Please use  `little camel-case`  such as `buttonText` instead of `button-text`.
+    </p>
+
+    ``` js
+    import  { AlertPlugin } from 'vux'
+    Vue.use(AlertPlugin)
+
+    // or the way of umd
+    // import built js file
+    Vue.use(vuxAlertPlugin)
+    ```
+
+    ``` js
+    // show
+    this.$vux.alert.show({
+      title: 'Vux is Cool',
+      content: 'Do you agree?',
+      onShow () {
+        console.log('Plugin: I\'m showing')
+      },
+      onHide () {
+        console.log('Plugin: I\'m hiding')
+      }
+    })
+    // hide
+    this.$vux.alert.hide()
+    ```
+
+
+tags:
+  en:
+    - alert
+    - dialog
+    - message
+  zh-CN:
+    - 警告
+    - 提示
+    - 弹窗
 extends:
   - Dialog
 when:
@@ -5,18 +82,44 @@ when:
     - en: Show some information that user should pay attention to and should be closed only after user has clicked the close button
     - zh-CN: 显示一个用户必须注意到并且必须点击按钮确认才能关闭的信息
 props:
-  show:
-    en: visibility of the component
-    zh-CN: 是否显示
+  value:
+    type: Boolean
+    default: false
+    en: visibility of the component, use v-model for binding
+    zh-CN: 是否显示, 使用 v-model 绑定变量
   title:
+    type: String
+    default: ''
     en: title
     zh-CN: 弹窗标题
   button-text:
+    type: String
+    default: ok(确定)
     en: button text
     zh-CN: 按钮文字
   mask-transition:
+    type: String
+    default: vux-fade
     en: mask transition
     zh-CN: 遮罩动画
   dialog-transition:
+    type: String
+    default: vux-dialog
     en: dialog transition
     zh-CN: 弹窗主体动画
+slots:
+  default:
+    en: dialog content
+    zh-CN: 提示内容
+events:
+  on-show:
+    en: emits when dialog is show
+    zh-CN: 弹窗显示时触发
+changes:
+  v2.0.0:
+    en:
+      - '[change] use `v-model` instead of `:show.sync`'
+      - '[todo] fix animation'
+    zh-CN:
+      - '[change] 使用 `v-model` 而不是`:show.sync`进行显示属性绑定'
+      - '[todo] 修复动画'

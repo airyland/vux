@@ -1,0 +1,76 @@
+icon: '&#xe612;'
+extra: |
+  <p class="tip">
+    `list`为图片列表快捷设置，如果你需要自定义一些样式，或者内容并不为纯图片，可以引用`swiper-item`组件来自定义。
+  </p>
+  <p class="warning">
+  不要在`swiper`里嵌套`scroller`，在`web`上过于复杂化而且手势会有冲突，相关`Issue`将不会处理。
+  </p>
+props:
+  list:
+    type: Array
+    zh-CN: 图片列表
+  direction:
+    type: String
+    default: horizontal
+    zh-CN: 方向
+  show-dots:
+    type: Boolean
+    default: true
+    zh-CN: 是否显示提示点
+  show-desc-mask:
+    type: Boolean
+    default: true
+    zh-CN: 是否显示描述半透明遮罩
+  dots-position:
+    type: String
+    default: right
+    zh-CN: 提示点位置
+  dots-class:
+    zh-CN: 提示className
+  auto:
+    type: Boolean
+    default: false
+    zh-CN: 是否自动轮播
+  loop:
+    type: Boolean
+    default: false
+    zh-CN: 是否循环
+  interval:
+    type: Number
+    default: 3000
+    zh-CN: 轮播停留时长
+  threshold:
+    type: Number
+    default: 50
+    zh-CN: 当滑动超过这个距离时才滑动
+  duration:
+    type: Number
+    default: 300
+    zh-CN: 切换动画时间
+  height:
+    type: String
+    default: 180px
+    zh-CN: '高度值。如果为`100%`宽度并且知道宽高比，可以设置`aspect-ratio`自动计算高度'
+  aspect-ratio: 
+    type: Number
+    zh-CN: 用以根据当前可用宽度计算高度值
+  min-moving-distance:
+    type: Number
+    default: 0
+    zh-CN: 超过这个距离时才滑动
+  value:
+    type: Number
+    default: 0
+    zh-CN: index 绑定，使用v-model，一般不需要绑定
+changes:
+  v2.1.1-rc.3:
+    en:
+      - '[fix] Fix nodes list forEach function is undefined #991 @howyhuang'
+    zh-CN:
+      - '[fix] 修复 node 列表没有 forEach 方法 #991 @howyhuang'
+  v2.1.1-rc.2:
+    en:
+      - '[fix] Fix es6 iterator compability, use forEach'
+    zh-CN:
+      - '[fix] 修复部分机子不支持 for of 遍历'

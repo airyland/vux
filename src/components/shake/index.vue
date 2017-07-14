@@ -16,7 +16,7 @@ export default {
       default: 1000
     }
   },
-  ready () {
+  mounted () {
     const _this = this
     this._shake = new Shake({
       threshold: _this.threshold, // optional shake strength threshold

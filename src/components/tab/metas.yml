@@ -1,0 +1,51 @@
+icon: '&#xe615;'
+items:
+  - tab
+  - tab-item
+tags:
+  en:
+    - tab
+  zh-CN:
+    - 选项
+    - 选项卡
+import_code: "import { Tab, TabItem } from 'vux'"
+extra: |
+
+  如果需要监听`tab-item`的点击事件，请使用`on-item-click`事件:
+
+  ``` html
+  <tab>
+    <tab-item @on-item-click="handler"></tab-item>
+  </tab>
+  ```
+
+tab:
+  props:
+    line-width:
+      type: Number
+      default: 3
+      zh-CN: 线条宽度
+    active-color:
+      zh-CN: 选中时文字颜色
+    defaultColor:
+      zh-CN: 默认文字颜色
+    disabled-color:
+      zh-CN: 不可点击时文字颜色
+    bar-active-color:
+      zh-CN: '设置底部`bar`颜色，该颜色也可以通过`less`变量`@tab-bar-active-color`设置。'
+    animate:
+      type: Boolean
+      default: true
+      zh-CN: 切换时是否需要动画
+tab-item:
+  props:
+    disabled:
+      type: Boolean
+      default: false
+      zh-CN: 是否不可选
+    active-class:
+      zh-CN: 当前项选中时的class
+changes:
+  v2.1.0-rc.46:
+    zh-CN:
+      - '[feature] 支持设置 `bar-active-color` #715 @greedying'

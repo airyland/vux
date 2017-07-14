@@ -1,0 +1,7 @@
+icon: '&#xe610;'
+props:
+  type:
+    type: String
+    default: 'ios'
+    en: icon type
+    zh-CN: 图标类型

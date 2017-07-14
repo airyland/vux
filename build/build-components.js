@@ -1,244 +1,261 @@
 'use strict'
-var path = require('path')
-var fs = require('fs')
-var webpack = require('webpack')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var buildConfig = require(path.resolve(__dirname, './components'))
-var mkdirp = require('mkdirp')
+process.env.NODE_ENV = 'production'
 
-var touch = function (filePath) {
-  mkdirp(filePath, function () {
-    fs.open(filePath + '/style.css', 'w', function (err) {})
-  })
-}
+/**
+ * --locale='zh-CN'
+ * --namespace='vux'
+ * --components=Group,Cell
+ */
 
-var pkg = require(path.join(__dirname, '../package.json'))
+var argv = require('yargs').argv
+var namespace = argv.namespace || 'vux'
 
-var getConfig = function () {
-  var config = {
-    entry: {},
-    output: {
-      path: path.resolve(__dirname, '../dist/components/'),
-      filename: 'index.js'
-    },
-    resolve: {
-      extensions: ['', '.js', '.vue'],
-      alias: {
-        'src': path.resolve(__dirname, '../src')
-      }
-    },
-    resolveLoader: {
-      root: path.join(__dirname, 'node_modules')
-    },
-    module: {
-      loaders: [{
-        test: /\.vue$/,
-        loader: 'vue'
-      }, {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/
-      }, {
-        test: /\.json$/,
-        loader: 'json'
-      }, {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: '[name].[ext]?[hash:7]'
-        }
-      }]
-    },
-    vue: {
-      loaders: {
-        js: 'babel',
-        css: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css'])),
-        less: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'less'])),
-        sass: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'sass'])),
-        stylus: ExtractTextPlugin.extract('vue-style-loader', generateExtractLoaders(['css', 'stylus']))
-      }
-    },
-    eslint: {
-      formatter: require('eslint-friendly-formatter')
-    }
-  }
+const { build } = require('./umd-helper')
 
-  // whether to generate source map for production files.
-  // disabling this can speed up the build.
-  var SOURCE_MAP = false
+var isBuildAll = !argv.components
+var buildComponents = argv.components ? argv.components.split(',') : []
 
-  config.devtool = SOURCE_MAP ? 'source-map' : false
-
-  // generate loader string to be used with extract text plugin
-  function generateExtractLoaders (loaders) {
-    return loaders.map(function (loader) {
-      return loader + '-loader' + (SOURCE_MAP ? '?sourceMap' : '')
-    }).join('!')
-  }
-
-  config.plugins = (config.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.BannerPlugin(`Vux v${pkg.version} (https://vux.li)
-Licensed under the ${pkg.license} license`, {
-    entryOnly: false
-    }),
-  ])
-  return config
-}
-
-var list = ''
-process.argv.forEach(function (val, index, array) {
-  if (index === 2) {
-    list = val
+let config = require('./webpack.prod.conf.js')
+const vuxConfig = require('./vux-config')
+vuxConfig.plugins.forEach(function (plugin) {
+  if (plugin.name === 'i18n') {
+    plugin.vuxStaticReplace = true
+    plugin.vuxLocale = argv['locale'] || 'zh-CN'
   }
 })
 
-if (list) {
-  list.split(',').forEach(function (name) {
-    build(name)
-  })
-} else {
-  var p = path.resolve(__dirname, '../src/components/')
+const webpack = require('webpack')
+const mkdirp = require('mkdirp')
+const fs = require('fs')
+const touch = require('touch')
+const path = require('path')
 
-  fs.readdir(p, function (err, files) {
-    if (err) {
-      throw err
-    }
-    files.filter(function (file) {
-      return fs.statSync(path.join(p, file)).isDirectory()
-    }).forEach(function (file) {
-      build(file)
+mkdirp.sync(path.resolve(__dirname, '../dist/plugins'))
+mkdirp.sync(path.resolve(__dirname, '../dist/styles'))
+
+let list = require(path.resolve(__dirname, '../src/datas/vux_component_list.json'))
+const maps = require(path.resolve(__dirname, '../src/components/map.json'))
+
+// 查找在maps里但不在list里的组件
+let others = []
+for (let i in maps) {
+  let match = list.filter(function (one) {
+    return _camelCase(one.name) === i
+  })
+  if (match.length === 0 && !/Plugin|Data|Directive|Filter|Item|NOTICE|Demo|Dev|Tool|String|Number|number|format|md5|base64|cookie/.test(i)) {
+    others.push({
+      name: toDash(i),
+      importName: i,
+      path: maps[i]
     })
-  })
-  build('date-formatter', '../src/components/datetime/format')
-  build('friendly-time', '../src/filters/friendly-time')
-  build('inview', '../src/directives/inview')
-
-  // multi entry
-  buildConfig.multi_entry.forEach(function (one) {
-    build(one, `../src/components/${one}/${one}`, true)
-    build(`${one}-item`, `../src/components/${one}/${one}-item`, true)
-  })
+  }
 }
 
-var number = 0
-function build (name, _path, isMulti) {
-  let _config = getConfig()
-  _config.plugins = _config.plugins.concat([new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false
-    }
-  }),
-  new webpack.optimize.OccurenceOrderPlugin(),
-  new ExtractTextPlugin('style.css')])
+others.push({
+  name: 'swiper-item',
+  importName: 'SwiperItem',
+  path: maps['SwiperItem']
+})
 
-  if (!isMulti) {
-    if (buildConfig.multi_entry.indexOf(name) > -1 || buildConfig.multi_entry.indexOf(name.replace('-item', '')) > -1) {
-      return
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var co = require('co')
+var thunkify = require('thunkify')
+var pkg = require(path.resolve(__dirname, '../package.json'))
+
+var utils = require('./utils')
+config.devtool = false
+config.plugins = config.plugins.slice(0, -2)
+config.plugins.forEach((one, index) => {
+  if (one.constructor.name === 'HtmlWebpackPlugin') {
+    config.plugins.splice(index, 1)
+  }
+  if (one.constructor.name === 'ExtractTextPlugin') {
+    config.plugins.splice(index, 1)
+  }
+})
+
+config.output.assetsPublicPath = '/'
+
+let isBuilding = false
+
+co(function* () {
+
+  if (!buildComponents.length) {
+    try {
+      yield build(buildMainConfig(), 'vux')
+    } catch (e) {
+      console.log(e)
+    }
+
+    try {
+      for (let n = 0; n < others.length; n++) {
+        yield build(buildConfig(others[n]), others[n].name)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+
+    try {
+      const pluginList = ['Confirm', 'Toast', 'Device', 'Alert', 'Loading', ' Wechat', 'Ajax']
+      for (let j = 0; j < pluginList.length; j++) {
+        yield build(buildPlugin(pluginList[j]), `Plugin ${pluginList[j]}`)
+      }
+    } catch (e) {
+      console.log(e)
     }
   }
 
-  if (buildConfig.ignore.indexOf(name) > -1) {
-    return
+  if (buildComponents.length) {
+    list = list.filter(function (one) {
+      return buildComponents.indexOf(_camelCase(one.name)) > -1
+    })
   }
 
-  let _name = name
-  let file = _path || `../src/components/${name}/index`
-  let _start = new Date().getTime()
-  _config.output.libraryTarget = 'umd'
-  _config.entry = {}
-  _config.entry[name] = [path.resolve(__dirname, file)]
-  _config.output.library = converName(name)
-  _config.output.path = path.resolve(__dirname, '../dist/components/' + name.toLowerCase() + '/')
+  try {
+    for (let i = 0; i < list.length; i++) {
+      let one = list[i]
+      const name = list[i].name
+      if (one.items) {
+        // build a commonjs bundle
+        yield build(buildConfig({
+          name: list[i].name + '-pack',
+          importName: _camelCase(list[i].name),
+          path: `src/components/${name}/index.js`
+        }), `pack: ${list[i].name}`)
 
-  touch(_config.output.path)
-
-  webpack(_config, function (err, stats) {
-    var jsonStats = stats.toJson()
-    var assets = jsonStats.assets[0]
-    var offset = Math.round((new Date().getTime() - _start) / 1000)
-    var index = ++number
-    console.log(`[${index < 10 ? ('0' + index) : index}]  `, addWhiteSpace(`${offset}s`, 10), addWhiteSpace('umd ' + _name, 25), `${(_name, assets.size / 1024).toFixed(2)}k`)
-    if (err) {
-      throw err
+        for (let j = 0; j < one.items.length; j++) {
+          one.name = one.items[j]
+          one.path = maps[_camelCase(one.items[j])]
+          one.importName = _camelCase(one.items[j])
+          yield build(buildConfig(one), one.items[j])
+        }
+      } else {
+        yield build(buildConfig(one), one.name)
+      }
     }
+  } catch (e) {
+    console.log(e)
+  }
+
+})
+
+function camelCase(input) {
+  let str = input.toLowerCase().replace(/-(.)/g, function (match, group1) {
+    return group1.toUpperCase();
   })
-  setTimeout(function () {
-    buildCommon(name, _path, isMulti)
-  })
-}
-
-function buildCommon (name, _path, isMulti) {
-  let _config = getConfig()
-
-  _config.plugins = _config.plugins.concat([new webpack.optimize.UglifyJsPlugin({
-    compress: false,
-    mangle: false,
-    beautify: {
-      beautify: true,
-      'indent-level': 2,
-      'quote_style': 1,
-      semicolons: false
-    }
-  }),
-  new webpack.optimize.OccurenceOrderPlugin(),
-  new ExtractTextPlugin('style.css')])
-
-  if (!isMulti) {
-    if (buildConfig.multi_entry.indexOf(name) > -1 || buildConfig.multi_entry.indexOf(name.replace('-item', '')) > -1) {
-      return
-    }
-  }
-
-  if (buildConfig.ignore.indexOf(name) > -1) {
-    return
-  }
-
-  let _name = name
-  let file = _path || `../src/components/${name}/index`
-  let _start = new Date().getTime()
-  _config.entry = {}
-  _config.entry[name] = [path.resolve(__dirname, file)]
-  _config.output.libraryTarget = 'commonjs2'
-  _config.output.filename = 'index.js'
-  _config.output.path = path.resolve(__dirname, '../dist/components-commonjs/' + name.toLowerCase() + '/')
-
-  touch(_config.output.path)
-
-  webpack(_config, function (err, stats) {
-    var jsonStats = stats.toJson()
-    var assets = jsonStats.assets[0]
-    var offset = Math.round((new Date().getTime() - _start) / 1000)
-    var index = ++number
-    console.log(`[${index < 10 ? ('0' + index) : index}]  `, addWhiteSpace(`${offset}s`, 10), addWhiteSpace('commonjs ' + _name, 25), `${(_name, assets.size / 1024).toFixed(2)}k`)
-    if (err) {
-      throw err
-    }
-  })
-}
-
-function capitalizeFirstLetter (string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-}
-
-function converName (name) {
-  return ('vux-' + name).split('-').map(function (one, index) {
-    return index === 0 ? one : capitalizeFirstLetter(one)
-  }).join('')
-}
-
-function addWhiteSpace (str, number) {
-  if (str.length < number) {
-    var rs = str
-    for (var i = 0; i < number - str.length; i++) {
-      rs += ' '
-    }
-    return rs
-  }
+  str = str.replace(/_(.)/g, function (match, group1) {
+    return group1.toUpperCase()
+  });
   return str
+}
+
+function _camelCase(input) {
+  let str = camelCase(input)
+  return str.slice(0, 1).toUpperCase() + str.slice(1)
+}
+
+function buildMainConfig() {
+
+  // list all components
+  const list = require('../src/components/map.json')
+  let code = 'const _vux = {}\n'
+  code += `!!window && (window.vux = _vux)\n`
+  code += `import Style from '../styles/index.vue'\n`
+
+  delete list['NOTICE']
+  delete list['ChinaAddressV1Data']
+
+  for (let i in list) {
+    const name = `${namespace}${i}`
+    code += `import ${name} from '${list[i]}'\n
+_vux['${name}'] = ${name}\n`
+  }
+
+  code += `
+if (!!window) {
+  for (let i in _vux) {
+    window[i] = _vux[i]
+  }
+}\n`
+  
+  fs.writeFileSync(path.resolve(__dirname, '../src/components/index.js'), code)
+
+  delete config.entry
+
+  config.plugins.forEach((one, index) => {
+    if (one.constructor.name === 'ExtractTextPlugin') {
+      config.plugins.splice(index, 1)
+    }
+  })
+
+  config.plugins.push(new ExtractTextPlugin({
+    filename: `vux.min.css`
+  }))
+
+  config.entry = config.entry || {}
+  config.entry['vux'] = 'src/components/index.js'
+  config.output = {}
+  config.output.libraryTarget = 'window'
+  config.output.filename = `vux.min.js`
+  config.output.path = path.resolve(__dirname, `../dist/`)
+  delete config.__vueOptions__
+  return config
+}
+
+// build plugins
+function buildPlugin(name) {
+  delete config.entry
+
+  config.plugins.forEach((one, index) => {
+    if (one.constructor.name === 'ExtractTextPlugin') {
+      config.plugins.splice(index, 1)
+    }
+  })
+
+  config.plugins.push(new ExtractTextPlugin({
+    filename: 'index.min.css'
+  }))
+  config.entry = config.entry || {}
+  config.entry['plugin'] = `src/plugins/${name.toLowerCase()}/index.js`
+  config.output = {}
+  config.output.libraryTarget = 'umd'
+  config.output.library = `${namespace}${name}Plugin`
+  config.output.filename = `index.min.js`
+  config.output.path = path.resolve(__dirname, `../dist/plugins/${name.toLowerCase()}`)
+  delete config.__vueOptions__
+  return config
+}
+
+function buildConfig(one, opts) {
+  opts = opts || {}
+  one.importName = one.importName || _camelCase(one.name)
+  one.path = path.resolve(__dirname, '../' + (one.path || maps[one.importName]))
+
+  delete config.entry
+
+  config.plugins.forEach((one, index) => {
+    if (one.constructor.name === 'ExtractTextPlugin') {
+      config.plugins.splice(index, 1)
+    }
+  })
+
+  config.plugins.push(new ExtractTextPlugin({
+    filename: 'index.min.css'
+  }))
+
+  config.entry = {}
+  config.entry[one.name] = one.path
+  config.output = {}
+  config.output.libraryTarget = 'umd'
+  config.output.library = `${namespace}${one.importName}`
+  config.output.filename = `index.min.js`
+  config.output.path = path.resolve(__dirname, `../dist/components/${one.name}/`)
+  delete config.__vueOptions__
+  return config
+}
+
+function toDash(str) {
+  return str.replace(/([A-Z])/g, function (m, w) {
+    return '-' + w.toLowerCase();
+  }).replace('-', '')
 }

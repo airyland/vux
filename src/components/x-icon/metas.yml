@@ -1,0 +1,52 @@
+icon: '&#xe619;'
+extra:
+  en: |
+
+    <p class="tip">
+    Icons come from [Ionicons(MIT)](http://ionicons.com/)
+    </p>
+
+    `x-icon` is a virtual component，which means you don't need to import `XIcon`, `vux-loader@^1.0.46` will transform your code into `inline svg`。
+
+    you can set `fill` style by its class names.
+
+    Currently it does not support `svg sprite`，will implement in later release.
+
+    ``` html
+    <x-icon type="ios-arrow-up"></x-icon>
+    <x-icon type="ios-arrow-up" size="30"></x-icon>
+    ```
+  zh-CN: |
+
+    <p class="tip">
+    组件来自于 [Ionicons(MIT)](http://ionicons.com/)，你可以在网站上面看到所有的图标。
+    <br />
+    该组件无法在`script`引入的方式中使用，需要自行拷贝 svg 资源。
+    </p>
+
+    `x-icon` 是一个虚拟(占位)组件，你不需要引入`XIcon` 组件，当调用时`vux-loader@^1.0.43`会自动将转换成 `inline svg`。
+
+    你可以根据类名来设置样式(fill)。
+
+    目前并不支持 `svg sprite`，将在后面版本支持。
+
+    示例如下，需要严格按照下面格式来写，以免解析出错。
+
+    ``` html
+    <x-icon type="ios-arrow-up"></x-icon>
+    <x-icon type="ios-arrow-up" size="30"></x-icon>
+    ```
+props:
+  type:
+    en: icon name
+    zh-CN: 图标名字
+  size:
+    default: 24
+    en: icon size
+    zh-CN: 尺寸大小
+changes:
+  v2.1.1-rc.4:
+    en:
+      - '[feature] new component'
+    zh-CN:
+      - '[feature] 新组件'

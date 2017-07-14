@@ -1,0 +1,56 @@
+icon: '&#xe63b;'
+tags:
+  en:
+    - form
+    - search
+  zh-CN:
+    - 表单
+    - 搜索
+props:
+  placeholder:
+    default: 搜索(search)
+    zh-CN: 提示文字
+  cancelText:
+    default: 取消(cancel)
+    zh-CN: 取消文字
+  value:
+    zh-CN: 表单值，`v-model`绑定
+  results:
+    type: Array
+    zh-CN: 指定搜索结果
+  autoFixed:
+    type: Boolean
+    default: true
+    zh-CN: 是否自动固定在顶端
+  top:
+    type: String
+    default: '0px'
+    zh-CN: 自动固定时距离顶部的距离
+  position:
+    type: String
+    default: 'fixed'
+    zh-CN: '自动固定时的定位，一些布局下可能需要使用其他定位，比如`absolute`'
+  auto-scroll-to-top:
+    type: Boolean
+    default: false
+    zh-CN: '`Safari`下弹出键盘时可能会出现看不到input，需要手动滚动，启用该属性会在fix时滚动到顶端'
+events:
+  on-submit:
+    zh-CN: 表单提交时触发
+  on-cancel:
+    zh-CN: '点击`取消`按钮时触发'
+  on-change:
+    zh-CN: 输入文字变化时触发
+  on-result-click:
+    params: '`(item)`'
+    zh-CN: '点击结果条目时触发，原来的`result-click`事件不符合规范已经废弃'
+changes:
+  v2.1.0:
+    zh-CN:
+      - '[feature] 更新到`WeUI`最新代码'
+      - '[enhance] 当`value`为空时，不显示清除按钮'
+  v2.1.0-rc.47:
+    zh-CN:
+      - '[enhance] 删除无用代码'
+      - '[fix] 修复`取消`按钮在非`fixed`情况下没有出现的问题 @excitedcat'
+      - '[fix] 修复页面上多个实例时，`label id`冲突'

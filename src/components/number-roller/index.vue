@@ -13,12 +13,14 @@ export default {
       default: 3
     }
   },
-  ready () {
-    this._roller = new Roller({
-      container: this.$el,
-      width: this.width
+  mounted () {
+    this.$nextTick(() => {
+      this._roller = new Roller({
+        container: this.$el,
+        width: this.width
+      })
+      this._roller.roll(this.number)
     })
-    this._roller.roll(this.number)
   },
   watch: {
     number (newVal, oldVal) {

@@ -1,28 +1,28 @@
 <template>
   <div>
     <group title="auto countdown">
-      <cell title="15s" :value="value">
-        <countdown slot="value" :time="15" @on-finish="finish" v-show="show"></countdown>
+      <cell title="15s" v-model="value">
+        <countdown slot="value" v-model="time1" @on-finish="finish" v-show="show"></countdown>
       </cell>
     </group>
     <group title="manually">
-      <switch title="start" :value.sync="start"></switch>
+      <x-switch title="start" v-model="start"></x-switch>
       <cell title="15s">
-        <countdown slot="value" :time="time" :start="start" @on-finish="finish2"></countdown>
+        <countdown slot="value" v-model="time2" :start="start" @on-finish="finish2"></countdown>
       </cell>
     </group>
   </div>
 </template>
 
 <script>
-import { Group, Cell, Countdown, Switch } from '../components'
+import { Group, Cell, Countdown, XSwitch } from 'vux'
 
 export default {
   components: {
     Group,
     Cell,
     Countdown,
-    Switch
+    XSwitch
   },
   methods: {
     finish (index) {
@@ -38,7 +38,8 @@ export default {
   data () {
     return {
       show: true,
-      time: 15,
+      time1: 15,
+      time2: 15,
       value: '',
       start: false
     }

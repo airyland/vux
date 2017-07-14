@@ -8,7 +8,7 @@ var query = require('./query')
  * Element prototype.
  */
 
-var proto = Element.prototype
+var proto = window.Element.prototype
 
 /**
  * Vendor function.

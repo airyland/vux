@@ -1,0 +1,21 @@
+icon: '&#xe618;'
+tags:
+  en:
+    - progress
+  zh-CN:
+    - 进度
+props:
+  percent:
+    type: Number
+    default: 0
+    en: percent of the progress, 0-100
+    zh-CN: 进度值，0到100
+  show-cancel:
+    type: Boolean
+    default: true
+    en: if show the cancel button
+    zh-CN: 是否显示取消按钮
+events:
+  on-cancel:
+    en: triggers when the cancel button is clicked
+    zh-CN: 点击取消按钮时触发
