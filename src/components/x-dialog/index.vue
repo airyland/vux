@@ -1,10 +1,10 @@
 <template>
   <div class="vux-x-dialog" @touchmove="onTouchMove">
     <transition :name="maskTransition">
-      <div class="weui-mask" @click="hideOnBlur && (currentValue = false)" v-show="currentValue"></div>
+      <div class="weui-mask" @click="hide" v-show="show"></div>
     </transition>
     <transition :name="dialogTransition">
-      <div :class="dialogClass" v-show="currentValue" :style="dialogStyle">
+      <div :class="dialogClass" v-show="show" :style="dialogStyle">
         <slot></slot>
       </div>
     </transition>
@@ -14,8 +14,12 @@
 <script>
 export default {
   name: 'x-dialog',
+  model: {
+    prop: 'show',
+    event: 'change'
+  },
   props: {
-    value: {
+    show: {
       type: Boolean,
       default: false
     },
@@ -39,25 +43,20 @@ export default {
     }
   },
   watch: {
-    value: {
-      handler: function (val) {
-        this.currentValue = val
-      },
-      immediate: true
-    },
-    currentValue (val) {
+    show (val) {
+      this.$emit('update:show', val)
       this.$emit(val ? 'on-show' : 'on-hide')
-      this.$emit('input', val)
-    }
-  },
-  data () {
-    return {
-      currentValue: false
     }
   },
   methods: {
-    onTouchMove: function (event) {
+    onTouchMove (event) {
       !this.scroll && event.preventDefault()
+    },
+    hide () {
+      if (this.hideOnBlur) {
+        this.$emit('update:show', false)
+        this.$emit('change', false)
+      }
     }
   }
 }

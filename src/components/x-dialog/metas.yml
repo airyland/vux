@@ -96,6 +96,11 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
+  next:
+    en:
+      - '[feature] Add prop:show, supports the .sync modifier'
+    zh-CN:
+      - '[feature] 新增 prop:show 并且支持.sync修饰符'
   v2.2.2:
     en:
       - '[feature] Support prop:dialog-style #1282'
