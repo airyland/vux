@@ -76,7 +76,7 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  v2.5.3:
     en:
       - '[fix] Fix label style being overwrite after importing x-textarea #1696'
     zh-CN:
