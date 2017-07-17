@@ -3,6 +3,7 @@
 
     <group>
       <x-switch v-model="show" :title="$t('Toggle')"></x-switch>
+      <x-switch v-model="show2" :title="$t('use .sync')"></x-switch>
       <x-switch v-model="showHideOnBlur" :title="$t('hide on clicking mask')"></x-switch>
       <x-switch v-model="showDialogStyle" :title="$t('Toggle')" :inline-desc="$t('custom dialog style')"></x-switch>
     </group>
@@ -17,6 +18,17 @@
           <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
         </div>
         <div @click="show=false">
+          <span class="vux-close"></span>
+        </div>
+      </x-dialog>
+    </div>
+
+    <div v-transfer-dom>
+      <x-dialog :show.sync="show2" class="dialog-demo">
+        <div class="img-box">
+          <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
+        </div>
+        <div @click="show2=false">
           <span class="vux-close"></span>
         </div>
       </x-dialog>
@@ -79,6 +91,8 @@ hide on clicking mask:
   zh-CN: 点击遮罩自动关闭
 Toggle:
   zh-CN: 显示/隐藏
+use .sync:
+  zh-CN: 使用 .sync
 disable background scrolling:
   zh-CN: 背景不可滚动
 long long content:
@@ -103,6 +117,7 @@ export default {
   data () {
     return {
       show: false,
+      show2: false,
       showNoScroll: false,
       showHideOnBlur: false,
       showScrollBox: false,
