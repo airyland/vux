@@ -1,7 +1,7 @@
 <template>
   <div class="vux-x-switch weui-cell weui-cell_switch">
     <div class="weui-cell__bd">
-      <label class="weui-label" :style="labelStyle" v-html="title"></label>
+      <label class="weui-label" :style="labelStyle" :class="labelClass" v-html="title"></label>
       <inline-desc v-if="inlineDesc">{{ inlineDesc }}</inline-desc>
     </div>
     <div class="weui-cell__ft">
@@ -25,7 +25,13 @@ export default {
       let width = Math.min(isHTML ? 5 : (this.title.length + 1), 14) + 'em'
       return {
         display: 'block',
-        width
+        width: this.$parent.labelWidth || width,
+        textAlign: this.$parent.labelAlign
+      }
+    },
+    labelClass () {
+      return {
+        'vux-cell-justify': this.$parent.labelAlign === 'justify'
       }
     }
   },
