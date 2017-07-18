@@ -51,6 +51,11 @@ slots:
     en: title slot
     zh-CN: 标题插槽
 changes:
+  next:
+    en:
+      - '[enhance] XSwitch：labelAlign support justify #1707'
+    zh-CN:
+      - '[enhance] XSwitch的labelAlign 支持 justify #1707'
   v2.5.3:
     en:
       - '[enhance] prop:labelAlign support justify #1574'

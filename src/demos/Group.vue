@@ -38,6 +38,7 @@
       <selector title="隐患类别" :options="['工艺技术', '其他']" v-model="value2"></selector>
       <popup-picker title="请选择" :data="list" v-model="value5" value-text-align="left"></popup-picker>
       <x-address title="地址选择" v-model="addressValue" raw-value :list="addressData" value-text-align="left" label-align="justify"></x-address>
+      <x-switch title="选择"></x-switch>
       <x-textarea title="详细信息" placeholder="请填写详细信息" :show-counter="false" :rows="3"></x-textarea>
     </group>
     <br>
@@ -45,7 +46,7 @@
 </template>
 
 <script>
-  import { GroupTitle, Group, Cell, XInput, Selector, PopupPicker, Datetime, XNumber, ChinaAddressData, XAddress, XTextarea } from 'vux'
+  import { GroupTitle, Group, Cell, XInput, Selector, PopupPicker, Datetime, XNumber, ChinaAddressData, XAddress, XTextarea, XSwitch } from 'vux'
 
   export default {
     components: {
@@ -58,7 +59,8 @@
       XAddress,
       Datetime,
       XNumber,
-      XTextarea
+      XTextarea,
+      XSwitch
     },
     data () {
       return {
