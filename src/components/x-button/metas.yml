@@ -45,6 +45,10 @@ props:
     version: v2.3.5
     en: 'vue-router path, `BACK` is alias to `go(-1)`'
     zh-CN: 'vue-router 路由, 值为 `BACK` 等同于 `go(-1)`'
+  showLoading:
+    en: 'show loading icon'
+    zh-CN: '显示加载图标'
+    
 slots:
   default:
     en: button text
