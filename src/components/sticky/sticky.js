@@ -25,6 +25,22 @@ function isSupportSticky () {
   return isSupport
 }
 
+function getOuterHeight (el) {
+  const heightMap = ['marginTop', 'marginBottom', 'borderTopWidth', 'borderBottomWidth']
+  const styles = window.getComputedStyle(el)
+
+  let height = el.offsetHeight
+  heightMap.forEach(val => {
+    if (styles[val]) {
+      val = parseInt(styles[val])
+      if (!isNaN(val)) {
+        height += val
+      }
+    }
+  })
+  return height
+}
+
 export default function (nav, options = {}) {
   let scrollBox = options.scrollBox || window
   let offset = options.offset || 0
@@ -43,20 +59,30 @@ export default function (nav, options = {}) {
     }
   }
 
-  const scrollHandler = function () {
-    const distance = getTop()
-    if (distance >= navOffsetY) {
-      nav.style.top = offset + 'px'
-      nav.classList.add('vux-fixed')
-    } else {
-      nav.classList.remove('vux-fixed')
-    }
-  }
-
+  nav.style.top = offset + 'px'
   if (checkStickySupport && (gtIOS6() || isSupportSticky())) {
     // 大于等于iOS6版本使用sticky
     nav.classList.add('vux-sticky')
   } else {
+    let holdDiv = nav.previousSibling
+    if (!holdDiv.getAttribute || !holdDiv.getAttribute('vux-sticky-box-hold')) {
+      holdDiv = document.createElement('div')
+      holdDiv.style.display = 'none'
+      holdDiv.setAttribute('vux-sticky-box-hold', 'true')
+      nav.parentNode.insertBefore(holdDiv, nav)
+    }
+
+    const scrollHandler = function () {
+      const distance = getTop()
+      if (distance >= navOffsetY) {
+        holdDiv.style.height = getOuterHeight(nav) + 'px'
+        holdDiv.style.display = ''
+        nav.classList.add('vux-fixed')
+      } else {
+        holdDiv.style.display = 'none'
+        nav.classList.remove('vux-fixed')
+      }
+    }
     setTimeout(() => {
       navOffsetY = nav.offsetTop - offset
       scrollBox.addEventListener('scroll', scrollHandler)
