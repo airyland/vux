@@ -8,6 +8,9 @@ extra: |
   <br>
   <br>
   该组件场景是固定高度的内容列表，不支持为不同 swiper-item 设置不同高度。
+  <br>
+  <br>
+  如果确实需要设置不同高度，可以通过 ref 获取 swiper, 通过 this.$refs.swiper.xheight = '100px' 设置。 切记，需要放在 $nextTick 中执行。
   </p>
 props:
   list:
