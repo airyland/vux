@@ -12,7 +12,7 @@ props:
     default: 1
     en: top line's width
     zh-CN: 线条宽度
-  stoke-color:
+  stroke-color:
     type: String
     default: '#3FC7FA'
     en: top line's color
