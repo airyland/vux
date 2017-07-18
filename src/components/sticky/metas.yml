@@ -58,6 +58,11 @@ slots:
     en: content
     zh-CN: 内容插槽
 changes:
+  next:
+    en:
+      - '[fix] Fix position fixed not work in ios #1657'
+    zh-CN:
+      - '[fix] 修复在ios上fixed不生效的问题 #1657'
   v2.1.1-rc.1:
     en:
       - '[fix] Fix wrong offset after transition between routes'
