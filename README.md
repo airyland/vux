@@ -81,6 +81,7 @@ npm run dev // or yarn dev
 + [lichunqiang](https://github.com/lichunqiang)
 + [graysheeep](https://github.com/graysheeep)
 + [unclay](https://github.com/unclay)
++ [wg5945](https://github.com/wg5945)
 
 ## Vux is Inspired or Powered By:
 + [Vue](https://github.com/vuejs/vue)
