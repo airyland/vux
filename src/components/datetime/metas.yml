@@ -122,8 +122,14 @@ props:
     zh-CN: 只读模式，显示类似于 cell
   show:
     version: v2.3.7
+    type: Boolean
     en: control visibility of datetime, require vue^2.3
     zh-CN: 控制显示，要求 vue^2.3
+  minute-list:
+    version: v2.3.7
+    type: Array
+    en: specify minute list, for instance ['00', '15', '30', '45']
+    zh-CN: 定义分钟列表，比如 ['00', '15', '30', '45']
   default-selected-value:
     version: v2.4.1
     en: set default selected value, works only when value is empty
