@@ -3,7 +3,7 @@
     <group>
       <cell is-link title="Tabbar" link="/component/tabbar"></cell>
     </group>
-    <tabbar>
+    <tabbar @on-index-change="onIndexChange">
       <tabbar-item>
         <img slot="icon" src="../assets/demo/icon_nav_button.png">
         <img slot="icon-active" src="../assets/demo/icon_nav_msg.png">
@@ -27,6 +27,11 @@ export default {
     TabbarItem,
     Group,
     Cell
+  },
+  methods: {
+    onIndexChange (newIndex, oldIndex) {
+      console.log(newIndex, oldIndex)
+    }
   }
 }
 </script>

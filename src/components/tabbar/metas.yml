@@ -53,9 +53,18 @@ tabbar-item:
       zh-CN: 图标下方文字
   events:
     on-item-click:
-      en: triggers when tabbar item is click
+      en: emits when tabbar item is clicked
       zh-CN: 点击菜单项时触发
+    on-index-change:
+      version: next
+      en: emits when value is changed
+      zh-CN: value 值变化时触发
 changes:
+  next:
+    en:
+      - '[feature] Add event:on-index-change #1715'
+    zh-CN:
+      - '[feature] 增加事件 on-index-change #1715'
   v2.1.1-rc.8:
     en:
       - '[feature] Support slot:active-icon'
