@@ -70,3 +70,7 @@ changes:
     zh-CN:
       - '[fix] 修复路由间有过渡动画导致顶部距离计算不准确的问题'
       - '[enhance] 设置 z-index 避免被覆盖 #976 @olymk'
+  next:
+    zh-CH:
+      - '[fix] 修复css模式下offset不生效的问题'
+      - '[fix] 修复js模式下如果滚动的多出高度小于el的高度有跳动，看不到后面的一点点内容'
