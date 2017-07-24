@@ -63,11 +63,11 @@ slots:
     zh-CN: 内容插槽
 methods: 
   bindSticky:
-    version: next
+    version: v2.5.4
     en: manually re-bind sticky
     zh-CN: 手动重新绑定，用于内容变化导致位置变化定位不再正确的情况
 changes:
-  next:
+  v2.5.4:
     en:
       - '[fix] Auto re-bind after router-view transition is finished'
       - '[fix] Fix position fixed not work in ios #1657'

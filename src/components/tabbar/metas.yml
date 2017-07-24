@@ -56,11 +56,11 @@ tabbar-item:
       en: emits when tabbar item is clicked
       zh-CN: 点击菜单项时触发
     on-index-change:
-      version: next
+      version: v2.5.4
       en: emits when value is changed
       zh-CN: value 值变化时触发
 changes:
-  next:
+  v2.5.4:
     en:
       - '[feature] Add event:on-index-change #1715'
     zh-CN:
