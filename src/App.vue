@@ -46,8 +46,11 @@
             <x-icon type="navicon" size="35" style="fill:#fff;position:relative;top:-8px;left:-3px;"></x-icon>
           </span>
         </x-header>
-
-        <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
+        
+        <!-- remember to import BusPlugin in main.js if you use components: x-img and sticky -->
+        <transition
+        @after-enter="$vux.bus && $vux.bus.$emit('vux:after-view-enter')" 
+        :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
           <router-view class="router-view"></router-view>
         </transition>
 

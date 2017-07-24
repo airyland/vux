@@ -11,6 +11,7 @@
   "base64": "src/tools/base64/index.js",
   "Blur": "src/components/blur/index.vue",
   "Box": "src/components/box/index.vue",
+  "BusPlugin": "src/plugins/bus/index.js",
   "ButtonTab": "src/components/button-tab/button-tab.vue",
   "ButtonTabItem": "src/components/button-tab/button-tab-item.vue",
   "Calendar": "src/components/calendar/index.vue",
