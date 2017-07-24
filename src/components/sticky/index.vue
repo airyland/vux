@@ -11,12 +11,19 @@ export default {
   name: 'sticky',
   mounted () {
     this.$nextTick(() => {
-      sticky(this.$el, {
-        scrollBox: this.scrollBox,
-        offset: this.offset,
-        checkStickySupport: typeof this.checkStickySupport === 'undefined' ? true : this.checkStickySupport
-      })
+      this.bindSticky()
     })
+  },
+  methods: {
+    bindSticky () {
+      this.$nextTick(() => {
+        sticky(this.$el, {
+          scrollBox: this.scrollBox,
+          offset: this.offset,
+          checkStickySupport: typeof this.checkStickySupport === 'undefined' ? true : this.checkStickySupport
+        })
+      })
+    }
   },
   props: ['scrollBox', 'offset', 'checkStickySupport']
 }
