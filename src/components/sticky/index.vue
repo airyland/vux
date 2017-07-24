@@ -9,10 +9,16 @@ import sticky from './sticky'
 
 export default {
   name: 'sticky',
+  created () {
+    this.$vux && this.$vux.bus && this.$vux.bus.$on('vux:after-view-enter', this.bindSticky)
+  },
   mounted () {
     this.$nextTick(() => {
       this.bindSticky()
     })
+  },
+  beforeDestroy () {
+    this.$vux && this.$vux.bus && this.$vux.bus.$off('vux:after-view-enter', this.bindSticky)
   },
   methods: {
     bindSticky () {
