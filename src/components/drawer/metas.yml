@@ -1,7 +1,14 @@
 icon: '&#xe62a;'
 extra:
   en: 'this component is forked from: https://github.com/bajian/vue-drawer'
-  zh-CN: '当前组件 forked 自 https://github.com/bajian/vue-drawer'
+  zh-CN: |
+
+    当前组件 forked 自 https://github.com/bajian/vue-drawer
+
+    <p class="tip">
+      因为 router-view 组件需要包含在 drawer 组件里，因此源码请参考 App.vue https://github.com/airyland/vux/blob/v2/src/App.vue
+    </p>
+
 props:
   show:
     version: v2.4.0
