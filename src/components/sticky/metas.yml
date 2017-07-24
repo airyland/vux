@@ -38,6 +38,10 @@ extra: |
   </div>
   ```
 
+  <p class="warning">
+  请不要直接照抄 demo 代码，滚动容器为 window 时请不要指定 scroll-box，滚动容器并非使用 `view-box` 时 id 并不是 `vux_view_box_body`，请按照实际情况来设定。
+  </p>
+
 props:
   scroll-box:
     default: window
@@ -57,6 +61,11 @@ slots:
   default:
     en: content
     zh-CN: 内容插槽
+methods: 
+  bindSticky:
+    version: next
+    en: manually re-bind sticky
+    zh-CN: 手动重新绑定，用于内容变化导致位置变化定位不再正确的情况
 changes:
   next:
     en:
