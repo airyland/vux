@@ -10,27 +10,34 @@ import uuidMixin from '../../libs/mixin_uuid'
 export default {
   name: 'x-img',
   mixins: [uuidMixin],
+  created () {
+    this.$vux && this.$vux.bus && this.$vux.bus.$on('vux:after-view-enter', this.init)
+  },
+  methods: {
+    init () {
+      const _this = this
+      this.blazy && this.blazy.destroy()
+      this.blazy = new Blazy({
+        scroller: this.scroller,
+        container: this.container,
+        selector: `#vux-ximg-${this.uuid}`,
+        offset: _this.offset,
+        errorClass: _this.errorClass,
+        successClass: _this.successClass,
+        success (ele) {
+          _this.$emit('on-success', _this.src, ele)
+        },
+        error (ele, msg) {
+          _this.$emit('on-error', _this.src, ele, msg)
+        }
+      })
+    }
+  },
   mounted () {
+    this.$el.setAttribute('id', `vux-ximg-${this.uuid}`)
     this.$nextTick(() => {
       setTimeout(() => {
-        const _this = this
-        const id = `vux-ximg-${this.uuid}`
-        this.$el.setAttribute('id', id)
-        // this.$el.setAttribute('data-src', this.src)
-        this.blazy = new Blazy({
-          scroller: this.scroller,
-          container: this.container,
-          selector: `#${id}`,
-          offset: _this.offset,
-          errorClass: _this.errorClass,
-          successClass: _this.successClass,
-          success (ele) {
-            _this.$emit('on-success', _this.src, ele)
-          },
-          error (ele, msg) {
-            _this.$emit('on-error', _this.src, ele, msg)
-          }
-        })
+        this.init()
       }, this.delay)
     })
   },
@@ -59,11 +66,13 @@ export default {
     container: String,
     delay: {
       type: Number,
-      default: 100
+      default: 0
     }
   },
   beforeDestroy () {
     this.blazy && this.blazy.destroy()
+    this.blazy = null
+    this.$vux && this.$vux.bus && this.$vux.bus.$off('vux:after-view-enter', this.init)
   }
 }
 </script>
