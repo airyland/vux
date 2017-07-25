@@ -65,6 +65,11 @@ props:
     enum:
       - ios
       - android
+  hide-on-blur:
+    type: Boolean
+    default: false
+    en: if closing dialog when clicking on mask
+    zh-CN: 是否在点击遮罩时自动关闭弹窗
   title:
     en: dialog title
     zh-CN: 弹窗标题

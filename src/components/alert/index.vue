@@ -4,6 +4,7 @@
     v-model="showValue"
     :mask-transition="maskTransition"
     :dialog-transition="dialogTransition"
+    :hide-on-blur="hideOnBlur"
     @on-hide="$emit('on-hide')"
     @on-show="$emit('on-show')">
       <div class="weui-dialog__hd">
@@ -47,6 +48,10 @@ export default {
     title: String,
     content: String,
     buttonText: String,
+    hideOnBlur: {
+      type: Boolean,
+      default: false
+    },
     maskTransition: {
       type: String,
       default: 'vux-mask'
