@@ -14,7 +14,7 @@
     </group>
 
     <group :title="$t('custom hour list')">
-      <datetime v-model="hourListValue" format="YYYY-MM-DD HH:mm" :hour-list="['09', '10', '11', '12', '2', '3', '4', '5']" :minute-list="['00', '15', '30', '45']" @on-change="change" :title="$t('Birthday')"></datetime>
+      <datetime v-model="hourListValue" format="YYYY-MM-DD HH:mm" :hour-list="['09', '10', '11', '12', '13', '14', '15', '16']" :minute-list="['00', '15', '30', '45']" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
 
     <group title="readonly">
@@ -62,6 +62,10 @@
     
     <group :title="$t('set min-year and max-year')">
       <datetime v-model="value4" :placeholder="$t('Please select')" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('years after 2000')"></datetime>
+    </group>
+
+    <group :title="$t('prop:compute-hours-function')">
+      <datetime format="YYYY-MM-DD HH" v-model="computeHoursValue" :compute-hours-function="computeHoursFunction" :title="$t('Birthday')"></datetime>
     </group>
 
     <group :title="$t('specified template text in Chinese')">
@@ -183,7 +187,15 @@ export default {
         return val.replace(/-/g, '$')
       },
       value9: '',
-      visibility: false
+      visibility: false,
+      computeHoursValue: '',
+      computeHoursFunction (date, isToday, generateRange) {
+        if (isToday) {
+          return generateRange(new Date().getHours(), 23)
+        } else {
+          return generateRange(0, 23)
+        }
+      }
     }
   },
   methods: {

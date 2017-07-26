@@ -1,5 +1,5 @@
 import Scroller from '../picker/scroller'
-import { each, trimZero, addZero, getMaxDay, parseRow, parseDate, getElement, toElement, removeElement } from './util'
+import { isToday, generateRange, each, trimZero, addZero, getMaxDay, parseRow, parseDate, getElement, toElement, removeElement } from './util'
 import { getYears, getMonths, getDays } from './makeData'
 
 const MASK_TEMPLATE = '<div class="dp-mask"></div>'
@@ -66,7 +66,8 @@ const DEFAULT_CONFIG = {
   clearText: '',
   cancelText: 'cancel',
   destroyOnHide: false,
-  renderInline: false
+  renderInline: false,
+  computeHoursFunction: null
 }
 
 function renderScroller (el, data, value, fn) {
@@ -205,12 +206,17 @@ DatetimePicker.prototype = {
         let data
         if (type === 'day') {
           data = self._makeData(type, trimZero(newValueMap.year), trimZero(newValueMap.month))
+        } else if (type === 'hour') {
+          data = self._makeData(type, trimZero(newValueMap.year), trimZero(newValueMap.month), trimZero(newValueMap.day))
         } else {
           data = self._makeData(type)
         }
 
         self[type + 'Scroller'] = renderScroller(div, data, trimZero(newValueMap[type]), function (currentValue) {
           config.onSelect.call(self, type, currentValue, self.getValue())
+          if (type === 'year' || type === 'month' || type === 'day') {
+            self.hourScroller && self._setHourScroller(self.yearScroller.value, self.monthScroller.value, self.dayScroller.value, self.hourScroller.value)
+          }
           let currentDay
           if (type === 'year') {
             const currentMonth = self.monthScroller ? self.monthScroller.value : config.currentMonth
@@ -269,7 +275,7 @@ DatetimePicker.prototype = {
     }
   },
 
-  _makeData (type, year, month) {
+  _makeData (type, year, month, day) {
     const config = this.config
     const valueMap = this.valueMap
     const list = TYPE_MAP[type]
@@ -329,6 +335,18 @@ DatetimePicker.prototype = {
         }
       })
     }
+
+    if (type === 'hour' && this.config.computeHoursFunction) {
+      const isTodayVal = isToday(new Date(`${year}/${month}/${day}`), new Date())
+      const rs = this.config.computeHoursFunction(`${year}-${month}-${day}`, isTodayVal, generateRange)
+      data = rs.map(hour => {
+        return {
+          name: parseRow(config['hourRow'], hour),
+          value: addZero(hour)
+        }
+      })
+    }
+
     if (type === 'minute' && this.config.minuteList) {
       data = this.config.minuteList.map(minute => {
         return {
@@ -365,6 +383,16 @@ DatetimePicker.prototype = {
     const div = self.find('[data-role=day]')
     self.dayScroller = renderScroller(div, self._makeData('day', year, month), day, function (currentValue) {
       self.config.onSelect.call(self, 'day', currentValue, self.getValue())
+      self.hourScroller && self._setHourScroller(year, month, currentValue, self.hourScroller.value)
+    })
+  },
+
+  _setHourScroller (year, month, day, hour) {
+    const self = this
+    self.hourScroller.destroy()
+    const div = self.find('[data-role=hour]')
+    self.hourScroller = renderScroller(div, self._makeData('hour', year, month, day), hour || '', function (currentValue) {
+      self.config.onSelect.call(self, 'hour', currentValue, self.getValue())
     })
   },
 

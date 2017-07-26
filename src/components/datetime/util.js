@@ -18,6 +18,18 @@ export function trimZero (val) {
   return val
 }
 
+export function generateRange (start = 0, end) {
+  let results = []
+  for (let i = start; i <= end; i++) {
+    results.push(addZero(i))
+  }
+  return results
+}
+
+export function isToday (val1, val2) {
+  return val1.getFullYear() === val2.getFullYear() && val1.getMonth() === val2.getMonth() && val1.getDate() === val2.getDate()
+}
+
 export function addZero (val) {
   val = String(val)
   return val.length < 2 ? '0' + val : val

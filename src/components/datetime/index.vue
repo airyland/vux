@@ -102,7 +102,8 @@ export default {
     hourList: Array,
     minuteList: Array,
     show: Boolean,
-    defaultSelectedValue: String
+    defaultSelectedValue: String,
+    computeHoursFunction: Function
   },
   created () {
     this.isFirstSetValue = false
@@ -154,6 +155,7 @@ export default {
         hourList: this.hourList,
         minuteList: this.minuteList,
         defaultSelectedValue: this.defaultSelectedValue,
+        computeHoursFunction: this.computeHoursFunction,
         onSelect (type, val, wholeValue) {
           if (_this.picker && _this.picker.config.renderInline) {
             _this.$emit('input', wholeValue)
