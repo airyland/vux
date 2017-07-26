@@ -137,9 +137,9 @@ events:
 changes:
   next:
     en:
-      - '[feature] Support hideOnBlur'
+      - '[feature] Support hideOnBlur #1742'
     zh-CN:
-      - '[feature] 支持 hideOnBlur'
+      - '[feature] 支持 hideOnBlur #1742'
   v2.2.0:
     en:
       - '[feature] Add prop:content'
