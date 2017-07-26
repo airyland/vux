@@ -145,6 +145,11 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
+  next:
+    en:
+      - '[enhance] better mask transition'
+    zh-CN:
+      - '[enhance] 更加流畅的遮罩层动画'
   v2.4.1:
     en:
       - '[fix] Re-render when readonly is changed #1593'

@@ -19,7 +19,7 @@ const TEMPLATE = `<div class="dp-container">
   </div>
 </div>`
 
-const SHOW_ANIMATION_TIME = 100 // ms
+const SHOW_ANIMATION_TIME = 200
 const SHOW_CONTAINER_TIME = 300
 
 const TYPE_MAP = {
