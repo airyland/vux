@@ -31,7 +31,18 @@ props:
     default: true
     en: if start the counting
     zh-CN: 是否自动开始计数
+  tag:
+    version: next
+    type: String
+    default: span
+    en: render tag
+    zh-CN: 渲染标签
 changes:
+  next:
+    en:
+      - '[feature] Add prop:tag for customize tag #1739'
+    zh-CN:
+      - '[feature] 添加属性 tag 用以定义渲染标签 #1739'
   v2.0.0:
     en:
       - '[feature] Add prop:start'
