@@ -67,6 +67,11 @@ swipeout-item:
     on-close:
       zh-CN: 菜单完全关闭时触发
 changes:
+  next:
+    en:
+      - '[enhance] swipeout-item add render method #1688'
+    zh-CN:
+      - '[enhance] swipeout-item 新增 render 方法 #1688'
   v2.1.1-rc.9:
     en:
       - '[fix] Fix left-menu is shown when swiping right quickly'
