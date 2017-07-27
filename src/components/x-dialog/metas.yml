@@ -90,7 +90,7 @@ events:
     zh-CN: 弹窗可见时触发
   on-hide:
     en: emits when closing dialog
-    zh-CN: 弹窖关闭时触发
+    zh-CN: 弹窗关闭时触发
 slots:
   default:
     en: main content of the dialog
