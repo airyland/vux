@@ -102,11 +102,10 @@ import objectAssign from 'object-assign'
 
 const vuxLocales = require('json-loader!yaml-loader!vux/src/locales/all.yml')
 const componentsLocales = require('json-loader!yaml-loader!src/locales/components.yml')
-const globalLocales = require('json-loader!yaml-loader!src/locales/global_locales.yml') || {en: {}, 'zh-CN': {}}
 
 const finalLocales = {
-  'en': objectAssign(vuxLocales['en'], componentsLocales['en'], globalLocales['en']),
-  'zh-CN': objectAssign(vuxLocales['zh-CN'], componentsLocales['zh-CN'], globalLocales['zh-CN'])
+  'en': objectAssign(vuxLocales['en'], componentsLocales['en']),
+  'zh-CN': objectAssign(vuxLocales['zh-CN'], componentsLocales['zh-CN'])
 }
 
 for (let i in finalLocales) {
