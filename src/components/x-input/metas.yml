@@ -119,6 +119,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[fix] Fix empty value checking logic #1759'
+    zh-CN:
+      - '[fix] 修复值为空的错误判断逻辑 #1759'
   v2.3.1:
     en:
       - '[feature] Add blur function #1422'

@@ -157,7 +157,7 @@ const validators = {
 export default {
   name: 'x-input',
   created () {
-    this.currentValue = this.value || ''
+    this.currentValue = typeof this.value === 'undefined' ? '' || this.value
     if (!this.title && !this.placeholder && !this.currentValue) {
       console.warn('no title and no placeholder?')
     }
