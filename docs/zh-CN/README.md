@@ -541,9 +541,9 @@ FastClick.attach(document.body)
 
 ## 开发
 
-### 微信webview常见问题
+### ~~微信webview常见问题~~
 
-<h4>iOS title 设置无效</h4>
+<h4>iOS title 设置无效(该问题在微信版本6.5.x某个版本中已被修复)</h4>
 
 在微信`iOS` `webview`更新到`WKWebView`之前我们可以通过加载一个`iframe`来实现单页面应用`title`更改。但是17年初更新到`WKWebView`后该方法也失效，据`对开发者十分特别不友好的把所有文档放在同一个页面不能通过url区分甚至连锚点也懒得做的`的`微信开发文档`([链接](https://mp.weixin.qq.com/wiki))说，`3月份会修复`。
 
