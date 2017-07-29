@@ -149,8 +149,8 @@ export default {
     onBlur (val) {
       console.log('on blur', val)
     },
-    onFocus (val) {
-      console.log('on focus', val)
+    onFocus (val, $event) {
+      console.log('on focus', val, $event)
     },
     onEnter (val) {
       console.log('click enter!', val)

@@ -95,13 +95,13 @@ slots:
     zh-CN: '用以在输入框右边显示内容，比如验证码图片，单位，切换密码显示方式等'
 events:
   on-blur:
-    params: '`(value)`'
+    params: '`(value, $event)`'
     zh-CN: 'input的`blur`事件'
   on-focus:
-    params: '`(value)`'
+    params: '`(value, $event)`'
     zh-CN: 'input的`focus`事件'
   on-enter:
-    params: '`(value)`'
+    params: '`(value, $event)`'
     zh-CN: 'input输入完成后点击`enter(确认)`事件'
   on-change:
     params: '`(value)`'
@@ -121,8 +121,10 @@ methods:
 changes:
   next:
     en:
+      - '[feature] Add $event param for on-focus on-blur event #1770'
       - '[fix] Fix empty value checking logic #1759'
     zh-CN:
+      - '[feature] 为 on-focus on-blur 事件添加 $event 参数 #1770'
       - '[fix] 修复值为空的错误判断逻辑 #1759'
   v2.3.1:
     en:

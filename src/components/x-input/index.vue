@@ -292,18 +292,18 @@ export default {
     blur () {
       this.$refs.input.blur()
     },
-    focusHandler () {
-      this.$emit('on-focus', this.currentValue)
+    focusHandler ($event) {
+      this.$emit('on-focus', this.currentValue, $event)
     },
-    onBlur () {
+    onBlur ($event) {
       this.setTouched()
       this.validate()
-      this.$emit('on-blur', this.currentValue)
+      this.$emit('on-blur', this.currentValue, $event)
     },
     onKeyUp (e) {
       if (e.key === 'Enter') {
         e.target.blur()
-        this.$emit('on-enter', this.currentValue)
+        this.$emit('on-enter', this.currentValue, e)
       }
     },
     getError () {
