@@ -7,6 +7,9 @@
       <x-switch :title="$t('Toggle_show_input')" v-model="show3"></x-switch>
     </group>
     <group>
+      <x-switch :title="$t('Set default input value')" v-model="show5"></x-switch>
+    </group>
+    <group>
       <x-switch :title="$t('Toggle_android')" v-model="show2"></x-switch>
     </group>
     <group>
@@ -30,6 +33,18 @@
       @on-cancel="onCancel"
       @on-confirm="onConfirm"
       @on-show="onShow"
+      @on-hide="onHide">
+      </confirm>
+    </div>
+    <br>
+    <div v-transfer-dom>
+      <confirm v-model="show5"
+      show-input
+      ref="confirm5"
+      :title="$t('confirm deleting the item')"
+      @on-cancel="onCancel"
+      @on-confirm="onConfirm5"
+      @on-show="onShow5"
       @on-hide="onHide">
       </confirm>
     </div>
@@ -87,6 +102,8 @@ Show:
   zh-CN: 显示
 closeOnConfirm=false:
   zh-CN: 阻止自动关闭
+Set default input value:
+  zh-CN: 设置默认输入文字
 </i18n>
 
 <script>
@@ -106,7 +123,8 @@ export default {
       show: false,
       show2: false,
       show3: false,
-      show4: false
+      show4: false,
+      show5: false
     }
   },
   methods: {
@@ -135,6 +153,13 @@ export default {
     },
     onShow () {
       console.log('on show')
+    },
+    onShow5 () {
+      this.$refs.confirm5.setInputValue('default')
+    },
+    onConfirm5 (value) {
+      this.$refs.confirm5.setInputValue('')
+      this.$vux.toast.text('input value: ' + value)
     },
     showPlugin () {
       this.$vux.confirm.show({

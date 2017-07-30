@@ -111,7 +111,18 @@ events:
     params: '(value)'
     en: triggers when the confirm button is clicked
     zh-CN: 点击确定按钮时触发, 参数为prompt中输入的值
+methods:
+  setInputValue:
+    version: next
+    params: '(value)'
+    en: set input value when show-input is true
+    zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
+  next:
+    en:
+      - '[feature] Add method:setInputValue #1746'
+    zh-CN:
+      - '[feature] 支持方法 setInputValue 设置输入值 #1746'
   v2.5.0:
     en:
       - '[feature] Support prop:close-on-confirm'

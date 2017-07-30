@@ -6,8 +6,7 @@
     :mask-transition="maskTransition"
     :dialog-transition="theme === 'android' ? 'vux-fade' : dialogTransition"
     :hide-on-blur="hideOnBlur"
-    @on-hide="$emit('on-hide')"
-    @on-show="$emit('on-show')">
+    @on-hide="$emit('on-hide')">
       <div class="weui-dialog__hd" v-if="!!title"><strong class="weui-dialog__title">{{title}}</strong></div>
       <div class="weui-dialog__bd" v-if="!showInput"><slot><div v-html="content"></div></slot></div>
       <div v-else class="vux-prompt">
@@ -87,13 +86,16 @@ export default {
     },
     showValue (val) {
       this.$emit('input', val)
-      if (val && this.showInput) {
-        this.msg = ''
-        setTimeout(() => {
-          if (this.$refs.input) {
-            this.$refs.input.focus()
-          }
-        }, 300)
+      if (val) {
+        if (this.showInput) {
+          this.msg = ''
+          setTimeout(() => {
+            if (this.$refs.input) {
+              this.$refs.input.focus()
+            }
+          }, 300)
+        }
+        this.$emit('on-show') // emit just after msg is cleared
       }
     }
   },
@@ -104,6 +106,9 @@ export default {
     }
   },
   methods: {
+    setInputValue (val) {
+      this.msg = val
+    },
     _onConfirm () {
       if (this.closeOnConfirm) {
         this.showValue = false
