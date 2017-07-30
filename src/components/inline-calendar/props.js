@@ -1,10 +1,7 @@
 export default () => ({
   value: {
+    type: [String, Array],
     default: ''
-  },
-  multi: {
-    type: Boolean,
-    default: false
   },
   renderMonth: {
     type: Array, // [2018, 8]
