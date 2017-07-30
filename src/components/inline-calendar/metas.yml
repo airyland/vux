@@ -97,22 +97,7 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
-  v2.4.0:
-    en:
-      - '[enhance] re-render when render-month is changed'
-    zh-CN:
-      - '[enhance] 当 render-month 变化时重新渲染日历'
-  v2.3.8:
-    en:
-      - '[enhance] prevent from clicking invisiable date #1564'
-    zh-CN:
-      - '[enhance] 不可见日期不可点击 #1564'
-  v2.3.6:
-    en:
-      - '[change] render-function params day => date #1361'
-    zh-CN:
-      - '[change] render-function 参数 day => date（在 3.0 版本前不会影响目前使用）#1361'
-  v2.3.5:
+  next:
     en:
       - '[feature] support multi select #1446 #1467'
     zh-CN:
