@@ -47,6 +47,7 @@
             :is-show="showChild(year, month, child)"
             name="each-day">
               <span
+              class="vux-calendar-each-date"
               v-show="showChild(year, month, child)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
               <div v-html="renderFunction(k1, k2, child)" v-show="showChild(year, month, child)"></div>
             </slot>
@@ -58,15 +59,16 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import format from '../datetime/format'
 import { getDays, zero } from './util'
 import props from './props'
 
 export default {
+  name: 'inline-calendar',
   props: props(),
   data () {
     return {
+      multi: false,
       year: 0,
       month: 0,
       days: [],
@@ -77,13 +79,14 @@ export default {
   },
   created () {
     this.currentValue = this.value
+    this.multi = Object.prototype.toString.call(this.currentValue) === '[object Array]'
   },
   mounted () {
-    if(this.multi && typeof this.currentValue !== 'string'){
-      for(let i = 0; i< this.currentValue.length;i++){
-          Vue.set(this.currentValue, i, this.convertDate(this.currentValue[i]))
+    if (this.multi) {
+      for (let i = 0; i < this.currentValue.length; i++) {
+        this.$set(this.currentValue, i, this.convertDate(this.currentValue[i]))
       }
-    }else{
+    } else {
       this.currentValue = this.convertDate(this.currentValue)
     }
 
@@ -107,10 +110,25 @@ export default {
   },
   watch: {
     value (val) {
-      this.currentValue = val
+      this.currentValue = this.multi ? val : this.convertDate(val)
+    },
+    currentValue (val) {
+      const value = this.multi ? this.currentValue[this.currentValue.length - 1] : this.currentValue
+      if (this.renderOnValueChange) {
+        this.render(null, null, value)
+      } else {
+        this.render(this.year, this.month, value)
+      }
+      this.$emit('input', this.currentValue)
+      this.$emit('on-change', this.currentValue)
     },
     renderFunction () {
       this.render(this.year, this.month, this.currentValue)
+    },
+    renderMonth (val) {
+      if (val && val.length === 2) {
+        this.render(val[0], val[1] - 1)
+      }
     },
     returnSixRows (val) {
       this.render(this.year, this.month, this.currentValue)
@@ -142,10 +160,10 @@ export default {
     },
     buildClass (index, child) {
       let isCurrent = false
-      if(!child.isLastMonth && !child.isNextMonth){
-        if(typeof this.currentValue !== 'string' && this.currentValue.length>0){
+      if (!child.isLastMonth && !child.isNextMonth) {
+        if (this.multi && this.currentValue.length > 0) {
           isCurrent = this.currentValue.indexOf(this.formatDate(this.year, this.month, child)) > -1
-        }else if(typeof this.currentValue === 'string'){
+        } else {
           isCurrent = this.currentValue === this.formatDate(this.year, this.month, child)
         }
       }
@@ -159,34 +177,20 @@ export default {
     },
     render (year, month) {
       let data = null
-      if(this.multi && typeof this.currentValue !== 'string'){
-          data = getDays({
-            year: year,
-            month: month,
-            value: this.currentValue[this.currentValue.length - 1],
-            rangeBegin: this.convertDate(this.startDate),
-            rangeEnd: this.convertDate(this.endDate),
-            returnSixRows: this.returnSixRows,
-            disablePast: this.disablePast,
-            disableFuture: this.disableFuture
-          })
-
-      }else{
-        data = getDays({
-          year: year,
-          month: month,
-          value: this.currentValue,
-          rangeBegin: this.convertDate(this.startDate),
-          rangeEnd: this.convertDate(this.endDate),
-          returnSixRows: this.returnSixRows,
-          disablePast: this.disablePast,
-          disableFuture: this.disableFuture
-        })
-      }
+      const value = this.multi ? this.currentValue[this.currentValue.length - 1] : this.currentValue
+      data = getDays({
+        year: year,
+        month: month,
+        value,
+        rangeBegin: this.convertDate(this.startDate),
+        rangeEnd: this.convertDate(this.endDate),
+        returnSixRows: this.returnSixRows,
+        disablePast: this.disablePast,
+        disableFuture: this.disableFuture
+      })
       this.days = data.days
       this.year = data.year
       this.month = data.month
-
     },
     formatDate: (year, month, child) => {
       return [year, zero(child.month + 1), zero(child.day)].join('-')
@@ -223,38 +227,32 @@ export default {
       } else {
         _currentValue = [data.year, zero(data.month + 1), zero(data.day)].join('-')
       }
-      if(this.multi){
-        if(typeof this.currentValue === 'string'){
-          if(this.currentValue && this.currentValue.length > 0){
-            this.currentValue = [this.currentValue]
-          }else{
-            this.currentValue = []
-          }
-        }
+      if (this.multi) {
         let index = this.currentValue.indexOf(_currentValue)
-        if(index >- 1){
-          this.currentValue.splice(index,1)
-        }else{
+        if (index > -1) {
+          this.currentValue.splice(index, 1)
+        } else {
           this.currentValue.push(_currentValue)
         }
-      }else{
+      } else {
         this.currentValue = this.currentValue === _currentValue ? '' : _currentValue
       }
 
       this.currentValueChange()
     },
-    currentValueChange(){
-      if(this.multi && typeof this.currentValue !== 'string'){
-        for(let i = 0; i< this.currentValue.length;i++){
-           Vue.set(this.currentValue, i, this.convertDate(this.currentValue[i]))
+    currentValueChange () {
+      if (this.multi) {
+        for (let i = 0; i < this.currentValue.length; i++) {
+          this.$set(this.currentValue, i, this.convertDate(this.currentValue[i]))
         }
-      }else{
+      } else {
         this.currentValue = this.convertDate(this.currentValue)
       }
+      const value = this.multi ? this.currentValue[this.currentValue.length - 1] : this.currentValue
       if (this.renderOnValueChange) {
-        this.render(null, null, this.currentValue)
+        this.render(null, null, value)
       } else {
-        this.render(this.year, this.month, this.currentValue)
+        this.render(this.year, this.month, value)
       }
       this.$emit('input', this.currentValue)
       this.$emit('on-change', this.currentValue)
@@ -394,36 +392,6 @@ export default {
   border:5px solid rgba(0, 0, 0, 0);
   border-bottom-color: #fff;
 }
-.calendar-tools{
-  height:32px;
-  font-size: 20px;
-  line-height: 32px;
-  color: #04be02;
-}
-.calendar-tools .float.left{
-  float:left;
-}
-.calendar-tools .float.right{
-  float:right;
-}
-.calendar-tools input{
-  font-size: 20px;
-  line-height: 32px;
-  color: #04be02;
-  width: 70px;
-  text-align: center;
-  border:none;
-  background-color: transparent;
-}
-.calendar-tools>i{
-  margin:0 16px;
-  line-height: 32px;
-  cursor: pointer;
-  color:#707070;
-}
-.calendar-tools>i:hover{
-  color:#5e7a88;
-}
 .inline-calendar table {
   clear: both;
   width: 100%;
@@ -434,7 +402,7 @@ export default {
   padding:5px 0;
   text-align: center;
   vertical-align: middle;
-  font-size:16px;
+  font-size: @calendar-date-item-font-size;
   position: relative;
 }
 .inline-calendar td.week{
@@ -444,7 +412,7 @@ export default {
 .inline-calendar td.is-disabled {
   color: @calendar-disabled-font-color;
 }
-.inline-calendar td > span {
+.inline-calendar td > span.vux-calendar-each-date {
   display: inline-block;
   width: 26px;
   height: 26px;
@@ -452,8 +420,8 @@ export default {
   border-radius: 50%;
   text-align: center;
 }
-.inline-calendar td.current > span {
+.inline-calendar td.current > span.vux-calendar-each-date {
   background-color: @calendar-selected-bg-color;
-  color: #fff;
+  color: #fff!important;
 }
 </style>
