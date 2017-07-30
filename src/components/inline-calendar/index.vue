@@ -34,7 +34,7 @@
           v-for="(child,k2) in day"
           :data-date="formatDate(year, month, child)"
           :data-current="currentValue"
-          :class="buildClass(k2, child, formatDate(year, month, child) === currentValue && !child.isLastMonth && !child.isNextMonth)"
+          :class="buildClass(k2, child)"
           @click="select(k1,k2,child)">
             <slot
             :year="year"
@@ -68,19 +68,28 @@ export default {
   props: props(),
   data () {
     return {
+      multi: false,
       year: 0,
       month: 0,
       days: [],
       today: format(new Date(), 'YYYY-MM-DD'),
-      months: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+      months: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
       currentValue: ''
     }
   },
   created () {
     this.currentValue = this.value
+    this.multi = Object.prototype.toString.call(this.currentValue) === '[object Array]'
   },
   mounted () {
-    this.currentValue = this.convertDate(this.currentValue)
+    if (this.multi) {
+      for (let i = 0; i < this.currentValue.length; i++) {
+        this.$set(this.currentValue, i, this.convertDate(this.currentValue[i]))
+      }
+    } else {
+      this.currentValue = this.convertDate(this.currentValue)
+    }
+
     this.render(this.renderMonth[0], this.renderMonth[1] - 1)
   },
   computed: {
@@ -101,17 +110,17 @@ export default {
   },
   watch: {
     value (val) {
-      this.currentValue = val
+      this.currentValue = this.multi ? val : this.convertDate(val)
     },
     currentValue (val) {
-      this.currentValue = this.convertDate(val)
+      const value = this.multi ? this.currentValue[this.currentValue.length - 1] : this.currentValue
       if (this.renderOnValueChange) {
-        this.render(null, null, val)
+        this.render(null, null, value)
       } else {
-        this.render(this.year, this.month, this.currentValue)
+        this.render(this.year, this.month, value)
       }
-      this.$emit('input', val)
-      this.$emit('on-change', val)
+      this.$emit('input', this.currentValue)
+      this.$emit('on-change', this.currentValue)
     },
     renderFunction () {
       this.render(this.year, this.month, this.currentValue)
@@ -149,7 +158,15 @@ export default {
     convertDate (date) {
       return date === 'TODAY' ? this.today : date
     },
-    buildClass (index, child, isCurrent) {
+    buildClass (index, child) {
+      let isCurrent = false
+      if (!child.isLastMonth && !child.isNextMonth) {
+        if (this.multi && this.currentValue.length > 0) {
+          isCurrent = this.currentValue.indexOf(this.formatDate(this.year, this.month, child)) > -1
+        } else {
+          isCurrent = this.currentValue === this.formatDate(this.year, this.month, child)
+        }
+      }
       const className = {
         current: child.current || isCurrent,
         'is-disabled': child.disabled,
@@ -159,10 +176,12 @@ export default {
       return className
     },
     render (year, month) {
-      let data = getDays({
+      let data = null
+      const value = this.multi ? this.currentValue[this.currentValue.length - 1] : this.currentValue
+      data = getDays({
         year: year,
         month: month,
-        value: this.currentValue,
+        value,
         rangeBegin: this.convertDate(this.startDate),
         rangeEnd: this.convertDate(this.endDate),
         returnSixRows: this.returnSixRows,
@@ -207,12 +226,42 @@ export default {
       if (!data.isBetween) {
         return
       }
+      let _currentValue = null
       if (!data.isLastMonth && !data.isNextMonth) {
         this.days[k1][k2].current = true
-        this.currentValue = [this.year, zero(this.month + 1), zero(this.days[k1][k2].day)].join('-')
+        _currentValue = [this.year, zero(this.month + 1), zero(this.days[k1][k2].day)].join('-')
       } else {
-        this.currentValue = [data.year, zero(data.month + 1), zero(data.day)].join('-')
+        _currentValue = [data.year, zero(data.month + 1), zero(data.day)].join('-')
       }
+      if (this.multi) {
+        let index = this.currentValue.indexOf(_currentValue)
+        if (index > -1) {
+          this.currentValue.splice(index, 1)
+        } else {
+          this.currentValue.push(_currentValue)
+        }
+      } else {
+        this.currentValue = this.currentValue === _currentValue ? '' : _currentValue
+      }
+
+      this.currentValueChange()
+    },
+    currentValueChange () {
+      if (this.multi) {
+        for (let i = 0; i < this.currentValue.length; i++) {
+          this.$set(this.currentValue, i, this.convertDate(this.currentValue[i]))
+        }
+      } else {
+        this.currentValue = this.convertDate(this.currentValue)
+      }
+      const value = this.multi ? this.currentValue[this.currentValue.length - 1] : this.currentValue
+      if (this.renderOnValueChange) {
+        this.render(null, null, value)
+      } else {
+        this.render(this.year, this.month, value)
+      }
+      this.$emit('input', this.currentValue)
+      this.$emit('on-change', this.currentValue)
     },
     showChild (year, month, child) {
       if (this.replaceText(child.day, this.formatDate(year, month, child))) {
@@ -224,7 +273,7 @@ export default {
   }
 }
 </script>
- 
+
 <style lang="less">
 @import '../../styles/variable.less';
 
