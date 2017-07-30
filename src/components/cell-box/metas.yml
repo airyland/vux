@@ -36,6 +36,11 @@ slots:
     en: content body
     zh-CN: 内容区域
 changes:
+  next:
+    en:
+      - "[change] Remove default slot's div wrapper #1769"
+    zh-CN:
+      - '[change] 移除默认 slot 的父级 div #1769'
   v2.2.1-rc.1:
     en:
       - '[feature] Support prop:border-intent'

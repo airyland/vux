@@ -1,6 +1,6 @@
 <template>
   <div class="vux-cell-box weui-cell" :class="{'vux-tap-active': isLink || !!link, 'weui-cell_access': isLink || !!link, 'vux-cell-no-border-intent': !borderIntent}" @click="onClick">
-    <div><slot></slot></div>
+    <slot></slot>
   </div>
 </template>
 
@@ -31,9 +31,6 @@ export default {
 @import '../../styles/weui/base/mixin/setArrow.less';
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 
-.vux-cell-box > div {
-  padding-right: 13px;
-}
 .vux-cell-primary {
   flex: 1;
 }
