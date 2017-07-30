@@ -541,7 +541,7 @@ FastClick.attach(document.body)
 
 ## 开发
 
-### ~~微信webview常见问题~~
+### 微信webview常见问题
 
 <h4>iOS title 设置无效(该问题在微信版本6.5.x某个版本中已被修复)</h4>
 
