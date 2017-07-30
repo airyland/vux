@@ -8,15 +8,10 @@ tags:
     - 表单
 props:
   value:
-    type: String,Array
+    type: String, Array
     default: ''
     en: calendar value, use `v-modle` for binding
     zh-CN: 当前选中日期，使用`v-model`绑定，默认为空，即选中当天日期
-  multi:
-    type: Boolean
-    default: false
-    en: multi support
-    zh-CN: 多选支持
   render-month:
     type: Array
     default: ''
@@ -94,11 +89,35 @@ props:
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
 slots:
   each-day:
-    version: next
+    version: v2.3.5
     en: you can custom how to display each day
     zh-CN: 用以自定义每一天的显示渲染，使用该 slot 就不需要 render-function 了
+events:
+  on-change:
+    en: emits when value is changed
+    zh-CN: 值变化时触发
 changes:
   next:
+    en:
+      - '[feature] support multi select #1446 #1467'
+    zh-CN:
+      - '[feature] 支持多选 #1446 #1467'
+  v2.4.0:
+    en:
+      - '[enhance] re-render when render-month is changed'
+    zh-CN:
+      - '[enhance] 当 render-month 变化时重新渲染日历'
+  v2.3.8:
+    en:
+      - '[enhance] prevent from clicking invisiable date #1564'
+    zh-CN:
+      - '[enhance] 不可见日期不可点击 #1564'
+  v2.3.6:
+    en:
+      - '[change] render-function params day => date #1361'
+    zh-CN:
+      - '[change] render-function 参数 day => date（在 3.0 版本前不会影响目前使用）#1361'
+  v2.3.5:
     en:
       - '[feature] Support slot:each-day'
     zh-CN:
