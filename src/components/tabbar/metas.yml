@@ -36,7 +36,7 @@ tabbar-item:
       zh-CN: 是否显示红点
     link:
       en: the url for current tabbar item, can be a url or a `vue-router` link value
-      zh-CN: 链接，可以为普通url或者用`vue-link`的路径写法
+      zh-CN: 链接，可以为普通url或者用`vue-link`的路径写法，使用 object 写法指定 replace 为 true 可实现 replace 跳转
     icon-class:
       en: the classname for current icon, if tabbar and tabbar-item both specify icon-class, tabbar-item's will be usePulldown
       zh-CN: 图标类名，如果tabbar也同时定义了icon-class, 会使用tabbar-item的
@@ -60,6 +60,11 @@ tabbar-item:
       en: emits when value is changed
       zh-CN: value 值变化时触发
 changes:
+  next:
+    en:
+      - '[feature] Support replace: true for link #1761'
+    zh-CN:
+      - '[feature] 支持 link 上使用 replace: true 写法 #1761'
   v2.5.4:
     en:
       - '[feature] Add event:on-index-change #1715'
