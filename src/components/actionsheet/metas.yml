@@ -126,9 +126,9 @@ props:
     zh-CN: 点击菜单时是否自动隐藏
 events:
   on-click-menu:
-    params: (menuKey)
+    params: (menuKey, menuItem)
     en: triggers when clicking on the menu
-    zh-CN: 点击菜单时触发，参数为当前菜单项对象
+    zh-CN: 点击菜单时触发
   on-click-menu-{menuKey}:
     params: (menuKey)
     en: shortcut event for easier listening, you can listen on `on-click-menu-delete` if you have a menu named `delete`
@@ -141,6 +141,11 @@ events:
     en: triggers when clicking on mask
     zh-CN: 点击遮罩时触发
 changes:
+  next:
+    en:
+      - '[feature] Add raw menu item for on-click-menu event #1772'
+    zh-CN:
+      - '[feature] 支持在 on-click-menu 参数里附带原始 menu 对象 #1772'
   v2.3.5:
     en:
       - '[feature] Support slot:header #1381'

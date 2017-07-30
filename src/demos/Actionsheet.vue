@@ -25,7 +25,7 @@
 
     <actionsheet v-model="show3" :menus="menus3" @on-click-menu="click" @on-click-menu-delete="onDelete" show-cancel></actionsheet>
 
-    <actionsheet v-model="show5" :menus="menus5" show-cancel @on-click-menu="click"></actionsheet>
+    <actionsheet v-model="show5" :menus="menus5" show-cancel @on-click-menu="click5"></actionsheet>
 
     <actionsheet v-model="show6" :menus="menus1">
       <p slot="header" v-html="$t('actionsheet header')"></p>
@@ -116,7 +116,8 @@ export default {
       }, {
         label: 'Primary',
         type: 'primary',
-        value: 'primary'
+        value: 'primary',
+        otherProp: 'hey'
       }, {
         label: 'Warn',
         type: 'warn'
@@ -157,6 +158,9 @@ export default {
     },
     click (key) {
       console.log(key)
+    },
+    click5 (key, item) {
+      console.log(key, item)
     },
     onDelete () {
       this.showSuccess = true
