@@ -15,6 +15,7 @@
   "ButtonTab": "src/components/button-tab/button-tab.vue",
   "ButtonTabItem": "src/components/button-tab/button-tab-item.vue",
   "Calendar": "src/components/calendar/index.vue",
+  "CalendarViewPro": "src/components/calendar-view-pro/index.vue",
   "Card": "src/components/card/index.vue",
   "Cell": "src/components/cell/index.vue",
   "CellBox": "src/components/cell-box/index.vue",

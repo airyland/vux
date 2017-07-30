@@ -107,5 +107,6 @@
   "Drawer",
   "DatetimeView",
   "InlineXNumber",
-  "PopupHeader"
+  "PopupHeader",
+  "CalendarViewPro"
 ]
