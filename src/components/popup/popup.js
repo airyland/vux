@@ -1,3 +1,4 @@
+const passiveSupported = require('../../libs/passive_supported')
 // not a good way but works well
 window.__$vuxPopups = window.__$vuxPopups || {}
 const popupDialog = function (option) {
@@ -57,7 +58,7 @@ popupDialog.prototype.onClickMask = function () {
 popupDialog.prototype._bindEvents = function () {
   if (this.params.hideOnBlur) {
     this.mask.addEventListener('click', this.onClickMask.bind(this), false)
-    this.mask.addEventListener('touchmove', e => e.preventDefault(), false)
+    this.mask.addEventListener('touchmove', e => e.preventDefault(), passiveSupported ? {passive: false} : false)
   }
 }
 
