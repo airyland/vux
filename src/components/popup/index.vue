@@ -35,7 +35,11 @@ export default {
       default: 'bottom'
     },
     maxHeight: String,
-    popupStyle: Object
+    popupStyle: Object,
+    hideOnDeactivated: {
+      type: Boolean,
+      default: true
+    }
   },
   mounted () {
     this.$overflowScrollingList = document.querySelectorAll('.vux-fix-safari-overflow-scrolling')
@@ -63,6 +67,11 @@ export default {
       }
       this.initialShow = false
     })
+  },
+  deactivated () {
+    if (this.hideOnDeactivated) {
+      this.show = false
+    }
   },
   methods: {
     /**
