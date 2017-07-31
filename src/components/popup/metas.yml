@@ -50,7 +50,7 @@ props:
     en: popup style
     zh-CN: 弹窗样式，可以用于强制指定 z-index
   hide-on-deactivated:
-    version: next
+    version: v2.5.5
     type: Boolean
     default: true
     en: whether hide popup on deactived event when using keep-alive
@@ -70,7 +70,7 @@ slots:
     en: content body
     zh-CN: 弹窗主体内容
 changes:
-  next:
+  v2.5.5:
     en:
       - '[feature] Auto hide popup on deactived #1774'
     zh-CN:

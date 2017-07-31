@@ -97,7 +97,7 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
-  next:
+  v2.5.5:
     en:
       - '[feature] support multi select #1446 #1467'
     zh-CN:

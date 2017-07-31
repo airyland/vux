@@ -135,7 +135,7 @@ props:
     en: set default selected value, works only when value is empty
     zh-CN: 设置默认选中日期，当前 value 为空时有效
   compute-hours-function:
-    version: next
+    version: v2.5.5
     type: Function
     en: 'dynamically set hours list, params `(value, isToday, generateRange)`'
     zh-CN: '动态设置小时列表，参数为 `(value, isToday, generateRange)`'
@@ -150,7 +150,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.5.5:
     en:
       - '[feature] support prop:compute-hours-function #1749'
       - '[enhance] better mask transition'

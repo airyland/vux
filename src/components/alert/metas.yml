@@ -135,7 +135,7 @@ events:
     en: emits when dialog shows
     zh-CN: 弹窗显示时触发
 changes:
-  next:
+  v2.5.5:
     en:
       - '[feature] Support hideOnBlur #1742'
     zh-CN:

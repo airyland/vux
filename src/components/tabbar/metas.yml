@@ -60,7 +60,7 @@ tabbar-item:
       en: emits when value is changed
       zh-CN: value 值变化时触发
 changes:
-  next:
+  v2.5.5:
     en:
       - '[feature] Support replace: true for link #1761'
     zh-CN:

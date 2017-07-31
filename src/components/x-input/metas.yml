@@ -119,7 +119,7 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
-  next:
+  v2.5.5:
     en:
       - '[feature] Add $event param for on-focus on-blur event #1770'
       - '[fix] Fix empty value checking logic #1759'

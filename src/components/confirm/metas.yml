@@ -113,12 +113,12 @@ events:
     zh-CN: 点击确定按钮时触发, 参数为prompt中输入的值
 methods:
   setInputValue:
-    version: next
+    version: v2.5.5
     params: '(value)'
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
-  next:
+  v2.5.5:
     en:
       - '[feature] Add method:setInputValue #1746'
     zh-CN:

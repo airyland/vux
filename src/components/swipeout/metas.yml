@@ -67,7 +67,7 @@ swipeout-item:
     on-close:
       zh-CN: 菜单完全关闭时触发
 changes:
-  next:
+  v2.5.5:
     en:
       - '[enhance] swipeout-item add render method #1688'
     zh-CN:
