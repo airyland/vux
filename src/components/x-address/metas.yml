@@ -119,7 +119,17 @@ events:
   on-show:
     en: emits when being open
     zh-CN: 显示时触发
+  on-shadow-change:
+    version: next
+    params: '`(Array ids, Array names)`'
+    en: emits when picker value is changed
+    zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  next:
+    en:
+      - '[feature] Support event:on-shadow-change #1778'
+    zh-CN:
+      - '[feature] 支持在滑动 picker 时触发事件 on-picker-change #1778'
   v2.5.2:
     en:
       - '[feature] Add prop:popup-style #1656'

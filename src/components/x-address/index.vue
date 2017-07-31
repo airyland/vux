@@ -1,6 +1,22 @@
 <template>
   <div>
-    <popup-picker :fixed-columns="hideDistrict ? 2 : 0" :columns="3" :data="list" :title="title" v-model="currentValue" show-name :inline-desc="inlineDesc" :placeholder="placeholder" @on-hide="emitHide" @on-show="$emit('on-show')" :value-text-align="valueTextAlign" :confirm-text="confirmText" :cancel-text="cancelText" :display-format="displayFormat" :popup-style="popupStyle">
+    <popup-picker
+    :fixed-columns="hideDistrict ? 2 : 0"
+    :columns="3"
+    :data="list"
+    :title="title"
+    v-model="currentValue"
+    show-name
+    :inline-desc="inlineDesc"
+    :placeholder="placeholder"
+    @on-hide="emitHide"
+    @on-show="$emit('on-show')"
+    :value-text-align="valueTextAlign"
+    :confirm-text="confirmText"
+    :cancel-text="cancelText"
+    :display-format="displayFormat"
+    :popup-style="popupStyle"
+    @on-shadow-change="onShadowChange">
       <template slot="title" scope="props">
         <slot name="title" :label-class="props.labelClass" :label-style="props.labelStyles" :label-title="props.title">
           <label :class="[props.labelClass,labelClass]" :style="props.labelStyle" v-if="props.labelTitle" v-html="props.labelTitle"></label>
@@ -66,6 +82,9 @@ export default {
     },
     getAddressName () {
       return value2name(this.value, this.list)
+    },
+    onShadowChange (ids, names) {
+      this.$emit('on-shadow-change', ids, names)
     }
   },
   data () {

@@ -200,7 +200,8 @@ export default {
           // if set to auto update, do update the value
         }
       }
-      this.$emit('on-shadow-change', getObject(val))
+      const _val = getObject(val)
+      this.$emit('on-shadow-change', _val, value2name(_val, this.data).split(' '))
     }
   },
   watch: {
