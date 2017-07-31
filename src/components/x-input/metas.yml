@@ -119,6 +119,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[fix] Fix is-type validating logic #1776'
+    zh-CN:
+      - '[fix] 修复 is-type 验证逻辑 #1776'
   v2.5.5:
     en:
       - '[feature] Add $event param for on-focus on-blur event #1770'

@@ -334,7 +334,9 @@ export default {
         if (validator) {
           this.valid = validator[ 'fn' ](this.currentValue)
           if (!this.valid) {
+            this.forceShowError = true
             this.errors.format = validator[ 'msg' ] + '格式不对哦~'
+            this.getError()
             return
           } else {
             delete this.errors.format
