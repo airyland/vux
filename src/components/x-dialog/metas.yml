@@ -60,7 +60,7 @@ props:
     type: Boolean
     default: false
     en: 'visibility of the dialog, supports the .sync modifier'
-    zh-CN: '弹窗是否可见，支持.sync修饰符'
+    zh-CN: '弹窗是否可见，使用 `v-model` 绑定，在 v2.5.3 之后版本支持.sync修饰符'
   mask-transition:
     default: vux-mask
     en: transition of mask
