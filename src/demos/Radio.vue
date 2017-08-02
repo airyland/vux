@@ -62,8 +62,8 @@ export default {
     }
   },
   methods: {
-    change (value) {
-      console.log('change:', value)
+    change (value, label) {
+      console.log('change:', value, label)
     }
   }
 }

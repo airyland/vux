@@ -28,7 +28,7 @@
 
 <script>
 import Base from '../../libs/base'
-import { getValue, getKey } from '../checklist/object-filter'
+import { getValue, getKey, getLabel } from '../checklist/object-filter'
 import props from './props'
 
 export default {
@@ -39,7 +39,7 @@ export default {
     getKey
   },
   props: props(),
-  mounted () {
+  created () {
     this.handleChangeEvent = true
   },
   methods: {
@@ -59,7 +59,7 @@ export default {
       if (newVal !== '' && isOption) {
         this.fillValue = ''
       }
-      this.$emit('on-change', newVal)
+      this.$emit('on-change', newVal, getLabel(this.options, newVal))
       this.$emit('input', newVal)
     },
     fillValue (newVal) {

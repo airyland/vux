@@ -57,10 +57,15 @@ props:
     zh-CN: 是否禁用操作
 events:
   on-change:
-    params: '(value)'
-    en: emits when value changes
-    zh-CN: 值变化时触发，参数为 (value)
+    params: '(value, label)'
+    en: emits when value changes, param:label is supported after v2.5.7
+    zh-CN: 值变化时触发，参数为 (value, label)，其中 label 参数在 v2.5.7 后支持
 changes:
+  next:
+    en:
+      - '[feature] Support `label` param for on-change event #1783'
+    zh-CN:
+      - '[feature] 支持在 on-change 事件中附带 `label` 值 #1783'
   v2.3.8:
     en:
       - '[feature] Add prop:disabled #1254'
