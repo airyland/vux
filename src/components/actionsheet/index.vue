@@ -92,7 +92,11 @@ export default {
     },
     emitEvent (event, menu, item) {
       if (event === 'on-click-menu' && !/.noop/.test(menu)) {
-        this.$emit(event, menu, typeof item === 'string' ? item : JSON.parse(JSON.stringify(item)))
+        let _item = item
+        if (typeof _item === 'object') {
+          _item = JSON.parse(JSON.stringify(_item))
+        }
+        this.$emit(event, menu, _item)
         this.$emit(`${event}-${menu}`)
         this.closeOnClickingMenu && (this.show = false)
       }
