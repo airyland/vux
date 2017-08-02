@@ -9,16 +9,16 @@
             <img class="weui-media-box__thumb" :src="item.src" alt="">
           </div>
           <div class="weui-media-box__bd">
-            <h4 class="weui-media-box__title">{{item.title}}</h4>
-            <p class="weui-media-box__desc">{{item.desc}}</p>
+            <h4 class="weui-media-box__title" v-html="item.title"></h4>
+            <p class="weui-media-box__desc" v-html="item.desc"></p>
           </div>
         </a>
       </template>
       <!--type==='2'-->
       <template v-if="type === '2'">
         <div class="weui-media-box weui-media-box_text" v-for="item in list" @click.prevent="onItemClick(item)">
-            <h4 class="weui-media-box__title">{{item.title}}</h4>
-            <p class="weui-media-box__desc">{{item.desc}}</p>
+            <h4 class="weui-media-box__title" v-html="item.title"></h4>
+            <p class="weui-media-box__desc" v-html="item.desc"></p>
         </div>
       </template>
       <!--type==='3'-->
@@ -30,7 +30,7 @@
                   <img :src="item.src" alt="" style="width:20px;margin-right:5px;display:block">
                 </div>
                 <div class="weui-cell__bd">
-                  <p>{{item.title}}</p>
+                  <p v-html="item.title"></p>
                 </div>
                 <span class="weui-cell__ft"></span>
               </a>
@@ -40,12 +40,12 @@
       <!--type==='4'-->
       <template v-if="type === '4'">
         <div class="weui-media-box weui-media-box_text" v-for="item in list" @click.prevent="onItemClick(item)">
-          <h4 class="weui-media-box__title">{{item.title}}</h4>
-          <p class="weui-media-box__desc">{{item.desc}}</p>
+          <h4 class="weui-media-box__title" v-html="item.title"></h4>
+          <p class="weui-media-box__desc" v-html="item.desc"></p>
           <ul class="weui-media-box__info" v-if="item.meta">
-            <li class="weui-media-box__info__meta">{{item.meta.source}}</li>
-            <li class="weui-media-box__info__meta">{{item.meta.date}}</li>
-            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.meta.other}}</li>
+            <li class="weui-media-box__info__meta" v-html="item.meta.source"></li>
+            <li class="weui-media-box__info__meta" v-html="item.meta.date"></li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra" v-html="item.meta.other"></li>
           </ul>
         </div>
       </template>
@@ -57,14 +57,14 @@
               <img class="weui-media-box__thumb" :src="item.src" alt="">
             </div>
             <div class="weui-media-box__bd">
-              <h4 class="weui-media-box__title">{{item.title}}</h4>
-              <p class="weui-media-box__desc">{{item.desc}}</p>
+              <h4 class="weui-media-box__title" v-html="item.title"></h4>
+              <p class="weui-media-box__desc" v-html="item.desc"></p>
             </div>
           </div>
           <ul class="weui-media-box__info" v-if="item.meta">
-            <li class="weui-media-box__info__meta">{{item.meta.source}}</li>
-            <li class="weui-media-box__info__meta">{{item.meta.date}}</li>
-            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.meta.other}}</li>
+            <li class="weui-media-box__info__meta" v-html="item.meta.source"></li>
+            <li class="weui-media-box__info__meta" v-html="item.meta.date"></li>
+            <li class="weui-media-box__info__meta weui-media-box__info__meta_extra" v-html="item.meta.other"></li>
           </ul>
         </div>
       </template>
