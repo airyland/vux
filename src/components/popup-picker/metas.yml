@@ -76,16 +76,16 @@ events:
     en: emits when popup is closed
     zh-CN: 弹窗关闭时触发
   on-shadow-change:
-    version: next
+    version: v2.5.6
     params: '`(Array ids, Array names)`'
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
-  next:
+  v2.5.6:
     en:
       - '[feature] Support event:on-shadow-change #1778'
     zh-CN:
-      - '[feature] 支持在滑动 picker 时触发事件 on-picker-change #1778'
+      - '[feature] 支持在滑动 picker 时触发事件 on-shadow-change #1778'
   v2.5.3:
     en:
       - '[fix] Fix label style being overwrite after importing x-textarea #1696'

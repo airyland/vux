@@ -141,7 +141,7 @@ events:
     en: triggers when clicking on mask
     zh-CN: 点击遮罩时触发
 changes:
-  next:
+  v2.5.6:
     en:
       - '[fix] Fix json parsing issue for cancel menu #1782'
     zh-CN:
