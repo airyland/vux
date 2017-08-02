@@ -7,7 +7,6 @@ const isIphone = !isIpad && /(iPhone\sOS)\s([\d_]+)/.test(ua)
 const isWechat = /micromessenger/i.test(ua)
 const isAlipay = /alipayclient/i.test(ua)
 
-
 const plugin = function (Vue) {
   // Vue.$device will be removed
   if (!Vue.$device || !Vue.device) {
