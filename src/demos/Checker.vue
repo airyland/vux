@@ -114,21 +114,23 @@
     <group>
       <cell :title="$t('select color')" :value="demo4" is-link @click.native="showPopup=true"></cell>
     </group>
-    <popup v-model="showPopup" class="checker-popup">
-      <div style="padding:10px 10px 40px 10px;">
-        <p style="padding: 5px 5px 5px 2px;color:#888;">Colors</p>
-        <checker
-        v-model="demo4"
-        default-item-class="demo4-item"
-        selected-item-class="demo4-item-selected"
-        disabled-item-class="demo4-item-disabled">
-          <checker-item value="花跟叶" @on-item-click="onItemClick">花跟叶</checker-item>
-          <checker-item value="鸟与树" @on-item-click="onItemClick">鸟与树</checker-item>
-          <checker-item value="我和你" @on-item-click="onItemClick">我和你</checker-item>
-          <checker-item value="全套礼品装" disabled @on-item-click="onItemClick">全套礼品装</checker-item>
-        </checker>
-      </div>
-    </popup>
+    <div v-transfer-dom>
+      <popup v-model="showPopup" class="checker-popup">
+        <div style="padding:10px 10px 40px 10px;">
+          <p style="padding: 5px 5px 5px 2px;color:#888;">Colors</p>
+          <checker
+          v-model="demo4"
+          default-item-class="demo4-item"
+          selected-item-class="demo4-item-selected"
+          disabled-item-class="demo4-item-disabled">
+            <checker-item value="花跟叶" @on-item-click="onItemClick">花跟叶</checker-item>
+            <checker-item value="鸟与树" @on-item-click="onItemClick">鸟与树</checker-item>
+            <checker-item value="我和你" @on-item-click="onItemClick">我和你</checker-item>
+            <checker-item value="全套礼品装" disabled @on-item-click="onItemClick">全套礼品装</checker-item>
+          </checker>
+        </div>
+      </popup>
+    </div>
 
     <divider>{{ $t('A real world radio example') }} {{demo5}}</divider>
     <checker
@@ -201,9 +203,12 @@ awesome:
 </i18n>
 
 <script>
-import { Checker, CheckerItem, Divider, Group, Cell, Popup } from 'vux'
+import { Checker, CheckerItem, Divider, Group, Cell, Popup, TransferDom } from 'vux'
 
 export default {
+  directives: {
+    TransferDom
+  },
   components: {
     Checker,
     CheckerItem,
