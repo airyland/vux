@@ -208,6 +208,7 @@ export default {
     value (val) {
       if (JSON.stringify(val) !== JSON.stringify(this.tempValue)) {
         this.tempValue = getObject(val)
+        this.currentValue = getObject(val)
       }
     },
     currentValue (val) {
