@@ -24,6 +24,8 @@ extra:
       h: 900
     }]
     ```
+    
+    <p class="warning">before v2.4.0, `w` and `h` should be specified.</p>
 
     Prevewing an image by index:
 
@@ -47,6 +49,8 @@ extra:
       h: 900
     }]
     ```
+
+    <p class="warning">注意在 v2.4.0 之前 w 和 h 都必须填写</p>
 
     显示特定index的图片，使用`ref`:
 
