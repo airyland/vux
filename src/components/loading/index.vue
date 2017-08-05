@@ -19,11 +19,12 @@ loading:
 <script>
 export default {
   name: 'loading',
+  model: {
+    prop: 'show',
+    event: 'change'
+  },
   props: {
-    value: {
-      type: Boolean,
-      default: false
-    },
+    show: Boolean,
     text: String,
     position: String,
     transition: {
@@ -31,20 +32,9 @@ export default {
       default: 'vux-mask'
     }
   },
-  created () {
-    this.show = this.value
-  },
-  data () {
-    return {
-      show: false
-    }
-  },
   watch: {
-    value (val) {
-      this.show = val
-    },
     show (val) {
-      this.$emit('input', val)
+      this.$emit('update:show', val)
     }
   }
 }

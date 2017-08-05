@@ -32,11 +32,11 @@ extra: |
    </p>
 
 props:
-  value:
+  show:
     type: Boolean
     default: false
     en: visibility of the component
-    zh-CN: 显示状态，使用`v-model`绑定
+    zh-CN: 显示状态，在 v2.5.7 前使用`v-model`绑定，后面直接使用 `:show` 绑定
   text:
     type: String
     default: ''
@@ -57,6 +57,11 @@ slots:
     en: content area
     zh-CN: 提示文字区域
 changes:
+  next:
+    en:
+      - '[fix] fix vue@2.4 no setter warning, use :show instead of v-model #1798'
+    zh-CN:
+      - '[fix] 修复 vue@2.4 no setter 警告，可以直接用 :show 绑定 #1798'
   v2.5.0:
     en:
       - '[feature] Add prop:transition'
