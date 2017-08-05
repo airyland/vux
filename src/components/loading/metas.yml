@@ -57,7 +57,7 @@ slots:
     en: content area
     zh-CN: 提示文字区域
 changes:
-  next:
+  v2.5.7:
     en:
       - '[fix] fix vue@2.4 no setter warning, use :show instead of v-model #1798'
     zh-CN:

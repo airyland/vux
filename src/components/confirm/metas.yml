@@ -100,7 +100,7 @@ props:
     en: whether auto close when confirm button is clicked
     zh-CN: 是否在点击确认按钮时自动关闭
   input-attrs:
-    version: next
+    version: v2.5.7
     type: Object
     en: input attributes
     zh-CN: input 属性
@@ -123,7 +123,7 @@ methods:
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
-  next:
+  v2.5.7:
     en:
       - '[feature] Support prop:input-attrs #1799'
     zh-CN:

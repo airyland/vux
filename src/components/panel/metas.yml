@@ -27,7 +27,7 @@ events:
     en: emits when clicking footer
     zh-CN: 点击尾部时触发
 changes:
-  next:
+  v2.5.7:
     en:
       - '[feature] use v-html binding #1784'
     zh-CN:
