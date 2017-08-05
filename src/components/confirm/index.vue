@@ -10,7 +10,7 @@
       <div class="weui-dialog__hd" v-if="!!title"><strong class="weui-dialog__title">{{title}}</strong></div>
       <div class="weui-dialog__bd" v-if="!showInput"><slot><div v-html="content"></div></slot></div>
       <div v-else class="vux-prompt">
-        <input class="vux-prompt-msgbox" v-model="msg" :placeholder="placeholder" ref="input"/>
+        <input class="vux-prompt-msgbox" v-bind="inputAttrs" v-model="msg" :placeholder="placeholder" ref="input"/>
       </div>
       <div class="weui-dialog__ft">
         <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" @click="_onCancel">{{cancelText || $t('cancel_text')}}</a>
@@ -72,7 +72,8 @@ export default {
     closeOnConfirm: {
       type: Boolean,
       default: true
-    }
+    },
+    inputAttrs: Object
   },
   created () {
     this.showValue = this.show

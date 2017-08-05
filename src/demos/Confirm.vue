@@ -30,6 +30,7 @@
       <confirm v-model="show3"
       show-input
       :title="$t('confirm deleting the item')"
+      :input-attrs="{type: 'number'}"
       @on-cancel="onCancel"
       @on-confirm="onConfirm"
       @on-show="onShow"

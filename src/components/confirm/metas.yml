@@ -99,6 +99,11 @@ props:
     default: true
     en: whether auto close when confirm button is clicked
     zh-CN: 是否在点击确认按钮时自动关闭
+  input-attrs:
+    version: next
+    type: Object
+    en: input attributes
+    zh-CN: input 属性
 slots:
   default:
     en: body content of the dialog
@@ -118,6 +123,11 @@ methods:
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
+  next:
+    en:
+      - '[feature] Support prop:input-attrs #1799'
+    zh-CN:
+      - '[feature] 支持 prop:input-attrs 设置额外属性 #1799'
   v2.5.5:
     en:
       - '[feature] Add method:setInputValue #1746'
