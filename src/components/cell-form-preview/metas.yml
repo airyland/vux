@@ -10,7 +10,7 @@ tags:
 extra: |
   
   <p class="warning">
-    `CellFromPreview` 需要在 `Group` 组件中使用。
+    `CellFormPreview` 需要在 `Group` 组件中使用。
   </p>
 
 
