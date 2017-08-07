@@ -19,6 +19,11 @@ tabbar:
     default:
       en: slot for tabbar items
       zh-CN: tabbar主体内容，只允许tabbar-item
+  events:
+    on-index-change:
+      version: v2.5.4
+      en: emits when value is changed
+      zh-CN: value 值变化时触发
 tabbar-item:
   props:
     selected:
@@ -55,10 +60,6 @@ tabbar-item:
     on-item-click:
       en: emits when tabbar item is clicked
       zh-CN: 点击菜单项时触发
-    on-index-change:
-      version: v2.5.4
-      en: emits when value is changed
-      zh-CN: value 值变化时触发
 changes:
   v2.5.5:
     en:
