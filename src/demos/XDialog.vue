@@ -4,6 +4,7 @@
     <group>
       <x-switch v-model="show" :title="$t('Toggle')"></x-switch>
       <x-switch v-model="show2" :title="$t('use .sync')"></x-switch>
+      <x-switch v-model="showToast" :title="$t('show toast')"></x-switch>
       <x-switch v-model="showHideOnBlur" :title="$t('hide on clicking mask')"></x-switch>
       <x-switch v-model="showDialogStyle" :title="$t('Toggle')" :inline-desc="$t('custom dialog style')"></x-switch>
     </group>
@@ -11,6 +12,17 @@
     <group style="padding-top: 300px">
       <x-switch v-model="showNoScroll" :title="$t('disable background scrolling')"></x-switch>
     </group>
+
+    <div v-transfer-dom>
+      <x-dialog v-model="showToast" class="dialog-demo">
+        <div style="padding:15px;">
+          <x-button @click.native="doShowToast" type="primary">show toast</x-button>
+        </div>
+        <div @click="showToast=false">
+          <span class="vux-close"></span>
+        </div>
+      </x-dialog>
+    </div>
 
     <div v-transfer-dom>
       <x-dialog v-model="show" class="dialog-demo">
@@ -99,6 +111,8 @@ long long content:
   zh-CN: 很长很长的内容
 custom dialog style:
   zh-CN: 自定义 dialog 容器样式
+show toast:
+  zh-CN: 显示 toast
 </i18n>
 
 <script>
@@ -114,10 +128,18 @@ export default {
     Group,
     XSwitch
   },
+  methods: {
+    doShowToast () {
+      this.$vux.toast.show({
+        text: 'toast'
+      })
+    }
+  },
   data () {
     return {
       show: false,
       show2: false,
+      showToast: false,
       showNoScroll: false,
       showHideOnBlur: false,
       showScrollBox: false,

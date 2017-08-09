@@ -85,6 +85,11 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
+  next:
+    en:
+      - "[fix] Toast's zIndex should be higher than XDialog's #1820"
+    zh-CN:
+      - '[fix] zIndex 值应该比 XDialog 大 #1820'
   v2.3.1:
     en:
       - '[feature] Add text method for plugin'
