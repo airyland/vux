@@ -134,6 +134,9 @@ events:
   on-show:
     en: emits when dialog shows
     zh-CN: 弹窗显示时触发
+  on-hide:
+    en: emits when dialog is closed
+    zh-CN: 弹窗关闭时触发
 changes:
   v2.5.5:
     en:
