@@ -81,6 +81,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  next:
+    en:
+      - '[fix] prevent background scrolling when popup is show #1830'
+    zh-CN:
+      - '[fix] popup显示时阻止背景滚动 #1830'
   v2.5.7:
     en:
       - '[fix] Fix render issue after changing value #1793'

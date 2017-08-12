@@ -125,6 +125,8 @@ export default {
         this.popup && this.popup.show()
         this.$emit('on-show')
         this.fixSafariOverflowScrolling('auto')
+        document.body.style.overflow = 'hidden'
+        document.body.style.position = 'fixed'
         if (!this.hasFirstShow) {
           this.$emit('on-first-show')
           this.hasFirstShow = true
@@ -137,6 +139,8 @@ export default {
           if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
             this.fixSafariOverflowScrolling('touch')
           }
+          document.body.style.overflow = ''
+          document.body.style.position = ''
         }, 200)
       }
     }
