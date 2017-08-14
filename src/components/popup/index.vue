@@ -8,6 +8,7 @@
 
 <script>
 import Popup from './popup'
+import dom from '../../libs/dom'
 
 export default {
   name: 'popup',
@@ -125,8 +126,7 @@ export default {
         this.popup && this.popup.show()
         this.$emit('on-show')
         this.fixSafariOverflowScrolling('auto')
-        document.body.style.overflow = 'hidden'
-        document.body.style.position = 'fixed'
+        dom.addClass(document.body, 'modal-open')
         if (!this.hasFirstShow) {
           this.$emit('on-first-show')
           this.hasFirstShow = true
@@ -139,8 +139,7 @@ export default {
           if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
             this.fixSafariOverflowScrolling('touch')
           }
-          document.body.style.overflow = ''
-          document.body.style.position = ''
+          dom.removeClass(document.body, 'modal-open')
         }, 200)
       }
     }
@@ -222,5 +221,10 @@ export default {
 
 .vux-popup-animate-top-enter, .vux-popup-animate-top-leave-active {
   transform: translate3d(0, -100%, 0);
+}
+
+.modal-open {
+  overflow: hidden;
+  position: fixed;
 }
 </style>
