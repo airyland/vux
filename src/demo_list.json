@@ -108,5 +108,6 @@
   "DatetimeView",
   "InlineXNumber",
   "PopupHeader",
-  "InlineCalendarMulti#/demo/inline-calendar-multi"
+  "InlineCalendarMulti#/demo/inline-calendar-multi",
+  "XImgPopup#/demo/x-img-popup"
 ]

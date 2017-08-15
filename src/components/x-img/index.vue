@@ -78,9 +78,11 @@ export default {
 </script>
 
 <style>
-.b-lazy {
+.vux-x-img, .b-lazy {
   transition: opacity 500ms ease-in-out;
   max-width: 100%;
+}
+.b-lazy {
   opacity: 0;
 }
 
