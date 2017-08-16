@@ -1,6 +1,7 @@
 <template>
 <div>
   <inline-calendar
+  @on-change="onChange"
   class="inline-calendar-demo"
   :show.sync="show"
   v-model="value"
@@ -81,6 +82,11 @@
 import { InlineCalendar, Group, XSwitch, Radio, XButton, Cell, Divider } from 'vux'
 
 export default {
+  methods: {
+    onChange (val) {
+      console.log('on-change', val)
+    }
+  },
   data () {
     return {
       show: true,

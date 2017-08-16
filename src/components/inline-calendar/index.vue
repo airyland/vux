@@ -261,7 +261,6 @@ export default {
         this.render(this.year, this.month, value)
       }
       this.$emit('input', this.currentValue)
-      this.$emit('on-change', this.currentValue)
     },
     showChild (year, month, child) {
       if (this.replaceText(child.day, this.formatDate(year, month, child))) {

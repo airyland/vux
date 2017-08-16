@@ -97,6 +97,11 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
+  next:
+    en:
+      - '[fix] fix on-change event fires twice #1847'
+    zh-CN:
+      - '[fix] 修复 on-change 事件触发两次问题 #1847'
   v2.5.5:
     en:
       - '[feature] support multi select #1446 #1467'
