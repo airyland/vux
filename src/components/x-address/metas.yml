@@ -110,8 +110,8 @@ props:
   show:
     version: v2.5.8
     type: Boolean
-    en: popup show
-    zh-CN: 显示
+    en: popup show (supports the .sync modifier next)
+    zh-CN: 显示 (支持.sync修饰 next)
 slots:
   title:
     version: v2.3.8
@@ -130,6 +130,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  next:
+    en:
+      - '[feature] prop:show supports the .sync modifier'
+    zh-CN:
+      - '[feature] prop:show 支持.sync修饰'
   v2.5.8:
     en:
       - '[feature] Add prop:show to control visibility'

@@ -39,7 +39,7 @@
        <x-button @click.native="showPopupPicker = true" type="primary">Show PopupPicker. value: {{value5 }}</x-button>
      </div>
      <group>
-       <popup-picker :show="showPopupPicker" :show-cell="false" title="TEST" :data="[['1', '2', '3', '4', '5']]" v-model="value5" @on-hide="showPopupPicker=false"></popup-picker>
+       <popup-picker :show.sync="showPopupPicker" :show-cell="false" title="TEST" :data="[['1', '2', '3', '4', '5']]" v-model="value5"></popup-picker>
      </group>
 
      <br>
