@@ -108,7 +108,7 @@ props:
     en: popup style
     zh-CN: 弹窗样式，可以用于强制指定 z-index
   show:
-    version: next
+    version: v2.5.8
     type: Boolean
     en: popup show
     zh-CN: 显示
@@ -130,7 +130,7 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
-  next:
+  v2.5.8:
     en:
       - '[feature] Add prop:show to control visibility'
     zh-CN:

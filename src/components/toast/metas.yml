@@ -85,7 +85,7 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
-  next:
+  v2.5.8:
     en:
       - "[fix] Toast's zIndex should be higher than XDialog's #1820"
     zh-CN:

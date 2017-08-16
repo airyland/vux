@@ -97,7 +97,7 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
-  next:
+  v2.5.8:
     en:
       - '[fix] fix on-change event fires twice #1847'
     zh-CN:
