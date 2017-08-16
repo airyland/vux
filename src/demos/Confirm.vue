@@ -184,10 +184,12 @@ export default {
       this.showPlugin()
     },
     showPlugin3 () {
+      const _this = this
       this.$vux.confirm.prompt('123', {
         title: 'Title',
         onShow () {
           console.log('promt show')
+          _this.$vux.confirm.setInputValue('set input value')
         },
         onHide () {
           console.log('prompt hide')

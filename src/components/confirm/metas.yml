@@ -38,6 +38,8 @@ extra: |
     onCancel () {}
     onConfirm () {}
   })
+  // 设置输入值
+  this.$vux.confirm.setInputValue('value') // 注意需要在 onShow 事件中执行
   ```
 props:
   show:
@@ -123,6 +125,11 @@ methods:
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
+  next:
+    en:
+      - '[feature] Support method:setInputValue for plugin #1846'
+    zh-CN:
+      - '[feature] 插件支持 setInputValue 方法 #1846'
   v2.5.7:
     en:
       - '[feature] Support prop:input-attrs #1799'
