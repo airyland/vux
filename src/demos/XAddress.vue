@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" @on-shadow-change="onShadowChange" placeholder="请选择地址" inline-desc="可以设置placeholder"></x-address>
+      <x-address @on-hide="logHide" @on-show="logShow" :title="title" v-model="value" :list="addressData" @on-shadow-change="onShadowChange" placeholder="请选择地址" inline-desc="可以设置placeholder" :show="showAddress"></x-address>
       <cell title="上面value值" :value="value"></cell>
     </group>
 
@@ -22,6 +22,7 @@
     </group>
     <br/>
     <div style="padding: 0 15px;">
+      <x-button type="primary" @click.native="showAddress=true">显示</x-button>
       <x-button type="primary" @click.native="changeData">改变数据（通过 id）</x-button>
       <x-button type="primary" @click.native="changeDataByLabels">改变数据（通过文字值）</x-button>
       <x-button type="primary" @click.native="changeDataByLabels2">改变数据（两级，通过文字值）</x-button>
@@ -64,7 +65,8 @@ export default {
       value3: ['广东省', '中山市', '--'],
       addressData: ChinaAddressV3Data,
       value4: [],
-      value5: ['广东省', '深圳 市', '南山区']
+      value5: ['广东省', '深圳 市', '南山区'],
+      showAddress: false
     }
   },
   methods: {
@@ -85,6 +87,7 @@ export default {
     },
     logHide (str) {
       console.log('on-hide', str)
+      this.showAddress = false
     },
     logShow (str) {
       console.log('on-show')

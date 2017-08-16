@@ -16,6 +16,7 @@
     :cancel-text="cancelText"
     :display-format="displayFormat"
     :popup-style="popupStyle"
+    :show="show"
     @on-shadow-change="onShadowChange">
       <template slot="title" scope="props">
         <slot name="title" :label-class="props.labelClass" :label-style="props.labelStyles" :label-title="props.title">
@@ -63,7 +64,8 @@ export default {
       type: Function,
       default: (val, names) => names
     },
-    popupStyle: Object
+    popupStyle: Object,
+    show: Boolean
   },
   created () {
     if (this.currentValue.length && this.rawValue) {
