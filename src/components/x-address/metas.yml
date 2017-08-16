@@ -107,6 +107,11 @@ props:
     type: Object
     en: popup style
     zh-CN: 弹窗样式，可以用于强制指定 z-index
+  show:
+    version: next
+    type: Boolean
+    en: popup show
+    zh-CN: 显示
 slots:
   title:
     version: v2.3.8
@@ -125,6 +130,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  next:
+    en:
+      - '[feature] Add prop:show to control visibility'
+    zh-CN:
+      - '[feature] 新增 prop:show 控制是否显示'
   v2.5.6:
     en:
       - '[feature] Support event:on-shadow-change #1778'
