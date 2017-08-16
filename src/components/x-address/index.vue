@@ -16,7 +16,7 @@
     :cancel-text="cancelText"
     :display-format="displayFormat"
     :popup-style="popupStyle"
-    :show="show"
+    :show.sync="showValue"
     @on-shadow-change="onShadowChange">
       <template slot="title" scope="props">
         <slot name="title" :label-class="props.labelClass" :label-style="props.labelStyles" :label-title="props.title">
@@ -77,6 +77,9 @@ export default {
         this.currentValue = parsedVal.split(' ')
       }
     }
+    if (this.show) {
+      this.showValue = true
+    }
   },
   methods: {
     emitHide (val) {
@@ -91,7 +94,8 @@ export default {
   },
   data () {
     return {
-      currentValue: this.value
+      currentValue: this.value,
+      showValue: false
     }
   },
   computed: {
@@ -117,6 +121,12 @@ export default {
         }
       }
       this.currentValue = val
+    },
+    show (val) {
+      this.showValue = val
+    },
+    showValue (val) {
+      this.$emit('update:show', val)
     }
   }
 }

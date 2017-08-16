@@ -42,6 +42,10 @@ props:
   inline-desc:
     en: description text below label
     zh-CN: Cell的描述文字
+  show:
+    type: Boolean
+    en: popup show (supports the .sync modifier next)
+    zh-CN: 显示 (支持.sync修饰 next)
   value-text-align:
     type: String
     version: v2.1.0-rc.3

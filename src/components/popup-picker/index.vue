@@ -217,6 +217,9 @@ export default {
     },
     show (val) {
       this.showValue = val
+    },
+    showValue (val) {
+      this.$emit('update:show', val)
     }
   },
   data () {
