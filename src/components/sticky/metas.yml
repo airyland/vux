@@ -67,6 +67,11 @@ methods:
     en: manually re-bind sticky
     zh-CN: 手动重新绑定，用于内容变化导致位置变化定位不再正确的情况
 changes:
+  next:
+    en:
+      - '[fix] Fix scrollTop always return 0 #1827'
+    zh-CN:
+      - '[fix] 修复 scrollTop 总是返回0的问题 #1827'
   v2.5.4:
     en:
       - '[fix] Auto re-bind after router-view transition is finished'
