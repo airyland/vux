@@ -38,7 +38,7 @@ export default function (nav, options = {}) {
 
   const getTop = function () {
     if (scrollBox === window) {
-      return document.documentElement.scrollTop
+      return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop
     } else {
       return scrollBox.scrollTop
     }
