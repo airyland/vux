@@ -360,6 +360,9 @@ DatetimePicker.prototype = {
 
   // after year change
   _setMonthScroller (currentValue, month) {
+    if (!this.monthScroller) {
+      return
+    }
     const self = this
     this.monthScroller.destroy()
     const div = self.find('[data-role=month]')
@@ -374,6 +377,9 @@ DatetimePicker.prototype = {
   },
 
   _setDayScroller (year, month, day) {
+    if (!this.dayScroller) {
+      return
+    }
     const self = this
     const maxDay = getMaxDay(year, month)
     if (day > maxDay) {
@@ -388,6 +394,9 @@ DatetimePicker.prototype = {
   },
 
   _setHourScroller (year, month, day, hour) {
+    if (!this.hourScroller) {
+      return
+    }
     const self = this
     self.hourScroller.destroy()
     const div = self.find('[data-role=hour]')

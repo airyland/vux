@@ -150,6 +150,11 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
+  next:
+    en:
+      - '[fix] fix error when format is YYYY #1861'
+    zh-CN:
+      - '[fix] 修复格式为 YYYY 时的报错 #1861'
   v2.5.5:
     en:
       - '[feature] support prop:compute-hours-function #1749'
