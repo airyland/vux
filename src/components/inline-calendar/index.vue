@@ -241,7 +241,7 @@ export default {
           this.currentValue.push(_currentValue)
         }
       } else {
-        this.currentValue = this.currentValue === _currentValue ? '' : _currentValue
+        this.currentValue = _currentValue
       }
 
       this.currentValueChange()

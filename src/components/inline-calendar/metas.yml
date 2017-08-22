@@ -97,6 +97,11 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
+  next:
+    en:
+      - '[fix] donot set value to empty string when clicking on current selected item #1862'
+    zh-CN:
+      - '[fix] 点击当前日期项时不把值置为空 #1862'
   v2.5.8:
     en:
       - '[fix] fix on-change event fires twice #1847'
