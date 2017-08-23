@@ -26,6 +26,11 @@ events:
     en: emits when right text is clicked
     zh-CN: 右侧文字点击时触发
 changes:
+  next:
+    en:
+      - '[fix] fix wrong slot name'
+    zh-CN:
+      - '[fix] 修复错误的 slot 名字'
   v2.5.2:
     en:
       - '[feature] new component'
