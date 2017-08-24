@@ -226,5 +226,6 @@ export default {
 .modal-open {
   overflow: hidden;
   position: fixed;
+  width: 100%;
 }
 </style>
