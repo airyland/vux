@@ -19,6 +19,10 @@ marquee:
       default: up
       en: direction of animation
       zh-CN: 切换方向
+    item-height:
+      type: Number
+      en: item height, set value if marquee initial state is hidden
+      zh-CN: 条目高度，当默认状态为隐藏时你需要设置值，否则组件渲染时会获取不到正确高度
   slots:
       default:
         en: container of marquee items
@@ -29,6 +33,11 @@ marquee-item:
       en: content slot
       zh-CN: 内容插槽
 changes:
+  next:
+    en:
+      - '[feature] Support prop:item-height #1885'
+    zh-CN:
+      - '[feature] 支持 prop:item-height #1885'
   v2.1.1-rc.12:
     en:
       - '[feature] Support async marquee-item'
