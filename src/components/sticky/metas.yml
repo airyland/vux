@@ -67,7 +67,7 @@ methods:
     en: manually re-bind sticky
     zh-CN: 手动重新绑定，用于内容变化导致位置变化定位不再正确的情况
 changes:
-  next:
+  v2.5.9:
     en:
       - '[fix] Fix scrollTop always return 0 #1827'
     zh-CN:

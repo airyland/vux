@@ -97,7 +97,7 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
-  next:
+  v2.5.9:
     en:
       - '[fix] donot set value to empty string when clicking on current selected item #1862'
     zh-CN:
