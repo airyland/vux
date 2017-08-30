@@ -71,7 +71,26 @@ events:
     version: v2.2.1-rc.4
     en: emits after closing
     zh-CN: 关闭时触发
+methods:
+  goTo:
+    version: next
+    params: '(index)'
+    en: go to specified image
+    zh-CN: 跳转到特定图片
+  prev:
+    version: next
+    en: go to previous image
+    zh-CN: 跳转到上一张
+  next:
+    version: next
+    en: go to next image
+    zh-CN: 跳转到下一张
 changes:
+  next:
+    en:
+      - '[enhance] Support method:goTo  #1888'
+    zh-CN:
+      - '[enhance] 支持 goTo 方法 #1888'
   v2.4.0:
     en:
       - '[enhance] Use src as msrc by default'
