@@ -24,7 +24,7 @@ slots:
     en: custom how label displays
     zh-CN: 自定义每个条目显示内容
 changes:
-  next:
+  v2.5.10:
     en:
       - '[feature] support @cell-value-color #1874'
     zh-CN:

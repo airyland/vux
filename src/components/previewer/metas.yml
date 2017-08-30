@@ -73,20 +73,20 @@ events:
     zh-CN: 关闭时触发
 methods:
   goTo:
-    version: next
+    version: v2.5.10
     params: '(index)'
     en: go to specified image
     zh-CN: 跳转到特定图片
   prev:
-    version: next
+    version: v2.5.10
     en: go to previous image
     zh-CN: 跳转到上一张
-  next:
-    version: next
+  v2.5.10:
+    version: v2.5.10
     en: go to next image
     zh-CN: 跳转到下一张
 changes:
-  next:
+  v2.5.10:
     en:
       - '[enhance] Support method:goTo  #1888'
     zh-CN:

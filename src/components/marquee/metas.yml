@@ -33,7 +33,7 @@ marquee-item:
       en: content slot
       zh-CN: 内容插槽
 changes:
-  next:
+  v2.5.10:
     en:
       - '[feature] Support prop:item-height #1885'
     zh-CN:

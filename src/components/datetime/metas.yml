@@ -150,7 +150,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.5.10:
     en:
       - '[feature] support @cell-value-color #1874'
     zh-CN:

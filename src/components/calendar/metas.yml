@@ -58,7 +58,7 @@ events:
     en: emits when value changes
     zh-CN: 值改变时触发
 changes:
-  next:
+  v2.5.10:
     en:
       - '[feature] Support prop:placeholder'
     zh-CN:
