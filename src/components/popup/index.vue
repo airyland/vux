@@ -126,7 +126,7 @@ export default {
         this.popup && this.popup.show()
         this.$emit('on-show')
         this.fixSafariOverflowScrolling('auto')
-        dom.addClass(document.body, 'modal-open')
+        dom.addClass(document.body, 'vux-modal-open')
         if (!this.hasFirstShow) {
           this.$emit('on-first-show')
           this.hasFirstShow = true
@@ -139,7 +139,7 @@ export default {
           if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
             this.fixSafariOverflowScrolling('touch')
           }
-          dom.removeClass(document.body, 'modal-open')
+          dom.removeClass(document.body, 'vux-modal-open')
         }, 200)
       }
     }
@@ -223,7 +223,7 @@ export default {
   transform: translate3d(0, -100%, 0);
 }
 
-.modal-open {
+.vux-modal-open {
   overflow: hidden;
   position: fixed;
   width: 100%;
