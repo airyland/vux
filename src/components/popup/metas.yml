@@ -70,6 +70,11 @@ slots:
     en: content body
     zh-CN: 弹窗主体内容
 changes:
+  next:
+    en:
+      - '[fix] Fix class helper typo issue #1893'
+    zh-CN:
+      - '[fix] 修复 class 工具函数拼写错误 #1893'
   v2.5.9:
     en:
       - '[fix] Fix layout errors when body not set 100% width #1867'

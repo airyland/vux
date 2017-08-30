@@ -6,7 +6,7 @@ export default {
     if (el.classList) {
       el.classList.add(token)
     } else if (!this.hasClass(el, token)) {
-      el.classNae += '' + token
+      el.className += '' + token
     }
   },
   removeClass (el, token) {
