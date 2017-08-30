@@ -1,6 +1,9 @@
 <template>
   <div>
-    <cell :title="title" primary="content" :value="currentValue" @click.native="onClick" is-link></cell>
+    <cell :title="title" primary="content" @click.native="onClick" is-link>
+      <span class="vux-cell-placeholder" v-if="!currentValue || placeholder">{{ placeholder }}</span>
+      <span class="vux-cell-value" v-if="currentValue">{{ currentValue }}</span>
+    </cell>
     <div v-transfer-dom>
       <popup v-model="show">
         <inline-calendar
@@ -34,10 +37,13 @@ import Cell from '../cell'
 import props from '../inline-calendar/props'
 import TransferDom from '../../directives/transfer-dom'
 
-const Props = props()
-Props.title = {
-  type: String,
-  required: true
+const Props = {
+  ...props(),
+  title: {
+    type: String,
+    required: true
+  },
+  placeholder: String
 }
 
 export default {

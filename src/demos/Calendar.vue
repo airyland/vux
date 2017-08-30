@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <calendar v-model="demo1" :title="$t('Basic Usage')" disable-past></calendar>
+      <calendar v-model="demo1" :title="$t('Basic Usage')" disable-past placeholder="placeholder"></calendar>
     </group>
     <group>
       <calendar v-model="demo2" :title="$t('set value as TODAY')" disable-past></calendar>

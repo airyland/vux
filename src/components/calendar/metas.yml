@@ -48,8 +48,18 @@ props:
     default: ''
     zh-CN: label文字
     en: text of label
+  placeholder:
+    type: String
+    en: placeholder
+    zh-CN: 占位提示文字
 events:
   on-change:
     params: (value)
     en: emits when value changes
     zh-CN: 值改变时触发
+changes:
+  next:
+    en:
+      - '[feature] Support prop:placeholder'
+    zh-CN:
+      - '[feature] 支持 prop:placeholder'
