@@ -13,7 +13,8 @@
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </div>
       <div class="weui-cell__ft vux-cell-primary vux-datetime-value" :style="{textAlign: valueTextAlign}">
-        {{ _value }}
+        <span class="vux-cell-placeholder" v-if="!currentValue && placeholder">{{ placeholder }}</span>
+        <span class="vux-cell-value" v-if="currentValue">{{ displayFormat ? displayFormat(currentValue) : currentValue }}</span>
         <icon class="vux-input-icon" type="warn" v-show="!valid" :title="firstError"></icon>
       </div>
     </slot>
@@ -126,13 +127,6 @@ export default {
     }
   },
   computed: {
-    _value () {
-      if (!this.currentValue) {
-        return this.placeholder || ''
-      } else {
-        return this.displayFormat ? this.displayFormat(this.currentValue) : this.currentValue
-      }
-    },
     pickerOptions () {
       const _this = this
       const options = {

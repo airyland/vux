@@ -85,6 +85,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  next:
+    en:
+      - '[feature] support @cell-value-color #1874'
+    zh-CN:
+      - '[feature] 值文字颜色受控于 @cell-value-color #1874'
   v2.5.8:
     en:
       - '[fix] prevent background scrolling when popup is show #1830'

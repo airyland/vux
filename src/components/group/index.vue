@@ -31,4 +31,12 @@ export default {
 .vux-no-group-title {
   margin-top: @group-title-margin-top;
 }
+
+/* global config for group items */
+.vux-cell-value {
+  color: @cell-value-color;
+}
+.vux-cell-placeholder {
+  color: @cell-placeholder-color;
+}
 </style>

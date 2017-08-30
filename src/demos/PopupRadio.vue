@@ -5,7 +5,7 @@
     </group>
 
     <group>
-      <popup-radio title="options" :options="options2" v-model="option2"></popup-radio>
+      <popup-radio title="options" :options="options2" v-model="option2" placeholder="placeholder"></popup-radio>
     </group>
 
     <group>

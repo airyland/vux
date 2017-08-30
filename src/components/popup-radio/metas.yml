@@ -24,6 +24,11 @@ slots:
     en: custom how label displays
     zh-CN: 自定义每个条目显示内容
 changes:
+  next:
+    en:
+      - '[feature] support @cell-value-color #1874'
+    zh-CN:
+      - '[feature] 值文字颜色受控于 @cell-value-color #1874'
   v2.3.7:
     en:
       - '[feature] Add slot:each-item'

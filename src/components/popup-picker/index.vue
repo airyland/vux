@@ -9,10 +9,10 @@
       </div>
       <div class="vux-cell-primary vux-popup-picker-select-box">
         <div class="vux-popup-picker-select" :style="{textAlign: valueTextAlign}">
-          <span class="vux-popup-picker-value" v-if="!displayFormat && !showName && value.length">{{value | array2string}}</span>
-          <span class="vux-popup-picker-value" v-if="!displayFormat && showName && value.length">{{value | value2name(data)}}</span>
-          <span class="vux-popup-picker-value" v-if="displayFormat && value.length">{{ displayFormat(value, value2name(value, data)) }}</span>
-          <span v-if="!value.length && placeholder" v-text="placeholder" class="vux-popup-picker-placeholder"></span>
+          <span class="vux-popup-picker-value vux-cell-value" v-if="!displayFormat && !showName && value.length">{{value | array2string}}</span>
+          <span class="vux-popup-picker-value vux-cell-value" v-if="!displayFormat && showName && value.length">{{value | value2name(data)}}</span>
+          <span class="vux-popup-picker-value vux-cell-value" v-if="displayFormat && value.length">{{ displayFormat(value, value2name(value, data)) }}</span>
+          <span v-if="!value.length && placeholder" v-text="placeholder" class="vux-popup-picker-placeholder vux-cell-placeholder"></span>
         </div>
       </div>
       <div class="weui-cell__ft">
