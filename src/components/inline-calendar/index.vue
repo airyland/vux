@@ -370,7 +370,7 @@ export default {
 }
 .inline-calendar {
   width: 100%;
-  background: #fff;
+  background-color: @calendar-bg-color;
   border-radius: 2px;
   transition: all .5s ease;
 }

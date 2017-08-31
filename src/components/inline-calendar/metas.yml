@@ -97,6 +97,11 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
+  next:
+    en:
+      - '[feature] support less variable @calendar-bg-color'
+    zh-CN:
+      - '[feature] 支持 less 变量 @calendar-bg-color'
   v2.5.9:
     en:
       - '[fix] donot set value to empty string when clicking on current selected item #1862'
