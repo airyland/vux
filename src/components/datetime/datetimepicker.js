@@ -373,6 +373,9 @@ DatetimePicker.prototype = {
         const currentDay = self.dayScroller.value
         self._setDayScroller(currentYear, currentValue, currentDay)
       }
+      if (self.yearScroller && self.monthScroller && self.hourScroller) {
+        self._setHourScroller(currentYear, currentValue, self.dayScroller.value, self.hourScroller.value)
+      }
     })
   },
 
