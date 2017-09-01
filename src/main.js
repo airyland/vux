@@ -47,7 +47,7 @@ store.registerModule('vux', {
 Vue.use(vuexI18n.plugin, store)
 
 // plugins
-import { BusPlugin, DatetimePlugin, LocalePlugin, DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin, AppPlugin } from 'vux'
+import { ConfigPlugin, BusPlugin, DatetimePlugin, LocalePlugin, DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin, AppPlugin } from 'vux'
 
 Vue.use(DevicePlugin)
 Vue.use(ToastPlugin)
@@ -59,6 +59,9 @@ Vue.use(AjaxPlugin)
 Vue.use(LocalePlugin)
 Vue.use(DatetimePlugin)
 Vue.use(BusPlugin)
+Vue.use(ConfigPlugin, {
+  $layout: 'VIEW_BOX' // global config for VUX, since v2.6.0
+})
 
 // test
 if (process.env.platform === 'app') {

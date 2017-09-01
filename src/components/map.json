@@ -30,6 +30,7 @@
   "ClickOutsideDirective": "src/directives/click-outside/index.js",
   "Clocker": "src/components/clocker/index.vue",
   "ColorPicker": "src/components/color-picker/index.vue",
+  "ConfigPlugin": "src/plugins/config/index.js",
   "Confirm": "src/components/confirm/index.vue",
   "ConfirmPlugin": "src/plugins/confirm/index.js",
   "cookie": "src/tools/cookie/index.js",
