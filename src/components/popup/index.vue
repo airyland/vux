@@ -42,6 +42,12 @@ export default {
       default: true
     }
   },
+  created () {
+    // get global layout config
+    if (this.$vux && this.$vux.config && this.$vux.config.$layout === 'VIEW_BOX') {
+      this.layout = 'VIEW_BOX'
+    }
+  },
   mounted () {
     this.$overflowScrollingList = document.querySelectorAll('.vux-fix-safari-overflow-scrolling')
     this.$nextTick(() => {
@@ -89,6 +95,7 @@ export default {
   },
   data () {
     return {
+      layout: '',
       initialShow: true,
       hasFirstShow: false,
       show: this.value
@@ -126,7 +133,7 @@ export default {
         this.popup && this.popup.show()
         this.$emit('on-show')
         this.fixSafariOverflowScrolling('auto')
-        dom.addClass(document.body, 'vux-modal-open')
+        this.layout === 'VIEW_BOX' && dom.addClass(document.body, 'vux-modal-open')
         if (!this.hasFirstShow) {
           this.$emit('on-first-show')
           this.hasFirstShow = true
@@ -139,7 +146,7 @@ export default {
           if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
             this.fixSafariOverflowScrolling('touch')
           }
-          dom.removeClass(document.body, 'vux-modal-open')
+          this.layout === 'VIEW_BOX' && dom.removeClass(document.body, 'vux-modal-open')
         }, 200)
       }
     }
