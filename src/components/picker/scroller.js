@@ -63,6 +63,7 @@ var Scroller = function (container, options) {
 
   self.__callback = options.callback || function (top) {
     content.style.webkitTransform = 'translate3d(0, ' + (-top) + 'px, 0)'
+    content.style.transform = 'translate3d(0, ' + (-top) + 'px, 0)'
   }
 
   var rect = component.getBoundingClientRect()
