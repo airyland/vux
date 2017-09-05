@@ -20,7 +20,7 @@ extra: |
     }
     ```
 
-   view-box父div也需要为100%高度：
+   view-box`所有父div`也需要为100%高度：
 
    ``` html
    <div style="height:100%;">
