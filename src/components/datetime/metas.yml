@@ -152,8 +152,10 @@ events:
 changes:
   next:
     en:
+      - '[fix] fix :show.syc="false" do no work #1918'
       - '[fix] fix prop:compute-hours-function not working when month is changed'
     zh-CN:
+      - '[fix] 修复 :show.sync 设为 false 无效 #1918'
       - '[fix] 修复特定情况下月份变化不会触发小时重新渲染的问题'
   v2.5.10:
     en:

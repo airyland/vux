@@ -226,6 +226,8 @@ export default {
     show (val) {
       if (val) {
         this.picker && this.picker.show(this.currentValue)
+      } else {
+        this.picker && this.picker.hide(this.currentValue)
       }
     },
     currentValue (val, oldVal) {
