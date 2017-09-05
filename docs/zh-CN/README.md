@@ -230,15 +230,22 @@ Vue.use(ToastPlugin)
   </style>
   ```
 
-- 配置vue-loader（通过配置vux-loader实现）
+- 配置 vux-loader
+
+  请在`build/webpack.base.conf.js`里参照如下代码进行配置：
+
+  <p class="warning">注意：请把 resolve 里的 symlink 设为 `true` 如果你是使用 cnpm 进行依赖安装 </p>
 
   ``` js
-  // vux-loader
-  plugins: [{
-    name: 'vux-ui'
-  }]
+  const vuxLoader = require('vux-loader')
+  const webpackConfig = originalConfig // 原来的 module.exports 代码赋值给变量 webpackConfig
+
+  module.exports = vuxLoader.merge(webpackConfig, {
+    plugins: ['vux-ui']
+  })
   ```
-- 配置babel-loader以正确编译Vux的js源码（通过配置vux-loader实现）
+
+- 配置babel-loader以正确编译 VUX 的js源码（通过配置vux-loader实现）
 
   ``` js
   plugins: [{
