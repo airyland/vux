@@ -150,7 +150,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.5.11:
     en:
       - '[fix] fix :show.syc="false" do no work #1918'
       - '[fix] fix prop:compute-hours-function not working when month is changed'

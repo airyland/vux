@@ -98,11 +98,11 @@ events:
     zh-CN: 值变化时触发
 methods:
   getDates:
-    version: next
+    version: v2.5.11
     en: get current date list
     zh-CN: 获取当前日期列表
 changes:
-  next:
+  v2.5.11:
     en:
       - '[feature] support method:getDates'
       - '[feature] support less variable @calendar-bg-color'
