@@ -147,6 +147,9 @@ export default {
     }
   },
   methods: {
+    getDates () {
+      return this.days
+    },
     replaceText (day, formatDay) {
       let text = this._replaceTextList[formatDay]
       if (!text && typeof text === 'undefined') {

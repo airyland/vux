@@ -96,11 +96,18 @@ events:
   on-change:
     en: emits when value is changed
     zh-CN: 值变化时触发
+methods:
+  getDates:
+    version: next
+    en: get current date list
+    zh-CN: 获取当前日期列表
 changes:
   next:
     en:
+      - '[feature] support method:getDates'
       - '[feature] support less variable @calendar-bg-color'
     zh-CN:
+      - '[feature] 支持方法 getDates 用于需要获取渲染日期列表的场合'
       - '[feature] 支持 less 变量 @calendar-bg-color'
   v2.5.9:
     en:
