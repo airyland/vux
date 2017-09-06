@@ -10,7 +10,7 @@
       <x-switch title="default max-height=100%" v-model="show12"></x-switch>
       <x-switch title="set max-height=50%" v-model="show13"></x-switch>
     </group>
-    
+
     <div v-transfer-dom>
       <popup v-model="show" @on-hide="log('hide')" @on-show="log('show')">
         <div class="popup0">
@@ -23,7 +23,7 @@
     </div>
 
     <toast v-model="showToast">You did it!</toast>
-    
+
     <div v-transfer-dom>
       <popup v-model="show1" height="100%">
         <div class="popup1">
@@ -33,7 +33,7 @@
         </div>
       </popup>
     </div>
-    
+
     <div v-transfer-dom>
       <popup v-model="show2" height="200px" @on-first-show="resetScroller">
         <scroller height="100px" lock-x style="border:1px solid red;" ref="scroller">
@@ -43,7 +43,7 @@
         </scroller>
       </popup>
     </div>
-    
+
     <div v-transfer-dom>
       <popup v-model="show3">
         <div class="popup2">
@@ -55,7 +55,7 @@
         </div>
       </popup>
     </div>
-    
+
     <div v-transfer-dom>
       <popup v-model="show4">
         <div class="popup2">
@@ -66,7 +66,7 @@
         </div>
       </popup>
     </div>
-    
+
     <div v-transfer-dom>
       <popup v-model="show5" :hide-on-blur=false>
         <div class="popup2">
@@ -77,7 +77,7 @@
         </div>
       </popup>
     </div>
-    
+
     <div v-transfer-dom>
       <popup v-model="show6">
         <div class="popup1">
@@ -94,7 +94,7 @@
     <group>
       <x-switch title="transparent background" v-model="show7"></x-switch>
     </group>
-    
+
     <div v-transfer-dom>
       <popup v-model="show7" height="270px" is-transparent>
         <div style="width: 95%;background-color:#fff;height:250px;margin:0 auto;border-radius:5px;padding-top:10px;">
@@ -124,7 +124,7 @@
         </div>
       </popup>
     </div>
-    
+
     <div v-transfer-dom>
       <popup v-model="show9" position="right">
         <div style="width:200px;">
@@ -170,11 +170,41 @@
       </popup>
     </div>
 
+    <group>
+      <x-switch title="popup form" v-model="show15"></x-switch>
+    </group>
+
+    <div v-transfer-dom>
+      <popup v-model="show14" height="100%">
+        <div>
+          <checklist title="请选择你喜欢的颜色" label-position="left" :max="3" :options="options14" v-model="form.colors" @on-change="chooseColor"></checklist>
+          <div style="padding: 15px;">
+            <x-button @click.native="show14 = false;" plain type="primary"> 确定 </x-button>
+          </div>
+        </div>
+      </popup>
+    </div>
+
+    <div v-transfer-dom>
+      <popup v-model="show15" height="100%">
+        <div>
+          <group>
+            <cell :class="{chosen: !!form.colors.length}" title="颜色选择" :value="form.colors.join(' ') ? form.colors.join(' ') : '请选择'" is-link @click.native="show14 = true;"></cell>
+            <popup-picker title="手机机型" v-model="form.mobile" :data="data14" placeholder="请选择机型"></popup-picker>
+            <x-address title="配货地址" v-model="form.address" :list="addressData" placeholder="请选择地址"></x-address>
+          </group>
+          <div style="padding: 15px;">
+            <x-button @click.native="submitForm" plain type="primary"> 提交 </x-button>
+          </div>
+        </div>
+      </popup>
+    </div>
+
   </div>
 </template>
 
 <script>
-import { TransferDom, Popup, Group, Cell, XButton, XSwitch, Scroller, Toast, XAddress, ChinaAddressData } from 'vux'
+import { TransferDom, Popup, PopupPicker, Checklist, Group, Cell, XButton, XSwitch, Scroller, Toast, XAddress, ChinaAddressData } from 'vux'
 
 export default {
   directives: {
@@ -182,6 +212,8 @@ export default {
   },
   components: {
     Popup,
+    PopupPicker,
+    Checklist,
     Group,
     Cell,
     XSwitch,
@@ -209,7 +241,16 @@ export default {
       show10: false,
       show11: false,
       show12: false,
-      show13: false
+      show13: false,
+      show14: false,
+      options14: [ '红', '橙', '黄', '绿', '青', '蓝', '紫', '大红', '大绿', '大紫', '天蓝蓝', '水清清', '白皑皑', '选择困难症' ],
+      data14: [['小米', 'iPhone', '华为', '情怀', '三星', '其他', '不告诉你']],
+      show15: false,
+      form: {
+        colors: [],
+        mobile: [],
+        address: []
+      }
     }
   },
   methods: {
@@ -220,6 +261,17 @@ export default {
     },
     log (str) {
       console.log(str)
+    },
+    chooseColor (value) {
+      if (value.includes('选择困难症')) {
+        this.$vux.alert.show('我们将配送一个随机颜色')
+      }
+    },
+    submitForm () {
+      this.$vux.toast.show('提交成功')
+      setTimeout(() => {
+        this.show15 = false
+      }, 300)
     }
   },
   watch: {
@@ -263,6 +315,13 @@ export default {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%) scale(4);
+    color: #000;
+  }
+}
+</style>
+<style lang="less">
+.chosen {
+  .weui-cell__ft {
     color: #000;
   }
 }
