@@ -98,19 +98,19 @@ export default {
     startDate: {
       type: String,
       validator (val) {
-        if (process.env.NODE_ENV === 'development' && val.length !== 10) {
+        if (process.env.NODE_ENV === 'development' && val && val.length !== 10) {
           console.error('[VUX] Datetime prop:start-date 必须为 YYYY-MM-DD 格式')
         }
-        return val.length === 10
+        return val ? val.length === 10 : true
       }
     },
     endDate: {
       type: String,
       validator (val) {
-        if (process.env.NODE_ENV === 'development' && val.length !== 10) {
+        if (process.env.NODE_ENV === 'development' && val && val.length !== 10) {
           console.error('[VUX] Datetime prop:end-date 必须为 YYYY-MM-DD 格式')
         }
-        return val.length === 10
+        return val ? val.length === 10 : true
       }
     },
     valueTextAlign: String,
