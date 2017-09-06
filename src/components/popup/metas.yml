@@ -70,6 +70,11 @@ slots:
     en: content body
     zh-CN: 弹窗主体内容
 changes:
+  next:
+    en:
+      - '[fix] clean vux-modal-open on beforeDestroy and deactivated #1921'
+    zh-CN:
+      - '[fix] 在 beforeDestroy 和 deactivated 事件中清除设置于 body 上的 vux-modal-open 类名 #1921'
   v2.5.11:
     en:
       - '[fix] add vux-modal-open only when global config:$layout is VIEW_BOX #1893'

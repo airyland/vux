@@ -79,6 +79,7 @@ export default {
     if (this.hideOnDeactivated) {
       this.show = false
     }
+    this.removeModalClassName()
   },
   methods: {
     /**
@@ -91,6 +92,9 @@ export default {
       for (let i = 0; i < this.$overflowScrollingList.length; i++) {
         this.$overflowScrollingList[i].style.webkitOverflowScrolling = type
       }
+    },
+    removeModalClassName () {
+      this.layout === 'VIEW_BOX' && dom.removeClass(document.body, 'vux-modal-open')
     }
   },
   data () {
@@ -146,7 +150,7 @@ export default {
           if (!document.querySelector('.vux-popup-dialog.vux-popup-show')) {
             this.fixSafariOverflowScrolling('touch')
           }
-          this.layout === 'VIEW_BOX' && dom.removeClass(document.body, 'vux-modal-open')
+          this.removeModalClassName()
         }, 200)
       }
     }
@@ -154,6 +158,7 @@ export default {
   beforeDestroy () {
     this.popup.destroy()
     this.fixSafariOverflowScrolling('touch')
+    this.removeModalClassName()
   }
 }
 </script>
