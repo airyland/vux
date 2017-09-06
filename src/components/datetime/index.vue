@@ -95,8 +95,24 @@ export default {
       type: Number,
       default: 23
     },
-    startDate: String,
-    endDate: String,
+    startDate: {
+      type: String,
+      validator (val) {
+        if (process.env.NODE_ENV === 'development' && val.length !== 10) {
+          console.error('[VUX] Datetime prop:start-date 必须为 YYYY-MM-DD 格式')
+        }
+        return val.length === 10
+      }
+    },
+    endDate: {
+      type: String,
+      validator (val) {
+        if (process.env.NODE_ENV === 'development' && val.length !== 10) {
+          console.error('[VUX] Datetime prop:end-date 必须为 YYYY-MM-DD 格式')
+        }
+        return val.length === 10
+      }
+    },
     valueTextAlign: String,
     displayFormat: Function,
     readonly: Boolean,

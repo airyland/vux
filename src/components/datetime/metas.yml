@@ -17,7 +17,7 @@ props:
     type: String
     default: 'YYYY-MM-DD'
     en: date format
-    zh-CN: 时间格式
+    zh-CN: 时间格式，不支持特殊字符，只能类似 YYYY-MM-DD HH:mm:ss 这样的格式
   title:
     type: String
     default: ''
@@ -101,11 +101,11 @@ props:
   start-date:
     type: String
     en: start date
-    zh-CN: '限定最小日期，注意该限制只能限定到日期，不能限定到小时分钟。小时限定请使用`min-hour`和`max-hour`'
+    zh-CN: '限定最小日期，格式必须为 YYYY-MM-DD，注意该限制只能限定到日期，不能限定到小时分钟。小时限定请使用`min-hour`和`max-hour`'
   end-date:
     type: String
     en: end date
-    zh-CN: 限定最大日期，注意该限制只能限定到日期，不能限定到小时分钟
+    zh-CN: 限定最大日期，格式必须为 YYYY-MM-DD，注意该限制只能限定到日期，不能限定到小时分钟
   required:
     type: Boolean
     default: false
