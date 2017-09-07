@@ -210,11 +210,15 @@ glob(getPath('../src/tools/**/metas.yml'), {}, function (err, files) {
   let rs = []
   files.forEach(function (file) {
     const name = file.split('tools/')[1].replace('/metas.yml', '')
-    const json = yaml.safeLoad(fs.readFileSync(file, 'utf-8'))
-    rs.push({
-      name: name,
-      metas: json
-    })
+    try {
+      const json = yaml.safeLoad(fs.readFileSync(file, 'utf-8'))
+      rs.push({
+        name: name,
+        metas: json
+      })
+    } catch (e) {
+      console.log('yml 出错')
+    }
   })
   fs.writeFileSync(getPath('../src/tools/changes.json'), JSON.stringify(rs, null, 2))
 })
@@ -268,7 +272,13 @@ function render(files, tag) {
 
     const name = getComponentName(file)
     const content = fs.readFileSync(file, 'utf-8')
-    const json = yaml.safeLoad(content)
+    let json = {}
+
+    try {
+      json = yaml.safeLoad(content)
+    } catch (e) {
+      console.log('错误', e)
+    }
     let rs = {
       name: name,
       importName: _camelCase(name),

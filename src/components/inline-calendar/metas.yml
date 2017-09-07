@@ -112,7 +112,7 @@ methods:
     zh-CN: 渲染当天所在月份
   switchViewToMonth:
     version: next
-    params: `(year, month)`
+    params: (year, month)
     en: render specified year and month
     zh-CN: 渲染特定年月日期
   switchViewToCurrentValue:
