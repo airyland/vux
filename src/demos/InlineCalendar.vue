@@ -2,6 +2,7 @@
 <div>
   <inline-calendar
   @on-change="onChange"
+  @on-view-change="onViewChange"
   class="inline-calendar-demo"
   :show.sync="show"
   v-model="value"
@@ -85,6 +86,9 @@ export default {
   methods: {
     onChange (val) {
       console.log('on-change', val)
+    },
+    onViewChange (val, count) {
+      console.log('on view change', val, count)
     }
   },
   data () {

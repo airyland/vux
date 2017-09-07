@@ -74,7 +74,8 @@ export default {
       days: [],
       today: format(new Date(), 'YYYY-MM-DD'),
       months: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-      currentValue: ''
+      currentValue: '',
+      viewChangeEventCount: -1
     }
   },
   created () {
@@ -106,6 +107,9 @@ export default {
         rs[this.convertDate(i)] = this.replaceTextList[i]
       }
       return rs
+    },
+    currentYearMonth () {
+      return this.year + this.month
     }
   },
   watch: {
@@ -144,6 +148,28 @@ export default {
     },
     disableFuture () {
       this.render(this.year, this.month, this.currentValue)
+    },
+    currentYearMonth () {
+      const lastLine = this.days[this.days.length - 1]
+      const lastDate = lastLine[lastLine.length - 1]
+
+      let days = []
+      this.days.forEach(line => {
+        days = days.concat(line)
+      })
+      days = days.filter(date => {
+        return !date.isLastMonth && !date.isNextMonth
+      })
+      this.viewChangeEventCount++
+      this.$emit('on-view-change', {
+        year: this.year,
+        month: this.month + 1,
+        firstDate: this.days[0][0].formatedDate,
+        lastDate: lastDate.formatedDate,
+        firstCurrentMonthDate: days[0].formatedDate,
+        lastCurrentMonthDate: days[days.length - 1].formatedDate,
+        allDates: this.days
+      }, this.viewChangeEventCount)
     }
   },
   methods: {

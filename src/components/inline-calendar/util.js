@@ -214,6 +214,7 @@ export function getDays ({year, month, value, isRange = false, rangeBegin, range
       */
       line.map(item => {
         item.date = item.day
+        item.formatedDate = format(new Date(`${item.year}/${item.month_str}/${item.date}`), 'YYYY-MM-DD')
         return item
       })
       return line
