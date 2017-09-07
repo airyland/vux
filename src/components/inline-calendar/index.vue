@@ -173,6 +173,34 @@ export default {
     }
   },
   methods: {
+    switchViewToToday () {
+      const today = new Date()
+      this.render(today.getFullYear(), today.getMonth())
+    },
+    switchViewToCurrentValue () {
+      if (!this.currentValue || (this.multi && !this.currentValue.length)) {
+        return
+      }
+
+      let value
+      let year
+      let month
+      if (typeof this.currentValue === 'string') {
+        value = this.currentValue
+      } else {
+        value = this.currentValue[0]
+      }
+      const splitList = value.split('-')
+      year = parseInt(splitList[0], 10)
+      month = parseInt(splitList[1], 10)
+      this.switchViewToMonth(year, month)
+    },
+    switchViewToMonth (year, month) {
+      if (!year || !month) {
+        return this.switchViewToToday()
+      }
+      this.render(year, month - 1)
+    },
     getDates () {
       return this.days
     },

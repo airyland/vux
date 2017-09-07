@@ -1,6 +1,7 @@
 <template>
 <div>
   <inline-calendar
+  ref="calendar"
   @on-change="onChange"
   @on-view-change="onViewChange"
   class="inline-calendar-demo"
@@ -27,6 +28,13 @@
     <cell title="start date" value="2016-04-01"></cell>
     <cell title="end date" value="2018-05-30"></cell>
   </group>
+  
+  <div style="margin: 15px;">
+    <x-button type="primary" @click.native="$refs.calendar.switchViewToToday()">switchViewToToday</x-button>
+    <x-button type="primary" @click.native="$refs.calendar.switchViewToMonth(2017, 12)">switchViewToMonth(2017, 12)</x-button>
+    <x-button type="primary" @click.native="$refs.calendar.switchViewToMonth(2018, 10)">switchViewToMonth(2018, 10)</x-button>
+    <x-button type="primary" @click.native="$refs.calendar.switchViewToCurrentValue()">switchViewToCurrentValue</x-button>
+  </div>
 
   <group title="control days" style="margin-top: 30px;">
     <x-switch v-model="disablePast" title="Disable Past"></x-switch>

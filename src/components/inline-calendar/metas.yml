@@ -106,11 +106,26 @@ methods:
     version: v2.5.11
     en: get current date list
     zh-CN: 获取当前日期列表
+  switchViewToToday:
+    version: next
+    en: render current month
+    zh-CN: 渲染当天所在月份
+  switchViewToMonth:
+    version: next
+    params: `(year, month)`
+    en: render specified year and month
+    zh-CN: 渲染特定年月日期
+  switchViewToCurrentValue:
+    version: next
+    en: render with current value's month
+    zh-CN: 渲染当前值所在月份
 changes:
   next:
     en:
+      - '[feature] add method:switchViewToToday switchViewToMonth'
       - '[feature] support event:on-view-change'
     zh-CN:
+      - '[feature] 支持 switchViewToToday, switchViewToMonth 等手动渲染方法'
       - '[feature] 支持事件 on-view-change，方便切换月份时请求数据'
   v2.5.11:
     en:
