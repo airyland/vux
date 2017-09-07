@@ -1,5 +1,10 @@
 <template>
-  <div class="vux-flexbox" :class="{'vux-flex-col': orient === 'vertical', 'vux-flex-row': orient === 'horizontal'}" :style="styles">
+  <div class="vux-flexbox"
+  :class="{
+    'vux-flex-col': orient === 'vertical',
+    'vux-flex-row': orient === 'horizontal'
+  }"
+  :style="styles">
     <slot></slot>
   </div>
 </template>
@@ -47,28 +52,28 @@ export default {
   display: -webkit-flex;
   box-align: center;
   align-items: center;
+  .vux-flexbox-item {
+    flex: 1;
+    -webkit-flex: 1;
+    min-width: 20px;
+    width: 0%;
+    &:first-child {
+      margin-left: 0!important;
+      margin-top: 0!important;
+    }
+  }
 }
-.vux-flexbox .vux-flexbox-item {
-  flex: 1;
-  -webkit-flex: 1;
-  min-width: 20px;
-  width: 0%;
-}
-
-.vux-flexbox .vux-flexbox-item:first-child {
-  margin-left: 0!important;
-  margin-top: 0!important;
-}
-.vux-flex-col {
-  box-orient: vertical;
-  flex-direction: column;
-}
-.vux-flex-col > .vux-flexbox-item {
-  width: 100%;
-}
+.vux-flex-col 
 .vux-flex-row {
   box-direction: row;
   box-orient: horizontal;
   flex-direction: row;
+}
+.vux-flex-col {
+  box-orient: vertical;
+  flex-direction: column;
+  > .vux-flexbox-item {
+    width: 100%;
+  }
 }
 </style>
