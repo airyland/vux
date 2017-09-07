@@ -60,7 +60,7 @@ Vue.use(LocalePlugin)
 Vue.use(DatetimePlugin)
 Vue.use(BusPlugin)
 Vue.use(ConfigPlugin, {
-  $layout: 'VIEW_BOX' // global config for VUX, since v2.6.0
+  $layout: 'VIEW_BOX' // global config for VUX, since v2.5.12
 })
 
 // test

@@ -9,10 +9,6 @@
       <x-switch v-model="showDialogStyle" :title="$t('Toggle')" :inline-desc="$t('custom dialog style')"></x-switch>
     </group>
 
-    <group style="padding-top: 300px">
-      <x-switch v-model="showNoScroll" :title="$t('disable background scrolling')"></x-switch>
-    </group>
-
     <div v-transfer-dom>
       <x-dialog v-model="showToast" class="dialog-demo">
         <div style="padding:15px;">
@@ -65,17 +61,6 @@
           <br>
           <x-icon type="ios-close-outline" style="fill:#fff;"></x-icon>
         </p>
-      </x-dialog>
-    </div>
-
-    <div v-transfer-dom>
-      <x-dialog v-model="showNoScroll" class="dialog-demo" :scroll="false">
-        <div class="img-box">
-          <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
-        </div>
-        <div @click="showNoScroll=false">
-          <span class="vux-close"></span>
-        </div>
       </x-dialog>
     </div>
 
@@ -140,7 +125,6 @@ export default {
       show: false,
       show2: false,
       showToast: false,
-      showNoScroll: false,
       showHideOnBlur: false,
       showScrollBox: false,
       showDialogStyle: false

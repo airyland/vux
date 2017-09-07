@@ -54,6 +54,19 @@ extra:
       <x-dialog></x-dialog>
     </div>
     ```
+    <p class="warning">
+    `scroll` 属性已经在 v2.5.12 废弃，因为它并没有实现阻止 body 滚动。
+    <br>
+    如果你是 `100%` 布局，按照下面配置布局可以实现阻止滚动。
+    </p>
+
+    ``` js
+    import { ConfigPlugin } from 'vux'
+
+    Vue.use(ConfigPlugin, {
+      $layout: 'VIEW_BOX'
+    })
+    ```
 
 props:
   show:
@@ -76,9 +89,10 @@ props:
     zh-CN: 是否在点击遮罩时自动关闭弹窗
   scroll:
     type: Boolean
+    deprecated: true
     default: true
-    en: if body content can scroll when scrolling on dialog
-    zh-CN: 是否在弹窗上滚动时 body 内容也滚动
+    en: '[deprecated]if body content can scroll when scrolling on dialog'
+    zh-CN: '【废弃】是否在弹窗上滚动时 body 内容也滚动'
   dialog-style:
     version: v2.2.2
     type: Object
@@ -96,6 +110,11 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
+  next:
+    en:
+      - '[change] prop:scroll is deprecated #1858 #1877'
+    zh-CN:
+      - '[change] 属性 scroll 已经废弃，仅对配置为 100% 布局的情况实现阻止滚动 #1858 #1877'
   v2.5.3:
     en:
       - '[feature] Add prop:show, supports the .sync modifier'
