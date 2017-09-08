@@ -67,7 +67,8 @@ const DEFAULT_CONFIG = {
   cancelText: 'cancel',
   destroyOnHide: false,
   renderInline: false,
-  computeHoursFunction: null
+  computeHoursFunction: null,
+  isOneInstance: false
 }
 
 function renderScroller (el, data, value, fn) {
@@ -177,6 +178,14 @@ DatetimePicker.prototype = {
   show (value) {
     const self = this
     const config = self.config
+
+    if (config.isOneInstance) {
+      if (document.querySelector('#vux-datetime-instance')) {
+        return
+      }
+      self.willShow = true
+    }
+
     CURRENT_PICKER = self
     const valueMap = self.valueMap = parseDate(config.format, value || config.value)
     let newValueMap = {}
@@ -189,6 +198,9 @@ DatetimePicker.prototype = {
       self._show(newValueMap)
     } else {
       const container = self.container = toElement(config.template)
+      if (config.isOneInstance) {
+        container.id = 'vux-datetime-instance'
+      }
       if (!self.renderInline) {
         document.body.appendChild(container)
 
@@ -441,9 +453,11 @@ DatetimePicker.prototype = {
   destroy () {
     const self = this
     this.trigger && this.trigger.removeEventListener('click', this.triggerHandler, false)
-    removeElement(MASK)
+    if (!self.config.isOneInstance && !self.willShow) {
+      removeElement(MASK)
+      MASK = null
+    }
     removeElement(self.container)
-    MASK = null
     self.container = null
   },
 

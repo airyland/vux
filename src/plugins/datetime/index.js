@@ -6,7 +6,8 @@ require('../../components/datetime/style.less')
 const libs = {
   show: function (options = {}) {
     options = ObjectAssign({
-      destroyOnHide: true
+      destroyOnHide: true,
+      isOneInstance: true
     }, options)
     const datetime = libs.datetime = new Datetime(options)
     datetime.show()

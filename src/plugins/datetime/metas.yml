@@ -1,4 +1,9 @@
 changes:
+  next:
+    en:
+      - '[fix] Fix datetime show multiple times #1927'
+    zh-CN:
+      - '[fix] 修复多次调用重复显示的问题 #1927'
   v2.5.1:
     en:
       - '[fix] Fix style missing #1659'
