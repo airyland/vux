@@ -66,7 +66,6 @@ export default {
       this.$emit('update:show', val)
       this.$emit(val ? 'on-show' : 'on-hide')
       if (val) {
-        console.log('show true')
         this.layout === 'VIEW_BOX' && dom.addClass(document.body, 'vux-modal-open')
       } else {
         this.removeModalClassName()
