@@ -27,7 +27,7 @@ props:
       button list, [{style: 'primary', text: 'text', onButtonClick: fn(prop:name), link: '/path'}]
     zh-CN: '底部按钮列表，default为灰色样式，primary文字为高亮颜色， [{style: "primary", text: "text", onButtonClick: fn(prop:name), link: "/path"}]'
 changes:
-  next:
+  v2.5.12:
     en:
       - '[fix] Fix layout issue when header-value is empty #1935'
     zh-CN:

@@ -110,7 +110,7 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
-  next:
+  v2.5.12:
     en:
       - '[change] prop:scroll is deprecated #1858 #1877'
     zh-CN:

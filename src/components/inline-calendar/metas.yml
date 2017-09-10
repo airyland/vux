@@ -97,7 +97,7 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
   on-view-change:
-    version: next
+    version: v2.5.12
     params: '(data, index)'
     en: fires when render month is changed
     zh-CN: 渲染月份变化时触发。初始化时会触发一次，如果不希望处理初始化时的触发，可以检查第二个参数是否为 0
@@ -107,20 +107,20 @@ methods:
     en: get current date list
     zh-CN: 获取当前日期列表
   switchViewToToday:
-    version: next
+    version: v2.5.12
     en: render current month
     zh-CN: 渲染当天所在月份
   switchViewToMonth:
-    version: next
+    version: v2.5.12
     params: (year, month)
     en: render specified year and month
     zh-CN: 渲染特定年月日期
   switchViewToCurrentValue:
-    version: next
+    version: v2.5.12
     en: render with current value's month
     zh-CN: 渲染当前值所在月份
 changes:
-  next:
+  v2.5.12:
     en:
       - '[feature] add method:switchViewToToday switchViewToMonth'
       - '[feature] support event:on-view-change'
