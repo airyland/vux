@@ -35,9 +35,17 @@
 import InlineDesc from '../inline-desc'
 import { go } from '../../libs/router'
 import props from './props'
+import shouldBeInGroup from '../../lints/shouleBeInGroup' // env:development
 
 export default {
   name: 'cell',
+  mounted () {
+    if (process.env.NODE_ENV === 'development') {
+      this.$nextTick(() => {
+        shouldBeInGroup(this)
+      })
+    }
+  },
   components: {
     InlineDesc
   },
