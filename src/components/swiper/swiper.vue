@@ -2,20 +2,32 @@
   <div class="vux-slider">
     <div class="vux-swiper" :style="{height: xheight}">
       <slot></slot>
-      <div class="vux-swiper-item" v-for="(item, index) in list" @click="clickListItem(item)" :data-index="index">
+
+      <div
+      class="vux-swiper-item"
+      v-for="(item, index) in list"
+      @click="clickListItem(item)"
+      :data-index="index">
         <a href="javascript:">
-          <div class="vux-img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
-          <p class="vux-swiper-desc" v-if="showDescMask">{{item.title}}</p>
+          <div class="vux-img" :style="{backgroundImage: buildBackgroundUrl(item)}"></div>
+          <p class="vux-swiper-desc" v-if="showDescMask">{{ item.title }}</p>
         </a>
       </div>
-      <div v-if="listTwoLoopItem.length > 0" class="vux-swiper-item vux-swiper-item-clone" v-for="(item, index) in listTwoLoopItem" @click="clickListItem(item)" :data-index="index">
+
+      <div
+      v-if="listTwoLoopItem.length > 0"
+      class="vux-swiper-item vux-swiper-item-clone"
+      v-for="(item, index) in listTwoLoopItem"
+      @click="clickListItem(item)"
+      :data-index="index">
         <a href="javascript:">
-          <div class="vux-img" :style="{backgroundImage: buildBackgroundUrl(item.img)}"></div>
-          <p class="vux-swiper-desc" v-if="showDescMask">{{item.title}}</p>
+          <div class="vux-img" :style="{backgroundImage: buildBackgroundUrl(item)}"></div>
+          <p class="vux-swiper-desc" v-if="showDescMask">{{ item.title }}</p>
         </a>
       </div>
+
     </div>
-    <div :class="[dotsClass, 'vux-indicator', 'vux-indicator-' + dotsPosition]" v-show="showDots">
+    <div :class="[dotsClass, 'vux-indicator', `vux-indicator-${dotsPosition}`]" v-show="showDots">
       <a href="javascript:" v-for="key in length">
         <i class="vux-icon-dot" :class="{'active': key - 1 === current}"></i>
       </a>
@@ -56,8 +68,8 @@ export default {
       go(item.url, this.$router)
       this.$emit('on-click-list-item', JSON.parse(JSON.stringify(item)))
     },
-    buildBackgroundUrl (url) {
-      return `url(${url})`
+    buildBackgroundUrl (item) {
+      return item.fallbackImg ? `url(${item.img}), url(${item.fallbackImg})` : `url(${item.img})`
     },
     render (index = 0) {
       this.swiper && this.swiper.destroy()
@@ -100,7 +112,6 @@ export default {
       this.swiper && this.swiper.destroy()
     },
     getHeight () {
-      // when list.length > 0, it's better to set height or ratio
       const hasHeight = parseInt(this.height, 10)
       if (hasHeight) return this.height
       if (!hasHeight) {
@@ -135,10 +146,7 @@ export default {
       default: 'right'
     },
     dotsClass: String,
-    auto: {
-      type: Boolean,
-      default: false
-    },
+    auto: Boolean,
     loop: Boolean,
     interval: {
       type: Number,
@@ -173,8 +181,7 @@ export default {
       xheight: 'auto',
       length: this.list.length,
       index: 0,
-      // issue #1484 Fix click to fail
-      listTwoLoopItem: []
+      listTwoLoopItem: [] // issue #1484
     }
   },
   watch: {
