@@ -30,6 +30,11 @@ props:
     en: delay execute lazyload function because sometimes transition between routes will cause problems
     zh-CN: 延迟执行，在存在路由过渡时立即执行可能会导致进入页面后并不会正确加载图片。该属性在 2.5.4 后已经不推荐使用，推荐使用 BusPlugin 来通知组件页面已经载入完成。
 changes:
+  next:
+    en:
+      - '[fix] re-initialize when src is changed #1901'
+    zh-CN:
+      - '[fix] 当 src 变化时重新初始化 #1901'
   v2.5.4:
     en:
       - '[feature] re-init after router-view transition is finished'

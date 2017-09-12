@@ -16,7 +16,11 @@ export default {
   methods: {
     init () {
       const _this = this
+
       this.blazy && this.blazy.destroy()
+      this.$el.src = this.defaultSrc
+      this.$el.className = this.$el.className.replace('b-loaded', '')
+
       this.blazy = new Blazy({
         scroller: this.scroller,
         container: this.container,
@@ -67,6 +71,11 @@ export default {
     delay: {
       type: Number,
       default: 0
+    }
+  },
+  watch: {
+    src (val) {
+      this.init()
     }
   },
   beforeDestroy () {
