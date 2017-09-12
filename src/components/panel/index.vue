@@ -6,7 +6,7 @@
       <template v-if="type === '1'">
         <a :href="getUrl(item.url)" v-for="item in list" @click.prevent="onItemClick(item)" class="weui-media-box weui-media-box_appmsg">
           <div class="weui-media-box__hd" v-if="item.src">
-            <img class="weui-media-box__thumb" :src="item.src" alt="">
+            <img class="weui-media-box__thumb" :src="item.src" @error="onImgError(item, $event)" alt="">
           </div>
           <div class="weui-media-box__bd">
             <h4 class="weui-media-box__title" v-html="item.title"></h4>
@@ -27,7 +27,7 @@
             <div class="weui-cells">
               <a class="weui-cell weui-cell_access" :href="getUrl(item.url)" v-for="item in list" @click.prevent="onItemClick(item)">
                 <div class="weui-cell__hd">
-                  <img :src="item.src" alt="" style="width:20px;margin-right:5px;display:block">
+                  <img :src="item.src" alt="" @error="onImgError(item, $event)" style="width:20px;margin-right:5px;display:block">
                 </div>
                 <div class="weui-cell__bd">
                   <p v-html="item.title"></p>
@@ -54,7 +54,7 @@
         <div class="weui-media-box weui-media-box_text" v-for="item in list" @click.prevent="onItemClick(item)">
           <div class="weui-media-box_appmsg">
             <div class="weui-media-box__hd" v-if="item.src">
-              <img class="weui-media-box__thumb" :src="item.src" alt="">
+              <img class="weui-media-box__thumb" @error="onImgError(item, $event)" :src="item.src" alt="">
             </div>
             <div class="weui-media-box__bd">
               <h4 class="weui-media-box__title" v-html="item.title"></h4>
@@ -92,6 +92,12 @@ export default {
     }
   },
   methods: {
+    onImgError (item, $event) {
+      this.$emit('on-img-error', JSON.parse(JSON.stringify(item)), $event)
+      if (item.fallbackSrc) {
+        $event.target.src = item.fallbackSrc
+      }
+    },
     getUrl (url) {
       return getUrl(url, this.$router)
     },

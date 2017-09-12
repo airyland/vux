@@ -27,6 +27,11 @@ events:
     en: emits when clicking footer
     zh-CN: 点击尾部时触发
 changes:
+  next:
+    en:
+      - '[enhance] support list prop:fallbackSrc #1923'
+    zh-CN:
+      - '[enhance] 支持列表 fallbackSrc 属性在图片加载失败后显示 #1923'
   v2.5.7:
     en:
       - '[feature] use v-html binding #1784'
