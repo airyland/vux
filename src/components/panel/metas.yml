@@ -9,8 +9,8 @@ props:
     zh-CN: '尾部配置，`{url: url, title: title}`'
   list:
     type: 'Array'
-    en: content list `[{title, desc, src}]`
-    zh-CN: '内容列表，[{title, desc, src,meta:{source,date,other}}]'
+    en: content list `[{title, desc, src, fallbackSrc, meta:{source,date,other}}]`
+    zh-CN: '内容列表，[{title, desc, src, fallbackSrc, meta:{source,date,other}}]'
   type:
     default: '1'
     en: one of '1', '2', '3', '4', '5'
