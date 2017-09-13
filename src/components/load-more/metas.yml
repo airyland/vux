@@ -12,8 +12,13 @@ props:
     type: String
     default: '#ffffff'
     en: background color
-    zh-CN: 背景颜色，需要配置以让文字与背景完全融合
+    zh-CN: 背景颜色，需要配置以让文字与背景完全融合。推荐通过设置 less 变量 @load-more-tip-background-color 全局修改
 changes:
+  next:
+    en:
+      - '[feature] support less variable @load-more-tip-background-color'
+    zh-CN:
+      - '[feature] 支持 @load-more-tip-background-color 全局设置文字背景颜色'
   v2.0.0:
     en:
       - '[feature] Add `load-more` component'
