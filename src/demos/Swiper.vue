@@ -131,6 +131,7 @@ const imgList = [
 const urlList = baseList.map((item, index) => ({
   url: 'http://m.baidu.com',
   img: item.img,
+  fallbackImg: item.fallbackImg,
   title: `(可点击)${item.title}`
 }))
 
