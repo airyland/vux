@@ -4,6 +4,13 @@ vux.confirm.confirm_text: confirm
 vux.confirm.cancel_text: cancel
 vux.datetime.cancel_text: cancel
 vux.datetime.confirm_text: done
+vux.inline-calendar.week_day_0: Su
+vux.inline-calendar.week_day_1: Mo
+vux.inline-calendar.week_day_2: Tu
+vux.inline-calendar.week_day_3: We
+vux.inline-calendar.week_day_4: Th
+vux.inline-calendar.week_day_5: Fr
+vux.inline-calendar.week_day_6: Sa
 vux.loading.loading: loading
 vux.popup-picker.cancel_text: cancel
 vux.popup-picker.confirm_text: ok

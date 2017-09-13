@@ -1,5 +1,6 @@
 <template>
   <div class="inline-calendar" :class="{'is-weekend-highlight': highlightWeekend}">
+    
     <div class="calendar-header" v-show="!hideHeader">
       <div class="calendar-year">
         <span @click="go(year - 1, month)">
@@ -25,7 +26,7 @@
     <table>
       <thead v-show="!hideWeekList">
         <tr>
-          <th v-for="(week, index) in _weeksList" class="week" :class="`is-week-list-${index}`">{{week}}</th>
+          <th v-for="(week, index) in _weeksList" class="week" :class="`is-week-list-${index}`">{{ week || $t('week_day_' + index /* en: week, zh-CN: week */) }}</th>
         </tr>
       </thead>
       <tbody>
@@ -35,7 +36,7 @@
           :data-date="formatDate(year, month, child)"
           :data-current="currentValue"
           :class="buildClass(k2, child)"
-          @click="select(k1,k2,child)">
+          @click="select(k1, k2, child)">
             <slot
             :year="year"
             :month="month"
@@ -57,6 +58,30 @@
     </table>
   </div>
 </template>
+
+<i18n>
+week_day_0:
+  en: Su
+  zh-CN: 日
+week_day_1:
+  en: Mo
+  zh-CN: 一
+week_day_2:
+  en: Tu
+  zh-CN: 二
+week_day_3:
+  en: We
+  zh-CN: 三
+week_day_4:
+  en: Th
+  zh-CN: 四
+week_day_5:
+  en: Fr
+  zh-CN: 五
+week_day_6:
+  en: Sa
+  zh-CN: 六
+</i18n>
 
 <script>
 import format from '../datetime/format'
@@ -95,10 +120,25 @@ export default {
   },
   computed: {
     _weeksList () {
-      if (!this.weeksList || !this.weeksList.length) {
-        return ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
-      } else {
+      if (this.weeksList && this.weeksList.length) {
         return this.weeksList
+      }
+      if (!this.weeksList || !this.weeksList.length) {
+        // tip for older vux-loader
+        if (typeof V_LOCALE === 'undefined') {
+          if (process.env.NODE_ENV === 'development') {
+            console.warn('[VUX warn] 抱歉，inline-calendar 组件需要升级 vux-loader 到最新版本才能正常使用')
+          }
+          return ['日', '一', '二', '三', '四', '五', '六']
+        } else {
+          if (V_LOCALE === 'en') { // eslint-disable-line
+            return ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+          } else if (V_LOCALE === 'zh-CN') { // eslint-disable-line
+            return ['日', '一', '二', '三', '四', '五', '六']
+          } else if (V_LOCALE === 'MULTI') { // eslint-disable-line
+            return [0, 0, 0, 0, 0, 0, 0]
+          }
+        }
       }
     },
     _replaceTextList () {

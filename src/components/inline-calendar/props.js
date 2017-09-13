@@ -45,16 +45,13 @@ export default () => ({
       return {}
     }
   },
-  weeks: {
-    type: Array,
-    default () {
-      return ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
-    }
-  },
   weeksList: {
     type: Array,
-    default () {
-      return ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+    validator (val) {
+      if (val) {
+        return val.length === 7 || val.length === 0
+      }
+      return true
     }
   },
   renderFunction: {

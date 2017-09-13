@@ -6,6 +6,13 @@ en:
   vux.confirm.cancel_text: cancel
   vux.datetime.cancel_text: cancel
   vux.datetime.confirm_text: done
+  vux.inline-calendar.week_day_0: Su
+  vux.inline-calendar.week_day_1: Mo
+  vux.inline-calendar.week_day_2: Tu
+  vux.inline-calendar.week_day_3: We
+  vux.inline-calendar.week_day_4: Th
+  vux.inline-calendar.week_day_5: Fr
+  vux.inline-calendar.week_day_6: Sa
   vux.loading.loading: loading
   vux.popup-picker.cancel_text: cancel
   vux.popup-picker.confirm_text: ok
@@ -19,6 +26,13 @@ zh-CN:
   vux.confirm.cancel_text: 取消
   vux.datetime.cancel_text: 取消
   vux.datetime.confirm_text: 确定
+  vux.inline-calendar.week_day_0: 日
+  vux.inline-calendar.week_day_1: 一
+  vux.inline-calendar.week_day_2: 二
+  vux.inline-calendar.week_day_3: 三
+  vux.inline-calendar.week_day_4: 四
+  vux.inline-calendar.week_day_5: 五
+  vux.inline-calendar.week_day_6: 六
   vux.loading.loading: 加载中
   vux.popup-picker.cancel_text: 取消
   vux.popup-picker.confirm_text: 完成

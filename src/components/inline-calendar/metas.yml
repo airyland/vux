@@ -120,6 +120,11 @@ methods:
     en: render with current value's month
     zh-CN: 渲染当前值所在月份
 changes:
+  next:
+    en:
+      - '[fix] fix i18n for days'
+    zh-CN:
+      - '[fix] 修复星期文字 i18n'
   v2.5.12:
     en:
       - '[feature] add method:switchViewToToday switchViewToMonth'
