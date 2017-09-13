@@ -8,9 +8,16 @@
     <slot>
       <div>
         <slot name="title">
-          <p :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" :class="labelClass" v-html="title"></p>
+          <p
+          :style="{
+            width: $parent.labelWidth,
+            textAlign: $parent.labelAlign,
+            marginRight: $parent.labelMarginRight
+          }"
+          :class="labelClass"
+          v-html="title"></p>
         </slot>
-        <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+        <inline-desc v-if="inlineDesc">{{ inlineDesc }}</inline-desc>
       </div>
       <div class="weui-cell__ft vux-cell-primary vux-datetime-value" :style="{textAlign: valueTextAlign}">
         <span class="vux-cell-placeholder" v-if="!currentValue && placeholder">{{ placeholder }}</span>
@@ -213,7 +220,11 @@ export default {
       } else if (type === 'confirm' && this.confirmText) {
         return this.confirmText
       }
-      return this.$el.getAttribute(`data-${type}-text`)
+      if (this.$t) {
+        return this.$t(`vux.datetime.${type}_text`)
+      } else {
+        return this.$el.getAttribute(`data-${type}-text`)
+      }
     },
     render () {
       this.$nextTick(() => {

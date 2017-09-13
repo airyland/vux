@@ -159,7 +159,7 @@ DatetimePicker.prototype = {
 
   _show (newValueMap) {
     const self = this
-
+    self._setText()
     self.container.style.display = 'block'
 
     if (this.renderInline) {
@@ -178,7 +178,6 @@ DatetimePicker.prototype = {
   show (value) {
     const self = this
     const config = self.config
-
     if (config.isOneInstance) {
       if (document.querySelector('#vux-datetime-instance')) {
         return
@@ -284,6 +283,18 @@ DatetimePicker.prototype = {
     if (!this.renderInline) {
       showMask()
       config.onShow.call(self)
+    }
+  },
+
+  _setText () {
+    if (typeof V_LOCALE !== 'undefined' && V_LOCALE === 'MULTI' && !this.config.renderInline) { // eslint-disable-line
+      const trigger = this.trigger
+      if (trigger) {
+        const confirmText = trigger.getAttribute('data-confirm-text')
+        const cancelText = trigger.getAttribute('data-cancel-text')
+        this.find('[data-role=confirm]').innerText = confirmText
+        this.find('[data-role=cancel]').innerText = cancelText
+      }
     }
   },
 
