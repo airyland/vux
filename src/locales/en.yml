@@ -1,5 +1,7 @@
 vux.actionsheet.cancel: cancel
 vux.alert.button_text: OK
+vux.calendar.cancel_text: cancel
+vux.calendar.confirm_text: done
 vux.confirm.confirm_text: confirm
 vux.confirm.cancel_text: cancel
 vux.datetime.cancel_text: cancel
