@@ -285,6 +285,9 @@ export default {
 .vux-week-calendar-day-item, .vux-week-calendar-date-item {
   text-align: center;
 }
+.vux-week-calendar-day-item {
+  color: @week-calendar-header-day-item-color;
+}
 .vux-week-calendar-each-day-box {
   padding: 5px 0;
 }
@@ -300,7 +303,7 @@ export default {
   color: @week-calendar-each-date-item-color;
   width: @week-calendar-each-date-item-size;
   height: @week-calendar-each-date-item-size;
-  line-height: @week-calendar-each-date-item-size;
+  line-height: @week-calendar-each-date-item-line-height;
   text-align: center;
   border-radius: 50%;
   box-sizing: border-box;

@@ -526,9 +526,9 @@ export default {
 .inline-calendar td > span.vux-calendar-each-date {
   position: relative;
   display: inline-block;
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
+  width: @calendar-each-date-item-size;
+  height: @calendar-each-date-item-size;
+  line-height: @calendar-each-date-item-line-height;
   border-radius: 50%;
   text-align: center;
   border: 1px solid transparent;
@@ -537,6 +537,10 @@ export default {
 .inline-calendar td.current > span.vux-calendar-each-date {
   background-color: @calendar-selected-bg-color;
   color: #fff!important;
+}
+.inline-calendar th {
+  color: @calendar-header-day-item-color;
+  font-weight: normal;
 }
 
 /** same as week-calendar style**/
