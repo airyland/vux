@@ -1,7 +1,7 @@
 <template>
   <div>
     <cell :title="title" primary="content" @click.native="onClick" is-link>
-      <span class="vux-cell-placeholder" v-if="!showValue || placeholder">{{ placeholder }}</span>
+      <span class="vux-cell-placeholder" v-if="!showValue && placeholder">{{ placeholder }}</span>
       <span class="vux-cell-value" v-if="showValue">{{ showValue }}</span>
     </cell>
     <div v-transfer-dom>
