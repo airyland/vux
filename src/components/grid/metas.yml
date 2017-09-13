@@ -26,8 +26,8 @@ grid:
       type: Number
       version: v2.2.0
       default: 3
-      en: rows number
-      zh-CN: 宫格列数，建议少于`5`
+      en: (deprecated after v2.6.0)rows number
+      zh-CN: (v2.6.0 之后废弃)宫格列数，建议少于`5`
   slots:
     default:
       en: 'default slot for `grid-item` list'
@@ -48,6 +48,11 @@ grid-item:
       en: slot for label, the same func as prop:label
       zh-CN: label文字的slot，作用同prop:label
 changes:
+  next:
+    en:
+      - '[change] prop:rows is deprecated #1971'
+    zh-CN:
+      - '[change] rows 属性已经废弃，使用自动计算 #1971'
   v2.2.0:
     en:
       - '[feature] Support dynamic rows'

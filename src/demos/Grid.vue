@@ -1,12 +1,12 @@
 <template>
   <div>
-    <group-title>rows = 2</group-title>
-    <grid :rows="2">
+    <group-title>2 columns</group-title>
+    <grid>
       <grid-item :label="$t('Grid')" v-for="i in 2" :key="i">
         <img slot="icon" src="../assets/grid_icon.png">
       </grid-item>
     </grid>
-    <group-title>rows = 3</group-title>
+    <group-title>3 columns</group-title>
     <grid>
       <grid-item link="/component/cell" :label="$t('Go to Cell')">
         <img slot="icon" src="../assets/grid_icon.png">
@@ -19,14 +19,14 @@
         <span slot="label">{{ $t('Go to Cell') }}</span>
       </grid-item>
     </grid>
-    <group-title>rows = 4</group-title>
-    <grid :rows="4">
+    <group-title>4 columns</group-title>
+    <grid>
       <grid-item :label="$t('Grid')" v-for="i in 4" :key="i">
         <img slot="icon" src="../assets/grid_icon.png">
       </grid-item>
     </grid>
     <group-title>custom content</group-title>
-    <grid :rows="5">
+    <grid>
       <grid-item v-for="i in 5" :key="i">
         <span class="grid-center">{{i}}</span>
       </grid-item>
