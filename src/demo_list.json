@@ -109,5 +109,6 @@
   "InlineXNumber",
   "PopupHeader",
   "InlineCalendarMulti#/demo/inline-calendar-multi",
-  "XImgPopup#/demo/x-img-popup"
+  "XImgPopup#/demo/x-img-popup",
+  "WeekCalendar"
 ]
