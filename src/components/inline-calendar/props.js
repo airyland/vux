@@ -69,5 +69,11 @@ export default () => ({
   disableFuture: {
     type: Boolean,
     default: false
+  },
+  marks: {
+    type: Array,
+    default () {
+      return []
+    }
   }
 })

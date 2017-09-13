@@ -49,7 +49,14 @@
             name="each-day">
               <span
               class="vux-calendar-each-date"
-              v-show="showChild(year, month, child)">{{replaceText(child.day, formatDate(year, month, child))}}</span>
+              :style="getMarkStyle(child)"
+              v-show="showChild(year, month, child)">
+                {{replaceText(child.day, formatDate(year, month, child))}}
+                <span class="vux-calendar-top-tip" v-if="isShowTopTip(child)" :style="isShowTopTip(child, 'style')">
+                  <span>{{ isShowTopTip(child, 'text') }}</span>
+                </span>
+              </span>
+              <span class="vux-calendar-dot" v-show="isShowBottomDot(child)"></span>
               <div v-html="renderFunction(k1, k2, child)" v-show="showChild(year, month, child)"></div>
             </slot>
           </td>
@@ -87,9 +94,11 @@ week_day_6:
 import format from '../datetime/format'
 import { getDays, zero } from './util'
 import props from './props'
+import calendarMarksMixin from '../../mixins/calendar-marks'
 
 export default {
   name: 'inline-calendar',
+  mixins: [calendarMarksMixin],
   props: props(),
   data () {
     return {
@@ -515,15 +524,40 @@ export default {
   color: @calendar-disabled-font-color;
 }
 .inline-calendar td > span.vux-calendar-each-date {
+  position: relative;
   display: inline-block;
   width: 26px;
   height: 26px;
   line-height: 26px;
   border-radius: 50%;
   text-align: center;
+  border: 1px solid transparent;
+  box-sizing: border-box;
 }
 .inline-calendar td.current > span.vux-calendar-each-date {
   background-color: @calendar-selected-bg-color;
   color: #fff!important;
+}
+
+/** same as week-calendar style**/
+.vux-calendar-top-tip {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  font-size: 20px;
+  transform: scale(0.5);
+  transform-origin: top left;
+}
+.vux-calendar-dot {
+  display: block;
+  text-align: center;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  margin-left: -2.5px;
+  background-color: #f74c31;
+  border-radius: 50%;
 }
 </style>

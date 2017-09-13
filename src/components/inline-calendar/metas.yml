@@ -87,6 +87,11 @@ props:
     default: false
     en: if disable future days
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
+  marks:
+    version: next
+    type: Array
+    en: (beta)style marks for specified date list
+    zh-CN: (beta) 自定义日期标记
 slots:
   each-day:
     version: v2.3.5
@@ -122,8 +127,10 @@ methods:
 changes:
   next:
     en:
+      - '[feature] (beta) Support prop:marks to style specified date item'
       - '[fix] fix i18n for days'
     zh-CN:
+      - '[feature] (beta) 支持属性 marks 用以自定义特定日期显示样式'
       - '[fix] 修复星期文字 i18n'
   v2.5.12:
     en:
