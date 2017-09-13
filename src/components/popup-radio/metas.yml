@@ -24,6 +24,11 @@ slots:
     en: custom how label displays
     zh-CN: 自定义每个条目显示内容
 changes:
+  next:
+    en:
+      - '[fix] fix placeholder logic #1964'
+    zh-CN:
+      - '[fix] 修复 placeholder 显示逻辑 #1964'
   v2.5.10:
     en:
       - '[feature] support @cell-value-color #1874'
