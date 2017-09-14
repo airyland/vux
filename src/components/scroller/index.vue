@@ -307,7 +307,7 @@ export default {
     })
     this.getStyles()
   },
-  beforeDestroy () {
+  destoryed () {
     if (this.pullup) {
       this._xscroll.unplug(this.pullup)
       this.pullup.pluginDestructor()
