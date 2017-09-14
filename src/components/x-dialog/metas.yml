@@ -110,6 +110,11 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
+  next:
+    en:
+      - '[fix] fix body still scrolls when scrolling on dialog'
+    zh-CN:
+      - '[fix] 修复弹窗滑动时 body 区域依然会滚动的问题'
   v2.5.12:
     en:
       - '[change] prop:scroll is deprecated #1858 #1877'

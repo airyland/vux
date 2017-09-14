@@ -12,9 +12,10 @@
 </template>
 
 <script>
-import dom from '../../libs/dom'
+import preventBodyScrollMixin from '../../mixins/prevent-body-scroll'
 
 export default {
+  mixins: [preventBodyScrollMixin],
   name: 'x-dialog',
   model: {
     prop: 'show',
@@ -50,23 +51,12 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      layout: ''
-    }
-  },
-  created () {
-    // get global layout config
-    if (this.$vux && this.$vux.config && this.$vux.config.$layout === 'VIEW_BOX') {
-      this.layout = 'VIEW_BOX'
-    }
-  },
   watch: {
     show (val) {
       this.$emit('update:show', val)
       this.$emit(val ? 'on-show' : 'on-hide')
       if (val) {
-        this.layout === 'VIEW_BOX' && dom.addClass(document.body, 'vux-modal-open')
+        this.addModalClassName()
       } else {
         this.removeModalClassName()
       }
@@ -78,16 +68,7 @@ export default {
         this.$emit('update:show', false)
         this.$emit('change', false)
       }
-    },
-    removeModalClassName () {
-      this.layout === 'VIEW_BOX' && dom.removeClass(document.body, 'vux-modal-open')
     }
-  },
-  beforeDestroy () {
-    this.removeModalClassName()
-  },
-  deactivated () {
-    this.removeModalClassName()
   }
 }
 </script>
@@ -96,10 +77,4 @@ export default {
 @import '../../styles/transition.less';
 @import '../../styles/weui/widget/weui_tips/weui_mask';
 @import '../../styles/weui/widget/weui_tips/weui_dialog';
-
-.vux-modal-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-}
 </style>
