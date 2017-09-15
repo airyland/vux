@@ -119,6 +119,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[enhance] set label for attribute #1983'
+    zh-CN:
+      - '[enhance] 为 label 设置 for 属性 #1983'
   v2.5.6:
     en:
       - '[fix] Fix is-type validating logic #1776'

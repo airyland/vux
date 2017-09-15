@@ -5,12 +5,13 @@
         <slot name="restricted-label"></slot>
       </div>
       <slot name="label">
-        <label class="weui-label" :class="labelClass" :style="{width: labelWidth || $parent.labelWidth || labelWidthComputed, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title"></label>
+        <label class="weui-label" :class="labelClass" :style="{width: labelWidth || $parent.labelWidth || labelWidthComputed, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title" :for="`vux-x-input-${uuid}`"></label>
         <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
       </slot>
     </div>
     <div class="weui-cell__bd weui-cell__primary" :class="placeholderAlign ? `vux-x-input-placeholder-${placeholderAlign}` : ''">
       <input
+      :id="`vux-x-input-${uuid}`"
       v-if="!type || type === 'text'"
       class="weui-input"
       :maxlength="max"
@@ -31,6 +32,7 @@
       @keyup="onKeyUp"
       ref="input"/>
       <input
+      :id="`vux-x-input-${uuid}`"
       v-if="type === 'number'"
       class="weui-input"
       :maxlength="max"
@@ -51,6 +53,7 @@
       @keyup="onKeyUp"
       ref="input"/>
       <input
+      :id="`vux-x-input-${uuid}`"
       v-if="type === 'email'"
       class="weui-input"
       :maxlength="max"
@@ -71,6 +74,7 @@
       @keyup="onKeyUp"
       ref="input"/>
       <input
+      :id="`vux-x-input-${uuid}`"
       v-if="type === 'password'"
       class="weui-input"
       :maxlength="max"
@@ -91,6 +95,7 @@
       @keyup="onKeyUp"
       ref="input"/>
       <input
+      :id="`vux-x-input-${uuid}`"
       v-if="type === 'tel'"
       class="weui-input"
       :maxlength="max"
