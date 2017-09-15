@@ -226,6 +226,11 @@ methods:
     en: set pulldown done after new data is fetched
     zh-CN: 设置下拉刷新操作完成，在数据加载后执行
 changes:
+  next:
+    en:
+      - '[change] call the xscroll destroy method, change beforeDestroy to destoryed'
+    zh-CN:
+      - '[change] 调用xscroll的destroy方法，从beforeDestroy换到destoryed'
   v2.2.1-rc.8:
     en:
       - '[change] set prop:prevent-default to false by default'
