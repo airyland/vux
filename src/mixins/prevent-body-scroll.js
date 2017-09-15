@@ -3,30 +3,27 @@ require('./prevent-body-scroll.css')
 
 const BODY_CLASS_NAME = 'vux-modal-open'
 const CONTAINER_CLASS_NAME = 'vux-modal-open-for-container'
+const VUX_VIEW_BOX_ELEMENT = '#vux_view_box_body'
 
 export default {
-  created () {
-    // get global layout config
-    if (this.$vux && this.$vux.config && this.$vux.config.$layout === 'VIEW_BOX') {
-      this.layout = 'VIEW_BOX'
-    }
-  },
-  data () {
-    return {
-      layout: ''
-    }
-  },
   methods: {
+    // some plugin may be imported before configPlugin, so we cannot get gloal config when component is created
+    getLayout () {
+      if (this.$vux && this.$vux.config && this.$vux.config.$layout === 'VIEW_BOX') {
+        return 'VIEW_BOX'
+      }
+      return ''
+    },
     addModalClassName () {
-      if (this.layout === 'VIEW_BOX') {
+      if (this.getLayout() === 'VIEW_BOX') {
         dom.addClass(document.body, BODY_CLASS_NAME)
-        dom.addClass(document.querySelector('#vux_view_box_body'), CONTAINER_CLASS_NAME)
+        dom.addClass(document.querySelector(VUX_VIEW_BOX_ELEMENT), CONTAINER_CLASS_NAME)
       }
     },
     removeModalClassName () {
-      if (this.layout === 'VIEW_BOX') {
+      if (this.getLayout() === 'VIEW_BOX') {
         dom.removeClass(document.body, BODY_CLASS_NAME)
-        dom.removeClass(document.querySelector('#vux_view_box_body'), CONTAINER_CLASS_NAME)
+        dom.removeClass(document.querySelector(VUX_VIEW_BOX_ELEMENT), CONTAINER_CLASS_NAME)
       }
     }
   },
