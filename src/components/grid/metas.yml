@@ -48,6 +48,10 @@ grid-item:
       en: slot for label, the same func as prop:label
       zh-CN: label文字的slot，作用同prop:label
 changes:
+  next:
+      - '[feature] add `col` props'
+    zh-CN:
+      - '[feature] 添加 `col` 属性，自定义列数'
   v2.6.0:
     en:
       - '[change] prop:rows is deprecated #1971'

@@ -9,7 +9,7 @@ export default {
   name: 'grid',
   methods: {
     countColumn () {
-      this.column = this.$children.length
+      this.childrenSize = this.$children.length
     }
   },
   props: {
@@ -21,11 +21,19 @@ export default {
         }
         return true
       }
+    },
+    col: {
+      type: Number
+    }
+  },
+  computed: {
+    column () {
+      return this.col || this.childrenSize
     }
   },
   data () {
     return {
-      column: 3
+      childrenSize: 3
     }
   }
 }
