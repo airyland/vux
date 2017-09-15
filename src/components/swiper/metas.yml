@@ -103,7 +103,7 @@ props:
     en: index value, use `v-model` for binding
     zh-CN: index 绑定，使用`v-model`，一般不需要绑定
 changes:
-  next:
+  v2.6.0:
     en:
       - '[enhance] support fallbackImg for prop:list #1923'
     zh-CN:

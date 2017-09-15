@@ -14,7 +14,7 @@ props:
     en: background color
     zh-CN: 背景颜色，需要配置以让文字与背景完全融合。推荐通过设置 less 变量 @load-more-tip-background-color 全局修改
 changes:
-  next:
+  v2.6.0:
     en:
       - '[feature] support less variable @load-more-tip-background-color'
     zh-CN:

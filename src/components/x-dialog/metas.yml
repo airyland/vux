@@ -110,7 +110,7 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
-  next:
+  v2.6.0:
     en:
       - '[fix] fix body still scrolls when scrolling on dialog'
     zh-CN:

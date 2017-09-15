@@ -63,7 +63,7 @@ checker-item:
       en: emits when current checker-item is clicked
       zh-CN: 当前项被点击时触发
 changes:
-  next:
+  v2.6.0:
     en:
       - '[fix] Fix event:on-change do not fire when using :value binding instead of v-model #1945'
     zh-CN:

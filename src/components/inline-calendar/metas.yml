@@ -88,7 +88,7 @@ props:
     en: if disable future days
     zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
   marks:
-    version: next
+    version: v2.6.0
     type: Array
     en: (beta)style marks for specified date list
     zh-CN: (beta) 自定义日期标记
@@ -125,7 +125,7 @@ methods:
     en: render with current value's month
     zh-CN: 渲染当前值所在月份
 changes:
-  next:
+  v2.6.0:
     en:
       - '[feature] (beta) Support prop:marks to style specified date item'
       - '[fix] fix i18n for days'

@@ -24,7 +24,7 @@ slots:
     en: custom how label displays
     zh-CN: 自定义每个条目显示内容
 changes:
-  next:
+  v2.6.0:
     en:
       - '[fix] fix placeholder logic #1964'
     zh-CN:

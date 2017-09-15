@@ -53,12 +53,12 @@ props:
     en: placeholder
     zh-CN: 占位提示文字
   show-popup-header:
-    version: next
+    version: v2.6.0
     type: Boolean
     en: whether show popup header
     zh-CN: 是否显示弹窗头部
   popup-header-title:
-    version: next
+    version: v2.6.0
     type: String
     en: popup header title
     zh-CN: 弹窗头部文字
@@ -68,7 +68,7 @@ events:
     en: emits when value changes
     zh-CN: 值改变时触发
 changes:
-  next:
+  v2.6.0:
     en:
       - '[feature] support prop:show-popup-header'
     zh-CN:
