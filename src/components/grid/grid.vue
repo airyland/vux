@@ -17,18 +17,18 @@ export default {
       type: Number,
       validator () {
         if (process.env.NODE_ENV === 'development') {
-          console.warn('[VUX warn] Grid rows 属性已经废弃，目前列数为自动计算')
+          console.warn('[VUX warn] Grid rows 属性已经废弃，使用 cols 代替。单行列数为自动计算')
         }
         return true
       }
     },
-    col: {
+    cols: {
       type: Number
     }
   },
   computed: {
     column () {
-      return this.col || this.childrenSize
+      return this.cols || this.childrenSize
     }
   },
   data () {

@@ -32,7 +32,7 @@
       </grid-item>
     </grid>
     <group-title>custom col</group-title>
-    <grid :col="3">
+    <grid :cols="3">
       <grid-item v-for="i in 6" :key="i">
         <span class="grid-center">{{i}}</span>
       </grid-item>
