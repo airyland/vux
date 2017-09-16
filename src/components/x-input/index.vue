@@ -141,6 +141,8 @@ import isMobilePhone from 'validator/lib/isMobilePhone'
 
 import Debounce from '../../tools/debounce'
 
+import mask from 'vanilla-masker'
+
 const validators = {
   'email': {
     fn: isEmail,
@@ -162,10 +164,14 @@ const validators = {
 export default {
   name: 'x-input',
   created () {
-    this.currentValue = (this.value === undefined || this.value === null) ? '' : this.value
-    if (!this.title && !this.placeholder && !this.currentValue) {
-      console.warn('no title and no placeholder?')
+    this.currentValue = (this.value === undefined || this.value === null) ? '' : (this.mask ? this.maskValue(this.value) : this.value)
+
+    if (process.env.NODE_ENV === 'development') {
+      if (!this.title && !this.placeholder && !this.currentValue) {
+        console.warn('no title and no placeholder?')
+      }
     }
+
     if (this.required && !this.currentValue) {
       this.valid = false
     }
@@ -176,7 +182,7 @@ export default {
       }, this.debounce)
     }
   },
-  mounted () {
+  beforeMount () {
     if (this.$slots && this.$slots['restricted-label']) {
       this.hasRestrictedLabel = true
     }
@@ -240,7 +246,8 @@ export default {
     iconType: String,
     debounce: Number,
     placeholderAlign: String,
-    labelWidth: String
+    labelWidth: String,
+    mask: String
   },
   computed: {
     labelStyles () {
@@ -281,6 +288,10 @@ export default {
     }
   },
   methods: {
+    maskValue (val) {
+      const val1 = this.mask ? mask.toPattern(val, this.mask) : val
+      return val1
+    },
     reset (value = '') {
       this.dirty = false
       this.currentValue = value
@@ -453,7 +464,7 @@ export default {
       } else {
         this.validate()
       }
-      this.$emit('input', newVal)
+      this.$emit('input', this.maskValue(newVal))
       if (this._debounce) {
         this._debounce()
       } else {
@@ -469,6 +480,7 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
 @import '../../styles/weui/widget/weui_cell/weui_form/weui_vcode';
+
 .vux-x-input .vux-x-input-placeholder-right input::-webkit-input-placeholder {
   text-align: right;
 }

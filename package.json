@@ -56,6 +56,7 @@
     "shake.js": "^1.2.2",
     "v-markdown-loader": "^0.6.3-beta.2",
     "validator": "^6.2.1",
+    "vanilla-masker": "^1.2.0",
     "vux-blazy": "^1.6.4",
     "vux-xscroll": "^3.1.10",
     "webp-support": "^1.0.3",
