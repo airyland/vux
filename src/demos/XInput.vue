@@ -14,6 +14,12 @@
       <x-input title="必须输入2333" :is-type="be2333" placeholder="I'm placeholder"></x-input>
     </group>
 
+    <group title="mask">
+      <x-input title="手机号码格式化" mask="999 9999 9999" v-model="maskValue" :max="13"></x-input>
+      <cell title="value" :value="maskValue"></cell>
+      <x-input title="(99) 9-99" mask="(99) 9-99" v-model="maskValue2" :max="9"></x-input>
+    </group>
+
     <group title="使用icon代替title">
       <x-input title="必须输入2333" :is-type="be2333" placeholder="I'm placeholder">
         <img slot="label" style="padding-right:10px;display:block;" src="http://dn-placeholder.qbox.me/110x110/FF2D55/000" width="24" height="24">
@@ -133,7 +139,9 @@ export default {
       style: '',
       disabledValue: 'hello',
       debounceValue: '',
-      maxValue: ''
+      maxValue: '',
+      maskValue: '12345678910',
+      maskValue2: ''
     }
   },
   methods: {
@@ -144,7 +152,7 @@ export default {
       this.valid2 = this.$refs.input02.valid
     },
     change (val) {
-      console.log(val)
+      console.log('on change', val)
     },
     onBlur (val) {
       console.log('on blur', val)
