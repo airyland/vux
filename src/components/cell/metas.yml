@@ -54,8 +54,8 @@ props:
   value-align:
     version: v2.2.0
     default: left
-    en: value's text-align，primary will be set to content if value-align value is right
-    zh-CN: 文字值对齐方式，当设为 right 时，primary 值将会设为 content
+    en: value's text-align，one of left, right. prop:primary will be set to content if value-align value is right
+    zh-CN: 文字值对齐方式，可选值为 left right。当设为 right 时，primary 值将会设为 content
   border-intent:
     version: v2.2.1-rc.1
     type: Boolean
