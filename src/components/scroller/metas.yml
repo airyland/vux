@@ -226,6 +226,11 @@ methods:
     en: set pulldown done after new data is fetched
     zh-CN: 设置下拉刷新操作完成，在数据加载后执行
 changes:
+  next:
+    en:
+      - '[change] call `reset` in `updated` hook'
+    zh-CN:
+      - '[change] 在`updated` 钩子中调用`reset`'
   v2.2.1-rc.8:
     en:
       - '[change] set prop:prevent-default to false by default'
