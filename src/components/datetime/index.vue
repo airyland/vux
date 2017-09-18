@@ -133,7 +133,6 @@ export default {
   created () {
     this.isFirstSetValue = false
     this.currentValue = this.value
-    console.log(this.computeDaysFunction)
   },
   data () {
     return {
