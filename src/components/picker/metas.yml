@@ -132,6 +132,11 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
+  next:
+    en:
+      - '[enhance] scroll distance respects html[data-dpr] #1979'
+    zh-CN:
+      - '[enhance] 滚动距离支持从 html[data-dpr] 换算 #1979'
   v2.3.1:
     en:
       - '[feature] Add getNameValues Method #1418'
