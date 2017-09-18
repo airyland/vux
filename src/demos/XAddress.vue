@@ -5,6 +5,11 @@
       <cell title="上面value值" :value="value"></cell>
     </group>
 
+    <div style="padding: 15px;">
+      <x-address style="display:none;" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" :show.sync="showAddress"></x-address>
+      <x-button type="primary" @click.native="doShowAddress">单独控制显示(2s后关闭)</x-button>
+    </div>
+
     <group>
     <x-address :title="title" @on-hide="logHide" v-model="value_0_1" :list="addressData" placeholder="请选择地址">
       <template slot="title" scope="props">
@@ -22,7 +27,6 @@
     </group>
     <br/>
     <div style="padding: 0 15px;">
-      <x-button type="primary" @click.native="showAddress=true">显示</x-button>
       <x-button type="primary" @click.native="changeData">改变数据（通过 id）</x-button>
       <x-button type="primary" @click.native="changeDataByLabels">改变数据（通过文字值）</x-button>
       <x-button type="primary" @click.native="changeDataByLabels2">改变数据（两级，通过文字值）</x-button>
@@ -70,6 +74,12 @@ export default {
     }
   },
   methods: {
+    doShowAddress () {
+      this.showAddress = true
+      setTimeout(() => {
+        this.showAddress = false
+      }, 2000)
+    },
     onShadowChange (ids, names) {
       console.log(ids, names)
     },
