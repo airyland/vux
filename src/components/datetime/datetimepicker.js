@@ -68,6 +68,7 @@ const DEFAULT_CONFIG = {
   destroyOnHide: false,
   renderInline: false,
   computeHoursFunction: null,
+  computeDaysFunction: null,
   isOneInstance: false
 }
 
@@ -357,6 +358,23 @@ DatetimePicker.prototype = {
           value: addZero(hour)
         }
       })
+    }
+
+    if (type === 'day' && this.config.computeDaysFunction) {
+      const rs = this.config.computeDaysFunction({
+        year,
+        month,
+        min,
+        max
+      }, generateRange)
+      if (rs) {
+        data = rs.map(day => {
+          return {
+            name: parseRow(config['dayRow'], addZero(day)),
+            value: addZero(day)
+          }
+        })
+      }
     }
 
     if (type === 'hour' && this.config.computeHoursFunction) {

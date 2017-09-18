@@ -68,6 +68,10 @@
       <datetime format="YYYY-MM-DD HH" v-model="computeHoursValue" :compute-hours-function="computeHoursFunction" :title="$t('Birthday')"></datetime>
     </group>
 
+    <group :title="$t('prop:compute-days-function')">
+      <datetime format="YYYY-MM-DD HH" v-model="computeDaysValue" :compute-days-function="computeDaysFunction" :title="$t('Birthday')"></datetime>
+    </group>
+
     <group :title="$t('specified template text in Chinese')">
       <datetime v-model="value5" :placeholder="$t('Please select')" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('Chinese')" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
     </group>
@@ -152,6 +156,10 @@ Used as a plugin:
   zh-CN: 插件形式调用
 set default-selected-value to 2017-11-11:
   zh-CN: 设置默认选中值为 2017-11-11
+'prop:compute-hours-function':
+  zh-CN: 自定义小时列表生成逻辑
+'prop:compute-days-function':
+  zh-CN: 自定义日期列表生成逻辑
 </i18n>
 
 <script>
@@ -189,12 +197,16 @@ export default {
       value9: '',
       visibility: false,
       computeHoursValue: '',
+      computeDaysValue: '',
       computeHoursFunction (date, isToday, generateRange) {
         if (isToday) {
           return generateRange(new Date().getHours(), 23)
         } else {
           return generateRange(0, 23)
         }
+      },
+      computeDaysFunction (options, generateRange) {
+        return [options.month] // if current month is n, days are [n]
       }
     }
   },

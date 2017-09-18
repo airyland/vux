@@ -127,11 +127,13 @@ export default {
     minuteList: Array,
     show: Boolean,
     defaultSelectedValue: String,
-    computeHoursFunction: Function
+    computeHoursFunction: Function,
+    computeDaysFunction: Function
   },
   created () {
     this.isFirstSetValue = false
     this.currentValue = this.value
+    console.log(this.computeDaysFunction)
   },
   data () {
     return {
@@ -173,6 +175,7 @@ export default {
         minuteList: this.minuteList,
         defaultSelectedValue: this.defaultSelectedValue,
         computeHoursFunction: this.computeHoursFunction,
+        computeDaysFunction: this.computeDaysFunction,
         onSelect (type, val, wholeValue) {
           if (_this.picker && _this.picker.config.renderInline) {
             _this.$emit('input', wholeValue)
