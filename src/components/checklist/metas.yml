@@ -4,6 +4,10 @@ tags:
     - checklist
     - select
     - form
+extra: |
+
+  从 v2.6.2 开始，max=1即为单选模式，不会要求先取消上一个选中的才能选中下一个值。
+
 props:
   value:
     type: Array
@@ -61,6 +65,11 @@ events:
     en: emits when value changes, param:label is supported after v2.5.7
     zh-CN: 值变化时触发，参数为 (value, label)，其中 label 参数在 v2.5.7 后支持
 changes:
+  next:
+    en:
+      - '[feature] Support radio mode(max = 1) #1996'
+    zh-CN:
+      - '[feature] 支持 max=1 交互为单选模式 #1996'
   v2.5.7:
     en:
       - '[feature] Support `label` param for on-change event #1783'

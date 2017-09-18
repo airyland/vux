@@ -1,16 +1,16 @@
 <template>
   <div :class="disabled ? 'vux-checklist-disabled' : ''">
-    <div v-show="title" class="weui-cells__title">{{title}}</div>
+    <div v-show="title" class="weui-cells__title">{{ title }}</div>
     <slot name="after-title"></slot>
     <div class="weui-cells weui-cells_checkbox">
       <label class="weui-cell weui-check_label" :class="{'vux-checklist-label-left': labelPosition === 'left'}" :for="`checkbox_${uuid}_${index}`" v-for="(one, index) in currentOptions">
         <div class="weui-cell__hd">
-          <input type="checkbox" class="weui-check" :name="`vux-checkbox-${uuid}`" :value="getKey(one)" v-model="currentValue" :id="disabled ? '' : `checkbox_${uuid}_${index}`" :disabled="ifDisable(getKey(one))">
+          <input type="checkbox" class="weui-check" :name="`vux-checkbox-${uuid}`" :value="getKey(one)" v-model="currentValue" :id="disabled ? '' : `checkbox_${uuid}_${index}`" :disabled="isDisabled(getKey(one))">
           <i class="weui-icon-checked vux-checklist-icon-checked"></i>
         </div>
         <div class="weui-cell__bd">
           <p v-html="getValue(one)"></p>
-          <inline-desc v-if="getInlineDesc(one)">{{getInlineDesc(one)}}</inline-desc>
+          <inline-desc v-if="getInlineDesc(one)">{{ getInlineDesc(one) }}</inline-desc>
         </div>
       </label>
     </div>
@@ -68,7 +68,18 @@ export default {
   data () {
     return {
       currentValue: [],
-      currentOptions: this.options
+      currentOptions: this.options,
+      tempValue: ''
+    }
+  },
+  beforeUpdate () {
+    const length = this.currentValue.length
+    if (this.max === 1) {
+      if (length > 1) {
+        this.currentValue = [this.currentValue[length - 1]]
+      }
+      const val = pure(this.currentValue)
+      this.tempValue = val.length ? val[0] : ''
     }
   },
   created () {
@@ -86,11 +97,14 @@ export default {
     getValue,
     getKey,
     getInlineDesc,
-    ifDisable (key) {
+    isDisabled (key) {
       if (!this.checkDisabled) {
         return false
       }
-      return this.currentValue.indexOf(key) === -1 && this.currentValue.length === this._max
+      if (this._max > 1) {
+        return this.currentValue.indexOf(key) === -1 && this.currentValue.length === this._max
+      }
+      return false
     }
   },
   computed: {
@@ -131,6 +145,11 @@ export default {
     }
   },
   watch: {
+    tempValue (val) {
+      const _val = val ? [val] : []
+      this.$emit('input', _val)
+      this.$emit('on-change', _val)
+    },
     value (newVal) {
       if (JSON.stringify(newVal) !== JSON.stringify(this.currentValue)) {
         this.currentValue = newVal
@@ -141,29 +160,31 @@ export default {
     },
     currentValue (newVal) {
       const val = pure(newVal)
-      this.$emit('input', val)
-      this.$emit('on-change', val)
 
-      let err = {}
-      if (this._min) {
-        if (this.required) {
-          if (this.currentValue.length < this._min) {
-            err = {
-              min: this._min
+      if (this.max > 1) {
+        this.$emit('input', val)
+        this.$emit('on-change', val)
+        let err = {}
+        if (this._min) {
+          if (this.required) {
+            if (this.currentValue.length < this._min) {
+              err = {
+                min: this._min
+              }
             }
-          }
-        } else {
-          if (this.currentValue.length && this.currentValue.length < this._min) {
-            err = {
-              min: this._min
+          } else {
+            if (this.currentValue.length && this.currentValue.length < this._min) {
+              err = {
+                min: this._min
+              }
             }
           }
         }
-      }
-      if (!this.valid && this.dirty && Object.keys(err).length) {
-        this.$emit('on-error', err)
-      } else {
-        this.$emit('on-clear-error')
+        if (!this.valid && this.dirty && Object.keys(err).length) {
+          this.$emit('on-error', err)
+        } else {
+          this.$emit('on-clear-error')
+        }
       }
     }
   }
