@@ -132,7 +132,7 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
-  next:
+  v2.6.2:
     en:
       - '[enhance] scroll distance respects html[data-dpr] #1979'
     zh-CN:

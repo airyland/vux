@@ -28,6 +28,7 @@
   "ChinaAddressV2Data": "src/datas/china_address_v2.json",
   "ChinaAddressV3Data": "src/datas/china_address_v3.json",
   "ChinaAddressV4Data": "src/datas/china_address_v4.json",
+  "ChinamobileTool": "src/tools/validator/chinaMobile.js",
   "ClickOutsideDirective": "src/directives/click-outside/index.js",
   "Clocker": "src/components/clocker/index.vue",
   "ColorPicker": "src/components/color-picker/index.vue",
