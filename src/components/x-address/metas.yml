@@ -35,7 +35,7 @@ extra:
     import { XAddress } from 'vux'
 
     // 如果你需要引入数据，如果你的版本低于 v2.2.0，请使用 ChinaAddressData
-    import { XAddress, ChinaAddressV3Data } from 'vux'
+    import { XAddress, ChinaAddressV4Data } from 'vux'
 
     // 如果需要引入旧版数据
     import { XAddress, ChinaAddressV2Data } from 'vux'
@@ -51,6 +51,8 @@ extra:
     ```
 
     <p>
+    v4 和 v3 的区别是在 v4 里重庆多了县列表。
+    <br>
     从 `2.1.1-rc.12` 开始，`直辖区`做了简化，原来是 北京市-北京市市辖区-东城区，现在是 北京市-市辖区-东城区。组件内部做了兼容，你以`raw-value`方式传入两种写法表现和旧版本一致，不会出错。
     <br>
     <br>
@@ -136,6 +138,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  next:
+    en:
+      - '[fix] update address data #2000'
+    zh-CN:
+      - '[fix] 更新地址数据 #2000'
   v2.5.9:
     en:
       - '[feature] prop:show supports the .sync modifier'

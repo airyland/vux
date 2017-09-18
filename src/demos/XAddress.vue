@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { Group, XAddress, ChinaAddressV3Data, XButton, Cell, Value2nameFilter as value2name } from 'vux'
+import { Group, XAddress, ChinaAddressV4Data, XButton, Cell, Value2nameFilter as value2name } from 'vux'
 
 export default {
   components: {
@@ -67,7 +67,7 @@ export default {
       title2: '设置值',
       value2: ['天津市', '市辖区', '和平区'],
       value3: ['广东省', '中山市', '--'],
-      addressData: ChinaAddressV3Data,
+      addressData: ChinaAddressV4Data,
       value4: [],
       value5: ['广东省', '深圳 市', '南山区'],
       showAddress: false
@@ -93,7 +93,7 @@ export default {
       this.value2 = ['广东省', '中山市', '--']
     },
     getName (value) {
-      return value2name(value, ChinaAddressV3Data)
+      return value2name(value, ChinaAddressV4Data)
     },
     logHide (str) {
       console.log('on-hide', str)
