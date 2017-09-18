@@ -43,15 +43,16 @@ extra:
     <p class="tip">
     如果你需要单独引入地址数据，可以在源码[src/datas](https://github.com/airyland/vux/tree/v2/src/datas)找到。
     </p>
+    <p class="tip">设计上 `x-address` 只能在 `Group` 中使用。但是你依然可以不在 `Group` 中使用，使用 `display:none` 隐藏然后用 :show.sync 来控制组件显示状态。</p>
 
-    <p class="tip">设计上 `x-address` 只能在 `Group` 中使用。但是你依然可以不在 `Group` 中使用，使用 `display:none` 隐藏然后用 :show.sync 来控制组件显示状态。
     
     ``` html
     <x-address style="display:none;" title="title" v-model="value" :list="addressData" placeholder="请选择地址" :show.sync="showAddress"></x-address>
     ```
 
-    <br>
+    <p>
     从 `2.1.1-rc.12` 开始，`直辖区`做了简化，原来是 北京市-北京市市辖区-东城区，现在是 北京市-市辖区-东城区。组件内部做了兼容，你以`raw-value`方式传入两种写法表现和旧版本一致，不会出错。
+    <br>
     <br>
     从 `2.1.1-rc.15` 开始，数据必须指定版本，原来的 `ChinaAddressData` 废弃并停留在 `v2` 版本不再更新。
     <br>
