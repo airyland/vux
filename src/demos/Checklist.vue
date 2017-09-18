@@ -8,13 +8,11 @@
       <x-button @click.native="selectLeft" type="primary">选择剩下值</x-button>
     </div>
 
-    <checklist :title="$t('handle errors')" required :options="commonList" show-error v-model="checklist0011" @on-change="change" @on-error="onError" @on-clear-error="onNoError" name="demo1" :max="2">
-      <p slot="footer" v-show="error" class="error">{{error}}</p>
-    </checklist>
-
     <checklist :title="$t('preselect China and Japan(disabled)')" disabled label-position="left" :options="commonList" v-model="checklist002" @on-change="change"></checklist>
 
     <checklist :title="$t('set max=2')" :options="commonList" v-model="checklist003" :max=2 @on-change="change"></checklist>
+
+    <checklist :title="$t('set max=1(radio mode)')" :options="commonList" v-model="radioValue" :max=1 @on-change="change"></checklist>
 
     <checklist :title="$t('set random order')" random-order :options="checklist005" v-model="checklist005Value" @on-change="change"></checklist>
 
@@ -26,14 +24,12 @@
 
     <divider>Reference</divider>
     <group title="See also">
-      <cell title="Checker" value="with which you can custom any style" is-link link="/component/checker"></cell>
+      <cell title="Checker" is-link link="/component/checker"></cell>
     </group>
   </div>
 </template>
 
 <i18n>
-handle errors:
-  zh-CN: 处理错误
 preselect China and Japan(disabled):
   zh-CN: 默认选中China和Japan(禁用操作)
 set max=2:
@@ -46,6 +42,8 @@ Option is Object with InlineDesc:
   zh-CN: 包含inlineDesc属性的Object类型选项列表
 Async list:
   zh-CN: 异步选项列表
+set max=1(radio mode):
+  zh-CN: max=1（单选模式）
 </i18n>
 
 <script>
@@ -68,13 +66,6 @@ export default {
   methods: {
     change (val) {
       console.log('change', val)
-    },
-    onError (errors) {
-      console.log(errors)
-      this.error = errors
-    },
-    onNoError () {
-      this.error = null
     },
     selectFirst () {
       this.checklist001 = ['China']
@@ -107,7 +98,8 @@ export default {
       ],
       inlineDescListValue: [1],
       asyncList: [],
-      asyncListValue: []
+      asyncListValue: [],
+      radioValue: ['China']
     }
   }
 }
