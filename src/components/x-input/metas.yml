@@ -92,7 +92,7 @@ props:
     en: set label width which will not be overwritten by $parent.labelWidth
     zh-CN: label 宽度，权重比 group 的 labelWidth 高。不设定时将进行自动宽度计算，但超过15个字符时不会进行宽度设定。
   mask:
-    version: next
+    version: v2.6.1
     en: (beta) value mask, 9 for DIGIT, A for ALPHA, S for ALPHA AND DIGIT
     zh-CN: (beta) 值格式化，依赖于 vanilla-masker，其中 9 表示数字，A 表示大写字母，S 表示数字或者字母
 slots:
@@ -128,7 +128,7 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
-  next:
+  v2.6.1:
     en:
       - '[enhance] set label for attribute #1983'
       - '[feature] support prop:mask'

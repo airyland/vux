@@ -30,7 +30,7 @@ grid:
       zh-CN: (v2.6.0 之后废弃，使用 col 替代)宫格列数，建议少于`5`
     cols:
       type: Number
-      version: next
+      version: v2.6.1
       default: 3
       en: column number
       zh-CN: 列数。如果为非单行 Grid，需要设置 cols，否则所有 GridItem 会平均宽度显示在一行。
@@ -54,7 +54,7 @@ grid-item:
       en: slot for label, the same func as prop:label
       zh-CN: label文字的slot，作用同prop:label
 changes:
-  next:
+  v2.6.1:
     en:
       - '[feature] add `cols` props'
     zh-CN:

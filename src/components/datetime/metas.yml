@@ -140,7 +140,7 @@ props:
     en: 'dynamically set hours list, params `(value, isToday, generateRange)`'
     zh-CN: '动态设置小时列表，参数为 `(value, isToday, generateRange)`'
   compute-days-function:
-    version: next
+    version: v2.6.1
     type: Function
     en: 'dynamically set days list, params `({year, month, min, max}, generateRange)`'
     zh-CN: '动态设置日期列表，参数为 `({year, month, min, max}, generateRange)`'
@@ -155,7 +155,7 @@ events:
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
 changes:
-  next:
+  v2.6.1:
     en:
       - '[feature] support prop:compute-days-function for dynamically setting days #1992'
     zh-CN:
