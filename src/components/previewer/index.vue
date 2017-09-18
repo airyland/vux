@@ -19,10 +19,12 @@
         <div class="pswp__top-bar">
           <!--  Controls are self-explanatory. Order can be changed. -->
           <div class="pswp__counter"></div>
+          <slot name="button-after"></slot>
           <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
           <button class="pswp__button pswp__button--share" title="Share"></button>
           <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
           <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+          <slot name="button-before"></slot>
           <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
           <!-- element will get class pswp__preloader--active when preloader is running -->
           <div class="pswp__preloader">
@@ -76,7 +78,7 @@ export default {
         img.onload = function () {
           showItem.w = this.width
           showItem.h = this.height
-          self._init(index)
+          self.doInit(index)
         }
         img.src = showItem.src
       } else {
@@ -112,6 +114,9 @@ export default {
     },
     show (index) {
       this.init(index)
+    },
+    getCurrentIndex () {
+      return this.photoswipe.getCurrentIndex()
     },
     close () {
       this.photoswipe.close()

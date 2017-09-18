@@ -81,16 +81,33 @@ methods:
     version: v2.5.10
     en: go to previous image
     zh-CN: 跳转到上一张
-  v2.5.10:
+  next:
     version: v2.5.10
     en: go to next image
     zh-CN: 跳转到下一张
+  getCurrentIndex:
+    version: next
+    en: get current index
+    zh-CN: 获取当前图片索引
+slots:
+  button-after:
+    version: next
+    en: slot after control button list
+    zh-CN: 操作按钮之后，可以添加自定义图标
+  button-before:
+    version: next
+    en: slot before control button list
+    zh-CN: 操作按钮之前，可以添加自定义图标
 changes:
   next:
     en:
       - '[fix] fix method name starts with _ will get vue(2.4.4) warning #2001'
+      - '[feature] add method:getCurrentIndex'
+      - '[feature] add slot:button-before slot:button-after'
     zh-CN:
       - '[fix] 修复组件函数名字以下划线开头将会被 Vue(2.4.4) 警告的问题 #2001'
+      - '[feature] 添加 getCurrentIndex 方法'
+      - '[feature] 添加 slot:button-before 和 slot:button-after'
   v2.5.10:
     en:
       - '[enhance] Support method:goTo  #1888'
