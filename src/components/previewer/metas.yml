@@ -86,6 +86,11 @@ methods:
     en: go to next image
     zh-CN: 跳转到下一张
 changes:
+  next:
+    en:
+      - '[fix] fix method name starts with _ will get vue(2.4.4) warning #2001'
+    zh-CN:
+      - '[fix] 修复组件函数名字以下划线开头将会被 Vue(2.4.4) 警告的问题 #2001'
   v2.5.10:
     en:
       - '[enhance] Support method:goTo  #1888'

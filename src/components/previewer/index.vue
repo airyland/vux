@@ -80,10 +80,10 @@ export default {
         }
         img.src = showItem.src
       } else {
-        this._init(index)
+        this.doInit(index)
       }
     },
-    _init (index) {
+    doInit (index) {
       const self = this
       let options = objectAssign({
         history: false,
