@@ -4,7 +4,7 @@
       <label :for="`vux-selector-${uuid}`" class="weui-label" :class="labelClass" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}">{{title}}</label>
     </div>
     <div class="weui-cell__bd" v-if="!readonly">
-      <select :id="`vux-selector-${uuid}`" :ddd="color" style="color:red;" class="weui-select" v-model="currentValue" :name="name"
+      <select :id="`vux-selector-${uuid}`" style="color:red;" class="weui-select" v-model="currentValue" :name="name"
       :style="{
         direction: direction,
         color: color
@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     fixIos () {
-      return !this.placeholder && typeof (this.value === 'undefined' || this.value === '') && this.isIOS && this.title
+      return !this.placeholder && (typeof this.value === 'undefined' || this.value === '') && this.isIOS && this.title
     },
     color () {
       return this.showPlaceholder ? '#A9A9A9' : ''
