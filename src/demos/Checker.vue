@@ -10,7 +10,21 @@
       <checker-item value="5">{{ $t('驴') }}</checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{demo1}}</span>
+      <span>{{ $t('current value is') }}: {{ demo1 }}</span>
+      <br>
+    </div>
+
+    <divider>{{ $t('radioRequired') }}</divider>
+    <div class="box">
+      <checker v-model="demo1Required" radio-required default-item-class="demo1-item" selected-item-class="demo1-item-selected">
+      <checker-item value="1">{{ $t('潘') }}</checker-item>
+      <checker-item value="2">{{ $t('闲') }}</checker-item>
+      <checker-item value="3">{{ $t('邓') }}</checker-item>
+      <checker-item value="4">{{ $t('小') }}</checker-item>
+      <checker-item value="5">{{ $t('驴') }}</checker-item>
+      </checker>
+      <br>
+      <span>{{ $t('current value is') }}: {{ demo1Required }}</span>
       <br>
     </div>
 
@@ -238,6 +252,7 @@ export default {
         value: 'C'
       }],
       demo1: '',
+      demo1Required: '',
       demo11: null,
       demo12: {key: '2', value: 'B'},
       demo21: null,

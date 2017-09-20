@@ -16,7 +16,8 @@ export default {
       default: 'radio'
     },
     value: [String, Number, Array, Object],
-    max: Number
+    max: Number,
+    radioRequired: Boolean
   },
   watch: {
     value (newValue) {

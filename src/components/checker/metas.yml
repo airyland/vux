@@ -35,13 +35,19 @@ checker:
       en: checker type, should be raido or checkbox
       zh-CN: 类型，单选为`radio`, 多选为`checkbox`
     value:
-      type: Array
+      type: String,Array
       en: selected value ,use `v-model` for binding
       zh-CN: 表单值，使用`v-model`绑定
     max:
       type: Number
       en: max selected number when type = checkbox
       zh-CN: 最多可选个数，多选时可用
+    radio-required:
+      version: next
+      type: Boolean
+      default: false
+      en: whether value is required in radio mode
+      zh-CN: 在单选模式下是否必选一个值。设为 true 后点击当前选中项不会取消选中。
   events:
     on-change:
       params: '`(value)`'
@@ -63,6 +69,11 @@ checker-item:
       en: emits when current checker-item is clicked
       zh-CN: 当前项被点击时触发
 changes:
+  next:
+    en:
+      - '[feature] support prop:radio-required #2004'
+    zh-CN:
+      - '[feature] 支持属性 radio-required 强制单选模式下必选一项 #2004'
   v2.6.0:
     en:
       - '[fix] Fix event:on-change do not fire when using :value binding instead of v-model #1945'

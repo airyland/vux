@@ -73,7 +73,9 @@ export default {
     selectRadio () {
       if (!this.disabled) {
         if (this.$parent.currentValue === this.value) {
-          this.$parent.currentValue = ''
+          if (!this.$parent.radioRequired) {
+            this.$parent.currentValue = ''
+          }
         } else {
           this.$parent.currentValue = this.value
         }
