@@ -3,6 +3,9 @@ export default {
     return new RegExp('(\\s|^)' + token + '(\\s|$)').test(el.className)
   },
   addClass (el, token) {
+    if (!el) {
+      return
+    }
     if (el.classList) {
       el.classList.add(token)
     } else if (!this.hasClass(el, token)) {
@@ -10,6 +13,9 @@ export default {
     }
   },
   removeClass (el, token) {
+    if (!el) {
+      return
+    }
     if (el.classList) {
       el.classList.remove(token)
     } else if (this.hasClass(el, token)) {
