@@ -65,7 +65,7 @@ events:
     en: emits when value changes, param:label is supported after v2.5.7
     zh-CN: 值变化时触发，参数为 (value, label)，其中 label 参数在 v2.5.7 后支持
 changes:
-  next:
+  v2.6.3:
     en:
       - '[fix] now on-change params has labels as second param #2018'
     zh-CN:

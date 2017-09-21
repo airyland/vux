@@ -85,7 +85,7 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
-  next:
+  v2.6.3:
     en:
       - '[fix] fix no padding when using slot and type === text'
     zh-CN:

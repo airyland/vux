@@ -43,7 +43,7 @@ checker:
       en: max selected number when type = checkbox
       zh-CN: 最多可选个数，多选时可用
     radio-required:
-      version: next
+      version: v2.6.3
       type: Boolean
       default: false
       en: whether value is required in radio mode
@@ -69,7 +69,7 @@ checker-item:
       en: emits when current checker-item is clicked
       zh-CN: 当前项被点击时触发
 changes:
-  next:
+  v2.6.3:
     en:
       - '[feature] support prop:radio-required #2004'
     zh-CN:

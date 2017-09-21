@@ -62,7 +62,7 @@ events:
     en: when input gets focus
     zh-CN: 输入框获取到焦点时触发
   on-blur:
-    version: next
+    version: v2.6.3
     en: fires when input losts focus
     zh-CN: 输入框失去焦点时触发
 slots:
@@ -85,7 +85,7 @@ methods:
     en: make input lost focus
     zh-CN: 手动设置 input 失去焦点，一般用于在 on-submit 事件中实现隐藏手机键盘
 changes:
-  next:
+  v2.6.3:
     en:
       - '[feature] add event:on-blur'
     zh-CN:

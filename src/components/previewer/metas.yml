@@ -82,25 +82,25 @@ methods:
     version: v2.5.10
     en: go to previous image
     zh-CN: 跳转到上一张
-  next:
+  v2.6.3:
     version: v2.5.10
     en: go to next image
     zh-CN: 跳转到下一张
   getCurrentIndex:
-    version: next
+    version: v2.6.3
     en: get current index
     zh-CN: 获取当前图片索引
 slots:
   button-after:
-    version: next
+    version: v2.6.3
     en: slot after control button list
     zh-CN: 操作按钮之后，可以添加自定义图标
   button-before:
-    version: next
+    version: v2.6.3
     en: slot before control button list
     zh-CN: 操作按钮之前，可以添加自定义图标
 changes:
-  next:
+  v2.6.3:
     en:
       - '[fix] fix method name starts with _ will get vue(2.4.4) warning #2001'
       - '[feature] add method:getCurrentIndex'
