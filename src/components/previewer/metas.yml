@@ -20,6 +20,7 @@ extra:
     },
     {
       src: 'https://placekitten.com/1200/900',
+      msrc: 'https://placekitten.com/120/90', // 缩略图
       w: 1200,
       h: 900
     }]
