@@ -12,7 +12,7 @@
 
     <checklist :title="$t('set max=2')" :options="commonList" v-model="checklist003" :max=2 @on-change="change"></checklist>
 
-    <checklist :title="$t('set max=1(radio mode)')" :options="commonList" v-model="radioValue" :max=1 @on-change="change"></checklist>
+    <checklist :title="$t('set max=1(radio mode)')" :options="commonList" v-model="radioValue" :max="1" @on-change="change"></checklist>
 
     <checklist :title="$t('set random order')" random-order :options="checklist005" v-model="checklist005Value" @on-change="change"></checklist>
 
@@ -64,8 +64,8 @@ export default {
     XButton
   },
   methods: {
-    change (val) {
-      console.log('change', val)
+    change (val, label) {
+      console.log('change', val, label)
     },
     selectFirst () {
       this.checklist001 = ['China']

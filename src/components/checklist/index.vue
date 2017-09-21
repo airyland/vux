@@ -23,7 +23,7 @@ import Base from '../../libs/base'
 import Tip from '../tip'
 import Icon from '../icon'
 import InlineDesc from '../inline-desc'
-import { getValue, getKey, getInlineDesc } from './object-filter'
+import { getValue, getLabels, getKey, getInlineDesc } from './object-filter'
 import shuffle from 'array-shuffle'
 
 export default {
@@ -73,8 +73,8 @@ export default {
     }
   },
   beforeUpdate () {
-    const length = this.currentValue.length
-    if (this.max === 1) {
+    if (this.isRadio) {
+      const length = this.currentValue.length
       if (length > 1) {
         this.currentValue = [this.currentValue[length - 1]]
       }
@@ -108,6 +108,13 @@ export default {
     }
   },
   computed: {
+    isRadio () {
+      if (typeof this.max === 'undefined') {
+        return false
+      } else {
+        return this.max === 1
+      }
+    },
     _total () {
       return this.fillMode ? (this.options.length + 1) : this.options.length
     },
@@ -148,7 +155,7 @@ export default {
     tempValue (val) {
       const _val = val ? [val] : []
       this.$emit('input', _val)
-      this.$emit('on-change', _val)
+      this.$emit('on-change', _val, getLabels(this.options, _val))
     },
     value (newVal) {
       if (JSON.stringify(newVal) !== JSON.stringify(this.currentValue)) {
@@ -161,9 +168,9 @@ export default {
     currentValue (newVal) {
       const val = pure(newVal)
 
-      if (this.max > 1) {
+      if (!this.isRadio) {
         this.$emit('input', val)
-        this.$emit('on-change', val)
+        this.$emit('on-change', val, getLabels(this.options, val))
         let err = {}
         if (this._min) {
           if (this.required) {
