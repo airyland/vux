@@ -85,6 +85,11 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
+  next:
+    en:
+      - '[fix] fix no padding when using slot and type === text'
+    zh-CN:
+      - '[fix] 修复 type 为 text 时使用 slot 缺失 padding 样式的问题'
   v2.5.8:
     en:
       - "[fix] Toast's zIndex should be higher than XDialog's #1820"
