@@ -95,6 +95,11 @@ props:
     version: v2.6.1
     en: (beta) value mask, 9 for DIGIT, A for ALPHA, S for ALPHA AND DIGIT
     zh-CN: (beta) 值格式化，依赖于 vanilla-masker，其中 9 表示数字，A 表示大写字母，S 表示数字或者字母
+  should-toast-error:
+    version: next
+    default: true
+    en: whether toast error when clicking on error icon
+    zh-CN: 是否在点击错误图标时用 toast 的形式显示错误
 slots:
   label:
     zh-CN: '用于自定义`label`(即 title)部分内容，比如使用`icon`'
@@ -115,6 +120,11 @@ events:
   on-change:
     params: '`(value)`'
     zh-CN: '输入值变化时触发。如果你使用了`debounce`，那么触发将不会是实时的。'
+  on-click-error-icon:
+    version: next
+    params: '`(error)`'
+    en: fires when clicking error icon
+    zh-CN: '点击错误图标时触发，你可以关闭 `should-toast-error` 然后用这个事件来自定义显示错误的提示内容'
 methods:
   focus:
     en: get input focus
@@ -128,6 +138,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[enhance] toast error when clicking error icon #2009'
+    zh-CN:
+      - '[enhance] 点击错误图标时显示错误内容 #2009'
   v2.6.1:
     en:
       - '[enhance] set label for attribute #1983'

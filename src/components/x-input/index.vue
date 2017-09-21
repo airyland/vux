@@ -119,8 +119,9 @@
     <div class="weui-cell__ft">
       <icon type="clear" v-show="!equalWith && showClear && currentValue && !readonly && !disabled" @click.native="clear"></icon>
 
-      <icon class="vux-input-icon" type="warn" :title="!valid ? firstError : ''" v-show="showWarn"></icon>
-      <icon class="vux-input-icon" type="warn" v-if="!novalidate && hasLengthEqual && dirty && equalWith && !valid"></icon>
+      <icon @click.native="onClickErrorIcon" class="vux-input-icon" type="warn" :title="!valid ? firstError : ''" v-show="showWarn"></icon>
+      <icon @click.native="onClickErrorIcon" class="vux-input-icon" type="warn" v-if="!novalidate && hasLengthEqual && dirty && equalWith && !valid"></icon>
+      
       <icon type="success" v-show="!novalidate && equalWith && equalWith === currentValue && valid"></icon>
 
       <icon type="success" class="vux-input-icon" v-show="novalidate && iconType === 'success'"></icon>
@@ -128,12 +129,19 @@
 
       <slot name="right"></slot>
     </div>
+
+    <toast
+    v-model="showErrorToast"
+    type="text"
+    width="auto"
+    :time="600">{{ firstError }}</toast>
   </div>
 </template>
 
 <script>
 import Base from '../../libs/base'
 import Icon from '../icon'
+import Toast from '../toast'
 import InlineDesc from '../inline-desc'
 
 import isEmail from 'validator/lib/isEmail'
@@ -195,7 +203,8 @@ export default {
   mixins: [Base],
   components: {
     Icon,
-    InlineDesc
+    InlineDesc,
+    Toast
   },
   props: {
     title: {
@@ -247,7 +256,11 @@ export default {
     debounce: Number,
     placeholderAlign: String,
     labelWidth: String,
-    mask: String
+    mask: String,
+    shouldToastError: {
+      type: Boolean,
+      default: true
+    }
   },
   computed: {
     labelStyles () {
@@ -288,6 +301,12 @@ export default {
     }
   },
   methods: {
+    onClickErrorIcon () {
+      if (this.shouldToastError && this.firstError) {
+        this.showErrorToast = true
+      }
+      this.$emit('on-click-error-icon', this.firstError)
+    },
     maskValue (val) {
       const val1 = this.mask ? mask.toPattern(val, this.mask) : val
       return val1
@@ -431,7 +450,8 @@ export default {
       forceShowError: false,
       hasLengthEqual: false,
       valid: true,
-      currentValue: ''
+      currentValue: '',
+      showErrorToast: false
     }
     return data
   },
