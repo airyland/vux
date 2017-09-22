@@ -136,6 +136,11 @@ methods:
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
+  next:
+    en:
+      - '[feature] support prop:mask-z-index'
+    zh-CN:
+      - '[feature] 支持属性 mask-z-index 设置遮罩 z-index'
   v2.5.8:
     en:
       - '[feature] Support method:setInputValue for plugin #1846'
