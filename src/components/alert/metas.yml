@@ -126,6 +126,12 @@ props:
     default: vux-dialog
     en: dialog transition
     zh-CN: 弹窗主体动画
+  mask-z-index:
+    version: next
+    type: Number, String
+    default: 1000
+    en: zIndex of mask
+    zh-CN: 遮罩层 z-index 值
 slots:
   default:
     en: dialog content
@@ -138,6 +144,11 @@ events:
     en: emits when dialog is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[feature] support prop:mask-z-index'
+    zh-CN:
+      - '[feature] 支持属性 mask-z-index 设置遮罩 z-index'
   v2.5.5:
     en:
       - '[feature] Support hideOnBlur #1742'
