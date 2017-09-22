@@ -17,6 +17,11 @@
       </cell>
     </group>
 
+    <group label-width="5em" title="align-items">
+      <cell primary="conten" title="default" value="long long long longlong longlong longlong longlong longlong longlong longlong longlong long"></cell>
+      <cell title="flex-start" align-items="flex-start" value="long long long longlong longlong longlong longlong longlong longlong longlong longlong long"></cell>
+    </group>
+
     <group :title="$t('Collapse')">
       <cell
       :title="$t('Title 001')"

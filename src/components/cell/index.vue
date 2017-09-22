@@ -7,6 +7,7 @@
       'vux-cell-no-border-intent': !borderIntent,
       'vux-cell-disabled': disabled
     }"
+    :style="style"
     @click="onClick">
     <div class="weui-cell__hd">
       <slot name="icon"></slot>
@@ -58,6 +59,13 @@ export default {
     labelClass () {
       return {
         'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
+      }
+    },
+    style () {
+      if (this.alignItems) {
+        return {
+          alignItems: this.alignItems
+        }
       }
     }
   },
