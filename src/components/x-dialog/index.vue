@@ -1,7 +1,7 @@
 <template>
   <div class="vux-x-dialog">
     <transition :name="maskTransition">
-      <div class="weui-mask" @click="hide" v-show="show"></div>
+      <div class="weui-mask" @click="hide" v-show="show" :style="maskStyle"></div>
     </transition>
     <transition :name="dialogTransition">
       <div :class="dialogClass" v-show="show" :style="dialogStyle">
@@ -30,6 +30,7 @@ export default {
       type: String,
       default: 'vux-mask'
     },
+    maskZIndex: [String, Number],
     dialogTransition: {
       type: String,
       default: 'vux-dialog'
@@ -48,6 +49,15 @@ export default {
           console.warn('[VUX warn] x-dialog:scroll 已经废弃。如果你是 100% 布局，请参照文档配置 $layout 以实现阻止滚动')
         }
         return true
+      }
+    }
+  },
+  computed: {
+    maskStyle () {
+      if (typeof this.maskZIndex !== 'undefined') {
+        return {
+          zIndex: this.maskZIndex
+        }
       }
     }
   },
