@@ -13,6 +13,7 @@ import Badge from './src/components/badge/index.vue'
 import base64 from './src/tools/base64/index.js'
 import Blur from './src/components/blur/index.vue'
 import Box from './src/components/box/index.vue'
+import BusPlugin from './src/plugins/bus/index.js'
 import ButtonTab from './src/components/button-tab/button-tab.vue'
 import ButtonTabItem from './src/components/button-tab/button-tab-item.vue'
 import Calendar from './src/components/calendar/index.vue'
@@ -28,9 +29,13 @@ import ChinaAddressData from './src/datas/china_address.json'
 import ChinaAddressV1Data from './src/datas/china_address_v1.json'
 import ChinaAddressV2Data from './src/datas/china_address_v2.json'
 import ChinaAddressV3Data from './src/datas/china_address_v3.json'
+import ChinaAddressV4Data from './src/datas/china_address_v4.json'
+import ChinamobileTool from './src/tools/validator/chinaMobile.js'
 import ClickOutsideDirective from './src/directives/click-outside/index.js'
 import Clocker from './src/components/clocker/index.vue'
+import CloseDialogsPlugin from './src/plugins/close-dialogs/index.js'
 import ColorPicker from './src/components/color-picker/index.vue'
+import ConfigPlugin from './src/plugins/config/index.js'
 import Confirm from './src/components/confirm/index.vue'
 import ConfirmPlugin from './src/plugins/confirm/index.js'
 import cookie from './src/tools/cookie/index.js'
@@ -129,6 +134,7 @@ import ViewBox from './src/components/view-box/index.vue'
 import VuxComponentListData from './src/datas/vux_component_list.json'
 import WechatEmotion from './src/components/wechat-emotion/index.vue'
 import WechatPlugin from './src/plugins/wechat/index.js'
+import WeekCalendar from './src/components/week-calendar/index.vue'
 import WepayInput from './src/components/wepay-input/index.vue'
 import XAddress from './src/components/x-address/index.vue'
 import XButton from './src/components/x-button/index.vue'
@@ -156,6 +162,7 @@ export {
   base64,
   Blur,
   Box,
+  BusPlugin,
   ButtonTab,
   ButtonTabItem,
   Calendar,
@@ -171,9 +178,13 @@ export {
   ChinaAddressV1Data,
   ChinaAddressV2Data,
   ChinaAddressV3Data,
+  ChinaAddressV4Data,
+  ChinamobileTool,
   ClickOutsideDirective,
   Clocker,
+  CloseDialogsPlugin,
   ColorPicker,
+  ConfigPlugin,
   Confirm,
   ConfirmPlugin,
   cookie,
@@ -272,6 +283,7 @@ export {
   VuxComponentListData,
   WechatEmotion,
   WechatPlugin,
+  WeekCalendar,
   WepayInput,
   XAddress,
   XButton,
