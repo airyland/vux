@@ -97,6 +97,15 @@ export default {
     getValue,
     getKey,
     getInlineDesc,
+    getFullValue () {
+      const labels = getLabels(this.options, this.value)
+      return this.currentValue.map((one, index) => {
+        return {
+          value: one,
+          label: labels[index]
+        }
+      })
+    },
     isDisabled (key) {
       if (!this.checkDisabled) {
         return false

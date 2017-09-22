@@ -16,7 +16,13 @@
 
     <checklist :title="$t('set random order')" random-order :options="checklist005" v-model="checklist005Value" @on-change="change"></checklist>
 
-    <checklist :title="$t('Option Array with key and value(key must be string)')" :options="objectList" v-model="objectListValue" @on-change="change"></checklist>
+    <checklist ref="demoObject" :title="$t('Option Array with key and value(key must be string)')" :options="objectList" v-model="objectListValue" @on-change="change"></checklist>
+    <group>
+      <cell-box>{{ fullValues }}</cell-box>
+    </group>
+    <div style="padding:15px;">
+      <x-button type="primary" @click.native="fullValues = $refs.demoObject.getFullValue()">getFullValue()</x-button>
+    </div>
 
     <checklist :title="$t('Option is Object with InlineDesc')" :options="inlineDescList" v-model="inlineDescListValue" @on-change="change"></checklist>
 
@@ -47,7 +53,7 @@ set max=1(radio mode):
 </i18n>
 
 <script>
-import { Group, Checklist, Cell, Divider, XButton } from 'vux'
+import { Group, CellBox, Checklist, Cell, Divider, XButton } from 'vux'
 import _ from 'lodash'
 
 export default {
@@ -61,7 +67,8 @@ export default {
     Checklist,
     Cell,
     Divider,
-    XButton
+    XButton,
+    CellBox
   },
   methods: {
     change (val, label) {
@@ -80,6 +87,7 @@ export default {
   },
   data () {
     return {
+      fullValues: [],
       labelPosition: '',
       error: '',
       commonList: [ 'China', 'Japan', 'America' ],
