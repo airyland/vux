@@ -6,9 +6,14 @@
     :mask-transition="maskTransition"
     :dialog-transition="theme === 'android' ? 'vux-fade' : dialogTransition"
     :hide-on-blur="hideOnBlur"
+    :mask-z-index="maskZIndex"
     @on-hide="$emit('on-hide')">
-      <div class="weui-dialog__hd" v-if="!!title"><strong class="weui-dialog__title">{{title}}</strong></div>
-      <div class="weui-dialog__bd" v-if="!showInput"><slot><div v-html="content"></div></slot></div>
+      <div class="weui-dialog__hd" v-if="!!title">
+        <strong class="weui-dialog__title">{{ title }}</strong>
+      </div>
+      <div class="weui-dialog__bd" v-if="!showInput">
+        <slot><div v-html="content"></div></slot>
+      </div>
       <div v-else class="vux-prompt">
         <input class="vux-prompt-msgbox" v-bind="inputAttrs" v-model="msg" :placeholder="placeholder" ref="input"/>
       </div>
@@ -64,6 +69,7 @@ export default {
       type: String,
       default: 'vux-fade'
     },
+    maskZIndex: [Number, String],
     dialogTransition: {
       type: String,
       default: 'vux-dialog'

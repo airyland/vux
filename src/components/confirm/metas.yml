@@ -106,6 +106,12 @@ props:
     type: Object
     en: input attributes
     zh-CN: input 属性
+  mask-z-index:
+    version: next
+    type: Number, String
+    default: 1000
+    en: zIndex of mask
+    zh-CN: 遮罩层 z-index 值
 slots:
   default:
     en: body content of the dialog
@@ -119,6 +125,11 @@ events:
     en: triggers when the confirm button is clicked
     zh-CN: 点击确定按钮时触发, 参数为prompt中输入的值
 methods:
+  next:
+    en:
+      - '[feature] support prop:mask-z-index'
+    zh-CN:
+      - '[feature] 支持属性 mask-z-index 设置遮罩 z-index'
   setInputValue:
     version: v2.5.5
     params: '(value)'
