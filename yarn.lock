@@ -6480,7 +6480,7 @@ vue-template-es2015-compiler@^1.5.3:
   version "1.5.3"
   resolved "http://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.5.3.tgz#22787de4e37ebd9339b74223bc467d1adee30545"
 
-vue@^2.4.4:
+vue@2.4.4:
   version "2.4.4"
   resolved "http://registry.npm.taobao.org/vue/download/vue-2.4.4.tgz#ea9550b96a71465fd2b8b17b61673b3561861789"
 
@@ -6500,9 +6500,9 @@ vux-blazy@^1.6.4:
   version "1.6.4"
   resolved "http://registry.npm.taobao.org/vux-blazy/download/vux-blazy-1.6.4.tgz#e33073d902e0a3844ef1a463cce3ca2e0aab47bf"
 
-vux-loader@^1.1.3:
-  version "1.1.3"
-  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.1.3.tgz#57a8b11300c02bed888a14835b0c0e7eda98dded"
+vux-loader@^1.1.9:
+  version "1.1.9"
+  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.1.9.tgz#b5dd1bf68d0cdd0c1a1ee76ba836a4708f1514a4"
   dependencies:
     compare-versions "^3.0.0"
     cssnano "^3.7.4"
