@@ -1,14 +1,14 @@
 <template>
   <div>
     <cell :title="title" primary="content" @click.native="onClick" is-link>
-      <span class="vux-cell-placeholder" v-if="!showValue && placeholder">{{ placeholder }}</span>
-      <span class="vux-cell-value" v-if="showValue">{{ showValue }}</span>
+      <span class="vux-cell-placeholder" v-if="shouldShowPlaceholder">{{ placeholder }}</span>
+      <span class="vux-cell-value" v-if="showValue">{{ displayFormat(showValue, getType(showValue)) }}</span>
     </cell>
     <div v-transfer-dom>
       <popup v-model="show">
 
         <popup-header
-        v-if="showPopupHeader"
+        v-if="showPopupHeader || getType(value) === 'array'"
         @on-click-left="onClickLeft"
         @on-click-right="onClickRight"
         :title="popupHeaderTitle"
@@ -60,6 +60,24 @@ import TransferDom from '../../directives/transfer-dom'
 import PopupHeader from '../popup-header'
 import format from '../../tools/date/format'
 
+const getType = (value) => {
+  if (typeof value === 'string') {
+    return 'string'
+  }
+  if (Object.prototype.toString.call(value) === '[object Array]') {
+    return 'array'
+  }
+}
+
+const pure = function (value) {
+  const type = getType(value)
+  if (type === 'string') {
+    return value
+  } else if (type === 'array') {
+    return JSON.parse(JSON.stringify(value))
+  }
+}
+
 const Props = {
   ...props(),
   title: {
@@ -68,7 +86,13 @@ const Props = {
   },
   placeholder: String,
   showPopupHeader: Boolean,
-  popupHeaderTitle: String
+  popupHeaderTitle: String,
+  displayFormat: {
+    type: Function,
+    default: (value) => {
+      return typeof value === 'string' ? value : value.join(', ')
+    }
+  }
 }
 
 export default {
@@ -82,25 +106,38 @@ export default {
     PopupHeader,
     Cell
   },
+  computed: {
+    shouldShowPlaceholder () {
+      if (typeof this.showValue === 'string' && !this.showValue) {
+        return true
+      }
+      if (getType(this.showValue) === 'array' && !this.showValue.length) {
+        return true
+      }
+      return false
+    }
+  },
   created () {
     if (this.value === 'TODAY') {
       this.currentValue = this.showValue = this.tempValue = format(new Date(), 'YYYY-MM-DD')
       this.$emit('input', this.currentValue)
       this.$emit('on-change', this.currentValue)
     } else {
-      this.currentValue = this.tempValue = this.showValue = this.value
+      this.currentValue = this.tempValue = this.value
+      this.showValue = pure(this.currentValue)
     }
   },
   props: Props,
   methods: {
+    getType,
     onClickLeft () {
-      this.currentValue = this.showValue
+      this.currentValue = pure(this.showValue)
       this.show = false
     },
     onClickRight () {
       this.show = false
       if (this.tempValue) {
-        this.showValue = this.tempValue
+        this.showValue = pure(this.tempValue)
         this.$emit('input', this.tempValue)
         this.$emit('on-change', this.tempValue)
       }
@@ -109,11 +146,11 @@ export default {
       this.show = true
     },
     onSelect (val) {
-      if (!this.showPopupHeader) {
+      if (!this.showPopupHeader && getType(this.value) !== 'array') {
         this.show = false
-        this.showValue = val
+        this.showValue = pure(val)
       } else {
-        this.tempValue = val
+        this.tempValue = pure(val)
       }
     }
   },

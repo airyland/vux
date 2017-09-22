@@ -12,6 +12,8 @@ extra:
     <br>
      除了`title`和 `value`, 其他`props`和`inline-calendar`完全一致。
     </p>
+    
+    <p class="tip">当绑定值为数组时，日历将为多选模式</p>
 
   en: |
 
@@ -56,18 +58,29 @@ props:
     version: v2.6.0
     type: Boolean
     en: whether show popup header
-    zh-CN: 是否显示弹窗头部
+    zh-CN: 是否显示弹窗头部，当为多选时强制显示
   popup-header-title:
     version: v2.6.0
     type: String
     en: popup header title
     zh-CN: 弹窗头部文字
+  display-format:
+    version: next
+    type: Function
+    params: '`(value, type)`'
+    en: format value before displaying in cell
+    zh-CN: 格式化显示值
 events:
   on-change:
     params: (value)
     en: emits when value changes
     zh-CN: 值改变时触发
 changes:
+  next:
+    en:
+      - '[feature] support prop:display-format #2023'
+    zh-CN:
+      - '[feature] 支持格式化值显示 #2023'
   v2.6.0:
     en:
       - '[feature] support prop:show-popup-header'
