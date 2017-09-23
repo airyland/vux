@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import PhotoSwipe from 'photoswipe/dist/photoswipe'
-import UI from 'photoswipe/dist/photoswipe-ui-default'
+import PhotoSwipe from 'x-photoswipe/dist/photoswipe'
+import UI from 'x-photoswipe/dist/photoswipe-ui-default'
 import objectAssign from 'object-assign'
 
 export default {
@@ -76,8 +76,13 @@ export default {
       }
       if (newVal.length && newVal.length - oldVal.length === -1) {
         const index = this.photoswipe.getCurrentIndex()
-        this.photoswipe.goTo(index + 1)
         this.photoswipe.invalidateCurrItems()
+        this.photoswipe.items.splice(index, 1)
+        let goToIndex = index
+        if (goToIndex > this.photoswipe.items.length - 1) {
+          goToIndex = 0
+        }
+        this.photoswipe.goTo(goToIndex)
         this.photoswipe.updateSize(true)
         this.photoswipe.ui.update()
       } else if (!newVal.length) {
@@ -167,6 +172,6 @@ export default {
 </script>
 
 <style>
-@import '~photoswipe/dist/photoswipe.css';
-@import '~photoswipe/dist/default-skin/default-skin.css';
+@import '~x-photoswipe/dist/photoswipe.css';
+@import '~x-photoswipe/dist/default-skin/default-skin.css';
 </style>
