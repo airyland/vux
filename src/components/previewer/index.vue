@@ -69,6 +69,22 @@ export default {
       })
     }
   },
+  watch: {
+    imgs (newVal, oldVal) {
+      if (!this.photoswipe) {
+        return
+      }
+      if (newVal.length && newVal.length - oldVal.length === -1) {
+        const index = this.photoswipe.getCurrentIndex()
+        this.photoswipe.goTo(index + 1)
+        this.photoswipe.invalidateCurrItems()
+        this.photoswipe.updateSize(true)
+        this.photoswipe.ui.update()
+      } else if (!newVal.length) {
+        this.close()
+      }
+    }
+  },
   methods: {
     init (index) {
       const self = this

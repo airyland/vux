@@ -58,6 +58,28 @@ extra:
     ``` js
     this.$refs.previewer.show(index)
     ```
+
+    <p class="warn">注意，当你自定义添加按钮时，需要在 photoswipe 选项设置 clickable 元素，否则点击将没有响应</p>
+
+    
+    ``` html
+    <previewer ref="previewer" :list="previewerList" :options="options">
+      <template slot="button-after">
+        <span class="previewer-delete-icon-box">
+          <img src="../assets/previewer_delete_icon.png" width="22" height="22" class="previewer-delete-icon" @click.prevent.stop="removeImg">
+        </span>
+      </template>
+    </previewer>
+    ```
+
+
+    ``` js
+    options: {
+      isClickableElement: function (el) {
+        return /previewer-delete-icon/.test(el.className)
+      }
+    }
+    ```
 props:
   list: 
     type: Array
@@ -100,6 +122,11 @@ slots:
     en: slot before control button list
     zh-CN: 操作按钮之前，可以添加自定义图标
 changes:
+  next:
+    en:
+      - '[feature] automatically update view if one slide is deleted'
+    zh-CN:
+      - '[feature] 方便删除操作，绑定数据减少一张时自动更新示图，有更多图片时切换到下一张，没有时将自动关闭预览'
   v2.6.3:
     en:
       - '[fix] fix method name starts with _ will get vue(2.4.4) warning #2001'
