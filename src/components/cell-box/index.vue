@@ -1,5 +1,9 @@
 <template>
-  <div class="vux-cell-box weui-cell" :class="{'vux-tap-active': isLink || !!link, 'weui-cell_access': isLink || !!link, 'vux-cell-no-border-intent': !borderIntent}" @click="onClick">
+  <div
+  class="vux-cell-box weui-cell"
+  :class="className"
+  :style="style"
+  @click="onClick">
     <slot></slot>
   </div>
 </template>
@@ -15,6 +19,24 @@ export default {
     borderIntent: {
       type: Boolean,
       default: true
+    },
+    noFlex: Boolean,
+    alignItems: String
+  },
+  computed: {
+    style () {
+      if (this.alignItems) {
+        return {
+          'align-items': this.alignItems
+        }
+      }
+    },
+    className () {
+      return {
+        'vux-tap-active': this.isLink || !!this.link,
+        'weui-cell_access': this.isLink || !!this.link,
+        'vux-cell-no-border-intent': !this.borderIntent
+      }
     }
   },
   methods: {

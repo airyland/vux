@@ -22,9 +22,11 @@
 
      <group>
       <calendar :display-format="displayFormat" :placeholder="$t('please select')" @on-change="onChange" v-model="demo6" :title="$t('format multiple dates')" :popup-header-title="$t('please select')" disable-future></calendar>
-      <cell-box>
-        <span class="selected-days">selected days:</span>
-        <badge v-for="day in demo6" :text="day" :key="day" style="margin-right:10px;"></badge>
+      <cell-box align-items="flex-start">
+        <span class="selected-days">value:</span>
+        <div>
+          <badge v-for="day in demo6" :text="day" :key="day" style="margin-right:10px;"></badge>
+        </div>
       </cell-box>
     </group>
   </div>
@@ -86,6 +88,6 @@ export default {
 <style scoped>
 .selected-days {
   color: #999;
-  vertical-align: middle;
+  width: 90px;
 }
 </style>

@@ -31,11 +31,22 @@ props:
     default: true
     en: if set border intent
     zh-CN: 是否显示边框与左边的间隙
+  align-items:
+    version: next
+    type: String
+    default: center
+    en: flexbox align-items setting
+    zh-CN: flex 布局 align-items 设置
 slots:
   default:
     en: content body
     zh-CN: 内容区域
 changes:
+  next:
+    en:
+      - '[feature] add prop:align-items'
+    zh-CN:
+      - '[feature] 添加属性 align-items'
   v2.5.5:
     en:
       - "[change] Remove default slot's div wrapper #1769"
