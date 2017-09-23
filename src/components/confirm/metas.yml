@@ -107,7 +107,7 @@ props:
     en: input attributes
     zh-CN: input 属性
   mask-z-index:
-    version: next
+    version: v2.6.4
     type: Number, String
     default: 1000
     en: zIndex of mask
@@ -125,7 +125,7 @@ events:
     en: triggers when the confirm button is clicked
     zh-CN: 点击确定按钮时触发, 参数为prompt中输入的值
 methods:
-  next:
+  v2.6.4:
     en:
       - '[feature] support prop:mask-z-index'
     zh-CN:
@@ -136,7 +136,7 @@ methods:
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
-  next:
+  v2.6.4:
     en:
       - '[feature] support prop:mask-z-index'
     zh-CN:

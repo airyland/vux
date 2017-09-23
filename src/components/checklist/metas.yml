@@ -61,7 +61,7 @@ props:
     zh-CN: 是否禁用操作
 methods:
   getFullValue:
-    version: next
+    version: v2.6.4
     en: get current value with label
     zh-CN: 获取值和对应的显示文字
 events:
@@ -70,7 +70,7 @@ events:
     en: emits when value changes, param:label is supported after v2.5.7
     zh-CN: 值变化时触发，参数为 (value, label)，其中 label 参数在 v2.5.7 后支持
 changes:
-  next:
+  v2.6.4:
     en:
       - '[feature] support method:getFullValue #2022'
     zh-CN:

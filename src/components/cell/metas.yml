@@ -73,7 +73,7 @@ props:
     en: set disabled style for label and arrow(if is-link is true)
     zh-CN: 对 label 和箭头(如果使用 is-link)显示不可操作样式
   align-items:
-    version: next
+    version: v2.6.4
     type: String
     en: align-items value
     zh-CN: align-items 样式值
@@ -102,7 +102,7 @@ slots:
     en: title slot
     zh-CN: title 插槽，方便自定义样式
 changes:
-  next:
+  v2.6.4:
     en:
       - '[feature] support prop:align-items'
     zh-CN:

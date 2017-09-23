@@ -99,7 +99,7 @@ props:
     en: set dialog styles, you can use it for overwritting default width and background style
     zh-CN: 设置内部弹窗样式，覆盖原有的宽度、背景颜色等样式
   mask-z-index:
-    version: next
+    version: v2.6.4
     type: Number, String
     default: 1000
     en: zIndex of mask
@@ -116,7 +116,7 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
-  next:
+  v2.6.4:
     en:
       - '[feature] support prop:mask-z-index'
     zh-CN:

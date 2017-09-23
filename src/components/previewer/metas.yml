@@ -104,7 +104,7 @@ methods:
     version: v2.5.10
     en: go to previous image
     zh-CN: 跳转到上一张
-  next:
+  v2.6.4:
     version: v2.5.10
     en: go to next image
     zh-CN: 跳转到下一张
@@ -122,7 +122,7 @@ slots:
     en: slot before control button list
     zh-CN: 操作按钮之前，可以添加自定义图标
 changes:
-  next:
+  v2.6.4:
     en:
       - '[feature] automatically update view if one slide is deleted'
     zh-CN:

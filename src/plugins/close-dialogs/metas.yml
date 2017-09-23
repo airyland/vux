@@ -1,5 +1,5 @@
 changes:
-  next: 
+  v2.6.4: 
     en:
       - '[feature] new plugin for closing all dialogs #2025'
     zh-CN:
