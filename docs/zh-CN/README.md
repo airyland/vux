@@ -385,6 +385,10 @@ router.afterEach(function (to) {
 该插件提供了`commonJS`的引入方式。
 
 <p class="warning">
+  插件仅仅为了使用方便做了封装，任何 jssdk 相关的测试问题都和 VUX 无关，请参考微信官方文档，不要提 issue，更不要以为是 VUX 导致的问题。
+</p>
+
+<p class="warning">
   分享接口只有认证公众号才能使用，域名必须备案且在微信后台设置。
   <br>
   先确认已经满足使用`jssdk`的要求再进行编码。
