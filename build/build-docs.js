@@ -85,6 +85,7 @@ function saveMaps(key, value) {
     maps[aliasMap[key]] = maps[key]
     delete maps[key]
   }
+  delete maps['TransferDom']
   // sort
   const list = []
   for (let i in maps) {

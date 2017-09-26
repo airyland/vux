@@ -158,12 +158,14 @@ function buildMainConfig() {
 
   // list all components
   const list = require('../src/components/map.json')
-  let code = 'const _vux = {}\n'
-  code += `(typeof window !== 'undefined') && (window.vux = _vux)\n`
-  code += `import Style from '../styles/index.vue'\n`
+  let code = `const _vux = {}\n
+const isBrowser = typeof window !== 'undefined'\n`
+  code += `isBrowser && (window.vux = _vux)\n\n`
+  code += `import Style from '../styles/index.vue' // eslint-disable-line\n`
 
   delete list['NOTICE']
   delete list['ChinaAddressV1Data']
+  delete list['vuxTransferDom']
 
   for (let i in list) {
     const name = `${namespace}${i}`
@@ -172,7 +174,7 @@ _vux['${name}'] = ${name}\n`
   }
 
   code += `
-if (typeof window !== 'undefined') {
+if (isBrowser) {
   for (let i in _vux) {
     window[i] = _vux[i]
   }

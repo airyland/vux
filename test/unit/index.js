@@ -10,7 +10,7 @@ testsContext.keys().forEach(testsContext)
 // you can also change this to match only the subset of files that
 // you want coverage for.
 
-const srcContext = require.context('../../src/components/', true, /^\.\/(?!(main|yml)?$)/)
+const srcContext = require.context('../../src/components/', true, /^.*\.(js|vue)$/)
 srcContext.keys().filter(one => {
   if (/metas\.yml/.test(one)) {
     return false
