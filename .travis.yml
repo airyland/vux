@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- 7
+os: linux
+cache:
+  yarn: true
+branches:
+  only:
+  - v2
+install:
+- |
+    yarn install
+script:
+- |
+    npm run lint && npm run test
+after_success:
+- |
+    cat ./test/unit/coverage/lcov.info | ./node_modules/.bin/codecov

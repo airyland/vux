@@ -159,7 +159,7 @@ function buildMainConfig() {
   // list all components
   const list = require('../src/components/map.json')
   let code = 'const _vux = {}\n'
-  code += `!!window && (window.vux = _vux)\n`
+  code += `(typeof window !== 'undefined') && (window.vux = _vux)\n`
   code += `import Style from '../styles/index.vue'\n`
 
   delete list['NOTICE']
@@ -172,7 +172,7 @@ _vux['${name}'] = ${name}\n`
   }
 
   code += `
-if (!!window) {
+if (typeof window !== 'undefined') {
   for (let i in _vux) {
     window[i] = _vux[i]
   }
