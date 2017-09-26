@@ -6,7 +6,7 @@
 <p align="center">Be Cool with Vue@^2.3.0 and WeUI.</p>
 
 <p align="center">
-   <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
+  <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
     <img src="https://static.vux.li/demo_v2_doc_home.png" width="100" alt="">
   </a>
   <br>
@@ -25,6 +25,13 @@
     <img src="https://img.shields.io/github/watchers/airyland/vux.svg?style=social&label=Watch" alt="">
   </a>
   <br>
+  <br>
+  <a href="https://travis-ci.org/airyland/vux.svg?branch=v2">
+    <img src="https://api.travis-ci.org/airyland/vux.svg?branch=v2" alt="">
+  </a>
+  <a href="https://codecov.io/github/airyland/v2?branch=v2">
+    <img src="https://img.shields.io/codecov/c/github/airyland/vux/v2.svg" alt="">
+  </a>
   <br>
   <a href="https://github.com/airyland/vux/issues">
     <img src="https://img.shields.io/github/issues/airyland/vux.svg?style=flat-square" alt="">
