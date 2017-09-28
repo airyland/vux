@@ -23,8 +23,8 @@ let store = new Vuex.Store({
 
 Vue.use(vuexI18n.plugin, store)
 
-const vuxLocales = require('json-loader!yaml-loader!vux/src/locales/all.yml')
-const componentsLocales = require('json-loader!yaml-loader!src/locales/components.yml')
+const vuxLocales = require('json-loader!yaml-loader!./locales/all.yml')
+const componentsLocales = require('json-loader!yaml-loader!./locales/components.yml')
 
 const finalLocales = {
   'en': objectAssign(vuxLocales['en'], componentsLocales['en']),
