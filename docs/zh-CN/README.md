@@ -494,6 +494,16 @@ export default {
 }
 ```
 
+<p class="warning">
+请特别注意不要忘了把 `store` 挂载到 Vue 实例上。
+</p>
+
+```js
+new Vue({
+  store,
+  router,
+```
+
 done.
 
 如果你觉得在加载比较快时`Loading`组件一闪而过体验也不大好，那么你可以延迟设置`loading=false`。
