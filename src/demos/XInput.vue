@@ -15,7 +15,7 @@
     </group>
 
     <group title="mask">
-      <x-input title="手机号码格式化" mask="999 9999 9999" v-model="maskValue" :max="13"></x-input>
+      <x-input title="手机号码格式化" mask="999 9999 9999" v-model="maskValue" :max="13" is-type="china-mobile"></x-input>
       <cell title="value" :value="maskValue"></cell>
       <x-input title="(99) 9-99" mask="(99) 9-99" v-model="maskValue2" :max="9"></x-input>
     </group>
@@ -140,7 +140,7 @@ export default {
       disabledValue: 'hello',
       debounceValue: '',
       maxValue: '',
-      maskValue: '12345678910',
+      maskValue: '13545678910',
       maskValue2: ''
     }
   },

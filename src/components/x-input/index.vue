@@ -367,7 +367,13 @@ export default {
       if (typeof this.isType === 'string') {
         const validator = validators[this.isType]
         if (validator) {
-          this.valid = validator[ 'fn' ](this.currentValue)
+          let value = this.currentValue
+
+          if (this.isType === 'china-mobile' && this.mask === '999 9999 9999') {
+            value = this.currentValue.replace(/\s+/g, '')
+          }
+
+          this.valid = validator[ 'fn' ](value)
           if (!this.valid) {
             this.forceShowError = true
             this.errors.format = validator[ 'msg' ] + '格式不对哦~'
