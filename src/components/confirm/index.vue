@@ -117,12 +117,18 @@ export default {
       this.msg = val
     },
     _onConfirm () {
+      if (!this.showValue) {
+        return
+      }
       if (this.closeOnConfirm) {
         this.showValue = false
       }
       this.$emit('on-confirm', this.msg)
     },
     _onCancel () {
+      if (!this.showValue) {
+        return
+      }
       this.showValue = false
       this.$emit('on-cancel')
     }

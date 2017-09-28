@@ -136,6 +136,11 @@ methods:
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
+  next:
+    en:
+      - '[enhance] fix click events trigger twice when clicking fast #2048'
+    zh-CN:
+      - '[enhance] 修复快速点击按钮时触发多次的问题 #2048'
   v2.6.4:
     en:
       - '[feature] support prop:mask-z-index'
