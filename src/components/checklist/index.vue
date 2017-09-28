@@ -213,6 +213,7 @@ function pure (obj) {
 <style lang="less">
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 @import '../../styles/weui/widget/weui_cell/weui_check';
+@import '../../styles/weui/icon/weui_icon_font';
 
 .weui-cells_checkbox .weui-check:checked + .vux-checklist-icon-checked:before {
   color: @checklist-icon-active-color;

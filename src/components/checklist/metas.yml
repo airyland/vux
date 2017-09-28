@@ -70,6 +70,11 @@ events:
     en: emits when value changes, param:label is supported after v2.5.7
     zh-CN: 值变化时触发，参数为 (value, label)，其中 label 参数在 v2.5.7 后支持
 changes:
+  next:
+    en:
+      - '[fix] fix missing icon style when using checklist along #2041'
+    zh-CN:
+      - '[fix] 修复仅调用 checklist 组件时图标样式不存在 #2041'
   v2.6.4:
     en:
       - '[feature] support method:getFullValue #2022'
