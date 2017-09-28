@@ -23,7 +23,21 @@ slots:
     version: v2.3.7
     en: custom how label displays
     zh-CN: 自定义每个条目显示内容
+events:
+  on-show:
+    version: next
+    en: fires when popup shows
+    zh-CN: 弹窗显示时触发
+  on-hide:
+    version: next
+    en: fires when popup hides
+    zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[feature] add event:on-hde event:on-show #2053'
+    zh-CN:
+      - '[feature] 支持事件 on-show on-hide #2053'
   v2.6.0:
     en:
       - '[fix] fix placeholder logic #1964'
