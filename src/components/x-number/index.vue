@@ -63,7 +63,7 @@ export default {
     },
     hideZero: {
       type: Boolean,
-      default: false 
+      default: false
     }
   },
   created () {
