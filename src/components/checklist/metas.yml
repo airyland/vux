@@ -73,8 +73,10 @@ changes:
   next:
     en:
       - '[fix] fix missing icon style when using checklist along #2041'
+      - '[fix] initializing the tempValue when created #2059'
     zh-CN:
       - '[fix] 修复仅调用 checklist 组件时图标样式不存在 #2041'
+      - '[fix] 在created时，初始化tempValue值 #2059'
   v2.6.4:
     en:
       - '[feature] support method:getFullValue #2022'
