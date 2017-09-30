@@ -185,7 +185,7 @@ var members = {
       self.__isDecelerating = false
     }
 
-    top = Math.round(top / self.__itemHeight) * self.__itemHeight
+    top = Math.round((top / self.__itemHeight).toFixed(5)) * self.__itemHeight
     top = Math.max(Math.min(self.__maxScrollTop, top), self.__minScrollTop)
 
     if (top === self.__scrollTop || !animate) {
