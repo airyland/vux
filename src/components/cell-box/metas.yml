@@ -32,7 +32,7 @@ props:
     en: if set border intent
     zh-CN: 是否显示边框与左边的间隙
   align-items:
-    version: next
+    version: v2.6.5
     type: String
     default: center
     en: flexbox align-items setting
@@ -42,7 +42,7 @@ slots:
     en: content body
     zh-CN: 内容区域
 changes:
-  next:
+  v2.6.5:
     en:
       - '[feature] add prop:align-items'
     zh-CN:

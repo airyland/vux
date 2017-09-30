@@ -138,7 +138,7 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
-  next:
+  v2.6.5:
     en:
       - '[enhance] fix validating logic for is-type:china-mobile with mask #2040'
     zh-CN:
