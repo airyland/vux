@@ -86,6 +86,7 @@ export default {
     this.handleChangeEvent = true
     if (this.value) {
       this.currentValue = this.value
+      this.tempValue = this.value ? this.value[0] : ''
     }
     if (this.randomOrder) {
       this.currentOptions = shuffle(this.options)
