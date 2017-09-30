@@ -20,7 +20,7 @@ export default {
     text: String,
     actionType: String,
     showLoading: Boolean,
-    link: String
+    link: [String, Object]
   },
   methods: {
     onClick () {
