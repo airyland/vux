@@ -29,7 +29,7 @@
   <a href="https://travis-ci.org/airyland/vux">
     <img src="https://api.travis-ci.org/airyland/vux.svg?branch=v2" alt="">
   </a>
-  <a href="https://codecov.io/github/airyland/vux?branch=v2">
+  <a href="https://codecov.io/gh/airyland/vux/branch/v2">
     <img src="https://img.shields.io/codecov/c/github/airyland/vux/v2.svg" alt="">
   </a>
   <br>
