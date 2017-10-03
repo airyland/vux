@@ -3,7 +3,6 @@
     <group>
       <x-switch title="Default popup" v-model="show"></x-switch>
       <x-switch title="Full popup" v-model="show1"></x-switch>
-      <x-switch title="with a Scroller" v-model="show2"></x-switch>
       <x-switch title="Multi popup (first)" v-model="show3"></x-switch>
       <x-switch title="Mask disable" v-model="show5"></x-switch>
       <x-switch title="Popup address" v-model="show6"></x-switch>
