@@ -58,6 +58,11 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
+  next:
+    en:
+      - '[fix] fix ssr rendering issue'
+    zh-CN:
+      - '[fix] 兼容服务端渲染'
   v2.3.3:
     en:
       - '[enhance] set placeholder color. #1465'

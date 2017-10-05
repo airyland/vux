@@ -1,17 +1,27 @@
 <template>
    <div class="vux-selector weui-cell" :class="{'weui-cell_select':!readonly, 'weui-cell_select-after':title}">
     <div class="weui-cell__hd" v-if="title">
-      <label :for="`vux-selector-${uuid}`" class="weui-label" :class="labelClass" :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}">{{title}}</label>
+      <label
+      :for="`vux-selector-${uuid}`"
+      class="weui-label"
+      :class="labelClass"
+      :style="cleanStyle({
+        width: $parent.labelWidth,
+        textAlign: $parent.labelAlign,
+        marginRight: $parent.labelMarginRight
+      })">{{ title }}</label>
     </div>
     <div class="weui-cell__bd" v-if="!readonly">
       <select :id="`vux-selector-${uuid}`" style="color:red;" class="weui-select" v-model="currentValue" :name="name"
-      :style="{
+      :style="cleanStyle({
         direction: direction,
         color: color
-      }">
-        <option value="" v-if="showPlaceholder" :selected="typeof value === 'undefined' && placeholder">{{placeholder}}</option>
-        <option disabled v-if="fixIos"></option>
-        <option :value="one.key" v-for="one in processOptions">{{one.value}}</option>
+      })">
+        <option value="" v-if="showPlaceholder" :selected="typeof value === 'undefined' && placeholder">{{ placeholder }}</option>
+        <v-no-ssr>
+          <option disabled v-if="fixIos"></option>
+        </v-no-ssr>
+        <option :value="one.key" v-for="one in processOptions">{{ one.value }}</option>
       </select>
     </div>
     <div class="weui-cell__ft vux-selector-readonly" v-else>
@@ -23,6 +33,7 @@
 <script>
 import find from 'array-find'
 import uuidMixin from '../../mixins/uuid'
+import cleanStyle from '../../libs/clean-style'
 
 const findByKey = function (key, options) {
   const _rs = find(options, function (item) {
@@ -38,6 +49,9 @@ export default {
     if (typeof this.value !== 'undefined') {
       this.currentValue = this.value
     }
+  },
+  beforeMount () {
+    this.isIOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent)
   },
   computed: {
     fixIos () {
@@ -70,6 +84,9 @@ export default {
       }
     }
   },
+  methods: {
+    cleanStyle
+  },
   filters: {
     findByKey
   },
@@ -97,7 +114,7 @@ export default {
   data () {
     return {
       currentValue: '',
-      isIOS: /iPad|iPhone|iPod/.test(window.navigator.userAgent)
+      isIOS: false
     }
   }
 }

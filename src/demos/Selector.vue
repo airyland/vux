@@ -47,7 +47,7 @@ export default {
     return {
       demo01: '',
       demo02: '',
-      defaultValue: '',
+      defaultValue: 'gd',
       plainList: ['广东', '广西'],
       list: [{key: 'gd', value: '广东'}, {key: 'gx', value: '广西'}],
       list2: [{key: true, value: '是'}, {key: false, value: '否'}],
