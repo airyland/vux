@@ -102,6 +102,11 @@ slots:
     en: title slot
     zh-CN: title 插槽，方便自定义样式
 changes:
+  next:
+    en:
+      - '[fix] fix ssr rendering issue'
+    zh-CN:
+      - '[fix] 修复 ssr 渲染问题'
   v2.6.4:
     en:
       - '[feature] support prop:align-items'

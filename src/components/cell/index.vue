@@ -26,7 +26,9 @@
     <div class="weui-cell__ft" :class="valueClass">
       <slot name="value"></slot>
       <slot>{{ value }}</slot>
-      <i class="weui-loading" v-if="isLoading"></i>
+      <v-no-ssr>
+        <i class="weui-loading" v-if="isLoading"></i>
+      </v-no-ssr>
     </div>
     <slot name="child"></slot>
   </div>
@@ -36,6 +38,7 @@
 import InlineDesc from '../inline-desc'
 import { go } from '../../libs/router'
 import props from './props'
+import cleanStyle from '../../libs/clean-style'
 
 export default {
   name: 'cell',
@@ -43,6 +46,11 @@ export default {
     InlineDesc
   },
   props: props(),
+  created () {
+    if (typeof SUPPORT_SSR_TAG === 'undefined' && process.env.NODE_ENV === 'development') {
+      console.warn('[VUX] 抱歉，当前组件[cell]要求更新依赖 vux-loader@latest')
+    }
+  },
   beforeMount () {
     this.hasTitleSlot = !!this.$slots.title
   },
@@ -71,11 +79,11 @@ export default {
   },
   methods: {
     getLabelStyles () {
-      return {
+      return cleanStyle({
         width: this.$parent.labelWidth || this.$parent.$parent.labelWidth,
         textAlign: this.$parent.labelAlign || this.$parent.$parent.labelAlign,
         marginRight: this.$parent.labelMarginRight || this.$parent.$parent.labelMarginRight
-      }
+      })
     },
     onClick () {
       !this.disabled && go(this.link, this.$router)
@@ -83,7 +91,8 @@ export default {
   },
   data () {
     return {
-      hasTitleSlot: false
+      hasTitleSlot: true,
+      hasMounted: false
     }
   }
 }
