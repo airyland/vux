@@ -44,6 +44,7 @@ const webpackConfig = {
         loader: 'eslint-loader',
         enforce: "pre",
         include: [resolve('src'), resolve('test')],
+        exclude: /vue.vux.js$/,
         options: {
           formatter: require('eslint-friendly-formatter')
         }
