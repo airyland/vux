@@ -222,11 +222,7 @@ export default {
       } else if (type === 'confirm' && this.confirmText) {
         return this.confirmText
       }
-      if (this.$t) {
-        return this.$t(`vux.datetime.${type}_text`)
-      } else {
-        return this.$el.getAttribute(`data-${type}-text`)
-      }
+      return this.$el.getAttribute(`data-${type}-text`)
     },
     render () {
       this.$nextTick(() => {
