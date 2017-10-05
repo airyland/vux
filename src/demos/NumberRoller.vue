@@ -1,8 +1,8 @@
 <template>
   <div>
-    <number-roller :number="number" :width="6" class="vux-center-h"></number-roller>
+    <number-roller :number="number" :width="6"></number-roller>
     <divider>set width dynamically</divider>
-    <number-roller :number="number2" :width="length" class="vux-center-h"></number-roller>
+    <number-roller :number="number2" :width="length"></number-roller>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
     NumberRoller,
     Divider
   },
-  ready () {
+  created () {
     setInterval(() => {
       this.number = 100000 + Math.round(Math.random() * 899999)
     }, 3000)
@@ -41,7 +41,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-@import '../styles/center.less';
-</style>
