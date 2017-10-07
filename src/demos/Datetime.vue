@@ -44,7 +44,7 @@
       <x-button @click.native="reRender" type="primary">2016-11-11 ~ 2018-10-11</x-button>
     </div>
 
-    <group :title="$t('format: ' + format)">
+    <group :title="$t('format') + ':' + format">
       <datetime v-model="value2" :format="format" @on-change="change" :title="$t('start time')"></datetime>
     </group>
 
@@ -239,10 +239,10 @@ export default {
       console.log('change', value)
     },
     clearValue (value) {
-      this.$data.value6 = ''
+      this.value6 = ''
     },
     clearValue8 (value) {
-      this.$data.value8 = ''
+      this.value8 = ''
     },
     setToday (value) {
       let now = new Date()
@@ -250,7 +250,7 @@ export default {
       let day = now.getDate()
       if (cmonth < 10) cmonth = '0' + cmonth
       if (day < 10) day = '0' + day
-      this.$data.value7 = now.getFullYear() + '-' + cmonth + '-' + day
+      this.value7 = now.getFullYear() + '-' + cmonth + '-' + day
       console.log('set today ok')
     }
   }
