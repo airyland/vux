@@ -7,12 +7,15 @@
       <loading :show="show1" :text="text1"></loading>
     </div>
     <div style="padding: 15px;">
-      <x-button @click.native="showLoading" type="primary">显示loading(2s后关闭)</x-button>
+      <x-button @click.native="showLoading" type="primary">{{ $t('show loading') }}</x-button>
     </div>
   </div>
 </template>
 
 <i18n>
+show loading:
+  en: show loading(close in 2s)
+  zh-CN: 显示loading(2s后关闭)
 </i18n>
 
 <script>
