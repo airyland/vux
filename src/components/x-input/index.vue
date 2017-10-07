@@ -451,7 +451,7 @@ export default {
   },
   data () {
     let data = {
-      hasRestrictedLabel: false,
+      hasRestrictedLabel: this.$isServer,
       firstError: '',
       forceShowError: false,
       hasLengthEqual: false,
