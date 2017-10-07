@@ -111,5 +111,6 @@
   "InlineCalendarMulti#/demo/inline-calendar-multi",
   "XImgPopup#/demo/x-img-popup",
   "WeekCalendar",
-  "NumberRoller"
+  "NumberRoller",
+  "IconLoading"
 ]
