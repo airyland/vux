@@ -2,6 +2,8 @@ import Scroller from '../picker/scroller'
 import { isToday, generateRange, each, trimZero, addZero, getMaxDay, parseRow, parseDate, getElement, toElement, removeElement } from './util'
 import { getYears, getMonths, getDays } from './makeData'
 
+const isBrowser = typeof window === 'object'
+
 const MASK_TEMPLATE = '<div class="dp-mask"></div>'
 
 const TEMPLATE = `<div class="dp-container">
@@ -85,6 +87,10 @@ function renderScroller (el, data, value, fn) {
 }
 
 function showMask () {
+  if (!isBrowser) {
+    return
+  }
+
   if (!MASK) {
     MASK = toElement(MASK_TEMPLATE)
     document.body.appendChild(MASK)
@@ -148,10 +154,10 @@ function DatetimePicker (config) {
       e.preventDefault()
       self.show(self.value)
     }
-    if (trigger) {
+    if (trigger && isBrowser) {
       trigger = self.trigger = getElement(trigger)
       this.trigger = trigger
-      this.trigger.addEventListener('click', this.triggerHandler, false)
+      this.trigger && this.trigger.addEventListener('click', this.triggerHandler, false)
     }
   }
 }
@@ -177,6 +183,10 @@ DatetimePicker.prototype = {
     }, 0)
   },
   show (value) {
+    if (!isBrowser) {
+      return
+    }
+
     const self = this
     const config = self.config
     if (config.isOneInstance) {
