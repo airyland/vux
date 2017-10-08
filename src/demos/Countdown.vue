@@ -2,13 +2,13 @@
   <div>
     <group title="auto countdown">
       <cell title="15s" v-model="value">
-        <countdown slot="value" v-model="time1" @on-finish="finish" v-show="show"></countdown>
+        <countdown v-model="time1" @on-finish="finish" v-show="show"></countdown>
       </cell>
     </group>
     <group title="manually">
       <x-switch title="start" v-model="start"></x-switch>
       <cell title="15s">
-        <countdown slot="value" v-model="time2" :start="start" @on-finish="finish2"></countdown>
+        <countdown v-model="time2" :start="start" @on-finish="finish2"></countdown>
       </cell>
     </group>
   </div>

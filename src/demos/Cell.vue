@@ -75,7 +75,7 @@
 
     <group :title="$t('use slot for complexed content')">
       <cell :title="$t('slot content')">
-        <div slot="value">
+        <div>
           <span style="color: green">{{$t('Hi, I\'m Vux.')}}</span>
         </div>
       </cell>

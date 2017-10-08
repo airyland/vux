@@ -53,6 +53,9 @@ export default {
   },
   beforeMount () {
     this.hasTitleSlot = !!this.$slots.title
+    if (this.$slots.value && process.env.NODE_ENV === 'development') {
+      console.warn('[VUX] [cell] slot=value 已经废弃，请使用默认 slot 替代')
+    }
   },
   computed: {
     valueClass () {
