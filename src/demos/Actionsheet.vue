@@ -96,13 +96,13 @@ export default {
     return {
       show1: false,
       menus1: {
-        menu1: 'Share to friends',
-        menu2: 'Share to timeline'
+        menu1: this.$t('Share to friends'),
+        menu2: this.$t('Share to timeline')
       },
       show2: false,
       menus2: {
-        menu1: 'Take Photo',
-        menu2: 'Choose from photos'
+        menu1: this.$t('Take Photo'),
+        menu2: this.$t('Choose from photos')
       },
       show3: false,
       show4: false,
@@ -111,7 +111,7 @@ export default {
       show7: false,
       show8: false,
       menus5: [{
-        label: 'actionsheet header',
+        label: this.$t('actionsheet header'),
         type: 'info'
       }, {
         label: 'Primary',
@@ -134,12 +134,12 @@ export default {
       },
       showSuccess: false,
       menus3: {
-        'title.noop': 'actionsheet header',
+        'title.noop': this.$t('actionsheet header'),
         delete: '<span style="color:red">Delete</span>'
       },
       menus8: {
-        menu1: 'Close me',
-        menu2: 'Close me'
+        menu1: this.$t('Close me'),
+        menu2: this.$t('Close me')
       }
     }
   },
