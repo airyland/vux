@@ -118,7 +118,7 @@ props:
     version: v2.0.0
     en: if closing actionsheet when clicking on mask
     zh-CN: 点击遮罩时是否关闭菜单，适用于一些进入页面时需要强制选择的场景。
-  closeOnClickingMenu:
+  close-on-clicking-menu:
     type: Boolean
     default: true
     version: v2.3.8
