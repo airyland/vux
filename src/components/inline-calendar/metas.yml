@@ -11,7 +11,7 @@ props:
     type: String, Array
     default: ''
     en: calendar value, use `v-modle` for binding
-    zh-CN: 当前选中日期，使用`v-model`绑定，默认为空，即选中当天日期
+    zh-CN: 当前选中日期，使用`v-model`绑定。值为字符串(包括空字符串)时表示单选日期，为数组(包括空数组)时表示多选。
   render-month:
     type: Array
     default: ''
@@ -96,7 +96,7 @@ slots:
   each-day:
     version: v2.3.5
     en: you can custom how to display each day
-    zh-CN: 用以自定义每一天的显示渲染，使用该 slot 就不需要 render-function 了
+    zh-CN: 用以自定义每一天的显示渲染，推荐使用该 slot 来替代 render-function
 events:
   on-change:
     en: emits when value is changed
