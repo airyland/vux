@@ -13,6 +13,7 @@
 
 <script>
 import InlineDesc from '../inline-desc'
+import cleanStyle from '../../libs/clean-style'
 
 export default {
   name: 'x-switch',
@@ -23,11 +24,11 @@ export default {
     labelStyle () {
       let isHTML = /<\/?[^>]*>/.test(this.title)
       let width = Math.min(isHTML ? 5 : (this.title.length + 1), 14) + 'em'
-      return {
+      return cleanStyle({
         display: 'block',
         width: this.$parent.labelWidth || width,
         textAlign: this.$parent.labelAlign
-      }
+      })
     },
     labelClass () {
       return {
