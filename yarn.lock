@@ -6563,10 +6563,6 @@ webidl-conversions@^2.0.0:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/webidl-conversions/download/webidl-conversions-2.0.1.tgz#3bf8258f7d318c7443c36f2e169402a1a6703506"
 
-webp-support@^1.0.3:
-  version "1.0.3"
-  resolved "http://registry.npm.taobao.org/webp-support/download/webp-support-1.0.3.tgz#dd2af763758fa509e20419740920b77c22ff3c5d"
-
 webpack-bundle-analyzer@^2.2.1:
   version "2.8.2"
   resolved "http://registry.npm.taobao.org/webpack-bundle-analyzer/download/webpack-bundle-analyzer-2.8.2.tgz#8b6240c29a9d63bc72f09d920fb050adbcce9fe8"

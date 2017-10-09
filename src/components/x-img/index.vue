@@ -4,7 +4,7 @@
 
 <script>
 import Blazy from 'vux-blazy'
-import webpSupport from 'webp-support'
+import { isSupported, detectWebp } from '../../libs/webp-support'
 import uuidMixin from '../../libs/mixin_uuid'
 
 export default {
@@ -44,10 +44,11 @@ export default {
         this.init()
       }, this.delay)
     })
+    detectWebp()
   },
   computed: {
     currentSrc () {
-      if (webpSupport() && this.webpSrc) {
+      if (isSupported() && this.webpSrc) {
         return this.webpSrc
       }
       return this.src
