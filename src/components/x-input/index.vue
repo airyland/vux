@@ -462,6 +462,11 @@ export default {
     return data
   },
   watch: {
+    mask (val) {
+      if (val && this.currentValue) {
+        this.currentValue = this.maskValue(this.currentValue)
+      }
+    },
     valid () {
       this.getError()
     },
