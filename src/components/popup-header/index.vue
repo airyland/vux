@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: 'popup-header',
   props: {
     leftText: String,
     rightText: String,

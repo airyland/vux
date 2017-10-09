@@ -32,7 +32,7 @@ export default {
     },
     labelClass () {
       return {
-        'vux-cell-justify': this.$parent.labelAlign === 'justify'
+        'vux-cell-justify': this.$parent && this.$parent.labelAlign === 'justify'
       }
     }
   },
