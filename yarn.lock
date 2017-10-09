@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@types/node@^6.0.46":
+  version "6.0.89"
+  resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-6.0.89.tgz#154be0e6a823760cd6083aa8c48f952e2e63e0b0"
+
 abab@^1.0.0:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/abab/download/abab-1.0.3.tgz#b81de5f7274ec4e756d797cd834f303642724e5d"
@@ -4634,6 +4638,12 @@ parse5@^1.5.1:
   version "1.5.1"
   resolved "http://registry.npm.taobao.org/parse5/download/parse5-1.5.1.tgz#9b7f3b0de32be78dc2401b17573ccaf0f6f59d94"
 
+parse5@^3.0.2:
+  version "3.0.2"
+  resolved "http://registry.npm.taobao.org/parse5/download/parse5-3.0.2.tgz#05eff57f0ef4577fb144a79f8b9a967a6cc44510"
+  dependencies:
+    "@types/node" "^6.0.46"
+
 parsejson@0.0.3:
   version "0.0.3"
   resolved "http://registry.npm.taobao.org/parsejson/download/parsejson-0.0.3.tgz#ab7e3759f209ece99437973f7d0f1f64ae0e64ab"
@@ -6518,9 +6528,9 @@ vux-blazy@^1.6.4:
   version "1.6.4"
   resolved "http://registry.npm.taobao.org/vux-blazy/download/vux-blazy-1.6.4.tgz#e33073d902e0a3844ef1a463cce3ca2e0aab47bf"
 
-vux-loader@^1.1.9:
-  version "1.1.9"
-  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.1.9.tgz#b5dd1bf68d0cdd0c1a1ee76ba836a4708f1514a4"
+vux-loader@next:
+  version "1.1.14-rc.1"
+  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.1.14-rc.1.tgz#d1869c84985e5387eebea91fe1c68f3ae5caf8b2"
   dependencies:
     compare-versions "^3.0.0"
     cssnano "^3.7.4"
@@ -6530,6 +6540,7 @@ vux-loader@^1.1.9:
     less "^2.7.1"
     loader-utils "^0.2.15"
     node-cli-config "^0.0.1"
+    parse5 "^3.0.2"
     progress-bar-webpack-plugin "^1.9.3"
     touch "^1.0.0"
     underscore "^1.8.3"
