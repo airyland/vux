@@ -4,7 +4,7 @@
       <x-switch :title="$t('Toggle')" v-model="show"></x-switch>
     </group>
     <group>
-      <x-switch :title="$t('Toggle_show_input')" v-model="show3"></x-switch>
+      <x-switch :title="$t('Toggle show-input')" v-model="show3"></x-switch>
     </group>
     <group>
       <x-switch :title="$t('Set default input value')" v-model="show5"></x-switch>
@@ -17,7 +17,7 @@
     </group>
     <div v-transfer-dom>
       <confirm v-model="show"
-      :title="$t('confirm deleting the item')"
+      :title="$t('Confirm deleting the item')"
       @on-cancel="onCancel"
       @on-confirm="onConfirm"
       @on-show="onShow"
@@ -29,7 +29,7 @@
     <div v-transfer-dom>
       <confirm v-model="show3"
       show-input
-      :title="$t('confirm deleting the item')"
+      :title="$t('Confirm deleting the item')"
       :input-attrs="{type: 'number'}"
       @on-cancel="onCancel"
       @on-confirm="onConfirm"
@@ -42,7 +42,7 @@
       <confirm v-model="show5"
       show-input
       ref="confirm5"
-      :title="$t('confirm deleting the item')"
+      :title="$t('Confirm deleting the item')"
       @on-cancel="onCancel"
       @on-confirm="onConfirm5"
       @on-show="onShow5"
@@ -52,7 +52,7 @@
     <br>
     <div v-transfer-dom>
       <confirm v-model="show2"
-      :title="$t('confirm deleting the item')"
+      :title="$t('Confirm deleting the item')"
       theme="android"
       @on-cancel="onCancel"
       @on-confirm="onConfirm"
@@ -66,7 +66,7 @@
       <confirm
       v-model="show4"
       :close-on-confirm="false"
-      :title="$t('confirm deleting the item')"
+      :title="$t('Confirm deleting the item')"
       @on-confirm="onConfirm4">
         <p style="text-align:center;">{{ $t('Are you sure?') }}</p>
       </confirm>
@@ -87,15 +87,15 @@
 <i18n>
 Toggle:
   zh-CN: 显示
-Toggle_show_input:
+Toggle show-input:
   zh-CN: 显示Promt
 Toggle_android:
   zh-CN: 安卓风格
 Are you sure?:
   zh-CN: 确定咩？
-confirm deleting the item:
+Confirm deleting the item:
   zh-CN: 操作提示
-please input something:
+Please input something:
   zh-CN: 请输入些什么
 Plugin usage:
   zh-CN: 插件形式调用

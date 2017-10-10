@@ -6,7 +6,7 @@ extra:
         <cell title="title" value="value"></cell>
       </group>
     ```
-    
+
     <p class="tip">cell只能在`Group`中使用</p>
 tags:
   en:
@@ -75,6 +75,7 @@ props:
   align-items:
     version: v2.6.4
     type: String
+    default: center
     en: align-items value
     zh-CN: align-items 样式值
 slots:

@@ -5,96 +5,96 @@
       <x-button type="primary" plain @click.native="showPlugin">{{ $t('Used as a plugin') }}</x-button>
     </div>
 
-    <group :title="$t('default format: YYYY-MM-DD')">
+    <group :title="$t('Default format: YYYY-MM-DD')">
       <datetime v-model="value1" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
 
-    <group :title="$t('custom minute list: every 15 minutes')">
+    <group :title="$t('Custom minute list: every 15 minutes')">
       <datetime v-model="minuteListValue" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
 
-    <group :title="$t('custom hour list')">
+    <group :title="$t('Custom hour list')">
       <datetime v-model="hourListValue" format="YYYY-MM-DD HH:mm" :hour-list="['09', '10', '11', '12', '13', '14', '15', '16']" :minute-list="['00', '15', '30', '45']" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
 
-    <group title="readonly">
+    <group title="Readonly">
       <datetime v-model="valueReadonly" :readonly="readonly" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
     <div style="padding:15px">
       <x-button type="primary" plain @click.native="readonly = !readonly">toggle readonly</x-button>
     </div>
 
-     <group :title="$t('format display value')">
+     <group :title="$t('Format display value')">
       <datetime v-model="formatValue" :display-format="formatValueFunction" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
-    
+
     <div style="padding:15px;">
-      <x-button type="primary" @click.native="formatValue = '2017-11-11'">{{ $t('set value: 2017-11-11') }}</x-button>
+      <x-button type="primary" @click.native="formatValue = '2017-11-11'">{{ $t('Set value: 2017-11-11') }}</x-button>
     </div>
 
-    <group :title="$t('Limit hours')">
-      <datetime v-model="limitHourValue" format="YYYY-MM-DD HH:mm" :min-hour=9 :max-hour=18 @on-change="change" :title="$t('Limit hours')" :inline-desc="$t('09-18')"></datetime>
+    <group :title="$t('Define range of hours')">
+      <datetime v-model="limitHourValue" format="YYYY-MM-DD HH:mm" :min-hour=9 :max-hour=18 @on-change="change" :title="$t('Define range of hours')" :inline-desc="$t('Working hours: 09-18')"></datetime>
     </group>
 
-    <group :title="$t('set start-date and end-date') + ' 2015-11-11 ~ 2017-10-11'">
-      <datetime v-model="limitHourValue" :start-date="startDate" :end-date="endDate" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('start time')"></datetime>
+    <group :title="$t('Set start-date and end-date') + ' 2015-11-11 ~ 2017-10-11'">
+      <datetime v-model="limitHourValue" :start-date="startDate" :end-date="endDate" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('Start time')"></datetime>
     </group>
 
     <div style="padding:15px;">
       <x-button @click.native="reRender" type="primary">2016-11-11 ~ 2018-10-11</x-button>
     </div>
 
-    <group :title="$t('format') + ':' + format">
+    <group :title="$t('Format') + ':' + format">
       <datetime v-model="value2" :format="format" @on-change="change" :title="$t('start time')"></datetime>
     </group>
 
     <div style="padding:15px;">
-      <x-button type="primary" @click.native="toggleFormat">{{ $t('toggle format') }}</x-button>
+      <x-button type="primary" @click.native="toggleFormat">{{ $t('Toggle format') }}</x-button>
     </div>
 
     <group :title="$t('Placeholder')">
-      <datetime v-model="value3" default-selected-value="2017-06-18 13" format="YYYY-MM-DD HH" :placeholder="$t('Please select')" @on-change="change" :title="$t('start time')"></datetime>
+      <datetime v-model="value3" default-selected-value="2017-06-18 13" format="YYYY-MM-DD HH" :placeholder="$t('Please select')" @on-change="change" :title="$t('Start time')"></datetime>
     </group>
 
-    <group :title="$t('set default-selected-value to 2017-11-11')">
-      <datetime v-model="value3_1" default-selected-value="2017-11-11" format="YYYY-MM-DD" :placeholder="$t('Please select')" @on-change="change" :title="$t('start time')" :inline-desc="`current value: ${value3_1}`"></datetime>
-    </group>
-    
-    <group :title="$t('set min-year and max-year')">
-      <datetime v-model="value4" :placeholder="$t('Please select')" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('years after 2000')"></datetime>
+    <group :title="$t('Set default-selected-value to 2017-11-11')">
+      <datetime v-model="value3_1" default-selected-value="2017-11-11" format="YYYY-MM-DD" :placeholder="$t('Please select')" @on-change="change" :title="$t('Start time')" :inline-desc="`current value: ${value3_1}`"></datetime>
     </group>
 
-    <group :title="$t('prop:compute-hours-function')">
+    <group :title="$t('Set min-year and max-year')">
+      <datetime v-model="value4" :placeholder="$t('Please select')" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('Years after 2000')"></datetime>
+    </group>
+
+    <group :title="$t('Prop: compute-hours-function')">
       <datetime format="YYYY-MM-DD HH" v-model="computeHoursValue" :compute-hours-function="computeHoursFunction" :title="$t('Birthday')"></datetime>
     </group>
 
-    <group :title="$t('prop:compute-days-function')">
+    <group :title="$t('Prop: compute-days-function')">
       <datetime format="YYYY-MM-DD HH" v-model="computeDaysValue" :compute-days-function="computeDaysFunction" :title="$t('Birthday')"></datetime>
     </group>
 
-    <group :title="$t('specified template text in Chinese')">
+    <group :title="$t('Specified template text in Chinese')">
       <datetime v-model="value5" :placeholder="$t('Please select')" :min-year=2000 :max-year=2016 format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('Chinese')" year-row="{value}年" month-row="{value}月" day-row="{value}日" hour-row="{value}点" minute-row="{value}分" confirm-text="完成" cancel-text="取消"></datetime>
     </group>
 
-    <group :title="$t('show center button and clear the value')">
+    <group :title="$t('Show center button and clear the value')">
       <datetime v-model="value6" @on-change="change" :title="$t('Birthday')" clear-text="clear" @on-clear="clearValue"></datetime>
     </group>
 
-    <group :title="$t('show center button to set date to today')">
+    <group :title="$t('Show center button to set date to today')">
       <datetime v-model="value7" @on-change="change" :title="$t('Birthday')" clear-text="today" @on-clear="setToday"></datetime>
     </group>
 
-     <group :title="$t('custom trigger slot')">
+     <group :title="$t('Custom trigger slot')">
       <datetime v-model="value7" @on-change="change" :title="$t('Birthday')" clear-text="today" @on-clear="setToday">
         <x-button>{{$t('Click me')}}</x-button>
       </datetime>
     </group>
 
-    <group :title="$t('required')">
+    <group :title="$t('Required')">
       <datetime v-model="value8" :title="$t('Required')" clear-text="clear" @on-clear="clearValue8" :required="true"></datetime>
     </group>
 
-    <group :title="$t('use prop:show.sync(vue^2.3) to control visibility')">
+    <group :title="$t('Use prop: show.sync(vue^2.3) to control visibility')">
       <datetime v-model="value9" @on-change="change" :title="$t('Birthday')" :show.sync="visibility"></datetime>
     </group>
 
@@ -106,25 +106,25 @@
 </template>
 
 <i18n>
-'default format: YYYY-MM-DD':
+'Default format: YYYY-MM-DD':
   zh-CN: 默认格式：YYYY-MM-DD
-'format:':
+'Format':
   zh-CN: 格式：
-start time:
+Start time:
   zh-CN: 开始时间
 Placeholder:
   zh-CN: 提示文字
 Please select:
   zh-CN: 请选择
-set min-year and max-year:
+Set min-year and max-year:
   zh-CN: 设置开始和结束年份
-years after 2000:
+Years after 2000:
   zh-CN: 2000年以后时间
-specified template text in Chinese:
+Specified template text in Chinese:
   zh-CN: 自定义中文显示模板
-show center button and clear the value:
+Show center button and clear the value:
   zh-CN: 显示中间的清除按钮
-show center button to set date to today:
+Show center button to set date to today:
   zh-CN: 显示中间的设置日期为今天的按钮
 Birthday:
   zh-CN: 生日
@@ -132,33 +132,33 @@ Chinese:
   zh-CN: 中文
 Click me:
   zh-CN: 点我
-custom trigger slot:
+Custom trigger slot:
   zh-CN: 自定义触发内容
-Limit hours:
+Define range of hours:
   zh-CN: 限定小时范围
-09-18:
-  zh-CN: 工作时间 09-18
-set start-date and end-date:
+'Working hours: 09-18':
+  zh-CN: 工作时间为 09-18
+Set start-date and end-date:
   zh-CN: 设置开始时间和结束日期
-'click to change value to: 2017-11-11':
+'Click to change value to: 2017-11-11':
   zh-CN: 设置时间为 2017-11-11
-format display value:
+Format display value:
   zh-CN: 格式化显示
-toggle format:
+Toggle format:
   zh-CN: 改变格式
-'custom minute list: every 15 minutes':
+'Custom minute list: every 15 minutes':
   zh-CN: 自定义分钟列表（每15分钟）
-custom hour list:
+Custom hour list:
   zh-CN: 定义小时列表
-'use prop:show.sync(vue^2.3) to control visibility':
-  zh-CN: 使用 prop:show 控制显示(vue^2.3)
+'Use prop: show.sync(vue^2.3) to control visibility':
+  zh-CN: 使用 prop: show.sync 控制显示(vue^2.3)
 Used as a plugin:
   zh-CN: 插件形式调用
-set default-selected-value to 2017-11-11:
+Set default-selected-value to 2017-11-11:
   zh-CN: 设置默认选中值为 2017-11-11
-'prop:compute-hours-function':
+'Prop: compute-hours-function':
   zh-CN: 自定义小时列表生成逻辑
-'prop:compute-days-function':
+'Prop: compute-days-function':
   zh-CN: 自定义日期列表生成逻辑
 </i18n>
 

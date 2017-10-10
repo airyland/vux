@@ -6,14 +6,14 @@
     </p>
 
     <group title="Use in cell">
-      <cell title="Date:0801">
-        <clocker time="2017-08-01" slot="value"></clocker>
+      <cell title="Date: 0801">
+        <clocker time="2018-08-01" slot="value"></clocker>
       </cell>
     </group>
 
     <group title="custom template">
-      <cell title="Date:0801">
-        <clocker time="2017-08-01" slot="value">
+      <cell title="Date: 0801">
+        <clocker time="2018-08-01" slot="value">
           <span style="color:red">%D 天</span>
           <span style="color:green">%H 小时</span>
           <span style="color:blue">%M 分 %S 秒</span>

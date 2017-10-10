@@ -5,7 +5,7 @@
         <button-tab-item>{{ $t('Today') }}</button-tab-item>
         <button-tab-item selected>{{ $t('This Week') }}</button-tab-item>
         <button-tab-item>{{ $t('This Month') }}</button-tab-item>
-      </button-tab>      
+      </button-tab>
       <br>
       <divider>{{ $t('Use v-model to set selected item') }}</divider>
       <br>

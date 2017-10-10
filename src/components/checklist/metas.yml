@@ -23,7 +23,7 @@ props:
     type: Boolean
     default: false
     en: if required
-    zh-CN: 是否为必填
+    zh-CN: 是否为必选
   options:
     type: Array
     default: []

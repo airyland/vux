@@ -8,15 +8,15 @@
       <x-button @click.native="selectLeft" type="primary">选择剩下值</x-button>
     </div>
 
-    <checklist :title="$t('preselect China and Japan(disabled)')" disabled label-position="left" :options="commonList" v-model="checklist002" @on-change="change"></checklist>
+    <checklist :title="$t('Preselect China and Japan (disabled)')" disabled label-position="left" :options="commonList" v-model="checklist002" @on-change="change"></checklist>
 
-    <checklist :title="$t('set max=2')" :options="commonList" v-model="checklist003" :max=2 @on-change="change"></checklist>
+    <checklist :title="$t('Set max=2')" :options="commonList" v-model="checklist003" :max=2 @on-change="change"></checklist>
 
-    <checklist :title="$t('set max=1(radio mode)')" :options="commonList" v-model="radioValue" :max="1" @on-change="change"></checklist>
+    <checklist :title="$t('Set max=1 (radio mode)')" :options="commonList" v-model="radioValue" :max="1" @on-change="change"></checklist>
 
-    <checklist :title="$t('set random order')" random-order :options="checklist005" v-model="checklist005Value" @on-change="change"></checklist>
+    <checklist :title="$t('Set random order')" random-order :options="checklist005" v-model="checklist005Value" @on-change="change"></checklist>
 
-    <checklist ref="demoObject" :title="$t('Option Array with key and value(key must be string)')" :options="objectList" v-model="objectListValue" @on-change="change"></checklist>
+    <checklist ref="demoObject" :title="$t('Option Array with key and value (key must be string)')" :options="objectList" v-model="objectListValue" @on-change="change"></checklist>
     <group>
       <cell-box>{{ fullValues }}</cell-box>
     </group>
@@ -36,19 +36,19 @@
 </template>
 
 <i18n>
-preselect China and Japan(disabled):
+Preselect China and Japan (disabled):
   zh-CN: 默认选中China和Japan(禁用操作)
-set max=2:
+Set max=2:
   zh-CN: 最多可选中2个
-set random order:
+Set random order:
   zh-CN: 打乱选项顺序
-'Option Array with key and value(key must be string)':
+'Option Array with key and value (key must be string)':
   zh-CN: 使用Object类型的选项列表，key必须为字符串
 Option is Object with InlineDesc:
   zh-CN: 包含inlineDesc属性的Object类型选项列表
 Async list:
   zh-CN: 异步选项列表
-set max=1(radio mode):
+Set max=1 (radio mode):
   zh-CN: max=1（单选模式）
 </i18n>
 

@@ -20,7 +20,7 @@ props:
     default: ''
     en: label text
     zh-CN: 标题文字
-  value: 
+  value:
     type: String
     default: ''
     en: form's value, use `v-model` for binding
@@ -33,15 +33,15 @@ props:
   placeholder:
     type: String
     default: ''
-    en: placeholder
-    zh-CN: 提示文字
+    en: placeholder, works when `value` is empty
+    zh-CN: 提示文字，当`value`为空时显示
   start-date:
     type: String
-    en: start date
+    en: start date (YYYY-MM-DD)
     zh-CN: '限定最小日期，注意该限制只能限定到日期，不能限定到小时分钟'
   end-date:
     type: String
-    en: end date
+    en: end date (YYYY-MM-DD)
     zh-CN: 限定最大日期，注意该限制只能限定到日期，不能限定到小时分钟
   format:
     default: 'YYYY-MM-DD'

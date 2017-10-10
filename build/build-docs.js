@@ -33,7 +33,7 @@ const aliasMap = {
 
 let tMaps = {
   '组件列表': 'Components',
-  '该组件已经停止维护。': 'This Component is Deprecated.',
+  '该组件已经停止维护。': 'This Component is Deprecated. ',
   '名字': 'name',
   '类型': 'type',
   '参数': 'params',

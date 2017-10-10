@@ -3,7 +3,7 @@
     <divider>simple card with header and content</divider>
 	   <card :header="{title:'我的钱包'}">
       <div slot="content" class="card-demo-flex card-demo-content01">
-        <div class="vux-1px-l vux-1px-r">
+        <div class="vux-1px-r">
           <span>1130</span>
           <br/>
           京豆

@@ -57,12 +57,12 @@ props:
     version: v2.5.0
     type: String
     default: ''
-    en: placeholder of prompt
+    en: placeholder of prompt, valid when show-input is true
     zh-CN: 输入框的提示（仅在showInput为true的情况下有效）
   theme:
     type: String
     default: ios
-    en: dialog's style
+    en: dialog's style, can be ios or android
     zh-CN: 弹窗风格，可以是ios或android
     enum:
       - ios
@@ -81,12 +81,12 @@ props:
     zh-CN: 弹窗内容，作为slot默认内容，可以是html片段，如果使用slot该字段会失效
   confirm-text:
     default: 确认(confirm)
-    en: confirm button text
-    zh-CN: 确认按钮文字
+    en: text of confirm button
+    zh-CN: `确认`按钮的显示文字
   cancel-text:
     default: 取消(cancel)
-    en: cancel button text
-    zh-CN: 取消按钮文字
+    en: text of cancel button
+    zh-CN: `取消`按钮的显示文字
   mask-transition:
     default: 'vux-fade'
     en: mask's transition
@@ -124,6 +124,12 @@ events:
     params: '(value)'
     en: triggers when the confirm button is clicked
     zh-CN: 点击确定按钮时触发, 参数为prompt中输入的值
+  on-show:
+    en: triggers when the dialog shows
+    zh-CN: 弹窗出现时触发
+  on-hide:
+    en: triggers when the dialog hides
+    zh-CN: 弹窗隐藏时触发
 methods:
   v2.6.4:
     en:

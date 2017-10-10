@@ -14,7 +14,7 @@ props:
     zh-CN: 结束时间
   format:
     type: String
-    default: '%D 天 %H 小时 %M 分 %S 秒'
+    default: '%D (day) %H (hour) %M (min) %S (sec)'
     en: the result format
     zh-CN: 显示格式
 events:

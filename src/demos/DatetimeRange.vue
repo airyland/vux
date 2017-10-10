@@ -1,6 +1,6 @@
 <template>
   <div>
-    <group :title="value + ''">
+    <group :title="value[0] + ' ' + value[1] + ':' + value[2]">
       <datetime-range :title="$t('Choose')" start-date="2017-01-01" end-date="2017-02-02" :format="$t('daterange-format')" v-model="value" @on-change="onChange"></datetime-range>
     </group>
   </div>
