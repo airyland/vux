@@ -391,9 +391,7 @@ export default {
         if (!this.valid) {
           this.errors.format = validStatus.msg
           this.forceShowError = true
-          if (!this.firstError) {
-            this.getError()
-          }
+          this.getError()
           return
         } else {
           delete this.errors.format
