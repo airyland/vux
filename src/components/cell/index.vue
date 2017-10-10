@@ -47,12 +47,14 @@ export default {
   },
   props: props(),
   created () {
+    /* istanbul ignore if */
     if (typeof SUPPORT_SSR_TAG === 'undefined' && process.env.NODE_ENV === 'development') {
       console.warn('[VUX] 抱歉，当前组件[cell]要求更新依赖 vux-loader@latest')
     }
   },
   beforeMount () {
     this.hasTitleSlot = !!this.$slots.title
+    /* istanbul ignore if */
     if (this.$slots.value && process.env.NODE_ENV === 'development') {
       console.warn('[VUX] [cell] slot=value 已经废弃，请使用默认 slot 替代')
     }

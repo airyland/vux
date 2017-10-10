@@ -105,6 +105,7 @@ export default {
     startDate: {
       type: String,
       validator (val) {
+        /* istanbul ignore if */
         if (process.env.NODE_ENV === 'development' && val && val.length !== 10) {
           console.error('[VUX] Datetime prop:start-date 必须为 YYYY-MM-DD 格式')
         }
@@ -114,6 +115,7 @@ export default {
     endDate: {
       type: String,
       validator (val) {
+        /* istanbul ignore if */
         if (process.env.NODE_ENV === 'development' && val && val.length !== 10) {
           console.error('[VUX] Datetime prop:end-date 必须为 YYYY-MM-DD 格式')
         }

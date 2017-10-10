@@ -16,6 +16,7 @@ export default {
     rows: {
       type: Number,
       validator () {
+        /* istanbul ignore if */
         if (process.env.NODE_ENV === 'development') {
           console.warn('[VUX warn] Grid rows 属性已经废弃，使用 cols 代替。单行列数为自动计算')
         }

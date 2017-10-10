@@ -173,7 +173,7 @@ export default {
   name: 'x-input',
   created () {
     this.currentValue = (this.value === undefined || this.value === null) ? '' : (this.mask ? this.maskValue(this.value) : this.value)
-
+    /* istanbul ignore if */
     if (process.env.NODE_ENV === 'development') {
       if (!this.title && !this.placeholder && !this.currentValue) {
         console.warn('no title and no placeholder?')
