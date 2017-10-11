@@ -162,7 +162,7 @@ Set default-selected-value to 2017-11-11:
   zh-CN: 自定义日期列表生成逻辑
 Toggle readonly:
   zh-CN: 切换 readonly 属性
-Set value: 2017-11-11:
+'Set value: 2017-11-11':
   zh-CN: 设置时间为2017-11-11
 </i18n>
 

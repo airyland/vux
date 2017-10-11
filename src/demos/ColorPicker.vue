@@ -5,7 +5,7 @@
       <br>
       <color-picker :colors="colors1" v-model="color1" size="middle"></color-picker>
     </div>
-    <group :title=" $t('As a cell\'s content') ">
+    <group :title=" $t('Use in cell') ">
       <cell :title="'Color:' + color1">
         <color-picker :colors="colors1" v-model="color1" size="small"></color-picker>
       </cell>
@@ -19,7 +19,7 @@
 </template>
 
 <i18n>
-'As a cell\'s content':
+Use in cell:
   zh-CN: 在 cell 中使用
 A cell without title:
   zh-CN: 不带标题的 cell
