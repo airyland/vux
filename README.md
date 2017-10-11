@@ -59,6 +59,12 @@
   <br>
 </p>
 
+## Issues
+
+精力有限，Issue 暂时关闭。请不要无比马虎地发个邮件给我要求解答。
+
+特别需要帮助的同学请在 segmentfault 上付费提问 [sf](https://segmentfault.com/pay/ask?expert=1030000000091353)，马虎问题同样不会处理。
+
 ## Requirements
 
 + vue@^2.3.0(for .sync modifier)
