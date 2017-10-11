@@ -21,7 +21,7 @@
       <datetime v-model="valueReadonly" :readonly="readonly" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
     <div style="padding:15px">
-      <x-button type="primary" plain @click.native="readonly = !readonly">toggle readonly</x-button>
+      <x-button type="primary" plain @click.native="readonly = !readonly"> {{ $t('Toggle readonly') }} </x-button>
     </div>
 
      <group :title="$t('Format display value')">
@@ -44,8 +44,8 @@
       <x-button @click.native="reRender" type="primary">2016-11-11 ~ 2018-10-11</x-button>
     </div>
 
-    <group :title="$t('Format') + ':' + format">
-      <datetime v-model="value2" :format="format" @on-change="change" :title="$t('start time')"></datetime>
+    <group :title="$t('Format') + ': ' + format">
+      <datetime v-model="value2" :format="format" @on-change="change" :title="$t('Start time')"></datetime>
     </group>
 
     <div style="padding:15px;">
@@ -57,7 +57,7 @@
     </group>
 
     <group :title="$t('Set default-selected-value to 2017-11-11')">
-      <datetime v-model="value3_1" default-selected-value="2017-11-11" format="YYYY-MM-DD" :placeholder="$t('Please select')" @on-change="change" :title="$t('Start time')" :inline-desc="`current value: ${value3_1}`"></datetime>
+      <datetime v-model="value3_1" default-selected-value="2017-11-11" format="YYYY-MM-DD" :placeholder="$t('Please select')" @on-change="change" :title="$t('Start time')" :inline-desc=" $t('Current value') + `: ${value3_1}`"></datetime>
     </group>
 
     <group :title="$t('Set min-year and max-year')">
@@ -94,7 +94,7 @@
       <datetime v-model="value8" :title="$t('Required')" clear-text="clear" @on-clear="clearValue8" :required="true"></datetime>
     </group>
 
-    <group :title="$t('Use prop: show.sync(vue^2.3) to control visibility')">
+    <group :title="$t('Use prop: show.sync (vue^2.3) to control visibility')">
       <datetime v-model="value9" @on-change="change" :title="$t('Birthday')" :show.sync="visibility"></datetime>
     </group>
 
@@ -108,8 +108,8 @@
 <i18n>
 'Default format: YYYY-MM-DD':
   zh-CN: 默认格式：YYYY-MM-DD
-'Format':
-  zh-CN: 格式：
+Format:
+  zh-CN: 格式
 Start time:
   zh-CN: 开始时间
 Placeholder:
@@ -119,7 +119,7 @@ Please select:
 Set min-year and max-year:
   zh-CN: 设置开始和结束年份
 Years after 2000:
-  zh-CN: 2000年以后时间
+  zh-CN: 2000年以后的时间
 Specified template text in Chinese:
   zh-CN: 自定义中文显示模板
 Show center button and clear the value:
@@ -150,8 +150,8 @@ Toggle format:
   zh-CN: 自定义分钟列表（每15分钟）
 Custom hour list:
   zh-CN: 定义小时列表
-'Use prop: show.sync(vue^2.3) to control visibility':
-  zh-CN: 使用 prop: show.sync 控制显示(vue^2.3)
+'Use prop: show.sync (vue^2.3) to control visibility':
+  zh-CN: '使用 prop: show.sync 控制显示(vue^2.3)'
 Used as a plugin:
   zh-CN: 插件形式调用
 Set default-selected-value to 2017-11-11:
@@ -160,6 +160,10 @@ Set default-selected-value to 2017-11-11:
   zh-CN: 自定义小时列表生成逻辑
 'Prop: compute-days-function':
   zh-CN: 自定义日期列表生成逻辑
+Toggle readonly:
+  zh-CN: 切换 readonly 属性
+Set value: 2017-11-11:
+  zh-CN: 设置时间为2017-11-11
 </i18n>
 
 <script>

@@ -50,7 +50,7 @@ Close me:
   zh-CN: 点我关闭
 Deleted~:
   zh-CN: 删除成功
-Slot: header:
+'Slot: header':
   zh-CN: 使用 header slot
 Basic Usage:
   zh-CN: 基本使用

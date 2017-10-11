@@ -79,7 +79,7 @@
       <x-button @click.native="showPlugin2" type="primary">{{ $t('Plugin usage') }}</x-button>
     </div>
     <div style="padding:15px;">
-      <x-button @click.native="showPlugin3" type="primary">插件形式调用promt</x-button>
+      <x-button @click.native="showPlugin3" type="primary"> {{ $t('Call prompt by using plugin') }} </x-button>
     </div>
   </div>
 </template>
@@ -88,7 +88,7 @@
 Toggle:
   zh-CN: 显示
 Toggle show-input:
-  zh-CN: 显示Promt
+  zh-CN: 显示Prompt
 Toggle_android:
   zh-CN: 安卓风格
 Are you sure?:
@@ -105,6 +105,8 @@ closeOnConfirm=false:
   zh-CN: 阻止自动关闭
 Set default input value:
   zh-CN: 设置默认输入文字
+Call prompt by using plugin:
+  zh-CN: 插件形式调用prompt
 </i18n>
 
 <script>

@@ -6,7 +6,7 @@
     <br>
     <countup :end-val="1024" :duration="4" :start="doStart" class="demo1"></countup>
     <div style="padding:0 15px;">
-      <x-button @click.native="doStart=true" type="primary">Start</x-button>
+      <x-button @click.native="doStart=true" type="primary"> {{ $t('Start') }} </x-button>
     </div>
   </div>
 </template>

@@ -3,10 +3,10 @@
     <datetime-view v-model="value1" ref="datetime" :format="format"></datetime-view>
     <p class="info">{{ $t('Current value') }}: {{ value1 }}</p>
     <div style="padding:15px;">
-      <x-button @click.native="changeValue('2017-11-11')" :disabled="format !== 'YYYY-MM-DD'" type="primary">set 2017-11-11</x-button>
-      <x-button @click.native="changeValue('2016-08-08')" :disabled="format !== 'YYYY-MM-DD'" type="primary">set 2016-08-08</x-button>
-      <x-button @click.native="toggleFormat" type="primary">toggle format</x-button>
-      <x-button @click.native="showPopup = true" type="primary">show popup with datetime-view</x-button>
+      <x-button @click.native="changeValue('2017-11-11')" :disabled="format !== 'YYYY-MM-DD'" type="primary"> {{ $t('Set 2017-11-11') }} </x-button>
+      <x-button @click.native="changeValue('2016-08-08')" :disabled="format !== 'YYYY-MM-DD'" type="primary"> {{ $t('Set 2016-08-08') }} </x-button>
+      <x-button @click.native="toggleFormat" type="primary"> {{ $t('Toggle format') }} </x-button>
+      <x-button @click.native="showPopup = true" type="primary"> {{ $t('Show popup with datetime-view') }} </x-button>
     </div>
     <div v-transfer-dom>
       <popup v-model="showPopup">
@@ -19,6 +19,14 @@
 <i18n>
 Current value:
   zh-CN: 选中值
+Set 2017-11-11:
+  zh-CN: 设置为 2017-11-11
+Set 2016-08-08:
+  zh-CN: 设置为 2016-08-08
+Toggle format:
+  zh-CN: 切换时间格式
+Show popup with datetime-view:
+  zh-CN: 显示弹窗样式
 </i18n>
 
 <script>

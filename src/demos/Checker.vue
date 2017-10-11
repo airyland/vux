@@ -137,10 +137,10 @@
           default-item-class="demo4-item"
           selected-item-class="demo4-item-selected"
           disabled-item-class="demo4-item-disabled">
-            <checker-item value="花跟叶" @on-item-click="onItemClick">花跟叶</checker-item>
-            <checker-item value="鸟与树" @on-item-click="onItemClick">鸟与树</checker-item>
-            <checker-item value="我和你" @on-item-click="onItemClick">我和你</checker-item>
-            <checker-item value="全套礼品装" disabled @on-item-click="onItemClick">全套礼品装</checker-item>
+            <checker-item :value="$t('花跟叶')" @on-item-click="onItemClick"> {{ $t('花跟叶') }} </checker-item>
+            <checker-item :value="$t('鸟与树')" @on-item-click="onItemClick"> {{ $t('鸟与树') }} </checker-item>
+            <checker-item :value="$t('我和你')" @on-item-click="onItemClick"> {{ $t('我和你') }} </checker-item>
+            <checker-item :value="$t('全套礼品装')" disabled @on-item-click="onItemClick"> {{ $t('全套礼品装') }} </checker-item>
           </checker>
         </div>
       </popup>
@@ -168,7 +168,7 @@
 </template>
 
 <i18n>
-Radio: no default value:
+'Radio: no default value':
   zh-CN: 单选，默认不选中任何项
 潘:
   en: A
@@ -186,6 +186,14 @@ Radio: no default value:
   en: Rich
 美:
   en: Beautiful
+花跟叶:
+  en: Red
+鸟与树:
+  en: Blue
+我和你:
+  en: Green
+全套礼品装:
+  en: Yellow
 Checkbox:
   zh-CN: 多选
 Checkbox with max limit 2:
@@ -193,7 +201,7 @@ Checkbox with max limit 2:
 Current value is:
   zh-CN: 当前值为
 Default value 2:
-  zh-CN: 默认值2
+  zh-CN: 默认值 2
 Custom styles:
   zh-CN: 自定义样式
 Select color:
@@ -262,7 +270,7 @@ export default {
       demo1CheckboxMax: ['2', '3'],
       demo2: '2',
       demo3: '',
-      demo4: '花跟叶',
+      demo4: this.$t('花跟叶'),
       showPopup: false,
       demo5: 1,
       demo6: [2, 3]

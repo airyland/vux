@@ -17,7 +17,7 @@
       </cell>
     </group>
 
-    <group label-width="5em" title="align-items">
+    <group label-width="5em" title="Align-items">
       <cell primary="content" title="default" value="long long long longlong longlong longlong longlong longlong longlong longlong longlong long"></cell>
       <cell title="flex-start" align-items="flex-start" value="long long long longlong longlong longlong longlong longlong longlong longlong longlong long"></cell>
     </group>
@@ -81,7 +81,7 @@
       </cell>
     </group>
 
-    <group :title="$t('isLink is set to true when link exists')">
+    <group :title="$t('is-link is set to true automatically when link exists')">
       <cell :title="$t('Go to Radio Demo')" link="/component/radio" inline-desc='link="/component/radio"'></cell>
       <cell :title="$t('Go to Demo')" :link="{path:'/demo'}" inline-desc=':link={path:"/demo"}'></cell>
       <cell :title="$t('Http link')" link="https://vux.li" inline-desc='link="https://vux.li"'></cell>
@@ -110,8 +110,8 @@ Slot content:
   zh-CN: slot 内容
 Hi, I'm Vux.:
   zh-CN: 你好哇，感谢关注 Vux
-isLink will be true automatically when link exists:
-  zh-CN: 当有设置link属性时，会自动产生is-link的箭头效果，无需再设置isLink属性
+is-link is set to true automatically when link exists:
+  zh-CN: 当设有 link 属性时，会自动产生箭头效果，无需再设置 is-link
 Go to Radio Demo:
   zh-CN: 前往Radio页面
 Go to Demo:

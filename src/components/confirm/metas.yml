@@ -82,11 +82,11 @@ props:
   confirm-text:
     default: 确认(confirm)
     en: text of confirm button
-    zh-CN: `确认`按钮的显示文字
+    zh-CN: 确认按钮的显示文字
   cancel-text:
     default: 取消(cancel)
     en: text of cancel button
-    zh-CN: `取消`按钮的显示文字
+    zh-CN: 取消按钮的显示文字
   mask-transition:
     default: 'vux-fade'
     en: mask's transition

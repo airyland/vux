@@ -91,7 +91,7 @@ props:
     type: String
     default: 'cancel(取消)'
     en: text of cancel menu
-    zh-CN: `取消`菜单的显示文字
+    zh-CN: 取消菜单的显示文字
   theme:
     type: String
     default: 'ios'
@@ -121,7 +121,7 @@ events:
     zh-CN: 点击菜单时触发
   on-click-menu-{menuKey}:
     params: (menuKey)
-    en: shortcut event for easier listening, `menuKey` is related to `label`. For exapmple: you can listen on `on-click-menu-delete` if you have a menu named `delete`
+    en: shortcut event for easier listening, `menuKey` is related to `label`. For exapmple, you can listen on `on-click-menu-delete` if you have a menu named `delete`
     zh-CN: 点击事件的快捷方式, `menuKey`与`label`的值有关。举例：如果你有一个菜单名字为`delete`, 那么你可以监听 `on-click-menu-delete`
   on-click-menu-cancel:
     en: triggers when clicking on the cancel menu

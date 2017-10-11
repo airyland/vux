@@ -7,7 +7,7 @@
       <alert v-model="show" :title="$t('Congratulations')" @on-show="onShow" @on-hide="onHide"> {{ $t('Your Message is sent successfully~') }}</alert>
     </div>
 
-    <group title="Prop:content">
+    <group title="Prop: content">
       <x-switch :title="$t('Show Me')" v-model="show2"></x-switch>
     </group>
     <div v-transfer-dom>
