@@ -80,12 +80,12 @@ props:
   value:
     type: Boolean
     default: false
-    en: if showing the component, use v-model for binding
+    en: if showing the component; use v-model for binding
     zh-CN: 是否显示, 使用 v-model 绑定变量
   show-cancel:
     type: Boolean
     default: false
-    en: if showing the cancel menu, invalid for android theme
+    en: if showing the cancel menu; invalid for android theme
     zh-CN: 是否显示取消菜单，对安卓风格无效
   cancel-text:
     type: String

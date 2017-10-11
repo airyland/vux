@@ -34,7 +34,7 @@ props:
   start:
     type: Boolean
     default: true
-    en: if start the counting automatically
+    en: if start counting automatically
     zh-CN: 是否自动开始计数
   tag:
     version: v2.5.5

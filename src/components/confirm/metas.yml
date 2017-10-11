@@ -51,7 +51,7 @@ props:
     version: v2.5.0
     type: Boolean
     default: false
-    en: whether show input or not
+    en: whether show input or not. If true, slot will not work
     zh-CN: 是否显示输入框，如果为true，slot会失效
   placeholder:
     version: v2.5.0
@@ -77,7 +77,7 @@ props:
     zh-CN: 弹窗标题
   content:
     type: String
-    en: dialog content
+    en: dialog content, can use html. Invalid when using slot
     zh-CN: 弹窗内容，作为slot默认内容，可以是html片段，如果使用slot该字段会失效
   confirm-text:
     default: 确认(confirm)
@@ -99,7 +99,7 @@ props:
     version: v2.5.0
     type: Boolean
     default: true
-    en: whether auto close when confirm button is clicked
+    en: whether close automatically when confirm button is clicked
     zh-CN: 是否在点击确认按钮时自动关闭
   input-attrs:
     version: v2.5.7

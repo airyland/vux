@@ -57,7 +57,7 @@ props:
     version: v2.2.1-rc.1
     type: Boolean
     default: true
-    en: if set border intent
+    en: if set border intent on the left side
     zh-CN: 是否显示边框与左边的间隙
 changes:
   v2.2.1-rc.1:

@@ -44,7 +44,7 @@ props:
     type: String
     default: ''
     zh-CN: "表单值, v-model 绑定。当值为空时，为单选；当值为[]时，为多选；设置值为'TODAY'可快捷选取当前日期。`placeholder`只有在值为空或[]时显示。"
-    en: form value, binding by v-model.
+    en: form value, binding by v-model. Empty means single seleciton; [] means multiple selection. When the value is "TODAY", can quick pick current date. `placeholder` is valid only when the value is empty or [].
   title:
     type: String
     default: ''
@@ -57,7 +57,7 @@ props:
   show-popup-header:
     version: v2.6.0
     type: Boolean
-    en: whether show popup header
+    en: whether show popup header. Show under multiple selection mode; hide under single selection mode.
     zh-CN: 是否显示弹窗头部，当为多选时强制显示，单选时默认不显示
   popup-header-title:
     version: v2.6.0

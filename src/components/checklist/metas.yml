@@ -27,7 +27,7 @@ props:
   options:
     type: Array
     default: []
-    en: option list
+    en: options list
     zh-CN: 选项列表，可以为`[{key:'name',value:'value',inlineDesc:'inlineDesc'}]`的形式
   max:
     type: Number
@@ -42,7 +42,7 @@ props:
   random-order:
     type: Boolean
     default: false
-    en: if shuffing options
+    en: if place options in a random order
     zh-CN: 是否随机打乱选项顺序
   check-disabled:
     version: v2.2.1-rc.1
