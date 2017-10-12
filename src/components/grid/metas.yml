@@ -26,13 +26,13 @@ grid:
       type: Number
       version: v2.2.0
       default: 3
-      en: (deprecated after v2.6.0)rows number
-      zh-CN: (v2.6.0 之后废弃，使用 col 替代)宫格列数，建议少于`5`
+      en: (deprecated after v2.6.0) the number of rows. Less than 5 will be better
+      zh-CN: (v2.6.0 之后废弃，使用 col 替代)宫格行数，建议少于`5`
     cols:
       type: Number
       version: v2.6.1
       default: 3
-      en: column number
+      en: the number of columns. if there is more than one row in grid, need to set cols value, otherwise all grid items will show in one row with the same width
       zh-CN: 列数。如果为非单行 Grid，需要设置 cols，否则所有 GridItem 会平均宽度显示在一行。
   slots:
     default:
@@ -49,10 +49,10 @@ grid-item:
   slots:
     icon:
       en: 'icon slot, use `<img>`'
-      zh-CN: 图标内容，`直接使用<img>标签`
+      zh-CN: "图标内容，直接使用`<img>`标签"
     label:
       en: slot for label, the same func as prop:label
-      zh-CN: label文字的slot，作用同prop:label
+      zh-CN: label 文字的 slot，作用同 prop:label
 changes:
   v2.6.1:
     en:

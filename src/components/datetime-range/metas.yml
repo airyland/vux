@@ -21,10 +21,10 @@ props:
     en: label text
     zh-CN: 标题文字
   value:
-    type: String
+    type: Array
     default: ''
-    en: form's value, use `v-model` for binding
-    zh-CN: 表单值，`v-model`绑定
+    en: "form's value, use `v-model` for binding. For example, ['2017-01-15', '03', '05']"
+    zh-CN: "表单值，`v-model`绑定。比如，['2017-01-15', '03', '05']"
   inline-desc:
     type: String
     default: ''

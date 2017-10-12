@@ -150,6 +150,9 @@ props:
     en: 'dynamically set days list, params `({year, month, min, max}, generateRange)`'
     zh-CN: '动态设置日期列表，参数为 `({year, month, min, max}, generateRange)`'
 slots:
+  default:
+    en: trigger element content
+    zh-CN: 触发元素内容
   title:
     version: v2.3.6
     en: title slot

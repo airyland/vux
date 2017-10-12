@@ -25,6 +25,10 @@
   en: Info
 操作:
   en: Action
+点击事件:
+  en: Click Event
+跳转到首页:
+  en: Homepage
 </i18n>
 
 <script>
@@ -51,12 +55,12 @@ export default {
         text: '辅助操作'
       }, {
         style: 'primary',
-        text: '跳转到首页',
+        text: this.$t('跳转到首页'),
         link: '/'
       }],
       buttons2: [{
         style: 'primary',
-        text: '点击事件',
+        text: this.$t('点击事件'),
         onButtonClick: (name) => {
           alert(`clicking ${name}`)
         }

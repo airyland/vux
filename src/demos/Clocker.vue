@@ -7,22 +7,23 @@
 
     <group :title=" $t('Use in cell') ">
       <cell :title=" $t('Date: 2018-08-01') ">
-        <clocker time="2018-08-01" slot="value"></clocker>
+        <clocker time="2018-08-01"></clocker>
       </cell>
     </group>
 
     <group :title=" $t('Custom template') ">
       <cell :title=" $t('Date: 2018-08-01') ">
-        <clocker time="2018-08-01" slot="value">
+        <clocker time="2018-08-01">
           <span style="color:red">%D 天</span>
           <span style="color:green">%H 小时</span>
           <span style="color:blue">%M 分 %S 秒</span>
         </clocker>
       </cell>
       <cell title="2018-08-08">
-        <clocker time="2018-08-08" slot="value">
+        <clocker time="2018-08-08">
           <span class="day">%_D1</span>
-          <span class="day">%_D2</span>天
+          <span class="day">%_D2</span>
+          <span class="day">%_D3</span>天
           <span class="day">%_H1</span>
           <span class="day">%_H2</span>时
           <span class="day">%_M1</span>
@@ -54,7 +55,7 @@ export default {
     Cell,
     Group
   },
-  ready () {
+  created () {
     setTimeout(() => {
       this.time1 = '2018-08-13 22:54'
     }, 5000)

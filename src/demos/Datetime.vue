@@ -40,10 +40,6 @@
       <datetime v-model="limitHourValue" :start-date="startDate" :end-date="endDate" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('Start time')"></datetime>
     </group>
 
-    <div style="padding:15px;">
-      <x-button @click.native="reRender" type="primary">2016-11-11 ~ 2018-10-11</x-button>
-    </div>
-
     <group :title="$t('Format') + ': ' + format">
       <datetime v-model="value2" :format="format" @on-change="change" :title="$t('Start time')"></datetime>
     </group>
@@ -234,10 +230,6 @@ export default {
     },
     toggleFormat () {
       this.format = this.format === 'YYYY-MM-DD HH:mm' ? 'YYYY-MM-DD' : 'YYYY-MM-DD HH:mm'
-    },
-    reRender () {
-      this.startDate = '2016-11-11'
-      this.endDate = '2018-10-11'
     },
     change (value) {
       console.log('change', value)

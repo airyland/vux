@@ -5,10 +5,54 @@ items:
   - flow-line
 flow:
   props:
+    orientation:
+      type: String
+      default: 'horizontal'
+      en: "orientation of flow, can be in ['horizontal', 'vertical']"
+      zh-CN: "flow 方向，可选['horizontal', 'vertical']"
 flow-state:
   props:
+    title:
+      type: String
+      default: ''
+      en: title for state point
+      zh-CN: 标题
+    state:
+      type: String,Number
+      default: ''
+      en: content showed inside state point.
+      zh-CN: 在节点中显示的内容
+    is-done:
+      type: Boolean
+      default: false
+      en: if done
+      zh-CN: 该节点是否完成
 flow-line:
   props:
+    tip:
+      type: String
+      default: ''
+      en: tip for flow line, invalid when is-done is true
+      zh-CN: 流线的提示文字，当 is-done 为 true 时无效
+    tip-direction:
+      type: String
+      default: top for horizontal flow, left for vertical flow
+      en: "orientation of tip, can be in ['top', 'right', 'bottom', 'left']. If horizontal flow, the default is top; if vertical flow, the default is left"
+      zh-CN: "提示文字方向，可选['top', 'right', 'bottom', 'left']. 在横向 flow 中默认为 top，纵向默认则为 left"
+    is-done:
+      type: Boolean
+      default: false
+      en: if done
+      zh-CN: 该流线是否完成
+    line-span:
+      type: Number,String
+      en: length of flow line. if not set, all flow-line will get the same length
+      zh-CN: 流线的整体长度，如果不设置，所有 flow line 将平分
+    process-span:
+      type: Number,String
+      default: 50
+      en: percentage rate of progress which will be showed in flow line
+      zh-CN: 在 flow line 上显示的进度比例
 changes:
   v2.3.1:
     en:

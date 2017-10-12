@@ -25,8 +25,8 @@ props:
   duration:
     type: Number
     default: 2
-    en: how long to complete
-    zh-CN: 耗时
+    en: duration value (second)
+    zh-CN: 耗时（秒）
   options:
     type: 'Object'
     en: options for `countup.js`

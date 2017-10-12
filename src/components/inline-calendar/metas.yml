@@ -10,7 +10,7 @@ props:
   value:
     type: String, Array
     default: ''
-    en: calendar value, use `v-modle` for binding
+    en: calendar value, use `v-modle` for binding. String (including empty) means single seleciton; array (including empty array) means multiple selection.
     zh-CN: 当前选中日期，使用`v-model`绑定。值为字符串(包括空字符串)时表示单选日期，为数组(包括空数组)时表示多选。
   render-month:
     type: Array
@@ -80,17 +80,17 @@ props:
   disable-past:
     type: Boolean
     default: false
-    en: if disable the past days
-    zh-CN: 禁止选择过去的日期，该选项可以与start-date同时使用
+    en: if disable the past days, can work with start-date
+    zh-CN: 禁止选择过去的日期，该选项可以与 start-date 同时使用
   disable-future:
     type: Boolean
     default: false
-    en: if disable future days
-    zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
+    en: if disable future days, can work with end-date
+    zh-CN: 禁止选择未来的日期，该选项可以 end-date 同时使用
   marks:
     version: v2.6.0
     type: Array
-    en: (beta)style marks for specified date list
+    en: (beta) style marks for specified date list
     zh-CN: (beta) 自定义日期标记
 slots:
   each-day:

@@ -17,8 +17,8 @@ marquee:
       zh-CN: 切换动画时间
     direction:
       default: up
-      en: direction of animation
-      zh-CN: 切换方向
+      en: direction of animation, can be in ['up', 'down']
+      zh-CN: 切换方向，可选['up', 'down']
     item-height:
       type: Number
       en: item height, set value if marquee initial state is hidden

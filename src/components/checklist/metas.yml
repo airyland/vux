@@ -53,8 +53,9 @@ props:
   label-position:
     version: v2.2.1-rc.4
     type: String
-    en: label position, can be set to left
-    zh-CN: label 位置，可以设置为 left
+    default: right
+    en: label position, can be set to left or right
+    zh-CN: label 位置，可以设置为 left 或者 right
   disabled:
     version: v2.3.8
     en: if disable user from selecting
