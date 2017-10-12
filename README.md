@@ -21,6 +21,7 @@
   <a href="https://github.com/airyland/vux">
     <img src="https://img.shields.io/github/forks/airyland/vux.svg?style=social&label=Fork" alt="">
   </a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fairyland%2Fvux?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fairyland%2Fvux.svg?type=shield"/></a>
   <a href="https://github.com/airyland/vux">
     <img src="https://img.shields.io/github/watchers/airyland/vux.svg?style=social&label=Watch" alt="">
   </a>
@@ -110,6 +111,9 @@ npm run dev // or yarn dev
 ## License
 
 MIT
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fairyland%2Fvux.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fairyland%2Fvux?ref=badge_large)
 
 ## Donate
 
