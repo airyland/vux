@@ -75,6 +75,12 @@ events:
     params: (value)
     en: emits when value changes
     zh-CN: 值改变时触发
+  on-show:
+    en: emits when popup shows
+    zh-CN: 弹窗显示时触发
+  on-hide:
+    en: emits when popup hides
+    zh-CN: 弹窗关闭时触发
 changes:
   v2.6.4:
     en:

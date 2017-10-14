@@ -5,7 +5,10 @@
       <span class="vux-cell-value" v-if="showValue">{{ displayFormat(showValue, getType(showValue)) }}</span>
     </cell>
     <div v-transfer-dom>
-      <popup v-model="show">
+      <popup
+      v-model="show"
+      @on-show="onPopupShow"
+      @on-hide="onPopupHide">
 
         <popup-header
         v-if="showPopupHeader || getType(value) === 'array'"
@@ -129,6 +132,12 @@ export default {
   },
   props: Props,
   methods: {
+    onPopupShow () {
+      this.$emit('on-show')
+    },
+    onPopupHide () {
+      this.$emit('on-hide')
+    },
     getType,
     onClickLeft () {
       this.currentValue = pure(this.showValue)

@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <calendar v-model="demo1" :title="$t('Basic Usage')" disable-past placeholder="placeholder"></calendar>
+      <calendar v-model="demo1" :title="$t('Basic Usage')" disable-past placeholder="placeholder" @on-show="log('show')" @on-hide="log('hide')"></calendar>
     </group>
 
     <group>
@@ -78,6 +78,9 @@ export default {
     }
   },
   methods: {
+    log (str) {
+      console.log(str)
+    },
     onChange (val) {
       console.log('on change', val)
     }
