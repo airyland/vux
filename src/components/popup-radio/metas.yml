@@ -33,6 +33,11 @@ events:
     en: fires when popup hides
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[fix] fix vue@2.5.0 scope issue #2076'
+    zh-CN:
+      - '[fix] 兼容 vue@2.5.0 scope 更名为 slot-scope 的问题 #2076'
   v2.6.5:
     en:
       - '[feature] add event:on-hde event:on-show #2053'

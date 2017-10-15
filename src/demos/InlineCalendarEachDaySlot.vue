@@ -1,7 +1,7 @@
 <template>
   <div>
     <inline-calendar>
-      <template slot="each-day" scope="props">
+      <template slot="each-day" slot-scope="props"><!-- use scope="props" when vue < 2.5.0 -->
         <span v-show="props.isShow">{{ getStr(props.child.day) }}</span>
       </template>
     </inline-calendar>

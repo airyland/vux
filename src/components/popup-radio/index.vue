@@ -17,7 +17,7 @@
         v-model="currentValue"
         :fill-mode="false"
         @on-change="onValueChange">
-          <template slot="each-item" scope="props">
+          <template slot="each-item" slot-scope="props">
             <slot name="each-item" :icon="props.icon" :label="props.label" :index="props.index">
               <p>
                 <img class="vux-radio-icon" :src="props.icon" v-show="props.icon">
