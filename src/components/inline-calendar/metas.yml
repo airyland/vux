@@ -125,6 +125,11 @@ methods:
     en: render with current value's month
     zh-CN: 渲染当前值所在月份
 changes:
+  next:
+    en:
+      - '[enhance] call render function on created hook instead of mounted(ssr)'
+    zh-CN:
+      - '[enhance] 在 created hook 执行渲染而不是 mounted(ssr)'
   v2.6.0:
     en:
       - '[feature] (beta) Support prop:marks to style specified date item'

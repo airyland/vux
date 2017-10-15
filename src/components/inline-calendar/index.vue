@@ -115,8 +115,7 @@ export default {
   created () {
     this.currentValue = this.value
     this.multi = Object.prototype.toString.call(this.currentValue) === '[object Array]'
-  },
-  mounted () {
+
     if (this.multi) {
       for (let i = 0; i < this.currentValue.length; i++) {
         this.$set(this.currentValue, i, this.convertDate(this.currentValue[i]))
