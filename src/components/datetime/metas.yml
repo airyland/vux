@@ -159,7 +159,7 @@ changes:
     en:
       - '[fix] fix ssr i18n bug'
     zh-CN:
-      - '[fix] 修复服务端沉浸多语言 bug'
+      - '[fix] 修复服务端渲染多语言 bug'
   v2.6.1:
     en:
       - '[feature] support prop:compute-days-function for dynamically setting days #1992'
