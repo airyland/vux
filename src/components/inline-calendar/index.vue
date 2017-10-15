@@ -56,7 +56,7 @@
                   <span>{{ isShowTopTip(child, 'text') }}</span>
                 </span>
               </span>
-              <span class="vux-calendar-dot" v-show="isShowBottomDot(child)"></span>
+              <span class="vux-calendar-dot" v-if="isShowBottomDot(child)"></span>
               <div v-html="renderFunction(k1, k2, child)" v-show="showChild(year, month, child)"></div>
             </slot>
           </td>
