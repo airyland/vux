@@ -158,8 +158,10 @@ changes:
   next:
     en:
       - '[fix] fix ssr i18n bug'
+      - '[fix] fix datetime still shows when prop:readonly is true #2079'
     zh-CN:
       - '[fix] 修复服务端渲染多语言 bug'
+      - '[fix] 修复 readonly 为 true 时点击还会显示弹窗的问题 #2079'
   v2.6.1:
     en:
       - '[feature] support prop:compute-days-function for dynamically setting days #1992'
