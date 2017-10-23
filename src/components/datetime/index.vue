@@ -287,7 +287,7 @@ export default {
       }
       if (this.currentValue !== val) {
         this.currentValue = val
-        this.render()
+        if (!this.readonly) this.render()
       }
     }
   },
