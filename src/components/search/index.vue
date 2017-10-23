@@ -3,7 +3,7 @@
     <div class="weui-search-bar" :class="{'weui-search-bar_focusing': !isCancel || currentValue}">
       <slot name="left"></slot>
       <form class="weui-search-bar__form" @submit.prevent="$emit('on-submit', value)" action=".">
-        <div class="vux-search-mask" @click="touch" v-show="!isFixed && autoFixed"></div>
+        <label :for="`search_input_${uuid}`" class="vux-search-mask" @click="touch" v-show="!isFixed && autoFixed"></label>
         <div class="weui-search-bar__box">
           <i class="weui-icon-search"></i>
           <input type="search" class="weui-search-bar__input" :id="`search_input_${uuid}`" :placeholder="placeholder" autocomplete="off" :required="required" v-model="currentValue" ref="input"
