@@ -92,6 +92,12 @@ props:
     type: Array
     en: (beta)style marks for specified date list
     zh-CN: (beta) 自定义日期标记
+  disable-weekend:
+    version: next
+    type: Boolean
+    default: false
+    en: whether disable weekends
+    zh-CN: 是否禁用周六日
 slots:
   each-day:
     version: v2.3.5
@@ -128,8 +134,10 @@ changes:
   next:
     en:
       - '[enhance] call render function on created hook instead of mounted(ssr)'
+      - '[feature] add prop:disable-weekend #2105'
     zh-CN:
       - '[enhance] 在 created hook 执行渲染而不是 mounted(ssr)'
+      - '[feature] 添加属性 prop:disable-weekend 来禁用周末 #2105'
   v2.6.0:
     en:
       - '[feature] (beta) Support prop:marks to style specified date item'

@@ -20,7 +20,8 @@
   :weeks-list="weeksList"
   :render-function="buildSlotFn"
   :disable-past="disablePast"
-  :disable-future="disableFuture">
+  :disable-future="disableFuture"
+  :disable-weekend="disableWeekend">
   </inline-calendar>
 
   <group>
@@ -39,6 +40,7 @@
   <group title="control days" style="margin-top: 30px;">
     <x-switch v-model="disablePast" title="Disable Past"></x-switch>
     <x-switch v-model="disableFuture" title="Disable Future"></x-switch>
+    <x-switch v-model="disableWeekend" title="Disable Weekend"></x-switch>
     <x-switch v-model="showLastMonth" title="Show Last Month"></x-switch>
     <x-switch v-model="showNextMonth" title="Show Next Month"></x-switch>
     <x-switch v-model="return6Rows" inline-desc="if not, the calendar's height would change" title="Always show 6 rows"></x-switch>
@@ -118,7 +120,8 @@ export default {
       useCustomFn: false,
       buildSlotFn: () => '',
       disablePast: false,
-      disableFuture: false
+      disableFuture: false,
+      disableWeekend: false
     }
   },
   watch: {

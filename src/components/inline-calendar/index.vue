@@ -221,6 +221,9 @@ export default {
     }
   },
   methods: {
+    isDisabled (date) {
+      return date.isDisabled || (date.isWeekend && this.disableWeekend)
+    },
     switchViewToToday () {
       const today = new Date()
       this.render(today.getFullYear(), today.getMonth())
@@ -274,10 +277,10 @@ export default {
       }
       const className = {
         current: child.current || isCurrent,
-        'is-disabled': child.disabled,
-        'is-today': child.isToday
+        'is-disabled': this.isDisabled(child),
+        'is-today': child.isToday,
+        [`is-week-${index}`]: true
       }
-      className[`is-week-${index}`] = true
       return className
     },
     render (year, month) {
@@ -329,6 +332,9 @@ export default {
         return
       }
       if (!data.isBetween) {
+        return
+      }
+      if (this.isDisabled(data)) {
         return
       }
       let _currentValue = null

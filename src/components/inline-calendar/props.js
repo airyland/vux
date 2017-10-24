@@ -70,6 +70,10 @@ export default () => ({
     type: Boolean,
     default: false
   },
+  disableWeekend: {
+    type: Boolean,
+    default: false
+  },
   marks: {
     type: Array,
     default () {
