@@ -54,6 +54,7 @@ export default {
         this.render(this.index)
       }
       this.xheight = this.getHeight()
+      this.$emit('on-get-height', this.xheight)
     })
   },
   methods: {

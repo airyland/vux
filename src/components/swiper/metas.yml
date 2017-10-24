@@ -102,12 +102,20 @@ props:
     default: 0
     en: index value, use `v-model` for binding
     zh-CN: index 绑定，使用`v-model`，一般不需要绑定
+events:
+  on-get-height:
+    version: next
+    params: '`(height)`'
+    en: emits after height is caculated
+    zh-CN: 高度获取后触发
 changes:
   next:
     en:
       - '[enhance] set shorter distance for first and last item for better experience'
+      - '[feature] add event:on-get-height #2112'
     zh-CN:
       - '[enhance] 非循环模式下对第一张和最后一张使用更短的拖动距离'
+      - '[feature] 添加事件 event:on-get-height #2112'
   v2.6.0:
     en:
       - '[enhance] support fallbackImg for prop:list #1923'
