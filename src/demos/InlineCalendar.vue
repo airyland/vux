@@ -21,7 +21,8 @@
   :render-function="buildSlotFn"
   :disable-past="disablePast"
   :disable-future="disableFuture"
-  :disable-weekend="disableWeekend">
+  :disable-weekend="disableWeekend"
+  :disable-date-function="disableDateFunction">
   </inline-calendar>
 
   <group>
@@ -121,7 +122,12 @@ export default {
       buildSlotFn: () => '',
       disablePast: false,
       disableFuture: false,
-      disableWeekend: false
+      disableWeekend: false,
+      disableDateFunction (date) {
+        if (date.formatedDate === '2017-10-16') {
+          return true
+        }
+      }
     }
   },
   watch: {

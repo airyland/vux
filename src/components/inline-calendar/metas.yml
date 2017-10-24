@@ -98,6 +98,12 @@ props:
     default: false
     en: whether disable weekends
     zh-CN: 是否禁用周六日
+  disable-date-function:
+    version: next
+    type: Function
+    params: '`(date)`'
+    en: check if a date should be disabled
+    zh-CN: 自定义标记特定日期是否应该禁用，返回 true 表示禁用，false 表示不禁用，不返回表示和原有逻辑一致(这样不影响和 disable-weekend 等禁用属性同时使用)
 slots:
   each-day:
     version: v2.3.5
@@ -135,9 +141,11 @@ changes:
     en:
       - '[enhance] call render function on created hook instead of mounted(ssr)'
       - '[feature] add prop:disable-weekend #2105'
+      - '[feature] add prop:disable-date-function #2105'
     zh-CN:
       - '[enhance] 在 created hook 执行渲染而不是 mounted(ssr)'
       - '[feature] 添加属性 prop:disable-weekend 来禁用周末 #2105'
+      - '[feature] 添加属性 prop:disable-date-function 自定义标记禁用日期 #2105'
   v2.6.0:
     en:
       - '[feature] (beta) Support prop:marks to style specified date item'

@@ -222,7 +222,17 @@ export default {
   },
   methods: {
     isDisabled (date) {
-      return date.isDisabled || (date.isWeekend && this.disableWeekend)
+      const disabled = date.isDisabled || (date.isWeekend && this.disableWeekend)
+      if (!this.disableDateFunction) {
+        return disabled
+      } else {
+        const value = this.disableDateFunction(date)
+        if (typeof value === 'undefined') {
+          return disabled
+        } else {
+          return disabled || value
+        }
+      }
     },
     switchViewToToday () {
       const today = new Date()

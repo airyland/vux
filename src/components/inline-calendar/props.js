@@ -74,6 +74,7 @@ export default () => ({
     type: Boolean,
     default: false
   },
+  disableDateFunction: Function,
   marks: {
     type: Array,
     default () {
