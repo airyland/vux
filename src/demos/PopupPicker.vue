@@ -3,7 +3,7 @@
     <group title="single column" label-width="5em">
       <popup-picker :title="title1" :data="list1" v-model="value1" @on-show="onShow" @on-hide="onHide" @on-change="onChange" :placeholder="$t('please select')"></popup-picker>
       <popup-picker :title="title1" :data="list1" v-model="value1_1" @on-show="onShow" @on-hide="onHide" @on-change="onChange" :placeholder="$t('please select')">
-        <template slot="title" scope="props">
+        <template slot="title" slot-scope="props"><!-- use scope="props" when vue < 2.5.0 -->
           <span :class="props.labelClass" :style="props.labelStyle" style="height:24px;">
             <span class="demo-icon demo-icon-big" style="font-size:20px;vertical-align:middle;"></span>
             <span style="vertical-align:middle;">手机</span>

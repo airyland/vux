@@ -78,6 +78,7 @@ export default {
       if (this.hideOnBlur) {
         this.$emit('update:show', false)
         this.$emit('change', false)
+        this.$emit('on-click-mask')
       }
     }
   }

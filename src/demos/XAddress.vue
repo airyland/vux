@@ -12,7 +12,7 @@
 
     <group>
     <x-address :title="title" @on-hide="logHide" v-model="value_0_1" :list="addressData" placeholder="请选择地址">
-      <template slot="title" scope="props">
+      <template slot="title" slot-scope="props"><!-- use scope="props" when vue < 2.5.0 -->
         <span :class="props.labelClass" :style="props.labelStyle" style="height:24px;">
           <span class="demo-icon demo-icon-big" style="font-size:20px;vertical-align:middle;"></span>
           <span style="vertical-align:middle;">地址</span>

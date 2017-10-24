@@ -56,7 +56,7 @@
                   <span>{{ isShowTopTip(child, 'text') }}</span>
                 </span>
               </span>
-              <span class="vux-calendar-dot" v-show="isShowBottomDot(child)"></span>
+              <span class="vux-calendar-dot" v-if="isShowBottomDot(child)"></span>
               <div v-html="renderFunction(k1, k2, child)" v-show="showChild(year, month, child)"></div>
             </slot>
           </td>
@@ -115,8 +115,7 @@ export default {
   created () {
     this.currentValue = this.value
     this.multi = Object.prototype.toString.call(this.currentValue) === '[object Array]'
-  },
-  mounted () {
+
     if (this.multi) {
       for (let i = 0; i < this.currentValue.length; i++) {
         this.$set(this.currentValue, i, this.convertDate(this.currentValue[i]))
@@ -222,6 +221,19 @@ export default {
     }
   },
   methods: {
+    isDisabled (date) {
+      const disabled = date.isDisabled || (date.isWeekend && this.disableWeekend)
+      if (!this.disableDateFunction) {
+        return disabled
+      } else {
+        const value = this.disableDateFunction(date)
+        if (typeof value === 'undefined') {
+          return disabled
+        } else {
+          return disabled || value
+        }
+      }
+    },
     switchViewToToday () {
       const today = new Date()
       this.render(today.getFullYear(), today.getMonth())
@@ -275,10 +287,10 @@ export default {
       }
       const className = {
         current: child.current || isCurrent,
-        'is-disabled': child.disabled,
-        'is-today': child.isToday
+        'is-disabled': this.isDisabled(child),
+        'is-today': child.isToday,
+        [`is-week-${index}`]: true
       }
-      className[`is-week-${index}`] = true
       return className
     },
     render (year, month) {
@@ -330,6 +342,9 @@ export default {
         return
       }
       if (!data.isBetween) {
+        return
+      }
+      if (this.isDisabled(data)) {
         return
       }
       let _currentValue = null

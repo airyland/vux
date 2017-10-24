@@ -59,6 +59,12 @@
   <br>
 </p>
 
+## Issues
+
+如果你的开源项目从`VUX`得到了灵感或者使用了某些代码，希望能附上`VUX`项目链接。
+
+特别需要帮助的同学请在 segmentfault 上付费提问 [sf](https://segmentfault.com/pay/ask?expert=1030000000091353)，马虎问题同样不会处理。
+
 ## Requirements
 
 + vue@^2.3.0(for .sync modifier)

@@ -58,11 +58,6 @@ self.$config = {
         
       },
       {
-        title: 'Ad: 世界和我',
-        className: 'vux-livingearth-nav',
-        path: '/zh-CN/livingearth?x-block=top-nav'
-      },
-      {
         title: 'Languages',
         type: 'dropdown',
         items: langs

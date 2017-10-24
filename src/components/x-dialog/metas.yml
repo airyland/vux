@@ -116,6 +116,11 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
+  next:
+    en:
+      - '[feature] add event:on-click-mask #2102'
+    zh-CN:
+      - '[feature] 添加事件 on-click-mask #2102'
   v2.6.4:
     en:
       - '[feature] support prop:mask-z-index'

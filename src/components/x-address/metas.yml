@@ -138,6 +138,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  next:
+    en:
+      - '[fix] fix vue@2.5.0 scope issue #2076'
+    zh-CN:
+      - '[fix] 兼容 vue@2.5.0 scope 更名为 slot-scope 的问题 #2076'
   v2.6.2:
     en:
       - '[fix] update address data #2000'

@@ -20,7 +20,9 @@
   :weeks-list="weeksList"
   :render-function="buildSlotFn"
   :disable-past="disablePast"
-  :disable-future="disableFuture">
+  :disable-future="disableFuture"
+  :disable-weekend="disableWeekend"
+  :disable-date-function="disableDateFunction">
   </inline-calendar>
 
   <group>
@@ -39,6 +41,7 @@
   <group :title="$t('Control days')" style="margin-top: 30px;">
     <x-switch v-model="disablePast" :title="$t('Disable past')"></x-switch>
     <x-switch v-model="disableFuture" :title="$t('Disable future')"></x-switch>
+    <x-switch v-model="disableWeekend" title="$t('Disable weekend')"></x-switch>
     <x-switch v-model="showLastMonth" :title="$t('Show last month')"></x-switch>
     <x-switch v-model="showNextMonth" :title="$t('Show next month')"></x-switch>
     <x-switch v-model="return6Rows" :inline-desc="$t('If not, the height of calendar would change')" :title="$t('Always show 6 rows')"></x-switch>
@@ -98,6 +101,8 @@ Disable past:
   zh-CN: 禁止选择未来的日期
 Disable future:
   zh-CN: 禁止选择过去的日期
+Disable weekend:
+  zh-CN: 禁止选择周末日期
 Show last month:
   zh-CN: 显示上个月
 Show next month:
@@ -163,7 +168,13 @@ export default {
       useCustomFn: false,
       buildSlotFn: () => '',
       disablePast: false,
-      disableFuture: false
+      disableFuture: false,
+      disableWeekend: false,
+      disableDateFunction (date) {
+        if (date.formatedDate === '2017-10-16') {
+          return true
+        }
+      }
     }
   },
   watch: {

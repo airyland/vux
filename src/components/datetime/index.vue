@@ -281,7 +281,7 @@ export default {
     },
     value (val) {
       // do not force render when renderInline is true
-      if (this.picker && this.picker.config.renderInline) {
+      if (this.readonly || (this.picker && this.picker.config.renderInline)) {
         this.currentValue = val
         return
       }
