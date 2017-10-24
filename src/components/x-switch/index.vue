@@ -78,7 +78,6 @@ export default {
 .weui-cell_switch .weui-cell__ft {
   font-size: 0;
   position: relative;
-  overflow: hidden;
 }
 
 input.weui-switch[disabled] {
