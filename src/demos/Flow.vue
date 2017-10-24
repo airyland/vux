@@ -4,7 +4,9 @@
       <flow-state state="1" :title="$t('Paid')" is-done></flow-state>
       <flow-line is-done></flow-line>
 
-      <flow-state state="2" :title="$t('Shipped')" is-done></flow-state>
+      <flow-state state="2" is-done>
+        <span slot="title">{{ $t('Shipped') }}</span>
+      </flow-state>
       <flow-line :tip="$t('In progress')"></flow-line>
 
       <flow-state state="3" :title="$t('Delivered')"></flow-state>

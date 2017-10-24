@@ -27,6 +27,11 @@ flow-state:
       default: false
       en: if done
       zh-CN: 该节点是否完成
+  slots:
+    title:
+      version: next
+      en: title for state point，default content is prop:title
+      zh-CN: 标题插槽，默认内容为 prop:title
 flow-line:
   props:
     tip:
@@ -54,6 +59,11 @@ flow-line:
       en: percentage rate of progress which will be showed in flow line
       zh-CN: 在 flow line 上显示的进度比例
 changes:
+  next:
+    en:
+      - '[feature] add slot:title for flow-state #2010'
+    zh-CN:
+      - '[feature] 为 flow-state 添加 slot:title #2010'
   v2.3.1:
     en:
       - '[feature] new component'
