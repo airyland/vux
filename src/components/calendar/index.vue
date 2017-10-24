@@ -4,7 +4,7 @@
       <span class="vux-cell-placeholder" v-if="shouldShowPlaceholder">{{ placeholder }}</span>
       <span class="vux-cell-value" v-if="showValue">{{ displayFormat(showValue, getType(showValue)) }}</span>
     </cell>
-    <div v-transfer-dom>
+    <div v-transfer-dom="shouldTransferDom">
       <popup
       v-model="show"
       @on-show="onPopupShow"
@@ -95,6 +95,11 @@ const Props = {
     default: (value) => {
       return typeof value === 'string' ? value : value.join(', ')
     }
+  },
+  // for test only
+  shouldTransferDom: {
+    type: Boolean,
+    default: true
   }
 }
 
@@ -137,6 +142,8 @@ export default {
     },
     onPopupHide () {
       this.$emit('on-hide')
+      // reset value to show value
+      this.currentValue = pure(this.showValue)
     },
     getType,
     onClickLeft () {
