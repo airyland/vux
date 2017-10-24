@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <cell title="Total" value="￥1024"></cell>
+      <cell :title="$t('Total')" :value="$t('$1024')"></cell>
       <cell-form-preview :list="list"></cell-form-preview>
     </group>
   </div>
@@ -10,6 +10,8 @@
 <i18n>
 Total:
   zh-CN: 合计
+'$1024':
+  zh-CN: ￥1024
 Apple:
   zh-CN: 苹果
 Banana:

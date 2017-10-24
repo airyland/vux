@@ -10,7 +10,7 @@ props:
   list:
     type: 'Array'
     en: content list `[{title, desc, src, fallbackSrc, meta:{source,date,other}}]`
-    zh-CN: '内容列表，[{title, desc, src, fallbackSrc, meta:{source,date,other}}]'
+    zh-CN: 内容列表，`[{title, desc, src, fallbackSrc, meta:{source,date,other}}]`
   type:
     default: '1'
     en: one of '1', '2', '3', '4', '5'

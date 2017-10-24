@@ -62,7 +62,10 @@ export default {
       type: Boolean,
       default: true
     },
-    labelPosition: String,
+    labelPosition: {
+      type: String,
+      default: 'right'
+    },
     disabled: Boolean
   },
   data () {

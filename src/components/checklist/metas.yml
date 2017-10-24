@@ -23,11 +23,11 @@ props:
     type: Boolean
     default: false
     en: if required
-    zh-CN: 是否为必填
+    zh-CN: 是否为必选
   options:
     type: Array
     default: []
-    en: option list
+    en: options list
     zh-CN: 选项列表，可以为`[{key:'name',value:'value',inlineDesc:'inlineDesc'}]`的形式
   max:
     type: Number
@@ -42,7 +42,7 @@ props:
   random-order:
     type: Boolean
     default: false
-    en: if shuffing options
+    en: if place options in a random order
     zh-CN: 是否随机打乱选项顺序
   check-disabled:
     version: v2.2.1-rc.1
@@ -53,8 +53,9 @@ props:
   label-position:
     version: v2.2.1-rc.4
     type: String
-    en: label position, can be set to left
-    zh-CN: label 位置，可以设置为 left
+    default: right
+    en: label position, can be set to left or right
+    zh-CN: label 位置，可以设置为 left 或者 right
   disabled:
     version: v2.3.8
     en: if disable user from selecting

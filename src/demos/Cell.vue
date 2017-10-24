@@ -6,9 +6,9 @@
       <cell :title="$t('Withdraw')" disabled is-link></cell>
     </group>
 
-    <group :title="$t('use is-link to show arrow')">
+    <group :title="$t('Use is-link to show arrow')">
       <cell is-link>
-        <span slot="title" style="color:green;"><span style="vertical-align:middle;">{{ $t('Important News') }}</span> <badge text="1"></badge></span>
+        <span slot="title" style="color:green;"><span style="vertical-align:middle;">{{ $t('Messages') }}</span> <badge text="1"></badge></span>
       </cell>
       <cell :title="$t('Notifications')" is-link></cell>
       <cell :title="$t('Privacy')" is-link></cell>
@@ -17,8 +17,8 @@
       </cell>
     </group>
 
-    <group label-width="5em" title="align-items">
-      <cell primary="conten" title="default" value="long long long longlong longlong longlong longlong longlong longlong longlong longlong long"></cell>
+    <group label-width="5em" title="Align-items">
+      <cell primary="content" title="default" value="long long long longlong longlong longlong longlong longlong longlong longlong longlong long"></cell>
       <cell title="flex-start" align-items="flex-start" value="long long long longlong longlong longlong longlong longlong longlong longlong longlong long"></cell>
     </group>
 
@@ -29,7 +29,7 @@
       :border-intent="false"
       :arrow-direction="showContent001 ? 'up' : 'down'"
       @click.native="showContent001 = !showContent001"></cell>
-      
+
       <template v-if="showContent001">
         <cell-box :border-intent="false" class="sub-item" is-link>content 001</cell-box>
         <cell-box class="sub-item" is-link>content 001</cell-box>
@@ -73,18 +73,18 @@
       <cell :title="$t('Notifications')" :value="$t('Enabled')"></cell>
     </group>
 
-    <group :title="$t('use slot for complexed content')">
-      <cell :title="$t('slot content')">
+    <group :title="$t('Use slot for complicated content')">
+      <cell :title="$t('Slot content')">
         <div>
           <span style="color: green">{{$t('Hi, I\'m Vux.')}}</span>
         </div>
       </cell>
     </group>
 
-    <group :title="$t('isLink is set to true when link exists')">
+    <group :title="$t('is-link is set to true automatically when link exists')">
       <cell :title="$t('Go to Radio Demo')" link="/component/radio" inline-desc='link="/component/radio"'></cell>
       <cell :title="$t('Go to Demo')" :link="{path:'/demo'}" inline-desc=':link={path:"/demo"}'></cell>
-      <cell :title="$t('http link')" link="https://vux.li" inline-desc='link="https://vux.li"'></cell>
+      <cell :title="$t('Http link')" link="https://vux.li" inline-desc='link="https://vux.li"'></cell>
     </group>
   </div>
 </template>
@@ -94,29 +94,29 @@ My Account:
   zh-CN: 我的账号
 Protected:
   zh-CN: 保护中
-use is-link to show arrow:
+Use is-link to show arrow:
   zh-CN: 使用 is-link 显示右边箭头
 Notifications:
-  zh-CN: 接收通知
+  zh-CN: 通知
 Enabled:
   zh-CN: 已开启
 Privacy:
   zh-CN: 隐私
 General:
   zh-CN: 通用
-use slot for complexed content:
+Use slot for complicated content:
   zh-CN: 使用slot显示复杂内容
-slot content:
+Slot content:
   zh-CN: slot 内容
 Hi, I'm Vux.:
   zh-CN: 你好哇，感谢关注 Vux
-isLink is set to true when link exists:
-  zh-CN: 当有设置link属性时，isLink属性会设为true以显示箭头
+is-link is set to true automatically when link exists:
+  zh-CN: 当设有 link 属性时，会自动产生箭头效果，无需再设置 is-link
 Go to Radio Demo:
   zh-CN: 前往Radio页面
 Go to Demo:
   zh-CN: 前往Demo页面
-http link:
+Http link:
   zh-CN: 站外链接
 Money:
   zh-CN: 余额
@@ -132,8 +132,8 @@ Animated:
   zh-CN: 动画效果
 Withdraw:
   zh-CN: 提现
-Important News:
-  zh-CN: 重要消息
+Messages:
+  zh-CN: 消息
 </i18n>
 
 <script>

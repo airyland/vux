@@ -6,7 +6,7 @@ extra:
         <cell title="title" value="value"></cell>
       </group>
     ```
-    
+
     <p class="tip">cell只能在`Group`中使用</p>
 tags:
   en:
@@ -19,7 +19,7 @@ props:
   title:
     type: String
     default: ''
-    en: label text
+    en: label text on the left
     zh-CN: 左边标题文字
   value:
     type: String
@@ -33,12 +33,12 @@ props:
     zh-CN: 标题下面文字，一般为说明文字
   link:
     type: String, Object
-    en: redirect link when being clicked
+    en: redirect link. Can be http(s) protocol; can also be vue-router format
     zh-CN: 点击链接，可以为http(s)协议，也可以是 vue-router 支持的地址形式
   is-link:
     type: Boolean
     default: false
-    en: if this is a link, if true, there will be an arrow on the right
+    en: if this is a link; if true, there will be an arrow on the right
     zh-CN: 是否为链接，如果是，右侧将会出现指引点击的右箭头
   primary:
     type: String
@@ -49,7 +49,7 @@ props:
     version: v2.2.0
     type: Boolean
     default: false
-    en: if show loading icon
+    en: if show loading icon, good for asynchronous loading
     zh-CN: 是否显示加载图标，适用于异步加载数据的场景
   value-align:
     version: v2.2.0
@@ -60,7 +60,7 @@ props:
     version: v2.2.1-rc.1
     type: Boolean
     default: true
-    en: if set border intent
+    en: if set border intent on the left side
     zh-CN: 是否显示边框与左边的间隙
   arrow-direction:
     version: v2.2.1-rc.1
@@ -70,16 +70,17 @@ props:
   disabled:
     version: v2.2.2
     type: Boolean
-    en: set disabled style for label and arrow(if is-link is true)
-    zh-CN: 对 label 和箭头(如果使用 is-link)显示不可操作样式
+    en: set disabled style for label and arrow (if is-link is true)
+    zh-CN: 对 label 和箭头(如果使用 is-link )显示不可操作样式
   align-items:
     version: v2.6.4
     type: String
+    default: center
     en: align-items value
     zh-CN: align-items 样式值
 slots:
   default:
-    en: "right area, you can use default slot instead of prop:value so you can use complexed layout"
+    en: "right area, you can use default slot instead of prop:value so you can use complicated layout"
     zh-CN: 右侧内容，相比于value的优点是可以用复杂的样式或者调用组件
   value:
     en: "[deprecated] the same as default slot"

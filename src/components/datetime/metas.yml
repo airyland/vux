@@ -16,14 +16,14 @@ props:
   format:
     type: String
     default: 'YYYY-MM-DD'
-    en: date format
+    en: date format. Special characters are not supported, for example, YYYY-MM-DD HH:mm:ss
     zh-CN: 时间格式，不支持特殊字符，只能类似 YYYY-MM-DD HH:mm:ss 这样的格式
   title:
     type: String
     default: ''
     en: cell title
     zh-CN: 标题
-  value: 
+  value:
     type: String
     default: ''
     en: form's value, use `v-model` for binding
@@ -36,8 +36,8 @@ props:
   placeholder:
     type: String
     default: ''
-    en: placeholder
-    zh-CN: 提示文字
+    en: placeholder, works when value is empty
+    zh-CN: 提示文字，当`value`为空时显示
   min-year:
     type: Number
     default: ''
@@ -48,6 +48,16 @@ props:
     default: ''
     en: max-year of the form
     zh-CN: 可选择的最大年份
+  min-hour:
+    type: Number
+    default: 0
+    en: min hour
+    zh-CN: 限定小时最小值
+  max-hour:
+    type: Number
+    default: 23
+    en: max hour
+    zh-CN: 限定小时最大值
   confirm-text:
     type: String
     default: ok(确认)
@@ -88,28 +98,18 @@ props:
     default: '{value}'
     en: render template for the minute column
     zh-CN: 分钟的渲染模板
-  min-hour:
-    type: Number
-    default: 0
-    en: min hour
-    zh-CN: 限定小时最小值
-  max-hour:
-    type: Number
-    default: 23
-    en: max hour
-    zh-CN: 限定小时最大值
   start-date:
     type: String
-    en: start date
+    en: 'start date, must be YYYY-MM-DD. Please use `min-hour` and `max-hour` to limit the range of hours'
     zh-CN: '限定最小日期，格式必须为 YYYY-MM-DD，注意该限制只能限定到日期，不能限定到小时分钟。小时限定请使用`min-hour`和`max-hour`'
   end-date:
     type: String
-    en: end date
+    en: 'end date, must be YYYY-MM-DD. Please use `min-hour` and `max-hour` to limit the range of hours'
     zh-CN: 限定最大日期，格式必须为 YYYY-MM-DD，注意该限制只能限定到日期，不能限定到小时分钟
   required:
     type: Boolean
     default: false
-    en: is required
+    en: if required
     zh-CN: 是否必填
   display-format:
     version: v2.1.1-rc.11
@@ -130,6 +130,11 @@ props:
     type: Array
     en: specify minute list, for instance ['00', '15', '30', '45']
     zh-CN: 定义分钟列表，比如 ['00', '15', '30', '45']
+  hour-list:
+    version: v2.3.7
+    type: Array
+    en: specify hour list, for instance ['09', '10', '11', '12']
+    zh-CN: 定义小时列表，比如 ['09', '10', '11', '12']
   default-selected-value:
     version: v2.4.1
     en: set default selected value, works only when value is empty
@@ -145,6 +150,9 @@ props:
     en: 'dynamically set days list, params `({year, month, min, max}, generateRange)`'
     zh-CN: '动态设置日期列表，参数为 `({year, month, min, max}, generateRange)`'
 slots:
+  default:
+    en: trigger element content
+    zh-CN: 触发元素内容
   title:
     version: v2.3.6
     en: title slot
@@ -154,6 +162,9 @@ events:
     params: '`(value)`'
     en: $emits when value changes, `(newVal)`
     zh-CN: 表单值变化时触发, 参数 `(newVal)`
+  on-clear:
+    en: $emits when click the button in the middle of the header
+    zh-CN: 点击显示在中间的自定义按钮时触发
 changes:
   next:
     en:

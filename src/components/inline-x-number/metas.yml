@@ -1,4 +1,25 @@
 icon: '&#xe605;'
+props:
+  width:
+    type: String
+    default: 50px
+    en: width for number
+    zh-CN: 数字所占据的宽度
+  button-style:
+    type: String
+    default: square
+    en: button style, can be 'round'
+    zh-CN: 按钮样式，可选['round']
+  min:
+    type: Number
+    default: ''
+    en: min value
+    zh-CN: 最小值
+  max:
+    type: number
+    default: ''
+    en: max value
+    zh-CN: 最大值
 changes:
   v2.5.2:
     en:

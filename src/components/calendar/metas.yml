@@ -12,7 +12,7 @@ extra:
     <br>
      除了`title`和 `value`, 其他`props`和`inline-calendar`完全一致。
     </p>
-    
+
     <p class="tip">当绑定值为数组时，日历将为多选模式</p>
 
   en: |
@@ -38,13 +38,13 @@ extends:
   - cell
 intro:
   zh-CN: 扩展自inline-calendar, 相关属性可查看inline-calendar文档
-  en: extends from inline-calendar, Related props can be found in the document of inline-calendar
+  en: extends from inline-calendar. Related props can be found in the document of inline-calendar
 props:
   value:
     type: String
     default: ''
-    zh-CN: 表单值, v-model 绑定
-    en: form value, binding by v-model
+    zh-CN: "表单值, v-model 绑定。当值为空时，为单选；当值为[]时，为多选；设置值为'TODAY'可快捷选取当前日期。`placeholder`只有在值为空或[]时显示。"
+    en: form value, binding by v-model. Empty means single seleciton; [] means multiple selection. When the value is "TODAY", can quick pick current date. `placeholder` is valid only when the value is empty or [].
   title:
     type: String
     default: ''
@@ -57,8 +57,8 @@ props:
   show-popup-header:
     version: v2.6.0
     type: Boolean
-    en: whether show popup header
-    zh-CN: 是否显示弹窗头部，当为多选时强制显示
+    en: whether show popup header. Show under multiple selection mode; hide under single selection mode.
+    zh-CN: 是否显示弹窗头部，当为多选时强制显示，单选时默认不显示
   popup-header-title:
     version: v2.6.0
     type: String

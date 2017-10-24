@@ -1,7 +1,7 @@
 icon: '&#xe655;'
 extra:
   en: |
-  
+
     `Checker` is a more flexible component than `Radio` and `Checklist`.
 
   zh-CN: |
@@ -36,7 +36,7 @@ checker:
       zh-CN: 类型，单选为`radio`, 多选为`checkbox`
     value:
       type: String,Array
-      en: selected value ,use `v-model` for binding
+      en: selected value, use `v-model` for binding
       zh-CN: 表单值，使用`v-model`绑定
     max:
       type: Number
@@ -46,7 +46,7 @@ checker:
       version: v2.6.3
       type: Boolean
       default: false
-      en: whether value is required in radio mode
+      en: whether value is required in radio mode. if true, current selected item will always be selected even after clicking
       zh-CN: 在单选模式下是否必选一个值。设为 true 后点击当前选中项不会取消选中。
   events:
     on-change:
