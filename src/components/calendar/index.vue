@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vux-calendar">
     <cell :title="title" primary="content" @click.native="onClick" is-link>
       <span class="vux-cell-placeholder" v-if="shouldShowPlaceholder">{{ placeholder }}</span>
       <span class="vux-cell-value" v-if="showValue">{{ displayFormat(showValue, getType(showValue)) }}</span>
@@ -184,3 +184,16 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+@import '../../styles/weui/base/fn';
+@import '../../styles/weui/base/mixin/setOnepx.less';
+
+.vux-calendar {
+  position: relative;
+  &:before {
+    .setTopLine(@weuiCellBorderColor);
+    left: @weuiCellGapH;
+  }
+}
+</style>
