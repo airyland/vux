@@ -39,6 +39,21 @@ export default {
   methods: {
     onClick () {
       this.$emit('on-click', !this.currentValue, this.currentValue)
+    },
+    toBoolean (val) {
+      if (!this.valueMap) {
+        return val
+      } else {
+        const index = this.valueMap.indexOf(val)
+        return index === 1
+      }
+    },
+    toRaw (val) {
+      if (!this.valueMap) {
+        return val
+      } else {
+        return this.valueMap[val ? 1 : 0]
+      }
     }
   },
   props: {
@@ -48,24 +63,29 @@ export default {
     },
     disabled: Boolean,
     value: {
-      type: Boolean,
+      type: [Boolean, String, Number],
       default: false
     },
     inlineDesc: [String, Boolean, Number],
-    preventDefault: Boolean
+    preventDefault: Boolean,
+    valueMap: {
+      type: Array,
+      default: () => ([false, true])
+    }
   },
   data () {
     return {
-      currentValue: this.value
+      currentValue: this.toBoolean(this.value)
     }
   },
   watch: {
     currentValue (val) {
-      this.$emit('input', val)
-      this.$emit('on-change', val)
+      const rawValue = this.toRaw(val)
+      this.$emit('input', rawValue)
+      this.$emit('on-change', rawValue)
     },
     value (val) {
-      this.currentValue = val
+      this.currentValue = this.toBoolean(val)
     }
   }
 }
