@@ -10,7 +10,7 @@
 <i18n>
 Switch the type:
   zh-CN: 切换样式
-List of content with image
+List of content with image:
   zh-CN: 图文组合列表
 More:
   zh-CN: 查看更多
