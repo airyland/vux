@@ -16,6 +16,7 @@
     :cancel-text="cancelText"
     :display-format="displayFormat"
     :popup-style="popupStyle"
+    :popup-title="popupTitle"
     :show.sync="showValue"
     @on-shadow-change="onShadowChange">
       <template slot="title" slot-scope="props">
@@ -65,6 +66,7 @@ export default {
       default: (val, names) => names
     },
     popupStyle: Object,
+    popupTitle: String,
     show: Boolean
   },
   created () {
