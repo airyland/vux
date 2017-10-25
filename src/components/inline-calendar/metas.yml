@@ -142,10 +142,12 @@ changes:
       - '[enhance] call render function on created hook instead of mounted(ssr)'
       - '[feature] add prop:disable-weekend #2105'
       - '[feature] add prop:disable-date-function #2105'
+      - '[fix] remove useless re-render function #2066'
     zh-CN:
       - '[enhance] 在 created hook 执行渲染而不是 mounted(ssr)'
       - '[feature] 添加属性 prop:disable-weekend 来禁用周末 #2105'
       - '[feature] 添加属性 prop:disable-date-function 自定义标记禁用日期 #2105'
+      - '[fix] 移除重复的多次重复渲染 #2066'
   v2.6.0:
     en:
       - '[feature] (beta) Support prop:marks to style specified date item'

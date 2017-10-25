@@ -1,6 +1,6 @@
 <template>
   <div>
-    <inline-calendar v-model="value"></inline-calendar>
+    <inline-calendar v-model="value" @on-change="onChange"></inline-calendar>
     <br>
     {{ value }}
     <div style="padding:15px;">
@@ -26,6 +26,9 @@ export default {
     }
   },
   methods: {
+    onChange (val) {
+      console.log('on-change', val)
+    },
     updateValue () {
       if (this.value.length === 1) {
         this.value = [yesterday, today]

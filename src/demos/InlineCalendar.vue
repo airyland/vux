@@ -41,7 +41,7 @@
   <group :title="$t('Control days')" style="margin-top: 30px;">
     <x-switch v-model="disablePast" :title="$t('Disable past')"></x-switch>
     <x-switch v-model="disableFuture" :title="$t('Disable future')"></x-switch>
-    <x-switch v-model="disableWeekend" title="$t('Disable weekend')"></x-switch>
+    <x-switch v-model="disableWeekend" :title="$t('Disable weekend')"></x-switch>
     <x-switch v-model="showLastMonth" :title="$t('Show last month')"></x-switch>
     <x-switch v-model="showNextMonth" :title="$t('Show next month')"></x-switch>
     <x-switch v-model="return6Rows" :inline-desc="$t('If not, the height of calendar would change')" :title="$t('Always show 6 rows')"></x-switch>
@@ -76,17 +76,6 @@
     <cell :title="$t('Current value')" :value="listValue"></cell>
   </group>
   <br>
-  <div v-for="i in 5" v-if="i >= 1">
-    <divider>2016 / {{i}}</divider>
-    <inline-calendar
-    :render-month="[2016, i]"
-    hide-header
-    :return-six-rows="false"
-    v-model="listValue"
-    :show-last-month="false"
-    :show-next-month="false"
-    :render-on-value-change="false"></inline-calendar>
-  </div>
 </div>
 </template>
 
