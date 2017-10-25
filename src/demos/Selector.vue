@@ -45,7 +45,7 @@ export default {
   },
   data () {
     return {
-      demo01: '',
+      demo01: null,
       demo02: '',
       defaultValue: 'gd',
       plainList: ['广东', '广西'],

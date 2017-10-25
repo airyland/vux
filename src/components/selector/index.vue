@@ -17,7 +17,7 @@
         direction: direction,
         color: color
       })">
-        <option value="" v-if="showPlaceholder" :selected="typeof value === 'undefined' && placeholder">{{ placeholder }}</option>
+        <option :value="value === null ? 'null' : ''" v-if="showPlaceholder" :selected="isEmptyValue(value) && !!placeholder">{{ placeholder }}</option>
         <v-no-ssr>
           <option disabled v-if="fixIos"></option>
         </v-no-ssr>
@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     fixIos () {
-      return !this.placeholder && (typeof this.value === 'undefined' || this.value === '') && this.isIOS && this.title
+      return !this.placeholder && this.isEmptyValue(this.value) && this.isIOS && this.title
     },
     color () {
       return this.showPlaceholder ? '#A9A9A9' : ''
@@ -73,7 +73,7 @@ export default {
       }
     },
     showPlaceholder () {
-      if ((typeof this.value === 'undefined' || this.value === '') && this.placeholder) {
+      if (this.isEmptyValue(this.value) && this.placeholder) {
         return true
       }
       return false
@@ -85,6 +85,9 @@ export default {
     }
   },
   methods: {
+    isEmptyValue (val) {
+      return typeof val === 'undefined' || val === '' || val === null
+    },
     cleanStyle
   },
   filters: {

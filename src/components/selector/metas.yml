@@ -61,8 +61,10 @@ changes:
   next:
     en:
       - '[fix] fix ssr rendering issue'
+      - '[fix] fix placeholder not show when value is null #2101'
     zh-CN:
       - '[fix] 兼容服务端渲染'
+      - '[fix] 修复值为 null 时 placeholder 没有显示的问题 #2101'
   v2.3.3:
     en:
       - '[enhance] set placeholder color. #1465'
