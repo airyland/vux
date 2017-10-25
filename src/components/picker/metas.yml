@@ -132,6 +132,11 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
+  next:
+    en:
+      - '[change] picker move distance do not respect html[data-dpr] by default #2082 #1979'
+    zh-CN:
+      - '[change] picker 移动距离不再遵从 html[data-dpr]，需使用 ConfigPlugin 配置 #2082 #1979'
   v2.6.2:
     en:
       - '[enhance] scroll distance respects html[data-dpr] #1979'
