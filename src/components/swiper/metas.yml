@@ -25,6 +25,9 @@ extra: |
   不要在`swiper`里嵌套`scroller`，在`web`上过于复杂化而且手势会有冲突，相关`Issue`将不会处理。
   <br>
   <br>
+  需要注意的是，在使用 `swiper-item` 而非 `list` 图片列表时，如果只有两项，将无法实现 `loop` 循环播放。
+  <br>
+  <br>
   该组件场景是固定高度的内容列表，不支持为不同 swiper-item 设置不同高度。
   <br>
   <br>
