@@ -1,10 +1,21 @@
 <template>
   <div>
     <canvas
-  :style="{height: size, width: size}"
-  :height="size"
-  :width="size" v-show="type === 'canvas'" ref="canvas"></canvas>
-    <img :src="imgData" v-if="type === 'img'">
+    :style="{
+      height: `${size}px`,
+      width: `${size}px`
+    }"
+    :height="size"
+    :width="size"
+    v-show="type === 'canvas'"
+    ref="canvas"></canvas>
+    <img
+    :src="imgData"
+    v-if="type === 'img'"
+    :style="{
+      height: `${size}px`,
+      width: `${size}px`
+    }">
   </div>
 </template>
 
@@ -18,7 +29,7 @@ export default {
     value: String,
     size: {
       type: Number,
-      default: 80
+      default: 160
     },
     level: {
       type: String,
