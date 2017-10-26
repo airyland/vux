@@ -93,13 +93,13 @@ props:
     en: (beta) style marks for specified date list
     zh-CN: (beta) 自定义日期标记
   disable-weekend:
-    version: next
+    version: v2.7.0
     type: Boolean
     default: false
     en: whether disable weekends
     zh-CN: 是否禁用周六日
   disable-date-function:
-    version: next
+    version: v2.7.0
     type: Function
     params: '`(date)`'
     en: check if a date should be disabled
@@ -137,7 +137,7 @@ methods:
     en: render with current value's month
     zh-CN: 渲染当前值所在月份
 changes:
-  next:
+  v2.7.0:
     en:
       - '[enhance] call render function on created hook instead of mounted(ssr)'
       - '[feature] add prop:disable-weekend #2105'

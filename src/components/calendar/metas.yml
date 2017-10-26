@@ -82,7 +82,7 @@ events:
     en: emits when popup hides
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  v2.7.0:
     en:
       - '[fix] fix top border #2104'
     zh-CN:

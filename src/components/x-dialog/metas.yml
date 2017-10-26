@@ -116,7 +116,7 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
-  next:
+  v2.7.0:
     en:
       - '[feature] add event:on-click-mask #2102'
     zh-CN:

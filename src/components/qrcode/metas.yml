@@ -30,7 +30,7 @@ props:
     en: 'render type, can be `img` or `canvas`'
     zh-CN: '渲染类型，可以为`img`(适合需要在微信需要长按识别的场景)和`canvas`'
 changes:
-  next:
+  v2.7.0:
     en:
       - '[fix] fix errors when value is undefined #2070'
       - '[change] use style to set width and height #2075'

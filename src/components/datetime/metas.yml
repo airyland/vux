@@ -166,7 +166,7 @@ events:
     en: $emits when click the button in the middle of the header
     zh-CN: 点击显示在中间的自定义按钮时触发
 changes:
-  next:
+  v2.7.0:
     en:
       - '[fix] fix ssr i18n bug'
       - '[fix] fix datetime still shows when prop:readonly is true #2079'

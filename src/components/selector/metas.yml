@@ -58,7 +58,7 @@ events:
     en: emits when value is changed
     zh-CN: 值变化时触发
 changes:
-  next:
+  v2.7.0:
     en:
       - '[fix] fix ssr rendering issue'
       - '[fix] fix placeholder not show when value is null #2101'

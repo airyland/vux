@@ -33,7 +33,7 @@ events:
     en: fires when popup hides
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  v2.7.0:
     en:
       - '[fix] fix vue@2.5.0 scope issue #2076'
     zh-CN:

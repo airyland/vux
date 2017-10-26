@@ -107,12 +107,12 @@ props:
     zh-CN: index 绑定，使用`v-model`，一般不需要绑定
 events:
   on-get-height:
-    version: next
+    version: v2.7.0
     params: '`(height)`'
     en: emits after height is caculated
     zh-CN: 高度获取后触发
 changes:
-  next:
+  v2.7.0:
     en:
       - '[enhance] set shorter distance for first and last item for better experience'
       - '[feature] add event:on-get-height #2112'

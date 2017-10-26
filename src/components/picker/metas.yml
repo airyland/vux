@@ -132,7 +132,7 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
-  next:
+  v2.7.0:
     en:
       - '[change] picker move distance do not respect html[data-dpr] by default #2082 #1979'
     zh-CN:
