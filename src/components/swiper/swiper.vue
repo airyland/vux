@@ -186,6 +186,13 @@ export default {
     }
   },
   watch: {
+    auto (val) {
+      if (!val) {
+        this.swiper && this.swiper.stop()
+      } else {
+        this.swiper && this.swiper._auto()
+      }
+    },
     list (val) {
       this.rerender()
     },
