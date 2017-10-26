@@ -116,5 +116,5 @@ MIT
 It takes much time and energy to maintain and improve this project. If VUX do help you, you may want to buy me a coffee :).
 
 <p align="center">
-  <img src="https://o3e85j0cv.qnssl.com/vux_pay.png" width="450">
+  <img src="https://i.loli.net/2017/10/26/59f15b02a1739.jpg" width="450">
 </p>
