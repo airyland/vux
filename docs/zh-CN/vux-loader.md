@@ -300,7 +300,7 @@ import { Group, Cell } from 'vux'
 
 然后你就可以引用`vuex-i18n`插件实现多语言切换了。
 
-参考 [main.js](https://github.com/airyland/vux/blob/v2/src/main.js#L84-L96) 及 [vuex-i18n 文档](https://www.npmjs.com/package/vuex-i18n)(仅当参考，你也可以使用其他i18n插件)。
+参考 [main.js](https://github.com/airyland/vux/blob/254574ef30a8c4d341feb7d2ff8245792657bda2/src/main.js#L84-L96) 及 [vuex-i18n 文档](https://www.npmjs.com/package/vuex-i18n)(仅当参考，你也可以使用其他i18n插件)。
 
 #### less-theme
 
