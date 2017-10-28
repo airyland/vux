@@ -180,7 +180,7 @@ export default {
       }
     }
 
-    if (this.required && !this.currentValue) {
+    if (this.required && typeof this.currentValue === 'undefined') {
       this.valid = false
     }
     this.handleChangeEvent = true
