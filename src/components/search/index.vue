@@ -122,7 +122,6 @@ export default {
     },
     setBlur () {
       this.$refs.input.blur()
-      this.$emit('on-blur')
     },
     onFocus () {
       this.isFocus = true
@@ -131,6 +130,7 @@ export default {
     },
     onBlur () {
       this.isFocus = false
+      this.$emit('on-blur')
     }
   },
   data () {
