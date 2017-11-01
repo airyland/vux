@@ -166,6 +166,11 @@ events:
     en: $emits when click the button in the middle of the header
     zh-CN: 点击显示在中间的自定义按钮时触发
 changes:
+  next:
+    en:
+      - '[fix] fix less variables do not work in plugin usage #2152'
+    zh-CN:
+      - '[fix] 修复插件使用时 less 变量不生效问题 #2152'
   v2.7.0:
     en:
       - '[fix] fix ssr i18n bug'

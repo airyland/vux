@@ -1,7 +1,7 @@
 import Datetime from '../../components/datetime/datetimepicker'
 import ObjectAssign from 'object-assign'
-
-require('../../components/datetime/style.less')
+/* just for importing style and avoid less-loader issue */
+import DatetimeComponent from '../../components/datetime/index.vue' // eslint-disable-line
 
 const libs = {
   show: function (options = {}) {
