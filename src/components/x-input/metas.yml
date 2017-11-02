@@ -141,8 +141,10 @@ changes:
   next:
     en:
       - '[fix] fix valid is false when value is zero #2134'
+      - '[fix] fix event:on-blur not fires #2146'
     zh-CN:
       - '[fix] 修复数字为 0 时 valid 为 false 的问题 #2134'
+      - '[fix] 修复 on-blur 事件没有正确触发的问题 #2146'
   v2.6.5:
     en:
       - '[enhance] fix validating logic for is-type:china-mobile with mask #2040'
