@@ -56,6 +56,11 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
+  v2.7.1:
+    en:
+      - '[enhance] support object-link #2068'
+    zh-CN:
+      - '[enhance] 链接支持对象类型 #2068'
   v2.5.0:
     en:
       - '[feature] Add primary、warn disabled bg color. #1630'
