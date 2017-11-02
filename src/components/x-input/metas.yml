@@ -138,7 +138,7 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
-  2.7.1:
+  v2.7.1:
     en:
       - '[fix] fix valid is false when value is zero #2134'
       - '[fix] fix event:on-blur not fires #2146'

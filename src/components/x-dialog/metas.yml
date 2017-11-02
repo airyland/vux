@@ -116,7 +116,7 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
-  2.7.1:
+  v2.7.1:
     en:
       - '[fix] fix prevent-body-scroll.css not found (less-loader issue) #2118'
     zh-CN:
