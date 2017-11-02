@@ -1,5 +1,5 @@
 import dom from '../libs/dom'
-require('./prevent-body-scroll.css')
+import style from './prevent-body-scroll.css.vue' // eslint-disable-line
 
 const BODY_CLASS_NAME = 'vux-modal-open'
 const CONTAINER_CLASS_NAME = 'vux-modal-open-for-container'
@@ -9,8 +9,10 @@ export default {
   methods: {
     // some plugin may be imported before configPlugin, so we cannot get gloal config when component is created
     getLayout () {
-      if (this.$vux && this.$vux.config && this.$vux.config.$layout === 'VIEW_BOX') {
-        return 'VIEW_BOX'
+      if (typeof window !== 'undefined') {
+        if (window.VUX_CONFIG && window.VUX_CONFIG.$layout === 'VIEW_BOX') {
+          return 'VIEW_BOX'
+        }
       }
       return ''
     },
