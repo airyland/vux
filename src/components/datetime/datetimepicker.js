@@ -142,7 +142,11 @@ function DatetimePicker (config) {
   }
 
   if (this.config.startDate && !this.config.endDate) {
-    this.config.endDate = new Date('2030-12-31')
+    this.config.endDate = new Date('2030/12/31')
+  }
+
+  if (!this.config.startDate && this.config.endDate) {
+    this.config.startDate = new Date(`${this.config.minYear}/01/01`)
   }
 
   this.reMakeData = !!this.config.startDate && !!this.config.endDate

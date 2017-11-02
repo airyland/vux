@@ -40,6 +40,10 @@
       <datetime v-model="limitHourValue" :start-date="startDate" :end-date="endDate" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('Start time')"></datetime>
     </group>
 
+     <group :title="$t('Set end-date only') + ' 2017-10-11'">
+      <datetime v-model="onlySetEndDateValue" :end-date="onlySetEndDate" format="YYYY-MM-DD HH:mm" @on-change="change" :title="$t('Start time')"></datetime>
+    </group>
+
     <group :title="$t('Format') + ': ' + format">
       <datetime v-model="value2" :format="format" @on-change="change" :title="$t('Start time')"></datetime>
     </group>
@@ -160,6 +164,8 @@ Toggle readonly:
   zh-CN: 切换 readonly 属性
 'Set value: 2017-11-11':
   zh-CN: 设置时间为2017-11-11
+Set end-date only:
+  zh-CN: 只设置结束时间
 </i18n>
 
 <script>
@@ -207,7 +213,9 @@ export default {
       },
       computeDaysFunction (options, generateRange) {
         return [options.month] // if current month is n, days are [n]
-      }
+      },
+      onlySetEndDate: '2017-10-11',
+      onlySetEndDateValue: ''
     }
   },
   methods: {
