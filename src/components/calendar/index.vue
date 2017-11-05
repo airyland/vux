@@ -173,6 +173,9 @@ export default {
   watch: {
     value (val) {
       this.currentValue = val
+      if (getType(val) === 'array') {
+        this.tempValue = this.showValue = pure(val)
+      }
     },
     currentValue (val) {
       if (!this.showPopupHeader) {

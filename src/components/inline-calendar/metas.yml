@@ -137,6 +137,11 @@ methods:
     en: render with current value's month
     zh-CN: 渲染当前值所在月份
 changes:
+  next:
+    en:
+      - '[fix] fix reset-value issue in multiple mode #2160'
+    zh-CN:
+      - '[fix] 修复多选情况下重置值时没有正确渲染的问题 #2160'
   v2.7.0:
     en:
       - '[enhance] call render function on created hook instead of mounted(ssr)'
