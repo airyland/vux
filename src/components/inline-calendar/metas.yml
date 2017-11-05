@@ -140,8 +140,10 @@ changes:
   next:
     en:
       - '[fix] fix reset-value issue in multiple mode #2160'
+      - '[fix] fix props missing in calendar #2105'
     zh-CN:
       - '[fix] 修复多选情况下重置值时没有正确渲染的问题 #2160'
+      - '[fix] 修复部分属性没有继承 inline-calendar 的问题 #2105'
   v2.7.0:
     en:
       - '[enhance] call render function on created hook instead of mounted(ssr)'

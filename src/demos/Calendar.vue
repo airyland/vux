@@ -21,7 +21,7 @@
     </group>
 
      <group>
-      <calendar :display-format="displayFormat" :placeholder="$t('Please select')" @on-change="onChange" v-model="demo6" :title="$t('Format multiple dates')" :popup-header-title="$t('please select')"></calendar>
+      <calendar disable-weekend :display-format="displayFormat" :placeholder="$t('Please select')" @on-change="onChange" v-model="demo6" :title="$t('Format multiple dates')" :popup-header-title="$t('please select')"></calendar>
       <cell-box align-items="flex-start">
         <span class="selected-days">value:</span>
         <div>

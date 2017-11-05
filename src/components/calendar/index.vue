@@ -38,6 +38,9 @@
         :render-on-value-change="renderOnValueChange"
         :disable-past="disablePast"
         :disable-future="disableFuture"
+        :marks="marks"
+        :disable-weekend="disableWeekend"
+        :disable-date-function="disableDateFunction"
         ></inline-calendar>
 
       </popup>
