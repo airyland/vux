@@ -28,12 +28,12 @@
       @on-show="onPopupShow"
       :popup-style="popupStyle">
         <div class="vux-popup-picker-container">
-          <div class="vux-popup-picker-header" @touchmove.prevent>
-            <flexbox>
-              <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-cancel" @click.native="onHide(false)">{{ cancelText || $t('cancel_text') }}</flexbox-item>
-              <flexbox-item class="vux-popup-picker-header-menu vux-popup-picker-header-menu-right" @click.native="onHide(true)">{{ confirmText || $t('confirm_text') }}</flexbox-item>
-            </flexbox>
-          </div>
+          <popup-header
+          :left-text="cancelText || $t('cancel_text')"
+          :right-text="confirmText || $t('confirm_text')"
+          @on-click-left="onHide(false)"
+          @on-click-right="onHide(true)"
+          :title="popupTitle"></popup-header>
           <picker
           :data="data"
           v-model="tempValue"
@@ -62,6 +62,7 @@ confirm_text:
 import Picker from '../picker'
 import Cell from '../cell'
 import Popup from '../popup'
+import PopupHeader from '../popup-header'
 import InlineDesc from '../inline-desc'
 import { Flexbox, FlexboxItem } from '../flexbox'
 import array2string from '../../filters/array2String'
@@ -88,6 +89,7 @@ export default {
     Picker,
     Cell,
     Popup,
+    PopupHeader,
     Flexbox,
     FlexboxItem,
     InlineDesc
@@ -138,7 +140,8 @@ export default {
       default: true
     },
     columnWidth: Array,
-    popupStyle: Object
+    popupStyle: Object,
+    popupTitle: String
   },
   computed: {
     labelStyles () {

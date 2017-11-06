@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  name: 'popup-header',
   props: {
     leftText: String,
     rightText: String,
@@ -49,5 +50,8 @@ export default {
 .vux-popup-header-right {
   padding-right: @popup-header-right-text-padding;
   color: @popup-header-right-text-color;
+}
+.vux-popup-header.vux-1px-b:after {
+  border-color: #D9D9D9;
 }
 </style>

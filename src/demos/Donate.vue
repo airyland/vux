@@ -1,6 +1,6 @@
 <template>
   <div class="donate">
-    <img src="../assets/demo/wechat_pay_10_24.jpg" class="donate-img">
+    <img src="https://i.loli.net/2017/10/26/59f15b02a1739.jpg" class="donate-img">
     <p class="desc">感谢捐赠，但是捐赠并不会让你在该项目上有任何特权。
     <br>
     购买【世界和我】产品也是支持该项目发展。

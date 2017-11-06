@@ -173,14 +173,14 @@ export default {
   name: 'x-input',
   created () {
     this.currentValue = (this.value === undefined || this.value === null) ? '' : (this.mask ? this.maskValue(this.value) : this.value)
-
+    /* istanbul ignore if */
     if (process.env.NODE_ENV === 'development') {
       if (!this.title && !this.placeholder && !this.currentValue) {
         console.warn('no title and no placeholder?')
       }
     }
 
-    if (this.required && !this.currentValue) {
+    if (this.required && typeof this.currentValue === 'undefined') {
       this.valid = false
     }
     this.handleChangeEvent = true
@@ -451,7 +451,7 @@ export default {
   },
   data () {
     let data = {
-      hasRestrictedLabel: false,
+      hasRestrictedLabel: this.$isServer,
       firstError: '',
       forceShowError: false,
       hasLengthEqual: false,
@@ -462,6 +462,11 @@ export default {
     return data
   },
   watch: {
+    mask (val) {
+      if (val && this.currentValue) {
+        this.currentValue = this.maskValue(this.currentValue)
+      }
+    },
     valid () {
       this.getError()
     },

@@ -45,6 +45,7 @@ export default {
       type: Boolean,
       default: true,
       validator (val) {
+        /* istanbul ignore if */
         if (process.env.NODE_ENV === 'development' && val === false) {
           console.warn('[VUX warn] x-dialog:scroll 已经废弃。如果你是 100% 布局，请参照文档配置 $layout 以实现阻止滚动')
         }
@@ -77,6 +78,7 @@ export default {
       if (this.hideOnBlur) {
         this.$emit('update:show', false)
         this.$emit('change', false)
+        this.$emit('on-click-mask')
       }
     }
   }

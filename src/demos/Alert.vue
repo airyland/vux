@@ -7,7 +7,7 @@
       <alert v-model="show" :title="$t('Congratulations')" @on-show="onShow" @on-hide="onHide"> {{ $t('Your Message is sent successfully~') }}</alert>
     </div>
 
-    <group title="prop:content">
+    <group title="Prop: content">
       <x-switch :title="$t('Show Me')" v-model="show2"></x-switch>
     </group>
     <div v-transfer-dom>
@@ -16,7 +16,7 @@
 
     <group :title="$t('Use as a plugin')">
       <cell :title="$t('Show Me')" @click.native="showPlugin" is-link></cell>
-      <cell :title="$t('will auto close in 3s')" @click.native="showPluginAuto" is-link></cell>
+      <cell :title="$t('Will auto close in 3s')" @click.native="showPluginAuto" is-link></cell>
     </group>
   </div>
 </template>
@@ -32,7 +32,7 @@ Your Message is sent successfully~:
   zh-CN: 消息已成功发送
 Do you agree?:
   zh-CN: 同意不?
-will auto close in 3s:
+Will auto close in 3s:
   zh-CN: 3秒后关闭
 </i18n>
 

@@ -49,15 +49,40 @@ props:
     en: placeholder
     zh-CN: 提示文字
   readonly:
+    type: Boolean
     default: 'false'
     en: if the select is readonly
     zh-CN: 是否不可选择
+  value-map:
+    version: next
+    type: Array
+    en: 'set a [value, label] pair for automatically transforming API data'
+    zh-CN: 设置键值对映射用以自动转换接口数据, 如 ['value', 'label']
 events:
   on-change:
     params: '`(value)`'
     en: emits when value is changed
     zh-CN: 值变化时触发
+methods:
+  getFullValue:
+    version: next
+    en: get full value including all the props(if option items are object)
+    zh-CN: 获取当前完整值，在使用了 valueMap 里可以用该方法来获取当前选中值的原始对象
 changes:
+  next:
+    en:
+      - '[feature] add prop:value-map for automatically transform API data #2139'
+      - '[feature] add method:getFullValue for getting full value'
+    zh-CN:
+      - '[feature] 支持 value-map 属性用以自动转换 API 数据 #2139'
+      - '[feature] 支持 getFullValue 方法获取当中选中值的原始数据'
+  v2.7.0:
+    en:
+      - '[fix] fix ssr rendering issue'
+      - '[fix] fix placeholder not show when value is null #2101'
+    zh-CN:
+      - '[fix] 兼容服务端渲染'
+      - '[fix] 修复值为 null 时 placeholder 没有显示的问题 #2101'
   v2.3.3:
     en:
       - '[enhance] set placeholder color. #1465'

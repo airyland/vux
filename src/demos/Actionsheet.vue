@@ -7,13 +7,13 @@
       <x-switch :title="$t('Array menu')" v-model="show5"></x-switch>
     </group>
 
-    <group :title="$t('prevent closing when clicking mask')">
+    <group :title="$t('Prevent closing when clicking mask')">
       <x-switch :title="$t('Basic Usage')" v-model="show4"></x-switch>
     </group>
 
     <group>
-      <x-switch :title="$t('menu as tips')" v-model="show3"></x-switch>
-      <x-switch :title="$t('slot:header')" v-model="show6"></x-switch>
+      <x-switch :title="$t('Menu as tips')" v-model="show3"></x-switch>
+      <x-switch :title="$t('Slot: header')" v-model="show6"></x-switch>
       <x-switch :title="$t('Prevent auto closing')" v-model="show8"></x-switch>
     </group>
 
@@ -28,12 +28,12 @@
     <actionsheet v-model="show5" :menus="menus5" show-cancel @on-click-menu="click5"></actionsheet>
 
     <actionsheet v-model="show6" :menus="menus1">
-      <p slot="header" v-html="$t('actionsheet header')"></p>
+      <p slot="header" v-html="$t('Actionsheet header')"></p>
     </actionsheet>
 
     <actionsheet v-model="show7" :menus="menu7" theme="android" @on-click-menu="click">
     </actionsheet>
-    
+
     <toast v-model="showSuccess">{{ $t('Deleted~') }}</toast>
 
     <div v-transfer-dom>
@@ -50,7 +50,7 @@ Close me:
   zh-CN: 点我关闭
 Deleted~:
   zh-CN: 删除成功
-slot:header:
+'Slot: header':
   zh-CN: 使用 header slot
 Basic Usage:
   zh-CN: 基本使用
@@ -58,9 +58,9 @@ Android Theme:
   zh-CN: 安卓风格
 Show cancel menu:
   zh-CN: 显示取消菜单
-menu as tips:
+Menu as tips:
   zh-CN: 显示提示文字
-prevent closing when clicking mask:
+Prevent closing when clicking mask:
   zh-CN: 点击遮罩区域不自动关闭
 Share to friends:
   zh-CN: 分享给朋友
@@ -70,7 +70,7 @@ Take Photo:
   zh-CN: 拍照
 Choose from photos:
   zh-CN: 从相册选择
-actionsheet header:
+Actionsheet header:
   en: 'Are you sure?<br/><span style="color:#666;font-size:12px;">Once deleted, you will never find it.</span>'
   zh-CN: '确定咩?<br/><span style="color:#666;font-size:12px;">删除后就无法撤消了哦</span>'
 '<span style="color:red">Delete</span>':
@@ -96,13 +96,13 @@ export default {
     return {
       show1: false,
       menus1: {
-        menu1: 'Share to friends',
-        menu2: 'Share to timeline'
+        menu1: this.$t('Share to friends'),
+        menu2: this.$t('Share to timeline')
       },
       show2: false,
       menus2: {
-        menu1: 'Take Photo',
-        menu2: 'Choose from photos'
+        menu1: this.$t('Take Photo'),
+        menu2: this.$t('Choose from photos')
       },
       show3: false,
       show4: false,
@@ -111,7 +111,7 @@ export default {
       show7: false,
       show8: false,
       menus5: [{
-        label: 'actionsheet header',
+        label: this.$t('Actionsheet header'),
         type: 'info'
       }, {
         label: 'Primary',
@@ -134,12 +134,12 @@ export default {
       },
       showSuccess: false,
       menus3: {
-        'title.noop': 'actionsheet header',
+        'title.noop': this.$t('Actionsheet header'),
         delete: '<span style="color:red">Delete</span>'
       },
       menus8: {
-        menu1: 'Close me',
-        menu2: 'Close me'
+        menu1: this.$t('Close me'),
+        menu2: this.$t('Close me')
       }
     }
   },

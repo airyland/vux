@@ -1,6 +1,6 @@
 // Thanks to: https://github.com/calebroseland/vue-dom-portal
 
-import objectAssign from 'object-assign'
+const objectAssign = require('object-assign')
 /**
  * Get target DOM Node
  * @param {(Node|string|Boolean)} [node=document.body] DOM Node, CSS selector, or Boolean
@@ -97,4 +97,4 @@ const directive = {
   }
 }
 
-export default directive
+module.exports = directive

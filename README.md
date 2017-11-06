@@ -26,10 +26,10 @@
   </a>
   <br>
   <br>
-  <a href="https://travis-ci.org/airyland/vux.svg?branch=v2">
+  <a href="https://travis-ci.org/airyland/vux">
     <img src="https://api.travis-ci.org/airyland/vux.svg?branch=v2" alt="">
   </a>
-  <a href="https://codecov.io/github/airyland/v2?branch=v2">
+  <a href="https://codecov.io/gh/airyland/vux/branch/v2">
     <img src="https://img.shields.io/codecov/c/github/airyland/vux/v2.svg" alt="">
   </a>
   <br>
@@ -58,6 +58,12 @@
   <br>
   <br>
 </p>
+
+## Issues
+
+如果你的开源项目从`VUX`得到了灵感或者使用了某些代码，希望能附上`VUX`项目链接。
+
+特别需要帮助的同学请在 segmentfault 上付费提问 [sf](https://segmentfault.com/pay/ask?expert=1030000000091353)，马虎问题同样不会处理。
 
 ## Requirements
 
@@ -110,5 +116,5 @@ MIT
 It takes much time and energy to maintain and improve this project. If VUX do help you, you may want to buy me a coffee :).
 
 <p align="center">
-  <img src="https://o3e85j0cv.qnssl.com/vux_pay.png" width="450">
+  <img src="https://i.loli.net/2017/10/26/59f15b02a1739.jpg" width="450">
 </p>

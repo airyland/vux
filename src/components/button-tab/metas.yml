@@ -33,7 +33,7 @@ button-tab-item:
   events:
     on-item-click:
       params: (index)
-      en: emits when item being clicked
+      en: emits when item is clicked
       zh-CN: 当前按钮点击时触发
 changes:
   v2.2.0:

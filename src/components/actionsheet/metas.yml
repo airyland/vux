@@ -10,19 +10,14 @@ tags:
     - 提示
 after_extra:
     en: |
-      
+
       From `v2.1.0`, `menus` supports type: Array.
 
       `label`: label name，you can use simple text or `html`
 
       `value`: event name，if not specified, no `on-click-menu` will be emitted
 
-      `theme`:
-        
-        - `ios` ios theme
-        - `android` android theme
-
-      `type`: 
+      `type`:
 
         - `primary` primary color
         - `warn` warn color
@@ -56,11 +51,6 @@ after_extra:
 
       `value`: 英文字符，表示触发事件的名字，如果不设置不会触发`on-click-menu`事件。
 
-      `theme`: 菜单风格，可选值如下
-
-        - `ios` ios风格
-        - `android` android风格
-
       `type`: 类型，可选值如下
 
         - `primary` 主色
@@ -90,39 +80,39 @@ props:
   value:
     type: Boolean
     default: false
-    en: if showing the component, use v-model for binding
+    en: if showing the component; use v-model for binding
     zh-CN: 是否显示, 使用 v-model 绑定变量
   show-cancel:
     type: Boolean
     default: false
-    en: if showing the cancel menu
-    zh-CN: 是否显示取消菜单
+    en: if showing the cancel menu; invalid for android theme
+    zh-CN: 是否显示取消菜单，对安卓风格无效
   cancel-text:
     type: String
     default: 'cancel(取消)'
     en: text of cancel menu
-    zh-CN: 取消菜单文字
+    zh-CN: 取消菜单的显示文字
   theme:
     type: String
     default: 'ios'
-    en: theme of menus
-    zh-CN: 菜单风格
+    en: "theme of menus, can be in ['ios', 'android']"
+    zh-CN: "菜单风格，可选值为['ios','android']"
   menus:
     type: Object,Array
     default: '{}'
-    en: "menu items, for example: `{menu1: 'some text'}`, menu name with `.noop` will not trigger click events"
-    zh-CN: "菜单项列表，举例：`{menu1: '删除'}`，如果名字上带有`.noop`表明这是纯文本(HTML)展示，不会触发事件，用于展示描述或者提醒。<br>从`v2.1.0`开始支持数组类型的菜单，见下面说明。"
+    en: "menu items, for example: `{menu1: 'some text'}`, menu name with `.noop` will not trigger click events. <br>`Menus` supports array since `v2.1.0`. Keys can be customized. More details below."
+    zh-CN: "菜单项列表，举例：`{menu1: '删除'}`，如果名字上带有`.noop`表明这是纯文本(HTML)展示，不会触发事件，用于展示描述或者提醒。<br>从`v2.1.0`开始支持数组类型的菜单，可自定义键值，见下面说明。"
   close-on-clicking-mask:
     type: Boolean
     default: true
     version: v2.0.0
     en: if closing actionsheet when clicking on mask
     zh-CN: 点击遮罩时是否关闭菜单，适用于一些进入页面时需要强制选择的场景。
-  closeOnClickingMenu:
+  close-on-clicking-menu:
     type: Boolean
     default: true
     version: v2.3.8
-    en: if auto hide when clicking on menus
+    en: if hide automatically when clicking on menus
     zh-CN: 点击菜单时是否自动隐藏
 events:
   on-click-menu:
@@ -131,8 +121,8 @@ events:
     zh-CN: 点击菜单时触发
   on-click-menu-{menuKey}:
     params: (menuKey)
-    en: shortcut event for easier listening, you can listen on `on-click-menu-delete` if you have a menu named `delete`
-    zh-CN: 点击事件的快捷方式, 如果你有一个菜单名字为`delete`, 那么你可以监听 `on-click-menu-delete`
+    en: shortcut event for easier listening, `menuKey` is related to `label`. For exapmple, you can listen on `on-click-menu-delete` if you have a menu named `delete`
+    zh-CN: 点击事件的快捷方式, `menuKey`与`label`的值有关。举例：如果你有一个菜单名字为`delete`, 那么你可以监听 `on-click-menu-delete`
   on-click-menu-cancel:
     en: triggers when clicking on the cancel menu
     zh-CN: 点击取消菜单时触发

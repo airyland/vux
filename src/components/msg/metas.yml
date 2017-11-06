@@ -8,18 +8,18 @@ props:
     zh-CN: 描述文字
   icon:
     default: success
-    en: 'icon type, you can use `success`, `warn`, `info`, `waiting`'
+    en: 'icon type. You can use `success`, `warn`, `info`, `waiting`'
     zh-CN: '图标类型，可选值有 `success`, `warn`, `info`, `waiting`'
   buttons:
     type: Array
-    en: 'buttons list，a button item includes `text`, `type`(the same as x-button type), `link`, `onClick`'
+    en: 'buttons list. A button item includes `text`, `type`(the same as x-button type), `link`, `onClick`'
     zh-CN: '操作按钮列表，一个按钮对象包含`text`, `type`(和x-button组件type一致), `link`, `onClick`'
 slots:
   buttons:
-    en: used for customing buttons
+    en: used for custom buttons
     zh-CN: 自定义按钮区域元素
   description:
-    en: used for customing description
+    en: used for custom description
     zh-CN: 自定义描述文字内容
 changes:
   v2.1.0:

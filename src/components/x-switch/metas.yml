@@ -53,6 +53,12 @@ props:
     version: v2.5.0
     en: prevent from setting value on being clicked
     zh-CN: 阻止点击时自动设定值
+  value-map:
+    type: Array
+    version: v2.7.0
+    default: '[false, true]'
+    en: customize not-boolean values
+    zh-CN: 用于自定义 false 和 true 映射的实际值，用于方便处理比如接口返回了 0 1 这类非 boolean 值的情况
 events:
   on-change:
     params: '`(value)`'
@@ -63,6 +69,11 @@ events:
     en: triggers when being clicked
     zh-CN: 点击组件时触发
 changes:
+  v2.7.0:
+    en:
+      - '[feature] support prop:value-map #2104'
+    zh-CN:
+      - '[feature] 支持 prop:value-map 自定义值映射，比如 [0, 1] ["0", "1"] 等接口可能返回的非 boolean 值 #2104'
   v2.5.0:
     en:
       - '[feature] we can use prop:prevent-default to prevent from setting value on being clicked #1606'

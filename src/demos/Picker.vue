@@ -1,43 +1,70 @@
 <template>
   <div>
-    <group-title>默认，不设置默认值时选中第一个 {{year1}}</group-title>
+    <group-title> {{ $t('Normal usage, the first one is selected without setting default value') }} {{year1}}</group-title>
     <picker :data='years' v-model='year1' @on-change='change'></picker>
     <br>
-    <group-title>异步加载及动态改变数据</group-title>
+    <group-title> {{ $t('Asynchronous loading and dynamic change of data') }} </group-title>
     <picker :data='years001' v-model='year001' @on-change='change'></picker>
     <br>
     <group>
-      <cell title="current value" :value="year001"></cell>
+      <cell :title="$t('Current value')" :value="year001"></cell>
     </group>
-    <x-button type="primary" @click.native="changeValue([['1','3','5','7','9','11'],['2','3','4','5'],['a','b','c']])">Set Data1</x-button>
-    <x-button type="primary" @click.native="changeValue([['1','3','5','7','9','11'],['2','3','4','5']])">Set Data1</x-button>
-    <x-button type="primary" @click.native="changeValue([['2','4','6','8','10','11']])">Set Data2</x-button>
+    <x-button type="primary" @click.native="changeValue([['1','3','5','7','9','11'],['2','3','4','5'],['a','b','c']])"> {{ $t('Set Data 1') }} </x-button>
+    <x-button type="primary" @click.native="changeValue([['1','3','5','7','9','11'],['2','3','4','5']])">{{ $t('Set Data 2') }} </x-button>
+    <x-button type="primary" @click.native="changeValue([['2','4','6','8','10','11']])">{{ $t('Set Data 3') }} </x-button>
     <br>
-    <group-title>设置默认值时</group-title>
+    <group-title> {{ $t('With default value') }} </group-title>
     <picker :data='years' v-model='year2' @on-change='change'></picker>
     <br>
-    <group-title>双向绑定</group-title>
+    <group-title> {{ $t('Two-way data binding') }} </group-title>
     <picker :data='years' v-model='year3' @on-change='change3'></picker>
     <select v-model='year5'>
       <option v-for='one in years[0]' :value='one.value'>{{one.name}}</option>
     </select>
     <br>
-    <group-title>非联动多列</group-title>
+    <group-title> {{ $t('Multi cols in non chained-mode') }} </group-title>
     <picker :data='years1' v-model='year4' @on-change='change'></picker>
     <br>
-    <group-title>五列</group-title>
+    <group-title> {{ $t('Five columns') }} </group-title>
     <picker :data='year6' v-model='year6Value' @on-change='change'></picker>
     <br>
-    <group-title>地区联动: 当前值{{year7Value}} <br> 获取值对应的文字: {{$refs.picker1&&$refs.picker1.getNameValues()}}</group-title>
+    <group-title>{{ $t('Locations in chained-mode') }}: {{ $t('Current value') }} {{year7Value}} <br> {{ $t('Text corresponding to the value') }}: {{$refs.picker1&&$refs.picker1.getNameValues()}}</group-title>
     <picker :data='year7' :columns=3 v-model='year7Value' @on-change='change' ref="picker1"></picker>
-    <x-button @click.native="setData1" type="primary">set Value to ["USA", "usa002", "0005"]</x-button>
-    <x-button @click.native="setData2" type="primary">set Value to ["china", "china002", "gz"]</x-button>
-    <x-button @click.native="setList" type="primary">set List</x-button>
+    <x-button @click.native="setData1" type="primary"> {{ $t('Set value to') }} ["USA", "usa002", "0005"]</x-button>
+    <x-button @click.native="setData2" type="primary"> {{ $t('Set value to') }} ["china", "china002", "gz"]</x-button>
+    <x-button @click.native="setList" type="primary">Set List</x-button>
     <br>
-    <group-title>3列的数据，只显示两列</group-title>
+    <group-title> {{ $t('3 cols data but only show 2 cols') }} </group-title>
     <picker :data='year7' :fixed-columns="2" :columns=3 v-model='year8Value' @on-change='change'></picker>
   </div>
 </template>
+
+<i18n>
+  'Normal usage, the first one is selected without setting default value':
+    zh-CN: 默认，不设置默认值时选中第一个
+  Asynchronous loading and dynamic change of data:
+    zh-CN: 异步加载及动态改变数据
+  Set data 1:
+    zh-CN: 设置数值1
+  Set data 2:
+    zh-CN: 设置数值2
+  Set data 3:
+    zh-CN: 设置数值3
+  With default value:
+    zh-CN: 设置默认值时
+  Two-way data binding:
+    zh-CN: 双向绑定
+  Multi cols in non chained-mode:
+    zh-CN: 非联动多列
+  Five columns:
+    zh-CN: 五列
+  Locations in chained-mode:
+    zh-CN: 地区联动
+  Text corresponding to the value:
+    zh-CN: 选中值所对应的文字
+  3 cols data but only show 2 cols:
+    zh-CN: 3列的数据，只显示两列
+</i18n>
 
 <script>
 import { Cell, Group, Picker, GroupTitle, XButton } from 'vux'

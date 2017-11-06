@@ -23,11 +23,11 @@ props:
     type: Boolean
     default: false
     en: if required
-    zh-CN: 是否为必填
+    zh-CN: 是否为必选
   options:
     type: Array
     default: []
-    en: option list
+    en: options list
     zh-CN: 选项列表，可以为`[{key:'name',value:'value',inlineDesc:'inlineDesc'}]`的形式
   max:
     type: Number
@@ -42,7 +42,7 @@ props:
   random-order:
     type: Boolean
     default: false
-    en: if shuffing options
+    en: if place options in a random order
     zh-CN: 是否随机打乱选项顺序
   check-disabled:
     version: v2.2.1-rc.1
@@ -53,8 +53,9 @@ props:
   label-position:
     version: v2.2.1-rc.4
     type: String
-    en: label position, can be set to left
-    zh-CN: label 位置，可以设置为 left
+    default: right
+    en: label position, can be set to left or right
+    zh-CN: label 位置，可以设置为 left 或者 right
   disabled:
     version: v2.3.8
     en: if disable user from selecting
@@ -70,11 +71,18 @@ events:
     en: emits when value changes, param:label is supported after v2.5.7
     zh-CN: 值变化时触发，参数为 (value, label)，其中 label 参数在 v2.5.7 后支持
 changes:
-  next:
+  v2.7.0:
+    en:
+      - '[fix] fix default selected item missing issue #2122'
+    zh-CN:
+      - '[fix] 修复默认选中项缺失问题 #2122'
+  v2.6.5:
     en:
       - '[fix] fix missing icon style when using checklist along #2041'
+      - '[fix] initializing the tempValue when created #2059'
     zh-CN:
       - '[fix] 修复仅调用 checklist 组件时图标样式不存在 #2041'
+      - '[fix] 在created时，初始化tempValue值 #2059'
   v2.6.4:
     en:
       - '[feature] support method:getFullValue #2022'

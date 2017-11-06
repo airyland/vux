@@ -40,7 +40,9 @@
             <slot
             :year="year"
             :month="month"
-            :child="child"
+            :child="processDateItem(child)/* deprecated, use date instead */"
+            :date="processDateItem(child)"
+            class-name="vux-calendar-each-date"
             :row="k1"
             :col="k2"
             :raw-date="formatDate(year, month, child)"
@@ -51,12 +53,12 @@
               class="vux-calendar-each-date"
               :style="getMarkStyle(child)"
               v-show="showChild(year, month, child)">
-                {{replaceText(child.day, formatDate(year, month, child))}}
+                {{ replaceText(child.day, formatDate(year, month, child)) }}
                 <span class="vux-calendar-top-tip" v-if="isShowTopTip(child)" :style="isShowTopTip(child, 'style')">
                   <span>{{ isShowTopTip(child, 'text') }}</span>
                 </span>
               </span>
-              <span class="vux-calendar-dot" v-show="isShowBottomDot(child)"></span>
+              <span class="vux-calendar-dot" v-if="isShowBottomDot(child)"></span>
               <div v-html="renderFunction(k1, k2, child)" v-show="showChild(year, month, child)"></div>
             </slot>
           </td>
@@ -92,7 +94,7 @@ week_day_6:
 
 <script>
 import format from '../datetime/format'
-import { getDays, zero } from './util'
+import { getDays, zero, isBetween } from './util'
 import props from './props'
 import calendarMarksMixin from '../../mixins/calendar-marks'
 
@@ -115,8 +117,7 @@ export default {
   created () {
     this.currentValue = this.value
     this.multi = Object.prototype.toString.call(this.currentValue) === '[object Array]'
-  },
-  mounted () {
+
     if (this.multi) {
       for (let i = 0; i < this.currentValue.length; i++) {
         this.$set(this.currentValue, i, this.convertDate(this.currentValue[i]))
@@ -165,15 +166,17 @@ export default {
     value (val) {
       this.currentValue = this.multi ? val : this.convertDate(val)
     },
-    currentValue (val) {
-      const value = this.multi ? this.currentValue[this.currentValue.length - 1] : this.currentValue
-      if (this.renderOnValueChange) {
-        this.render(null, null, value)
-      } else {
-        this.render(this.year, this.month, value)
-      }
+    currentValue (val, oldVal) {
       this.$emit('input', this.currentValue)
       this.$emit('on-change', this.currentValue)
+
+      if (this.renderOnValueChange) {
+        // if on the same year+month, stay quiet
+        if (val && oldVal && val.slice(0, 7) === oldVal.slice(0, 7)) {
+          return
+        }
+        this.render(null, null, 'value change')
+      }
     },
     renderFunction () {
       this.render(this.year, this.month, this.currentValue)
@@ -184,19 +187,19 @@ export default {
       }
     },
     returnSixRows (val) {
-      this.render(this.year, this.month, this.currentValue)
+      this.render(this.year, this.month)
     },
     startDate (val) {
-      this.render(this.year, this.month, this.currentValue)
+      this.render(this.year, this.month)
     },
     endDate (val) {
-      this.render(this.year, this.month, this.currentValue)
+      this.render(this.year, this.month)
     },
     disablePast () {
-      this.render(this.year, this.month, this.currentValue)
+      this.render(this.year, this.month)
     },
     disableFuture () {
-      this.render(this.year, this.month, this.currentValue)
+      this.render(this.year, this.month)
     },
     currentYearMonth () {
       const lastLine = this.days[this.days.length - 1]
@@ -222,6 +225,31 @@ export default {
     }
   },
   methods: {
+    processDateItem (item) {
+      const temp = JSON.parse(JSON.stringify(item))
+      temp.isDisabled = this.isDisabled(item)
+      temp.isBetween = this.isBetween(item.formatedDate)
+      return temp
+    },
+    isBetween (formatedDate) {
+      return isBetween(formatedDate, this.disablePast, this.disableFuture, this.startDate, this.endDate)
+    },
+    isDisabled (date) {
+      let disabled = !this.isBetween(date.formatedDate)
+      disabled = disabled || (date.isWeekend && this.disableWeekend)
+      disabled = disabled || date.isNextMonth || date.isLastMonth
+
+      if (!this.disableDateFunction) {
+        return disabled
+      } else {
+        const value = this.disableDateFunction(date)
+        if (typeof value === 'undefined') {
+          return disabled
+        } else {
+          return disabled || value
+        }
+      }
+    },
     switchViewToToday () {
       const today = new Date()
       this.render(today.getFullYear(), today.getMonth())
@@ -274,14 +302,14 @@ export default {
         }
       }
       const className = {
-        current: child.current || isCurrent,
-        'is-disabled': child.disabled,
-        'is-today': child.isToday
+        'current': isCurrent,
+        'is-disabled': this.isDisabled(child),
+        'is-today': child.isToday,
+        [`is-week-${index}`]: true
       }
-      className[`is-week-${index}`] = true
       return className
     },
-    render (year, month) {
+    render (year, month, force = false) {
       let data = null
       const value = this.multi ? this.currentValue[this.currentValue.length - 1] : this.currentValue
       data = getDays({
@@ -294,9 +322,13 @@ export default {
         disablePast: this.disablePast,
         disableFuture: this.disableFuture
       })
-      this.days = data.days
+
+      if (this.year === data.year && this.month === data.month && !force) {
+        return
+      }
       this.year = data.year
       this.month = data.month
+      this.days = data.days
     },
     formatDate: (year, month, child) => {
       return [year, zero(child.month + 1), zero(child.day)].join('-')
@@ -308,7 +340,7 @@ export default {
       } else {
         this.month = this.month - 1
       }
-      this.render(this.year, this.month)
+      this.render(this.year, this.month, true)
     },
     next () {
       if (this.month === 11) {
@@ -317,10 +349,10 @@ export default {
       } else {
         this.month = this.month + 1
       }
-      this.render(this.year, this.month)
+      this.render(this.year, this.month, true)
     },
     go (year, month) {
-      this.render(year, month)
+      this.render(year, month, true)
     },
     select (k1, k2, data) {
       if (data.isLastMonth && !this.showLastMonth) {
@@ -329,8 +361,18 @@ export default {
       if (data.isNextMonth && !this.showNextMonth) {
         return
       }
-      if (!data.isBetween) {
+      if (!this.isBetween(data.formatedDate)) {
         return
+      }
+      if (this.isDisabled(data)) {
+        // not in range
+        if (!this.isBetween(data.formatedDate)) {
+          return
+        } else { // in range but disabled by disableDateFunction
+          if (this.disableDateFunction && this.disableDateFunction(data)) {
+            return
+          }
+        }
       }
       let _currentValue = null
       if (!data.isLastMonth && !data.isNextMonth) {
@@ -350,9 +392,6 @@ export default {
         this.currentValue = _currentValue
       }
 
-      this.currentValueChange()
-    },
-    currentValueChange () {
       if (this.multi) {
         for (let i = 0; i < this.currentValue.length; i++) {
           this.$set(this.currentValue, i, this.convertDate(this.currentValue[i]))
@@ -360,13 +399,10 @@ export default {
       } else {
         this.currentValue = this.convertDate(this.currentValue)
       }
-      const value = this.multi ? this.currentValue[this.currentValue.length - 1] : this.currentValue
+
       if (this.renderOnValueChange) {
-        this.render(null, null, value)
-      } else {
-        this.render(this.year, this.month, value)
+        this.render(null, null)
       }
-      this.$emit('input', this.currentValue)
     },
     showChild (year, month, child) {
       if (this.replaceText(child.day, this.formatDate(year, month, child))) {

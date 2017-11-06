@@ -6,7 +6,7 @@
     :marks="marks"
     @on-view-change="onWeekViewChange"
     @on-year-month-change="onYearMonthChange">
-      <template slot="header" scope="props">
+      <template slot="header" slot-scope="props"><!-- use scope="props" when vue < 2.5.0 -->
         <divider>{{ props.currentMonth }}</divider>
       </template>
       <div></div>

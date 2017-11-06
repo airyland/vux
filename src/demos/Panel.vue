@@ -1,11 +1,20 @@
 <template>
   <div>
-    <group title="switch the type">
+    <group :title="$t('Switch the type')">
       <radio title="type" v-model="type" :options="['1', '2', '3', '4', '5']"></radio>
     </group>
-    <panel header="图文组合列表" :footer="footer" :list="list" :type="type" @on-img-error="onImgError"></panel>
+    <panel :header="$t('List of content with image')" :footer="footer" :list="list" :type="type" @on-img-error="onImgError"></panel>
   </div>
 </template>
+
+<i18n>
+Switch the type:
+  zh-CN: 切换样式
+List of content with image:
+  zh-CN: 图文组合列表
+More:
+  zh-CN: 查看更多
+</i18n>
 
 <script>
 import { Panel, Group, Radio } from 'vux'
@@ -45,7 +54,7 @@ export default {
         }
       }],
       footer: {
-        title: '查看更多',
+        title: this.$t('more'),
         url: 'http://vux.li'
       }
     }

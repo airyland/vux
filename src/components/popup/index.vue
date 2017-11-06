@@ -156,7 +156,7 @@ export default {
     }
   },
   beforeDestroy () {
-    this.popup.destroy()
+    this.popup && this.popup.destroy()
     this.fixSafariOverflowScrolling('touch')
     this.removeModalClassName()
   }

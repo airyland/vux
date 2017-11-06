@@ -14,26 +14,40 @@ flexbox:
     gutter:
       type: Number
       default: 8
-      zh-CN: 间隙像素大小
+      en: gap size (px)
+      zh-CN: 间隙像素大小（px）
+    orient:
+      type: String
+      default: horizontal
+      en: "can be in ['horizontal', 'vertical']"
+      zh-CN: "排布方向，可选['horizontal', 'vertical']"
     justify:
-      zh-CN: '`flex`的 `justify-content`属性'
+      en: '`justify-content` in `flex`'
+      zh-CN: '`flex`的`justify-content`属性'
     align:
+      en: '`align-items` in `flex`'
       zh-CN: '`flex`的`align-items`属性'
     wrap:
+      en: '`flex-wrap` in `flex`'
       zh-CN: '`flex`的`flex-wrap`属性'
     direction:
+      en: '`flex-direction` in `flex`'
       zh-CN: '`flex`的`flex-direction`属性'
   slots:
     default:
+      en: 'content slot for `flexbox-item`'
       zh-CN: '`flexbox-item`的内容插槽'
 flexbox-item:
   props:
     span:
       type: Number
-      zh-CN: 占用宽度，如果不设，所有flexbox-item将平分
+      en: occupied width. If not set, all flexbox-item will get the same width.
+      zh-CN: 占用宽度，如果不设置，所有flexbox-item将平分
     order:
       type: String
+      en: '`order` in `flex`'
       zh-CN: '`flex`的`order`属性'
   slots:
     default:
+      en: content slot
       zh-CN: '内容插槽'

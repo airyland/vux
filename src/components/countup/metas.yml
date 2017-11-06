@@ -22,6 +22,11 @@ props:
     default: 0
     en: decimal length
     zh-CN: 小数点位数
+  duration:
+    type: Number
+    default: 2
+    en: duration value (second)
+    zh-CN: 耗时（秒）
   options:
     type: 'Object'
     en: options for `countup.js`
@@ -29,7 +34,7 @@ props:
   start:
     type: Boolean
     default: true
-    en: if start the counting
+    en: if start counting automatically
     zh-CN: 是否自动开始计数
   tag:
     version: v2.5.5

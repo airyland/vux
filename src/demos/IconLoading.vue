@@ -4,7 +4,7 @@
   <span class="vux-loading"></span>
   <group>
     <cell title="Cell Loading"><span class="vux-loading"></span></cell>
-    <x-input title="XInput loading" disabled :required="false" :show-clear="false">
+    <x-input title="XInput loading" :required="false" :show-clear="false">
       <span class="vux-loading" slot="right"></span>
     </x-input>
   </group>
@@ -24,6 +24,4 @@ export default {
 }
 </script>
 
-<style>
-@import '../styles/loading.less';
-</style>
+<style lang="less" src="vux/src/styles/loading.less"></style>

@@ -3,7 +3,6 @@
     <group>
       <x-switch title="Default popup" v-model="show"></x-switch>
       <x-switch title="Full popup" v-model="show1"></x-switch>
-      <x-switch title="with a Scroller" v-model="show2"></x-switch>
       <x-switch title="Multi popup (first)" v-model="show3"></x-switch>
       <x-switch title="Mask disable" v-model="show5"></x-switch>
       <x-switch title="Popup address" v-model="show6"></x-switch>
@@ -31,16 +30,6 @@
             <x-switch title="Another XSwitcher" v-model="show1"></x-switch>
           </group>
         </div>
-      </popup>
-    </div>
-    
-    <div v-transfer-dom>
-      <popup v-model="show2" height="200px" @on-first-show="resetScroller">
-        <scroller height="100px" lock-x style="border:1px solid red;" ref="scroller">
-          <div>
-            <p v-for="i of 10">{{i}}</p>
-          </div>
-        </scroller>
       </popup>
     </div>
     
@@ -174,7 +163,7 @@
 </template>
 
 <script>
-import { TransferDom, Popup, Group, Cell, XButton, XSwitch, Scroller, Toast, XAddress, ChinaAddressData } from 'vux'
+import { TransferDom, Popup, Group, Cell, XButton, XSwitch, Toast, XAddress, ChinaAddressData } from 'vux'
 
 export default {
   directives: {
@@ -185,7 +174,6 @@ export default {
     Group,
     Cell,
     XSwitch,
-    Scroller,
     Toast,
     XAddress,
     XButton
@@ -195,7 +183,6 @@ export default {
       addressData: ChinaAddressData,
       show: false,
       show1: false,
-      show2: false,
       show3: false,
       show4: false,
       show5: false,
@@ -213,11 +200,6 @@ export default {
     }
   },
   methods: {
-    resetScroller () {
-      this.$nextTick(() => {
-        this.$refs.scroller.reset()
-      })
-    },
     log (str) {
       console.log(str)
     }

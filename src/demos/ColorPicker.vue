@@ -5,18 +5,25 @@
       <br>
       <color-picker :colors="colors1" v-model="color1" size="middle"></color-picker>
     </div>
-    <group title="as a cell's content">
+    <group :title=" $t('Use in cell') ">
       <cell :title="'Color:' + color1">
-        <color-picker slot="value" :colors="colors1" v-model="color1" size="small"></color-picker>
+        <color-picker :colors="colors1" v-model="color1" size="small"></color-picker>
       </cell>
     </group>
-    <group title="a cell without title">
+    <group :title=" $t('A cell without title') ">
       <cell primary="content">
-        <color-picker slot="value" :colors="colors1" v-model="color1" size="middle"></color-picker>
+        <color-picker :colors="colors1" v-model="color1" size="middle"></color-picker>
       </cell>
     </group>
   </div>
 </template>
+
+<i18n>
+Use in cell:
+  zh-CN: 在 cell 中使用
+A cell without title:
+  zh-CN: 不带标题的 cell
+</i18n>
 
 <script>
 import { ColorPicker, Group, Cell } from 'vux'

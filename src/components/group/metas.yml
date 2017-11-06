@@ -17,22 +17,22 @@ props:
     default: ''
     en: group title
     zh-CN: 分组标题
-  titleColor:
+  title-color:
     type: String
     default: ''
     en: group title's color
     zh-CN: 分组标题文字颜色
-  labelWidth:
+  label-width:
     type: String
     default: ''
     en: common label width for child components
     zh-CN: 为子元素设定统一label宽度
-  labelAlign:
+  label-align:
     type: String
     default: ''
     en: common label text-align for child components
     zh-CN: 为子元素设定统一对齐方式
-  labelMarginRight:
+  label-margin-right:
     type: String
     default: ''
     en: common margin right value for child components

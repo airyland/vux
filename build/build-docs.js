@@ -33,7 +33,7 @@ const aliasMap = {
 
 let tMaps = {
   '组件列表': 'Components',
-  '该组件已经停止维护。': 'This Component is Deprecated.',
+  '该组件已经停止维护。': 'This Component is Deprecated. ',
   '名字': 'name',
   '类型': 'type',
   '参数': 'params',
@@ -534,13 +534,13 @@ function getComponentInfo(one, lang, docs, name) {
   if (one.events) {
     // slot title
     docs += `\n<span class="vux-props-title">Events</span>\n`
-    docs += `\n| ${t('名字')}    | ${t('参数')}   | ${t('说明')} |
-|-------|-------|-------|
+    docs += `\n| ${t('名字')}    | ${t('参数')}   | ${t('说明')} | ${t('版本')} |
+|-------|-------|-------|-------|
 `
     for (let i in one.events) {
       let intro = one.events[i][lang]
       let params = one.events[i]['params']
-      docs += `| ${getKeyHTML(i)} |   ${params || '&nbsp;'} | ${intro} |\n`
+      docs += `| ${getKeyHTML(i)} |   ${params || '&nbsp;'} | ${intro} | ${getVersion(one.events[i].version)} |\n`
     }
   }
 

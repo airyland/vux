@@ -10,8 +10,8 @@ props:
   value:
     type: String, Array
     default: ''
-    en: calendar value, use `v-modle` for binding
-    zh-CN: 当前选中日期，使用`v-model`绑定，默认为空，即选中当天日期
+    en: calendar value, use `v-modle` for binding. String (including empty) means single seleciton; array (including empty array) means multiple selection.
+    zh-CN: 当前选中日期，使用`v-model`绑定。值为字符串(包括空字符串)时表示单选日期，为数组(包括空数组)时表示多选。
   render-month:
     type: Array
     default: ''
@@ -80,23 +80,35 @@ props:
   disable-past:
     type: Boolean
     default: false
-    en: if disable the past days
-    zh-CN: 禁止选择过去的日期，该选项可以与start-date同时使用
+    en: if disable the past days, can work with start-date
+    zh-CN: 禁止选择过去的日期，该选项可以与 start-date 同时使用
   disable-future:
     type: Boolean
     default: false
-    en: if disable future days
-    zh-CN: 禁止选择未来的日期，该选项可以end-date同时使用
+    en: if disable future days, can work with end-date
+    zh-CN: 禁止选择未来的日期，该选项可以 end-date 同时使用
   marks:
     version: v2.6.0
     type: Array
-    en: (beta)style marks for specified date list
+    en: (beta) style marks for specified date list
     zh-CN: (beta) 自定义日期标记
+  disable-weekend:
+    version: v2.7.0
+    type: Boolean
+    default: false
+    en: whether disable weekends
+    zh-CN: 是否禁用周六日
+  disable-date-function:
+    version: v2.7.0
+    type: Function
+    params: '`(date)`'
+    en: check if a date should be disabled
+    zh-CN: 自定义标记特定日期是否应该禁用，返回 true 表示禁用，false 表示不禁用，不返回表示和原有逻辑一致(这样不影响和 disable-weekend 等禁用属性同时使用)
 slots:
   each-day:
     version: v2.3.5
     en: you can custom how to display each day
-    zh-CN: 用以自定义每一天的显示渲染，使用该 slot 就不需要 render-function 了
+    zh-CN: 用以自定义每一天的显示渲染，推荐使用该 slot 来替代 render-function
 events:
   on-change:
     en: emits when value is changed
@@ -125,6 +137,24 @@ methods:
     en: render with current value's month
     zh-CN: 渲染当前值所在月份
 changes:
+  next:
+    en:
+      - '[fix] fix reset-value issue in multiple mode #2160'
+      - '[fix] fix props missing in calendar #2105'
+    zh-CN:
+      - '[fix] 修复多选情况下重置值时没有正确渲染的问题 #2160'
+      - '[fix] 修复部分属性没有继承 inline-calendar 的问题 #2105'
+  v2.7.0:
+    en:
+      - '[enhance] call render function on created hook instead of mounted(ssr)'
+      - '[feature] add prop:disable-weekend #2105'
+      - '[feature] add prop:disable-date-function #2105'
+      - '[fix] remove useless re-render function #2066'
+    zh-CN:
+      - '[enhance] 在 created hook 执行渲染而不是 mounted(ssr)'
+      - '[feature] 添加属性 prop:disable-weekend 来禁用周末 #2105'
+      - '[feature] 添加属性 prop:disable-date-function 自定义标记禁用日期 #2105'
+      - '[fix] 移除重复的多次重复渲染 #2066'
   v2.6.0:
     en:
       - '[feature] (beta) Support prop:marks to style specified date item'

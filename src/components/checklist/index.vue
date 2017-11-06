@@ -62,14 +62,17 @@ export default {
       type: Boolean,
       default: true
     },
-    labelPosition: String,
+    labelPosition: {
+      type: String,
+      default: 'right'
+    },
     disabled: Boolean
   },
   data () {
     return {
       currentValue: [],
       currentOptions: this.options,
-      tempValue: ''
+      tempValue: '' // used only for radio mode
     }
   },
   beforeUpdate () {
@@ -86,6 +89,9 @@ export default {
     this.handleChangeEvent = true
     if (this.value) {
       this.currentValue = this.value
+      if (this.isRadio) {
+        this.tempValue = this.isRadio ? this.value[0] : this.value
+      }
     }
     if (this.randomOrder) {
       this.currentOptions = shuffle(this.options)

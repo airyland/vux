@@ -1,4 +1,5 @@
 export default function (vm, name) {
+  /* istanbul ignore if */
   if (process.env.NODE_ENV === 'development') {
     const parentName = vm.$parent ? vm.$parent.$options.name : ''
     const parentNode = vm.$el.parentNode

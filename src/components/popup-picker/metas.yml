@@ -62,6 +62,11 @@ props:
     type: Object
     en: popup style
     zh-CN: 弹窗样式，可以用于强制指定 z-index
+  popup-title:
+    version: v2.7.0
+    type: String
+    en: popup title
+    zh-CN: 弹窗标题
 slots:
   title:
     version: v2.3.7
@@ -85,6 +90,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  v2.7.0:
+    en:
+      - '[feature] add prop:popup-title(use component:popup-header) #1866'
+    zh-CN:
+      - '[feature] 增加属性 popup-title(使用 popup-header 组件) #1866'
   v2.5.10:
     en:
       - '[feature] support @cell-value-color #1874'

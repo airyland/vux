@@ -8,7 +8,7 @@ extra:
         </cell-box>
       </group>
     ```
-    
+
     <p class="tip">与`cell`相比，`cell-box`更自由和灵活，只提供`is-link`和`link`属性，内容直接使用默认slot定义。
     <br>
     `cell-box`同样只能在`Group`中使用</p>
@@ -19,20 +19,20 @@ props:
   is-link:
     type: Boolean
     default: false
-    en: if this is a link, if true, there will be an arrow on the right
+    en: if this is a link; if true, there will be an arrow on the right
     zh-CN: 是否为链接，如果是，右侧将会出现指引点击的右箭头
   link:
     type: String, Object
-    en: redirect link when being clicked
+    en: redirect link. Can be http(s) protocol; can also be vue-router format
     zh-CN: 点击链接，可以为http(s)协议，也可以是 vue-router 支持的地址形式
   border-intent:
     version: v2.2.1-rc.1
     type: Boolean
     default: true
-    en: if set border intent
+    en: if set border intent on the left side
     zh-CN: 是否显示边框与左边的间隙
   align-items:
-    version: next
+    version: v2.6.5
     type: String
     default: center
     en: flexbox align-items setting
@@ -42,7 +42,7 @@ slots:
     en: content body
     zh-CN: 内容区域
 changes:
-  next:
+  v2.6.5:
     en:
       - '[feature] add prop:align-items'
     zh-CN:

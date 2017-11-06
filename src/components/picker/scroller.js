@@ -1,10 +1,13 @@
 /*
- * Anima Scroller
- * Based Zynga Scroller (http://github.com/zynga/scroller)
- * Copyright 2011, Zynga Inc.
- * Licensed under the MIT License.
- * https://raw.github.com/zynga/scroller/master/MIT-LICENSE.txt
- */
+* Anima Scroller
+* Based Zynga Scroller (http://github.com/zynga/scroller)
+* Copyright 2011, Zynga Inc.
+* Licensed under the MIT License.
+* https://raw.github.com/zynga/scroller/master/MIT-LICENSE.txt
+*/
+
+const isBrowser = typeof window === 'object'
+
 const TEMPLATE = `
 <div class="scroller-component" data-role="component">
   <div class="scroller-mask" data-role="mask"></div>
@@ -12,13 +15,25 @@ const TEMPLATE = `
   <div class="scroller-content" data-role="content"></div>
 </div>
 `
-const dpr = document.documentElement.getAttribute('data-dpr') || 1
+
 const Animate = require('./animate')
 const { getElement, getComputedStyle, easeOutCubic, easeInOutCubic } = require('./util')
 const passiveSupported = require('../../libs/passive_supported')
 
-var Scroller = function (container, options) {
-  var self = this
+const getDpr = function () {
+  let dpr = 1
+  if (isBrowser) {
+    if (window.VUX_CONFIG && window.VUX_CONFIG.$picker && window.VUX_CONFIG.$picker.respectHtmlDataDpr) {
+      dpr = document.documentElement.getAttribute('data-dpr') || 1
+    }
+  }
+  return dpr
+}
+
+const Scroller = function (container, options) {
+  const self = this
+
+  self.dpr = getDpr()
 
   options = options || {}
 
@@ -62,7 +77,7 @@ var Scroller = function (container, options) {
   self.__itemHeight = parseFloat(getComputedStyle(indicator, 'height'), 10)
 
   self.__callback = options.callback || function (top) {
-    const distance = -top * dpr
+    const distance = -top * self.dpr
     content.style.webkitTransform = 'translate3d(0, ' + distance + 'px, 0)'
     content.style.transform = 'translate3d(0, ' + distance + 'px, 0)'
   }
@@ -185,7 +200,7 @@ var members = {
       self.__isDecelerating = false
     }
 
-    top = Math.round(top / self.__itemHeight) * self.__itemHeight
+    top = Math.round((top / self.__itemHeight).toFixed(5)) * self.__itemHeight
     top = Math.max(Math.min(self.__maxScrollTop, top), self.__minScrollTop)
 
     if (top === self.__scrollTop || !animate) {

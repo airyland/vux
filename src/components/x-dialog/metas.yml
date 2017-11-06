@@ -116,6 +116,16 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
+  v2.7.1:
+    en:
+      - '[fix] fix prevent-body-scroll.css not found (less-loader issue) #2118'
+    zh-CN:
+      - '[fix] 修复 prevent-body-scroll.css 无法找到问题(less-loader) #2118'
+  v2.7.0:
+    en:
+      - '[feature] add event:on-click-mask #2102'
+    zh-CN:
+      - '[feature] 添加事件 on-click-mask #2102'
   v2.6.4:
     en:
       - '[feature] support prop:mask-z-index'

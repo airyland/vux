@@ -171,7 +171,5 @@ export default {
 }
 </script>
 
-<style>
-@import '~x-photoswipe/dist/photoswipe.css';
-@import '~x-photoswipe/dist/default-skin/default-skin.css';
-</style>
+<style src="x-photoswipe/dist/photoswipe.css"></style>
+<style src="x-photoswipe/dist/default-skin/default-skin.css"></style>

@@ -1,4 +1,14 @@
 icon: '&#xe60a;'
+props:
+  value:
+    type: String
+    default: ''
+    en: form's value, use `v-model` for binding
+    zh-CN: 表单值，`v-model`绑定
+  format:
+    default: 'YYYY-MM-DD'
+    en: display format for date column
+    zh-CN: 日期栏的显示格式
 methods:
   render:
     version: v2.5.0

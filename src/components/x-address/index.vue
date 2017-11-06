@@ -16,9 +16,10 @@
     :cancel-text="cancelText"
     :display-format="displayFormat"
     :popup-style="popupStyle"
+    :popup-title="popupTitle"
     :show.sync="showValue"
     @on-shadow-change="onShadowChange">
-      <template slot="title" scope="props">
+      <template slot="title" slot-scope="props">
         <slot name="title" :label-class="props.labelClass" :label-style="props.labelStyles" :label-title="props.title">
           <label :class="[props.labelClass,labelClass]" :style="props.labelStyle" v-if="props.labelTitle" v-html="props.labelTitle"></label>
         </slot>
@@ -65,6 +66,7 @@ export default {
       default: (val, names) => names
     },
     popupStyle: Object,
+    popupTitle: String,
     show: Boolean
   },
   created () {

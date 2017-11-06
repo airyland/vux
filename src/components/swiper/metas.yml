@@ -25,6 +25,9 @@ extra: |
   不要在`swiper`里嵌套`scroller`，在`web`上过于复杂化而且手势会有冲突，相关`Issue`将不会处理。
   <br>
   <br>
+  需要注意的是，在使用 `swiper-item` 而非 `list` 图片列表时，如果只有两项，将无法实现 `loop` 循环播放。
+  <br>
+  <br>
   该组件场景是固定高度的内容列表，不支持为不同 swiper-item 设置不同高度。
   <br>
   <br>
@@ -102,7 +105,22 @@ props:
     default: 0
     en: index value, use `v-model` for binding
     zh-CN: index 绑定，使用`v-model`，一般不需要绑定
+events:
+  on-get-height:
+    version: v2.7.0
+    params: '`(height)`'
+    en: emits after height is caculated
+    zh-CN: 高度获取后触发
 changes:
+  v2.7.0:
+    en:
+      - '[enhance] set shorter distance for first and last item for better experience'
+      - '[feature] add event:on-get-height #2112'
+      - '[enhance] stop interval if auto is set to false #2027'
+    zh-CN:
+      - '[enhance] 非循环模式下对第一张和最后一张使用更短的拖动距离'
+      - '[feature] 添加事件 event:on-get-height #2112'
+      - '[enhance] auto 支持动态设置 #2027'
   v2.6.0:
     en:
       - '[enhance] support fallbackImg for prop:list #1923'

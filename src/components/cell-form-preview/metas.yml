@@ -8,7 +8,7 @@ tags:
     - 表单
     - 预览
 extra: |
-  
+
   <p class="warning">
     `CellFormPreview` 需要在 `Group` 组件中使用。
   </p>
@@ -52,12 +52,12 @@ props:
     version: v2.2.0
     type: Array
     en: label and value list
-    zh-CN: 内容列表
+    zh-CN: 内容列表，键值包括`label`和`value`，可缺值
   border-intent:
     version: v2.2.1-rc.1
     type: Boolean
     default: true
-    en: if set border intent
+    en: if set border intent on the left side
     zh-CN: 是否显示边框与左边的间隙
 changes:
   v2.2.1-rc.1:

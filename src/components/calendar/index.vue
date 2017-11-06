@@ -1,11 +1,14 @@
 <template>
-  <div>
+  <div class="vux-calendar">
     <cell :title="title" primary="content" @click.native="onClick" is-link>
       <span class="vux-cell-placeholder" v-if="shouldShowPlaceholder">{{ placeholder }}</span>
       <span class="vux-cell-value" v-if="showValue">{{ displayFormat(showValue, getType(showValue)) }}</span>
     </cell>
-    <div v-transfer-dom>
-      <popup v-model="show">
+    <div v-transfer-dom="shouldTransferDom">
+      <popup
+      v-model="show"
+      @on-show="onPopupShow"
+      @on-hide="onPopupHide">
 
         <popup-header
         v-if="showPopupHeader || getType(value) === 'array'"
@@ -35,6 +38,9 @@
         :render-on-value-change="renderOnValueChange"
         :disable-past="disablePast"
         :disable-future="disableFuture"
+        :marks="marks"
+        :disable-weekend="disableWeekend"
+        :disable-date-function="disableDateFunction"
         ></inline-calendar>
 
       </popup>
@@ -92,6 +98,11 @@ const Props = {
     default: (value) => {
       return typeof value === 'string' ? value : value.join(', ')
     }
+  },
+  // for test only
+  shouldTransferDom: {
+    type: Boolean,
+    default: true
   }
 }
 
@@ -129,6 +140,14 @@ export default {
   },
   props: Props,
   methods: {
+    onPopupShow () {
+      this.$emit('on-show')
+    },
+    onPopupHide () {
+      this.$emit('on-hide')
+      // reset value to show value
+      this.currentValue = pure(this.showValue)
+    },
     getType,
     onClickLeft () {
       this.currentValue = pure(this.showValue)
@@ -157,6 +176,9 @@ export default {
   watch: {
     value (val) {
       this.currentValue = val
+      if (getType(val) === 'array') {
+        this.tempValue = this.showValue = pure(val)
+      }
     },
     currentValue (val) {
       if (!this.showPopupHeader) {
@@ -175,3 +197,16 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+@import '../../styles/weui/base/fn';
+@import '../../styles/weui/base/mixin/setOnepx.less';
+
+.vux-calendar {
+  position: relative;
+  &:before {
+    .setTopLine(@weuiCellBorderColor);
+    left: @weuiCellGapH;
+  }
+}
+</style>

@@ -1,27 +1,27 @@
 <template>
   <div>
     <group>
-      <calendar v-model="demo1" :title="$t('Basic Usage')" disable-past placeholder="placeholder"></calendar>
+      <calendar v-model="demo1" :title="$t('Basic Usage')" disable-past placeholder="placeholder" @on-show="log('show')" @on-hide="log('hide')"></calendar>
     </group>
 
     <group>
-      <calendar v-model="demo2" :title="$t('set value as TODAY')" disable-past></calendar>
+      <calendar v-model="demo2" :title="$t('Set value as TODAY')" disable-past></calendar>
     </group>
 
     <group>
-      <calendar @on-change="onChange" v-model="demo3" :title="$t('disable future')" disable-future></calendar>
+      <calendar @on-change="onChange" v-model="demo3" :title="$t('Disable future')" disable-future></calendar>
     </group>
 
     <group>
-      <calendar @on-change="onChange" v-model="demo4" :title="$t('show popup header')" show-popup-header :popup-header-title="$t('please select')" disable-future></calendar>
+      <calendar @on-change="onChange" v-model="demo4" :title="$t('Show popup header')" show-popup-header :popup-header-title="$t('Please select')" disable-future></calendar>
     </group>
 
     <group>
-      <calendar placeholder="placeholder" @on-change="onChange" v-model="demo5" :title="$t('multiple dates')" :popup-header-title="$t('please select')" disable-future></calendar>
+      <calendar placeholder="placeholder" @on-change="onChange" v-model="demo5" :title="$t('Multiple dates')" :popup-header-title="$t('Please select')" disable-future></calendar>
     </group>
 
      <group>
-      <calendar :display-format="displayFormat" :placeholder="$t('please select')" @on-change="onChange" v-model="demo6" :title="$t('format multiple dates')" :popup-header-title="$t('please select')" disable-future></calendar>
+      <calendar disable-weekend :display-format="displayFormat" :placeholder="$t('Please select')" @on-change="onChange" v-model="demo6" :title="$t('Format multiple dates')" :popup-header-title="$t('please select')"></calendar>
       <cell-box align-items="flex-start">
         <span class="selected-days">value:</span>
         <div>
@@ -29,28 +29,33 @@
         </div>
       </cell-box>
     </group>
+    <div style="padding:15px;">
+      <x-button type="primary" @click.native="demo6 = []">{{ $t('Empty value') }}</x-button>
+    </div>
   </div>
 </template>
 
 <i18n>
 Basic Usage:
   zh-CN: 一般使用
-set value as TODAY:
+Set value as TODAY:
   zh-CN: 设置时间为今天
-disable future:
+Disable future:
   zh-CN: 禁止选择未来时间
-show popup header:
+Show popup header:
   zh-CN: 显示 popup 头部
-please select:
+Please select:
   zh-CN: 请选择日期
-multiple dates:
+Multiple dates:
   zh-CN: 多选
-format multiple dates:
-  zh-CN: 格式化多选日期值显示
+Format multiple dates:
+  zh-CN: 格式化表单值
+Empty value:
+  zh-CN: 清空值
 </i18n>
 
 <script>
-import { Group, Calendar, Cell, Badge, CellBox } from 'vux'
+import { Group, Calendar, Cell, Badge, CellBox, XButton } from 'vux'
 
 export default {
   components: {
@@ -58,7 +63,8 @@ export default {
     Group,
     Cell,
     Badge,
-    CellBox
+    CellBox,
+    XButton
   },
   data () {
     return {
@@ -78,6 +84,9 @@ export default {
     }
   },
   methods: {
+    log (str) {
+      console.log(str)
+    },
     onChange (val) {
       console.log('on change', val)
     }

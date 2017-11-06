@@ -8,5 +8,11 @@ props:
   value:
     type: Boolean
     version: v2.3.8
-    en: selected value, use :value.sync
-    zh-CN: 是否选中的值，使用 :value.sync 双向绑定
+    default: false
+    en: if selected, use :value.sync for two-way data binding
+    zh-CN: 是否选中，使用 :value.sync 双向绑定
+  type:
+    type: String
+    default: unknown
+    en: "style of check icon, can be ['plain']"
+    zh-CN: "check icon 样式，可选值为['plain']"

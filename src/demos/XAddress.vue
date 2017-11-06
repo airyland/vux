@@ -6,13 +6,13 @@
     </group>
 
     <div style="padding: 15px;">
-      <x-address style="display:none;" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" :show.sync="showAddress"></x-address>
+      <x-address style="display:none;" :popup-title="$t('selecte address')" :title="title" v-model="value" :list="addressData" placeholder="请选择地址" :show.sync="showAddress"></x-address>
       <x-button type="primary" @click.native="doShowAddress">单独控制显示(2s后关闭)</x-button>
     </div>
 
     <group>
     <x-address :title="title" @on-hide="logHide" v-model="value_0_1" :list="addressData" placeholder="请选择地址">
-      <template slot="title" scope="props">
+      <template slot="title" slot-scope="props"><!-- use scope="props" when vue < 2.5.0 -->
         <span :class="props.labelClass" :style="props.labelStyle" style="height:24px;">
           <span class="demo-icon demo-icon-big" style="font-size:20px;vertical-align:middle;"></span>
           <span style="vertical-align:middle;">地址</span>
@@ -48,6 +48,11 @@
     </group>
   </div>
 </template>
+
+<i18n>
+select address:
+  zh-CN: 选择地址
+</i18n>
 
 <script>
 import { Group, XAddress, ChinaAddressV4Data, XButton, Cell, Value2nameFilter as value2name } from 'vux'

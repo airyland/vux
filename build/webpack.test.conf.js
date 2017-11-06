@@ -28,4 +28,15 @@ var webpackConfig = merge(baseConfig, {
 // no need for app entry during tests
 delete webpackConfig.entry
 
-module.exports = webpackConfig
+const vuxLoader = require('vux-loader')
+
+// set i18n dynamic to false
+module.exports = vuxLoader.merge(webpackConfig, {
+  plugins: [{
+    name: 'i18n',
+    vuxStaticReplace: true,
+    staticReplace: true,
+    extractToFiles: 'src/locales/components.yml',
+    localeList: ['en', 'zh-CN']
+  }]
+})

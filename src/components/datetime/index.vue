@@ -105,6 +105,7 @@ export default {
     startDate: {
       type: String,
       validator (val) {
+        /* istanbul ignore if */
         if (process.env.NODE_ENV === 'development' && val && val.length !== 10) {
           console.error('[VUX] Datetime prop:start-date 必须为 YYYY-MM-DD 格式')
         }
@@ -114,6 +115,7 @@ export default {
     endDate: {
       type: String,
       validator (val) {
+        /* istanbul ignore if */
         if (process.env.NODE_ENV === 'development' && val && val.length !== 10) {
           console.error('[VUX] Datetime prop:end-date 必须为 YYYY-MM-DD 格式')
         }
@@ -222,11 +224,7 @@ export default {
       } else if (type === 'confirm' && this.confirmText) {
         return this.confirmText
       }
-      if (this.$t) {
-        return this.$t(`vux.datetime.${type}_text`)
-      } else {
-        return this.$el.getAttribute(`data-${type}-text`)
-      }
+      return this.$el.getAttribute(`data-${type}-text`)
     },
     render () {
       this.$nextTick(() => {
@@ -283,7 +281,7 @@ export default {
     },
     value (val) {
       // do not force render when renderInline is true
-      if (this.picker && this.picker.config.renderInline) {
+      if (this.readonly || (this.picker && this.picker.config.renderInline)) {
         this.currentValue = val
         return
       }

@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 15px 0;">
-    <divider>{{ $t('radio:no default value') }}</divider>
+    <divider>{{ $t('Radio: no default value') }}</divider>
     <div class="box">
       <checker v-model="demo1" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
       <checker-item value="1">{{ $t('潘') }}</checker-item>
@@ -10,7 +10,7 @@
       <checker-item value="5">{{ $t('驴') }}</checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{ demo1 }}</span>
+      <span>{{ $t('Current value is') }}: {{ demo1 }}</span>
       <br>
     </div>
 
@@ -24,53 +24,53 @@
       <checker-item value="5">{{ $t('驴') }}</checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{ demo1Required }}</span>
+      <span>{{ $t('Current value is') }}: {{ demo1Required }}</span>
       <br>
     </div>
 
-    <divider>{{ $t('radio: object value') }}</divider>
+    <divider>{{ $t('Radio: object value') }}</divider>
     <div class="box">
       <checker v-model="demo11" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
         <checker-item :value="item" v-for="(item, index) in items1" :key="index">{{item.value}}</checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{demo11}}</span>
+      <span>{{ $t('Current value is') }}: {{demo11}}</span>
       <br>
       <br>
       <checker v-model="demo12" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
         <checker-item :value="item" v-for="(item, index) in items1" :key="index">{{item.value}}</checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{demo12}}</span>
+      <span>{{ $t('Current value is') }}: {{demo12}}</span>
       <br>
     </div>
 
-    <divider>{{ $t('checkbox: object value') }}</divider>
+    <divider>{{ $t('Checkbox: object value') }}</divider>
     <div class="box">
       <checker v-model="demo21" type="checkbox" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
         <checker-item :value="item" v-for="(item, index) in items1" :key="index">{{item.value}}</checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{demo21}}</span>
+      <span>{{ $t('Current value is') }}: {{demo21}}</span>
       <br>
       <br>
       <checker v-model="demo22" type="checkbox" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
         <checker-item :value="item" v-for="(item, index) in items1" :key="index">{{item.value}}</checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{demo22}}</span>
+      <span>{{ $t('Current value is') }}: {{demo22}}</span>
        <br>
       <br>
       <checker v-model="demo23" type="checkbox" default-item-class="demo1-item" selected-item-class="demo1-item-selected" :max="2">
         <checker-item :value="item" v-for="(item, index) in items1" :key="index">{{item.value}}</checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{demo23}}</span>
+      <span>{{ $t('Current value is') }}: {{demo23}}</span>
       <br>
     </div>
 
-    
-    <divider>{{ $t('checkbox') }}</divider>
+
+    <divider>{{ $t('Checkbox') }}</divider>
     <div class="box">
        <checker v-model="demo1Checkbox" type="checkbox" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
         <checker-item :value="1">{{ $t('白') }}</checker-item>
@@ -78,11 +78,11 @@
         <checker-item :value="3">{{ $t('美') }}</checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{demo1Checkbox}}</span>
+      <span>{{ $t('Current value is') }}: {{demo1Checkbox}}</span>
       <br>
     </div>
-   
-    <divider>{{ $t('checkbox with max limit 2') }}</divider>
+
+    <divider>{{ $t('Checkbox with max limit 2') }}</divider>
     <div class="box">
       <checker v-model="demo1CheckboxMax" :max="2" type="checkbox" default-item-class="demo1-item" selected-item-class="demo1-item-selected">
         <checker-item value="1">1</checker-item>
@@ -90,11 +90,11 @@
         <checker-item value="3">3</checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{demo1CheckboxMax}}</span>
+      <span>{{ $t('Current value is') }}: {{demo1CheckboxMax}}</span>
       <br>
     </div>
-    
-    <divider>{{ $t('default value 2') }}</divider>
+
+    <divider>{{ $t('Default value 2') }}</divider>
     <div class="box">
       <checker v-model="demo2" default-item-class="demo2-item" selected-item-class="demo2-item-selected">
         <checker-item value="1">1</checker-item>
@@ -102,11 +102,11 @@
         <checker-item value="3">3</checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{demo2}}</span>
+      <span>{{ $t('Current value is') }}: {{demo2}}</span>
       <br>
     </div>
-    
-    <divider>{{ $t('custom styles') }}</divider>
+
+    <divider>{{ $t('Custom styles') }}</divider>
     <div class="box">
        <checker v-model="demo3" default-item-class="demo3-item" selected-item-class="demo3-item-selected">
         <checker-item value="one">
@@ -120,13 +120,13 @@
         </checker-item>
       </checker>
       <br>
-      <span>{{ $t('current value is') }}: {{demo3}}</span>
+      <span>{{ $t('Current value is') }}: {{demo3}}</span>
       <br>
     </div>
-   
-    <divider>{{ $t('used in a popup') }}</divider>
+
+    <divider>{{ $t('Used in a popup') }}</divider>
     <group>
-      <cell :title="$t('select color')" :value="demo4" is-link @click.native="showPopup=true"></cell>
+      <cell :title="$t('Select color')" :value="demo4" is-link @click.native="showPopup=true"></cell>
     </group>
     <div v-transfer-dom>
       <popup v-model="showPopup" class="checker-popup">
@@ -137,10 +137,10 @@
           default-item-class="demo4-item"
           selected-item-class="demo4-item-selected"
           disabled-item-class="demo4-item-disabled">
-            <checker-item value="花跟叶" @on-item-click="onItemClick">花跟叶</checker-item>
-            <checker-item value="鸟与树" @on-item-click="onItemClick">鸟与树</checker-item>
-            <checker-item value="我和你" @on-item-click="onItemClick">我和你</checker-item>
-            <checker-item value="全套礼品装" disabled @on-item-click="onItemClick">全套礼品装</checker-item>
+            <checker-item :value="$t('花跟叶')" @on-item-click="onItemClick"> {{ $t('花跟叶') }} </checker-item>
+            <checker-item :value="$t('鸟与树')" @on-item-click="onItemClick"> {{ $t('鸟与树') }} </checker-item>
+            <checker-item :value="$t('我和你')" @on-item-click="onItemClick"> {{ $t('我和你') }} </checker-item>
+            <checker-item :value="$t('全套礼品装')" disabled @on-item-click="onItemClick"> {{ $t('全套礼品装') }} </checker-item>
           </checker>
         </div>
       </popup>
@@ -168,7 +168,7 @@
 </template>
 
 <i18n>
-radio:no default value:
+'Radio: no default value':
   zh-CN: 单选，默认不选中任何项
 潘:
   en: A
@@ -186,19 +186,27 @@ radio:no default value:
   en: Rich
 美:
   en: Beautiful
-checkbox:
+花跟叶:
+  en: Red
+鸟与树:
+  en: Blue
+我和你:
+  en: Green
+全套礼品装:
+  en: Yellow
+Checkbox:
   zh-CN: 多选
-checkbox with max limit 2:
+Checkbox with max limit 2:
   zh-CN: 多选，最多只能选2个
-current value is:
+Current value is:
   zh-CN: 当前值为
-default value 2:
-  zh-CN: 默认值2
-custom styles:
+Default value 2:
+  zh-CN: 默认值 2
+Custom styles:
   zh-CN: 自定义样式
-select color:
+Select color:
   zh-CN: 选择颜色
-used in a popup:
+Used in a popup:
   zh-CN: Popup 组件中使用
 A real world radio example:
   zh-CN: 单选常见例子
@@ -210,9 +218,9 @@ nice:
   zh-CN: 很好
 awesome:
   zh-CN: 特别好
-'radio: object value':
+'Radio: object value':
   zh-CN: 单选：object类型
-'checkbox: object value':
+'Checkbox: object value':
   zh-CN: 多选：object类型
 </i18n>
 
@@ -262,7 +270,7 @@ export default {
       demo1CheckboxMax: ['2', '3'],
       demo2: '2',
       demo3: '',
-      demo4: '花跟叶',
+      demo4: this.$t('花跟叶'),
       showPopup: false,
       demo5: 1,
       demo6: [2, 3]
