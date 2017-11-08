@@ -5,6 +5,7 @@ extra: |
     <br>
     `list` 格式如下
     <br>
+
     ``` js
     [{
       url: 'javascript:',
@@ -17,6 +18,7 @@ extra: |
       fallbackImg: 'https://static.vux.li/demo/3.jpg'
     }]
     ```
+
     <br>
     `fallbackImg` 在 `v2.5.13` 支持，它将在 `img` 加载失败时显示，注意的是 `fallbackImg` 可能会在 `img` 加载成功时也进行了加载，只是不会显示（取决于浏览器实现）。
 
@@ -100,16 +102,20 @@ props:
     default: 0
     en: min distance before moving
     zh-CN: 超过这个距离时才滑动
-  value:
+  v-model:
     type: Number
     default: 0
     en: index value, use `v-model` for binding
     zh-CN: index 绑定，使用`v-model`，一般不需要绑定
 events:
+  on-index-change:
+    params: '`(currentIndex)`'
+    en: fires when index is changed
+    zh-CN: 轮播 index 变化时触发
   on-get-height:
     version: v2.7.0
     params: '`(height)`'
-    en: emits after height is caculated
+    en: fires after height is caculated
     zh-CN: 高度获取后触发
 changes:
   v2.7.0:
