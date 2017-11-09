@@ -18,6 +18,11 @@
       <cell :title="$t('Show Me')" @click.native="showPlugin" is-link></cell>
       <cell :title="$t('Will auto close in 3s')" @click.native="showPluginAuto" is-link></cell>
     </group>
+
+    <group :title="$t('Use as a module')">
+      <cell :title="$t('Show Me')" @click.native="showModule" is-link></cell>
+      <cell :title="$t('Will auto close in 3s')" @click.native="showModuleAuto" is-link></cell>
+    </group>
   </div>
 </template>
 
@@ -37,7 +42,7 @@ Will auto close in 3s:
 </i18n>
 
 <script>
-import { Alert, Group, XSwitch, Cell, TransferDomDirective as TransferDom } from 'vux'
+import { AlertModule, Alert, Group, XSwitch, Cell, TransferDomDirective as TransferDom } from 'vux'
 
 export default {
   directives: {
@@ -74,6 +79,24 @@ export default {
           console.log('Plugin: I\'m hiding now')
         }
       })
+    },
+    showModule () {
+      AlertModule.show({
+        title: 'VUX is Cool',
+        content: this.$t('Do you agree?'),
+        onShow () {
+          console.log('Module: I\'m showing')
+        },
+        onHide () {
+          console.log('Module: I\'m hiding now')
+        }
+      })
+    },
+    showModuleAuto () {
+      this.showModule()
+      setTimeout(() => {
+        AlertModule.hide()
+      }, 3000)
     },
     showPluginAuto () {
       this.showPlugin()

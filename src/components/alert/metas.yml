@@ -39,6 +39,16 @@ extra:
     <p class="tip">
     如果你想实现在`vue-router`的`beforeEach`或者`afterEach`的 hook 里关闭，可以使用 `Vue.$vux.alert.hide()`
     </p>
+  
+    <br>
+    <p class="tip">
+    该组件在 v2.7.2 以上支持单独调用，方法和插件使用一致。
+    </p>
+
+    ```
+    import { AlertModule } from 'vux'
+    ```
+
 
   en: |
 
@@ -144,6 +154,11 @@ events:
     en: emits when dialog is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - "[feature] now we can use Alert as a module (import { AlertModule } from 'vux') #2173"
+    zh-CN:
+      - "[feature] 支持作为模块直接调用 (import { AlertModule } from 'vux') #2173"
   v2.6.4:
     en:
       - '[feature] support prop:mask-z-index'

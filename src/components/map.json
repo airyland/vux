@@ -4,6 +4,7 @@
   "Agree": "src/components/agree/index.vue",
   "AjaxPlugin": "src/plugins/ajax/index.js",
   "Alert": "src/components/alert/index.vue",
+  "AlertModule": "src/plugins/alert/module",
   "AlertPlugin": "src/plugins/alert/index.js",
   "AppPlugin": "src/plugins/app/index.js",
   "Array2stringFilter": "src/filters/array2String.js",
