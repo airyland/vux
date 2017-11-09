@@ -57,6 +57,9 @@ saveMaps('dateRange', 'src/tools/date/range.js')
 saveMaps('TransferDom', 'src/directives/transfer-dom/index.js')
 saveMaps('trim', 'src/tools/string/trim')
 
+// add AlertModule
+saveMaps('AlertModule', 'src/plugins/alert/module')
+
 function saveMaps(key, value) {
   if (key === 'RangeTool') {
     return

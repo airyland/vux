@@ -6,6 +6,7 @@ import Actionsheet from './src/components/actionsheet/index.vue'
 import Agree from './src/components/agree/index.vue'
 import AjaxPlugin from './src/plugins/ajax/index.js'
 import Alert from './src/components/alert/index.vue'
+import AlertModule from './src/plugins/alert/module'
 import AlertPlugin from './src/plugins/alert/index.js'
 import AppPlugin from './src/plugins/app/index.js'
 import Array2stringFilter from './src/filters/array2String.js'
@@ -155,6 +156,7 @@ export {
   Agree,
   AjaxPlugin,
   Alert,
+  AlertModule,
   AlertPlugin,
   AppPlugin,
   Array2stringFilter,
