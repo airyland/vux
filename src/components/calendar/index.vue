@@ -1,6 +1,10 @@
 <template>
   <div class="vux-calendar">
-    <cell :title="title" primary="content" @click.native="onClick" is-link>
+    <cell
+      :title="title"
+      primary="content"
+      @click.native="onClick"
+      :is-link="!readonly">
       <span class="vux-cell-placeholder" v-if="shouldShowPlaceholder">{{ placeholder }}</span>
       <span class="vux-cell-value" v-if="showValue">{{ displayFormat(showValue, getType(showValue)) }}</span>
     </cell>
@@ -103,7 +107,8 @@ const Props = {
   shouldTransferDom: {
     type: Boolean,
     default: true
-  }
+  },
+  readonly: Boolean
 }
 
 export default {
@@ -162,7 +167,9 @@ export default {
       }
     },
     onClick () {
-      this.show = true
+      if (!this.readonly) {
+        this.show = true
+      }
     },
     onSelect (val) {
       if (!this.showPopupHeader && getType(this.value) !== 'array') {

@@ -1,8 +1,12 @@
 <template>
   <div>
     <group>
-      <calendar v-model="demo1" :title="$t('Basic Usage')" disable-past placeholder="placeholder" @on-show="log('show')" @on-hide="log('hide')"></calendar>
+      <calendar :readonly="readonly" v-model="demo1" :title="$t('Basic Usage')" disable-past placeholder="placeholder" @on-show="log('show')" @on-hide="log('hide')"></calendar>
     </group>
+
+    <div style="padding:15px;">
+      <x-button type="primary" @click.native="readonly = !readonly">{{ $t('Toggle readonly') }}</x-button>
+    </div>
 
     <group>
       <calendar v-model="demo2" :title="$t('Set value as TODAY')" disable-past></calendar>
@@ -52,6 +56,8 @@ Format multiple dates:
   zh-CN: 格式化表单值
 Empty value:
   zh-CN: 清空值
+Toggle readonly:
+  zh-CN: 切换 readonly
 </i18n>
 
 <script>
@@ -68,6 +74,7 @@ export default {
   },
   data () {
     return {
+      readonly: false,
       demo1: '',
       demo2: 'TODAY',
       demo3: 'TODAY',
