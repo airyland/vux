@@ -364,6 +364,7 @@ export default {
       if (!this.isBetween(data.formatedDate)) {
         return
       }
+
       if (this.isDisabled(data)) {
         // not in range
         if (!this.isBetween(data.formatedDate)) {
@@ -372,8 +373,12 @@ export default {
           if (this.disableDateFunction && this.disableDateFunction(data)) {
             return
           }
+          if (data.isWeekend && this.disableWeekend) {
+            return
+          }
         }
       }
+      console.log('hello select')
       let _currentValue = null
       if (!data.isLastMonth && !data.isNextMonth) {
         this.days[k1][k2].current = true

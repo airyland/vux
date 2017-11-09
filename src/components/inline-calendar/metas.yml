@@ -141,9 +141,11 @@ changes:
     en:
       - '[fix] fix reset-value issue in multiple mode #2160'
       - '[fix] fix props missing in calendar #2105'
+      - '[fix] fix disabled weekends still selectable #2178'
     zh-CN:
       - '[fix] 修复多选情况下重置值时没有正确渲染的问题 #2160'
       - '[fix] 修复部分属性没有继承 inline-calendar 的问题 #2105'
+      - '[fix] 修复禁用周末日期仍能点击的问题 #2178'
   v2.7.0:
     en:
       - '[enhance] call render function on created hook instead of mounted(ssr)'
