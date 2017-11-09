@@ -6,7 +6,7 @@
       @click.native="onClick"
       :is-link="!readonly">
       <span class="vux-cell-placeholder" v-if="shouldShowPlaceholder">{{ placeholder }}</span>
-      <span class="vux-cell-value" v-if="showValue">{{ displayFormat(showValue, getType(showValue)) }}</span>
+      <span class="vux-cell-value" v-if="!shouldShowPlaceholder">{{ displayFormat(value, getType(value)) }}</span>
     </cell>
     <div v-transfer-dom="shouldTransferDom">
       <popup
@@ -15,7 +15,7 @@
       @on-hide="onPopupHide">
 
         <popup-header
-        v-if="showPopupHeader || getType(value) === 'array'"
+        v-if="shouldConfirm"
         @on-click-left="onClickLeft"
         @on-click-right="onClickRight"
         :title="popupHeaderTitle"
@@ -26,7 +26,7 @@
 
         <inline-calendar
         v-model="currentValue"
-        @on-change="onSelect"
+        @on-change="onCalendarValueChange"
         :render-month="renderMonth"
         :start-date="startDate"
         :end-date="endDate"
@@ -123,11 +123,14 @@ export default {
     Cell
   },
   computed: {
+    shouldConfirm () {
+      return this.showPopupHeader || this.getType(this.value) === 'array'
+    },
     shouldShowPlaceholder () {
-      if (typeof this.showValue === 'string' && !this.showValue) {
+      if (typeof this.value === 'string' && !this.value) {
         return true
       }
-      if (getType(this.showValue) === 'array' && !this.showValue.length) {
+      if (getType(this.value) === 'array' && !this.value.length) {
         return true
       }
       return false
@@ -135,12 +138,14 @@ export default {
   },
   created () {
     if (this.value === 'TODAY') {
-      this.currentValue = this.showValue = this.tempValue = format(new Date(), 'YYYY-MM-DD')
+      this.currentValue = format(new Date(), 'YYYY-MM-DD')
       this.$emit('input', this.currentValue)
-      this.$emit('on-change', this.currentValue)
     } else {
-      this.currentValue = this.tempValue = this.value
-      this.showValue = pure(this.currentValue)
+      if (this.getType(this.value) === 'string') {
+        this.currentValue = this.value
+      } else {
+        this.currentValue = pure(this.value)
+      }
     }
   },
   props: Props,
@@ -151,55 +156,47 @@ export default {
     onPopupHide () {
       this.$emit('on-hide')
       // reset value to show value
-      this.currentValue = pure(this.showValue)
+      this.currentValue = pure(this.value)
     },
     getType,
     onClickLeft () {
-      this.currentValue = pure(this.showValue)
       this.show = false
+      this.currentValue = pure(this.value)
     },
     onClickRight () {
       this.show = false
-      if (this.tempValue) {
-        this.showValue = pure(this.tempValue)
-        this.$emit('input', this.tempValue)
-        this.$emit('on-change', this.tempValue)
-      }
+      const value = pure(this.currentValue)
+      this.$emit('input', value)
     },
     onClick () {
       if (!this.readonly) {
         this.show = true
       }
     },
-    onSelect (val) {
-      if (!this.showPopupHeader && getType(this.value) !== 'array') {
+    onCalendarValueChange (val) {
+      if (!this.shouldConfirm) {
         this.show = false
-        this.showValue = pure(val)
-      } else {
-        this.tempValue = pure(val)
+        this.$emit('input', pure(val))
       }
     }
   },
   watch: {
-    value (val) {
-      this.currentValue = val
-      if (getType(val) === 'array') {
-        this.tempValue = this.showValue = pure(val)
-      }
-    },
-    currentValue (val) {
-      if (!this.showPopupHeader) {
-        this.$emit('input', val)
-        this.$emit('on-change', val)
+    value (newVal, oldVal) {
+      if (this.getType(this.value) === 'string') {
+        this.currentValue = newVal
+        this.$emit('on-change', newVal)
+      } else {
+        if (JSON.stringify(newVal) !== JSON.stringify(oldVal)) {
+          this.$emit('on-change', pure(newVal))
+        }
+        this.currentValue = pure(newVal)
       }
     }
   },
   data () {
     return {
       show: false,
-      currentValue: '',
-      tempValue: '',
-      showValue: ''
+      currentValue: ''
     }
   }
 }

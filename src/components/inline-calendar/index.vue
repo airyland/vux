@@ -378,7 +378,6 @@ export default {
           }
         }
       }
-      console.log('hello select')
       let _currentValue = null
       if (!data.isLastMonth && !data.isNextMonth) {
         this.days[k1][k2].current = true

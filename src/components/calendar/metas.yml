@@ -89,8 +89,10 @@ changes:
   next:
     en:
       - '[feature] add prop:readonly #2178'
+      - '[fix] fix event:on-change fires multiple times'
     zh-CN:
       - '[feature] 支持禁用选择属性 prop:readonly #2178'
+      - '[fix] 修复 on-change 事件重复触发的问题'
   v2.7.0:
     en:
       - '[fix] fix top border #2104'
