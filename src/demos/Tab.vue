@@ -7,6 +7,14 @@
     </tab>
     <br/>
     <br/>
+    <divider>手动切换</divider>
+    <tab v-model="index01" prevent-default @on-before-index-change="switchTabItem">
+      <tab-item selected>已发货</tab-item>
+      <tab-item>未发货</tab-item>
+      <tab-item>全部订单</tab-item>
+    </tab>
+    <br/>
+    <br/>
     <divider>定义bar固定宽度</divider>
     <tab :line-width="1" custom-bar-width="60px">
       <tab-item selected>已发货</tab-item>
@@ -133,6 +141,7 @@ export default {
   },
   data () {
     return {
+      index01: 0,
       list2: list(),
       demo2: '美食',
       list3: ['收到的消息', '发出的消息'],
@@ -147,6 +156,16 @@ export default {
     }
   },
   methods: {
+    switchTabItem (index) {
+      console.log('on-before-index-change', index)
+      this.$vux.loading.show({
+        text: 'loading'
+      })
+      setTimeout(() => {
+        this.$vux.loading.hide()
+        this.index01 = index
+      }, 1000)
+    },
     onItemClick (index) {
       console.log('on item click:', index)
     },

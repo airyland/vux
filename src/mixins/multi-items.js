@@ -64,6 +64,10 @@ const childMixin = {
   },
   methods: {
     onItemClick (hasLink) {
+      if (this.$parent.preventDefault) {
+        this.$parent.$emit('on-before-index-change', this.currentIndex)
+        return
+      }
       if (typeof this.disabled === 'undefined' || this.disabled === false) {
         this.currentSelected = true
         this.$parent.currentIndex = this.currentIndex

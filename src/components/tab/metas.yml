@@ -11,7 +11,7 @@ tags:
 import_code: "import { Tab, TabItem } from 'vux'"
 extra: |
 
-  如果需要监听`tab-item`的点击事件，请使用`on-item-click`事件:
+  如果需要监听`tab-item`的点击事件并取得索引，请使用`on-item-click`事件:
 
   ``` html
   <tab>
@@ -59,6 +59,20 @@ tab:
       default: #fff
       en: badge font color
       zh-CN: 徽标文字颜色
+    prevent-default:
+      version: next
+      en: whether prevent auto-switching tab-item when tab-item is clicked
+      zh-CN: 是否禁止自动切换 tab-item
+  event:
+    on-index-change:
+      params: '`(index)`'
+      en: fires when switching tab-item
+      zh-CN: tab-item 切换时触发
+    on-before-index-change:
+      version: next
+      params: '`(index)`'
+      en: fires when item is clicked and prop:preventDefault is true
+      zh-CN: 点击 tab-item 并且 属性 preventDefault 为 true 时触发
 tab-item:
   props:
     disabled:
@@ -74,6 +88,11 @@ tab-item:
       en: emits when current tabItem is clicked
       zh-CN: 当前 tabItem 被点击时触发
 changes:
+  next:
+    en:
+      - '[feature] support prop:prevent-default #2176'
+    zh-CN:
+      - '[feature] 支持阻止自动切换 #2176'
   v2.3.5:
     en:
       - '[feature] Support badge #1513'
