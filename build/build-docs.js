@@ -64,6 +64,9 @@ function saveMaps(key, value) {
   if (key === 'RangeTool') {
     return
   }
+  if (/test|fixture/.test(value)) {
+    return
+  }
   if (/vux/.test(value)) {
     let index = value.indexOf('src/components')
     if (/Filter$/.test(key)) {
