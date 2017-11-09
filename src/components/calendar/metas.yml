@@ -71,7 +71,7 @@ props:
     en: format value before displaying in cell
     zh-CN: 格式化显示值
   readonly:
-    version: next
+    version: v2.7.2
     en: whether disable selecting
     zh-CN: 是否禁用弹窗选择
 events:
@@ -86,7 +86,7 @@ events:
     en: emits when popup hides
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  v2.7.2:
     en:
       - '[feature] add prop:readonly #2178'
       - '[fix] fix event:on-change fires multiple times'

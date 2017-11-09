@@ -154,7 +154,7 @@ events:
     en: emits when dialog is closed
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  v2.7.2:
     en:
       - "[feature] now we can use Alert as a module (import { AlertModule } from 'vux') #2173"
     zh-CN:

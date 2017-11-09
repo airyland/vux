@@ -54,7 +54,7 @@ props:
     en: if the select is readonly
     zh-CN: 是否不可选择
   value-map:
-    version: next
+    version: v2.7.2
     type: Array
     en: 'set a [value, label] pair for automatically transforming API data'
     zh-CN: 设置键值对映射用以自动转换接口数据, 如 ['value', 'label']
@@ -65,11 +65,11 @@ events:
     zh-CN: 值变化时触发
 methods:
   getFullValue:
-    version: next
+    version: v2.7.2
     en: get full value including all the props(if option items are object)
     zh-CN: 获取当前完整值，在使用了 valueMap 里可以用该方法来获取当前选中值的原始对象
 changes:
-  next:
+  v2.7.2:
     en:
       - '[feature] add prop:value-map for automatically transform API data #2139'
       - '[feature] add method:getFullValue for getting full value'

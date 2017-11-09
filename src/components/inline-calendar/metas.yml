@@ -137,7 +137,7 @@ methods:
     en: render with current value's month
     zh-CN: 渲染当前值所在月份
 changes:
-  next:
+  v2.7.2:
     en:
       - '[fix] fix reset-value issue in multiple mode #2160'
       - '[fix] fix props missing in calendar #2105'

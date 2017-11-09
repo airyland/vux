@@ -60,7 +60,7 @@ tab:
       en: badge font color
       zh-CN: 徽标文字颜色
     prevent-default:
-      version: next
+      version: v2.7.2
       en: whether prevent auto-switching tab-item when tab-item is clicked
       zh-CN: 是否禁止自动切换 tab-item
   event:
@@ -69,7 +69,7 @@ tab:
       en: fires when switching tab-item
       zh-CN: tab-item 切换时触发
     on-before-index-change:
-      version: next
+      version: v2.7.2
       params: '`(index)`'
       en: fires when item is clicked and prop:preventDefault is true
       zh-CN: 点击 tab-item 并且 属性 preventDefault 为 true 时触发
@@ -88,7 +88,7 @@ tab-item:
       en: emits when current tabItem is clicked
       zh-CN: 当前 tabItem 被点击时触发
 changes:
-  next:
+  v2.7.2:
     en:
       - '[feature] support prop:prevent-default #2176'
     zh-CN:
