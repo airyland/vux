@@ -132,6 +132,11 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
+  next:
+    en:
+      - '[enhance] add development tip for chained-mode picker without specifying prop:columns'
+    en:
+      - '[enhance] 渲染出错时提示是否联动数据忘了指定列数'
   v2.7.0:
     en:
       - '[change] picker move distance do not respect html[data-dpr] by default #2082 #1979'

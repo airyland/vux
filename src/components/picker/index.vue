@@ -13,6 +13,7 @@ import Scroller from './scroller'
 import { Flexbox, FlexboxItem } from '../flexbox'
 import Manager from './chain'
 import value2name from '../../filters/value2name'
+import isArray from '../../libs/is-array'
 
 export default {
   name: 'picker',
@@ -34,7 +35,7 @@ export default {
     })
   },
   props: {
-    data: [Array],
+    data: Array,
     columns: {
       type: Number,
       default: 0
@@ -67,6 +68,14 @@ export default {
       // set first item as value
       if (value.length < count) {
         for (let i = 0; i < count; i++) {
+          if (process.env.NODE_ENV === 'development' &&
+            typeof data[i][0] === 'undefined' &&
+            isArray(this.data) &&
+            this.data[0] &&
+            typeof this.data[0].value !== 'undefined' &&
+            !this.columns) {
+            console.error('[VUX error] 渲染出错，如果为联动模式，需要指定 columns(列数)')
+          }
           this.$set(_this.currentValue, i, data[i][0].value || data[i][0])
         }
       }
