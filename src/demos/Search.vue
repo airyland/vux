@@ -39,6 +39,7 @@ export default {
       window.alert('you click the result item: ' + JSON.stringify(item))
     },
     getResult (val) {
+      console.log('on-change', val)
       this.results = val ? getResult(this.value) : []
     },
     onSubmit () {

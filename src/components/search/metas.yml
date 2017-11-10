@@ -68,7 +68,7 @@ events:
 slots:
   default:
     en: slot above search result
-    zh-CN: 搜索结果列表上面 slot
+    zh-CN: 搜索结果列表上面 slot，可以用来自定义搜索结果显示区域(results 设为空)
   right:
     en: slot on the right of input
     zh-CN: 输入框右侧 slot
@@ -85,6 +85,11 @@ methods:
     en: make input lost focus
     zh-CN: 手动设置 input 失去焦点，一般用于在 on-submit 事件中实现隐藏手机键盘
 changes:
+  next:
+    en:
+      - '[fix] fix event:on-change fires before compositionend'
+    zh-CN:
+      - '[fix] 修复输入法导致 on-change 事件提前触发'
   v2.6.3:
     en:
       - '[feature] add event:on-blur'
