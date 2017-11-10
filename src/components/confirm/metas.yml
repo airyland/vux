@@ -9,6 +9,12 @@ tags:
     - 消息提示
     - 确认
 extra: |
+
+  <p class="tip">
+   建议参照例子使用 `v-transfer-dom` 将弹窗插入 `body` 节点下，避免组件非 body 子节点导致的各种问题。
+  </p>
+
+
   该组件支持以`plugin`形式调用：
 
   <p class="warning">
@@ -142,6 +148,11 @@ methods:
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
+  next:
+    en:
+      - '[fix] fix hard to get focus on input(thanks to @Sapphire2k)'
+    zh-CN:
+      - '[fix] 修复输入框难以获取 focus 的问题（感谢 @Sapphire2k）'
   v2.6.5:
     en:
       - '[enhance] fix click events trigger twice when clicking fast #2048'
