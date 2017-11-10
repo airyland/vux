@@ -25,6 +25,9 @@
       <cell title="loving">
         <rater v-model="data4" star="♡" active-color="red" :margin="15"></rater>
       </cell>
+      <cell title="Use html">
+        <rater v-model="data41" star="<span>X</span>" active-color="red" :margin="15"></rater>
+      </cell>
       <cell title="Sunshine">
         <rater v-model="data5" star="☼" active-color="#FF9900" :margin="4"></rater>
       </cell>
