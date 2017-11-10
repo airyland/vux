@@ -275,6 +275,17 @@ import { Group, Cell } from 'vux'
 
 #### i18n
 
+<p class="warning">
+请使用正确的 yml 格式。冒号和值之间是有一个空格的，错误的格式将无法生效。
+</p>
+
+``` yml
+on-show:
+  en: emits when popup shows
+  zh-CN: 弹窗显示时触发
+```
+
+
 1. 如果你只是调用中文语言的vux组件，那么你不需要做任何配置。
 
 2. 如果你需要调用英文语言的vux组件，需要配置语言
