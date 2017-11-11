@@ -14,7 +14,7 @@
       <div class="weui-dialog__bd" v-if="!showInput">
         <slot><div v-html="content"></div></slot>
       </div>
-      <div v-else class="vux-prompt">
+      <div v-else class="vux-prompt" @touchstart.prevent="setInputFocus">
         <input class="vux-prompt-msgbox" v-bind="inputAttrs" v-model="msg" :placeholder="placeholder" ref="input"/>
       </div>
       <div class="weui-dialog__ft">
@@ -98,7 +98,7 @@ export default {
           this.msg = ''
           setTimeout(() => {
             if (this.$refs.input) {
-              this.$refs.input.focus()
+              this.setInputFocus()
             }
           }, 300)
         }
@@ -115,6 +115,9 @@ export default {
   methods: {
     setInputValue (val) {
       this.msg = val
+    },
+    setInputFocus () {
+      this.$refs.input.focus()
     },
     _onConfirm () {
       if (!this.showValue) {
