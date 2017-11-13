@@ -46,7 +46,7 @@ props:
     en: font size
     zh-CN: 字体大小
 changes:
-  next:
+  v2.7.3:
     en:
       - '[feature] prop:star support html #2182'
     zh-CN:

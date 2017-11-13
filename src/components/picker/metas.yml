@@ -132,7 +132,7 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
-  next:
+  v2.7.3:
     en:
       - '[enhance] add development tip for chained-mode picker without specifying prop:columns'
     en:
