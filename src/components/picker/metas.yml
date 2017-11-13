@@ -135,7 +135,7 @@ changes:
   v2.7.3:
     en:
       - '[enhance] add development tip for chained-mode picker without specifying prop:columns'
-    en:
+    zh-CN:
       - '[enhance] 渲染出错时提示是否联动数据忘了指定列数'
   v2.7.0:
     en:

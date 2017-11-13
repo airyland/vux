@@ -46,6 +46,9 @@ grid-item:
     label:
       en: '`label` text'
       zh-CN: '`label` 文字'
+    link:
+      en: vue-router's path
+      zh-CN: vue-router 路径
   slots:
     icon:
       en: 'icon slot, use `<img>`'
