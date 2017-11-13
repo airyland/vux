@@ -137,6 +137,11 @@ methods:
     en: render with current value's month
     zh-CN: 渲染当前值所在月份
 changes:
+  next:
+    en:
+      - '[fix] disable-date-function result conflicts with disable-weekend #2189'
+    zh-CN:
+      - '[fix] 修复 disable-date-function 取值与禁用周末逻辑冲突 #2189'
   v2.7.2:
     en:
       - '[fix] fix reset-value issue in multiple mode #2160'

@@ -246,7 +246,7 @@ export default {
         if (typeof value === 'undefined') {
           return disabled
         } else {
-          return disabled || value
+          return value
         }
       }
     },
