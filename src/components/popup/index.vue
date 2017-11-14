@@ -165,6 +165,7 @@ export default {
 
 <style lang="less">
 @import '../../styles/variable.less';
+@import '../../styles/vux-modal.css';
 
 .vux-popup-dialog {
   position: fixed;
@@ -233,11 +234,5 @@ export default {
 
 .vux-popup-animate-top-enter, .vux-popup-animate-top-leave-active {
   transform: translate3d(0, -100%, 0);
-}
-
-.vux-modal-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
 }
 </style>

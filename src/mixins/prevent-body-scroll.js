@@ -1,5 +1,4 @@
 import dom from '../libs/dom'
-import style from './prevent-body-scroll.css.vue' // eslint-disable-line
 
 const BODY_CLASS_NAME = 'vux-modal-open'
 const CONTAINER_CLASS_NAME = 'vux-modal-open-for-container'

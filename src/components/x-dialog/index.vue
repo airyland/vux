@@ -89,4 +89,5 @@ export default {
 @import '../../styles/transition.less';
 @import '../../styles/weui/widget/weui_tips/weui_mask';
 @import '../../styles/weui/widget/weui_tips/weui_dialog';
+@import '../../styles/vux-modal.css';
 </style>
