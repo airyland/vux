@@ -66,6 +66,11 @@ tabbar-item:
       en: emits when tabbar item is clicked
       zh-CN: 点击菜单项时触发
 changes:
+  next:
+    en:
+      - '[enhance] add development tip for position usage'
+    zh-CN:
+      - '[enhance] 开发模式下对于非 100% 布局使用显示 absolute 定位说明'
   v2.5.5:
     en:
       - '[feature] Support replace: true for link #1761'
