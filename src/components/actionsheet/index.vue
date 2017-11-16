@@ -77,7 +77,7 @@ export default {
         this.emitEvent('on-click-menu', key, text)
       } else {
         if (text.type !== 'disabled' && text.type !== 'info') {
-          if (text.value) {
+          if (text.value || text.value === 0) {
             this.emitEvent('on-click-menu', text.value, text)
           } else {
             this.emitEvent('on-click-menu', '', text)
