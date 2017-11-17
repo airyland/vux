@@ -74,6 +74,14 @@ export default {
     }
   },
   methods: {
+    shouldPreventScroll () {
+      // hard to get focus on iOS device with fixed position, so just ignore it
+      const iOS = /iPad|iPhone|iPod/i.test(window.navigator.userAgent)
+      const hasInput = this.$el.querySelector('input') || this.$el.querySelector('textarea')
+      if (iOS && hasInput) {
+        return true
+      }
+    },
     hide () {
       if (this.hideOnBlur) {
         this.$emit('update:show', false)

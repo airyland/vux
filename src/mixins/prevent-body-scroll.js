@@ -16,6 +16,9 @@ export default {
       return ''
     },
     addModalClassName () {
+      if (typeof this.shouldPreventScroll === 'function' && this.shouldPreventScroll()) {
+        return
+      }
       if (this.getLayout() === 'VIEW_BOX') {
         dom.addClass(document.body, BODY_CLASS_NAME)
         dom.addClass(document.querySelector(VUX_VIEW_BOX_ELEMENT), CONTAINER_CLASS_NAME)
