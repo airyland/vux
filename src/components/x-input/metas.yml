@@ -138,6 +138,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[fix] fix ssr DOM not matched issue #2201'
+    zh-CN:
+      - '[fix] 修复服务端渲染 DOM 不一致问题 #2201'
   v2.7.1:
     en:
       - '[fix] fix valid is false when value is zero #2134'
