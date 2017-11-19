@@ -50,12 +50,21 @@ props:
     default: false
     en: 'show loading icon'
     zh-CN: '显示加载图标'
-    
+  gradients:
+    version: next
+    type: Array
+    en: 'iOS design gradients, Array length should be 2'
+    zh-CN: '按钮背景渐变，长度必须为2'
 slots:
   default:
     en: button text
     zh-CN: 按钮文字
 changes:
+  next:
+    en:
+      - '[feature] add prop:gradients for iOS design gradients'
+    zh-CN:
+      - '[feature] 顺应 iOS 设计，支持直接定义背景渐变 prop:gradients'
   v2.7.1:
     en:
       - '[enhance] support object-link #2068'
