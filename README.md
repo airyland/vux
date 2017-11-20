@@ -1,16 +1,16 @@
 <p align="center">
   <a href="http://vux.li">
-    <img src="https://raw.githubusercontent.com/airyland/vux/master/logo.png">
+    <img src="https://i.loli.net/2017/11/20/5a12187ebf2e0.png" width="175">
   </a>
 </p>
 <p align="center">Be Cool with Vue@^2.3.0 and WeUI.</p>
 
 <p align="center">
-  <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
+  <a href="https://vux.li/demos/v2?x-page=github">
     <img src="https://static.vux.li/demo_v2_doc_home.png" width="100" alt="">
   </a>
   <br>
-  <a href="https://vux.li/demos/v2?x-page=v2-doc-home">
+  <a href="https://vux.li/demos/v2?x-page=github">
     Live Demo >>
   </a>
   <br>
@@ -59,12 +59,6 @@
   <br>
 </p>
 
-## Issues
-
-如果你的开源项目从`VUX`得到了灵感或者使用了某些代码，希望能附上`VUX`项目链接。
-
-特别需要帮助的同学请在 segmentfault 上付费提问 [sf](https://segmentfault.com/pay/ask?expert=1030000000091353)，马虎问题同样不会处理。
-
 ## Requirements
 
 + vue@^2.3.0(for .sync modifier)
@@ -78,6 +72,8 @@
 
 ## Quick Start
 
+> vux2 template(https://github.com/airyland/vux2) is directly modified from Vue official webpack template(https://github.com/vuejs-templates/webpack).
+
 ``` bash
 npm install vue-cli -g
 vue init airyland/vux2 projectPath
@@ -88,13 +84,16 @@ npm run dev // or yarn dev
 ```
 
 ## Maintainers
+
 + [airyland](https://github.com/airyland)
 + [lichunqiang](https://github.com/lichunqiang)
 + [graysheeep](https://github.com/graysheeep)
 + [unclay](https://github.com/unclay)
 + [wg5945](https://github.com/wg5945)
++ [Sapphire2k](https://github.com/Sapphire2k)
 
 ## Vux is Inspired or Powered By:
+
 + [Vue](https://github.com/vuejs/vue)
 + [WeUI](https://github.com/weui/weui)
 + [FrozenUI](https://github.com/frozenui/frozenui)
@@ -113,7 +112,7 @@ MIT
 
 ## Donate
 
-It takes much time and energy to maintain and improve this project. If VUX do help you, you may want to buy me a coffee :).
+It takes time to maintain VUX. 
 
 <p align="center">
   <img src="https://i.loli.net/2017/10/26/59f15b02a1739.jpg" width="450">
