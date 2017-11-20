@@ -70,6 +70,13 @@
 + [中文文档](https://vux.li/)
 + English(working)
 
+## Issues 
+
+处理 issue 是件很耗精力的事，请提交 issue 前考虑一下是否把问题说清楚了，是不是在浪费大家时间：
+
+- 任何描述不清楚、代码(拜托请别截图)懒得给出的 issue 将会直接 `关闭`、`锁定`、打上 `yet another bad issue 标签`;
+- 在 issue 下提无关问题会被直接 `删除`;
+
 ## Quick Start
 
 > vux2 template(https://github.com/airyland/vux2) is directly modified from Vue official webpack template(https://github.com/vuejs-templates/webpack).
