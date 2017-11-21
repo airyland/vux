@@ -90,7 +90,7 @@ const directive = {
   },
   unbind: function unbind (el, binding) {
     el.className = el.className.replace('v-transfer-dom', '')
-    if (el.__transferDomData.hasMovedOut === true) {
+    if (el.__transferDomData && el.__transferDomData.hasMovedOut === true) {
       el.__transferDomData.parentNode && el.__transferDomData.parentNode.appendChild(el)
     }
     el.__transferDomData = null
