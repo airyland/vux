@@ -189,10 +189,16 @@ export default {
         onClear (value) {
           _this.$emit('on-clear', value)
         },
-        onHide () {
+        onHide (type) {
           _this.$emit('update:show', false)
           _this.validate()
-          _this.$emit('on-hide')
+          _this.$emit('on-hide', type)
+          if (type === 'cancel') {
+            _this.$emit('on-cancel')
+          }
+          if (type === 'confirm') {
+            _this.$emit('on-confirm')
+          }
         },
         onShow () {
           _this.$emit('update:show', true)

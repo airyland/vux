@@ -6,7 +6,13 @@
     </div>
 
     <group :title="$t('Default format: YYYY-MM-DD')">
-      <datetime v-model="value1" @on-change="change" :title="$t('Birthday')"></datetime>
+      <datetime
+        v-model="value1"
+        @on-change="change"
+        :title="$t('Birthday')"
+        @on-cancel="log('cancel')"
+        @on-confirm="log('confirm')"
+        @on-hide="log('hide', $event)"></datetime>
     </group>
 
     <group :title="$t('Custom minute list: every 15 minutes')">
@@ -219,6 +225,9 @@ export default {
     }
   },
   methods: {
+    log (str1, str2 = '') {
+      console.log(str1, str2)
+    },
     showPlugin () {
       this.$vux.datetime.show({
         cancelText: '取消',

@@ -165,7 +165,28 @@ events:
   on-clear:
     en: $emits when click the button in the middle of the header
     zh-CN: 点击显示在中间的自定义按钮时触发
+  on-show:
+    en: fires when datetime shows
+    zh-CN: 弹窗显示时触发
+  on-hide:
+    params: '`(type)`, type is one of [cancel, confirm]'
+    version: next
+    en: fires when datetime hides
+    zh-CN: 弹窗关闭时触发
+  on-cancel:
+    version: next
+    en: fires when cancel button is clicked or mask is clicked
+    zh-CN: 点击取消按钮或者遮罩时触发，等同于事件 on-hide(cancel)
+  on-confirm:
+    version: next
+    en: fires when confirm button is clicked
+    zh-CN: 点击确定按钮时触发，等同于事件 on-hide(confirm)
 changes:
+  next:
+    en:
+      - '[feature] add event:on-confirm event:on-cancel #2221'
+    zh-CN:
+      - '[feature] 支持事件 on-confirm on-cancel #2221'
   v2.7.2:
     en:
       - '[enhance] set default start-date if end-date is specified but start-date is not #2158'
