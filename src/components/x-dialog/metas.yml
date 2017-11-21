@@ -116,6 +116,11 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
+  next:
+    en:
+      - '[fix] fix position:absolute issue #2220'
+    zh-CN:
+      - '[fix] 修复定位为 absolute 导致的定位问题 #2220'
   v2.7.1:
     en:
       - '[fix] fix prevent-body-scroll.css not found (less-loader issue) #2118'

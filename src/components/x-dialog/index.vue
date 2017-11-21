@@ -1,5 +1,7 @@
 <template>
-  <div class="vux-x-dialog">
+  <div
+    class="vux-x-dialog"
+    :class="{'vux-x-dialog-absolute': layout === 'VIEW_BOX'}">
     <transition :name="maskTransition">
       <div class="weui-mask" @click="hide" v-show="show" :style="maskStyle"></div>
     </transition>
@@ -62,6 +64,13 @@ export default {
       }
     }
   },
+  mounted () {
+    if (typeof window !== 'undefined') {
+      if (window.VUX_CONFIG && window.VUX_CONFIG.$layout === 'VIEW_BOX') {
+        this.layout = 'VIEW_BOX'
+      }
+    }
+  },
   watch: {
     show (val) {
       this.$emit('update:show', val)
@@ -89,6 +98,11 @@ export default {
         this.$emit('on-click-mask')
       }
     }
+  },
+  data () {
+    return {
+      layout: ''
+    }
   }
 }
 </script>
@@ -98,4 +112,8 @@ export default {
 @import '../../styles/weui/widget/weui_tips/weui_mask';
 @import '../../styles/weui/widget/weui_tips/weui_dialog';
 @import '../../styles/vux-modal.css';
+
+.vux-x-dialog-absolute .weui-dialog {
+  position: absolute
+}
 </style>

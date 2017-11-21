@@ -1,13 +1,13 @@
 <template>
   <div class="vux-confirm">
     <x-dialog
-    v-model="showValue"
-    :dialogClass="theme === 'android' ? 'weui-dialog weui-skin_android' : 'weui-dialog'"
-    :mask-transition="maskTransition"
-    :dialog-transition="theme === 'android' ? 'vux-fade' : dialogTransition"
-    :hide-on-blur="hideOnBlur"
-    :mask-z-index="maskZIndex"
-    @on-hide="$emit('on-hide')">
+      v-model="showValue"
+      :dialogClass="theme === 'android' ? 'weui-dialog weui-skin_android' : 'weui-dialog'"
+      :mask-transition="maskTransition"
+      :dialog-transition="theme === 'android' ? 'vux-fade' : dialogTransition"
+      :hide-on-blur="hideOnBlur"
+      :mask-z-index="maskZIndex"
+      @on-hide="$emit('on-hide')">
       <div class="weui-dialog__hd" v-if="!!title">
         <strong class="weui-dialog__title">{{ title }}</strong>
       </div>
@@ -143,10 +143,6 @@ export default {
 @import '../../styles/transition.less';
 @import '../../styles/weui/widget/weui_tips/weui_mask';
 @import '../../styles/weui/widget/weui_tips/weui_dialog';
-
-.vux-confirm .weui-dialog{
-  position: absolute;
-}
 
 .vux-prompt {
   padding-bottom: 1.6em;
