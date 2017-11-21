@@ -36,6 +36,12 @@ extra:
     <x-icon type="ios-arrow-up" class="icon-red"></x-icon>
     <x-icon type="ios-arrow-up" size="30"></x-icon>
     ```
+
+    <p class="warning">
+     x-icon 无法动态设置 `type`，只能单个引入，原因是 x-icon 组件主要目的是实现按需引入图标。
+     <br>
+     若要实现动态切换那么也意味着整个 icon 列表都得引入，因此暂时不支持。
+    </p>
 props:
   type:
     en: icon name
