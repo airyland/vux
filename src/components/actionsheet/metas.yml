@@ -131,7 +131,7 @@ events:
     en: triggers when clicking on mask
     zh-CN: 点击遮罩时触发
 changes:
-  next:
+  v2.7.4:
     en:
       - '[fix] fix wrong event param when value is zero #2209'
     zh-CN:

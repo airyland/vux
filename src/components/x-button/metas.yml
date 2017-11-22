@@ -51,7 +51,7 @@ props:
     en: 'show loading icon'
     zh-CN: '显示加载图标'
   gradients:
-    version: next
+    version: v2.7.4
     type: Array
     en: 'iOS design gradients, Array length should be 2'
     zh-CN: '按钮背景渐变，长度必须为2'
@@ -60,7 +60,7 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
-  next:
+  v2.7.4:
     en:
       - '[feature] add prop:gradients for iOS design gradients'
     zh-CN:

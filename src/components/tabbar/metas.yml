@@ -66,7 +66,7 @@ tabbar-item:
       en: emits when tabbar item is clicked
       zh-CN: 点击菜单项时触发
 changes:
-  next:
+  v2.7.4:
     en:
       - '[enhance] add development tip for position usage'
     zh-CN:

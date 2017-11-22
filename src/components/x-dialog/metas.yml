@@ -116,7 +116,7 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
-  next:
+  v2.7.4:
     en:
       - '[fix] fix position:absolute issue #2220'
     zh-CN:
