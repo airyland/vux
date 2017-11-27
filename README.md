@@ -120,7 +120,3 @@ MIT
 ## Donate
 
 It takes time to maintain VUX. 
-
-<p align="center">
-  <img src="https://i.loli.net/2017/10/26/59f15b02a1739.jpg" width="450">
-</p>

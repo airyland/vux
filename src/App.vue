@@ -63,10 +63,6 @@
             <span class="demo-icon-22" slot="icon">&#xe633;</span>
             <span slot="label"><span v-if="componentName" class="vux-demo-tabbar-component">{{componentName}}</span><span v-else>Demos</span></span>
           </tabbar-item>
-          <tabbar-item :link="{path:'/project/donate'}" :selected="route.path === '/project/donate'" show-dot>
-            <span class="demo-icon-22" slot="icon">&#xe630;</span>
-            <span slot="label">Donate</span>
-          </tabbar-item>
         </tabbar>
 
       </view-box>

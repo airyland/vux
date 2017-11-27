@@ -12,12 +12,6 @@
       <cell title="Live Demo" link="/demo">
         <span class="demo-icon" slot="icon" style="color:#F70968">&#xe633;</span>
       </cell>
-    </group>
-    <group>
-      <cell title="Buy me a coffee" link="project/donate">
-        <span class="demo-icon" slot="icon" style="color:red;">&#xe630;</span>
-        <badge text="donate"></badge>
-      </cell>
       <cell title="Github" link="http://github.com/airyland/vux" value="Star me">
         <span class="demo-icon" slot="icon" style="color:#35495e;">&#xe62f;</span>
       </cell>
