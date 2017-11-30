@@ -50,7 +50,7 @@
         <!-- remember to import BusPlugin in main.js if you use components: x-img and sticky -->
         <transition
         @after-enter="$vux.bus && $vux.bus.$emit('vux:after-view-enter')"
-        :name="viewTransition">
+        :name="viewTransition" :css="!!direction">
           <router-view class="router-view"></router-view>
         </transition>
 
