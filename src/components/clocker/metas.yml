@@ -28,3 +28,9 @@ slots:
   default:
     en: if specified, will be the format for the result
     zh-CN: 若存在，则作为最终显示出来的格式模板
+changes:
+  next:
+    en:
+      - '[fix] fix this.clocker maybe undefined on hook:beforeDestroy #2258'
+    zh-CN:
+      - '[fix] 修复 beforeDestroy 调用时 this.clocker 不存在 #2258'

@@ -81,8 +81,10 @@ export default {
     }
   },
   beforeDestroy () {
-    this.clocker.remove()
-    this.clocker = null
+    if (this.clocker) {
+      this.clocker.remove()
+      this.clocker = null
+    }
   }
 }
 </script>
