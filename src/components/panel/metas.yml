@@ -27,6 +27,11 @@ events:
     en: emits when clicking footer
     zh-CN: 点击尾部时触发
 changes:
+  next:
+    en:
+      - '[fix] remove duplicate top border'
+    zh-CN:
+      - '[fix] 移除重复顶部边框样式'
   v2.6.0:
     en:
       - '[enhance] support list prop:fallbackSrc #1923'

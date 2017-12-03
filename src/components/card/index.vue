@@ -36,8 +36,4 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 @import '../../styles/weui/widget/weui_cell/weui_access';
 @import '../../styles/weui/widget/weui_panel/weui_panel';
-
-.weui-panel .weui-cell:first-child:before {
-  display: block;
-}
 </style>

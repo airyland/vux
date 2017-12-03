@@ -121,8 +121,4 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_access';
 @import '../../styles/weui/widget/weui_panel/weui_panel';
 @import '../../styles/weui/widget/weui_media_box/weui_media_box';
-
-.weui-panel .weui-cell:first-child:before {
-  display: block;
-}
 </style>
