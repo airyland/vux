@@ -30,8 +30,10 @@ changes:
   next:
     en:
       - '[fix] remove duplicate top border'
+      - '[feature] add slot:header slot:body #2270'
     zh-CN:
       - '[fix] 移除重复顶部边框样式'
+      - '[feature] 添加 slot:header slot:body #2270'
   v2.6.0:
     en:
       - '[enhance] support list prop:fallbackSrc #1923'
