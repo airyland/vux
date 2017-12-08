@@ -54,11 +54,12 @@ export default {
     classes () {
       return [
         {
-          'weui-btn_disabled': this.disabled,
+          'weui-btn_disabled': !this.plain && this.disabled,
+          'weui-btn_plain-disabled': this.plain && this.disabled,
           'weui-btn_mini': this.mini,
           'vux-x-button-no-border': this.noBorder
         },
-        `weui-btn_${this.type}`,
+        !this.plain ? `weui-btn_${this.type}` : '',
         this.plain ? `weui-btn_plain-${this.type}` : '',
         this.showLoading ? `weui-btn_loading` : ''
       ]

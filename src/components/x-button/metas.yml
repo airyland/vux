@@ -7,11 +7,11 @@ tags:
     - 表单
     - 按钮
 extra: |
- 
+
  <p class="warning">
   按照`Vue`[文档](https://cn.vuejs.org/v2/guide/components.html#使用-v-on-绑定自定义事件)，在组件上绑定点击事件请使用`@click.native`。
  </p>
- 
+
 props:
   type:
     type: String
@@ -60,6 +60,11 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
+  next:
+    en:
+      - '[fix] fix plain and disabled class error'
+    zh-CN:
+      - '[fix] 修复plain样式并禁用时class不对的问题'
   v2.7.4:
     en:
       - '[feature] add prop:gradients for iOS design gradients'
