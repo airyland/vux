@@ -2,7 +2,7 @@
   <div class="vux-confirm">
     <x-dialog
       v-model="showValue"
-      :dialogClass="theme === 'android' ? 'weui-dialog weui-skin_android' : 'weui-dialog'"
+      :dialog-class="theme === 'android' ? 'weui-dialog weui-skin_android' : 'weui-dialog'"
       :mask-transition="maskTransition"
       :dialog-transition="theme === 'android' ? 'vux-fade' : dialogTransition"
       :hide-on-blur="hideOnBlur"
