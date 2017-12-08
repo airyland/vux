@@ -62,9 +62,9 @@ slots:
 changes:
   next:
     en:
-      - '[fix] fix plain and disabled class error
+      - '[fix] fix plain and disabled class error'
     zh-CN:
-      - '[fix] 修复plain样式并禁用时class不对的问题
+      - '[fix] 修复plain样式并禁用时class不对的问题'
   v2.7.4:
     en:
       - '[feature] add prop:gradients for iOS design gradients'
