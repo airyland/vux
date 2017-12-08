@@ -48,6 +48,13 @@
       <x-button type="primary" disabled>disable primary</x-button>
       <x-button type="warn" disabled>disable Delete</x-button>
 
+      <x-button mini disabled>disable mini submit</x-button>
+      <x-button mini type="primary" disabled>disable mini primary</x-button>
+      <x-button mini type="warn" disabled>disable mini Delete</x-button>
+
+      <x-button plain disabled>disable plain</x-button>
+      <x-button plain type="primary" disabled>disable plain primary</x-button>
+
       <divider>use :text and :disabled</divider>
       <x-button :text="submit001" :disabled="disable001" @click.native="processButton001" type="primary"></x-button>
 
