@@ -60,7 +60,7 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
-  next:
+  v2.7.5:
     en:
       - '[fix] fix plain and disabled class error'
     zh-CN:

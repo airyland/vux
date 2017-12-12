@@ -27,7 +27,7 @@ events:
     en: emits when clicking footer
     zh-CN: 点击尾部时触发
 changes:
-  next:
+  v2.7.5:
     en:
       - '[fix] remove duplicate top border'
       - '[feature] add slot:header slot:body #2270'

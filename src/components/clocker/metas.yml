@@ -29,7 +29,7 @@ slots:
     en: if specified, will be the format for the result
     zh-CN: 若存在，则作为最终显示出来的格式模板
 changes:
-  next:
+  v2.7.5:
     en:
       - '[fix] fix this.clocker maybe undefined on hook:beforeDestroy #2258'
     zh-CN:
