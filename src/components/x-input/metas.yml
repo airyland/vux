@@ -138,6 +138,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[feature] add disabled class #2279'
+    zh-CN:
+      - '[feature] 增加disabled样式 #2279'
   v2.7.4:
     en:
       - '[fix] fix ssr DOM not matched issue #2201'

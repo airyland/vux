@@ -1,5 +1,5 @@
 <template>
-	<div class="vux-x-input weui-cell" :class="{'weui-cell_warn': showWarn}">
+	<div class="vux-x-input weui-cell" :class="{'weui-cell_warn': showWarn, 'disabled': disabled}">
     <div class="weui-cell__hd">
       <div :style="labelStyles" v-if="hasRestrictedLabel">
         <slot name="restricted-label"></slot>
@@ -531,5 +531,8 @@ export default {
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
+}
+.vux-x-input.disabled {
+  color: rgba(0, 0, 0, 0.3);
 }
 </style>
