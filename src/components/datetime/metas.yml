@@ -2,10 +2,13 @@ icon: '&#xe60a;'
 extra: |
   <p class="tip">
   需要在`Group`组件里使用
-  <br>
-  以 plugin 形式使用时，请在入口处引入： 
-
-  ``` js
+  </p>
+  
+  
+  该组件支持以`plugin`形式调用：
+  
+  ```
+  // 以 plugin 形式使用时，请在入口处引入： 
   import { DatetimePlugin } from 'vux'
   Vue.use(DatetimePlugin)
 
@@ -22,7 +25,7 @@ extra: |
 
   this.$vux.datetime.hide()
   ```
-  </p>
+  
 tags:
   en:
     - date
