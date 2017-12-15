@@ -118,6 +118,11 @@ events:
     params: '(data, index)'
     en: fires when render month is changed
     zh-CN: 渲染月份变化时触发。初始化时会触发一次，如果不希望处理初始化时的触发，可以检查第二个参数是否为 0
+  on-select-single-date:
+    version: next
+    params: '(currentValue)'
+    en: fires when date is selected in radio mode
+    zh-CN: 单选模式下选中日期时触发
 methods:
   getDates:
     version: v2.5.11
@@ -137,6 +142,11 @@ methods:
     en: render with current value's month
     zh-CN: 渲染当前值所在月份
 changes:
+  next:
+    en:
+      - '[feature] add event:on-select-single-date'
+    zh-CN:
+      - '[feature] 添加事件 on-select-single-date'
   v2.7.3:
     en:
       - '[fix] disable-date-function result conflicts with disable-weekend #2189'
