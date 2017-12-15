@@ -10,41 +10,42 @@
     </cell>
     <div v-transfer-dom="shouldTransferDom">
       <popup
-      v-model="show"
-      @on-show="onPopupShow"
-      @on-hide="onPopupHide">
+        v-model="show"
+        @on-show="onPopupShow"
+        @on-hide="onPopupHide">
 
         <popup-header
-        v-if="shouldConfirm"
-        @on-click-left="onClickLeft"
-        @on-click-right="onClickRight"
-        :title="popupHeaderTitle"
-        :left-text="$t('cancel_text')"
-        :right-text="$t('confirm_text')"></popup-header>
+          v-if="shouldConfirm"
+          @on-click-left="onClickLeft"
+          @on-click-right="onClickRight"
+          :title="popupHeaderTitle"
+          :left-text="$t('cancel_text')"
+          :right-text="$t('confirm_text')"></popup-header>
 
         <slot name="popup-before-calendar"></slot>
 
         <inline-calendar
-        v-model="currentValue"
-        @on-change="onCalendarValueChange"
-        :render-month="renderMonth"
-        :start-date="startDate"
-        :end-date="endDate"
-        :show-last-month="showLastMonth"
-        :show-next-month="showNextMonth"
-        :highlight-weekend="highlightWeekend"
-        :return-six-rows="returnSixRows"
-        :hide-header="hideHeader"
-        :hide-week-list="hideWeekList"
-        :replace-text-list="replaceTextList"
-        :weeks-list="weeksList"
-        :render-function="renderFunction"
-        :render-on-value-change="renderOnValueChange"
-        :disable-past="disablePast"
-        :disable-future="disableFuture"
-        :marks="marks"
-        :disable-weekend="disableWeekend"
-        :disable-date-function="disableDateFunction"
+          v-model="currentValue"
+          @on-change="onCalendarValueChange"
+          @on-select-single-date="onSelectSingleDate"
+          :render-month="renderMonth"
+          :start-date="startDate"
+          :end-date="endDate"
+          :show-last-month="showLastMonth"
+          :show-next-month="showNextMonth"
+          :highlight-weekend="highlightWeekend"
+          :return-six-rows="returnSixRows"
+          :hide-header="hideHeader"
+          :hide-week-list="hideWeekList"
+          :replace-text-list="replaceTextList"
+          :weeks-list="weeksList"
+          :render-function="renderFunction"
+          :render-on-value-change="renderOnValueChange"
+          :disable-past="disablePast"
+          :disable-future="disableFuture"
+          :marks="marks"
+          :disable-weekend="disableWeekend"
+          :disable-date-function="disableDateFunction"
         ></inline-calendar>
 
       </popup>
@@ -177,6 +178,11 @@ export default {
       if (!this.shouldConfirm) {
         this.show = false
         this.$emit('input', pure(val))
+      }
+    },
+    onSelectSingleDate () {
+      if (!this.shouldConfirm) {
+        this.show = false
       }
     }
   },

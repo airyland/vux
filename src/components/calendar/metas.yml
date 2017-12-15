@@ -90,6 +90,11 @@ events:
     en: emits when popup hides
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[fix] fix no hiding after selecting the same value #2306'
+    zh-CN:
+      - '[fix] 修复选中同个日期时无法自动关闭的问题 #2306'
   v2.7.2:
     en:
       - '[feature] add prop:readonly #2178'
