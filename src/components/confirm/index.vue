@@ -11,15 +11,17 @@
       <div class="weui-dialog__hd" v-if="!!title">
         <strong class="weui-dialog__title">{{ title }}</strong>
       </div>
-      <div class="weui-dialog__bd" v-if="!showInput">
-        <slot><div v-html="content"></div></slot>
-      </div>
-      <div v-else class="vux-prompt" @touchstart.prevent="setInputFocus">
-        <input class="vux-prompt-msgbox" v-bind="inputAttrs" v-model="msg" :placeholder="placeholder" ref="input"/>
-      </div>
+      <template v-if="showContent">
+        <div class="weui-dialog__bd" v-if="!showInput">
+          <slot><div v-html="content"></div></slot>
+        </div>
+        <div v-else class="vux-prompt" @touchstart.prevent="setInputFocus">
+          <input class="vux-prompt-msgbox" v-bind="inputAttrs" v-model="msg" :placeholder="placeholder" ref="input"/>
+        </div>
+      </template>
       <div class="weui-dialog__ft">
         <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" @click="_onCancel">{{cancelText || $t('cancel_text')}}</a>
-        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" @click="_onConfirm">{{confirmText || $t('confirm_text')}}</a>
+        <a href="javascript:;" class="weui-dialog__btn" :class="`weui-dialog__btn_${confirmType}`" @click="_onConfirm">{{confirmText || $t('confirm_text')}}</a>
       </div>
     </x-dialog>
   </div>
@@ -79,7 +81,15 @@ export default {
       type: Boolean,
       default: true
     },
-    inputAttrs: Object
+    inputAttrs: Object,
+    showContent: {
+      type: Boolean,
+      default: true
+    },
+    confirmType: {
+      type: String,
+      default: 'primary'
+    }
   },
   created () {
     this.showValue = this.show
