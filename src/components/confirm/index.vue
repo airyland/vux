@@ -8,7 +8,7 @@
       :hide-on-blur="hideOnBlur"
       :mask-z-index="maskZIndex"
       @on-hide="$emit('on-hide')">
-      <div class="weui-dialog__hd" v-if="!!title">
+      <div class="weui-dialog__hd" v-if="!!title" :class="{'with-no-content': !showContent}">
         <strong class="weui-dialog__title">{{ title }}</strong>
       </div>
       <template v-if="showContent">
