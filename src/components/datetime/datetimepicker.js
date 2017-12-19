@@ -239,7 +239,9 @@ DatetimePicker.prototype = {
         }
 
         self[type + 'Scroller'] = renderScroller(div, data, trimZero(newValueMap[type]), function (currentValue) {
-          config.onSelect.call(self, type, currentValue, self.getValue())
+          setTimeout(function () {
+            config.onSelect.call(self, type, currentValue, self.getValue())
+          }, 0)
           if (type === 'year' || type === 'month' || type === 'day') {
             self.hourScroller && self._setHourScroller(self.yearScroller.value, self.monthScroller.value, self.dayScroller.value, self.hourScroller.value)
           }
