@@ -35,6 +35,7 @@ export default {
   height: 200%;
   transform-origin: left top;
   transform: scale(0.5);
+  z-index: 1;
 }
 
 .setLineWithoutLeft(@c: #C7C7C7) {
@@ -52,6 +53,8 @@ export default {
   height: 200%;
   transform-origin: left top;
   transform: scale(0.5);
+  /* #2322 */
+  z-index: 1;
 }
 
 .setLineMiddle(@c: #C7C7C7) {
@@ -69,6 +72,7 @@ export default {
   height: 200%;
   transform-origin: left top;
   transform: scale(0.5);
+  z-index: 1;
 }
 
 .vux-button-group {
