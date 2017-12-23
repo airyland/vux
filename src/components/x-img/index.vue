@@ -65,7 +65,7 @@ export default {
     successClass: String,
     offset: {
       type: Number,
-      defaut: 100
+      default: 100
     },
     scroller: Object,
     container: String,
