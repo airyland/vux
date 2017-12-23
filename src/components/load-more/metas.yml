@@ -11,10 +11,16 @@ props:
   background-color:
     type: String
     default: '#ffffff'
-    en: background color. Recommend to use @load-more-tip-background-color for global 
+    en: background color. Recommend to use @load-more-tip-background-color for global
     zh-CN: 背景颜色，需要配置以让文字与背景完全融合。推荐通过设置 less 变量 @load-more-tip-background-color 全局修改
 changes:
+  next:
+    en:
   v2.6.0:
+    en:
+      - '[fix] fix `tip` is empty and `show-loading` is `false`, the background color is not correct'
+    zh-CN:
+      - '[fix] 修复 `tip` 为空，且 `show-loading` 为 `false` 时背景颜色不对的问题 '
     en:
       - '[feature] support less variable @load-more-tip-background-color'
     zh-CN:
