@@ -8,14 +8,12 @@ props:
   tip:
     en: tip text. Show dot if there is no text and loading icon
     zh-CN: 提示文字，如果没有显示图标也没有显示文字，则显示点
-  background-color:
-    type: String
-    default: '#ffffff'
-    en: background color. Recommend to use @load-more-tip-background-color for global
-    zh-CN: 背景颜色，需要配置以让文字与背景完全融合。推荐通过设置 less 变量 @load-more-tip-background-color 全局修改
 changes:
   next:
     en:
+      - '[feature] don't need to set the `background-color`'
+    zh-CN:
+      - '[feature] 不再需要设置 `background-color`'
   v2.6.0:
     en:
       - '[fix] fix `tip` is empty and `show-loading` is `false`, the background color is not correct'
