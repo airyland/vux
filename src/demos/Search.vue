@@ -12,6 +12,10 @@
     @on-cancel="onCancel"
     @on-submit="onSubmit"
     ref="search"></search>
+    <group>
+      <cell title="keyword">{{value}}</cell>
+    </group>
+
     <div style="padding:15px;">
       <x-button @click.native="setFocus" type="primary">set focus</x-button>
     </div>
