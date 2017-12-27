@@ -85,7 +85,7 @@ methods:
     en: make input lost focus
     zh-CN: 手动设置 input 失去焦点，一般用于在 on-submit 事件中实现隐藏手机键盘
 changes:
-  next:
+  2.7.6:
     en:
       - '[fix] fix not emit on-change and input events when cancel or clear'
     zh-CN:

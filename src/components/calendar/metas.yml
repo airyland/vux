@@ -90,7 +90,7 @@ events:
     en: emits when popup hides
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  2.7.6:
     en:
       - '[fix] fix no hiding after selecting the same value #2306'
     zh-CN:

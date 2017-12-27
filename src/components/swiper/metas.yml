@@ -118,7 +118,7 @@ events:
     en: fires after height is caculated
     zh-CN: 高度获取后触发
 changes:
-  next:
+  2.7.6:
     en:
       - '[enhance] stop moving width one item'
     zh-CN:

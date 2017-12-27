@@ -9,7 +9,7 @@ props:
     en: tip text. Show dot if there is no text and loading icon
     zh-CN: 提示文字，如果没有显示图标也没有显示文字，则显示点
 changes:
-  next:
+  2.7.6:
     en:
       - '[feature] don't need to set the `background-color`'
     zh-CN:
