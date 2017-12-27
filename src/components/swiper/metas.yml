@@ -118,6 +118,11 @@ events:
     en: fires after height is caculated
     zh-CN: 高度获取后触发
 changes:
+  next:
+    en:
+      - '[enhance] stop moving width one item'
+    zh-CN:
+      - '[enhance] 只有一张图片时阻止滑动跟随'
   v2.7.0:
     en:
       - '[enhance] set shorter distance for first and last item for better experience'

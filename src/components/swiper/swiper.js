@@ -147,6 +147,9 @@ class Swiper {
       me._setTransition('none')
     }
     me.touchmoveHandler = (e) => {
+      if (me.count === 1) {
+        return e.preventDefault()
+      }
       me._move.x = e.changedTouches[0].pageX
       me._move.y = e.changedTouches[0].pageY
       let distanceX = me._move.x - me._start.x
