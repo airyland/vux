@@ -140,6 +140,11 @@ methods:
 changes:
   next:
     en:
+      - '[fix] Fix error message not change bugs #2348'
+    zh-CN:
+      - '[fix] 修复报错信息不会改变的问题 #2348'
+  2.7.6:
+    en:
       - '[feature] add disabled class #2279'
     zh-CN:
       - '[feature] 增加disabled样式 #2279'

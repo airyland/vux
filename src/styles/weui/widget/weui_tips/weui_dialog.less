@@ -16,6 +16,9 @@
 }
 .weui-dialog__hd {
     padding: 1.3em @weuiDialogGapWidth .5em;
+    &.with-no-content {
+      padding: 1.7em @weuiDialogGapWidth;
+    }
 }
 .weui-dialog__title {
     font-weight: 400;
@@ -70,6 +73,9 @@
 }
 .weui-dialog__btn_primary {
     color: @dialog-button-text-primary-color;
+}
+.weui-dialog__btn_warn {
+    color: @dialog-button-text-warn-color;
 }
 
 .weui-skin_android{

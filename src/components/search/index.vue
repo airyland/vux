@@ -146,6 +146,7 @@ export default {
     },
     clear () {
       this.currentValue = ''
+      this.emitEvent()
       this.isFocus = true
       this.setFocus()
       if (this.autoFixed && !this.isFixed) {
@@ -155,6 +156,7 @@ export default {
     cancel () {
       this.isCancel = true
       this.currentValue = ''
+      this.emitEvent()
       this.isFixed = false
       this.$emit('on-cancel')
     },

@@ -36,7 +36,7 @@ button-tab-item:
       en: emits when item is clicked
       zh-CN: 当前按钮点击时触发
 changes:
-  next:
+  2.7.6:
     en:
       - '[fix] fix border disappear bug #2322'
     zh-CN:
