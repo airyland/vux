@@ -8,5 +8,6 @@ export default {
     } else {
       Vue.$vux.bus = bus
     }
+    Vue.prototype.$vux=Vue.$vux
   }
 }
