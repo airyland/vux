@@ -21,6 +21,9 @@ extra: |
  // 或者umd方式
  // 引入构建的js文件
  Vue.use(vuxToastPlugin)
+
+ // 默认参数
+ Vue.use(ToastPlugin, {position: 'top'})
  ```
 
  ``` js
@@ -31,7 +34,7 @@ extra: |
 
  // 显示文字
  this.$vux.toast.text('hello', 'top')
- 
+
  // 隐藏
  this.$vux.toast.hide()
  ```
@@ -85,6 +88,11 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
+  next:
+    en:
+      - '[fix] plugin options is used as toast default options'
+    zh-CN:
+      - '[fix] 插件 options 参数作为toast的默认参数'
   v2.6.3:
     en:
       - '[fix] fix no padding when using slot and type === text'
