@@ -248,10 +248,9 @@ export default {
 .vux-cell-box {
   position: relative;
 }
-.vux-cell-box:before {
+.vux-cell-box:not(:first-child):before {
   content: " ";
   position: absolute;
-  left: 0;
   top: 0;
   width: 100%;
   height: 1px;
