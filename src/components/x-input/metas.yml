@@ -138,7 +138,7 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
-  next:
+  v2.7.7:
     en:
       - '[fix] Fix error message not change bugs #2348'
     zh-CN:

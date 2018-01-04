@@ -90,7 +90,7 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
-  next:
+  v2.7.7:
     en:
       - '[fix] remove the first top line #2371'
     zh-CN:

@@ -88,7 +88,7 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
-  next:
+  v2.7.7:
     en:
       - '[fix] plugin options is used as toast default options'
     zh-CN:

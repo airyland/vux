@@ -118,7 +118,7 @@ events:
     en: fires after height is caculated
     zh-CN: 高度获取后触发
 changes:
-  next:
+  v2.7.7:
     en:
       - '[fix] fix cannot scroll body when touching with one item'
     zh-CN:
