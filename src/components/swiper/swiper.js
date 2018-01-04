@@ -148,7 +148,7 @@ class Swiper {
     }
     me.touchmoveHandler = (e) => {
       if (me.count === 1) {
-        return e.preventDefault()
+        return
       }
       me._move.x = e.changedTouches[0].pageX
       me._move.y = e.changedTouches[0].pageY
@@ -171,6 +171,9 @@ class Swiper {
     }
 
     me.touchendHandler = (e) => {
+      if (me.count === 1) {
+        return 
+      }
       me._end.x = e.changedTouches[0].pageX
       me._end.y = e.changedTouches[0].pageY
 
