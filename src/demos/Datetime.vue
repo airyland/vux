@@ -18,6 +18,9 @@
     <group :title="$t('Custom minute list: every 15 minutes')">
       <datetime v-model="minuteListValue" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']" @on-change="change" :title="$t('Birthday')"></datetime>
     </group>
+    <group :title="$t('Custom month list')">
+      <datetime v-model="monthListValue" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']" :monthList="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']" @on-change="change" :title="$t('Birthday')"></datetime>
+    </group>
 
     <group :title="$t('Custom hour list')">
       <datetime v-model="hourListValue" format="YYYY-MM-DD HH:mm" :hour-list="['09', '10', '11', '12', '13', '14', '15', '16']" :minute-list="['00', '15', '30', '45']" @on-change="change" :title="$t('Birthday')"></datetime>
@@ -156,6 +159,8 @@ Toggle format:
   zh-CN: 自定义分钟列表（每15分钟）
 Custom hour list:
   zh-CN: 定义小时列表
+Custom month list:
+  zh-CN: 自定义月份列表
 'Use prop: show.sync (vue^2.3) to control visibility':
   zh-CN: '使用 prop: show.sync 控制显示(vue^2.3)'
 Used as a plugin:
@@ -188,6 +193,7 @@ export default {
       readonly: true,
       minuteListValue: '2017-06-12 09:00',
       hourListValue: '2017-06-12 09:00',
+      monthListValue: '',
       format: 'YYYY-MM-DD HH:mm',
       value1: '2015-11-12',
       valueReadonly: '2015-11-12',
