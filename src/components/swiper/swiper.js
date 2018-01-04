@@ -172,7 +172,7 @@ class Swiper {
 
     me.touchendHandler = (e) => {
       if (me.count === 1) {
-        return 
+        return
       }
       me._end.x = e.changedTouches[0].pageX
       me._end.y = e.changedTouches[0].pageY
