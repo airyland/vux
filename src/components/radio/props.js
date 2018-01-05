@@ -20,6 +20,7 @@ export default function () {
       default: '其他'
     },
     disabled: Boolean,
-    selectedLabelStyle: Object
+    selectedLabelStyle: Object,
+    customizeData: Object
   }
 }
