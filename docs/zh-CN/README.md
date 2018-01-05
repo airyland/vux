@@ -91,7 +91,7 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 
 > 如果你的产品在使用`VUX`, 欢迎邮箱发送`Logo+链接`给我（统一格式：二维码必须无白边框）。
 
-<img src="https://static.vux.li/showcase/ssy.png" width="150">
+<img src="https://i.loli.net/2018/01/05/5a4f263859763.jpg" width="150">
 <img src="https://static.vux.li/showcase/jkda51.png?v2" width="150">
 <img src="https://static.vux.li/showcase/voez.png?v2" width="150">
 <img src="https://static.vux.li/showcase/xmb.png?v2" width="150">
