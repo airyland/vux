@@ -1,6 +1,6 @@
 <template>
   <div class="weui-cells_radio" :class="disabled ? 'vux-radio-disabled' : ''">
-    <label class="weui-cell weui-cell_radio weui-check__label" :for="`radio_${uuid}_${index}`" v-for="(one, index) in options" :key="one.key">
+    <label class="weui-cell weui-cell_radio weui-check__label" :for="`radio_${uuid}_${index}`" v-for="(one, index) in options" :key="getKey(one)">
       <div class="weui-cell__bd">
         <slot name="each-item" :icon="one.icon" :label="getValue(one)" :index="index" :selected="currentValue === getKey(one)">
           <p>
