@@ -205,6 +205,11 @@ events:
     en: fires when confirm button is clicked
     zh-CN: 点击确定按钮时触发，等同于事件 on-hide(confirm)
 changes:
+  next:
+    en:
+      - '[feature] add prop monthList, eg: :monthList = ["Jan", "Feb" ..]'
+    zh-CN:
+      - '加入 monthList属性，自定义月份显示， eg: :monthList = ["Jan", "Feb" ..]'
   2.7.6:
     en:
       - '[fix] column value use number type, fix binding value is not equal to datetimepicker value #2296'

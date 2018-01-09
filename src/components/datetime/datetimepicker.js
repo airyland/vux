@@ -48,6 +48,7 @@ const DEFAULT_CONFIG = {
   maxYear: 2030,
   minHour: 0,
   maxHour: 23,
+  monthList: null,
   hourList: null,
   minuteList: null,
   startDate: null,
@@ -365,6 +366,14 @@ DatetimePicker.prototype = {
       data.push({
         name: name,
         value: i
+      })
+    }
+    if (type === 'month' && this.config.monthList) {
+      data = this.config.monthList.map((month, index) => {
+        return {
+          name: month,
+          value: index + 1
+        }
       })
     }
     if (type === 'hour' && this.config.hourList) {
