@@ -90,6 +90,13 @@ slots:
     en: custom how to display each item
     zh-CN: 自定义如何显示每一项
 changes:
+next:
+    en:
+      - '[fix] Repair radio component v-for data, the lack of key attributes led to the editor prompt error phenomenon'
+      - '[feature] Add attribute prop: customizedata to support In some cases, use the user-defined data set directly in the change '
+    zh-CN:
+      - '[fix] 修复 radio组件 v-for 数据,缺少 key 属性 导致编辑器提示错误现象'
+      - '[feature] 添加属性 prop:customizeData 来支持某些情况下，在change事件中直接使用用户自定义数据集合'
   v2.4.0:
     en:
       - '[feature] Add prop:selected-label-style'
