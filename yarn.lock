@@ -7195,10 +7195,6 @@ websocket-extensions@>=0.1.1:
   version "0.1.1"
   resolved "http://registry.npm.taobao.org/websocket-extensions/download/websocket-extensions-0.1.1.tgz#76899499c184b6ef754377c2dbb0cd6cb55d29e7"
 
-weixin-js-sdk@^1.2.0:
-  version "1.2.0"
-  resolved "http://registry.npm.taobao.org/weixin-js-sdk/download/weixin-js-sdk-1.2.0.tgz#5132949eb65b3d4e5f3e052bd3b6b10abdf47d55"
-
 whatwg-url-compat@~0.6.5:
   version "0.6.5"
   resolved "http://registry.npm.taobao.org/whatwg-url-compat/download/whatwg-url-compat-0.6.5.tgz#00898111af689bb097541cd5a45ca6c8798445bf"
