@@ -3,12 +3,12 @@ extra: |
   <p class="tip">
   需要在`Group`组件里使用
   </p>
-  
-  
+
+
   该组件支持以`plugin`形式调用：
-  
+
   ```
-  // 以 plugin 形式使用时，请在入口处引入： 
+  // 以 plugin 形式使用时，请在入口处引入：
   import { DatetimePlugin } from 'vux'
   Vue.use(DatetimePlugin)
 
@@ -25,7 +25,7 @@ extra: |
 
   this.$vux.datetime.hide()
   ```
-  
+
 tags:
   en:
     - date
@@ -205,6 +205,11 @@ events:
     en: fires when confirm button is clicked
     zh-CN: 点击确定按钮时触发，等同于事件 on-hide(confirm)
 changes:
+  next:
+    en:
+      - '[fix] fix `on-hide` event trigger twice #2379'
+    zh-CN:
+      - '[fix] 修复 `on-hide` 事件触发两次的问题 #2379'
   2.7.6:
     en:
       - '[fix] column value use number type, fix binding value is not equal to datetimepicker value #2296'
