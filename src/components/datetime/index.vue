@@ -150,6 +150,12 @@ export default {
     if (!this.readonly) {
       this.$nextTick(() => {
         this.render()
+
+        if (this.show) {
+          this.$nextTick(() => {
+            this.picker && this.picker.show(this.currentValue)
+          })
+        }
       })
     }
   },
