@@ -136,7 +136,7 @@ export default {
           _this.renderChain(i + 1)
         }
       })
-      // list maybe Array(empty)
+      // list is Array(empty) as maybe
       if (list.length) {
         this.$set(this.currentValue, i, list[0].value)
         this.renderChain(i + 1)
