@@ -28,14 +28,21 @@ extra: |
   </sticky>
   ```
 
-  建议外围加一个`div`高度为内容高度，这样可以避免当定位为`sticky`时下面的元素会突然向上走。
+  建议加一个`div`高度为内容高度，这样可以避免当定位为`sticky`时下面的元素会突然向上走。
 
   ``` html
+  // 禁用原生检测时，可以在外围加
   <div style="height:44px;">
-    <sticky scroll-box="vux_view_box_body" :offset="46">
+    <sticky scroll-box="vux_view_box_body" :offset="46" :check-sticky-support="false">
       <div>Blabla</div>
     </sticky>
   </div>
+
+  // 使用原生检测时，`div`紧挨着组件之后，并设置类名`vux-sticky-fill`
+  <sticky scroll-box="vux_view_box_body" :offset="46">
+    <div>Blabla</div>
+  </sticky>
+  <div class="vux-sticky-fill" style="height:44px;"><div>
   ```
 
   <p class="warning">
@@ -61,12 +68,17 @@ slots:
   default:
     en: content
     zh-CN: 内容插槽
-methods: 
+methods:
   bindSticky:
     version: v2.5.4
     en: manually re-bind sticky
     zh-CN: 手动重新绑定，用于内容变化导致位置变化定位不再正确的情况
 changes:
+  v2.7.7:
+    en:
+      - '[fix] Fix the problem of inaccurate positioning and invalid positioning 0 #2367'
+    zh-CN:
+      - '[fix] 修复定位不准确和定位无效的问题 #2367'
   v2.5.9:
     en:
       - '[fix] Fix scrollTop always return 0 #1827'

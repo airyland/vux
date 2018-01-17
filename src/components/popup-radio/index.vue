@@ -1,5 +1,5 @@
 <template>
-  <cell @click.native="show" :title="title" :value="currentValue" :is-link="!readonly" :value-align="valueAlign">
+  <cell @click.native="show" :title="title" :value="currentValue" :is-link="!readonly" :value-align="valueAlign" :border-intent="borderIntent">
     <span class="vux-cell-placeholder" v-if="!displayValue && placeholder">{{ placeholder }}</span>
     <span class="vux-cell-value" v-if="displayValue">{{ displayValue }}</span>
     <span slot="icon">

@@ -391,9 +391,7 @@ export default {
         if (!this.valid) {
           this.errors.format = validStatus.msg
           this.forceShowError = true
-          if (!this.firstError) {
-            this.getError()
-          }
+          this.getError()
           return
         } else {
           delete this.errors.format
@@ -404,9 +402,7 @@ export default {
         if (this.currentValue.length < this.min) {
           this.errors.min = `最少应该输入${this.min}个字符哦`
           this.valid = false
-          if (!this.firstError) {
-            this.getError()
-          }
+          this.getError()
           return
         } else {
           delete this.errors.min

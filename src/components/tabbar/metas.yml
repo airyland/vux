@@ -66,6 +66,11 @@ tabbar-item:
       en: emits when tabbar item is clicked
       zh-CN: 点击菜单项时触发
 changes:
+  v2.7.7:
+    en:
+      - '[fix] fix tabbar-item ssr rendering issue'
+    zh-CN:
+      - '[fix] 修复 tabbar-item 服务端渲染不一致问题'
   v2.7.4:
     en:
       - '[enhance] add development tip for position usage'

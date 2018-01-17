@@ -371,7 +371,7 @@ DatetimePicker.prototype = {
       data = this.config.hourList.map(hour => {
         return {
           name: parseRow(config['hourRow'], hour),
-          value: addZero(hour)
+          value: Number(hour)
         }
       })
     }
@@ -387,7 +387,7 @@ DatetimePicker.prototype = {
         data = rs.map(day => {
           return {
             name: parseRow(config['dayRow'], addZero(day)),
-            value: addZero(day)
+            value: Number(day)
           }
         })
       }
@@ -397,9 +397,10 @@ DatetimePicker.prototype = {
       const isTodayVal = isToday(new Date(`${year}/${month}/${day}`), new Date())
       const rs = this.config.computeHoursFunction(`${year}-${month}-${day}`, isTodayVal, generateRange)
       data = rs.map(hour => {
+        // #2296
         return {
           name: parseRow(config['hourRow'], hour),
-          value: addZero(hour)
+          value: Number(hour)
         }
       })
     }
@@ -408,7 +409,7 @@ DatetimePicker.prototype = {
       data = this.config.minuteList.map(minute => {
         return {
           name: parseRow(config['minuteRow'], minute),
-          value: addZero(minute)
+          value: Number(minute)
         }
       })
     }

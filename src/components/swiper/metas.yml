@@ -118,6 +118,16 @@ events:
     en: fires after height is caculated
     zh-CN: 高度获取后触发
 changes:
+  v2.7.7:
+    en:
+      - '[fix] fix cannot scroll body when touching with one item'
+    zh-CN:
+      - '[fix] 修复只有一个 item 时无法滚动页面的问题'
+  2.7.6:
+    en:
+      - '[enhance] stop moving width one item'
+    zh-CN:
+      - '[enhance] 只有一张图片时阻止滑动跟随'
   v2.7.0:
     en:
       - '[enhance] set shorter distance for first and last item for better experience'

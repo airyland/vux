@@ -71,11 +71,11 @@
     </group>
 
     <group :title="$t('Prop: compute-hours-function')">
-      <datetime format="YYYY-MM-DD HH" v-model="computeHoursValue" :compute-hours-function="computeHoursFunction" :title="$t('Birthday')"></datetime>
+      <datetime format="YYYY-MM-DD HH" v-model="computeHoursValue" :compute-hours-function="computeHoursFunction" :title="$t('Birthday')" @on-change="change"></datetime>
     </group>
 
     <group :title="$t('Prop: compute-days-function')">
-      <datetime format="YYYY-MM-DD HH" v-model="computeDaysValue" :compute-days-function="computeDaysFunction" :title="$t('Birthday')"></datetime>
+      <datetime format="YYYY-MM-DD HH" v-model="computeDaysValue" :compute-days-function="computeDaysFunction" :title="$t('Birthday')" @on-change="change"></datetime>
     </group>
 
     <group :title="$t('Specified template text in Chinese')">

@@ -90,6 +90,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  v2.7.7:
+    en:
+      - '[fix] remove the first top line #2371'
+    zh-CN:
+      - '[fix] 去除第一个子元素的上边线 #2371'
   v2.7.0:
     en:
       - '[feature] add prop:popup-title(use component:popup-header) #1866'

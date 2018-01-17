@@ -36,6 +36,11 @@ button-tab-item:
       en: emits when item is clicked
       zh-CN: 当前按钮点击时触发
 changes:
+  2.7.6:
+    en:
+      - '[fix] fix border disappear bug #2322'
+    zh-CN:
+      - '[fix] 修复分割线会消失的bug #2322'
   v2.2.0:
     en:
       - '[enhance] Update border style(1px)'

@@ -1,4 +1,4 @@
-const wx = require('weixin-js-sdk')
+const wx = require('./1.3.0.js').wx
 
 const plugin = {
   install (Vue) {
