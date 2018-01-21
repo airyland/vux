@@ -1,0 +1,92 @@
+icon: '&#xe605;'
+extra:
+  en: |
+
+    ```html
+      <group>
+        <x-number title="title" v-model="value"></x-number>
+      </group>
+    ```
+    
+    <p class="tip">`x-number` shoule be used in `Group`</p>
+
+  zh-CN: |
+
+    ```html
+      <group>
+        <x-number title="title" v-model="value"></x-number>
+      </group>
+    ```
+    
+    <p class="tip">`x-number`只能在`Group`中使用</p>
+tags:
+  en:
+    - form
+    - number
+  zh-CN:
+    - 表单
+    - 数字
+props:
+  value:
+    type: Number
+    default: 0
+    en: 'form value, use `v-model` for binding'
+    zh-CN: 表单值，使用`v-model`绑定
+  title:
+    en: label text
+    zh-CN: 标题
+  min:
+    type: Number
+    en: minimum number of value
+    zh-CN: 最小值
+  max:
+    type: Number
+    en: maximum number of value
+    zh-CN: 最大值
+  step:
+    type: Number
+    default: 1
+    en: step value
+    zh-CN: 步长
+  fillable:
+    type: Boolean
+    default: false
+    en: if use can fill the number
+    zh-CN: 是否可填写
+  width:
+    type: String
+    default: 50px
+    en: width of the input element
+    zh-CN: 输入框宽度
+  button-style:
+    type: String
+    default: square
+    en: button styles, ['square', 'round']
+    zh-CN: '按钮样式，可选值为`square`或者`round`'
+  align:
+    type: String
+    default: right
+    en: align setting of the selecting area
+    zh-CN: '按钮部分位置，默认在右边(right)，可选值为`left`和`right`'
+changes:
+  v2.1.0:
+    en:
+      - '[feature] upgrade `WeUI`'
+      - '[fix] fix `label` styles donot conform with `group` settings'
+      - '[feature] support prop:`align`'
+    zh-CN:
+      - '[feature] 升级`WeUI`样式'
+      - '[fix] 修复`label`样式不受控于`group`设置'
+      - '[feature] 支持`align`属性'
+  v2.1.0-rc.46:
+    en:
+      - '[enhance] use `svg` for `+` `-` symbols'
+      - '[feature] support `round` style for buttons'
+    zh-CN:
+      - '[enhance] 使用`svg`代替 `+` `-` 字符'
+      - '[feature] 支持圆形按钮样式'
+  v2.0.0:
+    en:
+      - '[change] set `fiilable` default value to `false`'
+    zh-CN:
+      - '[change] fillable 值默认为false, 稍微保护一下不小心商城的后端接口没有做好数据校验的用户，导致用户粘贴负数还提交正确'

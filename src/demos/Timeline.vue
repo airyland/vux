@@ -15,18 +15,18 @@
 			</timeline-item>
 		</timeline>
 		<timeline>
-			<timeline-item v-for="i in count">
+			<timeline-item v-for="(i, index) in count" :key="index">
 				<h4 :class="[i === 0 ? 'recent' : '']">Timeline Node {{i + 1}}</h4>
 				<p :class="[i === 0 ? 'recent' : '']">index {{i + 1}}</p>
 			</timeline-item>
 		</timeline>
-    <x-button type="primary" @click="count = 6"> Set to 6 nodes</x-button>
-    <x-button type="primary" @click="count = 3"> Set to 3 nodes</x-button>
+    <x-button type="primary" @click.native="count = 6"> Set to 6 nodes</x-button>
+    <x-button type="primary" @click.native="count = 3"> Set to 3 nodes</x-button>
 	</div>
 </template>
 
 <script>
-import { Timeline, TimelineItem, XButton } from '../components'
+import { Timeline, TimelineItem, XButton } from 'vux'
 
 export default {
   components: {
@@ -43,21 +43,17 @@ export default {
 </script>
 
 <style lang="less">
-	.timeline-demo {
-
-		p {
-			color: #888;
-			font-size: 0.8rem;
-		}
-
-		h4 {
-			color: #666;
-			font-weight: normal;
-		}
-
-		.recent {
-			color: rgb(4, 190, 2)
-		}
-
+.timeline-demo {
+	p {
+		color: #888;
+		font-size: 0.8rem;
 	}
+	h4 {
+		color: #666;
+		font-weight: normal;
+	}
+	.recent {
+		color: rgb(4, 190, 2)
+	}
+}
 </style>

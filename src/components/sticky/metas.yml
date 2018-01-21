@@ -1,0 +1,63 @@
+icon: '&#xe623;'
+tags:
+  en:
+    - layout
+    - sticky
+  zh-CN:
+    - 布局
+    - 定位
+extra: |
+  <p class="tip">在Chrome模拟器运行时你可能会发现没有效果，这是因为Chrome并不支持原生sticky实现而模拟器环境是iPhone，目前程序是根据Safari版本来判断是否原生支持sticky。因此你可以切换到Android系统进行测试，但是真机上是完全正常的交互。
+  <br>
+  <br>
+  你也可以设置禁用原生支持检测以获得相同的效果：`:check-sticky-support="false"`
+  </p>
+
+  如果你没有使用`100%`的布局，也没有头部可以直接这样使用
+  ``` html
+  <sticky>
+    <div>Blabla</div>
+  </sticky>
+  ```
+
+  如果你像demo一样使用`view-box`和`x-header`，那么需要这样：
+
+  ``` html
+  <sticky scroll-box="vux_view_box_body" :offset="46">
+    <div>Blabla</div>
+  </sticky>
+  ```
+
+  建议外围加一个`div`高度为内容高度，这样可以避免当定位为`sticky`时下面的元素会突然向上走。
+
+  ``` html
+  <div style="height:44px;">
+    <sticky scroll-box="vux_view_box_body" :offset="46">
+      <div>Blabla</div>
+    </sticky>
+  </div>
+  ```
+
+props:
+  scroll-box:
+    default: window
+    zh-CN: '滚动容器，默认为`window`，如果你使用了viewbox，那么你需要指定容器id：`vux_view_box_body`'
+  check-sticky-support:
+    type: Boolean
+    default: 'true'
+    zh-CN: 是否检测当前浏览器是否支持sticky特性，禁用则在`iPhone`设置上也使用`scroll`实现
+  offset:
+    type: Number
+    default: 0
+    zh-CN: '距离顶部高度，在存在头部（如使用了`x-header`）的情况下需要设置一个距离'
+slots:
+  default:
+    zh-CN: 内容插槽
+changes:
+  v2.1.1-rc.1:
+    en:
+      - '[fix] Fix wrong offset after transition between routes'
+      - '[enhance] Set z-index #976 @olymk'
+    zh-CN:
+      - '[fix] 修复路由间有过渡动画导致顶部距离计算不准确的问题'
+      - '[enhance] 设置 z-index 避免被覆盖 #976 @olymk'

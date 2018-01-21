@@ -1,0 +1,29 @@
+icon: '&#xe63d;'
+tags:
+  en:
+    - circle
+    - chart
+  zh-CN:
+    - 圆
+    - 图表
+props:
+  stroke-width:
+    type: Number
+    default: 1
+    zh-CN: 线条宽度
+  stoke-color:
+    type: String
+    default: '#3FC7FA'
+    zh-CN: 线条颜色
+  trail-width:
+    type: Number
+    default: 1
+    zh-CN: 背景线条宽度
+  trail-color:
+    type: String
+    default: '#D9D9D9'
+    zh-CN: 背景线条颜色
+  percent:
+    type: Number
+    default: 0
+    zh-CN: 进度百分比

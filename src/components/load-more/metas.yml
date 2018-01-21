@@ -1,0 +1,16 @@
+icon: '&#xe610;'
+props:
+  show-loading:
+    type: Boolean
+    default: true
+    zh-CN: 是否显示 loading 图标
+  tip:
+    zh-CN: 提示文字，如果没有显示图标也没有显示文字，则显示点
+  background-color:
+    type: String
+    default: '#ffffff'
+    zh-CN: 背景颜色，需要配置以让文字与背景完全融合
+changes:
+  v2.0.0:
+    zh-CN:
+      - '[feature] 增加`load-more`组件'

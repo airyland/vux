@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="weui_cells_title" v-if="title" :style="{color:titleColor}" v-html="title"></div>
-    <div class="weui_cells" :class="{'vux-no-group-title':!title}" :style="{marginTop: gutter}">
+    <div class="weui-cells__title" v-if="title" :style="{color:titleColor}" v-html="title"></div>
+    <div class="weui-cells" :class="{'vux-no-group-title':!title}" :style="{marginTop: gutter}">
       <slot name="after-title"></slot>
       <slot></slot>
     </div>
@@ -25,10 +25,9 @@ export default {
 @import '../../styles/weui/widget/weui_cell/weui_access';
 @import '../../styles/weui/widget/weui_cell/weui_cell_global';
 
+@import '../../styles/blank.less';
+
 .vux-no-group-title {
-  margin-top:15px;
-}
-.weui_cells > a {
-  color:#000;
+  margin-top: @group-title-margin-top;
 }
 </style>

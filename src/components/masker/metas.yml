@@ -1,8 +1,13 @@
+icon: '&#xe651;'
 props:
   color:
+    type: String
+    default: '0, 0, 0'
     en: the mask's color in rgb format, for example, '0, 0, 0'
     zh-CN: 遮罩颜色，rgb值，'0, 0, 0'
   opacity:
+    type: Number
+    default: 0.5
     en: the opacity of the mask
     zh-CN: 遮罩透明度
 slots:

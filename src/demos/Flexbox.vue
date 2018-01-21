@@ -110,7 +110,7 @@
 </template>
 
 <script>
-import { Flexbox, FlexboxItem, Divider } from '../components'
+import { Flexbox, FlexboxItem, Divider } from 'vux'
 
 export default {
   components: {
@@ -122,7 +122,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../styles/1px.less';
+@import '~vux/src/styles/1px.less';
 
 .flex-demo {
   text-align: center;

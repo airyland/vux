@@ -1,20 +1,27 @@
 <template>
   <div>
     <group>
-      <switch title="Toggle" :value.sync="show1" @on-change="show1change"></switch>
+      <x-switch :title="$t('Toggle')" v-model="show1" @on-change="show1change"></x-switch>
     </group>
-    <loading :show="show1" :text="text1"></loading>
+    <loading v-model="show1" :text="text1"></loading>
+    <div style="padding: 15px;">
+      <x-button @click.native="showLoading" type="primary">显示loading(2s后关闭)</x-button>
+    </div>
   </div>
 </template>
 
+<i18n>
+</i18n>
+
 <script>
-import { Loading, Group, Switch } from '../components'
+import { Loading, Group, XSwitch, XButton } from 'vux'
 
 export default {
   components: {
     Loading,
     Group,
-    Switch
+    XSwitch,
+    XButton
   },
   data () {
     return {
@@ -23,6 +30,14 @@ export default {
     }
   },
   methods: {
+    showLoading () {
+      this.$vux.loading.show({
+        text: 'Loading'
+      })
+      setTimeout(() => {
+        this.$vux.loading.hide()
+      }, 2000)
+    },
     show1change (val) {
       if (val) {
         tick(0, (percent) => {
@@ -31,7 +46,7 @@ export default {
             this.text1 = 'Start processing'
             return
           }
-          this.text1 = `${percent}% completed`
+          this.text1 = `${percent}%`
         })
       }
     }

@@ -1,5 +1,5 @@
 <template>
-  <img :src="defaultSrc" class="vux-x-img" :class="class"/>
+  <img :src="defaultSrc" :data-src="currentSrc" class="vux-x-img"/>
 </template>
 
 <script>
@@ -9,31 +9,37 @@ import uuidMixin from '../../libs/mixin_uuid'
 
 export default {
   mixins: [uuidMixin],
-  compiled () {
-    // use webp or default
-    if (webpSupport() && this.src && this.webpSrc) {
-      this.src = this.webpSrc
-    }
-  },
-  ready () {
-    const _this = this
-    const id = `vux-ximg-${this.uuid}`
-    this.$el.setAttribute('id', id)
-    this.$el.setAttribute('data-src', this.src)
-    this.blazy = new Blazy({
-      scroller: this.scroller,
-      container: this.container,
-      selector: `#${id}`,
-      offset: _this.offset,
-      errorClass: _this.errorClass,
-      successClass: _this.successClass,
-      success (ele) {
-        _this.$emit('on-success', _this.src, ele)
-      },
-      error (ele, msg) {
-        _this.$emit('on-error', _this.src, ele, msg)
-      }
+  mounted () {
+    this.$nextTick(() => {
+      setTimeout(() => {
+        const _this = this
+        const id = `vux-ximg-${this.uuid}`
+        this.$el.setAttribute('id', id)
+        // this.$el.setAttribute('data-src', this.src)
+        this.blazy = new Blazy({
+          scroller: this.scroller,
+          container: this.container,
+          selector: `#${id}`,
+          offset: _this.offset,
+          errorClass: _this.errorClass,
+          successClass: _this.successClass,
+          success (ele) {
+            _this.$emit('on-success', _this.src, ele)
+          },
+          error (ele, msg) {
+            _this.$emit('on-error', _this.src, ele, msg)
+          }
+        })
+      }, this.delay)
     })
+  },
+  computed: {
+    currentSrc () {
+      if (webpSupport() && this.webpSrc) {
+        return this.webpSrc
+      }
+      return this.src
+    }
   },
   props: {
     src: String,
@@ -48,9 +54,12 @@ export default {
       type: Number,
       defaut: 100
     },
-    class: String,
     scroller: Object,
-    container: String
+    container: String,
+    delay: {
+      type: Number,
+      default: 100
+    }
   },
   beforeDestroy () {
     this.blazy && this.blazy.destroy()

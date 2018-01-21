@@ -1,21 +1,26 @@
 <template>
   <div>
-    <img class="previewer-demo-img" v-for="(index, item) in list" :src="item.src" width="100" @click="$refs.previewer.show(index)">
-    <previewer :list="list" v-ref:previewer :options="options"></previewer>
+    <img class="previewer-demo-img" v-for="(item, index) in list" :src="item.src" width="100" @click="show(index)">
+    <previewer :list="list" ref="previewer" :options="options"></previewer>
   </div>
 </template>
 
 <script>
-import { Previewer } from '../components'
+import { Previewer } from 'vux'
 
 export default {
   components: {
     Previewer
   },
+  methods: {
+    show (index) {
+      this.$refs.previewer.show(index)
+    }
+  },
   data () {
     return {
       list: [{
-        src: 'https://placekitten.com/600/400',
+        src: 'https://placekitten.com/800/400',
         w: 600,
         h: 400
       },

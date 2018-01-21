@@ -2,14 +2,18 @@
   <div>
     <group-title>THX to: https://github.com/wechatui/swiper</group-title>
     <group-title>list模式下，默认高度为180px, 如果设置aspect-ratio会根据宽度自动计算高度</group-title>
-    <swiper :list="demo01_list" :index="demo01_index" @on-index-change="demo01_onIndexChange"></swiper>
+    <swiper :list="demo01_list" v-model="demo01_index" @on-index-change="demo01_onIndexChange"></swiper>
+    <p class="copyright">Image Source: http://www.gratisography.com/</p>
     <p>current index: {{demo01_index}}</p>
-    <x-button @click="demo01_index = 0">go to 0</x-button>
-    <x-button @click="demo01_index = 1">go to 1</x-button>
-    <x-button @click="demo01_index = 2">go to 2</x-button>
+    <x-button @click.native="demo01_index = 0">go to 0</x-button>
+    <x-button @click.native="demo01_index = 1">go to 1</x-button>
+    <x-button @click.native="demo01_index = 2">go to 2</x-button>
 
     <br/>
     <br/>
+    <swiper :list="demo01_list" v-model="demo02_index" @on-index-change="demo01_onIndexChange"></swiper>
+    <br>
+    <br>
     <divider>华丽的分割线</divider>
 
 
@@ -28,8 +32,25 @@
 
     <group-title>use swiper-item for image list</group-title>
     <swiper :aspect-ratio="300/800">
-      <swiper-item class="swiper-demo-img" v-for="item in demo04_list"><img :src="item"></swiper-item>
+      <swiper-item class="swiper-demo-img" v-for="(item, index) in demo04_list" :key="index"><img :src="item"></swiper-item>
     </swiper>
+
+    <br>
+    <br>
+
+    <group-title>set index = 1 with swiper-item</group-title>
+    <swiper :aspect-ratio="300/800" @on-index-change="onSwiperItemIndexChange" v-model="swiperItemIndex">
+      <swiper-item class="swiper-demo-img" v-for="(item, index) in demo04_list" :key="index">
+        <img :src="item">
+      </swiper-item>
+    </swiper>
+    <br>
+    {{ swiperItemIndex }}
+    <br>
+    <x-button @click.native="swiperItemIndex = 0">go to 0</x-button>
+    <x-button @click.native="swiperItemIndex = 1">go to 1</x-button>
+    <x-button @click.native="swiperItemIndex = 2">go to 2</x-button>
+
 
     <br/>
     <br/>
@@ -38,8 +59,8 @@
     <group-title>Async setting list data</group-title>
     <swiper :list="demo05_list" auto height="180px" @on-index-change="demo05_onIndexChange"></swiper>
     <p> current index: {{demo05_index}}</p>
-    <x-button @click="demo05_onLoad(1)" type="primary" style="margin: 10px 0;">Load list1</x-button>
-    <x-button @click="demo05_onLoad(2)" type="primary" style="margin: 10px 0;">Load list2</x-button>
+    <x-button @click.native="demo05_onLoad(1)" type="primary" style="margin: 10px 0;">Load list1</x-button>
+    <x-button @click.native="demo05_onLoad(2)" type="primary" style="margin: 10px 0;">Load list2</x-button>
 
     <br/>
     <br/>
@@ -84,21 +105,20 @@
 </template>
 
 <script>
-import { Swiper, GroupTitle, SwiperItem, XButton, Divider } from '../components'
+import { Swiper, GroupTitle, SwiperItem, XButton, Divider } from 'vux'
 
-const baseList =
-[{
+const baseList = [{
   url: 'javascript:',
-  img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
-  title: '如何手制一份秋意的茶？'
+  img: 'https://static.vux.li/demo/1.jpg',
+  title: '送你一朵fua'
 }, {
   url: 'javascript:',
-  img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
-  title: '茶包VS原叶茶'
+  img: 'https://static.vux.li/demo/2.jpg',
+  title: '送你一辆车'
 }, {
   url: 'javascript:',
-  img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
-  title: '播下茶籽，明春可发芽？'
+  img: 'https://static.vux.li/demo/3.jpg',
+  title: '送你一次旅行'
 }]
 
 const imgList = [
@@ -132,6 +152,9 @@ export default {
 
   },
   methods: {
+    onSwiperItemIndexChange (index) {
+      console.log('demo item change', index)
+    },
     demo01_onIndexChange (index) {
       this.demo01_index = index
     },
@@ -158,15 +181,22 @@ export default {
       demo06_list: urlList,
       demo07_list: only2List,
       demo01_index: 0,
+      demo02_index: 1,
       demo05_index: 0,
       demo06_index: 0,
-      demo07_index: 0
+      demo07_index: 0,
+      swiperItemIndex: 1
     }
   }
 }
 </script>
 
 <style scoped>
+.copyright {
+  font-size: 12px;
+  color: #ccc;
+  text-align: center;
+}
 .text-scroll {
   border: 1px solid #ddd;
   border-left: none;

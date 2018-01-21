@@ -1,0 +1,30 @@
+status: deprecated
+deprecated_info:
+  en: use cell and slot instead
+  zh-CN: 请参考源码直接使用cell+slot来实现
+icon: '&#xe63f;'
+color: '#f2c400'
+tags:
+  - color
+  - picker
+  - 颜色
+props:
+  value:
+    type: String
+    default: ''
+    en: form value
+    zh-CN: 表单值
+  colors:
+    type: Array
+    default: []
+    en: color list
+    zh-CN: 可选颜色列表
+  size:
+    type: String
+    default: large
+    en: 'button size, enum: large, middle, small'
+    zh-CN: 按钮大小，可选值 large, middle, small
+changes:
+  v2.0.0:
+    zh-CN:
+      - '[deprecated] 废弃，当前版本后不再继续维护'

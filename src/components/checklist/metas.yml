@@ -1,20 +1,59 @@
+icon: '&#xe61d;'
+tags:
+  en:
+    - checklist
+    - select
+    - form
 props:
   value:
+    type: Array
+    default: []
+    en: form value
     zh-CN: 表单值
   title:
+    type: String
+    default: ''
+    en: title
     zh-CN: 标题
   required:
+    type: Boolean
+    default: false
+    en: if required
     zh-CN: 是否为必填
   options:
-    zh-CN: 选项列表，可以为`[{name:'name',value:'value'}]`的形式
+    type: Array
+    default: []
+    en: option list
+    zh-CN: 选项列表，可以为`[{key:'name',value:'value'}]`的形式
   max:
+    type: Number
+    default: ''
+    en: max selected number
     zh-CN: 最多可选个数
   min:
+    type: Number
+    default: ''
+    en: min selected number
     zh-CN: 最少可选个数
-  fill-mode:
-    zh-CN: 是否允许填写值
   random-order:
+    type: Boolean
+    default: false
+    en: if shuffing options
     zh-CN: 是否随机打乱选项顺序
 events:
   on-change:
+    params: '(value)'
+    en: emits when value changes
     zh-CN: 值变化时触发，参数为 (value)
+changes:
+  v2.0.0:
+    en:
+      - '[change] it does not show errors by default, handle errors by on-error events'
+      - '[feature] add slot:footer slot:after-title'
+      - '[change] if value.length === max, the left items will be disabled'
+      - '[change] default required value is false'
+    zh-CN:
+      - '[change] 默认不显示错误，你可以监听on-error事件结合slot进行处理和显示'
+      - '[feature] 添加插槽 footer、after-title'
+      - '[change] 如果已经达到max上限，没有选中的选项将不能选择，因此不再和之前版本一样会出现最多可选max个的error信息'
+      - '[change] 默认 required 值为false, 与html规范一致'

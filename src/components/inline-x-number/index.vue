@@ -1,7 +1,7 @@
 <template>
   <div>
     <a @click="sub" class="vux-number-selector vux-number-selector-sub":class="{'vux-number-disabled':disabledMin}">-</a>
-    <input v-model="value" :name="name" class="vux-number-input" :style="{width: width+'px'}" number :readonly="!fillable" pattern="[0-9]*"/>
+    <input v-model.number="value" :name="name" class="vux-number-input" :style="{width: width+'px'}" :readonly="!fillable" pattern="[0-9]*"/>
     <a @click="add" class="vux-number-selector vux-number-selector-plus" :class="{'vux-number-disabled':disabledMax}">+</a>
   </div>
 </template>
@@ -38,8 +38,6 @@ export default {
       return typeof this.max === 'undefined' ? false : this.value >= this.max
     }
   },
-  ready () {
-  },
   watch: {
     value (newValue, old) {
       if (this.min && this.value < this.min) {
@@ -73,7 +71,7 @@ export default {
   float:left;
   height:20px;
   font-size:20px;
-  color: @x-number-number-color;
+  color: @number-input-font-color;
   appearance: none;
   border:1px solid #ececec;
   padding:3px 0;
@@ -85,7 +83,7 @@ export default {
   height:20px;
   font-size:25px;
   line-height:18px;
-  color: @x-number-button-color;
+  color: @number-button-font-color;
   border:1px solid #ececec;
 }
 .vux-number-selector.vux-number-disabled{

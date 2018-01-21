@@ -1,18 +1,20 @@
 <template>
- 
-    <a class="weui_cell" href="javascript:">
-      <slot>
-        <div class="weui_cell_bd weui_cell_primary">
-          <p>{{title}}</p>
-          <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
-        </div>
-        <div class="weui_cell_ft with_arrow vux-datetime-value">{{value || placeholder}}</div>
-      </slot>
-    </a>
- 
+  <a class="vux-datetime weui-cell weui-cell_access" href="javascript:">
+    <slot>
+      <div>
+        <p :style="{width: $parent.labelWidth, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-html="title"></p>
+        <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+      </div>
+      <div class="weui-cell__ft vux-cell-primary vux-datetime-value" :style="{textAlign: valueTextAlign}">
+        {{ currentValue || placeholder}}
+        <icon class="vux-input-icon" type="warn" v-show="!valid" :title="firstError"></icon>
+      </div>
+    </slot>
+  </a>
 </template>
 
 <script>
+import Icon from '../icon'
 import Picker from './datetimepicker'
 import Group from '../group'
 import InlineDesc from '../inline-desc'
@@ -22,7 +24,8 @@ export default {
   mixins: [Base],
   components: {
     Group,
-    InlineDesc
+    InlineDesc,
+    Icon
   },
   props: {
     format: {
@@ -49,10 +52,7 @@ export default {
       type: String,
       default: 'cancel'
     },
-    clearText: {
-      type: String,
-      default: ''
-    },
+    clearText: String,
     yearRow: {
       type: String,
       default: '{value}'
@@ -72,15 +72,40 @@ export default {
     minuteRow: {
       type: String,
       default: '{value}'
-    }
+    },
+    required: {
+      type: Boolean,
+      default: false
+    },
+    minHour: {
+      type: Number,
+      default: 0
+    },
+    maxHour: {
+      type: Number,
+      default: 23
+    },
+    startDate: String,
+    endDate: String,
+    valueTextAlign: String
   },
   created () {
+    this.currentValue = this.value
     this.handleChangeEvent = true
   },
-  ready () {
+  data () {
+    return {
+      currentValue: null,
+      valid: true,
+      errors: {}
+    }
+  },
+  mounted () {
     const uuid = this.uuid
-    this.$el.setAttribute('id', 'vux-datetime-' + uuid)
-    this.render()
+    this.$nextTick(() => {
+      this.$el.setAttribute('id', 'vux-datetime-' + uuid)
+      this.render()
+    })
   },
   computed: {
     pickerOptions () {
@@ -88,7 +113,7 @@ export default {
       const options = {
         trigger: '#vux-datetime-' + this.uuid,
         format: this.format,
-        value: this.value,
+        value: this.currentValue,
         output: '.vux-datetime-value',
         confirmText: this.confirmText,
         cancelText: _this.cancelText,
@@ -98,11 +123,18 @@ export default {
         dayRow: this.dayRow,
         hourRow: this.hourRow,
         minuteRow: this.minuteRow,
+        minHour: this.minHour,
+        maxHour: this.maxHour,
+        startDate: this.startDate,
+        endDate: this.endDate,
         onConfirm (value) {
-          _this.value = value
+          _this.currentValue = value
         },
         onClear (value) {
           _this.$emit('on-clear', value)
+        },
+        onHide () {
+          _this.validate()
         }
       }
       if (this.minYear) {
@@ -112,6 +144,10 @@ export default {
         options.maxYear = this.maxYear
       }
       return options
+    },
+    firstError () {
+      let key = Object.keys(this.errors)[0]
+      return this.errors[key]
     }
   },
   methods: {
@@ -120,11 +156,35 @@ export default {
         this.picker.destroy()
       }
       this.picker = new Picker(this.pickerOptions)
+    },
+    validate () {
+      if (!this.currentValue && this.required) {
+        this.valid = false
+        this.errors.required = '必填'
+        return
+      }
+      this.valid = true
+      this.errors = {}
     }
   },
   watch: {
-    value (val) {
+    currentValue (val) {
       this.$emit('on-change', val)
+      this.$emit('input', val)
+      this.validate()
+    },
+    startDate () {
+      this.render()
+    },
+    endDate () {
+      this.render()
+    },
+    value (val) {
+      if (this.currentValue !== val) {
+        this.currentValue = val
+        this.picker.destroy()
+        this.render()
+      }
     }
   },
   beforeDestroy () {
@@ -133,20 +193,9 @@ export default {
 }
 </script>
 
-<style>
-.weui_cell_ft.with_arrow:after {
-  content: " ";
-  display: inline-block;
-  transform: rotate(45deg);
-  height: 6px;
-  width: 6px;
-  border-width: 2px 2px 0 0;
-  border-color: #C8C8CD;
-  border-style: solid;
-  position: relative;
-  top: -1px;
-  margin-left: .3em;
-}
+<style lang="less">
+@import '../../styles/variable.less';
+
 .scroller-component {
   display: block;
   position: relative;
@@ -239,11 +288,19 @@ export default {
 }
 
 .dp-header .dp-item {
-  color: #04BE02;
+  color: @datetime-header-item-font-color;
   font-size: 18px;
   height: 44px;
   line-height: 44px;
   cursor: pointer;
+}
+
+.dp-header .dp-item.dp-left {
+  color: @datetime-header-item-cancel-font-color;
+}
+
+.dp-header .dp-item.dp-right {
+  color: @datetime-header-item-confirm-font-color;
 }
 
 .dp-content {
@@ -259,5 +316,12 @@ export default {
   box-sizing: border-box;
   flex: 1;
   text-align: center;
+}
+
+.vux-datetime .vux-input-icon {
+  float: right;
+}
+.vux-cell-primary {
+  flex: 1;
 }
 </style>

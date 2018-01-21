@@ -1,4 +1,14 @@
+icon: '&#xe65b;'
+color: '#f74c31'
 props:
   text:
+    type: String
+    default: ''
     en: text of the Badge
     zh-CN: 显示的文字
+changes:
+  v2.0.0:
+    en:
+      - '[todo] when used in a cell, it might not be that center'
+    zh-CN:
+      - '[todo] 在cell使用时，似乎不够居中'

@@ -1,23 +1,23 @@
 <template>
   <div>
     <divider>下拉刷新和上拉加载更多组合</divider>
-    <scroller lock-x scrollbar-y use-pullup use-pulldown height="200px" @pullup:loading="loadMore" @pulldown:loading="refresh" :pullup-status.sync="pullupStatus" v-ref:scroller>
+    <scroller lock-x scrollbar-y use-pullup use-pulldown height="200px" @on-pullup-loading="loadMore" @on-pulldown-loading="refresh" v-model="status" ref="scroller">
       <div class="box2">
         <p v-for="i in n">placeholder {{i}}</p>
       </div>
       <!--pullup slot-->
       <div slot="pullup" class="xs-plugin-pullup-container xs-plugin-pullup-up" style="position: absolute; width: 100%; height: 40px; bottom: -40px; text-align: center;">
-        <span v-show="pullupStatus === 'default'"></span>
-        <span class="pullup-arrow" v-show="pullupStatus === 'down' || pullupStatus === 'up'" :class="{'rotate': pullupStatus === 'up'}">↑</span>
-        <span v-show="pullupStatus === 'loading'"><spinner type="ios-small"></spinner></span>
+        <span v-show="status.pullupStatus === 'default'"></span>
+        <span class="pullup-arrow" v-show="status.pullupStatus === 'down' || status.pullupStatus === 'up'" :class="{'rotate': status.pullupStatus === 'up'}">↑</span>
+        <span v-show="status.pullupStatus === 'loading'"><spinner type="ios-small"></spinner></span>
       </div>
     </scroller>
     <group>
-      <switch :title="pullupEnabled ? '禁用Pullup' : '启用Pullup'" :value="true" @on-change="changePullupStatus"></switch>
+      <x-switch :title="pullupEnabled ? '禁用Pullup' : '启用Pullup'" :value="true" @on-change="changePullupStatus"></x-switch>
     </group>
 
     <divider>上拉加载重置</divider>
-    <scroller lock-x scrollbar-y use-pullup height="200px" @pullup:loading="loadMore1" v-ref:scroller1>
+    <scroller lock-x scrollbar-y use-pullup height="200px" @on-pullup-loading="loadMore1" ref="scroller1">
       <div class="box2">
         <p v-for="j in n1">placeholder {{j}}</p>
       </div>
@@ -26,49 +26,52 @@
 </template>
 
 <script>
-import { Scroller, Divider, Switch, Group, Spinner } from '../components'
+import { Scroller, Divider, XSwitch, Group, Spinner } from 'vux'
 
 export default {
   components: {
     Scroller,
     Divider,
-    Switch,
+    XSwitch,
     Group,
     Spinner
   },
   methods: {
-    loadMore (uuid) {
+    loadMore () {
       setTimeout(() => {
         this.n += 10
-        this.$nextTick(() => {
-          this.$broadcast('pullup:reset', uuid)
-        })
+        setTimeout(() => {
+          this.$refs.scroller.donePullup()
+        }, 10)
       }, 2000)
     },
-    refresh (uuid) {
+    refresh () {
       setTimeout(() => {
         this.n = 10
         this.$nextTick(() => {
-          this.$broadcast('pulldown:reset', uuid)
+          setTimeout(() => {
+            this.$refs.scroller.donePulldown()
+            this.pullupEnabled && this.$refs.scroller.enablePullup()
+          }, 10)
         })
       }, 2000)
     },
     changePullupStatus (enabled) {
       if (enabled) {
-        this.$broadcast('pullup:enable', this.$refs.scroller.uuid)
+        this.$refs.scroller.enablePullup()
         this.pullupEnabled = true
       } else {
-        this.$broadcast('pullup:disable', this.$refs.scroller.uuid)
+        this.$refs.scroller.disablePullup()
         this.pullupEnabled = false
       }
     },
-    loadMore1 (uuid) {
+    loadMore1 () {
       setTimeout(() => {
         this.n1 += 10
         this.$nextTick(() => {
-          this.$broadcast('pullup:reset', uuid)
+          this.$refs.scroller1.donePullup()
           if (this.n1 >= 30) {
-            this.$broadcast('pullup:disable', uuid)
+            this.$refs.scroller1.disablePullup()
             console.log('No more data, Pullup disabled!')
           }
         })
@@ -80,7 +83,10 @@ export default {
       n: 10,
       n1: 10,
       pullupEnabled: true,
-      pullupStatus: 'default'
+      status: {
+        pullupStatus: 'default',
+        pulldownStatus: 'default'
+      }
     }
   }
 }

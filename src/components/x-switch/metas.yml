@@ -1,0 +1,54 @@
+icon: '&#xe61c;'
+extra:
+  en: |
+
+    ```html
+      <group>
+        <x-switch title="title" v-model="value"></x-switch>
+      </group>
+    ```
+    
+    <p class="tip">`x-switch` should be used in `Group`.</p>
+
+  zh-CN: |
+
+    ```html
+      <group>
+        <x-switch title="title" v-model="value"></x-switch>
+      </group>
+    ```
+    
+    <p class="tip">`x-switch`只能在`Group`中使用</p>
+tags:
+  en:
+    - switch
+    - form
+  zh-CN:
+    - 表单
+    - 开关
+props:
+  title:
+    type: String
+    default: ''
+    en: label text
+    zh-CN: label文字
+  disabled:
+    type: Boolean
+    default: false
+    en: if disabled
+    zh-CN: 是否不可点击
+  value:
+    type: Boolean
+    default: false
+    en: "component's value, use `v-model` for binding"
+    zh-CN: '表单值, 使用`v-model`绑定'
+  inline-desc:
+    type: String
+    default: ''
+    en: desctiption text below the label
+    zh-CN: 标签下文字
+events:
+  on-change:
+    params: '`(value)`'
+    en: triggers when value change, params is (currentValue)
+    zh-CN: 值变化时触发，参数为 (currentValue)

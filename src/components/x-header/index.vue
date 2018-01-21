@@ -42,7 +42,7 @@ export default {
       if (this.leftOptions.preventGoBack) {
         this.$emit('on-click-back')
       } else {
-        history.back()
+        this.$router ? this.$router.back() : window.history.back()
       }
     }
   }
@@ -56,11 +56,10 @@ export default {
   position: relative;
   padding: 3px 0;
   box-sizing: border-box;
-  background-color: @x-header-background-color;
+  background-color: @header-background-color;
 }
 .vux-header .vux-header-title,.vux-header h1 {
   margin: 0 88px;
-  margin-left: 100px;
   line-height: 40px;
   text-align: center;
   height: 40px;
@@ -70,7 +69,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: @x-header-title-color;
+  color: @header-title-color;
 }
 .vux-header .vux-header-title > span {
   display: inline-block;
@@ -81,12 +80,12 @@ export default {
   display: block;
   font-size: 14px;
   line-height: 21px;
-  color: @x-header-text-color;
+  color: @header-text-color;
 }
 .vux-header .vux-header-left a,.vux-header .vux-header-left button,.vux-header .vux-header-right a,.vux-header .vux-header-right button {
   float: left;
   margin-right: 8px;
-  color: @x-header-text-color;
+  color: @header-text-color;
 }
 .vux-header .vux-header-left a:active,.vux-header .vux-header-left button:active,.vux-header .vux-header-right a:active,.vux-header .vux-header-right button:active {
   opacity: .5
@@ -109,7 +108,7 @@ export default {
     position: absolute;
     width: 12px;
     height: 12px;
-    border: 1px solid @x-header-arrow-color;
+    border: 1px solid @header-arrow-color;
     border-width: 1px 0 0 1px;
     transform: rotate(315deg);
     top: 8px;

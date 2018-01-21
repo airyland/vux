@@ -1,3 +1,5 @@
+import Eventor from '../../libs/eventor'
+
 // https://github.com/MoeKit/clocker
 var instances = []
 var matchers = []
@@ -8,7 +10,7 @@ matchers.push(/([0-9]{1,2}\/){2}[0-9]{4}( [0-9]{1,2}(:[0-9]{2}){2})?/
   .source)
 // Year/Day/Month [hours:minutes:seconds] and
 // Year-Day-Month [hours:minutes:seconds]
-matchers.push(/[0-9]{4}([\/\-][0-9]{1,2}){2}( [0-9]{1,2}(:[0-9]{2}){2})?/
+matchers.push(/[0-9]{4}([/-][0-9]{1,2}){2}( [0-9]{1,2}(:[0-9]{2}){2})?/
   .source)
 // Cast the matchers to a regular expression object
 matchers = new RegExp(matchers.join('|'))
@@ -27,8 +29,8 @@ function parseDateString (dateString) {
       dateString = Number(dateString)
     }
     // Replace dashes to slashes
-    if (String(dateString).match(/\-/)) {
-      dateString = String(dateString).replace(/\-/g, '/')
+    if (String(dateString).match(/-/)) {
+      dateString = String(dateString).replace(/-/g, '/')
     }
     return new Date(dateString)
   } else {
@@ -138,7 +140,7 @@ var Countdown = function (finalDate, option) {
   // Set the final date and start
   this.setFinalDate(finalDate)
 }
-var Eventor = require('../../libs/eventor')
+
 Eventor.mixTo(Countdown)
 var pro = Countdown.prototype
 
@@ -233,4 +235,4 @@ for (var i in fns) {
   pro[i] = fns[i]
 }
 
-module.exports = Countdown
+export default Countdown

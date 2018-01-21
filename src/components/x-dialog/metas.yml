@@ -1,0 +1,52 @@
+icon: '&#xe608;'
+tags:
+  en:
+    - dialog
+  zh-CN:
+    - 弹窗
+props:
+  value:
+    type: Boolean
+    default: false
+    en: 'visibility of the dialog, use `v-model` for binding'
+    zh-CN: '弹窗是否可见，使用`v-model`绑定'
+  mask-transition:
+    default: vux-mask
+    en: transition of mask
+    zh-CN: 遮罩层动画
+  dialog-transition:
+    default: vux-dialog
+    en: transition of dialog body
+    zh-CN: 弹窗动画
+  hide-on-blur:
+    type: Boolean
+    default: false
+    en: if closing dialog when clicking on mask
+    zh-CN: 是否在点击遮罩时自动关闭弹窗
+  scroll:
+    type: Boolean
+    default: true
+    en: if body content can scroll when scrolling on dialog
+    zh-CN: 是否在弱窗上滚动时 body 内容也滚动
+events:
+  on-show:
+    en: emits when opening dialog
+    zh-CN: 弹窗可见时触发
+  on-hide:
+    en: emits when closing dialog
+    zh-CN: 弹窖关闭时触发
+slots:
+  default:
+    en: main content of the dialog
+    zh-CN: 弹窗的主体内容
+changes:
+  v2.1.1-rc.2:
+    en:
+      - '[fix] fix button text color variables'
+    zh-CN:
+      - '[fix] 修复按钮文字颜色变量'
+  v2.1.0:
+    en:
+      - '[fix] fix `transition` binding'
+    zh-CN:
+      - '[fix] 修复`transition`绑定'

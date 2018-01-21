@@ -1,0 +1,38 @@
+icon: '&#xe65c;'
+tags:
+  en:
+    - preview
+    - swipephoto
+    - image
+  zh-CN:
+    - 预览
+    - 图片
+extra: |
+
+  list的数据示例如图：
+
+  ``` js
+  [{
+    src: 'https://placekitten.com/800/400',
+    w: 600,
+    h: 400
+  },
+  {
+    src: 'https://placekitten.com/1200/900',
+    w: 1200,
+    h: 900
+  }]
+  ```
+
+  显示特定index的图片，使用`ref`:
+
+  ``` js
+  this.$refs.previewer.show(index)
+  ```
+props:
+  list: 
+    type: Array
+    zh-CN: 图片列表
+  options:
+    type: 'Object'
+    zh-CN: '`photoswipe`的设置'

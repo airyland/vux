@@ -1,9 +1,9 @@
 <template>
   <div class="vux-color-picker">
     <flexbox>
-      <flexbox-item v-for="color in colors" class="vux-color-box">
+      <flexbox-item v-for="color in colors" :key="color" class="vux-color-box">
         <span class="vux-color-item" :style="{borderRadius: width/2 + 'px',backgroundColor: color, width: width + 'px', height: width + 'px'}" @click="change(color)" :class="{'vux-color-white': color === '#fff' || color === '#fff', 'vux-color-picker-small': size === 'small', 'vux-color-picker-middle': size === 'middle'}">
-          <icon v-if="color === value" class="vux-color-checked" :style="{lineHeight: width + 'px'}" type="success_no_circle"></icon>
+          <icon v-if="color === value" class="vux-color-checked" :style="{lineHeight: width + 'px'}" type="success-no-circle"></icon>
         </span>
       </flexbox-item>
     </flexbox>
@@ -25,6 +25,9 @@ export default {
     Flexbox,
     FlexboxItem
   },
+  created () {
+    this.currentValue = this.value
+  },
   props: {
     colors: {
       type: Array,
@@ -41,10 +44,23 @@ export default {
       return sizeMap[this.size]
     }
   },
+  data () {
+    return {
+      currentValue: ''
+    }
+  },
+  watch: {
+    value (val) {
+      this.currentValue = val
+    },
+    currentValue (color) {
+      this.$emit('on-change', color)
+      this.$emit('input', color)
+    }
+  },
   methods: {
     change (color) {
-      this.value = color
-      this.$emit('on-change', color)
+      this.currentValue = color
     }
   }
 }
@@ -65,7 +81,7 @@ export default {
   box-sizing: border-box;
   position: relative
 }
-.vux-color-checked.weui_icon_success_no_circle:before {
+.vux-color-checked.weui-icon-success-no-circle:before {
   color: #fff;
 }
 .vux-color-checked {

@@ -5,12 +5,6 @@
 var slice = Array.prototype.slice
 
 /**
- * Primary export
- */
-
-var exports = module.exports = super_
-
-/**
  * ### _super (dest, orig)
  *
  * Inherits the prototype methods or merges objects.
@@ -29,8 +23,8 @@ var exports = module.exports = super_
 function super_ () {
   var args = slice.call(arguments)
   if (!args.length) return
-  if (typeof args[0] !== 'function') return exports.merge(args)
-  exports.inherits.apply(null, args)
+  if (typeof args[0] !== 'function') return super_.merge(args)
+  super_.inherits.apply(null, args)
 }
 
 /**
@@ -62,13 +56,13 @@ function super_ () {
  * @api public
  */
 
-exports.extend = function (proto, klass) {
+super_.extend = function (proto, klass) {
   var self = this
   var child = function () { return self.apply(this, arguments) }
-  exports.merge([ child, this ])
-  exports.inherits(child, this)
-  if (proto) exports.merge([ child.prototype, proto ])
-  if (klass) exports.merge([ child, klass ])
+  super_.merge([ child, this ])
+  super_.inherits(child, this)
+  if (proto) super_.merge([ child.prototype, proto ])
+  if (klass) super_.merge([ child, klass ])
   child.extend = this.extend // prevent overwrite
   return child
 }
@@ -84,7 +78,7 @@ exports.extend = function (proto, klass) {
  * @api private
  */
 
-exports.inherits = function (ctor, SuperCtor) {
+super_.inherits = function (ctor, SuperCtor) {
   ctor.super_ = SuperCtor
   if (Object.create) {
     ctor.prototype = Object.create(SuperCtor.prototype,
@@ -109,7 +103,7 @@ exports.inherits = function (ctor, SuperCtor) {
  * @api private
  */
 
-exports.merge = function (arr) {
+super_.merge = function (arr) {
   var main = arr.length === 2 ? arr.shift() : {}
   var obj = null
 
@@ -123,3 +117,6 @@ exports.merge = function (arr) {
 
   return main
 }
+
+export default super_
+export const inherits = super_.inherits

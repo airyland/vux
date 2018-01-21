@@ -12,7 +12,7 @@ export default {
   computed: {
     classes () {
       return {
-        'vux-button-group-current': this.index === this.$parent.index,
+        'vux-button-group-current': this.currentIndex === this.$parent.currentIndex,
         'no-border-right': this.shouldRemoveBorder
       }
     },

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { DateFormatter } from '../components'
+import { DateFormatter } from 'vux'
 
 export default {
   filters: {

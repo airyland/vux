@@ -1,14 +1,57 @@
+icon: '&#xe610;'
+tags:
+  en:
+    - loading
+    - dialog
+  zh-CN:
+    - 加载
+    - 弹窗
+    - 提示
+extra: |
+   该组件支持以`plugin`形式调用：
+
+   ``` js
+   import  { LoadingPlugin } from 'vux'
+   Vue.use(LoadingPlugin)
+
+   // 或者umd方式
+   // 引入构建的js文件
+   Vue.use(vuxLoadingPlugin)
+   ```
+
+   ``` js
+   // 显示
+   this.$vux.loading.show({
+    text: 'Loading'
+   })
+   // 隐藏
+   this.$vux.loading.hide()
+   ```
+   <p class="tip">
+   loading同样支持在vue外直接使用，请参照 [https://github.com/airyland/vux/blob/v2/docs/examples/loading.html](https://github.com/airyland/vux/blob/v2/docs/examples/loading.html)
+   </p>
+
 props:
-  show:
+  value:
+    type: Boolean
+    default: false
     en: visibility of the component
-    zh-CN: 显示状态
+    zh-CN: 显示状态，使用`v-model`绑定
   text:
+    type: String
+    default: ''
     en: loading text
     zh-CN: 提示文字
   position:
+    type: String
+    default: 'fixed'
     en: position, default is `fixed`, you can use `absolute`
     zh-CN: 定位方式，默认为`fixed`，在100%的布局下用`absolute`可以避免抖动
 slots:
   default:
     en: content area
     zh-CN: 提示文字区域
+changes:
+  v2.0.1:
+    zh-CN:
+      - '[fix] i18n 无配置'

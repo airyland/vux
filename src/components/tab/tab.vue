@@ -10,29 +10,23 @@ import { parentMixin } from '../../mixins/multi-items'
 
 export default {
   mixins: [parentMixin],
-  ready () {
+  mounted () {
     // stop bar anmination on first loading
-    setTimeout(() => {
-      this.hasReady = true
-    }, 0)
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.hasReady = true
+      }, 0)
+    })
   },
   props: {
     lineWidth: {
       type: Number,
       default: 3
     },
-    activeColor: {
-      type: String,
-      default: '#04be02'
-    },
-    defaultColor: {
-      type: String,
-      default: '#666'
-    },
-    disabledColor: {
-      type: String,
-      default: '#ddd'
-    },
+    activeColor: String,
+    barActiveColor: String,
+    defaultColor: String,
+    disabledColor: String,
     animate: {
       type: Boolean,
       default: true
@@ -40,17 +34,17 @@ export default {
   },
   computed: {
     barLeft () {
-      return `${this.index * (100 / this.number)}%`
+      return `${this.currentIndex * (100 / this.number)}%`
     },
     barRight () {
-      return `${(this.number - this.index - 1) * (100 / this.number)}%`
+      return `${(this.number - this.currentIndex - 1) * (100 / this.number)}%`
     },
     barStyle () {
       return {
         left: this.barLeft,
         right: this.barRight,
         display: 'block',
-        backgroundColor: this.activeColor,
+        backgroundColor: this.barActiveColor || this.activeColor,
         height: this.lineWidth + 'px',
         transition: !this.hasReady ? 'none' : null
       }
@@ -63,7 +57,7 @@ export default {
     }
   },
   watch: {
-    index (newIndex, oldIndex) {
+    currentIndex (newIndex, oldIndex) {
       this.direction = newIndex > oldIndex ? 'forward' : 'backward'
       this.$emit('on-index-change', newIndex, oldIndex)
     }
@@ -80,6 +74,8 @@ export default {
 
 
 <style lang="less">
+@import '../../styles/variable.less';
+
 @prefixClass: vux-tab;
 @easing-in-out: cubic-bezier(0.35, 0, 0.25, 1);
 @effect-duration: .3s;
@@ -91,6 +87,7 @@ export default {
     height: 2px;
     bottom: 0;
     left: 0;
+    background-color: @tab-bar-active-color;
 
     &-transition-forward {
       transition: right @effect-duration @easing-in-out,
@@ -128,11 +125,16 @@ export default {
   font-size: 14px;
   text-align: center;
   line-height: 44px;
-  color: #666;
+  color: @tab-text-default-color;
 }
+
 .vux-tab .vux-tab-item.vux-tab-selected {
-  color: #04be02;
-  border-bottom: 3px solid #04be02;
+  color: @tab-text-active-color;
+  border-bottom: 3px solid @tab-text-active-color;
+}
+
+.vux-tab .vux-tab-item.vux-tab-disabled {
+  color: @tab-text-disabled-color;
 }
 
 .vux-tab.vux-tab-no-animate .vux-tab-item.vux-tab-selected {

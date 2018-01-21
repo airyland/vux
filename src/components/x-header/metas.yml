@@ -1,20 +1,40 @@
+icon: '&#xe654;'
+tags:
+  en:
+    - layout
+    - head
+  zh-CN:
+    - 导航
+    - 头部
 props:
   left-options.showBack:
+    type: Boolean
+    default: true
     en: if show back text
     zh-CN: 是否显示返回文字
   left-options.backText:
+    type: String
+    default: 'Back'
     en: the back text
     zh-CN: 返回文字
   left-options.preventGoBack:
+    type: Boolean
+    default: false
     en: stop go back when clicking
     zh-CN: 是否阻止返回
   title:
+    type: String
+    default: ''
     en: title
     zh-CN: 标题
   transition:
+    type: String
+    default: ''
     en: title transition
     zh-CN: 标题出现的动画
   right-options.showMore:
+    type: Boolean
+    default: false
     en: if show more icon
     zh-CN: 是否显示右侧的更多图标
 slots:

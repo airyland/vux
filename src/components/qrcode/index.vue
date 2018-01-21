@@ -1,8 +1,11 @@
 <template>
-  <canvas
+  <div>
+    <canvas
   :style="{height: size, width: size}"
   :height="size"
-  :width="size"></canvas>
+  :width="size" v-show="type === 'canvas'" ref="canvas"></canvas>
+    <img :src="imgData" v-if="type === 'img'">
+  </div>
 </template>
 
 <script>
@@ -27,13 +30,36 @@ export default {
     fgColor: {
       type: String,
       default: '#000000'
+    },
+    type: {
+      type: String,
+      default: 'img'
     }
   },
-  ready () {
-    this.render()
+  mounted () {
+    this.$nextTick(() => {
+      this.render()
+    })
+  },
+  data () {
+    return {
+      imgData: ''
+    }
   },
   watch: {
-    'value+size+level+bgColor+fgColor' () {
+    value () {
+      this.render()
+    },
+    size () {
+      this.render()
+    },
+    level () {
+      this.render()
+    },
+    bgColor () {
+      this.render()
+    },
+    fgColor () {
       this.render()
     }
   },
@@ -43,7 +69,7 @@ export default {
       qrcode.addData(this.value)
       qrcode.make()
 
-      const canvas = this.$el
+      const canvas = this.$refs.canvas
 
       const ctx = canvas.getContext('2d')
       const cells = qrcode.modules
@@ -61,6 +87,9 @@ export default {
           ctx.fillRect(Math.round(cdx * tileW), Math.round(rdx * tileH), w, h)
         })
       })
+      if (this.type === 'img') {
+        this.imgData = canvas.toDataURL('image/png')
+      }
     }
   }
 }

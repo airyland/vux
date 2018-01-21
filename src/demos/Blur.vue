@@ -4,13 +4,13 @@
       <p class="center"><img :src="url"></p>
     </blur>
     <flexbox :gutter="0">
-      <flexbox-item v-for="img in images"><img :src="img" style="width:100%" @click="url = img"/></flexbox-item>
+      <flexbox-item v-for="(img, index) in images" :key="index"><img :src="img" style="width:100%" @click="url = img"/></flexbox-item>
     </flexbox>
   </div>
 </template>
 
 <script>
-import { Flexbox, FlexboxItem, Blur } from '../components'
+import { Flexbox, FlexboxItem, Blur } from 'vux'
 
 export default {
   components: {

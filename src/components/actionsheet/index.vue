@@ -1,40 +1,71 @@
 <template>
   <div class="vux-actionsheet">
-    <div class="weui_mask_transition" :class="{'weui_fade_toggle': show}" :style="{display: show ? 'block' : 'none'}" @click="show=false"></div>
-    <div class="weui_actionsheet" :class="{'weui_actionsheet_toggle': show}">
-      <div class="weui_actionsheet_menu">
-        <div class="weui_actionsheet_cell" v-for="(key, text) in menus" @click="emitEvent('on-click-menu', key)" v-html="text">
+    <div class="weui-mask weui-mask_transparent" :class="{'weui-actionsheet_toggle': show}" :style="{display: show ? 'block' : 'none'}" @click="onClickingMask"></div>
+    <div class="weui-actionsheet" :class="{'weui-actionsheet_toggle': show}">
+      <div class="weui-actionsheet__menu">
+        <div class="weui-actionsheet__cell" v-for="(text, key) in menus" @click="onMenuClick(text, key)" v-html="$t(text.label || text)" :class="`vux-actionsheet-menu-${text.type || 'default'}`">
         </div>
-        <div class="vux-actionsheet-gap" v-if="showCancel"></div>
-        <div class="weui_actionsheet_cell vux-actionsheet-cancel" @click="emitEvent('on-click-menu', 'cancel')" v-if="showCancel">{{cancelText}}</div>
+      </div>
+      <div class="weui-actionsheet__action" @click="emitEvent('on-click-menu', 'cancel')" v-if="showCancel">
+        <div class="weui-actionsheet__cell">{{cancelText || $t('cancel')}}</div>
       </div>
     </div>
   </div>
 </template>
 
+<i18n>
+cancel:
+  en: cancel
+  zh-CN: 取消
+</i18n>
+
 <script>
 export default {
-  ready () {
-    this.$tabbar = document.querySelector('.weui_tabbar')
+  mounted () {
+    this.$nextTick(() => {
+      this.$tabbar = document.querySelector('.weui-tabbar')
+    })
   },
   props: {
-    show: Boolean,
+    value: Boolean,
     showCancel: Boolean,
-    cancelText: {
-      type: String,
-      default: 'cancel'
-    },
+    cancelText: String,
     menus: {
-      type: Object,
-      default: () => {}
+      type: [Object, Array],
+      default: () => ({})
+    },
+    closeOnClickingMask: {
+      type: Boolean,
+      default: true
+    }
+  },
+  data () {
+    return {
+      show: false
     }
   },
   methods: {
-    emitEvent (event, menu) {
+    onMenuClick (text, key) {
+      if (typeof text === 'string') {
+        this.emitEvent('on-click-menu', key)
+      } else {
+        if (text.type !== 'disabled' && text.type !== 'info') {
+          if (text.value) {
+            this.emitEvent('on-click-menu', text.value)
+          } else {
+            this.show = false
+          }
+        }
+      }
+    },
+    onClickingMask () {
+      this.closeOnClickingMask && (this.show = false)
+    },
+    emitEvent (event, menu, shouldClose = true) {
       if (event === 'on-click-menu' && !/.noop/.test(menu)) {
         this.$emit(event, menu)
         this.$emit(`${event}-${menu}`)
-        this.show = false
+        shouldClose && (this.show = false)
       }
     },
     fixIos (zIndex) {
@@ -45,6 +76,7 @@ export default {
   },
   watch: {
     show (val) {
+      this.$emit('input', val)
       if (val) {
         this.fixIos(-1)
       } else {
@@ -52,6 +84,9 @@ export default {
           this.fixIos(100)
         }, 200)
       }
+    },
+    value (val) {
+      this.show = val
     }
   },
   beforeDestroy () {
@@ -71,5 +106,17 @@ export default {
 }
 .vux-actionsheet-cancel:before {
   border-top: none;
+}
+.vux-actionsheet-menu-primary {
+  color: @actionsheet-label-primary-color;
+}
+.vux-actionsheet-menu-warn {
+  color: @actionsheet-label-warn-color;
+}
+.vux-actionsheet-menu-default {
+  color: @actionsheet-label-default-color;
+}
+.vux-actionsheet-menu-disabled {
+  color: @actionsheet-label-disabled-color;
 }
 </style>

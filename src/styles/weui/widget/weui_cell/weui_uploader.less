@@ -1,30 +1,27 @@
 @import "../../base/fn";
 
-@weuiUploaderBorderColor:#D9D9D9;
-@weuiUploaderActiveBorderColor:#999999;
-@weuiUploaderFileSpacing: 9px;
-@weuiUploaderSize: 79px;
-@weuiUploaderBorderWidth: 1px;
-
-.weui_uploader{}
-.weui_uploader_hd{
-    padding-top: 0;
-    padding-right: 0;
-    padding-left: 0;
-    .weui_cell_ft{
-        font-size: 1em;
-    }
+.weui-uploader{}
+.weui-uploader__hd{
+    display: flex;
+    padding-bottom: @weuiCellGapV;
+    align-items: center;
 }
-.weui_uploader_bd{
+.weui-uploader__title{
+    flex: 1;
+}
+.weui-uploader__info{
+    color: @weuiTextColorTips;
+}
+
+.weui-uploader__bd{
     margin-bottom: @weuiCellGapH - (@weuiCellGapV + @weuiUploaderFileSpacing);
     margin-right: -@weuiUploaderFileSpacing;
     overflow: hidden;
 }
-
-.weui_uploader_files{
+.weui-uploader__files{
     list-style: none;
 }
-.weui_uploader_file{
+.weui-uploader__file{
     float: left;
     margin-right: @weuiUploaderFileSpacing;
     margin-bottom: @weuiUploaderFileSpacing;
@@ -33,7 +30,7 @@
     background: no-repeat center center;
     background-size: cover;
 }
-.weui_uploader_status{
+.weui-uploader__file_status{
     position: relative;
     &:before{
         content: " ";
@@ -44,19 +41,22 @@
         left: 0;
         background-color: rgba(0, 0, 0, .5);
     }
-    .weui_uploader_status_content{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #FFFFFF;
-    }
-    .weui_icon_warn{
+    .weui-uploader__file-content{
         display: block;
     }
 }
-
-.weui_uploader_input_wrp{
+.weui-uploader__file-content{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    .weui-icon-warn{
+        display: inline-block;
+    }
+}
+.weui-uploader__input-box{
     float:left;
     position: relative;
     margin-right: @weuiUploaderFileSpacing;
@@ -87,7 +87,7 @@
         }
     }
 }
-.weui_uploader_input{
+.weui-uploader__input{
     position: absolute;
     z-index: 1;
     top: 0;
@@ -95,5 +95,5 @@
     width: 100%;
     height: 100%;
     opacity: 0;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    .setTapColor();
 }

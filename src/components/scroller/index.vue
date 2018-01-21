@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import objectAssign from 'object-assign'
 import XScroll from 'vux-xscroll/build/cmd/xscroll.js'
 import Pulldown from 'vux-xscroll/build/cmd/plugins/pulldown'
 import Pullup from 'vux-xscroll/build/cmd/plugins/pullup'
@@ -36,6 +37,15 @@ const pullupDefaultConfig = () => ({
 
 export default {
   props: {
+    value: {
+      type: Object,
+      default: () => {
+        return {
+          pulldownStatus: '',
+          pullupStatus: ''
+        }
+      }
+    },
     height: String,
     lockX: Boolean,
     lockY: Boolean,
@@ -89,14 +99,6 @@ export default {
         return {}
       }
     },
-    pulldownStatus: {
-      type: String,
-      default: 'default'
-    },
-    pullupStatus: {
-      type: String,
-      default: 'default'
-    },
     enableHorizontalSwiping: {
       type: Boolean,
       default: false
@@ -109,157 +111,189 @@ export default {
           this._xscroll.scrollLeft(scrollPosition.left)
         }
         if (typeof scrollPosition.top !== 'undefined') {
+          console.log(this._xscroll.getScrollTop())
           this._xscroll.scrollTop(scrollPosition.top)
         }
       }
-      setTimeout(() => {
-        this._xscroll && this._xscroll.render()
+      this._xscroll && this._xscroll.resetSize()
+    },
+    donePulldown () {
+      this.pulldown.reset(() => {
+        // repaint
+        this.reset()
       })
-    }
-  },
-  compiled () {
-    this.uuid = Math.random().toString(36).substring(3, 8)
-  },
-  computed: {
-    styles () {
-      if (!this.height && !this.$el.style.height && this.lockX) {
-        this.height = `${document.documentElement.clientHeight}px`
+      this.currentValue.pulldownStatus = 'default'
+    },
+    disablePullup () {
+      // this._xscroll.unplug(this.pullup)
+      this.pullup.stop()
+      this.currentValue.pullupStatus = 'disabled'
+    },
+    enablePullup () {
+      this.currentValue.pullupStatus = 'default'
+      this.pullup.restart()
+    },
+    donePullup () {
+      this.pullup.complete()
+      this.reset()
+      this.currentValue.pullupStatus = 'default'
+    },
+    getStyles () {
+      let height = this.height
+      if (!this.height && (this.$el && !this.$el.style.height) && this.lockX) {
+        height = `${document.documentElement.clientHeight}px`
         this.reset()
       }
 
       if (this.height && this.height.indexOf('-') === 0) {
-        this.height = `${document.documentElement.clientHeight + parseInt(this.height)}px`
+        height = `${document.documentElement.clientHeight + parseInt(this.height)}px`
       }
-
-      return {
-        height: `${this.height}`
+      this.styles = {
+        height: `${height}`
       }
     }
   },
-  ready () {
-    this.$el.setAttribute('id', `vux-scroller-${this.uuid}`)
-    let content = null
-    const slotChildren = this.$el.querySelector('.xs-container').childNodes
-    for (let i = 0; i < slotChildren.length; i++) {
-      if (slotChildren[i].nodeType === 1) {
-        content = slotChildren[i]
-        break
+  created () {
+    if (!this.value) {
+      this.currentValue = {
+        pulldownStatus: '',
+        pullupStatus: ''
       }
+    } else {
+      this.currentValue = this.value
     }
-    if (!content) {
-      throw new Error('no content is found')
+    this.handleOrientationchange = () => {
+      setTimeout(() => {
+        this.reset()
+      }, 100)
     }
-
-    this._xscroll = new XScroll({
-      renderTo: `#vux-scroller-${this.uuid}`,
-      lockX: this.lockX,
-      lockY: this.lockY,
-      scrollbarX: this.scrollbarX,
-      scrollbarY: this.scrollbarY,
-      content: content,
-      bounce: this.bounce,
-      useOriginScroll: this.useOriginScroll,
-      useTransition: this.useTransition,
-      preventDefault: this.preventDefault,
-      boundryCheck: this.boundryCheck,
-      gpuAcceleration: this.gpuAcceleration,
-      stopPropagation: this.stopPropagation
-    })
-
-    if (this.usePulldown) {
-      // if use slot=pulldown
-      let container = this.$el.querySelector('div[slot="pulldown"]')
-      let config = Object.assign(pulldownDefaultConfig(), this.pulldownConfig)
-      if (container) {
-        config.container = container
-      }
-      this.pulldown = new Pulldown(config)
-      this._xscroll.plug(this.pulldown)
-      this.pulldown.on('loading', (e) => {
-        this.$emit('pulldown:loading', this.uuid)
-      })
-      this.pulldown.on('statuschange', (val) => {
-        this.pulldownStatus = val.newVal
-      })
-    }
-
-    if (this.usePullup) {
-      // if use slot=pullup
-      let container = this.$el.querySelector('div[slot="pullup"]')
-      let config = Object.assign(pullupDefaultConfig(), this.pullupConfig)
-
-      if (container) {
-        config.container = container
-      }
-      this.pullup = new Pullup(config)
-      this._xscroll.plug(this.pullup)
-      this.pullup.on('loading', (e) => {
-        this.$emit('pullup:loading', this.uuid)
-      })
-      this.pullup.on('statuschange', (val) => {
-        this.pullupStatus = val.newVal
-      })
-    }
-
-    if (this.enableHorizontalSwiping) {
-      this._xscroll.on('panstart', (e) => {
-        if (e.direction === 2 || e.direction === 4) {
-          e.preventDefault()
-          if (this.scrollbarY) {
-            this._xscroll.userConfig.scrollbarY = false
-          }
-          this._xscroll.userConfig.lockY = true
-        }
-      })
-      this._xscroll.on('panend', () => {
-        if (this.scrollbarY) {
-          this._xscroll.userConfig.scrollbarY = true
-        }
-        this._xscroll.userConfig.lockY = false
-      })
-    }
-
-    this._xscroll.render()
   },
-  events: {
-    'pulldown:reset' (uuid) {
-      // set pulldown status to default
-      this.pulldownStatus = 'default'
-      if (uuid === this.uuid) {
-        this.pulldown.reset(() => {
-          // repaint
-          this.reset()
+  data () {
+    return {
+      currentValue: {},
+      styles: {}
+    }
+  },
+  watch: {
+    currentValue: {
+      handler: function (val) {
+        this.$emit('input', pure(val))
+      },
+      deep: true
+    },
+    height () {
+      this.getStyles()
+    },
+    value: {
+      handler: function (val) {
+        if (val.pullupStatus === 'default' && this.currentValue.pullupStatus !== 'default') {
+          this.donePullup()
+        }
+        if (val.pulldownStatus === 'default' && this.currentValue.pulldownStatus !== 'default') {
+          this.donePulldown()
+        }
+        if (val.pullupStatus === 'disabled' && this.currentValue.pullupStatus !== 'disabled') {
+          this.disablePullup()
+        }
+        if (val.pullupStatus === 'enabled' && this.currentValue.pullupStatus === 'disabled') {
+          this.enablePullup()
+        }
+      },
+      deep: true
+    }
+  },
+  mounted () {
+    this.uuid = Math.random().toString(36).substring(3, 8)
+    this.$nextTick(() => {
+      this.$el.setAttribute('id', `vux-scroller-${this.uuid}`)
+      let content = null
+      if (this.$slots.default) {
+        content = this.$slots.default[0].elm
+      }
+      if (!content) {
+        throw new Error('no content is found')
+      }
+
+      this._xscroll = new XScroll({
+        renderTo: `#vux-scroller-${this.uuid}`,
+        lockX: this.lockX,
+        lockY: this.lockY,
+        scrollbarX: this.scrollbarX,
+        scrollbarY: this.scrollbarY,
+        content: content,
+        bounce: this.bounce,
+        useOriginScroll: this.useOriginScroll,
+        useTransition: this.useTransition,
+        preventDefault: this.preventDefault,
+        boundryCheck: this.boundryCheck,
+        gpuAcceleration: this.gpuAcceleration,
+        stopPropagation: this.stopPropagation
+      })
+
+      this._xscroll.on('scroll', () => {
+        this.$emit('on-scroll', {
+          top: this._xscroll.getScrollTop(),
+          left: this._xscroll.getScrollLeft()
+        })
+      })
+
+      if (this.usePulldown) {
+        // if use slot=pulldown
+        let container = this.$slots.pulldown
+        let config = objectAssign(pulldownDefaultConfig(), this.pulldownConfig)
+        if (container) {
+          config.container = container[0].elm
+        }
+        this.pulldown = new Pulldown(config)
+        this._xscroll.plug(this.pulldown)
+        this.pulldown.on('loading', (e) => {
+          this.$emit('on-pulldown-loading', this.uuid)
+        })
+        this.pulldown.on('statuschange', (val) => {
+          this.currentValue.pulldownStatus = val.newVal
         })
       }
-    },
-    'pullup:reset' (uuid) {
-      // set pulldown status to default
-      this.pullupStatus = 'default'
-      if (uuid === this.uuid) {
-        this.pullup.complete()
-        this.reset()
+
+      if (this.usePullup) {
+        // if use slot=pullup
+        let container = this.$slots.pullup
+        let config = objectAssign(pullupDefaultConfig(), this.pullupConfig)
+
+        if (container) {
+          config.container = container[0].elm
+        }
+        this.pullup = new Pullup(config)
+        this._xscroll.plug(this.pullup)
+        this.pullup.on('loading', (e) => {
+          this.$emit('on-pullup-loading', this.uuid)
+        })
+        this.pullup.on('statuschange', (val) => {
+          this.currentValue.pullupStatus = val.newVal
+        })
       }
-    },
-    'pullup:done' (uuid) {
-      if (uuid === this.uuid) {
-        this._xscroll.unplug(this.pullup)
+
+      if (this.enableHorizontalSwiping) {
+        this._xscroll.on('panstart', (e) => {
+          if (e.direction === 2 || e.direction === 4) {
+            e.preventDefault()
+            if (this.scrollbarY) {
+              this._xscroll.userConfig.scrollbarY = false
+            }
+            this._xscroll.userConfig.lockY = true
+          }
+        })
+        this._xscroll.on('panend', () => {
+          if (this.scrollbarY) {
+            this._xscroll.userConfig.scrollbarY = true
+          }
+          this._xscroll.userConfig.lockY = false
+        })
       }
-    },
-    'scroller:reset' (uuid) {
-      if (uuid === this.uuid) {
-        this.reset()
-      }
-    },
-    'pullup:disable' (uuid) {
-      if (uuid === this.uuid) {
-        this.pullup.stop()
-      }
-    },
-    'pullup:enable' (uuid) {
-      if (uuid === this.uuid) {
-        this.pullup.restart()
-      }
-    }
+
+      this._xscroll.render()
+      window.addEventListener('orientationchange', this.handleOrientationchange, false)
+    })
+    this.getStyles()
   },
   beforeDestroy () {
     if (this.pullup) {
@@ -270,9 +304,14 @@ export default {
       this._xscroll.unplug(this.pulldown)
       this.pulldown.pluginDestructor()
     }
+    window.removeEventListener('orientationchange', this.handleOrientationchange, false)
     this._xscroll.destroy()
     this._xscroll = null
   }
+}
+
+function pure (obj) {
+  return JSON.parse(JSON.stringify(obj))
 }
 </script>
 

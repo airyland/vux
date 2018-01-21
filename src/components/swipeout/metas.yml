@@ -1,0 +1,72 @@
+icon: '&#xe641;'
+name: swipeout
+import_code: '&nbsp;'
+extra: |
+  
+  ``` js
+  import { Swipeout, SwipeoutItem, SwipeoutButton } from 'vux'
+  ```
+
+items:
+  - swipeout
+  - swipeout-item
+  - swipeout-button
+swipeout:
+  sub_extra: |
+    包装子组件的wrap组件
+  slots:
+    default:
+      zh-CN: 子组件插槽
+swipeout-button:
+  props:
+    text:
+      zh-CN: '按钮文字，同`slot=default`'
+    background-color:
+      zh-CN: 背景颜色
+    type:
+      zh-CN: '内置的颜色类型，可选`primary`, `warn`'
+    width:
+      default: 80
+      zh-CN: 按钮宽度
+swipeout-item:
+  props:
+    sensitivity:
+      type: Number
+      default: 0
+      zh-CN: 滑动多少距离后开始触发菜单显示
+    auto-close-on-button-click:
+      type: Boolean
+      default: true
+      zh-CN: 点击按钮后是否收回菜单
+    disabled:
+      type: Boolean
+      default: false
+      zh-CN: 是否不可滑动
+    threshold:
+      type: Number
+      default: 0.3
+      zh-CN: 滑动多少距离后自动打开菜单，否则收回。可以为小于1的比例或者宽度值
+    transition-mode:
+      type: String
+      default: reveal
+      zh-CN: 菜单打开方式，`reveal`表示菜单不动内容滑出，`follow`表示菜单随内容滑出
+  methods:
+    open:
+      params: '`(direction)`'
+      zh-CN: 打开菜单，参数为方向
+    close:
+      zh-CN: 关闭菜单
+  slots:
+    left-menu:
+      zh-CN: 左菜单
+    right-menu:
+      zh-CN: 右菜单
+  events:
+    on-open:
+      zh-CN: 菜单完全打开时触发
+    on-close:
+      zh-CN: 菜单完全关闭时触发
+changes:
+  v2.1.0-rc.50:
+    zh-CN:
+      - '[feature] `swipeout`组件`beta`版本'

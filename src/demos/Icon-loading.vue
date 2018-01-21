@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { Group, Cell, Divider, XInput } from '../components'
+import { Group, Cell, Divider, XInput } from 'vux'
 
 export default {
   components: {

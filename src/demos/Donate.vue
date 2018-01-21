@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { Divider } from '../components'
+import { Divider } from 'vux'
 
 export default {
   components: {

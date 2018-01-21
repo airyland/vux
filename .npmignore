@@ -1,5 +1,6 @@
 build/
 demo/
+dist/
 node_modules/
 examples/
 test/
@@ -14,3 +15,6 @@ CNAME
 circle.yml
 bower.json
 /assets/
+.babelrc
+docs/
+*.vue.vux.*

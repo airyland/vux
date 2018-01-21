@@ -86,7 +86,7 @@ export default {
     top: 45%;
     transform: translateY(-50%);
 
-    &.weui_icon_success_no_circle::before {
+    &.weui-icon-success-no-circle::before {
       font-size: 12px;
       width: 20px;
       color: #FFF;

@@ -1,12 +1,11 @@
 @import "../../../base/fn";
 
-.weui_label{
-    color: @cell-label-color;
-    display:block;
-    width:@weuiCellLabelWidth;
-    .text_wrap();
+.weui-label{
+  display:block;
+  width:@weuiCellLabelWidth;
+  .text_wrap();
 }
-.weui_input {
+.weui-input {
     width: 100%;
     border: 0;
     outline: 0;
@@ -23,7 +22,7 @@
         margin: 0;
     }
 }
-.weui_textarea {
+.weui-textarea {
     display: block;
     border: 0;
     resize: none;
@@ -34,39 +33,43 @@
     outline: 0;
 }
 
-.weui_textarea_counter{
-    color: @globalDescColor;
+.weui-textarea-counter{
+    color: @weuiTextColorTips;
     text-align: right;
-    .weui_cell_warn &{
-        color: @globalWarnColor;
+    .weui-cell_warn &{
+        color: @weuiTextColorWarn;
     }
 }
 
-.weui_toptips {
+.weui-toptips {
     display:none;
     position: fixed;
-    -webkit-transform: translateZ(0);
-    width: 100%;
+    transform: translateZ(0);
     top: 0;
-    line-height: 2.3;
+    left: 0;
+    right: 0;
+    padding:5px;
     font-size:14px;
     text-align: center;
     color: #FFF;
-    z-index: 50000;
-    &.weui_warn {
-        background-color: @globalWarnColor;
-    }
+    z-index: 5000;
+    .text_wrap();
 }
-.weui_cells_form {
-    .weui_cell_warn{
-        color:@globalWarnColor;
-        .weui_icon_warn{display:inline-block;}
+.weui-toptips_warn {
+    background-color: @weuiColorWarn;
+}
+.weui-cells_form {
+    .weui-cell__ft{
+        font-size:0;
     }
-    .weui_cell_ft{font-size:0;}
-    .weui_icon_warn{
+    .weui-icon-warn{
         display:none;
     }
     input, textarea, label[for]{
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        .setTapColor();
     }
+}
+.weui-cell_warn{
+    color:@weuiTextColorWarn;
+    .weui-icon-warn{display:inline-block;}
 }

@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { Divider, Card } from '../components'
+import { Divider, Card } from 'vux'
 
 export default {
   components: {
@@ -56,7 +56,8 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import '../styles/1px.less';
+@import '~vux/src/styles/1px.less';
+
 .card-demo-flex {
   display: flex;
 }

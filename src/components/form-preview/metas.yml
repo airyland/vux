@@ -1,0 +1,35 @@
+icon: '&#xe699;'
+tags:
+  en:
+    - form
+  zh-CN:
+    - 表单
+props:
+  header-label:
+    type: String
+    default: ''
+    en: header label
+    zh-CN: 头部标题
+  header-value:
+    type: String
+    default: ''
+    en: header value
+    zh-CN: 头部内容
+  body-items:
+    type: Array
+    default: '[]'
+    en: a list of label and value pair
+    zh-CN: 主体内容列表， [{label:'label',value:'value'}]
+  footer-buttons:
+    type: Array
+    default: '[]'
+    en: |
+      button list, [{style: 'primary', text: 'text', onButtonClick: fn, link: '/path'}]
+    zh-CN: '底部按钮列表，default为灰色样式，primary文字为高亮颜色， [{style: "primary", text: "text", onButtonClick: fn(), link: "/path"}]'
+changes:
+  v2.1.0-rc.49:
+    zh-CN:
+      - '[fix] 修复出现滚动条 #920 @asingingfish'
+  v2.0.0:
+    zh-CN:
+      - '[feature] 增加`form-preview`组件'

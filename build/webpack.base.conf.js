@@ -1,76 +1,83 @@
 var path = require('path')
+var config = require('../config')
+var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
-var src = path.join(projectRoot, 'src')
+var fs = require('fs')
+var vueLoaderConfig = require('./vue-loader.conf')
 
-module.exports = {
+var argv = require('yargs').argv
+argv.simulate = argv.simulate || false
+
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
+const webpackConfig = {
   entry: {
     app: './src/main.js'
   },
   output: {
-    path: path.resolve(__dirname, '../site/static'),
-    publicPath: 'https://o3e85j0cv.qnssl.com/static/',
-    filename: '[name].js'
-  },
-  stats: {
-    children: false
+    path: config.build.assetsRoot,
+    filename: '[name].js',
+    publicPath: process.env.NODE_ENV === 'production'
+      ? config.build.assetsPublicPath
+      : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['', '.js', '.vue'],
+    extensions: ['.js', '.vue', '.json'],
+    modules: [
+      resolve('src'),
+      resolve('node_modules')
+    ],
     alias: {
-      'src': path.resolve(__dirname, '../src')
+      'vue$': 'vue/dist/vue.common.js',
+      'src': resolve('src'),
+      'assets': resolve('src/assets'),
+      'components': resolve('src/components')
     }
   },
-  resolveLoader: {
-    root: path.join(__dirname, 'node_modules')
-  },
   module: {
-    preLoaders: [
+    rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|vue)$/,
         loader: 'eslint-loader',
-        exclude: /node_modules/
-      }
-    ],
-    loaders: [
+        enforce: "pre",
+        include: [resolve('src'), resolve('test')],
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
+      },
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue-loader',
+        options: vueLoaderConfig
       },
       {
         test: /\.js$/,
-        loader: 'babel',
-        include: projectRoot,
-        exclude: /node_modules/
+        loader: 'babel-loader',
+        include: [resolve('src'), resolve('test')]
       },
       {
-        test: /\.js$/,
-        loader: 'babel',
-        include: src
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.html$/,
-        loader: 'vue-html'
-      },
-      {
-        test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
-        loader: 'url',
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
         query: {
           limit: 10000,
-          name: '[name].[ext]?[hash:7]'
+          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
     ]
-  },
-  vue: {
-    loaders: {
-      js: 'babel!eslint'
-    }
-  },
-  eslint: {
-    formatter: require('eslint-friendly-formatter')
   }
 }
+
+const vuxLoader = require('vux-loader')
+const vuxConfig = require('./vux-config')
+module.exports = vuxLoader.merge(webpackConfig, vuxConfig)
+

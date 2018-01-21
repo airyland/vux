@@ -1,23 +1,15 @@
 export default {
-  acceptStatement: true,
-  priority: 700,
-  bind: function () {
-    document.addEventListener('click', this.handler, true)
-  },
-  update: function (onClickOutside) {
-    if (!this.descriptor.raw) {
-      onClickOutside = function () {}
-    }
-    this.unbind()
-    var el = this.el
-    this.handler = function (e) {
+  bind: function (el, { value }) {
+    let onClickOutside = value
+    el.handler = function (e) {
       if (el && !el.contains(e.target)) {
         onClickOutside(e)
       }
     }
-    this.bind()
+    document.addEventListener('click', el.handler, true)
   },
-  unbind: function () {
-    document.removeEventListener('click', this.handler, true)
+  unbind: function (el) {
+    document.removeEventListener('click', el.handler, true)
+    el.handler = null
   }
 }

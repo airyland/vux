@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { Group, Cell } from '../components'
+import { Group, Cell } from 'vux'
 
 export default {
   components: {

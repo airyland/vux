@@ -1,6 +1,3 @@
-/**
-* Before v1.0, the variable names may change anytime.
-*/
 @namespace: vux;
 
 @color-wechat-green: #04BE02;
@@ -8,10 +5,34 @@
 @theme-color: #04BE02;
 @opacity-disabled: 0.5;
 
+
+/**
+* actionsheet
+*/
+@actionsheet-label-primary-color: #1AAD19;
+@actionsheet-label-warn-color: #E64340;
+@actionsheet-label-default-color: #000;
+@actionsheet-label-disabled-color: #ccc;
+
+/**
+* datetime
+*/
+@datetime-header-item-font-color: @theme-color;
+@datetime-header-item-cancel-font-color: @datetime-header-item-font-color;
+@datetime-header-item-confirm-font-color: @datetime-header-item-font-color;
+
 /**
 * tabbar
 */
-@tabbar-text-color-active: #09BB07;
+@tabbar-text-active-color: #09BB07;
+
+/**
+* tab
+*/
+@tab-text-disabled-color: #ddd;
+@tab-text-default-color: #666;
+@tab-text-active-color: @theme-color;
+@tab-bar-active-color: @theme-color;
 
 /**
 * dialog
@@ -22,8 +43,13 @@
 /**
 * x-number
 */
-@x-number-button-color: #3cc51f;
-@x-number-number-color: #666;
+@number-button-font-color: #3cc51f;
+@number-input-font-color: #666;
+@number-button-enabled-border-color: #ececec;
+@number-square-button-enabled-border-color: @number-button-enabled-border-color;
+@number-round-button-enabled-border-color: @number-button-font-color;
+@number-button-disabled-border-color: @number-button-enabled-border-color;
+@number-round-button-disabled-border-color: @number-button-enabled-border-color;
 
 /**
 * checkbox
@@ -39,6 +65,8 @@
 * Cell
 */
 @cell-label-color: #000;
+@cell-font-size: 17px;
+@cell-tips-font-size: 14px;
 
 /**
 * Mask
@@ -48,9 +76,9 @@
 /**
 * Range
 */
-@range-opacity-disabled: @opacity-disabled;
-@range-color-bar-default: #a9acb1;
-@range-color-bar-active: @theme-color;
+@range-disabled-opacity: @opacity-disabled;
+@range-bar-default-color: #a9acb1;
+@range-bar-active-color: @theme-color;
 
 /**
 * Tabbar
@@ -58,12 +86,12 @@
 @tabbar-index: 100;
 
 /**
-* XHeader
+* Header
 */
-@x-header-background-color: #35495e;
-@x-header-title-color: #fff;
-@x-header-text-color: #ccc;
-@x-header-arrow-color: #ccc;
+@header-background-color: #35495e;
+@header-title-color: #fff;
+@header-text-color: #ccc;
+@header-arrow-color: #ccc;
 
 /**
 * Timeline
@@ -75,12 +103,41 @@
 */
 @switch-checked-bg-color: @theme-color;
 @switch-checked-border-color: @theme-color;
+@switch-disabled-opacity: 0.6;
 
 /**
 * Button
 */
-@button-warn-bg-color: #EF4F4F;
-@button-warn-active-color: #C13E3E;
+
+@button-global-border-radius: 5px;
+@button-global-font-color: #FFFFFF;
+@button-global-margin-top: 15px;
+@button-global-height: 42px;
+@button-global-disabled-font-color: rgba(255,255,255,.6);
+@button-global-active-font-color: rgba(255,255,255,.6);
+@button-global-font-size: 18px;
+
+@button-warn-bg-color: #E64340;
+@button-warn-active-color: #CE3C39;
+
+@button-default-bg-color: #F8F8F8;
+@button-default-font-color: #000000;
+@button-default-active-bg-color: #DEDEDE;
+@button-default-disabled-font-color: rgba(0,0,0,.3);
+@button-default-active-font-color: rgba(0,0,0,.6);
+
+@button-primary-bg-color: #1AAD19;
+@button-primary-active-bg-color: #179B16;
+
+/**
+* swipeout
+*/
+@swipeout-button-primary-bg-color: @button-primary-bg-color;
+@swipeout-button-warn-bg-color: @button-warn-bg-color;
+@swipeout-button-default-bg-color: #c8c7cd;
+
+@swipeout-content-bg-color: #FFF;
+@swipeout-button-font-color: #FFF;
 
 /**
 * Cell
@@ -99,3 +156,73 @@
 @popover-font-color: #fff;
 @popover-border-radius: 3px;
 @popover-border-width: 5px;
+
+/**
+* Button tab
+*/
+@button-tab-border-width: 1px;
+@button-tab-border-radius: 16px;
+
+@button-tab-border-color: @theme-color;
+@button-tab-default-border-color: @button-tab-border-color;
+@button-tab-active-border-color: @button-tab-border-color;
+
+@button-tab-default-background-color: #fdfdfd;
+@button-tab-active-background-color: @color-wechat-green;
+
+@button-tab-active-font-color: #FFF; /* alias */
+@button-tab-active-text-color: @button-tab-active-font-color;
+@button-tab-default-text-color: #999;
+
+@button-tab-height: 30px;
+@button-tab-line-height: 31px;
+
+/**
+* Swiper
+*/
+@swiper-indicator-active-color: @theme-color;
+
+/**
+* checklist
+*/
+@checklist-icon-active-color: #09BB07;
+
+/**
+* popup-picker
+*/
+@popup-picker-header-text-color: @theme-color;
+
+/**
+* form-preview
+*/
+@form-preview-button-primary-color: #0BB20C;
+
+/**
+* load-more
+*/
+@load-more-line-color: #E5E5E5;
+
+/**
+* sticky
+*/
+@sticky-zindex: 500;
+
+/**
+* group
+*/
+@group-title-margin-top: .77em;
+@group-title-margin-bottom: .3em;
+
+/**
+* toast
+*/
+@toast-content-font-size: 16px;
+@toast-top: 180px;
+@toast-position-top-offset: 10px;
+@toast-position-bottom-offset: 10px;
+
+
+/**
+* icon
+*/
+@icon-success-color: #09BB07;
