@@ -205,7 +205,7 @@ events:
     en: fires when confirm button is clicked
     zh-CN: 点击确定按钮时触发，等同于事件 on-hide(confirm)
 changes:
-  next:
+  v2.7.8:
     en:
       - '[fix] fix `on-hide` event trigger twice #2379'
       - '[fix] fix cannot set `show` to `true` initially'

@@ -132,7 +132,7 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
-  next:
+  v2.7.8:
     en:
       - '[fix] Fix chain mode get value is wrong when the children is empty data.'
     zh-CN:

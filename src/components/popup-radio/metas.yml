@@ -33,7 +33,7 @@ events:
     en: fires when popup hides
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  v2.7.8:
     en:
       - '[fix] fix popup-radio component does not support the border-intent property of the cell component.'
     zh-CN:
