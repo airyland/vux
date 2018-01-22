@@ -44,6 +44,7 @@ props:
     zh-CN: '`Safari`下弹出键盘时可能会出现看不到input，需要手动滚动，启用该属性会在fix时滚动到顶端'
 events:
   on-submit:
+    params: '`(value)`'
     en: emits when form is submitted
     zh-CN: 表单提交时触发
   on-cancel:
