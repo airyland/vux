@@ -9,6 +9,9 @@
     <div style="padding: 15px;">
       <x-button @click.native="showLoading" type="primary">{{ $t('Show loading') }}</x-button>
     </div>
+    <div style="padding: 15px;">
+      <x-button @click.native="showDelayLoading" type="primary">{{ $t('Show delay loading') }}</x-button>
+    </div>
   </div>
 </template>
 
@@ -16,6 +19,9 @@
 Show loading:
   en: show loading (close in 2s)
   zh-CN: 显示loading (2s后关闭)
+Show delay loading:
+  en: show loading delay after 1s
+  zh-CN: 延时1s后显示
 </i18n>
 
 <script>
@@ -41,6 +47,15 @@ export default {
     showLoading () {
       this.$vux.loading.show({
         text: 'Loading'
+      })
+      setTimeout(() => {
+        this.$vux.loading.hide()
+      }, 2000)
+    },
+    showDelayLoading () {
+      this.$vux.loading.show({
+        text: 'Loading',
+        delay: 1e3
       })
       setTimeout(() => {
         this.$vux.loading.hide()

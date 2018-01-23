@@ -30,6 +30,7 @@ const plugin = {
             val === false && options.onHide && options.onHide($vm)
           })
         }
+        delayTime && clearTimeout(delayTime)
         delayTime = setTimeout(() => {
           $vm.show = true
         }, options.delay || 0)

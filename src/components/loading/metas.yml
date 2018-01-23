@@ -31,6 +31,17 @@ extra: |
    loading同样支持在vue外直接使用，请参照 [https://github.com/airyland/vux/blob/v2/docs/examples/loading.html](https://github.com/airyland/vux/blob/v2/docs/examples/loading.html)
    </p>
 
+   <p class="tip">
+   从v2.7.8版本开始以组件形式调用增加`delay`参数，从而实现延时显示.
+   </p>
+   ```js
+   // 延时1s显示
+   this.$vux.loading.show({
+    'text': 'Loading',
+    'delay': 1000
+   })
+   ```
+
 props:
   show:
     type: Boolean
