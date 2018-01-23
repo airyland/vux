@@ -61,6 +61,7 @@ export default {
 
 .vux-footer-title.weui-cells__title {
   margin-top: @group-footer-title-margin-top;
+  margin-bottom: @group-footer-title-margin-bottom;
   padding-top: 0;
   font-size: 12px;
 }
