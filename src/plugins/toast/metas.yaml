@@ -1,5 +1,5 @@
 changes:
-  next:
+  v2.7.7:
     zh-CN:
       - '[fix] 插件 options 参数作为toast的默认参数'
     en:
