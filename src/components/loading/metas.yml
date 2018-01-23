@@ -34,13 +34,6 @@ extra: |
    <p class="tip">
    从v2.7.8版本开始以组件形式调用增加`delay`参数，从而实现延时显示.
    </p>
-   ```js
-   // 延时1s显示
-   this.$vux.loading.show({
-    'text': 'Loading',
-    'delay': 1000
-   })
-   ```
 
 props:
   show:
