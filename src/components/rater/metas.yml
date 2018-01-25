@@ -45,7 +45,18 @@ props:
     default: 25
     en: font size
     zh-CN: 字体大小
+  min:
+    type: Number
+    version: next
+    default: 0
+    en: min value
+    zh-CN: 最小值
 changes:
+  next:
+    en:
+      - '[feature] prop:min add min value #2439'
+    zh-CN:
+      - '[feature] prop:min 增加最小值 #2439'
   v2.7.3:
     en:
       - '[feature] prop:star support html #2182'

@@ -17,6 +17,10 @@ export default {
     this.updateStyle()
   },
   props: {
+    min: {
+      type: Number,
+      default: 0
+    },
     max: {
       type: Number,
       default: 5
@@ -59,10 +63,10 @@ export default {
     handleClick (i, force) {
       if (!this.disabled || force) {
         if (this.currentValue === i + 1) {
-          this.currentValue = i
+          this.currentValue = i < this.min ? this.min : i
           this.updateStyle()
         } else {
-          this.currentValue = i + 1
+          this.currentValue = (i + 1) < this.min ? this.min : (i + 1)
         }
       }
     },
