@@ -27,7 +27,7 @@ tab:
       zh-CN: 线条宽度
     active-color:
       zh-CN: 选中时文字颜色
-    defaultColor:
+    default-color:
       zh-CN: 默认文字颜色
     disabled-color:
       zh-CN: 不可点击时文字颜色
