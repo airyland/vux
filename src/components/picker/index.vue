@@ -92,7 +92,7 @@ export default {
         _this.scroller[i] = new Scroller(_this.getId(i), {
           data: data[i],
           defaultValue: value[i] || data[i][0].value,
-          itemClass: _this.item_class,
+          itemClass: _this.itemClass,
           onSelect (value) {
             _this.$set(_this.currentValue, i, value)
             if (!this.columns || (this.columns && _this.getValue().length === _this.store.count)) {

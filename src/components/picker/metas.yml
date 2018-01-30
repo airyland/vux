@@ -132,6 +132,11 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
+  next:
+    en:
+      - '[fix] fix typo item_class => itemClass #2457'
+    zh-CN:
+      - '[fix] 修正 itemClass 拼写错误 #2457'
   v2.7.8:
     en:
       - '[fix] Fix chain mode get value is wrong when the children is empty data.'
