@@ -20,9 +20,9 @@ props:
     zh-CN: 表单值，`v-model`绑定
   results:
     type: Array
-    en: "search results, [{title: 'hello', otherData: otherValue}]"
-    zh-CN: "指定搜索结果, 为带有 title key 的对象组成的数组，如 [{title: 'hello', otherData: otherValue}]"
-  autoFixed:
+    en: "search results, [{title: 'hello', otherData: otherValue}], will not show when auto-fixed is false"
+    zh-CN: "指定搜索结果, 为带有 title key 的对象组成的数组，如 [{title: 'hello', otherData: otherValue}], auto-fixed 为 false 时不会显示结果"
+  auto-fixed:
     type: Boolean
     default: true
     en: if auto fixed on top when input gets focus
