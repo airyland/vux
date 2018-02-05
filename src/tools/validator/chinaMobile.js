@@ -22,5 +22,5 @@ https://gist.github.com/JerryC8080/b4005ef5c4902b1ea7a0
 */
 
 export default function (str) {
-  return /^1[3|4|5|7|8|9][0-9]{9}$/.test(str)
+  return /^1[3|4|5|6|7|8|9][0-9]{9}$/.test(str)
 }
