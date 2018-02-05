@@ -3,9 +3,9 @@ extra:
   zh-CN: |
 
     ```html
-      <group>
-        <x-textarea title="title" v-model="value"></x-textarea>
-      </group>
+      <v-group>
+        <v-textarea title="title" v-model="value"></v-textarea>
+      </v-group>
     ```
 
     <p class="tip">`x-textarea`只能在`Group`中使用</p>
