@@ -74,7 +74,11 @@
       </slot>
     </div>
     <div class="weui-panel__ft">
-      <a class="weui-cell weui-cell_access weui-cell_link" :href="getUrl(footer.url)" v-if="footer && type !== '3'" @click.prevent="onClickFooter">
+      <a
+        class="weui-cell weui-cell_access weui-cell_link"
+        :href="getUrl(footer.url)"
+        v-if="footer && footer.title && type !== '3'"
+        @click.prevent="onClickFooter">
         <div class="weui-cell__bd" v-html="footer.title"></div>
       </a>
     </div>
