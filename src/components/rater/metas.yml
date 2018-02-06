@@ -47,12 +47,12 @@ props:
     zh-CN: 字体大小
   min:
     type: Number
-    version: next
+    version: v2.7.9
     default: 0
     en: min value
     zh-CN: 最小值
 changes:
-  next:
+  v2.7.9:
     en:
       - '[feature] prop:min add min value #2439'
     zh-CN:

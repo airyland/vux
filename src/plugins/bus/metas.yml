@@ -1,5 +1,5 @@
 changes:
-  next:
+  v2.7.9:
     en:
       - '[fix] add bus to this.$vux'
     zh-CN:

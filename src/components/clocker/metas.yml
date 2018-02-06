@@ -29,7 +29,7 @@ slots:
     en: if specified, will be the format for the result
     zh-CN: 若存在，则作为最终显示出来的格式模板
 changes:
-  next:
+  v2.7.9:
     en:
       - '[fix] fix bug when initial value is empty string #2449'
     zh-CN:
