@@ -140,9 +140,9 @@ methods:
 changes:
   next:
     en:
-      - '[enhance] support china union 166 prefix phone number
+      - '[enhance] support china union 166 prefix phone number'
     zh-CN:
-      - '[enhance] 支持中国联通手机号166号段
+      - '[enhance] 支持中国联通手机号166号段'
   v2.7.7:
     en:
       - '[fix] Fix error message not change bugs #2348'
