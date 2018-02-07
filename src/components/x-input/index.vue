@@ -117,11 +117,11 @@
       ref="input"/>
     </div>
     <div class="weui-cell__ft">
-      <icon type="clear" v-show="!equalWith && showClear && currentValue && !readonly && !disabled" @click.native="clear"></icon>
+      <icon type="clear" v-show="!equalWith && showClear && currentValue !== '' && !readonly && !disabled" @click.native="clear"></icon>
 
       <icon @click.native="onClickErrorIcon" class="vux-input-icon" type="warn" :title="!valid ? firstError : ''" v-show="showWarn"></icon>
       <icon @click.native="onClickErrorIcon" class="vux-input-icon" type="warn" v-if="!novalidate && hasLengthEqual && dirty && equalWith && !valid"></icon>
-      
+
       <icon type="success" v-show="!novalidate && equalWith && equalWith === currentValue && valid"></icon>
 
       <icon type="success" class="vux-input-icon" v-show="novalidate && iconType === 'success'"></icon>

@@ -138,6 +138,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[fix] fix not show clear button when initial value is zero #2482'
+    zh-CN:
+      - '[fix] 修复初始值为0时不显示清除按钮问题 #2482'
   v2.7.9:
     en:
       - '[enhance] support china union 166 prefix phone number'
