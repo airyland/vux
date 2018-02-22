@@ -97,4 +97,4 @@ const directive = {
   }
 }
 
-module.exports = directive
+export default directive
