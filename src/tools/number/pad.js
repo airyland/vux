@@ -1,5 +1,5 @@
 'use strict'
-module.exports = function (source, length = 2) {
+export default function (source, length = 2) {
   let pre = ""
   const negative = source < 0
   const string = String(Math.abs(source))

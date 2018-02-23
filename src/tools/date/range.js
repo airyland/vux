@@ -1,6 +1,6 @@
-const Format = require('./format')
+import Format from './format'
 
-module.exports = function (start, end, format = 'YYYY-MM-DD') {
+export default function (start, end, format = 'YYYY-MM-DD') {
   let rs = []
   let startTime = new Date(start).getTime()
   let endTime = new Date(end).getTime()
