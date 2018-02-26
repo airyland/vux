@@ -1,0 +1,6 @@
+changes:
+  next:
+    en:
+      - '[feature] 统一为es6 module格式'
+    zh-CN:
+      - '[feature] change to es6 module style'
