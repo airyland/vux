@@ -15,8 +15,13 @@
         <div class="weui-dialog__bd" v-if="!showInput">
           <slot><div v-html="content"></div></slot>
         </div>
-        <div v-else class="vux-prompt" @touchstart.prevent="setInputFocus">
-          <input class="vux-prompt-msgbox" v-bind="inputAttrs" v-model="msg" :placeholder="placeholder" ref="input"/>
+        <div v-else class="vux-prompt">
+          <input class="vux-prompt-msgbox"
+                 v-bind="inputAttrs"
+                 v-model="msg"
+                 :placeholder="placeholder"
+                 @touchstart="setInputFocus"
+                 ref="input"/>
         </div>
       </template>
       <div class="weui-dialog__ft">
