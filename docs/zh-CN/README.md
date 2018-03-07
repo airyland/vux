@@ -51,22 +51,11 @@ nav: zh-CN
 </p>
 
 <p class="warning">
-  如果你遇到 `$t` 报错问题，`请不要开 issue`，升级 `vux-loader >= 1.0.58`。
-  <br>
-  <br>
+  `less@3.x` 有严重的兼容问题，请使用 `less@^2.7.3`。
+  <br>
   VUX 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照下面文档正确配置。
 </p>
 
-<p class="tip">
-  2.1.0 ~ 3.0.0 之间版本不会有影响升级的 `break change`，请放心及时更新版本。
-  <br>
-  <br>
-  0.x 版本文档不完整，并且已经不再维护。请更新或者直接使用`2.x`。
-  <br>
-  如果你想查看`0.x`组件代码和 Demo 代码，请查看 [master 分支](https://github.com/airyland/vux/tree/master)
-  <br>
-  <a href="https://vuxjs.gitbooks.io/vux/content/">访问 `0.x` 文档地址</a>
-</p>
 
 ## 简介
 
@@ -256,8 +245,10 @@ Vue.use(ToastPlugin)
   ```
 - 安装less-loader以正确编译less源码
 
+  >  less@3.x 有严重兼容问题，目前只能降级到 2.x 使用。
+
   ``` bash
-  npm install less less-loader --save-dev
+  npm install less@2.7.3 less-loader --save-dev
   ```
 - 安装 yaml-loader 以正确进行语言文件读取
 
