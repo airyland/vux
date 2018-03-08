@@ -1,4 +1,9 @@
 changes:
+  next:
+    en:
+      - '[feature] upgrade to 1.3.2 #2396'
+    zh-CN:
+      - '[feature] 更新到 1.3.2 版本 #2396'
   v2.7.8:
     en:
       - '[feature] support 1.3.0'
