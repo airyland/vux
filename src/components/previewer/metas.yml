@@ -16,13 +16,14 @@ extra:
 
     ``` js
     [{
+      msrc: 'https://placekitten.com/500/250',
       src: 'https://placekitten.com/800/400',
       w: 600,
       h: 400
     },
     {
       src: 'https://placekitten.com/1200/900',
-      msrc: 'https://placekitten.com/120/90', // 缩略图
+      msrc: 'https://placekitten.com/120/90', // thumbnail
       w: 1200,
       h: 900
     }]
@@ -50,6 +51,7 @@ extra:
     },
     {
       src: 'https://placekitten.com/1200/900',
+      msrc: 'https://placekitten.com/120/90', // 缩略图
       w: 1200,
       h: 900
     }]
