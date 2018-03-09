@@ -92,7 +92,7 @@ export default {
         _this.scroller[i] = new Scroller(_this.getId(i), {
           data: data[i],
           defaultValue: value[i] || data[i][0].value,
-          itemClass: _this.item_class,
+          itemClass: _this.itemClass,
           onSelect (value) {
             _this.$set(_this.currentValue, i, value)
             if (!this.columns || (this.columns && _this.getValue().length === _this.store.count)) {
@@ -136,8 +136,13 @@ export default {
           _this.renderChain(i + 1)
         }
       })
-      this.$set(this.currentValue, i, list[0].value)
-      this.renderChain(i + 1)
+      // list is Array(empty) as maybe
+      if (list.length) {
+        this.$set(this.currentValue, i, list[0].value)
+        this.renderChain(i + 1)
+      } else {
+        this.$set(this.currentValue, i, null)
+      }
     },
     getValue () {
       let data = []

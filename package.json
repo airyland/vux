@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "2.7.6",
+  "version": "2.8.0",
   "main": "index.js",
   "description": "Mobile web UI based on Vue and WeUI",
   "keywords": [
@@ -52,11 +52,10 @@
     "object-assign": "^4.1.0",
     "qr.js": "0.0.0",
     "shake.js": "^1.2.2",
-    "validator": "^6.2.1",
+    "validator": "^9.3.0",
     "vanilla-masker": "^1.2.0",
     "vux-blazy": "^1.6.4",
     "vux-xscroll": "^3.1.10",
-    "weixin-js-sdk": "^1.2.0",
     "x-photoswipe": "^4.1.3-rc.1"
   },
   "devDependencies": {
@@ -135,7 +134,7 @@
     "v-markdown-loader": "^0.6.3-beta.2",
     "vue": "2.5.2",
     "vue-hot-reload-api": "^2.0.11",
-    "vue-loader": "^13.5.0",
+    "vue-loader": "^14.1.1",
     "vue-router": "^2.5.3",
     "vue-style-loader": "^2.0.0",
     "vue-template-compiler": "2.5.2",
@@ -143,7 +142,7 @@
     "vuex": "^2.3.1",
     "vuex-i18n": "^1.3.1",
     "vuex-router-sync": "^4.2.0",
-    "vux-loader": "^1.1.16",
+    "vux-loader": "^1.2.0",
     "webpack": "^3.8.1",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.12.0",

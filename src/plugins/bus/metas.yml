@@ -1,5 +1,10 @@
 changes:
-  v2.5.4: 
+  v2.7.9:
+    en:
+      - '[fix] add bus to this.$vux'
+    zh-CN:
+      - '[fix] bus 挂载到 this.$vux'
+  v2.5.4:
     en:
       - '[feature] new plugin for managing events'
     zh-CN:

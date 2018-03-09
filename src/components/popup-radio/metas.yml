@@ -33,6 +33,11 @@ events:
     en: fires when popup hides
     zh-CN: 弹窗关闭时触发
 changes:
+  v2.7.8:
+    en:
+      - '[fix] fix popup-radio component does not support the border-intent property of the cell component.'
+    zh-CN:
+      - '[fix] 修复 popup-radio 组件不支持cell组件中 border-intent 的属性。'
   v2.7.0:
     en:
       - '[fix] fix vue@2.5.0 scope issue #2076'

@@ -4,3 +4,7 @@ src/libs/eventor.js
 config/*.js
 src/tools/*/*.js
 src/components/video/zy.media.js
+src/plugins/wechat/1.3.0.js
+src/plugins/wechat/1.3.2.js
+src/plugins/wechat/origin.1.3.0.js
+src/plugins/wechat/origin.1.3.2.js

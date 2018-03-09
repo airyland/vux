@@ -70,6 +70,11 @@ props:
     default: false
     en: textarea's readonly attribute
     zh-CN: textarea 标签属性 readonly
+  disabled:
+    type: Boolean
+    default: false
+    en: textarea's disabled attribute
+    zh-CN: textarea 标签属性 disabled
   autosize:
     version: v2.2.1-rc.6
     type: Boolean
@@ -102,6 +107,11 @@ methods:
     en: reset autosize, if value is not empty initially, you should call this function to update size
     zh-CN: 重置 autosize 高度，如果绑定值不为空，需要调用该函数进行高度重置
 changes:
+  v2.8.0:
+    en:
+      - '[feature] add prop:disabled #2522'
+    zh-CN:
+      - '[feautre] 添加属性 disabled #2522'
   v2.5.1:
     en:
       - '[feature] Add method:updateAutosize'

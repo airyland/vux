@@ -68,7 +68,7 @@ export default {
   },
   watch: {
     time () {
-      this.clocker.remove()
+      this.clocker && this.clocker.remove()
       this.render()
     }
   },

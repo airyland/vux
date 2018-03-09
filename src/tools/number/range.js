@@ -1,7 +1,8 @@
 'use strict'
-const pad = require('./pad')
 
-module.exports = function (start, end, padWidth = 2) {
+import pad from './pad'
+
+export default function (start, end, padWidth = 2) {
   const rs = []
   while (start <= end) {
     rs.push(padWidth ? pad(start, padWidth) : start)

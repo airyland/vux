@@ -18,6 +18,7 @@
         :spellcheck="spellcheck"
         :placeholder="placeholder"
         :readonly="readonly"
+        :disabled="disabled"
         :name="name"
         :rows="rows"
         :cols="cols"
@@ -69,6 +70,7 @@ export default {
     name: String,
     placeholder: String,
     readonly: Boolean,
+    disabled: Boolean,
     rows: {
       type: Number,
       default: 3

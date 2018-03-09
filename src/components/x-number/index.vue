@@ -94,10 +94,10 @@ export default {
         }
       }
       this.$emit('input', this.currentValue)
-      this.$emit('on-change', this.currentValue)
     },
     value (newValue) {
       this.currentValue = newValue
+      this.$emit('on-change', newValue)
     }
   },
   methods: {

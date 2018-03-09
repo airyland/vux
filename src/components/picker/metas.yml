@@ -132,6 +132,16 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
+  v2.7.9:
+    en:
+      - '[fix] fix typo item_class => itemClass #2457'
+    zh-CN:
+      - '[fix] 修正 itemClass 拼写错误 #2457'
+  v2.7.8:
+    en:
+      - '[fix] Fix chain mode get value is wrong when the children is empty data.'
+    zh-CN:
+      - '[fix] 修复多级联动模式下，子代没有数据时，取值不正确。'
   v2.7.3:
     en:
       - '[enhance] add development tip for chained-mode picker without specifying prop:columns'

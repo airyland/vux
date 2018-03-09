@@ -5,7 +5,7 @@
 //  - http://www.nczonline.net/blog/2009/05/05/http-cookies-explained/
 //  - http://developer.yahoo.com/yui/3/cookie/
 
-const Cookie = module.exports
+const Cookie = {} 
 
 var decode = decodeURIComponent;
 var encode = encodeURIComponent;
@@ -178,3 +178,5 @@ function validateCookieName(name) {
 function same(s) {
   return s;
 }
+
+export default Cookie

@@ -1,6 +1,11 @@
 changes:
   next:
     zh-CN:
+      - '[fix] 修复delay参数引起的bug #2433'
+    en:
+      - '[fix] fix delay option caused bug #2433'
+  v2.7.8:
+    zh-CN:
       - '[fix] 默认插件 options 参数置为空对象，避免调用出错'
       - '[enhance] 默认插件 options参数添加delay参数'
     en:

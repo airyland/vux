@@ -138,6 +138,7 @@ export default {
   },
   data () {
     return {
+      currentShow: false,
       currentValue: null,
       valid: true,
       errors: {}
@@ -149,6 +150,12 @@ export default {
     if (!this.readonly) {
       this.$nextTick(() => {
         this.render()
+
+        if (this.show) {
+          this.$nextTick(() => {
+            this.picker && this.picker.show(this.currentValue)
+          })
+        }
       })
     }
   },
@@ -190,6 +197,7 @@ export default {
           _this.$emit('on-clear', value)
         },
         onHide (type) {
+          _this.currentShow = false
           _this.$emit('update:show', false)
           _this.validate()
           _this.$emit('on-hide', type)
@@ -201,6 +209,7 @@ export default {
           }
         },
         onShow () {
+          _this.currentShow = true
           _this.$emit('update:show', true)
           _this.$emit('on-show')
         }
@@ -257,6 +266,7 @@ export default {
       }
     },
     show (val) {
+      if (val === this.currentShow) return
       if (val) {
         this.picker && this.picker.show(this.currentValue)
       } else {

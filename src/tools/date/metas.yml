@@ -1,4 +1,9 @@
 changes:
+  v2.8.0:
+    en:
+      - '[feature] 统一为es6 module格式'
+    zh-CN:
+      - '[feature] change to es6 module style'
   v2.3.2:
     en:
       - '[enhance] return empty string when no date is specified'

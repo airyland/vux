@@ -138,6 +138,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  v2.8.0:
+    en:
+      - '[change] remove empty root div #2371'
+    zh-CN:
+      - '[change] 去除空的根节点 #2371'
   v2.7.0:
     en:
       - '[fix] fix vue@2.5.0 scope issue #2076'
