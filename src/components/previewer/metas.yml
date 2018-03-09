@@ -9,6 +9,8 @@ tags:
     - 图片
 extra:
   en: |
+
+    > please avoid using large pictures or they may crash your browser(especially on Android).
   
     example for list:
 
@@ -35,6 +37,8 @@ extra:
     ```
 
   zh-CN: |
+
+    > 注意避免使用过大图片，否则可能会出现卡顿黑屏的情况(尤其是在 Android 机子上) #2514。
 
     list的数据示例如图：
 
