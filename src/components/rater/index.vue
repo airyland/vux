@@ -11,7 +11,7 @@
 export default {
   name: 'rater',
   created () {
-    this.currentValue = this.value
+    this.currentValue = parseInt(this.value)
   },
   mounted () {
     this.updateStyle()
@@ -26,7 +26,7 @@ export default {
       default: 5
     },
     value: {
-      type: Number,
+      type: [Number, String],
       default: 0
     },
     disabled: Boolean,
