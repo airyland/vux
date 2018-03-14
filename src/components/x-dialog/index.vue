@@ -3,10 +3,10 @@
     class="vux-x-dialog"
     :class="{'vux-x-dialog-absolute': layout === 'VIEW_BOX'}">
     <transition :name="maskTransition">
-      <div class="weui-mask" @click="hide" v-show="show" :style="maskStyle"></div>
+      <div class="weui-mask" @click="hide" v-show="dialogShow" :style="maskStyle"></div>
     </transition>
     <transition :name="dialogTransition">
-      <div :class="dialogClass" v-show="show" :style="dialogStyle">
+      <div :class="dialogClass" v-show="dialogShow" :style="dialogStyle">
         <slot></slot>
       </div>
     </transition>
@@ -80,6 +80,10 @@ export default {
       } else {
         this.removeModalClassName()
       }
+
+      setTimeout(() => {
+        this.dialogShow = val
+      }, 200)
     }
   },
   methods: {
@@ -101,7 +105,8 @@ export default {
   },
   data () {
     return {
-      layout: ''
+      layout: '',
+      dialogShow: false
     }
   }
 }
