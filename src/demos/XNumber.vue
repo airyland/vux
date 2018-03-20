@@ -5,7 +5,7 @@
     </group>
 
     <group :title="$t('listen')">
-      <x-number :title="$t('Quantity')" :value="0" :min="0" @on-change="change"></x-number>
+      <x-number :title="$t('Quantity')" v-model="changeValue" :min="0" @on-change="change"></x-number>
     </group>
 
     <group :title="$t('set width=100px')">
@@ -67,6 +67,7 @@ export default {
   },
   data () {
     return {
+      changeValue: 0,
       roundValue: 0
     }
   },
