@@ -103,6 +103,11 @@ slots:
     en: title slot
     zh-CN: title 插槽，方便自定义样式
 changes:
+  next:
+    en:
+      - '[fix] fix justify class #2545'
+    zh-CN:
+      - '[fix] 修复 justify 类名 #2545'
   v2.7.0:
     en:
       - '[fix] fix ssr rendering issue'

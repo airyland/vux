@@ -132,6 +132,11 @@ slots:
     en: slot before control button list
     zh-CN: 操作按钮之前，可以添加自定义图标
 changes:
+  next:
+    en:
+      - '[feature] add event:on-index-change #2505'
+    zh-CN:
+      - '[feature] 支持事件 on-index-change #2505'
   v2.6.4:
     en:
       - '[feature] automatically update view if one slide is deleted'

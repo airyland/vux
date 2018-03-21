@@ -141,6 +141,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[feature] add slot:right-full-height for containing captcha #2475'
+    zh-CN:
+      - '[feature] 添加 slot:right-full-height 用于方便显示验证码图片 #2475'
   v2.8.0:
     en:
       - '[fix] fix not show clear button when initial value is zero #2482'
