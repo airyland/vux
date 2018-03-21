@@ -9,11 +9,7 @@
       <div>
         <slot name="title">
           <p
-          :style="{
-            width: $parent.labelWidth,
-            textAlign: $parent.labelAlign,
-            marginRight: $parent.labelMarginRight
-          }"
+          :style="styles"
           :class="labelClass"
           v-html="title"></p>
         </slot>
@@ -160,6 +156,16 @@ export default {
     }
   },
   computed: {
+    styles () {
+      if (!this.$parent) {
+        return {}
+      }
+      return {
+        width: this.$parent.labelWidth,
+        textAlign: this.$parent.labelAlign,
+        marginRight: this.$parent.labelMarginRight
+      }
+    },
     pickerOptions () {
       const _this = this
       const options = {
@@ -227,6 +233,9 @@ export default {
       return this.errors[key]
     },
     labelClass () {
+      if (!this.$parent) {
+        return {}
+      }
       return {
         'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
       }
