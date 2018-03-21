@@ -11,7 +11,7 @@ extra:
   en: |
 
     > please avoid using large pictures or they may crash your browser(especially on Android).
-  
+
     example for list:
 
     ``` js
@@ -28,7 +28,7 @@ extra:
       h: 900
     }]
     ```
-    
+
     <p class="warning">before v2.4.0, `w` and `h` should be specified.</p>
 
     Prevewing an image by index:
@@ -67,7 +67,7 @@ extra:
 
     <p class="warn">注意，当你自定义添加按钮时，需要在 photoswipe 选项设置 clickable 元素，否则点击将没有响应</p>
 
-    
+
     ``` html
     <previewer ref="previewer" :list="previewerList" :options="options">
       <template slot="button-after">
@@ -87,7 +87,7 @@ extra:
     }
     ```
 props:
-  list: 
+  list:
     type: Array
     en: images list
     zh-CN: 图片列表
@@ -98,8 +98,12 @@ props:
 events:
   on-close:
     version: v2.2.1-rc.4
-    en: emits after closing
+    en: fires after closing
     zh-CN: 关闭时触发
+  on-index-change:
+    version: next
+    en: fires after index changes(shall not fire on first opening slide)
+    zh-CN: 切换图片后触发(首次打开不会触发)
 methods:
   goTo:
     version: v2.5.10
@@ -110,7 +114,7 @@ methods:
     version: v2.5.10
     en: go to previous image
     zh-CN: 跳转到上一张
-  v2.8.0:
+  next:
     version: v2.5.10
     en: go to next image
     zh-CN: 跳转到下一张

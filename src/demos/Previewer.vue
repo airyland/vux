@@ -2,7 +2,7 @@
   <div>
     <img class="previewer-demo-img" v-for="(item, index) in list" :src="item.src" width="100" @click="show(index)">
     <div v-transfer-dom>
-      <previewer :list="list" ref="previewer" :options="options"></previewer>
+      <previewer :list="list" ref="previewer" :options="options" @on-index-change="logIndexChange"></previewer>
     </div>
   </div>
 </template>
@@ -18,6 +18,9 @@ export default {
     Previewer
   },
   methods: {
+    logIndexChange (arg) {
+      console.log(arg)
+    },
     show (index) {
       this.$refs.previewer.show(index)
     }
