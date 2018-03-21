@@ -105,10 +105,4 @@ if (config.build.bundleAnalyzerReport) {
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
-const vuxLoader = require('vux-loader')
-module.exports = vuxLoader.merge(webpackConfig, {
-  options: {
-    env: 'production'
-  }
-})
- 
+module.exports = webpackConfig

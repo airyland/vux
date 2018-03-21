@@ -17,8 +17,7 @@ module.exports = {
   plugins: [
     'vux-ui', 'inline-manifest',
     {
-      name: 'duplicate-style',
-      envs: ['production']
+      name: 'duplicate-style'
     },
     {
       name: 'progress-bar',
