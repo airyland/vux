@@ -1,12 +1,17 @@
 <template>
-	<div class="vux-x-input weui-cell" :class="{'weui-cell_warn': showWarn, 'disabled': disabled}">
+	<div class="vux-x-input weui-cell"
+		:class="{
+			'weui-cell_warn': showWarn,
+			'disabled': disabled,
+			'vux-x-input-has-right-full': hasRightFullHeightSlot
+		}">
     <div class="weui-cell__hd">
       <div :style="labelStyles" v-if="hasRestrictedLabel">
         <slot name="restricted-label"></slot>
       </div>
       <slot name="label">
         <label class="weui-label" :class="labelClass" :style="{width: labelWidth || $parent.labelWidth || labelWidthComputed, textAlign: $parent.labelAlign, marginRight: $parent.labelMarginRight}" v-if="title" v-html="title" :for="`vux-x-input-${uuid}`"></label>
-        <inline-desc v-if="inlineDesc">{{inlineDesc}}</inline-desc>
+        <inline-desc v-if="inlineDesc">{{ inlineDesc }}</inline-desc>
       </slot>
     </div>
     <div class="weui-cell__bd weui-cell__primary" :class="placeholderAlign ? `vux-x-input-placeholder-${placeholderAlign}` : ''">
@@ -117,7 +122,7 @@
       ref="input"/>
     </div>
     <div class="weui-cell__ft">
-      <icon type="clear" v-show="!equalWith && showClear && currentValue !== '' && !readonly && !disabled" @click.native="clear"></icon>
+      <icon type="clear" v-show="!hasRightFullHeightSlot && !equalWith && showClear && currentValue !== '' && !readonly && !disabled" @click.native="clear"></icon>
 
       <icon @click.native="onClickErrorIcon" class="vux-input-icon" type="warn" :title="!valid ? firstError : ''" v-show="showWarn"></icon>
       <icon @click.native="onClickErrorIcon" class="vux-input-icon" type="warn" v-if="!novalidate && hasLengthEqual && dirty && equalWith && !valid"></icon>
@@ -128,6 +133,9 @@
       <icon type="warn" class="vux-input-icon" v-show="novalidate && iconType === 'error'"></icon>
 
       <slot name="right"></slot>
+      <div v-if="hasRightFullHeightSlot" class="vux-x-input-right-full">
+        <slot name="right-full-height"></slot>
+      </div>
     </div>
 
     <toast
@@ -193,6 +201,9 @@ export default {
   beforeMount () {
     if (this.$slots && this.$slots['restricted-label']) {
       this.hasRestrictedLabel = true
+    }
+    if (this.$slots && this.$slots['right-full-height']) {
+      this.hasRightFullHeightSlot = true
     }
   },
   beforeDestroy () {
@@ -447,6 +458,7 @@ export default {
   },
   data () {
     let data = {
+      hasRightFullHeightSlot: false,
       hasRestrictedLabel: false,
       firstError: '',
       forceShowError: false,
@@ -530,5 +542,18 @@ export default {
 }
 .vux-x-input.disabled {
   color: rgba(0, 0, 0, 0.3);
+}
+.vux-x-input-right-full {
+  margin-left: 5px;
+  height: @weuiCellHeight;
+  vertical-align: middle;
+	& img {
+		height: @weuiCellHeight;
+	}
+}
+.vux-x-input-has-right-full {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
 }
 </style>
