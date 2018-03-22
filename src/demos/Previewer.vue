@@ -28,14 +28,19 @@ export default {
   data () {
     return {
       list: [{
-        src: 'https://ooo.0o0.ooo/2017/05/17/591c271ab71b1.jpg',
+        msrc: 'http://ww1.sinaimg.cn/thumbnail/663d3650gy1fplwu9ze86j20m80b40t2.jpg',
+        src: 'http://ww1.sinaimg.cn/large/663d3650gy1fplwu9ze86j20m80b40t2.jpg',
         w: 800,
         h: 400
       },
       {
-        src: 'https://ooo.0o0.ooo/2017/05/17/591c271acea7c.jpg'
+        msrc: 'http://ww1.sinaimg.cn/thumbnail/663d3650gy1fplwvqwuoaj20xc0p0t9s.jpg',
+        src: 'http://ww1.sinaimg.cn/large/663d3650gy1fplwvqwuoaj20xc0p0t9s.jpg',
+        w: 1200,
+        h: 900
       }, {
-        src: 'https://ooo.0o0.ooo/2017/06/15/59425a592b949.jpeg'
+        msrc: 'http://ww1.sinaimg.cn/thumbnail/663d3650gy1fplwwcynw2j20p00b4js9.jpg',
+        src: 'http://ww1.sinaimg.cn/large/663d3650gy1fplwwcynw2j20p00b4js9.jpg'
       }],
       options: {
         getThumbBoundsFn (index) {
@@ -56,3 +61,4 @@ export default {
   }
 }
 </script>
+
