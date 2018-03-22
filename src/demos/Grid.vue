@@ -7,7 +7,7 @@
       </grid-item>
     </grid>
     <group-title>3 columns</group-title>
-    <grid>
+    <grid :show-lr-borders="false" :show-vertical-dividers="false">
       <grid-item link="/component/cell" :label="$t('Go to Cell')">
         <img slot="icon" src="../assets/grid_icon.png">
       </grid-item>
@@ -20,19 +20,19 @@
       </grid-item>
     </grid>
     <group-title>4 columns</group-title>
-    <grid>
+    <grid :show-lr-borders="false">
       <grid-item :label="$t('Grid')" v-for="i in 4" :key="i">
         <img slot="icon" src="../assets/grid_icon.png">
       </grid-item>
     </grid>
     <group-title> {{ $t('Custom content') }} </group-title>
-    <grid>
+    <grid :show-vertical-dividers="false">
       <grid-item v-for="i in 5" :key="i">
         <span class="grid-center">{{i}}</span>
       </grid-item>
     </grid>
     <group-title> {{ $t('Custom col') }} </group-title>
-    <grid :cols="3">
+    <grid :cols="3" :show-lr-borders="false">
       <grid-item v-for="i in 6" :key="i">
         <span class="grid-center">{{i}}</span>
       </grid-item>
