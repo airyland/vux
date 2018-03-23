@@ -14,6 +14,7 @@ extra: |
   </p>
 
   如果你没有使用`100%`的布局，也没有头部可以直接这样使用
+
   ``` html
   <sticky>
     <div>Blabla</div>
@@ -74,6 +75,11 @@ methods:
     en: manually re-bind sticky
     zh-CN: 手动重新绑定，用于内容变化导致位置变化定位不再正确的情况
 changes:
+  next:
+    en:
+      - '[enhance] add development tip if scroll-box doesnot exist'
+    zh-CN:
+      - '[enhance] scroll-box 不存在时在开发模式下进行提示'
   v2.7.7:
     en:
       - '[fix] Fix the problem of inaccurate positioning and invalid positioning 0 #2367'

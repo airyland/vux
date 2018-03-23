@@ -31,6 +31,12 @@ export default function (nav, options = {}) {
   const checkStickySupport = options.checkStickySupport === true || false
   if (typeof scrollBox === 'string') {
     scrollBox = document.getElementById(scrollBox)
+    if (!scrollBox) {
+      if (process.env.NODE_ENV === 'development') {
+        console.error('[VUX] sticky:scroll-box element doesn\'t exist')
+      }
+      return
+    }
   }
 
   let navOffsetY = nav.offsetTop - offset
