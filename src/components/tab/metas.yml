@@ -63,6 +63,12 @@ tab:
       version: v2.7.2
       en: whether prevent auto-switching tab-item when tab-item is clicked
       zh-CN: 是否禁止自动切换 tab-item
+    scroll-threshold:
+      version: next
+      type: Number
+      default: 4
+      en: scroll tabs threshold
+      zh-CN: 滚动阀值，超过可滚动
   event:
     on-index-change:
       params: '`(index)`'
@@ -88,6 +94,11 @@ tab-item:
       en: emits when current tabItem is clicked
       zh-CN: 当前 tabItem 被点击时触发
 changes:
+  next:
+    en:
+      - '[feature] support prop:scroll-threshold'
+    zh-CN:
+      - '[feature] 支持滚动'
   v2.7.2:
     en:
       - '[feature] support prop:prevent-default #2176'

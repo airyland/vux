@@ -1,8 +1,12 @@
 <template>
-  <div class="vux-tab" :class="{'vux-tab-no-animate': !animate}">
-    <slot></slot>
-    <div v-if="animate" class="vux-tab-ink-bar" :class="barClass" :style="barStyle">
-      <span class="vux-tab-bar-inner" :style="innerBarStyle" v-if="customBarWidth"></span>
+  <div class="vux-tab-warp">
+    <div class="vux-tab-container">
+      <div class="vux-tab" :class="[{'vux-tab-no-animate': !animate},{scrollable}]" ref="nav">
+        <slot></slot>
+        <div v-if="animate" class="vux-tab-ink-bar" :class="barClass" :style="barStyle">
+          <span class="vux-tab-bar-inner" :style="innerBarStyle" v-if="customBarWidth"></span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -35,14 +39,24 @@ export default {
       default: true
     },
     customBarWidth: [Function, String],
-    preventDefault: Boolean
+    preventDefault: Boolean,
+    scrollThreshold: {
+      type: Number,
+      default: 4
+    }
   },
   computed: {
     barLeft () {
-      return `${this.currentIndex * (100 / this.number)}%`
+      if (this.hasReady) {
+        const count = this.scrollable ? (window.innerWidth / this.$children[this.currentIndex || 0].$el.getBoundingClientRect().width) : this.number
+        return `${this.currentIndex * (100 / count)}%`
+      }
     },
     barRight () {
-      return `${(this.number - this.currentIndex - 1) * (100 / this.number)}%`
+      if (this.hasReady) {
+        const count = this.scrollable ? (window.innerWidth / this.$children[this.currentIndex || 0].$el.getBoundingClientRect().width) : this.number
+        return `${(count - this.currentIndex - 1) * (100 / count)}%`
+      }
     },
     // when prop:custom-bar-width
     innerBarStyle () {
@@ -72,12 +86,16 @@ export default {
         'vux-tab-ink-bar-transition-forward': this.direction === 'forward',
         'vux-tab-ink-bar-transition-backward': this.direction === 'backward'
       }
+    },
+    scrollable () {
+      return this.number > this.scrollThreshold
     }
   },
   watch: {
     currentIndex (newIndex, oldIndex) {
       this.direction = newIndex > oldIndex ? 'forward' : 'backward'
       this.$emit('on-index-change', newIndex, oldIndex)
+      this.hasReady && this.scrollToActiveTab()
     }
   },
   data () {
@@ -85,6 +103,25 @@ export default {
       direction: 'forward',
       right: '100%',
       hasReady: false
+    }
+  },
+  methods: {
+    scrollToActiveTab () {
+      if (!this.scrollable || !this.$children || !this.$children.length) {
+        return
+      }
+      const currentIndexTab = this.$children[this.currentIndex].$el
+      let count = 0
+      // scroll animation
+      const step = () => {
+        const scrollDuration = 15
+        const nav = this.$refs.nav
+        nav.scrollLeft += (currentIndexTab.offsetLeft - (nav.offsetWidth - currentIndexTab.offsetWidth) / 2 - nav.scrollLeft) / scrollDuration
+        if (++count < scrollDuration) {
+          window.requestAnimationFrame(step)
+        }
+      }
+      window.requestAnimationFrame(step)
     }
   }
 }
@@ -126,6 +163,7 @@ export default {
   height: 44px;
   position: relative;
 }
+
 .vux-tab button {
   padding: 0;
   border: 0;
@@ -133,6 +171,7 @@ export default {
   background: 0 0;
   appearance: none;
 }
+
 .vux-tab .vux-tab-item {
   display: block;
   flex: 1;
@@ -171,8 +210,8 @@ export default {
 
 .vux-tab-item-badge {
   position: absolute;
-  top:0;
-  bottom:0;
+  top: 0;
+  bottom: 0;
   box-sizing: border-box;
   display: inline-block;
   height: 18px;
@@ -185,4 +224,39 @@ export default {
   background-clip: padding-box;
   vertical-align: middle;
 }
+
+.vux-tab-warp {
+  position: relative;
+  padding-top: 44px;
+}
+
+.vux-tab-container {
+  height: 44px;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.scrollable {
+  overflow-y: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 17px;
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable .vux-tab-ink-bar {
+  bottom: 17px;
+  position: absolute;
+}
+
+.scrollable .vux-tab-item {
+  flex: 0 0 22%;
+}
+
 </style>
