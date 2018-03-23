@@ -64,7 +64,7 @@ tab:
       en: whether prevent auto-switching tab-item when tab-item is clicked
       zh-CN: 是否禁止自动切换 tab-item
     scroll-threshold:
-      version: next
+      version: v2.8.1
       type: Number
       default: 4
       en: scroll tabs threshold
@@ -94,7 +94,7 @@ tab-item:
       en: emits when current tabItem is clicked
       zh-CN: 当前 tabItem 被点击时触发
 changes:
-  next:
+  v2.8.1:
     en:
       - '[feature] support prop:scroll-threshold'
     zh-CN:

@@ -36,13 +36,13 @@ grid:
       zh-CN: 列数。如果为非单行 Grid，需要设置 cols，否则所有 GridItem 会平均宽度显示在一行。
     show-lr-borders:
       type: Boolean
-      version: next
+      version: v2.8.1
       default: true
       en: whether show left and right borders
       zh-CN: 是否显示左右边框
     show-vertical-dividers:
       type: Boolean
-      version: next
+      version: v2.8.1
       default: true
       en: whether show vertical dividers
       zh-CN: 是否显示垂直分割线
@@ -69,7 +69,7 @@ grid-item:
       en: slot for label, the same func as prop:label
       zh-CN: label 文字的 slot，作用同 prop:label
 changes:
-  next:
+  v2.8.1:
     en:
       - '[feature] add prop:show-lr-borders and prop:show-vertical-dividers #2488'
     zh-CN:

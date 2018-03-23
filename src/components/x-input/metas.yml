@@ -108,7 +108,7 @@ slots:
   right:
     zh-CN: '用以在输入框右边显示内容，比如单位，切换密码显示方式等'
   right-full-height:
-    version: next
+    version: v2.8.1
     zh-CN: '用于放置和 cell 高度的验证码图片'
 events:
   on-blur:
@@ -141,7 +141,7 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
-  next:
+  v2.8.1:
     en:
       - '[feature] add slot:right-full-height for containing captcha #2475'
     zh-CN:
