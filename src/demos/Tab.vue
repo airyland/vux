@@ -33,15 +33,13 @@
     <br/>
     <br/>
     <divider>{{ $t('set bar-active-color')}}</divider>
-    <div style="width: 100%;overflow:scroll;-webkit-overflow-scrolling:touch;">
-      <tab style="width:500px;" bar-active-color="#668599" :line-width="1">
-        <tab-item>已发货</tab-item>
-        <tab-item selected>未发货</tab-item>
-        <tab-item>全部订单</tab-item>
-        <tab-item>全部订单</tab-item>
-        <tab-item>全部订单</tab-item>
-      </tab>
-    </div>
+    <tab bar-active-color="#668599" :line-width="1">
+      <tab-item>已发货</tab-item>
+      <tab-item selected>未发货</tab-item>
+      <tab-item>全部订单</tab-item>
+      <tab-item>全部订单</tab-item>
+      <tab-item>全部订单</tab-item>
+    </tab>
 
     <br/>
     <br/>
@@ -77,6 +75,20 @@
     <tab>
       <tab-item selected badge-label="1">收到的消息</tab-item>
       <tab-item badge-background="#38C972" badge-color="#fff" badge-label="2">发出的消息</tab-item>
+    </tab>
+    <br/>
+    <br/>
+    <br/>
+    <divider>scroll</divider>
+    <tab>
+      <tab-item v-for="n in 8" :key="n" :selected="n===1">已发货{{ n }}</tab-item>
+    </tab>
+    <br/>
+    <br/>
+    <br/>
+    <divider>scroll threshold</divider>
+    <tab :scroll-threshold="5">
+      <tab-item v-for="n in 5" :key="n" :selected="n===1">已发货{{ n }}</tab-item>
     </tab>
     <br/>
     <br/>
