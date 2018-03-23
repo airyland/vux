@@ -93,6 +93,7 @@ Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动
 <img src="https://static.vux.li/showcase/timemgt.jpg" width="150">
 <img src="https://i.loli.net/2018/01/17/5a5f11ed95864.jpg" width="150">
 <img src="https://i.loli.net/2018/01/17/5a5f1103c98e7.jpg" width="150">
+<img src="https://ws1.sinaimg.cn/large/663d3650gy1fpmuvjf5x6j208c08c74f.jpg" width="150">
 
 ## 安装使用(webpack)
 
