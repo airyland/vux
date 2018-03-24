@@ -57,9 +57,15 @@ nav: zh-CN
 </p>
 
 
+<p align="center">
+  <img src="https://ws1.sinaimg.cn/large/663d3650gy1fpno3msj6wj20dw0dw748.jpg" alt="" width="100">
+  <br>
+  <span>微信订单版本发布通知</span>
+</p>
+
 ## 简介
 
-Vux（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动端UI组件库，主要服务于微信页面。
+VUX（读音 [v'ju:z]，同`views`）是基于`WeUI`和`Vue`(2.x)开发的移动端UI组件库，主要服务于微信页面。
 
 基于`webpack`+`vue-loader`+`vux`可以快速开发移动端页面，配合`vux-loader`方便你在`WeUI`的基础上定制需要的样式。
 
