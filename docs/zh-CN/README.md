@@ -60,7 +60,7 @@ nav: zh-CN
 <p align="center">
   <img src="https://ws1.sinaimg.cn/large/663d3650gy1fpno3msj6wj20dw0dw748.jpg" alt="" width="100">
   <br>
-  <span>微信订单版本发布通知</span>
+  <span>微信订阅版本发布通知</span>
 </p>
 
 ## 简介
