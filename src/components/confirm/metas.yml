@@ -137,11 +137,6 @@ events:
     en: triggers when the dialog hides
     zh-CN: 弹窗隐藏时触发
 methods:
-  v2.6.4:
-    en:
-      - '[feature] support prop:mask-z-index'
-    zh-CN:
-      - '[feature] 支持属性 mask-z-index 设置遮罩 z-index'
   setInputValue:
     version: v2.5.5
     params: '(value)'
