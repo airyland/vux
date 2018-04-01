@@ -6,6 +6,8 @@ body, ul, li, p {
 }
 
 body {
+  height: 100vh;
+  overflow: hidden;
   min-width: 1200px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
@@ -224,6 +226,8 @@ tr.slot-disabled {
   display: flex;
 }
 .vux-box {
+  height: 100vh;
+  overflow: hidden;
   width: 190px;
   color: #fff;
 }
@@ -235,15 +239,17 @@ tr.slot-disabled {
   padding: 15px;
 }
 .summary {
+  height: 100vh;
   width: 190px;
   overflow: hidden;
   border-right: 1px solid #E6E6E6
 }
 .summary-inner {
+  height: 100vh;
   padding: 15px;
   width: 190px;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: scroll;
 }
 .survey {
   color: #fff;
@@ -251,6 +257,8 @@ tr.slot-disabled {
   text-decoration: none;
 }
 .content {
+  height: 100vh;
+  overflow: scroll;
   padding-top: 50px;
   padding-right: 25px;
   padding-bottom: 25px;

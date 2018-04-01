@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="app">
-    <div class="vux-box" :style="{height: height}">
+    <div class="vux-box">
 
-    <div :style="columnStyle" class="sidebar-inner">
+    <div class="sidebar-inner">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1024px" height="1024px" viewBox="0 0 1024 1024" enable-background="new 0 0 1024 1024" xml:space="preserve" style="width: 60px; height: 60px;"><path data-index="path_0" fill="#35495e" d="M512 816.64 51.2 985.6l460.8-947.2 460.8 947.2L512 816.64 512 816.64zM509.44 207.36 189.44 862.72l317.44-117.76L506.88 207.36 509.44 207.36zM509.44 207.36" class="svgpath"></path></svg>
       <br>
       <span class="vux-version">2.x</span>
@@ -44,7 +44,7 @@
     </div>
   </div>
     <div class="summary">
-      <div class="summary-inner" :style="columnStyle" style="left:190px;">
+      <div class="summary-inner" style="left:190px;">
         <div v-show="!isComponentPage" v-for="chapter in summary" :data-category="currentCategory" class="chapter">
           <p class="chapter-title">{{chapter.title}}</p>
           <ul class="chapter-page">
@@ -200,7 +200,6 @@ export default {
       days: Math.ceil((new Date().getTime() - new Date('2016/02/14').getTime()) / (24 * 3600 * 1000)),
       height: '1000px',
       columnStyle: {
-        height: '1000px'
       },
       routes
     }
