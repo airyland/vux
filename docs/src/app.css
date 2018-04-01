@@ -178,6 +178,7 @@ tr.slot-disabled {
     padding: 5px 4px;
     color: #666;
     margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .vux-version {

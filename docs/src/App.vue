@@ -147,13 +147,6 @@ const Axios = require('axios')
 
 export default {
   async mounted () {
-    this.height = window.screen.availHeight + 'px'
-    this.columnStyle = {
-      height: this.height,
-      overflow: 'scroll',
-      position: 'fixed',
-      top: 0
-    }
     this.githubStarBadge = 'https://img.shields.io/github/stars/airyland/vux.svg?style=social&amp;label=Star'
 
     await this.fetchAnalytics()
