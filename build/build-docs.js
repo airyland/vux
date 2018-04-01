@@ -1,5 +1,4 @@
 'use strict'
-
 const glob = require("glob")
 const fs = require('fs')
 const yaml = require('js-yaml')
@@ -205,12 +204,9 @@ function setKey(object, name) {
   return object
 }
 
-// glob(getPath('../src/**/metas.yml'), {}, function (err, files) {
-//   render(files)
-//   render(files, 'form')
-//   render(files, 'dialog')
-//   render(files, 'layout')
-// })
+glob(getPath('../src/**/metas.yml'), {}, function (err, files) {
+  render(files)
+})
 
 glob(getPath('../src/tools/**/metas.yml'), {}, function (err, files) {
   let rs = []
@@ -459,14 +455,6 @@ nav: ${lang}
     */
       docs += `\n\n\n`
     })
-
-    if (!tag) {
-      fs.writeFileSync(getPath(`../docs/${lang}/components.md`), docs)
-
-    } else {
-      fs.writeFileSync(getPath(`../docs/${lang}/components_${tag}.md`), docs)
-
-    }
   }
 
 }
@@ -747,7 +735,6 @@ function parseTag(firstTag, tag) {
 }
 
 function buildChanges(infos, lang = 'zh-CN') {
-
   const toolInfos = require(getPath('../src/tools/changes.json'))
   const pluginInfos = require(getPath('../src/plugins/changes.json'))
   const directiveInfos = require(getPath('../src/directives/changes.json'))
@@ -836,6 +823,5 @@ nav: ${lang}
   }
 
   str += '\n'
-
   fs.writeFileSync(getPath(`../docs/${lang}/changelog/changelog.md`), str)
 }
