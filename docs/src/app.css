@@ -5,6 +5,10 @@ body, ul, li, p {
   padding: 0;
 }
 
+body {
+  min-width: 1200px;
+}
+
 .contributors-tip {
   font-size: 12px;
   color: #666;

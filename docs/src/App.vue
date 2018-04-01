@@ -100,7 +100,7 @@
       <div class="header-nav">
         <ul class="nav-list">
           <li class="nav-item">
-            <router-link to="/zh-CN/" :class="!isComponentPage && !/components|changelog|lab|donate/.test($route.path) ? 'link-active' : ''">教程</router-link>
+            <router-link to="/zh-CN/" :exact="true" :class="$route.path === '/zh-CN/' || $route.path === '/zh-CN'  ? 'link-active' : ''">教程</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/zh-CN/components/actionsheet.html" :class="isComponentPage ? 'link-active' : ''">组件</router-link>
