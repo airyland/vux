@@ -10,16 +10,16 @@ tags:
     - 确认
 extra: |
 
-  <p class="tip">
+  ::: tip
    建议参照例子使用 `v-transfer-dom` 将弹窗插入 `body` 节点下，避免组件非 body 子节点导致的各种问题。
-  </p>
+  :::
 
 
   该组件支持以`plugin`形式调用：
 
-  <p class="warning">
+  ::: warning
   以插件形式调用时，和`template`中使用不同，属性名请使用`小驼峰式`，比如`confirmText`而不是`confirm-text`。
-  </p>
+  :::
 
   ``` js
   import  { ConfirmPlugin } from 'vux'

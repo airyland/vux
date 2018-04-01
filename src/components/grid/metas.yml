@@ -63,8 +63,8 @@ grid-item:
       zh-CN: vue-router 路径
   slots:
     icon:
-      en: 'icon slot, use `<img>`'
-      zh-CN: "图标内容，直接使用`<img>`标签"
+      en: 'icon slot, use tag:`img`'
+      zh-CN: "图标内容，直接使用`img`标签"
     label:
       en: slot for label, the same func as prop:label
       zh-CN: label 文字的 slot，作用同 prop:label

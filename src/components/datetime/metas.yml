@@ -1,8 +1,8 @@
 icon: '&#xe60a;'
 extra: |
-  <p class="tip">
+  ::: tip
   需要在`Group`组件里使用
-  </p>
+  :::
 
 
   该组件支持以`plugin`形式调用：

@@ -27,13 +27,13 @@ extra: |
    // 隐藏
    this.$vux.loading.hide()
    ```
-   <p class="tip">
+   ::: tip
    loading同样支持在vue外直接使用，请参照 [https://github.com/airyland/vux/blob/v2/docs/examples/loading.html](https://github.com/airyland/vux/blob/v2/docs/examples/loading.html)
-   </p>
+   :::
 
-   <p class="tip">
+   ::: tip
    从v2.7.8版本开始以组件形式调用增加`delay`参数，从而实现延时显示.
-   </p>
+   :::
 
 props:
   show:

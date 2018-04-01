@@ -10,13 +10,13 @@ tags:
     - 弹窗
 extra:
   en: |
-    <p class="tip">
+    ::: tip
       other props are the same as `Picker`
-    </p>
+    :::
   zh-CN: |
-    <p class="tip">
+    ::: tip
       其他选项与`picker`一致
-    </p>
+    :::
 props:
   value:
     type: Array

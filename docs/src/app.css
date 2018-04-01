@@ -1,0 +1,526 @@
+@import '~highlight.js/styles/atom-one-light.css';
+
+body, ul, li, p {
+  margin: 0;
+  padding: 0;
+}
+
+.contributors-tip {
+  font-size: 12px;
+  color: #666;
+}
+.guide-link {
+  font-size: 18px;
+  padding: 5px 0;
+}
+
+.vux-component-name {
+  font-family: Josefin Sans,sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #d95353;
+}
+
+.markdown-body h1.vux-component-name {
+  font-size: 2.5em;
+}
+
+.header-nav {
+  padding-left: 15px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #ececec;
+}
+
+tr.slot-disabled {
+  color: #999;
+}
+
+.type, .change {
+  height: 18px;
+  font-size: 12px;
+  width: 60px;
+  color: #fff;
+  border-radius: 2px;
+  text-align: center;
+  display: inline-block;
+  padding: 0 3px;
+}
+.change {
+  height: 14px;
+  width: 72px;
+  line-height: 14px;
+}
+.type-object {
+  background-color: #33ab70;
+}
+.type-string {
+  background-color: #27394c;
+}
+.type-boolean {
+  background-color: #d95353;
+}
+.type-function {
+  background-color: #f4a358;
+}
+.type-number {
+  background-color: #288af0;
+}
+.type-array {
+  background-color: #eb1ac1;
+}
+
+
+.change-deprecated {
+  background-color: #d95353;
+}
+.change-todo {
+  background-color: #27394c;
+}
+.change-enhance, .change-fix {
+  background-color: #288af0;
+}
+.change-feature {
+  background-color: #288af0;
+}
+.change-change {
+  background-color: #e96900;
+}
+
+.markdown-body .highlight pre, .markdown-body pre {
+  max-width: 1000px;
+}
+
+.github-icon {
+  display: inline-block;
+}
+
+.github-star {
+  display: inline-block;
+  padding-top: 10px;
+}
+
+.chapter {
+  margin-bottom: 15px;
+}
+
+.chapter-title {
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.chapter-page {
+ padding-left: 2px;
+}
+
+.chapter-page-item {
+  list-style: none;
+}
+
+.chapter-page-item a {
+  font-size: 14px;
+  color: #585858;
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+.chapter-page-item a.router-link-exact-active, a.router-link-active[data-current-category="faq"][href="/zh-CN/faq/"]
+ {
+  color: green;
+  font-weight: bold;
+  border-bottom: 1px solid green;
+}
+
+@font-face {
+    font-family: Josefin Sans;
+    font-style: normal;
+    font-weight: 300;
+    src: local("Josefin Sans Light"),local("JosefinSans-Light"),url(https://fonts-gstatic.proxy.ustclug.org/s/josefinsans/v9/C6HYlRF50SGJq1XyXj04z7sKtFnhOiVZh9MDlvO1Vys.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: Josefin Sans;
+    font-style: normal;
+    font-weight: 300;
+    src: local("Josefin Sans Light"),local("JosefinSans-Light"),url(https://fonts-gstatic.proxy.ustclug.org/s/josefinsans/v9/C6HYlRF50SGJq1XyXj04z0ZRWJQ0UjzR2Uv6RollX_g.woff2) format("woff2");
+}
+
+.big-title {
+    font-size: 3em!important;
+    color: #42b983
+}
+
+.big-title,.product-title {
+    font-family: Josefin Sans,sans-serif
+}
+
+.product-title {
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+    text-align: center
+}
+
+.livingearth-logo {
+    position: fixed;
+    bottom: 15px;
+    left: 30px;
+    z-index: 999;
+    border: 1px solid #666;
+    padding: 5px 4px;
+    color: #666;
+}
+
+.vux-version {
+    text-align: center;
+    width: 50px;
+    color: #ccc;
+    text-shadow: 0 0 6px rgba(0,120,255,.9)
+}
+
+.vux-title {
+    font-weight: 400;
+    font-family: Josefin Sans,sans-serif;
+    text-align: center;
+    font-size: 40px;
+    margin: 20px 0
+}
+
+.vux-github {
+    color: #fff
+}
+
+.vux-sub-title {
+    font-size: 14px;
+    color: #ececec;
+    font-family: Josefin Sans,sans-serif
+}
+
+.vux-time-ago {
+  padding-top: 10px;
+  color: #ececec
+}
+
+.vux-time-ago>span {
+    font-size: 1.5em;
+    text-shadow: 0 0 6px rgba(0,120,255,.9)
+}
+
+.vux-box,.vux-center {
+    text-align: center
+}
+
+.app {
+  display: flex;
+}
+.vux-box {
+  width: 190px;
+  color: #fff;
+}
+.sidebar-inner {
+  width: 160px;
+  background-color: #171717;
+  padding: 15px;
+}
+.summary {
+  width: 190px;
+  overflow: hidden;
+  border-right: 1px solid #E6E6E6
+}
+.summary-inner {
+  padding: 15px;
+  width: 190px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.survey {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+}
+.content {
+  padding-top: 50px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+  flex: 1;
+}
+.header-nav {
+  position: fixed;
+  left: 381px;
+  top: 0;
+  background-color: #fff;
+  z-index: 888;
+  width: 100%;
+}
+@import '~github-markdown-css/github-markdown.css';
+
+.markdown-body {
+  padding-left: 25px;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  color: #687168;
+  background-color: #def5df;
+  border-radius: 3px;
+}
+.markdown-body code::before,
+.markdown-body code::after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+.markdown-body pre {
+  word-wrap: normal;
+}
+.markdown-body pre > code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+.markdown-body pre code::before,
+.markdown-body pre code::after {
+  content: normal;
+}
+
+
+.markdown-body a {
+  color: #22ab28;
+  text-decoration: none;
+}
+
+.markdown-body a:hover, .summary a:hover {
+  color: #148a1a;
+}
+
+/**docute**/
+div.warning, div.tip, div.danger,p.warning {
+  padding: 12px 24px 12px 20px;
+  margin: 2em 0;
+  border-left: 4px solid;
+  position: relative;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  &:before {
+    content: "!";
+    position: absolute;
+    top: 14px;
+    left: -12px;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  }
+  &.no-bg {
+    background-color: #f8f8f8;
+  }
+}
+
+div.warning, p.warning {
+  border-left-color: #f7d24c;
+  background-color: #fefbed;
+  &:before {
+    background-color: #f7d24c;
+  }
+}
+
+div.danger, p.danger {
+  border-left-color: #f66;
+  background-color: rgba(255, 102, 102, 0.06);
+  &:before {
+    background-color: #f66;
+  }
+}
+
+div.tip {
+  border-left-color: #3c763d;
+  background-color: rgba(241, 249, 241, 0.83);
+  &:before {
+    background-color: #3c763d;
+  }
+}
+.markdown-body .tip p {
+  margin-bottom: 0;
+}
+.markdown-body .warning p {
+  margin-bottom: 0;
+}
+.markdown-body .danger p {
+  margin-bottom: 0;
+}
+
+/**
+* docute
+*/
+.header-nav {
+    display: flex;
+    align-items: center
+}
+
+.header-nav.is-mobile .nav-list {
+    height: auto;
+    line-height: auto
+}
+
+.header-nav.is-mobile .nav-list .nav-item {
+    float: none
+}
+
+.header-nav.is-mobile .nav-list .nav-item>a,.header-nav.is-mobile .nav-list .nav-item>div {
+    border-bottom: none;
+    height: auto;
+    line-height: 30px
+}
+
+
+.header-nav.is-mobile .nav-list .dropdown-list {
+    background-color: transparent
+}
+
+.header-nav.is-mobile .nav-list .nav-item-dropdown .dropdown-list {
+    position: static;
+    display: block;
+    transform: none;
+    border: none;
+    padding: 0
+}
+
+.nav-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    line-height: 40px;
+    height: 40px
+}
+
+.nav-list .sep {
+    height: 1px;
+    background-color: #f0f0f0;
+    display: block;
+    margin: 8px 0
+}
+
+.nav-list .label {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px
+}
+
+.nav-list .nav-item {
+    float: left;
+    margin-right: 20px
+}
+
+.nav-list .nav-item>a,.nav-list .nav-item>div {
+    color: #666;
+    height: 40px;
+    font-size: 14px;
+    border-bottom: 3px solid transparent;
+    display: block;
+    text-decoration: none;
+}
+
+.nav-list .nav-item>a.link-active,.nav-list .nav-item>div.link-active {
+    border-bottom-color: #42b983;
+    color: #333
+}
+
+.nav-list .nav-item>a:hover,.nav-list .nav-item>div:hover {
+    color: #333
+}
+
+.nav-list .nav-item>a:hover:not(.router-link-active),.nav-list .nav-item>div:hover:not(.router-link-active) {
+    border-bottom-color: #e2e2e2
+}
+
+.nav-list .nav-item .arrow {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -1px;
+    margin-left: 6px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid #ccc
+}
+
+.nav-list .nav-item-dropdown {
+    position: relative
+}
+
+.nav-list .nav-item-dropdown .dropdown-list {
+    position: absolute;
+    z-index: 9999;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    background-color: #fff;
+    margin: 0;
+    list-style-type: none;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    white-space: nowrap;
+    padding: 10px 0
+}
+
+.nav-list .nav-item-dropdown .dropdown-list .dropdown-item {
+    font-size: 13px;
+    line-height: 28px
+}
+
+.nav-list .nav-item-dropdown .dropdown-list .dropdown-item .router-link-active,.nav-list .nav-item-dropdown .dropdown-list .dropdown-item .router-link:hover {
+    color: #42b983
+}
+
+.nav-list .nav-item-dropdown:hover .dropdown-list {
+    display: block
+}
+
+.component-list-item > a{
+  font-size: 16px;
+}
+
+.code-box {
+  font-size: 16px;
+}
+
+.el-icon-info {
+  padding-left: 3px;
+}
