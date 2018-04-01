@@ -27,7 +27,19 @@ const createStore = () => new Vuex.Store({
     async updateContributors({
       commit
     }, payload) {
-      const data = await axios.get(`https://api.github.com/repos/airyland/vux/contributors?per_page=100`).then(res => res.data)
+      const data = await axios.get(`https://api.github.com/repos/airyland/vux/contributors?per_page=100`).then(res => {
+        const list = res.data
+        list.forEach((user, index) => {
+          // my girl
+          if (user.login === 'QiongrongJiang') {
+            const saved = user
+            list.splice(index, 1)
+            list.splice(1, 0, saved)
+            return
+          }
+        })
+        return list
+      })
       commit('UPDATE_CONTRIBUTORS', data)
     }
   }

@@ -7,6 +7,7 @@ body, ul, li, p {
 
 body {
   min-width: 1200px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .contributors-tip {
@@ -169,14 +170,14 @@ tr.slot-disabled {
     text-align: center
 }
 
-.livingearth-logo {
-    position: fixed;
-    bottom: 15px;
-    left: 30px;
+.analytics {
+    width: 120px;
+    margin: 0 auto;
     z-index: 999;
     border: 1px solid #666;
     padding: 5px 4px;
     color: #666;
+    margin-top: 25px;
 }
 
 .vux-version {
@@ -226,6 +227,8 @@ tr.slot-disabled {
   color: #fff;
 }
 .sidebar-inner {
+  height: 100vh;
+  overflow: scroll;
   width: 160px;
   background-color: #171717;
   padding: 15px;
@@ -527,4 +530,9 @@ div.tip {
 
 .el-icon-info {
   padding-left: 3px;
+}
+
+.el-card {
+  box-shadow: none!important;
+  border-radius: 0!important;
 }

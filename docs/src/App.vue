@@ -25,7 +25,7 @@
           <a href="https://wj.qq.com/s/1170299/9518/" target="_blank" class="survey"> VUX 开发者调查 &gt;&gt;</a>
         </p>
       </div>
-      <div class="livingearth-logo">
+      <div class="analytics">
         <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_30m.quantity }}</span><br>▴<br></p>
         <p style="font-size:12px;">实时 VUX 开发者
           <el-popover trigger="hover" v-if="hasReady">

@@ -6,7 +6,7 @@
   </div>
   <ul class="list">
     <li v-for="user in contributors">
-      <a :href="user.html_url" target="_blank" class="link" :title="`${user.contributions}次贡献`">
+      <a :href="user.html_url" target="_blank" class="link">
         <img :src="user.avatar_url" class="avatar">
         <br>
         <span>{{ user.login }}</span>
