@@ -26,7 +26,7 @@
             <el-popover trigger="hover" v-if="hasReady">
               <i class="el-icon-info" slot="reference"></i>
               <p>该数值表示当前正在进行 VUX(Vue) 开发的唯一用户数，非文档站访问数。
-                <br>数据来源于 vux-loader 发送的匿名统计。</p>
+                <br>数据来源于 vux-loader 发送的匿名统计，作为 webpack 配置工具仅在 development 发送统计，不对构建文件加入任何代码。</p>
             </el-popover>
           </p>
           <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_24h.quantity }}</span><br>▴</p>
