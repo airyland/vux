@@ -14,8 +14,10 @@
             <!--<img class="github-star" :src="githubStarBadge" alt="">-->
           </a>
           <p class="vux-center vux-sub-title vux-time-ago">Since <span>{{days}}</span> Days Ago</p>
+          <br>
           <p v-if="/zh-CN/i.test($route.path)">
-            <a href="https://wj.qq.com/s/1170299/9518/" target="_blank" class="survey"> VUX 开发者调查 &gt;&gt;</a>
+            <a href="https://wj.qq.com/s/1170299/9518/" target="_blank" class="survey"> VUX 开发者调查 <span class="el-icon-arrow-right
+"></span></a>
           </p>
         </div>
         <div class="analytics">
