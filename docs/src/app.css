@@ -177,10 +177,18 @@ tr.slot-disabled {
     margin: 0 auto;
     z-index: 999;
     border: 1px solid #666;
-    padding: 5px 4px;
+    padding: 5px 1px;
     color: #666;
     margin-top: 25px;
     margin-bottom: 50px;
+}
+
+@media only screen and (min-height:560px) {
+	.analytics {
+    position: absolute;
+    bottom: 10px;
+    margin-bottom: 0;
+  }
 }
 
 .vux-version {
@@ -204,16 +212,15 @@ tr.slot-disabled {
 
 .vux-sub-title {
     font-size: 14px;
-    color: #ececec;
     font-family: Josefin Sans,sans-serif
 }
 
 .vux-time-ago {
   padding-top: 10px;
-  color: #ececec
 }
 
-.vux-time-ago>span {
+.vux-time-ago > span {
+    color: #ececec;
     font-size: 1.5em;
     text-shadow: 0 0 6px rgba(0,120,255,.9)
 }
@@ -228,15 +235,14 @@ tr.slot-disabled {
 .vux-box {
   height: 100vh;
   overflow: hidden;
-  width: 190px;
-  color: #fff;
+  color: #ccc;
+  background-color: #171717;
 }
 .sidebar-inner {
   height: 100vh;
   overflow: scroll;
-  width: 160px;
-  background-color: #171717;
-  padding: 15px;
+  padding: 0 15px;
+  position: relative;
 }
 .summary {
   height: 100vh;
@@ -260,13 +266,15 @@ tr.slot-disabled {
   height: 100vh;
   overflow: scroll;
   padding-top: 50px;
-  padding-right: 25px;
-  padding-bottom: 25px;
   flex: 1;
+}
+.markdown-body {
+  overflow: scroll;
+  padding-bottom: 25px;
 }
 .header-nav {
   position: fixed;
-  left: 381px;
+  left: 360px;
   top: 0;
   background-color: #fff;
   z-index: 888;
@@ -440,7 +448,7 @@ div.tip {
     list-style: none;
     padding-left: 0;
     margin: 0;
-    line-height: 40px;
+    line-height: 35px;
     height: 40px
 }
 

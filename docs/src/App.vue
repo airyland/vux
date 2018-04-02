@@ -1,48 +1,41 @@
 <template>
   <div id="app" class="app">
     <div class="vux-box">
-
-    <div class="sidebar-inner">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1024px" height="1024px" viewBox="0 0 1024 1024" enable-background="new 0 0 1024 1024" xml:space="preserve" style="width: 60px; height: 60px;"><path data-index="path_0" fill="#35495e" d="M512 816.64 51.2 985.6l460.8-947.2 460.8 947.2L512 816.64 512 816.64zM509.44 207.36 189.44 862.72l317.44-117.76L506.88 207.36 509.44 207.36zM509.44 207.36" class="svgpath"></path></svg>
-      <br>
-      <span class="vux-version">2.x</span>
-      <h1 class="vux-title">VUX</h1>
-      <div class="vux-center vux-sub-title">Proudly Powered by
+      <div class="sidebar-inner">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1024px" height="1024px" viewBox="0 0 1024 1024" enable-background="new 0 0 1024 1024" xml:space="preserve" style="width: 60px; height: 60px;"><path data-index="path_0" fill="#35495e" d="M512 816.64 51.2 985.6l460.8-947.2 460.8 947.2L512 816.64 512 816.64zM509.44 207.36 189.44 862.72l317.44-117.76L506.88 207.36 509.44 207.36zM509.44 207.36" class="svgpath"></path></svg>
         <br>
-        WeUI + Vue + Webpack</div>
+        <h1 class="vux-title">VUX</h1>
         <div>
-          <br>
           <a target="_blank" href="https://github.com/airyland/vux" class="vux-github">
-            <svg viewBox="0 0 64 64" width="48" height="48"><path stroke-width="0" fill="currentColor" d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z"></path>
+            <svg viewBox="0 0 64 64" width="24" height="24">
+              <path stroke-width="0" fill="currentColor" d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z"></path>
             </svg>
             <br>
             <!--<img class="github-star" :src="githubStarBadge" alt="">-->
           </a>
-
-        <p class="vux-center vux-sub-title vux-time-ago">Since <span>{{days}}</span> Days Ago</p>
-        <br>
-        <p v-if="/zh-CN/i.test($route.path)">
-          <a href="https://wj.qq.com/s/1170299/9518/" target="_blank" class="survey"> VUX 开发者调查 &gt;&gt;</a>
-        </p>
-      </div>
-      <div class="analytics">
-        <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_30m.quantity }}</span><br>▴<br></p>
-        <p style="font-size:12px;">实时 VUX 开发者
-          <el-popover trigger="hover" v-if="hasReady">
-            <i class="el-icon-info" slot="reference"></i>
-            <p>该数值表示当前正在进行 VUX(Vue) 开发的唯一用户数，非文档站访问数。
-              <br>数据来源于 vux-loader 发送的匿名统计。</p>
-          </el-popover>
-        </p>
-        <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_24h.quantity }}</span><br>▴</p>
-        <p style="font-size:12px;" v-for="item in analytics.user_quantity_within_24h_group_by_city.list.slice(0, 8)">
-          <span>{{ item.city }}</span> {{ item.quantity }}
-        </p>
-        <p class="vux-center vux-sub-title vux-time-ago" style="padding-top:0;">▴</p>
-        <p class="vux-center" style="font-size:12px;">24小时内 VUX 开发者</p>
+          <p class="vux-center vux-sub-title vux-time-ago">Since <span>{{days}}</span> Days Ago</p>
+          <p v-if="/zh-CN/i.test($route.path)">
+            <a href="https://wj.qq.com/s/1170299/9518/" target="_blank" class="survey"> VUX 开发者调查 &gt;&gt;</a>
+          </p>
+        </div>
+        <div class="analytics">
+          <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_30m.quantity }}</span><br>▴<br></p>
+          <p style="font-size:12px;">实时 VUX 开发者
+            <el-popover trigger="hover" v-if="hasReady">
+              <i class="el-icon-info" slot="reference"></i>
+              <p>该数值表示当前正在进行 VUX(Vue) 开发的唯一用户数，非文档站访问数。
+                <br>数据来源于 vux-loader 发送的匿名统计。</p>
+            </el-popover>
+          </p>
+          <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_24h.quantity }}</span><br>▴</p>
+          <p style="font-size:12px;" v-for="item in analytics.user_quantity_within_24h_group_by_city.list.slice(0, 8)">
+            <span>{{ item.city }}</span> {{ item.quantity }}
+          </p>
+          <p class="vux-center vux-sub-title vux-time-ago" style="padding-top:0;">▴</p>
+          <p class="vux-center" style="font-size:12px;">24小时内 VUX 开发者</p>
+        </div>
       </div>
     </div>
-  </div>
     <div class="summary">
       <div class="summary-inner" style="left:190px;">
         <div v-show="!isComponentPage" v-for="chapter in summary" :data-category="currentCategory" class="chapter">
@@ -94,7 +87,6 @@
         </div>
 
       </div>
-
     </div>
     <div class="content">
       <div class="header-nav">
