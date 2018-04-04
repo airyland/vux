@@ -451,7 +451,7 @@ export default {
 
   export default {
     head: {
-      title: '${importName} 组件使用教程  | VUX - Vue 移动端 UI 组件库'
+      title: '${importName} 组件使用教程 | VUX - Vue 移动端 UI 组件库'
     },
     filters: {
       parseCode (str) {
