@@ -756,7 +756,7 @@ function buildChanges(infos, lang = 'zh-CN') {
     }
   })
   let str = `---
-nav: ${lang}
+title: VUX 发布日志
 ---\n`
 
   rs = sortObj(rs, {
@@ -804,7 +804,9 @@ nav: ${lang}
       title: `${i}发布`,
       components: []
     }
-    let content = ''
+    let content = `---
+title: VUX ${_camelCase(i)} 发布日志
+---`
     for (let j in release) {
       content += `\n## ${_camelCase(j)}\n`
       release[j].forEach(function (line) {

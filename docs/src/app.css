@@ -247,7 +247,6 @@ tr.slot-disabled {
 }
 .sidebar-inner {
   height: 100vh;
-  overflow: scroll;
   padding: 0 15px;
   position: relative;
 }
