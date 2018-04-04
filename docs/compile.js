@@ -184,7 +184,7 @@ components.forEach((file) => {
   }
   const parseReg = '`(.*?)`'
   const url = `https://vux.li/demos/v2/#/component/${componentName}`
-  const localImportCode = colorCode('js', `import { ${importList.map(one => one.importName).join(', ')} } from 'vux'
+  const localImportCode = colorCode('js', `// 单独组件引入\n\nimport { ${importList.map(one => one.importName).join(', ')} } from 'vux'
 
 export default {
   components: {
@@ -193,7 +193,7 @@ export default {
 }`)
 
 
-  let _globalImportCode = `import { ${importList.map(one => one.importName).join(', ')} } from 'vux'
+  let _globalImportCode = `// 也可以在入口文件全局引入\n\nimport Vue from 'vue'\nimport { ${importList.map(one => one.importName).join(', ')} } from 'vux'
 
 `
   importList.forEach(one => {
@@ -247,16 +247,9 @@ export default {
       <iframe src="${url}" width="375" height="600" border="0" frameborder="0"></iframe>
     </div>
 
-    <h3>引入</h3>
-
-    <h4>局部组件注册(*.vue)</h4>
-
     <div style="width:600px;">
       ${localImportCode}
     </div>
-
-
-    <h4>你也可以注册为全局组件(main.js)</h4>
 
     <div style="width:600px;">
       ${globalImportCode}
@@ -481,12 +474,12 @@ export default {
             return one.replace(/^\s+|\s+$/g, '')
           }).map(function (one) {
             const type = one ?  one.toLowerCase() : 'string'
-            return '<span class="type type-' + type + '">' + type + '</span>'
+            return '<span class="type">' + type + '</span>'
           })
           return list.join('<br>')
         } else {
           type = type ?  type.toLowerCase() : 'string'
-          return '<span class="type type-' + type + '">' + type + '</span>'
+          return '<span class="type">' + type + '</span>'
         }
       }
     },
