@@ -235,7 +235,7 @@ export default {
 
       <el-popover trigger="hover" v-if="hasReady">
         <div style="width:100%;text-align:center;">
-          <img class="qr" width="100" src="http://qr.topscan.com/api.php?text=${encodeURIComponent(url)}"/>
+          <img class="qr" width="100" src="https://qr.vux.li/api.php?text=${encodeURIComponent(url)}"/>
         </div>
         <a href="javascript:" slot="reference">
         二维码
@@ -516,11 +516,6 @@ export default {
   .component-extra-links a {
     padding-right: 10px;
     color: #999;
-  }
-  .qr {
-    // position: absolute;
-    // left: 256px;
-    // top: -77px;
   }
   </style>
     `
