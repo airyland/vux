@@ -1,13 +1,13 @@
 icon: '&#xe60a;'
 extra: |
-  <p class="tip">
+  ::: tip
   需要在`Group`组件里使用
-  </p>
+  :::
 
 
   该组件支持以`plugin`形式调用：
 
-  ```
+  ``` js
   // 以 plugin 形式使用时，请在入口处引入：
   import { DatetimePlugin } from 'vux'
   Vue.use(DatetimePlugin)
@@ -25,7 +25,11 @@ extra: |
 
   this.$vux.datetime.hide()
   ```
-
+tips:
+  zh-CN:
+    -
+      q: 是否支持秒(ss)
+      a: 不支持，目前常用需求场景并没有需要精确到秒。
 tags:
   en:
     - date
@@ -39,8 +43,8 @@ props:
   format:
     type: String
     default: 'YYYY-MM-DD'
-    en: date format. Special characters are not supported, for example, YYYY-MM-DD HH:mm:ss
-    zh-CN: 时间格式，不支持特殊字符，只能类似 YYYY-MM-DD HH:mm:ss 这样的格式
+    en: date format. Special characters are not supported, for example, YYYY-MM-DD HH:mm(do not support ss)
+    zh-CN: 时间格式，不支持特殊字符，只能类似 YYYY-MM-DD HH:mm 这样的格式（不支持秒 ss）
   title:
     type: String
     default: ''

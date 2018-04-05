@@ -9,9 +9,9 @@ tags:
     - 预览
 extra: |
 
-  <p class="warning">
+  ::: warning
     `CellFormPreview` 需要在 `Group` 组件中使用。
-  </p>
+  :::
 
 
   ```  html

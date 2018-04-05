@@ -7,8 +7,10 @@ extra:
         <x-switch title="title" v-model="value"></x-switch>
       </group>
     ```
-    
-    <p class="tip">`x-switch` should be used in `Group`.</p>
+
+    ::: tip
+    `x-switch` should be used in `Group`.
+    :::
 
   zh-CN: |
 
@@ -17,8 +19,10 @@ extra:
         <x-switch title="title" v-model="value"></x-switch>
       </group>
     ```
-    
-    <p class="tip">`x-switch`只能在`Group`中使用</p>
+
+    ::: tip
+    `x-switch`只能在`Group`中使用
+    :::
 tags:
   en:
     - switch

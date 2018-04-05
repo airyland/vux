@@ -8,7 +8,9 @@ extra:
       </group>
     ```
 
-    <p class="tip">`x-textarea`只能在`Group`中使用</p>
+    ::: tip
+    `x-textarea`只能在`Group`中使用
+    :::
 tags:
   en:
     - form

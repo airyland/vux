@@ -1,5 +1,4 @@
 'use strict'
-
 const glob = require("glob")
 const fs = require('fs')
 const yaml = require('js-yaml')
@@ -12,10 +11,10 @@ const sortObj = require('sort-object')
 
 rimraf.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
 mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
-mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/changes'))
-mkdirp.sync(path.resolve(__dirname, '../docs/changes'))
-mkdirp.sync(path.resolve(__dirname, '../docs/changes/en'))
-mkdirp.sync(path.resolve(__dirname, '../docs/changes/zh-CN'))
+mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/changelog'))
+mkdirp.sync(path.resolve(__dirname, '../docs/en/changelog'))
+mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/components'))
+mkdirp.sync(path.resolve(__dirname, '../docs/en/components'))
 
 const aliasMap = {
   Base64Tool: 'base64',
@@ -207,9 +206,6 @@ function setKey(object, name) {
 
 glob(getPath('../src/**/metas.yml'), {}, function (err, files) {
   render(files)
-  render(files, 'form')
-  render(files, 'dialog')
-  render(files, 'layout')
 })
 
 glob(getPath('../src/tools/**/metas.yml'), {}, function (err, files) {
@@ -459,14 +455,6 @@ nav: ${lang}
     */
       docs += `\n\n\n`
     })
-
-    if (!tag) {
-      fs.writeFileSync(getPath(`../docs/${lang}/components.md`), docs)
-
-    } else {
-      fs.writeFileSync(getPath(`../docs/${lang}/components_${tag}.md`), docs)
-
-    }
   }
 
 }
@@ -747,7 +735,6 @@ function parseTag(firstTag, tag) {
 }
 
 function buildChanges(infos, lang = 'zh-CN') {
-
   const toolInfos = require(getPath('../src/tools/changes.json'))
   const pluginInfos = require(getPath('../src/plugins/changes.json'))
   const directiveInfos = require(getPath('../src/directives/changes.json'))
@@ -769,7 +756,7 @@ function buildChanges(infos, lang = 'zh-CN') {
     }
   })
   let str = `---
-nav: ${lang}
+title: VUX 发布日志
 ---\n`
 
   rs = sortObj(rs, {
@@ -790,7 +777,7 @@ nav: ${lang}
   for (let i in rs) {
     releases[i] = {}
       // releases += `\n # ${i}\n`
-    str += `\n### ${parseTag(firstTag, i)}_COM\n`
+    str += `\n### ${parseTag(firstTag, i)}\n`
     for (let j in rs[i]) {
       // releases += `\n## ${_camelCase(j)}\n`
       releases[i][j] = []
@@ -808,7 +795,7 @@ nav: ${lang}
 
   for (let i in releases) {
     const release = releases[i]
-    let file = getPath(`../docs/changes/${lang}/${i}.md`)
+    let file = getPath(`../docs//${lang}/changelog/${i}.md`)
     let htmlFile = getPath(`../docs/changes/${lang}/${i}.html`)
 
     let data = {
@@ -817,7 +804,9 @@ nav: ${lang}
       title: `${i}发布`,
       components: []
     }
-    let content = ''
+    let content = `---
+title: VUX ${_camelCase(i)} 发布日志
+---`
     for (let j in release) {
       content += `\n## ${_camelCase(j)}\n`
       release[j].forEach(function (line) {
@@ -836,6 +825,5 @@ nav: ${lang}
   }
 
   str += '\n'
-
-  fs.writeFileSync(getPath(`../docs/${lang}/changes.md`), str)
+  fs.writeFileSync(getPath(`../docs/${lang}/changelog/changelog.md`), str)
 }

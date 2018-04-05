@@ -7,7 +7,9 @@ extra:
       </group>
     ```
 
-    <p class="tip">cell只能在`Group`中使用</p>
+    ::: tip
+    cell只能在`Group`中使用
+    :::
 tags:
   en:
     - cell
