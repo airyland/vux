@@ -7,7 +7,7 @@ extra: |
 
   该组件支持以`plugin`形式调用：
 
-  ```
+  ``` js
   // 以 plugin 形式使用时，请在入口处引入：
   import { DatetimePlugin } from 'vux'
   Vue.use(DatetimePlugin)
