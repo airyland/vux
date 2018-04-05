@@ -23,6 +23,9 @@ let store = new Vuex.Store({
 
 Vue.use(vuexI18n.plugin, store)
 
+// no transitoin in demo site
+const shouldUseTransition = !/transition=none/.test(location.href)
+
 const vuxLocales = require('json-loader!yaml-loader!./locales/all.yml')
 const componentsLocales = require('json-loader!yaml-loader!./locales/components.yml')
 
@@ -49,7 +52,7 @@ store.registerModule('vux', {
   state: {
     demoScrollTop: 0,
     isLoading: false,
-    direction: 'forward'
+    direction: shouldUseTransition ? 'forward' : ''
   },
   mutations: {
     updateDemoPosition (state, payload) {
@@ -59,6 +62,9 @@ store.registerModule('vux', {
       state.isLoading = payload.isLoading
     },
     updateDirection (state, payload) {
+      if (!shouldUseTransition) {
+        return
+      }
       state.direction = payload.direction
     }
   },

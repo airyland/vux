@@ -29,12 +29,12 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "build-docs": "node build/build-docs.js",
+    "doc:build": "node build/build-docs.js && node docs/component-contributors && node docs/compile",
+    "doc:dev": "cd docs && npm run dev",
     "build-main": "node build/build-main.js",
     "build-components": "node build/build-components.js",
     "build-styles": "node build/build-styles.js",
-    "xbuild": "npm run build-styles && npm run build-components",
-    "docs": "docute ./docs --port 8087"
+    "xbuild": "npm run build-styles && npm run build-components"
   },
   "dependencies": {
     "array-filter": "^1.0.0",

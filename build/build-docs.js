@@ -9,8 +9,6 @@ const rimraf = require('rimraf')
 const semver = require('semver')
 const sortObj = require('sort-object')
 
-rimraf.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
-mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
 mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/changelog'))
 mkdirp.sync(path.resolve(__dirname, '../docs/en/changelog'))
 mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/components'))
@@ -350,8 +348,6 @@ function render(files, tag) {
   buildChanges(infos)
   buildChanges(infos, 'en')
 
-  buildDemos(infos)
-
   let langs = ['zh-CN', 'en']
   for (var i = 0; i < langs.length; i++) {
     let lang = langs[i]
@@ -650,71 +646,6 @@ function camelCase(input) {
 function _camelCase(input) {
   let str = camelCase(input)
   return str.slice(0, 1).toUpperCase() + str.slice(1)
-}
-
-function buildDemos(infos) {
-  infos.forEach((one) => {
-    let str = ''
-    let url = `https://vux.li/demos/v2/#/component/${one.name}`
-    str += `---
-nav: zh-CN
----
-
-
-### ${_camelCase(one.name)}_COM
-
-<img width="100" src="http://qr.topscan.com/api.php?text=${encodeURIComponent(url)}"/>
-
-<a href="${url}" target="_blank" style="font-size:12px;color:#888;">demo 原始链接：${url}</a>
-
-`
-
-if (one.metas.references) {
-        str += `\n#### 交互&设计参考`
-        if (one.metas.references['zh-CN']) {
-          const cnList = one.metas.references['zh-CN']
-          cnList.forEach((item) => {
-            str += `\n- [${item.title}](${item.link})`
-          })
-        }
-      }
-
-str += `
-
----
-
-#### 演示
-
- <div style="width:377px;height:667px;display:inline-block;border:1px dashed #ececec;border-radius:5px;overflow:hidden;">
-   <iframe src="${url}" width="375" height="667" border="0" frameborder="0"></iframe>
- </div>
-`
-
-    try {
-      str += `\n#### demo 代码\n`
-
-      str += `
-<p class="tip">下面的$t是Demo的i18n使用的翻译函数，一般情况下可以直接使用字符串。另外，下面代码隐藏了i18n标签部分的代码。</p>
-`
-
-      str += '\n``` html\n'
-
-      let code = fs.readFileSync(getPath(`../src/demos/${_camelCase(one.name)}.vue`), 'utf-8')
-      str += `${code.replace(/<i18n[^>]*>([\s\S]*?)<\/i18n>/g, '')}\n`
-      str += '```\n'
-
-
-      str += `
-
-#### Github Issue`
-
-      fs.writeFileSync(getPath(`../docs/zh-CN/demos/${one.name}.md`), str)
-
-    } catch (e) {
-      console.log(e)
-    }
-
-  })
 }
 
 function parseChange(str) {

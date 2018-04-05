@@ -9,6 +9,10 @@ const MD = require('markdown-it')
 const argv = require('yargs').argv
 let langs = ['en', 'zh-CN']
 
+const getPath = function (dir) {
+  return path.join(__dirname, dir)
+}
+
 // for faster test with few languages
 if (argv.langs) {
   langs = argv.langs.split(',')
@@ -65,7 +69,7 @@ function getComponentName(path) {
   }
 }
 
-const faqs = glob.sync('./zh-CN/faq/*.md')
+const faqs = glob.sync(getPath('./zh-CN/faq/*.md'))
 const faqRoutes = []
 const commonTitle = `VUX - 基于 WeUI 和 Vue 的移动端组件库`
 let faqMd = `
@@ -76,7 +80,8 @@ title: 常见问题 - ${commonTitle}
 # 常见问题
 `
 faqs.forEach(one => {
-  const content = fs.readFileSync(one, 'utf-8')
+  one = '.' + one.replace(__dirname, '')
+  const content = fs.readFileSync(getPath(one), 'utf-8')
   const titleRs = content.match(/\n#(.*?)\n/)
   if (titleRs && titleRs[1] && one.indexOf('index.md') === -1) {
     faqRoutes.push({
@@ -94,13 +99,17 @@ faqRoutes.forEach(one => {
 
 let paths = []
 
-fs.writeFileSync('./src/faq-routes.json', JSON.stringify(faqRoutes, null, 2))
+fs.writeFileSync(getPath('./src/faq-routes.json'), JSON.stringify(faqRoutes, null, 2))
 
-fs.writeFileSync('./zh-CN/faq/index.md', faqMd)
+fs.writeFileSync(getPath('./zh-CN/faq/index.md'), faqMd)
 
 let files = []
 langs.forEach(lang => {
-  files = files.concat(glob.sync(`./${lang}/**/*.md`))
+  files = files.concat(glob.sync(getPath(`./${lang}/**/*.md`)))
+})
+
+files = files.map(file => {
+  return '.' + file.replace(__dirname, '')
 })
 
 if (include) {
@@ -144,7 +153,7 @@ files.forEach(file => {
 })
 
 // components
-const components = glob.sync('../src/components/**/metas.yml')
+const components = glob.sync(getPath('../src/components/**/metas.yml'))
 
 const colorCode = function (lang, code) {
   return '<pre class="hljs"><code>' +
@@ -155,7 +164,8 @@ const colorCode = function (lang, code) {
 components.forEach((file) => {
   const rawMetas = fs.readFileSync(file, 'utf-8')
   const metas = yaml.safeLoad(rawMetas)
-  const componentName = file.replace('../src/components/', '').replace('/metas.yml', '')
+  const root = getPath('../')
+  const componentName = file.replace(root, '').replace('src/components/', '').replace('/metas.yml', '')
   const importName = _camelCase(componentName)
   let importList = [{
     componentName: componentName,
@@ -184,6 +194,7 @@ components.forEach((file) => {
   }
   const parseReg = '`(.*?)`'
   const url = `https://vux.li/demos/v2/#/component/${componentName}`
+  const urlWithNoTransition = `https://vux.li/demos/v2?transition=none/#/component/${componentName}`
   const localImportCode = colorCode('js', `// 单独组件引入\n\nimport { ${importList.map(one => one.importName).join(', ')} } from 'vux'
 
 export default {
@@ -244,7 +255,7 @@ export default {
     </p>
 
     <div class="component-demo" style="width:377px;height:600px;display:inline-block;border:1px solid #ececec;border-radius:5px;overflow:hidden;z-index:2500;">
-      <iframe src="${url}" width="375" height="600" border="0" frameborder="0"></iframe>
+      <iframe src="${urlWithNoTransition}" width="375" height="600" border="0" frameborder="0"></iframe>
     </div>
 
     <div style="width:600px;">
@@ -519,21 +530,21 @@ export default {
   }
   </style>
     `
-
-    fs.writeFileSync(`./${lang}/components/${componentName}.vue`, str)
+    fs.writeFileSync(getPath(`./${lang}/components/${componentName}.vue`), str)
   })
 
 
 })
 
 langs.forEach(lang => {
-  glob.sync(`./${lang}/components/*.vue`).forEach(component => {
-    const name = component.replace(`./${lang}/components/`, '').replace('.vue', '')
+  glob.sync(getPath(`./${lang}/components/*.vue`)).forEach(component => {
+    component = '..' + component.replace(__dirname, '')
+    const name = component.replace(`../${lang}/components/`, '').replace('.vue', '')
     if (!include || name.includes(include)) {
       str += `
     routes.push({
       path: '/${lang}/components/${name}.html',
-      component: () => import('.${component}')
+      component: () => import('${component}')
     })
         `
       paths.push(`/zh-CN/components/${name}.html`)
@@ -547,9 +558,9 @@ if (include) {
   })
 }
 
-const ori = fs.readFileSync('./src/index.js', 'utf-8')
-fs.writeFileSync('./src/_index.js', ori.replace('const routes = []', `const routes = []\n${str}`))
-fs.writeFileSync('./src/routes.json', JSON.stringify(paths, null, 2))
+const ori = fs.readFileSync(getPath('./src/index.js'), 'utf-8')
+fs.writeFileSync(getPath('./src/_index.js'), ori.replace('const routes = []', `const routes = []\n${str}`))
+fs.writeFileSync(getPath('./src/routes.json'), JSON.stringify(paths, null, 2))
 
 function camelCase(input) {
   let str = input.toLowerCase().replace(/-(.)/g, function (match, group1) {

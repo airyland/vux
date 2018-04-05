@@ -3,8 +3,7 @@
     "gen": "ream generate",
     "start": "ream start",
     "build": "ream build",
-    "dev": "node compile && ream dev",
-    "dev:simple": "ream dev"
+    "dev": "ream dev"
   },
   "dependencies": {
     "axios": "^0.16.1",
