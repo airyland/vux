@@ -278,7 +278,7 @@ export default {
       <table v-if="component.meta.props">
         <thead>
           <tr>
-            <td style="width:150px;">名字</td>
+            <td>名字</td>
             <td style="width:48px;">类型</td>
             <td style="width:120px;">默认</td>
             <td style="width:120px;">版本要求</td>
@@ -287,7 +287,7 @@ export default {
         </thead>
         <tbody>
           <tr v-for="(prop, i) in component.meta.props">
-            <td>{{ i }}</td>
+            <td class="prop-name">{{ i }}</td>
             <td v-html="getTypeHTML(prop.type)"></td>
             <td>{{ prop.default}}</td>
             <td>{{ prop.version || '--'}}</td>
@@ -301,7 +301,7 @@ export default {
       <table v-show="component.meta.events">
         <thead>
           <tr>
-            <td style="width:150px;">事件</td>
+            <td>事件</td>
             <td>参数</td>
             <td>说明</td>
             <td>版本要求</td>
@@ -309,7 +309,7 @@ export default {
         </thead>
         <tbody>
           <tr v-for="(event, i) in component.meta.events">
-            <td>{{ i }}</td>
+            <td class="prop-name">{{ i }}</td>
             <td v-html="event.params ? event.params.replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
             <td v-html="event['zh-CN'] ? event['zh-CN'].replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
             <td>{{ event['version'] || '--' }}</td>
@@ -322,14 +322,14 @@ export default {
       <table v-if="component.meta.slots">
         <thead>
           <tr>
-            <td style="width:150px;">名字</td>
+            <td>名字</td>
             <td>说明</td>
             <td>版本要求</td>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(slot, i) in component.meta.slots" :class="{'slot-disabled': slot['status'] === 'deprecated'}">
-            <td>{{ i }}</td>
+            <td class="prop-name">{{ i }}</td>
             <td v-html="slot['zh-CN'] ? slot['zh-CN'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
             <td>{{ slot['version'] || '--' }}</td>
           </tr>
@@ -340,7 +340,7 @@ export default {
         <table v-if="component.meta.methods">
           <thead>
             <tr>
-              <td style="width:150px;">名字</td>
+              <td>名字</td>
               <td>参数</td>
               <td>说明</td>
               <td>版本说明</td>
@@ -348,7 +348,7 @@ export default {
           </thead>
           <tbody>
             <tr v-for="(method, i) in component.meta.methods">
-              <td>{{ i }}</td>
+              <td class="prop-name">{{ i }}</td>
               <td v-html="method['params'] ? method['params'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
               <td v-html="method['zh-CN'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
               <td>{{ method['version'] }}</td>
@@ -390,11 +390,7 @@ export default {
       <!--<span class="contributors-tip">（git log 显示用户可能和 Github 用户资料不符，可能无法正常访问）</span>-->
       </p>
 
-      <ul>
-        <li v-for="person in gitMetas.commitMembers">
-          <a :href="'https://github.com/' + person.authorName" target="_blank" :title="'贡献' + person.count + '次'">{{person.authorName}}</a>
-        </li>
-      </ul>
+      <a v-for="person in gitMetas.commitMembers" class="contributor-item" :href="'https://github.com/' + person.authorName" target="_blank" :title="'贡献' + person.count + '次'">{{person.authorName}}</a>
     </el-card>
     <br>
     <el-card v-if="metas.changes">

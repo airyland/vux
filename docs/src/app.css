@@ -564,3 +564,14 @@ div.tip {
 .tip-answer-box {
   padding-top: 15px;
 }
+
+.prop-name {
+  color: green;
+  font-weight: 400;
+  white-space: nowrap;
+  font-family: Menlo,'Menlo Regular',Consolas,monospace;
+}
+
+.contributor-item {
+  padding-left: 10px;
+}
