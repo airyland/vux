@@ -277,6 +277,7 @@ tr.slot-disabled {
 .markdown-body {
   overflow: scroll;
   padding-bottom: 25px;
+  padding-right: 15px;
 }
 .header-nav {
   position: fixed;
@@ -545,7 +546,7 @@ div.tip {
 }
 
 .component-list-item > a{
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .code-box {
@@ -572,6 +573,14 @@ div.tip {
   font-family: Menlo,'Menlo Regular',Consolas,monospace;
 }
 
+.chapter-page-item {
+  font-family: Menlo,'Menlo Regular',Consolas,monospace;
+}
+
 .contributor-item {
   padding-left: 10px;
+}
+
+.el-dialog__wrapper.sourcec-code-dialog {
+  right: 150px;
 }

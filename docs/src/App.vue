@@ -74,7 +74,7 @@
           <p class="chapter-title">工具函数 Tools</p>
           <ul class="chapter-page">
             <li class="chapter-page-item">
-              <router-link to="/zh-CN/tools/date.html">date-format 日期格式化</router-link>
+              <router-link to="/zh-CN/tools/date.html">date-format 日期</router-link>
             </li>
           </ul>
         </div>

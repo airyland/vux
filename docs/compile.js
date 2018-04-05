@@ -243,7 +243,7 @@ export default {
       </el-popover>
     </p>
 
-    <div class="component-demo" style="width:377px;height:600px;display:inline-block;border:1px solid #ececec;border-radius:5px;overflow:hidden;">
+    <div class="component-demo" style="width:377px;height:600px;display:inline-block;border:1px solid #ececec;border-radius:5px;overflow:hidden;z-index:2500;">
       <iframe src="${url}" width="375" height="600" border="0" frameborder="0"></iframe>
     </div>
 
@@ -414,8 +414,10 @@ export default {
     </ul>
 
     <el-dialog
-      :visible.sync="sourceCodeDialogVisibility"
-      width="60%">
+      class="sourcec-code-dialog"
+      top="0"
+      width="60%"
+      :visible.sync="sourceCodeDialogVisibility">
       <div class="code-box" v-html="demoCode"></div>
     </el-dialog>
 
