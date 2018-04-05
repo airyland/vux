@@ -361,8 +361,7 @@ export default {
           <ul>
             <li v-for="tip in component.meta.tips['${lang}']">
             <el-tag size="mini" type="success">Q</el-tag> {{ tip.q }}
-            <br>
-            <el-tag size="mini">A</el-tag> <div v-html="tip.a"></div>
+            <div v-html="tip.a" class="tip-answer-box"></div>
             </li>
           </ul>
         </el-card>

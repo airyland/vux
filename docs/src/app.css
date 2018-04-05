@@ -560,3 +560,7 @@ div.tip {
   box-shadow: none!important;
   border-radius: 0!important;
 }
+
+.tip-answer-box {
+  padding-top: 15px;
+}
