@@ -1,3 +1,7 @@
+---
+title: 如何提 issue
+---
+
 # 如何提 issue
 
 ::: tip
