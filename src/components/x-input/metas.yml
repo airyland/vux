@@ -144,6 +144,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[enhance] scroll input element into view when getting focus #2604'
+    zh-CN:
+      - '[enhance] 获得焦点时滚动到可视区域(Android) #2604'
   v2.8.1:
     en:
       - '[feature] add slot:right-full-height for containing captcha #2475'
@@ -164,7 +169,7 @@ changes:
       - '[fix] Fix error message not change bugs #2348'
     zh-CN:
       - '[fix] 修复报错信息不会改变的问题 #2348'
-  2.7.6:
+  v2.7.6:
     en:
       - '[feature] add disabled class #2279'
     zh-CN:
