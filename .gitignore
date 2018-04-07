@@ -26,4 +26,5 @@ nuxt/
 docs/releases.json
 docs/src/routes.json
 docs/src/faq-routes.json
+docs/src/tool-routes.json
 docs/src/_index.js

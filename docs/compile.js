@@ -85,7 +85,7 @@ faqs.forEach(one => {
   const titleRs = content.match(/\n#(.*?)\n/)
   if (titleRs && titleRs[1] && one.indexOf('index.md') === -1) {
     faqRoutes.push({
-      title: titleRs[1],
+      title: titleRs[1].trim(),
       path: one.replace('./', '/').replace('.md', '.html')
     })
   }
@@ -102,6 +102,26 @@ let paths = []
 fs.writeFileSync(getPath('./src/faq-routes.json'), JSON.stringify(faqRoutes, null, 2))
 
 fs.writeFileSync(getPath('./zh-CN/faq/index.md'), faqMd)
+
+/**
+* tools
+*/
+let toolRoutes = []
+const tools = glob.sync(getPath('./zh-CN/tools/*.md'))
+
+tools.forEach(one => {
+  one = '.' + one.replace(__dirname, '')
+  const content = fs.readFileSync(getPath(one), 'utf-8')
+  let titleRs = content.match(/\n#(.*?)\n/)
+  if (titleRs && titleRs[1] && one.indexOf('index.md') === -1) {
+    titleRs[1] = titleRs[1].replace(/#/g, '')
+    toolRoutes.push({
+      title: titleRs[1].trim(),
+      path: one.replace('./', '/').replace('.md', '.html')
+    })
+  }
+})
+fs.writeFileSync(getPath('./src/tool-routes.json'), JSON.stringify(toolRoutes, null, 2))
 
 let files = []
 langs.forEach(lang => {

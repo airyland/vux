@@ -73,8 +73,8 @@
         <div class="chapter" v-show="isComponentPage">
           <p class="chapter-title">工具函数 Tools</p>
           <ul class="chapter-page">
-            <li class="chapter-page-item">
-              <router-link to="/zh-CN/tools/date.html">date-format 日期</router-link>
+            <li v-for="route in toolRoutes" class="chapter-page-item">
+              <router-link :to="route.path">{{ route.title }}</router-link>
             </li>
           </ul>
         </div>
@@ -134,6 +134,7 @@
 <script>
 const routes = require('./routes')
 const faqRoutes = require('./faq-routes')
+const toolRoutes = require('./tool-routes')
 const summary = require('./summary')
 // 组件列表
 const components = require('../../src/datas/vux_component_list')
@@ -195,7 +196,8 @@ export default {
       height: '1000px',
       columnStyle: {
       },
-      routes
+      routes,
+      toolRoutes
     }
   },
   head: {

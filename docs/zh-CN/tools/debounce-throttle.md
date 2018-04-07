@@ -1,8 +1,12 @@
-## debounce 
+---
+title: debounce
+---
 
-<p class="warning">
-  请注意了解 `debounce` 和 `throttle` 的区别。如果尚不清楚，请`google`之。
-</p>
+## debounce
+
+::: warning
+请注意了解 `debounce` 和 `throttle` 的区别。如果尚不清楚，请`google`之。
+:::
 
 ``` js
 import { debounce } from 'vux'

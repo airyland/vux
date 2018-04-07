@@ -1,7 +1,11 @@
+---
+title: Vue string 工具函数
+---
+
 # string 处理工具
 
 ``` js
-import { stringTrim } from 'vux'
+import { trim } from 'vux'
 
-stringTrim(' 1024 ') // 1024
+trim(' 1024 ') // 1024
 ```

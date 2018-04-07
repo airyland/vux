@@ -276,7 +276,7 @@ tr.slot-disabled {
 }
 .markdown-body {
   overflow: scroll;
-  padding-bottom: 25px;
+  padding-bottom: 50px;
   padding-right: 15px;
 }
 .header-nav {
