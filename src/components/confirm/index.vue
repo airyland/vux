@@ -17,11 +17,11 @@
         </div>
         <div v-else class="vux-prompt">
           <input class="vux-prompt-msgbox"
-                 v-bind="inputAttrs"
-                 v-model="msg"
-                 :placeholder="placeholder"
-                 @touchstart="setInputFocus"
-                 ref="input"/>
+            v-bind="inputAttrs"
+            v-model="msg"
+            :placeholder="placeholder"
+            @touchend="setInputFocus"
+            ref="input"/>
         </div>
       </template>
       <div class="weui-dialog__ft">
@@ -131,7 +131,10 @@ export default {
     setInputValue (val) {
       this.msg = val
     },
-    setInputFocus () {
+    setInputFocus (evt) {
+      if (evt) {
+        evt.preventDefault()
+      }
       this.$refs.input.focus()
     },
     _onConfirm () {
