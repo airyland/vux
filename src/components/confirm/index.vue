@@ -20,7 +20,7 @@
                  v-bind="inputAttrs"
                  v-model="msg"
                  :placeholder="placeholder"
-                 @touchstart="setInputFocus"
+                 @touchend="setInputFocus"
                  ref="input"/>
         </div>
       </template>
@@ -131,7 +131,10 @@ export default {
     setInputValue (val) {
       this.msg = val
     },
-    setInputFocus () {
+    setInputFocus (evt) {
+      if (evt) {
+        evt.preventDefault()
+      }
       this.$refs.input.focus()
     },
     _onConfirm () {
