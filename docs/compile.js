@@ -447,7 +447,7 @@ export default {
     <el-dialog
       class="sourcec-code-dialog"
       top="0"
-      width="60%"
+      width="80%"
       :visible.sync="sourceCodeDialogVisibility">
       <div class="code-box" v-html="demoCode"></div>
     </el-dialog>

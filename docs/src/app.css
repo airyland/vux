@@ -582,5 +582,9 @@ div.tip {
 }
 
 .el-dialog__wrapper.sourcec-code-dialog {
-  right: 150px;
+  right: 400px;
+}
+
+.el-dialog__wrapper.sourcec-code-dialog .el-dialog {
+  margin-right: 0!important;
 }
