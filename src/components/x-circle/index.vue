@@ -2,7 +2,7 @@
   <div class="vux-circle">
     <svg viewBox="0 0 100 100">
       <defs v-if="isGradient">
-        <linearGradient x1="10%" y1="45%" x2="50%" y2="0%">
+        <linearGradient id="vux-circle-gradient" x1="10%" y1="45%" x2="50%" y2="0%">
           <stop offset="0%" :style="{'stop-color': strokeColor[0], 'stop-opacity': 1}"/>
           <stop offset="100%" :style="{'stop-color': strokeColor[1], 'stop-opacity': 1}"/>
         </linearGradient>
@@ -13,7 +13,7 @@
         :fill-opacity="0"/>
       <path :d="pathString"
         :stroke-linecap="strokeLinecap"
-        :stroke="isGradient ? 'url(#orange_red)' : strokeColor"
+        :stroke="isGradient ? 'url(#vux-circle-gradient)' : strokeColor"
         :stroke-width="strokeWidth"
         fill-opacity="0" :style="pathStyle"/>
     </svg>

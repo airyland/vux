@@ -30,7 +30,7 @@
     </div>
     <br>
     <div style='width:100px;height:100px;'>
-      <x-circle :percent="percent2" :stroke-width="6" :trail-width="6" :stroke-color="strokeColor2" trail-color="#ececec">
+      <x-circle :percent="80" :stroke-width="6" :trail-width="6" :stroke-color="['#36D1DC', '#5B86E5']" trail-color="#ececec">
         <span :style="{color: strokeColor2}">{{percent2}}%</span>
       </x-circle>
     </div>

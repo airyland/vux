@@ -32,3 +32,9 @@ props:
     default: 0
     en: percentage value
     zh-CN: 进度百分比
+changes:
+  next:
+    en:
+      - '[feature] support gradient #2616 @spencer1994'
+    zh-CN:
+      - '[feature] 支持渐变色 #2616 @spencer1994'
