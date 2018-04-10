@@ -121,7 +121,7 @@ export default {
   word-break: break-all;
 }
 .weui-cell__ft .weui-loading {
-  display: block;
+  display: inline-block;
 }
 .weui-cell__ft.vux-cell-align-left {
   text-align: left;

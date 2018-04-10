@@ -105,6 +105,11 @@ slots:
     en: title slot
     zh-CN: title 插槽，方便自定义样式
 changes:
+  next:
+    en:
+      - '[fix] fix weui-loading style'
+    zh-CN:
+      - '[fix] 修复 weui-loading 样式'
   v2.8.1:
     en:
       - '[fix] fix justify class #2545'
