@@ -132,6 +132,11 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
+  next:
+    en:
+      - '[enhance] show warning when picker value is not a string #2568'
+    zh-CN:
+      - '[enhance] 开发模式下 picker 数据非字符串时显示提示 #2568'
   v2.7.9:
     en:
       - '[fix] fix typo item_class => itemClass #2457'
