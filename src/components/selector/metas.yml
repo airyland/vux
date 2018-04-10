@@ -71,6 +71,11 @@ methods:
     en: get full value including all the props(if option items are object)
     zh-CN: 获取当前完整值，在使用了 valueMap 里可以用该方法来获取当前选中值的原始对象
 changes:
+  next:
+    en:
+      - '[enhance] use v-html for title #2615'
+    zh-CN:
+      - '[enhance] 标题使用 v-html #2615'
   v2.7.2:
     en:
       - '[feature] add prop:value-map for automatically transform API data #2139'
