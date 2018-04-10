@@ -55,6 +55,10 @@ const webpackConfig = {
         options: vueLoaderConfig
       },
       {
+        test: /\.(yaml|yml)$/,
+        loader: 'js-yaml-loader'
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]

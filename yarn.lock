@@ -3882,7 +3882,13 @@ js-tokens@^3.0.0:
   version "3.0.2"
   resolved "http://registry.npm.taobao.org/js-tokens/download/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
-js-yaml@3.x, js-yaml@^3.5.1, js-yaml@^3.5.2, js-yaml@^3.6.1, js-yaml@^3.7.0, js-yaml@^3.8.1:
+js-yaml-loader@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/js-yaml-loader/-/js-yaml-loader-0.1.0.tgz#3cb5e79d613883764aa241c30e3fcd0daaefd8ed"
+  dependencies:
+    js-yaml "^3.9.1"
+
+js-yaml@3.x, js-yaml@^3.5.1, js-yaml@^3.6.1, js-yaml@^3.7.0, js-yaml@^3.8.1:
   version "3.8.4"
   resolved "http://registry.npm.taobao.org/js-yaml/download/js-yaml-3.8.4.tgz#520b4564f86573ba96662af85a8cafa7b4b5a6f6"
   dependencies:
@@ -3892,6 +3898,13 @@ js-yaml@3.x, js-yaml@^3.5.1, js-yaml@^3.5.2, js-yaml@^3.6.1, js-yaml@^3.7.0, js-
 js-yaml@^3.4.3:
   version "3.10.0"
   resolved "http://registry.npm.taobao.org/js-yaml/download/js-yaml-3.10.0.tgz#2e78441646bd4682e963f22b6e92823c309c62dc"
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
+js-yaml@^3.9.1:
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.11.0.tgz#597c1a8bd57152f26d622ce4117851a51f5ebaef"
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
@@ -7436,12 +7449,6 @@ y18n@^3.2.1:
 yallist@^2.1.2:
   version "2.1.2"
   resolved "http://registry.npm.taobao.org/yallist/download/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
-
-yaml-loader@^0.4.0:
-  version "0.4.0"
-  resolved "http://registry.npm.taobao.org/yaml-loader/download/yaml-loader-0.4.0.tgz#4aae447d13c1aa73a989d8a2a5309b0b1a3ca353"
-  dependencies:
-    js-yaml "^3.5.2"
 
 yargs-parser@^4.2.0:
   version "4.2.1"
