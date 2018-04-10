@@ -1,10 +1,10 @@
 <template>
   <transition :name="transition">
-    <div class="weui-loading_toast vux-loading" v-show="show">
+    <div class="weui-loading_toast vux-loading" :class="!text ? 'vux-loading-no-text' : ''" v-show="show">
       <div class="weui-mask_transparent"></div>
       <div class="weui-toast" :style="{ position: position }">
         <i class="weui-loading weui-icon_toast"></i>
-        <p class="weui-toast__content">{{ $t(text) || $t('loading') }}<slot></slot></p>
+        <p class="weui-toast__content" v-if="text">{{ $t(text) || $t('loading') }}<slot></slot></p>
       </div>
     </div>
   </transition>
@@ -60,5 +60,8 @@ export default {
 }
 .vux-mask-leave-active, .vux-mask-enter-active {
   transition: opacity 300ms;
+}
+.vux-loading-no-text .weui-toast {
+  min-height: 98px;
 }
 </style>

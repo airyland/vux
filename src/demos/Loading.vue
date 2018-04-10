@@ -2,9 +2,13 @@
   <div>
     <group>
       <x-switch :title="$t('Toggle')" v-model="show1" @on-change="show1change"></x-switch>
+      <x-switch :title="$t('No loading text')" v-model="show2" @on-change="show2change"></x-switch>
     </group>
     <div v-transfer-dom>
       <loading :show="show1" :text="text1"></loading>
+    </div>
+    <div v-transfer-dom>
+      <loading :show="show2" text=""></loading>
     </div>
     <div style="padding: 15px;">
       <x-button @click.native="showLoading" type="primary">{{ $t('Show loading') }}</x-button>
@@ -22,6 +26,8 @@ Show loading:
 Show delay loading:
   en: show loading delay after 1s
   zh-CN: 延时1s后显示
+No loading text:
+  zh-CN: 无提示文字
 </i18n>
 
 <script>
@@ -40,6 +46,7 @@ export default {
   data () {
     return {
       show1: false,
+      show2: false,
       text1: 'Processing'
     }
   },
@@ -69,6 +76,16 @@ export default {
             return
           }
           this.text1 = `${percent}%`
+        })
+      }
+    },
+    show2change (val) {
+      if (val) {
+        tick(0, (percent) => {
+          if (percent === 100) {
+            this.show2 = false
+            return
+          }
         })
       }
     }

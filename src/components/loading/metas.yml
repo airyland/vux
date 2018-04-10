@@ -43,9 +43,9 @@ props:
     zh-CN: 显示状态，在 v2.5.7 前使用`v-model`绑定，后面直接使用 `:show` 绑定
   text:
     type: String
-    default: ''
-    en: loading text
-    zh-CN: 提示文字
+    default: '加载中'
+    en: loading text, use empty string to hide loading text
+    zh-CN: 提示文字，值为空字符时隐藏提示文字
   position:
     type: String
     default: 'fixed'
@@ -61,6 +61,11 @@ slots:
     en: content area
     zh-CN: 提示文字区域
 changes:
+  next:
+    en:
+      - '[enhance] support using empty text to hide loading text #2566'
+    zh-CN:
+      - '[enhance] 支持使用空字符隐藏提示文字 #2566'
   v2.5.7:
     en:
       - '[fix] fix vue@2.4 no setter warning, use :show instead of v-model #1798'
