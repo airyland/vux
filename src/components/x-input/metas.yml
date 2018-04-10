@@ -131,6 +131,10 @@ events:
     params: '`(error)`'
     en: fires when clicking error icon
     zh-CN: '点击错误图标时触发，你可以关闭 `should-toast-error` 然后用这个事件来自定义显示错误的提示内容'
+  on-click-clear-icon:
+    version: next
+    en: fires when clicking clear icon
+    zh-CN: 点击清除按钮时触发
 methods:
   focus:
     en: get input focus
@@ -146,8 +150,10 @@ methods:
 changes:
   next:
     en:
+      - '[feature] add event:on-click-clear-icon #2603'
       - '[enhance] scroll input element into view when getting focus #2604'
     zh-CN:
+      - '[feature] 支持事件 on-click-clear-icon #2603'
       - '[enhance] 获得焦点时滚动到可视区域(Android) #2604'
   v2.8.1:
     en:

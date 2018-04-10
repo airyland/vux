@@ -344,6 +344,7 @@ export default {
     clear () {
       this.currentValue = ''
       this.focus()
+      this.$emit('on-click-clear-icon')
     },
     focus () {
       this.$refs.input.focus()
