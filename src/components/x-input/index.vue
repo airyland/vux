@@ -122,7 +122,7 @@
       ref="input"/>
     </div>
     <div class="weui-cell__ft">
-      <icon type="clear" v-show="!hasRightFullHeightSlot && !equalWith && showClear && currentValue !== '' && !readonly && !disabled" @click.native="clear"></icon>
+      <icon type="clear" v-show="!hasRightFullHeightSlot && !equalWith && showClear && currentValue !== '' && !readonly && !disabled && isFocus" @click.native="clear"></icon>
 
       <icon @click.native="onClickErrorIcon" class="vux-input-icon" type="warn" :title="!valid ? firstError : ''" v-show="showWarn"></icon>
       <icon @click.native="onClickErrorIcon" class="vux-input-icon" type="warn" v-if="!novalidate && hasLengthEqual && dirty && equalWith && !valid"></icon>
@@ -354,11 +354,13 @@ export default {
     },
     focusHandler ($event) {
       this.$emit('on-focus', this.currentValue, $event)
+      this.isFocus = true
       this.scrollIntoView(500)
     },
     onBlur ($event) {
       this.setTouched()
       this.validate()
+      this.isFocus = false
       this.$emit('on-blur', this.currentValue, $event)
     },
     onKeyUp (e) {
@@ -472,7 +474,7 @@ export default {
     }
   },
   data () {
-    let data = {
+    return {
       hasRightFullHeightSlot: false,
       hasRestrictedLabel: false,
       firstError: '',
@@ -480,9 +482,9 @@ export default {
       hasLengthEqual: false,
       valid: true,
       currentValue: '',
-      showErrorToast: false
+      showErrorToast: false,
+      isFocus: false
     }
-    return data
   },
   watch: {
     mask (val) {
