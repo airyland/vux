@@ -133,6 +133,11 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
+  next:
+    en:
+      - '[enhance] support dialog-width and dialog-max-width variable #2577'
+    zh-CN:
+      - '[enhance] 支持样式变量 dialog-width and dialog-max-width #2577'
   v2.7.4:
     en:
       - '[fix] fix position:absolute issue #2220'
