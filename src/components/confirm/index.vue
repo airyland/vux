@@ -16,8 +16,9 @@
           <slot><div v-html="content"></div></slot>
         </div>
         <div v-else class="vux-prompt">
-          <input class="vux-prompt-msgbox"
-            v-bind="inputAttrs"
+          <input
+            class="vux-prompt-msgbox"
+            v-bind="getInputAttrs()"
             v-model="msg"
             :placeholder="placeholder"
             @touchend="setInputFocus"
@@ -128,6 +129,11 @@ export default {
     }
   },
   methods: {
+    getInputAttrs () {
+      return this.inputAttrs || {
+        type: 'text'
+      }
+    },
     setInputValue (val) {
       this.msg = val
     },

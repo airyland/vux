@@ -145,8 +145,10 @@ methods:
 changes:
   next:
     en:
+      - '[fix] fix inputAttrs issue with no-default-value #2618'
       - '[fix] fix focus auto-blur issue #2610'
     zh-CN:
+      - '[fix] 修复 inputAttrs 无默认值导致的报错 #2618'
       - '[fix] 修复输入框获取焦点后又失去焦点 #2610'
   v2.8.0:
     en:
