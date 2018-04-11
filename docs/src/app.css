@@ -103,6 +103,10 @@ tr.slot-disabled {
   max-width: 1000px;
 }
 
+.markdown-body .source-code-dialog .highlight pre {
+  max-width: none;
+}
+
 .github-icon {
   display: inline-block;
 }
