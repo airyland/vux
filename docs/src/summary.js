@@ -49,6 +49,9 @@ module.exports = [{
     title: '路由',
     path: '/zh-CN/development/router.html'
   }, {
+    title: '在 Nuxt.js 中使用',
+    path: '/zh-CN/development/vux-nuxt-ssr.html'
+  }, {
     title: 'TypeScript 支持',
     path: '/zh-CN/development/typescript.html'
   }, {

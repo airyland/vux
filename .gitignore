@@ -22,7 +22,7 @@ test/unit/coverage/
 docs/*.map
 v2/
 changes.json
-nuxt/
+.nuxt/
 docs/releases.json
 docs/src/routes.json
 docs/src/faq-routes.json
