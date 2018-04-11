@@ -588,3 +588,14 @@ div.tip {
 .el-dialog__wrapper.sourcec-code-dialog .el-dialog {
   margin-right: 0!important;
 }
+
+.component-tip-tag {
+  vertical-align: middle;
+}
+
+.component-tip-question {
+  font-size: 18px;
+  font-weight: 500;
+  padding-left: 10px;
+  vertical-align: middle;
+}
