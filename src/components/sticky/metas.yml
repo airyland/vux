@@ -6,6 +6,16 @@ tags:
   zh-CN:
     - 布局
     - 定位
+tips:
+  zh-CN:
+    - 
+      q: 定位位置、时机不正确
+      a: |
+        出现这个问题可能是由于在 sticky 上方布局存在异步加载内容，比如图片、延迟加载的内容块。
+
+        这些情况下需要自己判断正确的加载完成的时机调用  `bindSticky` 方法。如果知道图片或者延迟加载的区域大小可以直接设置尺寸用以占位，其他情况下要根据实际情况处理。
+
+        相关 issue: [#2564](https://github.com/airyland/vux/issues/2564)。
 extra: |
   ::: tip
   在Chrome模拟器运行时你可能会发现没有效果，这是因为Chrome并不支持原生sticky实现而模拟器环境是iPhone，目前程序是根据Safari版本来判断是否原生支持sticky。因此你可以切换到Android系统进行测试，但是真机上是完全正常的交互。
@@ -48,7 +58,7 @@ extra: |
   ```
 
   ::: warning
-  请不要直接照抄 demo 代码，滚动容器为 window 时请不要指定 scroll-box，滚动容器并非使用 `view-box` 时 id 并不是 `vux_view_box_body`，请按照实际情况来设定。
+  请不要直接照复制 demo 代码，滚动容器为 window 时请不要指定 scroll-box，滚动容器并非使用 `view-box` 时 id 并不是 `vux_view_box_body`，请按照实际情况来设定。
   :::
 
 props:
