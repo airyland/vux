@@ -82,7 +82,7 @@
         <div class="chapter" v-show="isComponentPage">
           <p class="chapter-title">组件({{components.length}} 个)</p>
           <ul class="chapter-page">
-            <li class="chapter-page-item component-list-item" v-for="component in components">
+            <li class="chapter-page-item component-list-item" v-for="component in components" :id="`component-list-item-${component.name}`">
               <router-link :to="`/zh-CN/components/${component.name}.html`">{{ component.name }}</router-link>
             </li>
           </ul>
@@ -149,6 +149,19 @@ export default {
       await this.fetchAnalytics()
     }, 60000)
     this.hasReady = true
+
+    // scroll current component nav into view
+    if (/components\//.test(this.$route.path)) {
+      try {
+        const name = this.$route.path.split('components/')[1].replace('.html', '')
+        const el = document.querySelector(`#component-list-item-${name}`)
+        if (el) {
+          setTimeout(() => {
+            el.scrollIntoViewIfNeeded()
+          })
+        }
+      } catch (e) {}
+    }
   },
   methods: {
     switchLang () {
