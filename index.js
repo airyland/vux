@@ -73,6 +73,7 @@ import InlineCalendar from './src/components/inline-calendar/index.vue'
 import InlineDesc from './src/components/inline-desc/index.vue'
 import InlineLoading from './src/components/inline-loading/index.vue'
 import InlineXNumber from './src/components/inline-x-number/index.vue'
+import InlineXSwitch from './src/components/inline-x-switch/index.vue'
 import InviewDirective from './src/directives/inview/index.js'
 import Loading from './src/components/loading/index.vue'
 import LoadingPlugin from './src/plugins/loading/index.js'
@@ -223,6 +224,7 @@ export {
   InlineDesc,
   InlineLoading,
   InlineXNumber,
+  InlineXSwitch,
   InviewDirective,
   Loading,
   LoadingPlugin,

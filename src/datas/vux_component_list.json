@@ -151,6 +151,10 @@
     "icon": "&#xe605;"
   },
   {
+    "name": "inline-x-switch",
+    "icon": "&#xe61c;"
+  },
+  {
     "name": "load-more",
     "icon": "&#xe610;"
   },
