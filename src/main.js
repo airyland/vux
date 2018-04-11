@@ -8,6 +8,8 @@ import Vuex from 'vuex'
 import vuexI18n from 'vuex-i18n'
 import VueRouter from 'vue-router'
 import { sync } from 'vuex-router-sync'
+import vuxLocales from './locales/all.yml'
+import componentsLocales from './locales/components.yml'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
@@ -25,9 +27,6 @@ Vue.use(vuexI18n.plugin, store)
 
 // no transitoin in demo site
 const shouldUseTransition = !/transition=none/.test(location.href)
-
-const vuxLocales = require('json-loader!yaml-loader!./locales/all.yml')
-const componentsLocales = require('json-loader!yaml-loader!./locales/components.yml')
 
 const finalLocales = {
   'en': objectAssign(vuxLocales['en'], componentsLocales['en']),

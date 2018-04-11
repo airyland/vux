@@ -97,6 +97,7 @@
     "http-proxy-middleware": "^0.17.3",
     "inject-loader": "^3.0.1",
     "js-yaml": "^3.7.0",
+    "js-yaml-loader": "^0.1.0",
     "json-loader": "^0.5.4",
     "karma": "^1.4.1",
     "karma-coverage": "^1.1.1",
@@ -149,7 +150,6 @@
     "webpack-dev-server": "^2.9.4",
     "webpack-hot-middleware": "^2.20.0",
     "webpack-merge": "^2.6.1",
-    "yaml-loader": "^0.4.0",
     "yargs": "^6.6.0"
   },
   "engines": {
