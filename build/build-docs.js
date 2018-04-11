@@ -187,7 +187,6 @@ glob(getPath("../src/components/**/*.vue"), {}, function (er, files) {
     en: enRs,
     'zh-CN': zhCnRs
   })
-  dump = '# This file is built by build_locales.js, so don\'t try to modify it manually\n' + dump
 
   fs.writeFileSync(getPath('../src/locales/all.yml'), dump)
   fs.writeFileSync(getPath('../src/locales/en.yml'), yaml.safeDump(enRs))
