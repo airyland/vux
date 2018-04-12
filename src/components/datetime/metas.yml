@@ -30,6 +30,10 @@ tips:
     -
       q: 是否支持秒(ss)
       a: 不支持，目前常用需求场景并没有需要精确到秒。
+    - q: on-confirm 事件获取不到正确的值
+      a: |
+       在 `v2.9.0` 之前 on-confirm 不会附带当前值参数，你需要在 `this.$nextTick` 后获取。
+       相关 issue: [#2632](https://github.com/airyland/vux/issues/2632)
 tags:
   en:
     - date
@@ -206,9 +210,17 @@ events:
     zh-CN: 点击取消按钮或者遮罩时触发，等同于事件 on-hide(cancel)
   on-confirm:
     version: v2.7.4
+    params: '`(value)` v2.9.0 支持该参数'
     en: fires when confirm button is clicked
     zh-CN: 点击确定按钮时触发，等同于事件 on-hide(confirm)
 changes:
+  next:
+    en:
+      - '[feature] add arg:value for event:on-confirm #2632'
+      - '[fix] fire event:on-confirm after nextTick #2632'
+    zh-CN:
+      - '[feature] 事件 on-confirm 添加当前值 #2632'
+      - '[fix] 在 nextTick 后触发 on-confirm 事件 #2632'
   v2.7.8:
     en:
       - '[fix] fix `on-hide` event trigger twice #2379'
@@ -216,7 +228,7 @@ changes:
     zh-CN:
       - '[fix] 修复 `on-hide` 事件触发两次的问题 #2379'
       - '[fix] 修复初始化时 `show` 值为 `true` 无效的问题'
-  2.7.6:
+  v2.7.6:
     en:
       - '[fix] column value use number type, fix binding value is not equal to datetimepicker value #2296'
     zh-CN:

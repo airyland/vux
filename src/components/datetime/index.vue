@@ -211,7 +211,11 @@ export default {
             _this.$emit('on-cancel')
           }
           if (type === 'confirm') {
-            _this.$emit('on-confirm')
+            setTimeout(() => {
+              _this.$nextTick(() => {
+                _this.$emit('on-confirm', _this.value)
+              })
+            })
           }
         },
         onShow () {

@@ -11,7 +11,7 @@
         @on-change="change"
         :title="$t('Birthday')"
         @on-cancel="log('cancel')"
-        @on-confirm="log('confirm')"
+        @on-confirm="onConfirm"
         @on-hide="log('hide', $event)"></datetime>
     </group>
 
@@ -227,6 +227,10 @@ export default {
   methods: {
     log (str1, str2 = '') {
       console.log(str1, str2)
+    },
+    onConfirm (val) {
+      console.log('on-confirm arg', val)
+      console.log('current value', this.value1)
     },
     showPlugin () {
       this.$vux.datetime.show({
