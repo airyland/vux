@@ -246,7 +246,15 @@ export default {
       })
     },
     toggleFormat () {
-      this.format = this.format === 'YYYY-MM-DD HH:mm' ? 'YYYY-MM-DD' : 'YYYY-MM-DD HH:mm'
+      if(this.format==='YYYY-MM-DD'){
+	this.format='YYYYY-MM-DD A';
+      }
+      else if(this.format==='YYYYY-MM-DD A'){
+	this.format='YYYY-MM-DD HH:mm';
+      }
+      else if(this.format==='YYYY-MM-DD HH:mm'){
+	this.format='YYYY-MM-DD';
+      }
     },
     change (value) {
       console.log('change', value)
