@@ -17,6 +17,14 @@ extra:
     ::: tip
       其他选项与`picker`一致
     :::
+tips:
+  zh-CN:
+    -
+      q: iPhone 上弹窗显示时遮罩层闪烁
+      a: |
+
+        未找到解决方式。在 iOS11 之前会出现，在 iOS11 后似乎已经不能重现，可能要归结于系统浏览器原因。
+        相关 issue: [#2239](https://github.com/airyland/vux/issues/2239)
 props:
   value:
     type: Array
