@@ -16,6 +16,8 @@ const TEMPLATE = `<div class="dp-container">
     <div class="dp-item" data-role="year"></div>
     <div class="dp-item" data-role="month"></div>
     <div class="dp-item" data-role="day"></div>
+	<div class="dp-item" data-role="noon"></div>
+
     <div class="dp-item" data-role="hour"></div>
     <div class="dp-item" data-role="minute"></div>
   </div>
@@ -29,7 +31,8 @@ const TYPE_MAP = {
   month: ['MM', 'M'],
   day: ['DD', 'D'],
   hour: ['HH', 'H'],
-  minute: ['mm', 'm']
+  minute: ['mm', 'm'],
+  noon: ['A']
 }
 
 let MASK = null
@@ -55,6 +58,7 @@ const DEFAULT_CONFIG = {
   yearRow: '{value}',
   monthRow: '{value}',
   dayRow: '{value}',
+  noonRow: '{value}',
   hourRow: '{value}',
   minuteRow: '{value}',
   format: 'YYYY-MM-DD',
@@ -367,6 +371,18 @@ DatetimePicker.prototype = {
         value: i
       })
     }
+
+	if(type==='noon'){
+		data.push({
+        name: '上午',
+        value: '上午'
+      });
+		  data.push({
+        name: '下午',
+        value: '下午'
+      });
+	}
+
     if (type === 'hour' && this.config.hourList) {
       data = this.config.hourList.map(hour => {
         return {
