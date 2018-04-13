@@ -1,27 +1,44 @@
 <template>
-   <div class="vux-selector weui-cell" :class="{'weui-cell_select':!readonly, 'weui-cell_select-after':title}">
+   <div
+    class="vux-selector weui-cell"
+    :class="{
+      'weui-cell_select': !readonly,
+      'weui-cell_select-after': title
+    }">
     <div class="weui-cell__hd" v-if="title">
       <label
-      :for="`vux-selector-${uuid}`"
-      class="weui-label"
-      :class="labelClass"
-      :style="cleanStyle({
-        width: $parent.labelWidth,
-        textAlign: $parent.labelAlign,
-        marginRight: $parent.labelMarginRight
-      })" v-html="title"></label>
+        :for="`vux-selector-${uuid}`"
+        class="weui-label"
+        :class="labelClass"
+        :style="cleanStyle({
+          width: $parent.labelWidth,
+          textAlign: $parent.labelAlign,
+          marginRight: $parent.labelMarginRight
+        })"
+        v-html="title"></label>
     </div>
-    <div class="weui-cell__bd" v-if="!readonly">
-      <select :id="`vux-selector-${uuid}`" style="color:red;" class="weui-select" v-model="currentValue" :name="name"
-      :style="cleanStyle({
-        direction: direction,
-        color: color
-      })">
-        <option :value="value === null ? 'null' : ''" v-if="showPlaceholder" :selected="isEmptyValue(value) && !!placeholder">{{ placeholder }}</option>
+    <div
+      class="weui-cell__bd"
+      v-if="!readonly">
+      <select
+        :id="`vux-selector-${uuid}`"
+        class="weui-select"
+        v-model="currentValue"
+        :name="name"
+        :style="cleanStyle({
+          direction: direction,
+          color: color
+        })">
+        <option
+          :value="value === null ? 'null' : ''"
+          v-if="showPlaceholder"
+          :selected="isEmptyValue(value) && !!placeholder">{{ placeholder }}</option>
         <v-no-ssr>
           <option disabled v-if="fixIos"></option>
         </v-no-ssr>
-        <option :value="one.key" v-for="one in processOptions">{{ one.value }}</option>
+        <option
+          :value="one.key"
+          v-for="one in processOptions">{{ one.value }}</option>
       </select>
     </div>
     <div class="weui-cell__ft vux-selector-readonly" v-else>
@@ -144,7 +161,7 @@ export default {
     name: String,
     placeholder: String,
     readonly: Boolean,
-    value: [Boolean, String, Number, Object],
+    value: [String, Number, Object, Boolean],
     valueMap: {
       type: Array,
       validator (val) {

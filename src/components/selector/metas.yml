@@ -73,8 +73,10 @@ methods:
 changes:
   next:
     en:
+      - '[fix] avoid newer-version-vue select value issue #2633 #2587'
       - '[enhance] use v-html for title #2615'
     zh-CN:
+      - '[fix] 修复新版本 vue 导致的 select 值问题 #2633 #2587'
       - '[enhance] 标题使用 v-html #2615'
   v2.7.2:
     en:
