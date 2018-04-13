@@ -1,7 +1,13 @@
 <template>
-  <transition :name="`vux-popup-animate-${position}`">
-    <div v-show="show && !initialShow" :style="styles" class="vux-popup-dialog" :class="[`vux-popup-${position}`, show ? 'vux-popup-show' : '']">
-      <slot></slot>
+  <transition
+    :name="`vux-popup-animate-${position}`">
+    <div
+      v-show="show && !initialShow"
+      :style="styles"
+      class="vux-popup-dialog"
+      :class="[`vux-popup-${position}`, show ? 'vux-popup-show' : '']">
+        <slot v-if="shouldRenderBody"></slot>
+      </div>
     </div>
   </transition>
 </template>
@@ -40,6 +46,14 @@ export default {
     hideOnDeactivated: {
       type: Boolean,
       default: true
+    },
+    shouldRerenderOnShow: {
+      type: Boolean,
+      default: false
+    },
+    shouldScrollTopOnShow: {
+      type: Boolean,
+      default: false
     }
   },
   created () {
@@ -95,6 +109,27 @@ export default {
     },
     removeModalClassName () {
       this.layout === 'VIEW_BOX' && dom.removeClass(document.body, 'vux-modal-open')
+    },
+    doShow () {
+      this.popup && this.popup.show()
+      this.$emit('on-show')
+      this.fixSafariOverflowScrolling('auto')
+      this.layout === 'VIEW_BOX' && dom.addClass(document.body, 'vux-modal-open')
+      if (!this.hasFirstShow) {
+        this.$emit('on-first-show')
+        this.hasFirstShow = true
+      }
+    },
+    scrollTop () {
+      this.$nextTick(() => {
+        this.$el.scrollTop = 0
+        const box = this.$el.querySelectorAll('.vux-scrollable')
+        if (box.length) {
+          for (let i = 0; i < box.length; i++) {
+            box[i].scrollTop = 0
+          }
+        }
+      })
     }
   },
   data () {
@@ -102,6 +137,7 @@ export default {
       layout: '',
       initialShow: true,
       hasFirstShow: false,
+      shouldRenderBody: true,
       show: this.value
     }
   },
@@ -134,13 +170,19 @@ export default {
     show (val) {
       this.$emit('input', val)
       if (val) {
-        this.popup && this.popup.show()
-        this.$emit('on-show')
-        this.fixSafariOverflowScrolling('auto')
-        this.layout === 'VIEW_BOX' && dom.addClass(document.body, 'vux-modal-open')
-        if (!this.hasFirstShow) {
-          this.$emit('on-first-show')
-          this.hasFirstShow = true
+        // rerender body
+        if (this.shouldRerenderOnShow) {
+          this.shouldRenderBody = false
+          this.$nextTick(() => {
+            this.scrollTop()
+            this.shouldRenderBody = true
+            this.doShow()
+          })
+        } else {
+          if (this.shouldScrollTopOnShow) {
+            this.scrollTop()
+          }
+          this.doShow()
         }
       } else {
         this.$emit('on-hide')
