@@ -97,16 +97,16 @@
             <router-link :to="`/${lang}/`" :exact="true" :class="$route.path === `/${lang}/` || $route.path === `/${lang}`  ? 'link-active' : ''">{{ t('Guide') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/zh-CN/components/actionsheet.html" :class="isComponentPage ? 'link-active' : ''">{{ t('Components') }}</router-link>
+            <router-link :to="`/${lang}/components/actionsheet.html`" :class="isComponentPage ? 'link-active' : ''">{{ t('Components') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/zh-CN/changelog/changelog.html" :class="/changelog/.test($route.path) ? 'link-active' : ''">{{ t('Releases') }}</router-link>
+            <router-link :to="`/${lang}/changelog/changelog.html`" :class="/changelog/.test($route.path) ? 'link-active' : ''">{{ t('Releases') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/zh-CN/contribution/donate.html" :class="/donate/.test($route.path) ? 'link-active' : ''">{{ t('Donate') }}</router-link>
+            <router-link :to="`/${lang}/contribution/donate.html`" :class="/donate/.test($route.path) ? 'link-active' : ''">{{ t('Donate') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/zh-CN/lab/index.html" :class="/lab/.test($route.path) ? 'link-active' : ''">{{ t('Lab') }}</router-link>
+            <router-link :to="`/${lang}/lab/index.html`" :class="/lab/.test($route.path) ? 'link-active' : ''">{{ t('Lab') }}</router-link>
           </li>
           <li class="nav-item" v-if="lang === 'zh-CN'">
             <a href="https://cn.vuejs.org/v2/guide/" target="_blank"><span>Vue 中文文档</span><svg style="vertical-align:middle;padding-left:5px;" viewBox="0 0 1024 1024" width="12" height="12"><defs></defs><path d="M864 640a32 32 0 0 1 64 0v224.096A63.936 63.936 0 0 1 864.096 928H159.904A63.936 63.936 0 0 1 96 864.096V159.904C96 124.608 124.64 96 159.904 96H384a32 32 0 0 1 0 64H192.064A31.904 31.904 0 0 0 160 192.064v639.872A31.904 31.904 0 0 0 192.064 864h639.872A31.904 31.904 0 0 0 864 831.936V640z m-485.184 52.48a31.84 31.84 0 0 1-45.12-0.128 31.808 31.808 0 0 1-0.128-45.12L815.04 166.048l-176.128 0.736a31.392 31.392 0 0 1-31.584-31.744 32.32 32.32 0 0 1 31.84-32l255.232-1.056a31.36 31.36 0 0 1 31.584 31.584L924.928 388.8a32.32 32.32 0 0 1-32 31.84 31.392 31.392 0 0 1-31.712-31.584l0.736-179.392L378.816 692.48z" fill="#333333" p-id="5014"></path></svg></a>
@@ -123,7 +123,7 @@
       <div class="markdown-body">
         <router-view></router-view>
         <div>
-          <router-link to="/zh-CN/faq/" v-if="/faq\//.test($route.path) && /\.html/.test($route.path)"> << {{ t('return FAQ') }}</router-link>
+          <router-link :to="`/${lang}/faq/`" v-if="/faq\//.test($route.path) && /\.html/.test($route.path)"> << {{ t('return FAQ') }}</router-link>
         </div>
       </div>
     </div>

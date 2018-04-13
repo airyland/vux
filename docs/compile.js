@@ -483,7 +483,20 @@ export default {
 
   export default {
     head: {
-      title: '${importName} ${t('component tutorial', lang)} | vue-${componentName} | ${t('title', lang)}',
+      title: '${importName} ${t('component tutorial', lang)} | ${t('title', lang)}',
+      meta: [{
+        name: 'description',
+        content: 'Vue component ${componentName} for the VUX framework.'
+      }, {
+        name: 'keywords',
+        content: '${componentName}, vue-${componentName}, vux-${componentName}, vue mobile components'
+      }, {
+        property: 'og:title',
+        content: '${importName} ${t('component tutorial', lang)} | ${t('title', lang)}'
+      }, {
+        property: 'og:description',
+        content: 'Vue component ${componentName} for the VUX framework.'
+      }],
       // https://support.google.com/webmasters/answer/189077?hl=en
       link: ${JSON.stringify(getAlternate(lang, `/${lang}/components/${componentName}.html`))}
     },

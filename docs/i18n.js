@@ -3,7 +3,7 @@ const list = {
     'zh-CN': '常见问题'
   },
   title: {
-    'en': 'VUX - Vue.js Component Framework - Vue Mobile UI',
+    'en': 'VUX - Vue.js Mobile UI Component Framework',
     'zh-CN': 'VUX - 基于 WeUI 和 Vue 的移动端组件库'
   },
   Directives: {
