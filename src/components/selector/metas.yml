@@ -39,7 +39,7 @@ props:
     zh-CN: 标题
   direction:
     en: align value
-    zh-CN: 选项对齐方式
+    zh-CN: 选项对齐方式，同原生 select 属性一致，可选值为 ltr(left-to-right，默认), rtl
   options:
     type: Array
     en: "option list, `['one', 'two']` or `[{ key: KEY, value: VALUE }]`"

@@ -3,6 +3,7 @@
 
     <group :title="'no placeholder, the current value is : ' + defaultValue">
       <selector ref="defaultValueRef" title="省份" :options="list" v-model="defaultValue"></selector>
+      <selector ref="defaultValueRef" title="省份" direction="rtl" :options="list" v-model="defaultValue"></selector>
     </group>
 
     <div style="padding:15px;">
