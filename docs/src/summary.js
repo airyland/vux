@@ -17,7 +17,7 @@ module.exports = [{
     path: '/zh-CN/changelog/changelog.html'
   }, {
     title: '贡献者们',
-    path: '/zh-cn/about/contributors.html'
+    path: '/zh-CN/about/contributors.html'
   }]
 }, {
   title: '安装使用',

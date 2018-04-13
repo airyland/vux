@@ -230,13 +230,13 @@ tr.slot-disabled {
 }
 
 .vux-time-ago > span {
-    color: #ececec;
-    font-size: 1.5em;
-    text-shadow: 0 0 6px rgba(0,120,255,.9)
+  color: #ececec;
+  font-size: 1.3em;
+  text-shadow: 0 0 6px rgba(0,120,255,.9)
 }
 
 .vux-box,.vux-center {
-    text-align: center
+  text-align: center
 }
 
 .app {
@@ -424,71 +424,71 @@ div.tip {
 * docute
 */
 .header-nav {
-    display: flex;
-    align-items: center
+  display: flex;
+  align-items: center
 }
 
 .header-nav.is-mobile .nav-list {
-    height: auto;
-    line-height: auto
+  height: auto;
+  line-height: auto
 }
 
 .header-nav.is-mobile .nav-list .nav-item {
-    float: none
+  float: none
 }
 
 .header-nav.is-mobile .nav-list .nav-item>a,.header-nav.is-mobile .nav-list .nav-item>div {
-    border-bottom: none;
-    height: auto;
-    line-height: 30px
+  border-bottom: none;
+  height: auto;
+  line-height: 30px
 }
 
 
 .header-nav.is-mobile .nav-list .dropdown-list {
-    background-color: transparent
+  background-color: transparent
 }
 
 .header-nav.is-mobile .nav-list .nav-item-dropdown .dropdown-list {
-    position: static;
-    display: block;
-    transform: none;
-    border: none;
-    padding: 0
+  position: static;
+  display: block;
+  transform: none;
+  border: none;
+  padding: 0
 }
 
 .nav-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    line-height: 35px;
-    height: 40px
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  line-height: 35px;
+  height: 40px
 }
 
 .nav-list .sep {
-    height: 1px;
-    background-color: #f0f0f0;
-    display: block;
-    margin: 8px 0
+  height: 1px;
+  background-color: #f0f0f0;
+  display: block;
+  margin: 8px 0
 }
 
 .nav-list .label {
-    display: block;
-    margin-top: 5px;
-    font-size: 12px
+  display: block;
+  margin-top: 5px;
+  font-size: 12px
 }
 
 .nav-list .nav-item {
-    float: left;
-    margin-right: 20px
+  float: left;
+  margin-right: 20px
 }
 
 .nav-list .nav-item>a,.nav-list .nav-item>div {
-    color: #666;
-    height: 40px;
-    font-size: 14px;
-    border-bottom: 3px solid transparent;
-    display: block;
-    text-decoration: none;
+  color: #666;
+  height: 40px;
+  font-size: 14px;
+  border-bottom: 3px solid transparent;
+  display: block;
+  text-decoration: none;
 }
 
 .nav-list .nav-item>a.link-active,.nav-list .nav-item>div.link-active {
@@ -497,43 +497,43 @@ div.tip {
 }
 
 .nav-list .nav-item>a:hover,.nav-list .nav-item>div:hover {
-    color: #333
+  color: #333
 }
 
 .nav-list .nav-item>a:hover:not(.router-link-active),.nav-list .nav-item>div:hover:not(.router-link-active) {
-    border-bottom-color: #e2e2e2
+  border-bottom-color: #e2e2e2
 }
 
 .nav-list .nav-item .arrow {
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: -1px;
-    margin-left: 6px;
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 5px solid #ccc
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -1px;
+  margin-left: 6px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #ccc;
 }
 
 .nav-list .nav-item-dropdown {
-    position: relative
+  position: relative;
 }
 
 .nav-list .nav-item-dropdown .dropdown-list {
-    position: absolute;
-    z-index: 9999;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
-    background-color: #fff;
-    margin: 0;
-    list-style-type: none;
-    border: 1px solid #e2e2e2;
-    border-radius: 3px;
-    white-space: nowrap;
-    padding: 10px 0
+  position: absolute;
+  z-index: 9999;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  background-color: #fff;
+  margin: 0;
+  list-style-type: none;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  white-space: nowrap;
+  padding: 10px 0
 }
 
 .nav-list .nav-item-dropdown .dropdown-list .dropdown-item {
@@ -586,7 +586,7 @@ div.tip {
 }
 
 .el-dialog__wrapper.sourcec-code-dialog {
-  right: 400px;
+  right: 410px;
 }
 
 .el-dialog__wrapper.sourcec-code-dialog .el-dialog {
@@ -602,4 +602,31 @@ div.tip {
   font-weight: 500;
   padding-left: 10px;
   vertical-align: middle;
+}
+
+.markdown-body table {
+  display: table!important;
+  width: 100%;
+}
+
+.markdown-body h3 {
+  font-family: Menlo,'Menlo Regular',Consolas,monospace;
+  font-size: 1.4em;
+  font-weight: 500;
+}
+
+.markdown-body table th, .markdown-body table td {
+  border: none;
+}
+
+.markdown-body table tr {
+  border-top: 1px solid #ddd;
+}
+
+.markdown-body table thead tr {
+  background-color: #f0f0f0;
+}
+
+.markdown-body table {
+  border-bottom: 1px solid #ddd;
 }

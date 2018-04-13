@@ -8,6 +8,17 @@ const hljs = require('highlight.js')
 const MD = require('markdown-it')
 const argv = require('yargs').argv
 let langs = ['en', 'zh-CN']
+const t = require('./i18n')
+
+const getAlternate = function (lang, route) {
+  return langs.filter(_lang => _lang !== lang).map(_lang => {
+    return {
+      rel: 'alternate',
+      hreflang: _lang,
+      href: route.replace(lang, _lang)
+    }
+  })
+}
 
 const getPath = function (dir) {
   return path.join(__dirname, dir)
@@ -71,13 +82,13 @@ function getComponentName(path) {
 
 const faqs = glob.sync(getPath('./zh-CN/faq/*.md'))
 const faqRoutes = []
-const commonTitle = `VUX - 基于 WeUI 和 Vue 的移动端组件库`
+const commonTitle = `${t('title')}`
 let faqMd = `
 ---
-title: 常见问题 - ${commonTitle}
+title: ${t('faq')} - ${commonTitle}
 ---
 
-# 常见问题
+# ${t('faq')}
 `
 faqs.forEach(one => {
   one = '.' + one.replace(__dirname, '')
@@ -214,24 +225,13 @@ components.forEach((file) => {
   }
   const parseReg = '`(.*?)`'
   const url = `https://vux.li/demos/v2/#/component/${componentName}`
-  const urlWithNoTransition = `https://vux.li/demos/v2?transition=none/#/component/${componentName}`
-  const localImportCode = colorCode('js', `// 单独组件引入\n\nimport { ${importList.map(one => one.importName).join(', ')} } from 'vux'
+  const localImportCode = colorCode('js', `import { ${importList.map(one => one.importName).join(', ')} } from 'vux'
 
 export default {
   components: {
     ${importList.map(one => one.importName).join(',\n    ')}
   }
 }`)
-
-
-  let _globalImportCode = `// 也可以在入口文件全局引入\n\nimport Vue from 'vue'\nimport { ${importList.map(one => one.importName).join(', ')} } from 'vux'
-
-`
-  importList.forEach(one => {
-    _globalImportCode += `Vue.component('${one.componentName}', ${one.importName})\n`
-  })
-
-  const globalImportCode = colorCode('js', _globalImportCode)
 
   let exampleCode = ''
   if (metas.example) {
@@ -252,6 +252,17 @@ export default {
   }
 
   langs.forEach(lang => {
+
+    let _globalImportCode = `// ${t('globally register', lang)}\n\nimport Vue from 'vue'\nimport { ${importList.map(one => one.importName).join(', ')} } from 'vux'\n\n`
+    const urlWithNoTransition = `https://vux.li/demos/v2?locale=${lang}&transition=none/#/component/${componentName}`
+
+    importList.forEach(one => {
+      _globalImportCode += `Vue.component('${one.componentName}', ${one.importName})\n`
+    })
+
+    const globalImportCode = colorCode('js', _globalImportCode)
+
+
     let str = `
   <template>
   <div class="component-box">
@@ -260,16 +271,16 @@ export default {
     <h1 class="vux-component-name">${importName}</h1>
 
     <p class="component-extra-links">
-      <a href="https://vux.li/demos/v2/#/component/${componentName}" target="_blank">demo 原始链接</a>
-      <a href="https://github.com/airyland/vux/blob/v2/src/demos/${importName}.vue" target="_blank" @click.prevent="showSourceCode">demo源码</a>
-      <a href="https://github.com/airyland/vux/blob/v2/src/components/${componentName}/metas.yml" target="_blank">编辑文档</a>
+      <a href="https://vux.li/demos/v2/#/component/${componentName}" target="_blank">${t('demo url', lang)}</a>
+      <a href="https://github.com/airyland/vux/blob/v2/src/demos/${importName}.vue" target="_blank" @click.prevent="showSourceCode">${t('demo source code', lang)}</a>
+      <a href="https://github.com/airyland/vux/blob/v2/src/components/${componentName}/metas.yml" target="_blank">${t('edit document', lang)}</a>
 
       <el-popover trigger="hover" v-if="hasReady">
         <div style="width:100%;text-align:center;">
           <img class="qr" width="100" src="https://qr.vux.li/api.php?text=${encodeURIComponent(url)}"/>
         </div>
         <a href="javascript:" slot="reference">
-        二维码
+        ${t('qr', lang)}
         </a>
       </el-popover>
     </p>
@@ -290,7 +301,7 @@ export default {
       ${ metas.tip ? metas.tip.replace(/`(.*?)`/g, '<code>$1</code>') : '' }
     </div>
 
-    <h3 v-if="metas.example">使用例子</h3>
+    <h3 v-if="metas.example">${t('example', lang)}</h3>
     <div v-if="metas.example" style="width:600px;">
       ${exampleCode}
     </div>
@@ -305,15 +316,15 @@ export default {
 
     <template v-for="component in componentList">
       <h2 v-show="componentList.length > 1">{{ component.name }}</h2>
-      <h3 v-if="component.meta.props">属性</h3>
+      <h3 v-if="component.meta.props">${t('Props', lang)}</h3>
       <table v-if="component.meta.props">
         <thead>
           <tr>
-            <td>名字</td>
-            <td style="width:48px;">类型</td>
-            <td style="width:120px;">默认</td>
-            <td style="width:120px;">版本要求</td>
-            <td>说明</td>
+            <td>${t('name', lang)}</td>
+            <td style="width:48px;">${t('type', lang)}</td>
+            <td>${t('default value', lang)}</td>
+            <td>${t('description', lang)}</td>
+            <td>${t('required version', lang)}</td>
           </tr>
         </thead>
         <tbody>
@@ -321,113 +332,106 @@ export default {
             <td class="prop-name">{{ i }}</td>
             <td v-html="getTypeHTML(prop.type)"></td>
             <td>{{ prop.default}}</td>
+            <td v-html="prop['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
             <td>{{ prop.version || '--'}}</td>
-            <td v-html="prop['zh-CN'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
           </tr>
         </tbody>
       </table>
 
-      <h3 v-show="component.meta.events">事件</h3>
+      <h3 v-show="component.meta.events">${t('Events', lang)}</h3>
 
       <table v-show="component.meta.events">
         <thead>
           <tr>
-            <td>事件</td>
-            <td>参数</td>
-            <td>说明</td>
-            <td>版本要求</td>
+            <td>${t('name', lang)}</td>
+            <td>${t('params', lang)}</td>
+            <td>${t('description', lang)}</td>
+            <td>${t('required version', lang)}</td>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(event, i) in component.meta.events">
             <td class="prop-name">{{ i }}</td>
             <td v-html="event.params ? event.params.replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
-            <td v-html="event['zh-CN'] ? event['zh-CN'].replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
+            <td v-html="event['${lang}'] ? event['${lang}'].replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
             <td>{{ event['version'] || '--' }}</td>
           </tr>
         </tbody>
       </table>
 
-      <h3 v-if="component.meta.slots">Slots</h3>
+      <h3 v-if="component.meta.slots">${t('Slots', lang)}</h3>
 
       <table v-if="component.meta.slots">
         <thead>
           <tr>
-            <td>名字</td>
-            <td>说明</td>
-            <td>版本要求</td>
+            <td>${t('name', lang)}</td>
+            <td>${t('description', lang)}</td>
+            <td>${t('required version', lang)}</td>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(slot, i) in component.meta.slots" :class="{'slot-disabled': slot['status'] === 'deprecated'}">
             <td class="prop-name">{{ i }}</td>
-            <td v-html="slot['zh-CN'] ? slot['zh-CN'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
+            <td v-html="slot['${lang}'] ? slot['${lang}'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
             <td>{{ slot['version'] || '--' }}</td>
           </tr>
         </tbody>
       </table>
 
-        <h3 v-if="component.meta.methods">方法</h3>
+        <h3 v-if="component.meta.methods">${t('Functions', lang)}</h3>
         <table v-if="component.meta.methods">
           <thead>
             <tr>
-              <td>名字</td>
-              <td>参数</td>
-              <td>说明</td>
-              <td>版本说明</td>
+              <td>${t('name', lang)}</td>
+              <td>${t('params', lang)}</td>
+              <td>${t('description', lang)}</td>
+              <td>${t('required version', lang)}</td>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(method, i) in component.meta.methods">
               <td class="prop-name">{{ i }}</td>
               <td v-html="method['params'] ? method['params'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
-              <td v-html="method['zh-CN'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
+              <td v-html="method['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
               <td>{{ method['version'] }}</td>
             </tr>
           </tbody>
         </table>
 
-        <h3 v-if="component.meta.tips && component.meta.tips['${lang}']">重要提示及已知问题</h3>
-        <el-card v-if="component.meta.tips && component.meta.tips['${lang}']">
+        <h3 v-if="component.meta.tips && component.meta.tips['${lang}']">${t('Tips', lang)}</h3>
+        <div v-if="component.meta.tips && component.meta.tips['${lang}']">
           <ul>
             <li v-for="tip in component.meta.tips['${lang}']">
             <el-tag size="mini" type="success" class="component-tip-tag">Q</el-tag> <span class="component-tip-question">{{ tip.q }}</span>
             <div v-html="tip.a" class="tip-answer-box"></div>
             </li>
           </ul>
-        </el-card>
-        <br>
+        </div>
     </template>
 
     <!--<h3>社区相关讨论</h3>
     [即将上线]
     -->
-
-    <el-card v-if="issues.length">
-      <div slot="header">
-        <span>相关 issue</span>
-      </div>
+  
+    <br>
+    <div v-if="issues.length">
+      <h3>${t('Related issues', lang)}</h3>
       <ul>
         <li v-for="issue in issues"><a target="_blank" :href="issue.html_url">#{{ issue.number}} <span style="color:#666;">{{ issue.title }}</span></a></li>
       </ul>
-    </el-card>
+    </div>
     <br>
-
-    <el-card v-if="gitMetas">
-      <div slot="header">
-        <span>贡献者</span>
-      </div>
-      <p>该组件(包含文档)迭代 {{gitMetas.commitCount}} 次，贡献人数 {{gitMetas.commitUniqueCount}} 人。
-      <!--<span class="contributors-tip">（git log 显示用户可能和 Github 用户资料不符，可能无法正常访问）</span>-->
+  
+    <div v-if="gitMetas">
+      <h3>${t('Contributors', lang)}</h3>
+      <p>${t('Total commits quantity:', lang)} {{ gitMetas.commitCount }}，${t('Total contributors quantity:', lang)} {{gitMetas.commitUniqueCount}}
       </p>
-
-      <a v-for="person in gitMetas.commitMembers" class="contributor-item" :href="'https://github.com/' + person.authorName" target="_blank" :title="'贡献' + person.count + '次'">{{person.authorName}}</a>
-    </el-card>
+      <a v-for="person in gitMetas.commitMembers" class="contributor-item" :href="'https://github.com/' + person.authorName" target="_blank" :title="'${t('contribute')}' + person.count">{{person.authorName}}</a>
+    </div>
     <br>
-    <el-card v-if="metas.changes">
-      <div slot="header">
-        <span>版本更新</span>
-      </div>
+
+    <div v-if="metas.changes">
+      <h3>${t('Releases', lang)}</h3>
       <ul v-if="metas.changes">
         <template v-for="(changelog, version) in metas.changes">
           <li v-for="log in changelog['${lang}']">
@@ -435,11 +439,11 @@ export default {
           </li>
         </template>
       </ul>
-    </el-card>
+    </div>
 
-    <h3 v-if="metas.references">参考资料</h3>
+    <h3 v-if="metas.references">${t('Referrences', lang)}</h3>
     <ul v-if="metas.references">
-      <li v-for="link in metas.references['zh-CN']">
+      <li v-for="link in metas.references['${lang}']">
         <a :href="link.link" target="_blank">{{link.title}}</a>
       </li>
     </ul>
@@ -479,7 +483,9 @@ export default {
 
   export default {
     head: {
-      title: '${importName} 组件使用教程 | VUX - Vue 移动端 UI 组件库'
+      title: '${importName} ${t('component tutorial', lang)} | vue-${componentName} | ${t('title', lang)}',
+      // https://support.google.com/webmasters/answer/189077?hl=en
+      link: ${JSON.stringify(getAlternate(lang, `/${lang}/components/${componentName}.html`))}
     },
     filters: {
       parseCode (str) {
@@ -509,6 +515,17 @@ export default {
           type = type ?  type.toLowerCase() : 'string'
           return '<span class="type">' + type + '</span>'
         }
+      }
+    },
+    computed: {
+      lang () {
+        if (this.$route.path.indexOf('/en/') !== -1) {
+          return 'en'
+        }
+        if (this.$route.path.indexOf('/zh-CN/') !== -1) {
+          return 'zh-CN'
+        }
+        return 'en'
       }
     },
     data () {
@@ -577,6 +594,13 @@ if (include) {
     return path.includes(include)
   })
 }
+
+str += `
+routes.push({
+  path: '*',
+  component: () => import('../404.md')
+})
+`
 
 const ori = fs.readFileSync(getPath('./src/index.js'), 'utf-8')
 fs.writeFileSync(getPath('./src/_index.js'), ori.replace('const routes = []', `const routes = []\n${str}`))

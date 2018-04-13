@@ -22,8 +22,8 @@
         </div>
         <div class="analytics">
           <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_30m.quantity }}</span><br>▴<br></p>
-          <p style="font-size:12px;">实时 VUX 开发者
-            <el-popover trigger="hover" v-if="hasReady">
+          <p style="font-size:12px;">{{ t('Realtime developers') }}
+            <el-popover trigger="hover" v-if="hasReady && lang === 'zh-CN'">
               <i class="el-icon-info" slot="reference"></i>
               <p>该数值表示当前正在进行 VUX(Vue) 开发的唯一用户数，非文档站访问数。
                 <br>数据来源于 vux-loader 发送的匿名统计，作为 webpack 配置工具仅在 development 发送统计，不对构建文件加入任何代码。</p>
@@ -34,7 +34,7 @@
             <span>{{ item.city }}</span> {{ item.quantity }}
           </p>
           <p class="vux-center vux-sub-title vux-time-ago" style="padding-top:0;">▴</p>
-          <p class="vux-center" style="font-size:12px;">24小时内 VUX 开发者</p>
+          <p class="vux-center" style="font-size:12px;">{{ t('Developers in 24h') }}</p>
         </div>
       </div>
     </div>
@@ -44,46 +44,46 @@
           <p class="chapter-title">{{chapter.title}}</p>
           <ul class="chapter-page">
             <li class="chapter-page-item" v-for="page in chapter.pages">
-              <router-link :to="page.path" :data-current-category="currentCategory">{{page.title}}</router-link>
+              <router-link :to="getPath(page.path)" :data-current-category="currentCategory">{{page.title}}</router-link>
             </li>
           </ul>
         </div>
 
         <div class="chapter" v-show="isComponentPage">
-          <p class="chapter-title">样式 CSS</p>
+          <p class="chapter-title">{{ t('Css') }}</p>
           <ul class="chapter-page">
             <li class="chapter-page-item">
-              <router-link to="/zh-CN/css/1px.html">1px 解决方案</router-link>
+              <router-link :to="`/${lang}/css/1px.html`">{{ t('1px') }}</router-link>
             </li>
             <li class="chapter-page-item">
-              <router-link to="/zh-CN/css/close.html">css 关闭图标</router-link>
+              <router-link :to="`/${lang}/css/close.html`">{{ t('css-close-icon') }}</router-link>
             </li>
           </ul>
         </div>
 
         <div class="chapter" v-show="isComponentPage">
-          <p class="chapter-title">指令 Directives</p>
+          <p class="chapter-title">{{ t('Directives') }}</p>
           <ul class="chapter-page">
             <li class="chapter-page-item">
-              <router-link to="/zh-CN/directives/v-transfer-dom.html">v-transfer-dom</router-link>
+              <router-link :to="`/${lang}/directives/v-transfer-dom.html`">v-transfer-dom</router-link>
             </li>
           </ul>
         </div>
 
         <div class="chapter" v-show="isComponentPage">
-          <p class="chapter-title">工具函数 Tools</p>
+          <p class="chapter-title">{{ t('Toolkit') }}</p>
           <ul class="chapter-page">
             <li v-for="route in toolRoutes" class="chapter-page-item">
-              <router-link :to="route.path">{{ route.title }}</router-link>
+              <router-link :to="route.path">{{ t(route.title) }}</router-link>
             </li>
           </ul>
         </div>
 
         <div class="chapter" v-show="isComponentPage">
-          <p class="chapter-title">组件({{components.length}} 个)</p>
+          <p class="chapter-title">{{ t('Components') }}({{components.length}})</p>
           <ul class="chapter-page">
             <li class="chapter-page-item component-list-item" v-for="component in components" :id="`component-list-item-${component.name}`">
-              <router-link :to="`/zh-CN/components/${component.name}.html`">{{ component.name }}</router-link>
+              <router-link :to="`/${lang}/components/${component.name}.html`">{{ component.name }}</router-link>
             </li>
           </ul>
         </div>
@@ -94,37 +94,36 @@
       <div class="header-nav">
         <ul class="nav-list">
           <li class="nav-item">
-            <router-link to="/zh-CN/" :exact="true" :class="$route.path === '/zh-CN/' || $route.path === '/zh-CN'  ? 'link-active' : ''">教程</router-link>
+            <router-link :to="`/${lang}/`" :exact="true" :class="$route.path === `/${lang}/` || $route.path === `/${lang}`  ? 'link-active' : ''">{{ t('Guide') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/zh-CN/components/actionsheet.html" :class="isComponentPage ? 'link-active' : ''">组件</router-link>
+            <router-link to="/zh-CN/components/actionsheet.html" :class="isComponentPage ? 'link-active' : ''">{{ t('Components') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/zh-CN/changelog/changelog.html" :class="/changelog/.test($route.path) ? 'link-active' : ''">发布日志</router-link>
+            <router-link to="/zh-CN/changelog/changelog.html" :class="/changelog/.test($route.path) ? 'link-active' : ''">{{ t('Releases') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/zh-CN/contribution/donate.html" :class="/donate/.test($route.path) ? 'link-active' : ''">捐赠</router-link>
+            <router-link to="/zh-CN/contribution/donate.html" :class="/donate/.test($route.path) ? 'link-active' : ''">{{ t('Donate') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/zh-CN/lab/index.html" :class="/lab/.test($route.path) ? 'link-active' : ''">实验室</router-link>
+            <router-link to="/zh-CN/lab/index.html" :class="/lab/.test($route.path) ? 'link-active' : ''">{{ t('Lab') }}</router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="lang === 'zh-CN'">
             <a href="https://cn.vuejs.org/v2/guide/" target="_blank"><span>Vue 中文文档</span><svg style="vertical-align:middle;padding-left:5px;" viewBox="0 0 1024 1024" width="12" height="12"><defs></defs><path d="M864 640a32 32 0 0 1 64 0v224.096A63.936 63.936 0 0 1 864.096 928H159.904A63.936 63.936 0 0 1 96 864.096V159.904C96 124.608 124.64 96 159.904 96H384a32 32 0 0 1 0 64H192.064A31.904 31.904 0 0 0 160 192.064v639.872A31.904 31.904 0 0 0 192.064 864h639.872A31.904 31.904 0 0 0 864 831.936V640z m-485.184 52.48a31.84 31.84 0 0 1-45.12-0.128 31.808 31.808 0 0 1-0.128-45.12L815.04 166.048l-176.128 0.736a31.392 31.392 0 0 1-31.584-31.744 32.32 32.32 0 0 1 31.84-32l255.232-1.056a31.36 31.36 0 0 1 31.584 31.584L924.928 388.8a32.32 32.32 0 0 1-32 31.84 31.392 31.392 0 0 1-31.712-31.584l0.736-179.392L378.816 692.48z" fill="#333333" p-id="5014"></path></svg></a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="lang === 'zh-CN'">
             <a href="https://vuex.vuejs.org/zh-cn/" target="_blank"><span>Vuex 中文文档</span><svg style="vertical-align:middle;padding-left:5px;" viewBox="0 0 1024 1024" width="12" height="12"><defs></defs><path d="M864 640a32 32 0 0 1 64 0v224.096A63.936 63.936 0 0 1 864.096 928H159.904A63.936 63.936 0 0 1 96 864.096V159.904C96 124.608 124.64 96 159.904 96H384a32 32 0 0 1 0 64H192.064A31.904 31.904 0 0 0 160 192.064v639.872A31.904 31.904 0 0 0 192.064 864h639.872A31.904 31.904 0 0 0 864 831.936V640z m-485.184 52.48a31.84 31.84 0 0 1-45.12-0.128 31.808 31.808 0 0 1-0.128-45.12L815.04 166.048l-176.128 0.736a31.392 31.392 0 0 1-31.584-31.744 32.32 32.32 0 0 1 31.84-32l255.232-1.056a31.36 31.36 0 0 1 31.584 31.584L924.928 388.8a32.32 32.32 0 0 1-32 31.84 31.392 31.392 0 0 1-31.712-31.584l0.736-179.392L378.816 692.48z" fill="#333333" p-id="5014"></path></svg></a>
           </li>
-          <!--
           <li class="nav-item">
+            <a href="/en/" v-show="hide">English</a>
             <a @click="switchLang">{{ /zh-CN/.test($route.path) ? 'English(working)' : '中文' }}</a>
           </li>
-          -->
         </ul>
       </div>
       <div class="markdown-body">
         <router-view></router-view>
         <div>
-          <router-link to="/zh-CN/faq/" v-if="/faq\//.test($route.path) && /\.html/.test($route.path)"> << 返回 【常见问题】</router-link>
+          <router-link to="/zh-CN/faq/" v-if="/faq\//.test($route.path) && /\.html/.test($route.path)"> << {{ t('return FAQ') }}</router-link>
         </div>
       </div>
     </div>
@@ -136,6 +135,7 @@ const routes = require('./routes')
 const faqRoutes = require('./faq-routes')
 const toolRoutes = require('./tool-routes')
 const summary = require('./summary')
+const t = require('../i18n')
 // 组件列表
 const components = require('../../src/datas/vux_component_list')
 const Axios = require('axios')
@@ -164,6 +164,15 @@ export default {
     }
   },
   methods: {
+    getPath (path) {
+      if (path.indexOf(`/${this.lang}/`) === -1) {
+        return path.replace('zh-CN', this.lang)
+      }
+      return path
+    },
+    t (key) {
+      return t(key, this.lang)
+    },
     switchLang () {
       let path = ''
       if (/\/en/.test(this.$route.path)) {
@@ -185,10 +194,20 @@ export default {
     },
     currentCategory () {
       return this.$route.path.split('/')[2]
+    },
+    lang () {
+      if (this.$route.path.indexOf('/en/') !== -1) {
+        return 'en'
+      }
+      if (this.$route.path.indexOf('/zh-CN/') !== -1) {
+        return 'zh-CN'
+      }
+      return 'en'
     }
   },
   data () {
     return {
+      hide: false,
       hasReady: false,
       analytics: {
         total_quantity_within_30m: {

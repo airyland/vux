@@ -2,7 +2,7 @@
 title: vue date 日期格式化
 ---
 
-# date 日期格式化
+# date format
 
 相对`moment`来说`十分轻量`的实现。
 
