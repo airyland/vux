@@ -246,14 +246,12 @@ export default {
       })
     },
     toggleFormat () {
-      if(this.format==='YYYY-MM-DD'){
-	this.format='YYYYY-MM-DD A';
-      }
-      else if(this.format==='YYYYY-MM-DD A'){
-	this.format='YYYY-MM-DD HH:mm';
-      }
-      else if(this.format==='YYYY-MM-DD HH:mm'){
-	this.format='YYYY-MM-DD';
+      if (this.format === 'YYYY-MM-DD') {
+        this.format = 'YYYYY-MM-DD A'
+      } else if (this.format === 'YYYYY-MM-DD A') {
+        this.format = 'YYYY-MM-DD HH:mm'
+      } else if (this.format === 'YYYY-MM-DD HH:mm') {
+        this.format = 'YYYY-MM-DD'
       }
     },
     change (value) {

@@ -16,8 +16,7 @@ const TEMPLATE = `<div class="dp-container">
     <div class="dp-item" data-role="year"></div>
     <div class="dp-item" data-role="month"></div>
     <div class="dp-item" data-role="day"></div>
-	<div class="dp-item" data-role="noon"></div>
-
+  <div class="dp-item" data-role="noon"></div>
     <div class="dp-item" data-role="hour"></div>
     <div class="dp-item" data-role="minute"></div>
   </div>
@@ -372,16 +371,16 @@ DatetimePicker.prototype = {
       })
     }
 
-	if(type==='noon'){
-		data.push({
+    if (type === 'noon') {
+      data.push({
         name: '上午',
         value: '上午'
-      });
-		  data.push({
+      })
+      data.push({
         name: '下午',
         value: '下午'
-      });
-	}
+      })
+    }
 
     if (type === 'hour' && this.config.hourList) {
       data = this.config.hourList.map(hour => {
