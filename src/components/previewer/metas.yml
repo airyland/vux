@@ -7,6 +7,13 @@ tags:
   zh-CN:
     - 预览
     - 图片
+tips:
+  zh-CN:
+    -
+      q: 建议为所有图片定义尺寸
+      a: |
+        PhotoSwipe 本身要求设置宽高，Previewer 组件会尝试对没有设置宽高的图片先加载再显示，可能会造成性能问题或者宽带浪费。
+        相关 issue:[#2321](https://github.com/airyland/vux/issues/2321)
 extra:
   en: |
 
