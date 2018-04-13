@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div style="padding:15px;">
       <x-button type="primary" plain @click.native="showPlugin">{{ $t('Used as a plugin') }}</x-button>
     </div>
@@ -58,6 +57,10 @@
       <x-button type="primary" @click.native="toggleFormat">{{ $t('Toggle format') }}</x-button>
     </div>
 
+    <group title="noon">
+      <datetime title="noon" v-model="noonValue" format="YYYY-MM-DD A"></datetime>
+    </group>
+
     <group :title="$t('Placeholder')">
       <datetime v-model="value3" default-selected-value="2017-06-18 13" format="YYYY-MM-DD HH" :placeholder="$t('Please select')" @on-change="change" :title="$t('Start time')"></datetime>
     </group>
@@ -107,6 +110,7 @@
     <div style="padding:15px;">
       <x-button type="primary" plain @click.native="visibility = true">显示</x-button>
     </div>
+
 
   </div>
 </template>
@@ -185,6 +189,7 @@ export default {
   },
   data () {
     return {
+      noonValue: '2018-04-13 PM',
       readonly: true,
       minuteListValue: '2017-06-12 09:00',
       hourListValue: '2017-06-12 09:00',
@@ -250,7 +255,11 @@ export default {
       })
     },
     toggleFormat () {
-      this.format = this.format === 'YYYY-MM-DD HH:mm' ? 'YYYY-MM-DD' : 'YYYY-MM-DD HH:mm'
+      if (this.format === 'YYYY-MM-DD') {
+        this.format = 'YYYY-MM-DD HH:mm'
+      } else if (this.format === 'YYYY-MM-DD HH:mm') {
+        this.format = 'YYYY-MM-DD'
+      }
     },
     change (value) {
       console.log('change', value)

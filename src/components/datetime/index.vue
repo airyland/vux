@@ -1,24 +1,36 @@
 <template>
   <a
-  class="vux-datetime weui-cell"
-  :class="{'weui-cell_access': !readonly}"
-  :data-cancel-text="$t('cancel_text')"
-  :data-confirm-text="$t('confirm_text')"
-  href="javascript:">
+    class="vux-datetime weui-cell"
+    :class="{'weui-cell_access': !readonly}"
+    :data-cancel-text="$t('cancel_text')"
+    :data-confirm-text="$t('confirm_text')"
+    href="javascript:">
     <slot>
       <div>
         <slot name="title">
           <p
-          :style="styles"
-          :class="labelClass"
-          v-html="title"></p>
+            :style="styles"
+            :class="labelClass"
+            v-html="title"></p>
         </slot>
         <inline-desc v-if="inlineDesc">{{ inlineDesc }}</inline-desc>
       </div>
-      <div class="weui-cell__ft vux-cell-primary vux-datetime-value" :style="{textAlign: valueTextAlign}">
-        <span class="vux-cell-placeholder" v-if="!currentValue && placeholder">{{ placeholder }}</span>
-        <span class="vux-cell-value" v-if="currentValue">{{ displayFormat ? displayFormat(currentValue) : currentValue }}</span>
-        <icon class="vux-input-icon" type="warn" v-show="!valid" :title="firstError"></icon>
+      <div
+        class="weui-cell__ft vux-cell-primary vux-datetime-value"
+        :style="{
+          textAlign: valueTextAlign
+        }">
+        <span
+          class="vux-cell-placeholder"
+          v-if="!currentValue && placeholder">{{ placeholder }}</span>
+        <span
+          class="vux-cell-value"
+          v-if="currentValue">{{ displayFormat ? displayFormat(currentValue) : currentValue }}</span>
+        <icon
+          class="vux-input-icon"
+          type="warn"
+          v-show="!valid"
+          :title="firstError"></icon>
       </div>
     </slot>
   </a>
@@ -52,7 +64,14 @@ export default {
   props: {
     format: {
       type: String,
-      default: 'YYYY-MM-DD'
+      default: 'YYYY-MM-DD',
+      validator (val) {
+        /* istanbul ignore if */
+        if (process.env.NODE_ENV === 'development' && val && /A/.test(val) && val !== 'YYYY-MM-DD A') {
+          return console.error('[VUX] Datetime prop:format 使用 A 时只允许的值为： YYYY-MM-DD A')
+        }
+        return true
+      }
     },
     title: String,
     value: {

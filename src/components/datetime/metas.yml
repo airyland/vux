@@ -48,7 +48,7 @@ props:
     type: String
     default: 'YYYY-MM-DD'
     en: date format. Special characters are not supported, for example, YYYY-MM-DD HH:mm(do not support ss)
-    zh-CN: 时间格式，不支持特殊字符，只能类似 YYYY-MM-DD HH:mm 这样的格式（不支持秒 ss）
+    zh-CN: 时间格式，不支持特殊字符，只能类似 YYYY-MM-DD HH:mm 这样的格式（不支持秒 ss）, 另外支持 YYYY-MM-DD A 这样的格式(A为上下午)
   title:
     type: String
     default: ''
@@ -218,9 +218,11 @@ changes:
     en:
       - '[feature] add arg:value for event:on-confirm #2632'
       - '[fix] fire event:on-confirm after nextTick #2632'
+      - '[feature] support format YYYY-MM-DD A #2627 @jack87918'
     zh-CN:
       - '[feature] 事件 on-confirm 添加当前值 #2632'
       - '[fix] 在 nextTick 后触发 on-confirm 事件 #2632'
+      - '[feature] 支持格式 YYYY-MM-DD A 选择上下午 #2627 @jack87918'
   v2.7.8:
     en:
       - '[fix] fix `on-hide` event trigger twice #2379'
