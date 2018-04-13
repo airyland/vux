@@ -48,7 +48,7 @@ props:
     type: String
     default: 'YYYY-MM-DD'
     en: date format. Special characters are not supported, for example, YYYY-MM-DD HH:mm(do not support ss)
-    zh-CN: 时间格式，不支持特殊字符，只能类似 YYYY-MM-DD HH:mm 这样的格式（不支持秒 ss）
+    zh-CN: 时间格式，不支持特殊字符，只能类似 YYYY-MM-DD HH:mm 这样的格式（不支持秒 ss）, 另外支持 YYYY-MM-DD A 这样的格式(A为上下午)
   title:
     type: String
     default: ''
