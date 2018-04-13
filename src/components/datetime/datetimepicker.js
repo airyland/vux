@@ -374,11 +374,11 @@ DatetimePicker.prototype = {
     if (type === 'noon') {
       data.push({
         name: '上午',
-        value: '上午'
+        value: 'AM'
       })
       data.push({
         name: '下午',
-        value: '下午'
+        value: 'PM'
       })
     }
 
