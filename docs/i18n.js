@@ -131,6 +131,12 @@ const list = {
   },
   'string 处理工具': {
     en: 'string'
+  },
+  'Search documents': {
+    'zh-CN': '搜索文档'
+  },
+  'No search results': {
+    'zh-CN': 'Sorry，无搜索结果'
   }
 }
 

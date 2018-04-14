@@ -10,6 +10,8 @@ const argv = require('yargs').argv
 let langs = ['en', 'zh-CN']
 const t = require('./i18n')
 
+let contents = []
+
 const getAlternate = function (lang, route) {
   return langs.filter(_lang => _lang !== lang).map(_lang => {
     return {
@@ -99,6 +101,14 @@ faqs.forEach(one => {
       title: titleRs[1].trim(),
       path: one.replace('./', '/').replace('.md', '.html')
     })
+
+    contents.push({
+      lang: 'zh-CN',
+      category: '常见问题',
+      title: titleRs[1].trim(),
+      url: one.replace('./', '/').replace('.md', '.html'),
+      content: md.render(content)
+    })
   }
 })
 
@@ -129,6 +139,14 @@ tools.forEach(one => {
     toolRoutes.push({
       title: titleRs[1].trim(),
       path: one.replace('./', '/').replace('.md', '.html')
+    })
+
+    contents.push({
+      lang: 'zh-CN',
+      category: '函数工具库',
+      title: titleRs[1].trim(),
+      url: one.replace('./', '/').replace('.md', '.html'),
+      content: md.render(content)
     })
   }
 })
@@ -252,6 +270,14 @@ export default {
   }
 
   langs.forEach(lang => {
+
+    contents.push({
+      lang: lang,
+      category: t('Components', lang),
+      title: importName,
+      title_alias: componentName,
+      url: `/${lang}/components/${componentName}.html`
+    })
 
     let _globalImportCode = `// ${t('globally register', lang)}\n\nimport Vue from 'vue'\nimport { ${importList.map(one => one.importName).join(', ')} } from 'vux'\n\n`
     const urlWithNoTransition = `https://vux.li/demos/v2?locale=${lang}&transition=none/#/component/${componentName}`
@@ -618,6 +644,8 @@ routes.push({
 const ori = fs.readFileSync(getPath('./src/index.js'), 'utf-8')
 fs.writeFileSync(getPath('./src/_index.js'), ori.replace('const routes = []', `const routes = []\n${str}`))
 fs.writeFileSync(getPath('./src/routes.json'), JSON.stringify(paths, null, 2))
+
+fs.writeFileSync(getPath('./algolia.json'), JSON.stringify(contents, null, 2))
 
 function camelCase(input) {
   let str = input.toLowerCase().replace(/-(.)/g, function (match, group1) {

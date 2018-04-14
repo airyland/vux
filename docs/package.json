@@ -8,7 +8,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "babel-plugin-component": "^1.1.0",
-    "element-ui": "^2.2.2",
+    "element-ui": "^2.3.4",
     "github-markdown-css": "^2.6.0",
     "highlight.js": "^9.11.0",
     "js-yaml": "^3.8.3",
@@ -19,14 +19,18 @@
     "markdown-it-task-lists": "^2.0.0",
     "nprogress": "^0.2.0",
     "v-markdown-loader": "^0.6.3-beta.4",
+    "vue": "2.5.16",
     "vue-meta": "^1.0.4",
+    "vue-template-compiler": "2.5.16",
     "yaml-loader": "^0.4.0"
   },
   "devDependencies": {
+    "algoliasearch": "^3.26.0",
     "markdown-it": "^8.3.1",
     "ream": "^1.0.0-rc.6",
     "shelljs": "^0.8.1",
     "vue-markdown-loader": "^0.6.2",
+    "vue-server-renderer": "^2.5.16",
     "yargs": "^11.0.0"
   }
 }

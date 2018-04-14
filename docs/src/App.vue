@@ -108,15 +108,21 @@
           <li class="nav-item">
             <router-link :to="`/${lang}/lab/index.html`" :class="/lab/.test($route.path) ? 'link-active' : ''">{{ t('Lab') }}</router-link>
           </li>
-          <li class="nav-item" v-if="lang === 'zh-CN'">
+          <li class="nav-item" v-if="lang === 'zh-CN' && hide">
             <a href="https://cn.vuejs.org/v2/guide/" target="_blank"><span>Vue 中文文档</span><svg style="vertical-align:middle;padding-left:5px;" viewBox="0 0 1024 1024" width="12" height="12"><defs></defs><path d="M864 640a32 32 0 0 1 64 0v224.096A63.936 63.936 0 0 1 864.096 928H159.904A63.936 63.936 0 0 1 96 864.096V159.904C96 124.608 124.64 96 159.904 96H384a32 32 0 0 1 0 64H192.064A31.904 31.904 0 0 0 160 192.064v639.872A31.904 31.904 0 0 0 192.064 864h639.872A31.904 31.904 0 0 0 864 831.936V640z m-485.184 52.48a31.84 31.84 0 0 1-45.12-0.128 31.808 31.808 0 0 1-0.128-45.12L815.04 166.048l-176.128 0.736a31.392 31.392 0 0 1-31.584-31.744 32.32 32.32 0 0 1 31.84-32l255.232-1.056a31.36 31.36 0 0 1 31.584 31.584L924.928 388.8a32.32 32.32 0 0 1-32 31.84 31.392 31.392 0 0 1-31.712-31.584l0.736-179.392L378.816 692.48z" fill="#333333" p-id="5014"></path></svg></a>
           </li>
-          <li class="nav-item" v-if="lang === 'zh-CN'">
+          <li class="nav-item" v-if="lang === 'zh-CN' && hide">
             <a href="https://vuex.vuejs.org/zh-cn/" target="_blank"><span>Vuex 中文文档</span><svg style="vertical-align:middle;padding-left:5px;" viewBox="0 0 1024 1024" width="12" height="12"><defs></defs><path d="M864 640a32 32 0 0 1 64 0v224.096A63.936 63.936 0 0 1 864.096 928H159.904A63.936 63.936 0 0 1 96 864.096V159.904C96 124.608 124.64 96 159.904 96H384a32 32 0 0 1 0 64H192.064A31.904 31.904 0 0 0 160 192.064v639.872A31.904 31.904 0 0 0 192.064 864h639.872A31.904 31.904 0 0 0 864 831.936V640z m-485.184 52.48a31.84 31.84 0 0 1-45.12-0.128 31.808 31.808 0 0 1-0.128-45.12L815.04 166.048l-176.128 0.736a31.392 31.392 0 0 1-31.584-31.744 32.32 32.32 0 0 1 31.84-32l255.232-1.056a31.36 31.36 0 0 1 31.584 31.584L924.928 388.8a32.32 32.32 0 0 1-32 31.84 31.392 31.392 0 0 1-31.712-31.584l0.736-179.392L378.816 692.48z" fill="#333333" p-id="5014"></path></svg></a>
           </li>
           <li class="nav-item">
             <a href="/en/" v-show="hide">English</a>
             <a @click="switchLang">{{ /zh-CN/.test($route.path) ? 'English(working)' : '中文' }}</a>
+          </li>
+          <li class="search-item">
+            <algolia-search
+              :placeholder="t('Search documents')"
+              :lang="lang"
+              :emptyText="t('No search results')"></algolia-search>
           </li>
         </ul>
       </div>
@@ -140,7 +146,12 @@ const t = require('../i18n')
 const components = require('../../src/datas/vux_component_list')
 const Axios = require('axios')
 
+import AlgoliaSearch from './algolia-search'
+
 export default {
+  components: {
+    AlgoliaSearch
+  },
   async mounted () {
     this.githubStarBadge = 'https://img.shields.io/github/stars/airyland/vux.svg?style=social&amp;label=Star'
 
@@ -186,6 +197,15 @@ export default {
       // 获取统计
       const summary = await Axios.get('https://vux.li/analytics')
       this.analytics = summary.data
+    },
+    getLang () {
+      if (this.$route.path.indexOf('/en/') !== -1) {
+        return 'en'
+      }
+      if (this.$route.path.indexOf('/zh-CN/') !== -1) {
+        return 'zh-CN'
+      }
+      return 'en'
     }
   },
   computed: {
@@ -196,13 +216,7 @@ export default {
       return this.$route.path.split('/')[2]
     },
     lang () {
-      if (this.$route.path.indexOf('/en/') !== -1) {
-        return 'en'
-      }
-      if (this.$route.path.indexOf('/zh-CN/') !== -1) {
-        return 'zh-CN'
-      }
-      return 'en'
+      return this.getLang()
     }
   },
   data () {

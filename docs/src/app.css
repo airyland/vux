@@ -504,6 +504,12 @@ div.tip {
   border-bottom-color: #e2e2e2
 }
 
+.nav-list .search-item {
+  float: left;
+  position: relative;
+  top: 3px;
+}
+
 .nav-list .nav-item .arrow {
   display: inline-block;
   vertical-align: middle;
@@ -629,4 +635,13 @@ div.tip {
 
 .markdown-body table {
   border-bottom: 1px solid #ddd;
+}
+
+.algolia-search .algolia-highlight {
+  font-weight: 500;
+  font-style: normal;
+}
+
+.el-input.is-active .el-input__inner, .el-input__inner:focus {
+  border-color: #22ab28;
 }
