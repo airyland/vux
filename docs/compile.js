@@ -364,9 +364,9 @@ export default {
         </tbody>
       </table>
 
-      <h3 v-show="component.meta.events">${t('Events', lang)}</h3>
+      <h3 v-if="component.meta.events">${t('Events', lang)}</h3>
 
-      <table v-show="component.meta.events">
+      <table v-if="component.meta.events">
         <thead>
           <tr>
             <td>${t('name', lang)}</td>
