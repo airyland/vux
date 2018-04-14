@@ -24,6 +24,7 @@
     <br>
     <group label-width="5em" label-align="left">
       <x-address :title="title2" v-model="value2" raw-value :list="addressData" value-text-align="left"></x-address>
+      <x-address :title="$t('disabled')" v-model="value2" raw-value :list="addressData" disabled></x-address>
     </group>
     <br/>
     <div style="padding: 0 15px;">

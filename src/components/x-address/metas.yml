@@ -124,6 +124,11 @@ props:
     type: Boolean
     en: popup show (supports the .sync modifier next)
     zh-CN: 显示 (支持.sync修饰 next)
+  disabled:
+    version: next
+    type: Boolean
+    en: whether disabled selecting
+    zh-CN: 是否禁用选择
 slots:
   title:
     version: v2.3.8
@@ -142,6 +147,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  next:
+    en:
+      - '[feature] add prop:disabled #2641'
+    zh-CN:
+      - '[feature] 添加属性 disabled 支持禁用 #2641'
   v2.8.0:
     en:
       - '[change] remove empty root div #2371'

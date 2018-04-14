@@ -1,26 +1,35 @@
 <template>
   <popup-picker
-  :fixed-columns="hideDistrict ? 2 : 0"
-  :columns="3"
-  :data="list"
-  :title="title"
-  v-model="currentValue"
-  show-name
-  :inline-desc="inlineDesc"
-  :placeholder="placeholder"
-  @on-hide="emitHide"
-  @on-show="$emit('on-show')"
-  :value-text-align="valueTextAlign"
-  :confirm-text="confirmText"
-  :cancel-text="cancelText"
-  :display-format="displayFormat"
-  :popup-style="popupStyle"
-  :popup-title="popupTitle"
-  :show.sync="showValue"
-  @on-shadow-change="onShadowChange">
+    :fixed-columns="hideDistrict ? 2 : 0"
+    :columns="3"
+    :data="list"
+    :title="title"
+    v-model="currentValue"
+    show-name
+    :inline-desc="inlineDesc"
+    :placeholder="placeholder"
+    :value-text-align="valueTextAlign"
+    :confirm-text="confirmText"
+    :cancel-text="cancelText"
+    :display-format="displayFormat"
+    :popup-style="popupStyle"
+    :popup-title="popupTitle"
+    :show.sync="showValue"
+    :disabled="disabled"
+    @on-shadow-change="onShadowChange"
+    @on-hide="emitHide"
+    @on-show="$emit('on-show')">
     <template slot="title" slot-scope="props">
-      <slot name="title" :label-class="props.labelClass" :label-style="props.labelStyles" :label-title="props.title">
-        <label :class="[props.labelClass,labelClass]" :style="props.labelStyle" v-if="props.labelTitle" v-html="props.labelTitle"></label>
+      <slot
+        name="title"
+        :label-class="props.labelClass"
+        :label-style="props.labelStyles"
+        :label-title="props.title">
+        <label
+          :class="[props.labelClass,labelClass]"
+          :style="props.labelStyle"
+          v-if="props.labelTitle"
+          v-html="props.labelTitle"></label>
       </slot>
     </template>
   </popup-picker>
@@ -65,13 +74,14 @@ export default {
     },
     popupStyle: Object,
     popupTitle: String,
-    show: Boolean
+    show: Boolean,
+    disabled: Boolean
   },
   created () {
     if (this.currentValue.length && this.rawValue) {
       const parsedVal = name2value(this.currentValue, this.list)
       if (/__/.test(parsedVal)) {
-        console.error('Vux: Wrong address value', this.currentValue)
+        console.error('[VUX] Wrong address value', this.currentValue)
         this.currentValue = []
       } else {
         this.currentValue = parsedVal.split(' ')
