@@ -1,5 +1,7 @@
 <template>
-  <div class="vux-tab-wrap">
+  <div
+    class="vux-tab-wrap"
+    :class="barPosition === 'top' ? 'vux-tab-bar-top' : ''">
     <div class="vux-tab-container">
       <div
         class="vux-tab"
@@ -53,6 +55,13 @@ export default {
     scrollThreshold: {
       type: Number,
       default: 4
+    },
+    barPosition: {
+      type: String,
+      default: 'bottom',
+      validator (val) {
+        return ['bottom', 'top'].indexOf(val) !== -1
+      }
     }
   },
   computed: {
@@ -151,7 +160,6 @@ export default {
     position: absolute;
     height: 2px;
     bottom: 0;
-    top: 0;
     left: 0;
     background-color: @tab-bar-active-color;
     text-align: center;
@@ -166,6 +174,12 @@ export default {
     }
   }
 
+}
+
+.vux-tab-bar-top .@{prefixClass} {
+  &-ink-bar {
+    top: 0;
+  }
 }
 
 .vux-tab {
@@ -200,6 +214,17 @@ export default {
 .vux-tab .vux-tab-item.vux-tab-selected {
   color: @tab-text-active-color;
   border-bottom: 3px solid @tab-text-active-color;
+}
+
+.vux-tab-bar-top {
+  .vux-tab .vux-tab-item {
+    background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) top left no-repeat;
+    background-size: 100% 1px;
+  }
+  .vux-tab .vux-tab-item.vux-tab-selected {
+    border-bottom: none;
+    border-top: 3px solid @tab-text-active-color;
+  }
 }
 
 .vux-tab .vux-tab-item.vux-tab-disabled {

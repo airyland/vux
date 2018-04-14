@@ -7,6 +7,13 @@
     </tab>
     <br/>
     <br/>
+    <tab bar-position="top">
+      <tab-item selected @on-item-click="onItemClick">已发货</tab-item>
+      <tab-item @on-item-click="onItemClick">未发货</tab-item>
+      <tab-item @on-item-click="onItemClick">全部订单</tab-item>
+    </tab>
+    <br/>
+    <br/>
     <divider>手动切换</divider>
     <tab v-model="index01" prevent-default @on-before-index-change="switchTabItem">
       <tab-item selected>已发货</tab-item>
