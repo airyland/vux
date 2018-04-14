@@ -1,10 +1,20 @@
 <template>
-  <div class="vux-tab-warp">
+  <div class="vux-tab-wrap">
     <div class="vux-tab-container">
-      <div class="vux-tab" :class="[{'vux-tab-no-animate': !animate},{scrollable}]" ref="nav">
+      <div
+        class="vux-tab"
+        :class="[{'vux-tab-no-animate': !animate},{ scrollable }]"
+        ref="nav">
         <slot></slot>
-        <div v-if="animate" class="vux-tab-ink-bar" :class="barClass" :style="barStyle">
-          <span class="vux-tab-bar-inner" :style="innerBarStyle" v-if="customBarWidth"></span>
+        <div
+          v-if="animate"
+          class="vux-tab-ink-bar"
+          :class="barClass"
+          :style="barStyle">
+          <span
+            class="vux-tab-bar-inner"
+            :style="innerBarStyle"
+            v-if="customBarWidth"></span>
         </div>
       </div>
     </div>
@@ -141,6 +151,7 @@ export default {
     position: absolute;
     height: 2px;
     bottom: 0;
+    top: 0;
     left: 0;
     background-color: @tab-bar-active-color;
     text-align: center;
@@ -225,7 +236,7 @@ export default {
   vertical-align: middle;
 }
 
-.vux-tab-warp {
+.vux-tab-wrap {
   position: relative;
   padding-top: 44px;
 }

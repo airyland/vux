@@ -1,12 +1,18 @@
 <template>
   <div
     class="vux-tab-item"
-    :class="[currentSelected ? activeClass : '', {'vux-tab-selected': currentSelected, 'vux-tab-disabled': disabled}]"
+    :class="[currentSelected ? activeClass : '', {
+      'vux-tab-selected': currentSelected,
+      'vux-tab-disabled': disabled 
+    }]"
     :style="style"
     @click="onItemClick">
     <slot></slot>
     <span
-      :style="{background: badgeBackground, color: badgeColor}"
+      :style="{
+        background: badgeBackground,
+        color: badgeColor
+      }"
       class="vux-tab-item-badge"
       v-if="typeof badgeLabel !== 'undefined' && badgeLabel !== ''">
     {{ badgeLabel }}</span>
