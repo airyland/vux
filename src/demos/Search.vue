@@ -2,25 +2,31 @@
   <div>
     <img src="https://ws1.sinaimg.cn/large/663d3650gy1fq685v5csyj208c06ygm0.jpg" style="width: 100%">
     <search
-    @result-click="resultClick"
-    @on-change="getResult"
-    :results="results"
-    v-model="value"
-    position="absolute"
-    auto-scroll-to-top top="46px"
-    @on-focus="onFocus"
-    @on-cancel="onCancel"
-    @on-submit="onSubmit"
-    ref="search"></search>
+      @result-click="resultClick"
+      @on-change="getResult"
+      :results="results"
+      v-model="value"
+      position="absolute"
+      auto-scroll-to-top
+      top="46px"
+      @on-focus="onFocus"
+      @on-cancel="onCancel"
+      @on-submit="onSubmit"
+      ref="search"></search>
     <group>
-      <cell title="keyword">{{value}}</cell>
+      <cell title="keyword">{{ value }}</cell>
     </group>
 
     <div style="padding:15px;">
-      <x-button @click.native="setFocus" type="primary">set focus</x-button>
+      <x-button
+        @click.native="setFocus"
+        type="primary">set focus</x-button>
     </div>
     <group>
-      <cell title="static position demo" is-link link="/component/search-static"></cell>
+      <cell
+        title="static position demo"
+        is-link
+        link="/component/search-static"></cell>
     </group>
   </div>
 </template>
