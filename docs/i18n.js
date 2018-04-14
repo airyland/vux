@@ -24,6 +24,9 @@ const list = {
   Components: {
     'zh-CN': '组件'
   },
+  Component: {
+    'zh-CN': '组件'
+  },
   Releases: {
     'zh-CN': '发布日志'
   },
@@ -75,6 +78,18 @@ const list = {
     'zh-CN': '插槽'
   },
   'Functions': {
+    'zh-CN': '方法'
+  },
+  'Prop': {
+    'zh-CN': '属性'
+  },
+  'Event': {
+    'zh-CN': '事件'
+  },
+  'Slot': {
+    'zh-CN': '插槽'
+  },
+  'Function': {
     'zh-CN': '方法'
   },
   'Related issues': {

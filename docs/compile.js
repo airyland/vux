@@ -279,6 +279,24 @@ export default {
       url: `/${lang}/components/${componentName}.html`
     })
 
+    const list = ['Props', 'Events', 'Slots', 'Functions']
+
+    list.forEach(block => {
+      const key = block.toLowerCase()
+      if (metas[key]) {
+        for (let prop in metas[key]) {
+          contents.push({
+            lang: lang,
+            category: t('Component', lang) + ' ' + importName + ' ' + t(block.replace(/s$/, ''), lang),
+            title: prop,
+            url: `/${lang}/components/${componentName}.html#${key}-${prop}`,
+            content: metas[key][prop][lang]
+          })
+        }
+      }
+    })
+
+
     let _globalImportCode = `// ${t('globally register', lang)}\n\nimport Vue from 'vue'\nimport { ${importList.map(one => one.importName).join(', ')} } from 'vux'\n\n`
     const urlWithNoTransition = `https://vux.li/demos/v2?locale=${lang}&transition=none/#/component/${componentName}`
 

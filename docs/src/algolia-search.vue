@@ -1,6 +1,5 @@
 <template>
   <el-autocomplete
-    v-if="hasReady"
     v-model="query"
     size="small"
     :popper-class="`algolia-search${ isEmpty ? ' is-empty' : '' }`"
@@ -155,7 +154,6 @@
     },
     data() {
       return {
-        hasReady: false,
         index: null,
         query: '',
         isEmpty: false,
@@ -192,7 +190,7 @@
       },
       querySearch(query, cb) {
         if (!query) return;
-        this.index.search({ query, hitsPerPage: 6 }, (err, res) => {
+        this.index.search({ query, hitsPerPage: 50 }, (err, res) => {
           if (err) {
             console.error(err);
             return;
@@ -218,6 +216,11 @@
                 content: content.replace(/<em>/g, '<em class="algolia-highlight">'),
                 category: hit.category
               };
+            }).sort((a, b) => {
+              if (a.category === '组件' || a.category === 'Component') {
+                return -1
+              }
+              return 1
             }).concat({ img: true }));
           } else {
             this.isEmpty = true;
@@ -232,7 +235,6 @@
     },
     mounted() {
       this.initIndex();
-      this.hasReady = true
     }
   };
 </script>
