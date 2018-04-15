@@ -123,6 +123,7 @@ const list = {
     'zh-CN': '说明'
   },
   'default value': {
+    en: 'default',
     'zh-CN': '默认值'
   },
   'Total commits quantity:': {

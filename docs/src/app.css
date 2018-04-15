@@ -136,7 +136,7 @@ tr.slot-disabled {
 
 .chapter-page-item a {
   font-size: 14px;
-  color: #888;
+  color: #666;
   height: 30px;
   line-height: 30px;
   text-decoration: none;
@@ -285,7 +285,7 @@ tr.slot-disabled {
 }
 .header-nav {
   position: fixed;
-  left: 360px;
+  left: 341px;
   top: 0;
   background-color: #fff;
   z-index: 888;
@@ -584,7 +584,7 @@ div.tip {
 }
 
 .chapter-page-item {
-  font-family: Menlo,'Menlo Regular',Consolas,monospace;
+  font-weight: 300;
 }
 
 .contributor-item {
