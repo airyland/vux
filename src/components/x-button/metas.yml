@@ -16,8 +16,8 @@ props:
   type:
     type: String
     default: default
-    en: button style type, one of default, primary, warn
-    zh-CN: 按钮类型，可选值为 `default,primary,warn`
+    en: button style type, one of `default`, `primary`, `warn`
+    zh-CN: 按钮类型，可选值为 `default`,`primary`,`warn`
   disabled:
     type: Boolean
     default: false
@@ -60,6 +60,11 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
+  next:
+    en:
+      - '[feature] support plain for warn-button #2478'
+    zh-CN:
+      - '[feature] warn 类型支持 plain 样式 #2478'
   v2.7.5:
     en:
       - '[fix] fix plain and disabled class error'

@@ -24,6 +24,28 @@
         border-width: 0;
     }
 }
+
+/*
+* added by VUX
+*/
+button.weui-btn.weui-btn_plain-warn, input.weui-btn.weui-btn_plain-warn {
+    border-width: 1px;
+    background-color: transparent;
+}
+
+.weui-btn_plain-warn {
+    color: @weuiBtnPlainWarnColor;
+    border-color: @weuiBtnPlainWarnBorderColor;
+    background: transparent;
+    &:not(.weui-btn_plain-disabled):active {
+        color:@weuiBtnPlainWarnActiveColor;
+        border-color: @weuiBtnPlainWarnActiveBorderColor;
+    }
+    &:after {
+        border-width: 0;
+    }
+}
+
 .weui-btn_plain-disabled{
     color:rgba(0,0,0,.2);
     border-color:rgba(0,0,0,.2);

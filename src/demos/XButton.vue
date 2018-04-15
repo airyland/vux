@@ -1,13 +1,5 @@
 <template>
   <div>
-    <divider>iOS Gradients(v2.7.4)</divider>
-    <box gap="10px 10px">
-      <x-button :gradients="['#1D62F0', '#19D5FD']">iOS Gradients</x-button>
-      <x-button :gradients="['#A644FF', '#FC5BC4']">iOS Gradients</x-button>
-      <x-button :gradients="['#FF2719', '#FF61AD']">iOS Gradients</x-button>
-      <x-button :gradients="['#6F1BFE', '#9479DF']">iOS Gradients</x-button>
-      <x-button :gradients="['#FF5E3A', '#FF9500']">iOS Gradients</x-button>
-    </box>
     <divider>default</divider>
     <box gap="10px 10px">
       <x-button>submit</x-button>
@@ -34,12 +26,14 @@
       <br>
       <x-button mini plain>submit</x-button>
       <x-button mini plain type="primary">primary</x-button>
+      <x-button mini plain type="warn">primary</x-button>
 
       <divider>plain</divider>
       <x-button plain>submit</x-button>
       <x-button plain type="primary">primary</x-button>
+      <x-button plain type="warn">warn</x-button>
 
-      <divider>you can custom styles</divider>
+      <divider>you can customize styles</divider>
       <x-button plain type="primary" style="border-radius:99px;">primary</x-button>
       <x-button plain type="primary" class="custom-primary-red">primary</x-button>
 
@@ -80,6 +74,15 @@
         </flexbox-item>
       </flexbox>
 
+    </box>
+
+    <divider>iOS Gradients(v2.7.4)</divider>
+    <box gap="10px 10px">
+      <x-button :gradients="['#1D62F0', '#19D5FD']">iOS Gradients</x-button>
+      <x-button :gradients="['#A644FF', '#FC5BC4']">iOS Gradients</x-button>
+      <x-button :gradients="['#FF2719', '#FF61AD']">iOS Gradients</x-button>
+      <x-button :gradients="['#6F1BFE', '#9479DF']">iOS Gradients</x-button>
+      <x-button :gradients="['#FF5E3A', '#FF9500']">iOS Gradients</x-button>
     </box>
 
   </div>
