@@ -13,10 +13,10 @@ props:
     en: top line's width
     zh-CN: 线条宽度
   stroke-color:
-    type: String
+    type: String, Array
     default: '#3FC7FA'
     en: top line's color
-    zh-CN: 线条颜色
+    zh-CN: 线条颜色，数组时表示渐变
   trail-width:
     type: Number
     default: 1
