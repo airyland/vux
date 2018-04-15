@@ -652,3 +652,29 @@ div.tip {
   color: #d95353;
   font-weight: 300;
 }
+
+.prop-name > span {
+  cursor: pointer;
+}
+
+.prop-name > span:hover {
+  background-color: green;
+  color: #fff;
+}
+
+.import-code-box {
+  width: 600px;
+  position: relative;
+}
+
+.import-code-box:hover .el-tooltip {
+  color: #666;
+}
+
+.import-code-box .el-tooltip {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #ccc;
+  cursor: pointer;
+}

@@ -243,13 +243,14 @@ components.forEach((file) => {
   }
   const parseReg = '`(.*?)`'
   const url = `https://vux.li/demos/v2/#/component/${componentName}`
-  const localImportCode = colorCode('js', `import { ${importList.map(one => one.importName).join(', ')} } from 'vux'
+  const _localImportCode = `import { ${importList.map(one => one.importName).join(', ')} } from 'vux'
 
 export default {
   components: {
     ${importList.map(one => one.importName).join(',\n    ')}
   }
-}`)
+}`
+  const localImportCode = colorCode('js', _localImportCode)
 
   let exampleCode = ''
   if (metas.example) {
@@ -333,11 +334,27 @@ export default {
       <iframe src="${urlWithNoTransition}" width="375" height="600" border="0" frameborder="0"></iframe>
     </div>
 
-    <div style="width:600px;">
+    <div class="import-code-box">
+      <el-tooltip content="${t('click to copy', lang)}" placement="top">
+        <span
+          v-clipboard:copy="localImportCode"
+          v-clipboard:success="onCopy"
+          v-clipboard:error="onCopyError">
+          <el-icon class="el-icon-document"></el-icon>
+        </span>
+      </el-tooltip>
       ${localImportCode}
     </div>
 
-    <div style="width:600px;">
+    <div class="import-code-box">
+      <el-tooltip content="${t('click to copy', lang)}" placement="top">
+        <span
+          v-clipboard:copy="globalImportCode"
+          v-clipboard:success="onCopy"
+          v-clipboard:error="onCopyError">
+          <el-icon class="el-icon-document"></el-icon>
+        </span>
+      </el-tooltip>
       ${globalImportCode}
     </div>
 
@@ -373,7 +390,13 @@ export default {
         </thead>
         <tbody>
           <tr v-for="(prop, i) in component.meta.props">
-            <td class="prop-name">{{ i }}</td>
+            <td class="prop-name">
+              <el-tooltip content="${t('click to copy', lang)}" placement="left" :open-delay="200">
+                <span
+                v-clipboard:copy="i"
+                v-clipboard:success="onCopy">{{ i }}</span>
+              </el-tooltip>
+            </td>
             <td v-html="getTypeHTML(prop.type)"></td>
             <td>{{ prop.default}}</td>
             <td v-html="prop['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
@@ -395,7 +418,13 @@ export default {
         </thead>
         <tbody>
           <tr v-for="(event, i) in component.meta.events">
-            <td class="prop-name">{{ i }}</td>
+            <td class="prop-name">
+              <el-tooltip content="${t('click to copy', lang)}" placement="left" :open-delay="200">
+                <span
+                v-clipboard:copy="i"
+                v-clipboard:success="onCopy">{{ i }}</span>
+              </el-tooltip>
+            </td>
             <td v-html="event.params ? event.params.replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
             <td v-html="event['${lang}'] ? event['${lang}'].replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
             <td>{{ event['version'] || '--' }}</td>
@@ -415,7 +444,13 @@ export default {
         </thead>
         <tbody>
           <tr v-for="(slot, i) in component.meta.slots" :class="{'slot-disabled': slot['status'] === 'deprecated'}">
-            <td class="prop-name">{{ i }}</td>
+            <td class="prop-name">
+              <el-tooltip content="${t('click to copy', lang)}" placement="left" :open-delay="200">
+                <span
+                v-clipboard:copy="i"
+                v-clipboard:success="onCopy">{{ i }}</span>
+              </el-tooltip>
+            </td>
             <td v-html="slot['${lang}'] ? slot['${lang}'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
             <td>{{ slot['version'] || '--' }}</td>
           </tr>
@@ -434,7 +469,13 @@ export default {
           </thead>
           <tbody>
             <tr v-for="(method, i) in component.meta.methods">
-              <td class="prop-name">{{ i }}</td>
+              <td class="prop-name">
+                <el-tooltip content="${t('click to copy', lang)}" placement="left" :open-delay="200">
+                  <span
+                  v-clipboard:copy="i"
+                  v-clipboard:success="onCopy">{{ i }}</span>
+                </el-tooltip>
+              </td>
               <td v-html="method['params'] ? method['params'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
               <td v-html="method['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
               <td>{{ method['version'] }}</td>
@@ -558,6 +599,18 @@ export default {
       this.hasReady = true
     },
     methods: {
+      onCopyError () {
+        this.$message({
+          type: 'error',
+          message: '${t('copy fail!', lang)}'
+        })
+      },
+      onCopy () {
+        this.$message({
+          type: 'success',
+          message: '${t('copy done!', lang)}'
+        })
+      },
       showSourceCode () {
         this.sourceCodeDialogVisibility = true
       },
@@ -598,7 +651,9 @@ export default {
         showQr: false,
         metas: metas,
         gitMetas,
-        componentList
+        componentList,
+        localImportCode: \`${_localImportCode}\`,
+        globalImportCode: \`${_globalImportCode}\`
       }
     }
   }
@@ -665,6 +720,7 @@ routes.push({
 const ori = fs.readFileSync(getPath('./src/index.js'), 'utf-8')
 fs.writeFileSync(getPath('./src/_index.js'), ori.replace('const routes = []', `const routes = []\n${str}`))
 fs.writeFileSync(getPath('./src/routes.json'), JSON.stringify(paths, null, 2))
+fs.writeFileSync(getPath('./sitemap.txt'), paths.map(path => `https://doc.vux.li${path}`).join('\n'))
 
 fs.writeFileSync(getPath('./algolia.json'), JSON.stringify(contents, null, 2))
 

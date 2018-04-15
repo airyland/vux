@@ -153,6 +153,15 @@ const list = {
   },
   'No search results': {
     'zh-CN': 'Sorry，无搜索结果'
+  },
+  'click to copy': {
+    'zh-CN': '点击复制'
+  },
+  'copy done!': {
+    'zh-CN': '复制成功'
+  },
+  'copy fail!': {
+    'zh-CN': '复制失败'
   }
 }
 
