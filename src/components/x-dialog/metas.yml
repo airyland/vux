@@ -135,8 +135,10 @@ slots:
 changes:
   next:
     en:
+      - '[feature] support variable dialog-gap-width #2640'
       - '[enhance] support dialog-width and dialog-max-width variable #2577'
     zh-CN:
+      - '[feature] 支持样式变量 dialog-gap-width #2640'
       - '[enhance] 支持样式变量 dialog-width and dialog-max-width #2577'
   v2.7.4:
     en:
