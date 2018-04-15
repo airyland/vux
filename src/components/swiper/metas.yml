@@ -19,7 +19,6 @@ extra: |
     }]
     ```
 
-    <br>
     `fallbackImg` 在 `v2.5.13` 支持，它将在 `img` 加载失败时显示，注意的是 `fallbackImg` 可能会在 `img` 加载成功时也进行了加载，只是不会显示（取决于浏览器实现）。
 
   :::
@@ -28,19 +27,22 @@ extra: |
   不要在`swiper`里嵌套`scroller`，在`web`上过于复杂化而且手势会有冲突，相关`Issue`将不会处理。
   <br>
   <br>
-  需要注意的是，在使用 `swiper-item` 而非 `list` 图片列表时，如果只有两项，将无法实现 `loop` 循环播放。
-  <br>
-  <br>
   该组件场景是固定高度的内容列表，不支持为不同 swiper-item 设置不同高度。
   <br>
   <br>
   如果确实需要设置不同高度，可以通过 ref 获取 swiper, 通过 this.$refs.swiper.xheight = '100px' 设置。 切记，需要放在 $nextTick 中执行。
   :::
+tips:
+  zh-CN:
+    -
+      q: swiper-item 只有两项时无法循环播放
+      a: |
+        是的，建议直接使用 `list` 来实现循环。因为实现原理是对`swiper-item`元素进行移动，需要至少有`3`个`swiper-item`才能保证有上一张和下一张可以切换。
 props:
   list:
     type: Array
-    en: image list
-    zh-CN: 图片列表
+    en: image list, use swiper-item if you need to customize style
+    zh-CN: 轮播图片列表，如果有自定义样式需求，请使用 swiper-item(使用 swiper-item 时仅有2个的情况下不支持循环)
   direction:
     type: String
     default: horizontal
@@ -124,7 +126,7 @@ changes:
       - '[fix] fix cannot scroll body when touching with one item'
     zh-CN:
       - '[fix] 修复只有一个 item 时无法滚动页面的问题'
-  2.7.6:
+  v2.7.6:
     en:
       - '[enhance] stop moving width one item'
     zh-CN:
