@@ -117,20 +117,33 @@ props:
 events:
   on-click-menu:
     params: (menuKey, menuItem)
-    en: triggers when clicking on the menu
+    en: fires when clicking on the menu
     zh-CN: 点击菜单时触发
   on-click-menu-{menuKey}:
     params: (menuKey)
     en: shortcut event for easier listening, `menuKey` is related to `label`. For exapmple, you can listen on `on-click-menu-delete` if you have a menu named `delete`
     zh-CN: 点击事件的快捷方式, `menuKey`与`label`的值有关。举例：如果你有一个菜单名字为`delete`, 那么你可以监听 `on-click-menu-delete`
   on-click-menu-cancel:
-    en: triggers when clicking on the cancel menu
+    en: fires when clicking on the cancel menu
     zh-CN: 点击取消菜单时触发
   on-click-mask:
     version: v2.3.4
-    en: triggers when clicking on mask
+    en: fires when clicking on mask
     zh-CN: 点击遮罩时触发
+  on-after-show:
+    version: next
+    en: fires when show transition ends
+    zh-CN: 显示动画结束时触发
+  on-after-hide: 
+    version: next
+    en: fires when hide transition ends
+    zh-CN: 隐藏动画结束时触发
 changes:
+  next:
+    en:
+      - '[feature] add event:on-after-show event:on-after-hide #2465'
+    zh-CN:
+      - '[feature] 支持 事件 on-after-show on-after-hide #2465'
   v2.7.4:
     en:
       - '[fix] fix wrong event param when value is zero #2209'

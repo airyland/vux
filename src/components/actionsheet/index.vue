@@ -1,31 +1,60 @@
 <template>
   <div class="vux-actionsheet">
+
     <transition name="vux-actionsheet-mask">
-      <div class="weui-mask weui-mask_transparent" @click="onClickingMask" v-show="show"></div>
+      <div
+        class="weui-mask weui-mask_transparent"
+        @click="onClickingMask"
+        v-show="show"></div>
     </transition>
-    <div class="weui-skin_android" v-if="theme === 'android'">
-      <transition name="vux-android-actionsheet">
-        <div class="weui-actionsheet" v-show="show">
+
+    <div
+      class="weui-skin_android"
+      v-if="theme === 'android'">
+      <transition
+        name="vux-android-actionsheet"
+        @after-enter="$emit('on-after-show')"
+        @after-leave="$emit('on-after-hide')">
+        <div
+          class="weui-actionsheet"
+          v-show="show">
           <div class="weui-actionsheet__menu">
-            <div class="weui-actionsheet__cell" v-for="(text, key) in menus" @click="
-              onMenuClick(text, key)" v-html="$t(text.label || text)">
+            <div
+              class="weui-actionsheet__cell"
+              v-for="(text, key) in menus"
+              @click="onMenuClick(text, key)"
+              v-html="$t(text.label || text)">
             </div>
           </div>
         </div>
       </transition>
     </div>
-    <div class="weui-actionsheet" :class="{'weui-actionsheet_toggle': show}" v-else>
+
+    <div
+      class="weui-actionsheet"
+      :class="{'weui-actionsheet_toggle': show}"
+      v-else
+      ref="iOSMenu">
       <div class="weui-actionsheet__menu">
         <div class="weui-actionsheet__cell" v-if="hasHeaderSlot">
           <slot name="header"></slot>
         </div>
-        <div class="weui-actionsheet__cell" v-for="(text, key) in menus" @click="onMenuClick(text, key)" v-html="$t(text.label || text)" :class="`vux-actionsheet-menu-${text.type || 'default'}`">
+        <div
+          class="weui-actionsheet__cell"
+          v-for="(text, key) in menus"
+          @click="onMenuClick(text, key)"
+          v-html="$t(text.label || text)"
+          :class="`vux-actionsheet-menu-${text.type || 'default'}`">
         </div>
       </div>
-      <div class="weui-actionsheet__action" @click="emitEvent('on-click-menu', 'cancel')" v-if="showCancel">
+      <div
+        class="weui-actionsheet__action"
+        @click="emitEvent('on-click-menu', 'cancel')"
+        v-if="showCancel">
         <div class="weui-actionsheet__cell">{{cancelText || $t('cancel')}}</div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -42,6 +71,7 @@ export default {
     this.hasHeaderSlot = !!this.$slots.header
     this.$nextTick(() => {
       this.$tabbar = document.querySelector('.weui-tabbar')
+      this.$refs.iOSMenu && this.$refs.iOSMenu.addEventListener('transitionend', this.onTransitionEnd)
     })
   },
   props: {
@@ -72,6 +102,9 @@ export default {
     }
   },
   methods: {
+    onTransitionEnd () {
+      this.$emit(this.show ? 'on-after-show' : 'on-after-hide')
+    },
     onMenuClick (text, key) {
       if (typeof text === 'string') {
         this.emitEvent('on-click-menu', key, text)
@@ -130,6 +163,7 @@ export default {
   },
   beforeDestroy () {
     this.fixIos(100)
+    this.$refs.iOSMenu && this.$refs.iOSMenu.removeEventListener('transitionend', this.onTransitionEnd)
   }
 }
 </script>
