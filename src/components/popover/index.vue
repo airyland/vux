@@ -4,7 +4,9 @@
       <slot>
       </slot>
     </span>
-    <div class="vux-popover"
+    <div
+      class="vux-popover"
+      v-transfer-dom
       ref="popover"
       :style="popoverStyle"
       v-show="show">
@@ -20,11 +22,38 @@
 
 <script>
 import ClickOutside from '../../directives/click-outside'
+import TransferDom from '../../directives/transfer-dom'
 
 export default {
   name: 'popover',
   mounted () {
     this.$nextTick(() => {
+      this.init()
+      window.addEventListener('resize', this.reset)
+    })
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.reset)
+  },
+  directives: {
+    TransferDom,
+    ClickOutside
+  },
+  props: {
+    content: String,
+    placement: String,
+    gutter: {
+      type: Number,
+      default: 5
+    }
+  },
+  methods: {
+    reset () {
+      if (this.show) {
+        this.init(true)
+      }
+    },
+    init (isReset) {
       const trigger = this.$refs.trigger.children[0]
       const popover = this.$refs.popover
       switch (this.placement) {
@@ -47,26 +76,16 @@ export default {
         default:
           console.warn('Wrong placement prop')
       }
-      this.show = false
+      if (!isReset) {
+        this.show = false
+      }
+
       this.popoverStyle = {
         top: this.position.top + 'px',
         left: this.position.left + 'px',
-        display: 'none'
+        display: isReset ? this.popoverStyle.display : 'none'
       }
-    })
-  },
-  directives: {
-    ClickOutside
-  },
-  props: {
-    content: String,
-    placement: String,
-    gutter: {
-      type: Number,
-      default: 5
-    }
-  },
-  methods: {
+    },
     onClickedOutside () {
       if (this.show) {
         this.show = false
@@ -75,6 +94,11 @@ export default {
     },
     toggle () {
       this.show = !this.show
+      if (this.show) {
+        this.$nextTick(() => {
+          this.init(true)
+        })
+      }
       this.$emit(`on-${this.show === true ? 'show' : 'hide'}`)
     }
   },
