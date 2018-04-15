@@ -35,7 +35,7 @@
     </group>
 
     <group title="disabled">
-      <x-input title='value' disabled v-model="disabledValue"></x-input>
+      <x-input title='value' text-align="right" disabled v-model="disabledValue"></x-input>
     </group>
 
     <group title="set type = tel">

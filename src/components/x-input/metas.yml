@@ -150,10 +150,12 @@ methods:
 changes:
   next:
     en:
+      - '[fix] fix disabled style in iOS #2458'
       - '[change] show clear icon only when input gets focus #2567'
       - '[feature] add event:on-click-clear-icon #2603'
       - '[enhance] scroll input element into view when getting focus #2604'
     zh-CN:
+      - '[fix] 修复 disabled 样式在 iOS 下过浅的问题 #2458'
       - '[change] 仅在获得焦点时显示清除按钮 #2567'
       - '[feature] 支持事件 on-click-clear-icon #2603'
       - '[enhance] 获得焦点时滚动到可视区域(Android) #2604'

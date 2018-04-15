@@ -558,7 +558,11 @@ export default {
   padding-bottom: 0;
 }
 .vux-x-input.disabled {
-  color: rgba(0, 0, 0, 0.3);
+  .weui-input {
+    text-fill-color: #888;
+    -webkit-text-fill-color: #888; /* Override iOS / Android font color change */
+    opacity: 1; /* Override iOS opacity change affecting text & background color */
+  }
 }
 .vux-x-input-right-full {
   margin-left: 5px;
