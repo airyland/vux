@@ -188,7 +188,7 @@ export default {
       }
     }
 
-    if (this.required && typeof this.currentValue === 'undefined') {
+    if (this.required && (typeof this.currentValue === 'undefined' || this.currentValue === '')) {
       this.valid = false
     }
     this.handleChangeEvent = true
