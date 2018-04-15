@@ -101,6 +101,9 @@ function showMask () {
     MASK.addEventListener('click', function () {
       CURRENT_PICKER && CURRENT_PICKER.hide('cancel')
     }, false)
+    MASK.addEventListener('touchmove', function (e) {
+      e.preventDefault()
+    }, false)
   }
 
   MASK.style.display = 'block'
