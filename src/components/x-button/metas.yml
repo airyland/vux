@@ -6,12 +6,19 @@ tags:
   zh-CN:
     - 表单
     - 按钮
-extra: |
-
- ::: warning
-  按照`Vue`[文档](https://cn.vuejs.org/v2/guide/components.html#使用-v-on-绑定自定义事件)，在组件上绑定点击事件请使用`@click.native`。
- :::
-
+tips:
+  en:
+    -
+      q: |
+        @click event binding not working
+      a: |
+        As `Vue`[document](https://vuejs.org/v2/guide/components-custom-events.html#Binding-Native-Events-to-Components) says，use `.native` modifier for `v-on`, so you should use `@click.native`。
+  zh-CN:
+    -
+      q: |
+        @click 绑定事件不生效
+      a: |
+        按照`Vue`[文档](https://cn.vuejs.org/v2/guide/components.html#%E7%BB%99%E7%BB%84%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6)，在组件上绑定原生点击事件请使用`@click.native`。
 props:
   type:
     type: String

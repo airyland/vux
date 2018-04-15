@@ -441,16 +441,19 @@ export default {
             </tr>
           </tbody>
         </table>
-
-        <h3 v-if="component.meta.tips && component.meta.tips['${lang}']">${t('Tips', lang)}</h3>
-        <div v-if="component.meta.tips && component.meta.tips['${lang}']">
-          <ul>
-            <li v-for="tip in component.meta.tips['${lang}']">
-            <el-tag size="mini" type="success" class="component-tip-tag">Q</el-tag> <span class="component-tip-question">{{ tip.q }}</span>
-            <div v-html="tip.a" class="tip-answer-box"></div>
-            </li>
-          </ul>
-        </div>
+  
+        <template v-if="component.meta.tips && component.meta.tips['${lang}']">
+          <br>
+          <h3>${t('Tips', lang)}</h3>
+          <div>
+            <ul>
+              <li v-for="tip in component.meta.tips['${lang}']">
+              <el-tag size="mini" type="success" class="component-tip-tag">Q</el-tag> <span class="component-tip-question">{{ tip.q }}</span>
+              <div v-html="tip.a" class="tip-answer-box"></div>
+              </li>
+            </ul>
+          </div>
+        </template>
     </template>
 
     <!--<h3>社区相关讨论</h3>
