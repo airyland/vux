@@ -359,7 +359,7 @@ export default {
     </div>
 
     <template v-for="component in componentList">
-      <h2 v-show="componentList.length > 1">{{ component.name }}</h2>
+      <h2 v-show="componentList.length > 1" class="vux-component-name-sub-item">{{ component.name }}</h2>
       <h3 v-if="component.meta.props">${t('Props', lang)}</h3>
       <table v-if="component.meta.props">
         <thead>

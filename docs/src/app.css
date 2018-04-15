@@ -645,3 +645,10 @@ div.tip {
 .el-input.is-active .el-input__inner, .el-input__inner:focus {
   border-color: #22ab28;
 }
+
+.markdown-body h2.vux-component-name-sub-item {
+  font-family: "Helvetica Neue","Open Sans",Arial,sans-serif;
+  font-size: 2.3em;
+  color: #d95353;
+  font-weight: 300;
+}
