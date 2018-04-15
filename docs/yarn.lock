@@ -4753,9 +4753,9 @@ uuid@^3.0.0:
   version "3.1.0"
   resolved "http://registry.npm.taobao.org/uuid/download/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
 
-v-markdown-loader@^0.6.3-beta.4:
-  version "0.6.3-beta.4"
-  resolved "http://registry.npm.taobao.org/v-markdown-loader/download/v-markdown-loader-0.6.3-beta.4.tgz#5a8c5f0d79124410fc8fcdc783bb1763ba4bf39b"
+v-markdown-loader@0.6.3:
+  version "0.6.3"
+  resolved "http://registry.npm.taobao.org/v-markdown-loader/download/v-markdown-loader-0.6.3.tgz#2c34c843c9e0dead5072106a925c4b72b3a73854"
   dependencies:
     cheerio "^0.20.0"
     highlight.js "^9.4.0"

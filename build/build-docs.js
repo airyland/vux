@@ -685,8 +685,16 @@ function buildChanges(infos, lang = 'zh-CN') {
       }
     }
   })
+  const titleMapSum = {
+    en: 'releases',
+    'zh-CN': '发布日志'
+  }
+  const suffixMap = {
+    en: ' | VUX - Vue.js Mobile UI Component Framework',
+    'zh-CN': ' | VUX - 基于 WeUI 和 Vue 的移动端组件库'
+  }
   let str = `---
-title: VUX 发布日志
+title: VUX ${titleMapSum[lang]}${suffixMap[lang]}
 ---\n`
 
   rs = sortObj(rs, {
@@ -723,9 +731,14 @@ title: VUX 发布日志
     }
   }
 
+  const titleMap = {
+    en: 'released',
+    'zh-CN': '发布日志'
+  }
+
   for (let i in releases) {
     const release = releases[i]
-    let file = getPath(`../docs//${lang}/changelog/${i}.md`)
+    let file = getPath(`../docs/${lang}/changelog/${i}.md`)
     let htmlFile = getPath(`../docs/changes/${lang}/${i}.html`)
 
     let data = {
@@ -735,7 +748,7 @@ title: VUX 发布日志
       components: []
     }
     let content = `---
-title: VUX ${_camelCase(i)} 发布日志
+title: VUX ${_camelCase(i)} ${titleMap[lang]}${suffixMap[lang]}
 ---`
     for (let j in release) {
       content += `\n## ${_camelCase(j)}\n`

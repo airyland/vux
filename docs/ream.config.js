@@ -4,6 +4,7 @@ var customContainer = require('markdown-it-container')
 var emoji = require('markdown-it-emoji');
 var markdown = require('markdown-it')({
   titleSuffix: ' | VUX - Vue 移动端 UI 组件库',
+  ignoreSuffixChar: '|',
   html: true,
   breaks: true,
   typographer: true,

@@ -18,7 +18,7 @@
     "markdown-it-emoji": "^1.3.0",
     "markdown-it-task-lists": "^2.0.0",
     "nprogress": "^0.2.0",
-    "v-markdown-loader": "^0.6.3-beta.4",
+    "v-markdown-loader": "0.6.3",
     "vue": "2.5.16",
     "vue-meta": "^1.0.4",
     "vue-template-compiler": "2.5.16",

@@ -22,7 +22,7 @@
         </div>
         <div class="analytics">
           <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_30m.quantity }}</span><br>▴<br></p>
-          <p style="font-size:12px;">{{ t('Realtime developers') }}
+          <p style="font-size:12px;">{{ t('Online developers') }}
             <el-popover trigger="hover" v-if="hasReady && lang === 'zh-CN'">
               <i class="el-icon-info" slot="reference"></i>
               <p>该数值表示当前正在进行 VUX(Vue) 开发的唯一用户数，非文档站访问数。
