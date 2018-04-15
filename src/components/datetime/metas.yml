@@ -180,6 +180,11 @@ props:
     type: Function
     en: 'dynamically set days list, params `({year, month, min, max}, generateRange)`'
     zh-CN: '动态设置日期列表，参数为 `({year, month, min, max}, generateRange)`'
+  order-map:
+    version: next
+    type: Object
+    en: 'set column order, `{year: 1, month: 2, day: 3, hour: 4, minute: 5, noon: 6}`'
+    zh-CN: '自定义列顺序, 如 `{year: 1, month: 2, day: 3, hour: 4, minute: 5, noon: 6}`'
 slots:
   default:
     en: trigger element content
@@ -216,11 +221,13 @@ events:
 changes:
   next:
     en:
+      - '[feature] support order-map to customize column orders #2300'
       - '[fix] fix mask cause body scroll in iOS #2593'
       - '[feature] add arg:value for event:on-confirm #2632'
       - '[fix] fire event:on-confirm after nextTick #2632'
       - '[feature] support format YYYY-MM-DD A #2627 @jack87918'
     zh-CN:
+      - '[feature] 支持使用 order-map 自定义列顺序 #2300'
       - '[fix] 修复遮罩导致页面滚动 #2593'
       - '[feature] 事件 on-confirm 添加当前值 #2632'
       - '[fix] 在 nextTick 后触发 on-confirm 事件 #2632'

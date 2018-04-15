@@ -111,6 +111,21 @@
       <x-button type="primary" plain @click.native="visibility = true">显示</x-button>
     </div>
 
+    <group :title="$t('Default format: YYYY-MM-DD')">
+      <datetime
+        :order-map="{
+          year: 3,
+          month: 2,
+          day: 1
+        }"
+        v-model="value1"
+        @on-change="change"
+        title="customize column order"
+        @on-cancel="log('cancel')"
+        @on-confirm="onConfirm"
+        @on-hide="log('hide', $event)"></datetime>
+    </group>
+
 
   </div>
 </template>

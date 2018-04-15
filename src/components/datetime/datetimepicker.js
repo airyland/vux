@@ -16,7 +16,7 @@ const TEMPLATE = `<div class="dp-container">
     <div class="dp-item" data-role="year"></div>
     <div class="dp-item" data-role="month"></div>
     <div class="dp-item" data-role="day"></div>
-  <div class="dp-item" data-role="noon"></div>
+    <div class="dp-item" data-role="noon"></div>
     <div class="dp-item" data-role="hour"></div>
     <div class="dp-item" data-role="minute"></div>
   </div>
@@ -74,7 +74,8 @@ const DEFAULT_CONFIG = {
   renderInline: false,
   computeHoursFunction: null,
   computeDaysFunction: null,
-  isOneInstance: false
+  isOneInstance: false,
+  orderMap: {}
 }
 
 function renderScroller (el, data, value, fn) {
@@ -217,7 +218,12 @@ DatetimePicker.prototype = {
     if (self.container) {
       self._show(newValueMap)
     } else {
-      const container = self.container = toElement(config.template)
+      let template = config.template
+      for (let i in config.orderMap) {
+        template = template.replace(`data-role="${i}"`, `data-role="${i}" style="order:${config.orderMap[i]}"`)
+      }
+
+      const container = self.container = toElement(template)
       if (config.isOneInstance) {
         container.id = 'vux-datetime-instance'
       }

@@ -145,7 +145,8 @@ export default {
     show: Boolean,
     defaultSelectedValue: String,
     computeHoursFunction: Function,
-    computeDaysFunction: Function
+    computeDaysFunction: Function,
+    orderMap: Object
   },
   created () {
     this.isFirstSetValue = false
@@ -209,6 +210,7 @@ export default {
         defaultSelectedValue: this.defaultSelectedValue,
         computeHoursFunction: this.computeHoursFunction,
         computeDaysFunction: this.computeDaysFunction,
+        orderMap: this.orderMap || {},
         onSelect (type, val, wholeValue) {
           if (_this.picker && _this.picker.config.renderInline) {
             _this.$emit('input', wholeValue)
