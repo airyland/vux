@@ -63,8 +63,10 @@ slots:
 changes:
   next:
     en:
+      - '[fix] add variable loading-z-index #2484'
       - '[enhance] support using empty text to hide loading text #2566'
     zh-CN:
+      - '[fix] 添加变量 loading-z-index 避免与 toast-z-index 冲突 #2484'
       - '[enhance] 支持使用空字符隐藏提示文字 #2566'
   v2.5.7:
     en:

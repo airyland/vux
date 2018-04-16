@@ -46,7 +46,7 @@ export default {
 @import '../../styles/weui/widget/weui-loading/weui-loading.less';
 
 .vux-loading .weui-toast {
-  z-index: 5001;
+  z-index: @loading-z-index;
 }
 .weui-icon_toast.weui-loading {
   margin: 30px 0 0;
