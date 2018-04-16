@@ -67,7 +67,7 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
-  next:
+  v2.9.0:
     en:
       - '[feature] support plain for warn-button #2478'
     zh-CN:

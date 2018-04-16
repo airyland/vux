@@ -68,7 +68,7 @@ props:
     en: top distance
     zh-CN: '距离顶部高度，在存在头部（如使用了`x-header`）的情况下需要设置一个距离'
   disabled:
-    version: next
+    version: v2.9.0
     type: Boolean
     default: false
     en: whether disable sticky
@@ -114,7 +114,7 @@ tips:
         相关 issue [#2601](https://github.com/airyland/vux/issues/2601)。
 
 changes:
-  next:
+  v2.9.0:
     en:
       - '[feature] add prop:disabled #2601'
       - '[enhance] add development tip if scroll-box doesnot exist'

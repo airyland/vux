@@ -61,7 +61,7 @@ slots:
     en: content area
     zh-CN: 提示文字区域
 changes:
-  next:
+  v2.9.0:
     en:
       - '[fix] add variable loading-z-index #2484'
       - '[enhance] support using empty text to hide loading text #2566'

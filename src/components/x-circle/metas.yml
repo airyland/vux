@@ -33,7 +33,7 @@ props:
     en: percentage value
     zh-CN: 进度百分比
 changes:
-  next:
+  v2.9.0:
     en:
       - '[feature] support gradient #2616 @spencer1994'
     zh-CN:

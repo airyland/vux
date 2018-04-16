@@ -143,7 +143,7 @@ methods:
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
-  next:
+  v2.9.0:
     en:
       - '[fix] fix inputAttrs issue with no-default-value #2618'
       - '[fix] fix focus auto-blur issue #2610'

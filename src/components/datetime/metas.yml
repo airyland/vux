@@ -181,7 +181,7 @@ props:
     en: 'dynamically set days list, params `({year, month, min, max}, generateRange)`'
     zh-CN: '动态设置日期列表，参数为 `({year, month, min, max}, generateRange)`'
   order-map:
-    version: next
+    version: v2.9.0
     type: Object
     en: 'set column order, `{year: 1, month: 2, day: 3, hour: 4, minute: 5, noon: 6}`'
     zh-CN: '自定义列顺序, 如 `{year: 1, month: 2, day: 3, hour: 4, minute: 5, noon: 6}`'
@@ -219,7 +219,7 @@ events:
     en: fires when confirm button is clicked
     zh-CN: 点击确定按钮时触发，等同于事件 on-hide(confirm)
 changes:
-  next:
+  v2.9.0:
     en:
       - '[feature] support order-map to customize column orders #2300'
       - '[fix] fix mask cause body scroll in iOS #2593'

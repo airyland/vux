@@ -56,13 +56,13 @@ props:
     en: whether hide popup on deactived event when using keep-alive
     zh-CN: 是否在 deactived 事件触发时自动关闭，避免在路由切换时依然显示弹窗
   should-rerender-on-show:
-    version: next
+    version: v2.9.0
     type: Boolean
     default: false
     en: whether rerender body on show
     zh-CN: 是否在显示时重新渲染内容区域(以及滚动到顶部)，适用于每次显示弹窗需要重新获取数据初始化的场景
   should-scroll-top-on-show:
-    version: next
+    version: v2.9.0
     type: Boolean
     default: false
     en: whether scroll top on show，add class vux-scrollable if you customize the scrollable div
@@ -82,7 +82,7 @@ slots:
     en: content body
     zh-CN: 弹窗主体内容
 changes:
-  next:
+  v2.9.0:
     en:
       - '[feature] support prop:should-rerender-on-show for forcing rerendering #2598'
       - '[feature] support prop:should-scroll-top-on-show for forcing scrolling top #2598'

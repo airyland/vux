@@ -77,7 +77,7 @@ tab:
       en: scroll tabs threshold
       zh-CN: 滚动阀值，超过可滚动
     bar-position:
-      version: next
+      version: v2.9.0
       type: String
       default: bottom
       en: bar position, one of [bottom, top]. only works when animate is true.
@@ -109,7 +109,7 @@ tab-item:
       en: emits when current tabItem is clicked
       zh-CN: 当前 tabItem 被点击时触发
 changes:
-  next:
+  v2.9.0:
     en:
       - '[feature] support prop:bar-position'
     zh-CN:

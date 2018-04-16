@@ -28,7 +28,7 @@ events:
     en: triggers when value change, params is (currentValue)
     zh-CN: 值变化时触发，参数为 (currentValue)
 changes:
-  next:
+  v2.9.0:
     en:
       - '[feature] new component #2624'
     zh-CN:

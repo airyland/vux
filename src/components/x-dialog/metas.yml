@@ -133,7 +133,7 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
-  next:
+  v2.9.0:
     en:
       - '[feature] support variable dialog-gap-width #2640'
       - '[enhance] support dialog-width and dialog-max-width variable #2577'

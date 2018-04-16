@@ -44,7 +44,7 @@ events:
     en: triggers when popover hides
     zh-CN: 弹窗隐藏时触发
 changes:
-  next:
+  v2.9.0:
     en:
       - '[fix] fix position in fixed container #2590'
     zh-CN:

@@ -132,7 +132,7 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
-  next:
+  v2.9.0:
     en:
       - '[enhance] show warning when picker value is not a string #2568'
     zh-CN:

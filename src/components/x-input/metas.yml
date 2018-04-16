@@ -132,7 +132,7 @@ events:
     en: fires when clicking error icon
     zh-CN: '点击错误图标时触发，你可以关闭 `should-toast-error` 然后用这个事件来自定义显示错误的提示内容'
   on-click-clear-icon:
-    version: next
+    version: v2.9.0
     en: fires when clicking clear icon
     zh-CN: 点击清除按钮时触发
 methods:
@@ -148,7 +148,7 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
-  next:
+  v2.9.0:
     en:
       - '[fix] fix wrong valid when value is empty string #2415'
       - '[fix] fix disabled style in iOS #2458'

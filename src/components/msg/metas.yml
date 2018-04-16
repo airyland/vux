@@ -36,7 +36,7 @@ slots:
     en: used for custom description
     zh-CN: 自定义描述文字内容
 changes:
-  next:
+  v2.9.0:
     en:
       - '[change] prop:buttons displays as slot:buttons default content'
     zh-CN:

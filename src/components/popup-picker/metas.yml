@@ -76,7 +76,7 @@ props:
     en: popup title
     zh-CN: 弹窗标题
   disabled:
-    version: next
+    version: v2.9.0
     type: Boolean
     default: false
     en: whether disable selecting
@@ -104,7 +104,7 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
-  next:
+  v2.9.0:
     en:
       - '[feature] add prop:disabled #2594'
     zh-CN:

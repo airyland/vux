@@ -125,7 +125,7 @@ props:
     en: popup show (supports the .sync modifier next)
     zh-CN: 显示 (支持.sync修饰 next)
   disabled:
-    version: next
+    version: v2.9.0
     type: Boolean
     en: whether disabled selecting
     zh-CN: 是否禁用选择
@@ -147,7 +147,7 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
-  next:
+  v2.9.0:
     en:
       - '[feature] add prop:disabled #2641'
     zh-CN:
