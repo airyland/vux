@@ -22,6 +22,12 @@ yarn add vux // 安装
 yarn upgrade vux // 更新
 ```
 
+如果你想直接从 Github 安装，请指定 `v2` 分支
+
+``` bash
+npm install git://github.com/airyland/vux.git#v2
+```
+
 如果你是从`0.x`更新，请参考： <router-link to="/zh-CN/install/upgrade-to-vux2.html" style="color:#42b983;">更新到`2.x`</router-link>
 
 
