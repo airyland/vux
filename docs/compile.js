@@ -391,7 +391,7 @@ export default {
         <tbody>
           <tr v-for="(prop, i) in component.meta.props">
             <td class="prop-name">
-              <el-tooltip content="${t('click to copy', lang)}" placement="left" :open-delay="200">
+              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="10" :open-delay="200">
                 <span
                 v-clipboard:copy="i"
                 v-clipboard:success="onCopy">{{ i }}</span>
@@ -419,7 +419,7 @@ export default {
         <tbody>
           <tr v-for="(event, i) in component.meta.events">
             <td class="prop-name">
-              <el-tooltip content="${t('click to copy', lang)}" placement="left" :open-delay="200">
+              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="10" :open-delay="200">
                 <span
                 v-clipboard:copy="i"
                 v-clipboard:success="onCopy">{{ i }}</span>
@@ -445,7 +445,7 @@ export default {
         <tbody>
           <tr v-for="(slot, i) in component.meta.slots" :class="{'slot-disabled': slot['status'] === 'deprecated'}">
             <td class="prop-name">
-              <el-tooltip content="${t('click to copy', lang)}" placement="left" :open-delay="200">
+              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="10" :open-delay="200">
                 <span
                 v-clipboard:copy="i"
                 v-clipboard:success="onCopy">{{ i }}</span>
@@ -470,7 +470,7 @@ export default {
           <tbody>
             <tr v-for="(method, i) in component.meta.methods">
               <td class="prop-name">
-                <el-tooltip content="${t('click to copy', lang)}" placement="left" :open-delay="200">
+                <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="10" :open-delay="200">
                   <span
                   v-clipboard:copy="i"
                   v-clipboard:success="onCopy">{{ i }}</span>
@@ -541,7 +541,7 @@ export default {
       top="0"
       width="80%"
       :visible.sync="sourceCodeDialogVisibility">
-      <div class="code-box" v-html="demoCode"></div>
+      <div class="code-box" contenteditable v-html="demoCode"></div>
     </el-dialog>
 
   </div>
