@@ -598,6 +598,17 @@ export default {
       this.issues = rs.data.items
       this.hasReady = true
     },
+    watch: {
+      async sourceCodeDialogVisibility (val) {
+        if (val) {
+          await this.$nextTick()
+          const mask = document.querySelector('.v-modal')
+          mask && mask.addEventListener('click', () => {
+            this.sourceCodeDialogVisibility = false
+          })
+        }
+      }
+    },
     methods: {
       onCopyError () {
         this.$message({
