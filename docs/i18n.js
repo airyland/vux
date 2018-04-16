@@ -162,6 +162,15 @@ const list = {
   },
   'copy fail!': {
     'zh-CN': '复制失败'
+  },
+  'Variables': {
+    'zh-CN': '样式变量'
+  },
+  'is inherited': {
+    'zh-CN': '是否继承自另一变量'
+  },
+  'inherited name': {
+    'zh-CN': '继承自变量'
   }
 }
 

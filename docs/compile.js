@@ -10,6 +10,62 @@ const argv = require('yargs').argv
 let langs = ['en', 'zh-CN']
 const t = require('./i18n')
 
+const variables = {}
+const variableMap = {}
+const variablePath = path.join(__dirname, '../src/styles/variable.less')
+const variableContent = fs.readFileSync(variablePath, 'utf-8').split('\n')
+
+variableContent.forEach((line, index) => {
+  if (/^@/.test(line)) {
+    let temp = line.split(':')
+    let component = temp[0].replace('@', '').split('-')[0]
+    if (component === 'button' && /button-tab/.test(line)) {
+      component = 'button-tab'
+    }
+    if (!variables[component]) {
+      variables[component] = []
+    }
+    const name = temp[0].replace('@', '')
+    let value = temp[1].replace(';', '').trim().replace(/\/\*(.*?)\*\//, '')
+    if (value.includes('//')) {
+      value = value.split(' ')[0].trim()
+    }
+    let inherited_name = ''
+    let is_inherited = false
+
+    if (/@/.test(value)) {
+      is_inherited = true
+      inherited_name = value
+      value = variableMap[value.replace('@', '')]
+    }
+    let t = {}
+
+    if (variableContent[index - 1] === '*/' && /:/.test(variableContent[index - 2])) {
+      let stop = false
+      let i = 2
+      while (!stop) {
+        const temp = variableContent[index - i]
+        if (/:/.test(temp)) {
+          let pair = temp.split(':')
+          t[pair[0].replace('*', '')] = pair[1].trim()
+        } else {
+          stop = true
+        }
+        i++
+      }
+    }
+
+    variables[component].push({
+      name, 
+      value,
+      is_inherited,
+      inherited_name,
+      desc: t
+    })
+    variableMap[name] = value
+  }
+})
+
 let contents = []
 
 const getAlternate = function (lang, route) {
@@ -225,6 +281,9 @@ components.forEach((file) => {
     return
   }
 
+  // 加入样式变量
+  metas.variables = variables[componentName.replace('x-', '')]
+
   // demo 源码
   const demoPath = path.join(__dirname, `../src/demos/${importName}.vue`)
   let demoCode = ''
@@ -391,7 +450,7 @@ export default {
         <tbody>
           <tr v-for="(prop, i) in component.meta.props">
             <td class="prop-name">
-              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="10" :open-delay="200">
+              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
                 <span
                 v-clipboard:copy="i"
                 v-clipboard:success="onCopy">{{ i }}</span>
@@ -419,7 +478,7 @@ export default {
         <tbody>
           <tr v-for="(event, i) in component.meta.events">
             <td class="prop-name">
-              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="10" :open-delay="200">
+              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
                 <span
                 v-clipboard:copy="i"
                 v-clipboard:success="onCopy">{{ i }}</span>
@@ -445,7 +504,7 @@ export default {
         <tbody>
           <tr v-for="(slot, i) in component.meta.slots" :class="{'slot-disabled': slot['status'] === 'deprecated'}">
             <td class="prop-name">
-              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="10" :open-delay="200">
+              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
                 <span
                 v-clipboard:copy="i"
                 v-clipboard:success="onCopy">{{ i }}</span>
@@ -470,7 +529,7 @@ export default {
           <tbody>
             <tr v-for="(method, i) in component.meta.methods">
               <td class="prop-name">
-                <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="10" :open-delay="200">
+                <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
                   <span
                   v-clipboard:copy="i"
                   v-clipboard:success="onCopy">{{ i }}</span>
@@ -482,6 +541,34 @@ export default {
             </tr>
           </tbody>
         </table>
+
+        <template v-if="component.meta.variables">
+          <h3>${t('Variables', lang)}</h3>
+          <table>
+            <thead>
+              <tr>
+                <td>${t('name', lang)}</td>
+                <td>${t('default value', lang)}</td>
+                <td>${t('description', lang)}</td>
+                <td>${t('inherited name', lang)}</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(variable, i) in component.meta.variables">
+                <td class="prop-name">
+                  <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
+                    <span
+                    v-clipboard:copy="'@' + variable.name"
+                    v-clipboard:success="onCopy">@{{ variable.name }}</span>
+                  </el-tooltip>
+                </td>
+                <td>{{ variable.value }}</td>
+                <td>{{ variable['desc']['${lang}'] || '--' }}</td>
+                <td>{{ variable.inherited_name }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </template>
   
         <template v-if="component.meta.tips && component.meta.tips['${lang}']">
           <br>
@@ -555,11 +642,15 @@ export default {
   const metas = ${JSON.stringify(metas, null, 2)}
   let componentList = []
   if (Array.isArray(metas.items)) {
-    metas.items.forEach(item => {
-      componentList.push({
+    metas.items.forEach((item, index) => {
+      const meta = {
         name: item,
         meta: metas[item]
-      })
+      }
+      if (index === metas.items.length - 1) {
+        meta.meta.variables = metas.variables
+      }
+      componentList.push(meta)
     })
   } else {
     componentList.push({
