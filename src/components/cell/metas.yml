@@ -1,6 +1,6 @@
 icon: '&#xe62a;'
 extra:
-  zh-CN: >
+  zh-CN: |
     ```html
       <group>
         <cell title="title" value="value"></cell>
@@ -8,7 +8,7 @@ extra:
     ```
 
     ::: tip
-    cell只能在`Group`中使用
+    Cell 组件只能在`Group`中使用
     :::
 tags:
   en:
