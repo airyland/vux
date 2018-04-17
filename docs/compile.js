@@ -47,7 +47,7 @@ variableContent.forEach((line, index) => {
         const temp = variableContent[index - i]
         if (/:/.test(temp)) {
           let pair = temp.split(':')
-          t[pair[0].replace('*', '')] = pair[1].trim()
+          t[pair[0].replace('*', '').trim()] = pair[1].trim()
         } else {
           stop = true
         }
