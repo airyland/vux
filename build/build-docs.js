@@ -657,9 +657,13 @@ function parseChange(str) {
   return str
 }
 
-function parseTag(firstTag, tag) {
+const strMap = {
+  en: 'not release yet',
+  'zh-CN': '未发布'
+}
+function parseTag(firstTag, tag, lang) {
   if (tag === 'next') {
-    return `${tag} (not release yet)`
+    return `${tag} (${strMap[lang]})`
   }
   return tag
 }
@@ -695,7 +699,9 @@ function buildChanges(infos, lang = 'zh-CN') {
   }
   let str = `---
 title: VUX ${titleMapSum[lang]}${suffixMap[lang]}
----\n`
+---\n
+
+# VUX ${titleMapSum[lang]}`
 
   rs = sortObj(rs, {
     sort: function (a, b) {
@@ -712,23 +718,34 @@ title: VUX ${titleMapSum[lang]}${suffixMap[lang]}
   let firstTag = Object.keys(rs)[0]
   let releases = {}
 
+  let n = 0
   for (let i in rs) {
     releases[i] = {}
       // releases += `\n # ${i}\n`
-    str += `\n### ${parseTag(firstTag, i)}\n`
+    if (/next/.test(parseTag(firstTag, i, lang))) {
+      str += `\n<h2>${parseTag(firstTag, i, lang)}</h2>\n`
+    } else {
+      str += `\n<h2><a href="/${lang}/changelog/${parseTag(firstTag, i)}.html">${parseTag(firstTag, i)}</a></h2>\n`
+    }
     for (let j in rs[i]) {
       // releases += `\n## ${_camelCase(j)}\n`
       releases[i][j] = []
-      str += `\n#### ${_camelCase(j)}\n`
-      str += `<ul>`
+
       rs[i][j] && rs[i][j].forEach(one => {
-        str += `${parseChange(getChangeTagHTML(one))}`
-          // releases += `- ${one}\n`
         releases[i][j].push(one)
       })
-      str += `</ul>`
-      str += `\n`
+
+      if (n <= 2) {
+        str += `\n### ${_camelCase(j)}\n`
+        str += `<ul>`
+        rs[i][j] && rs[i][j].forEach(one => {
+          str += `${parseChange(getChangeTagHTML(one))}`
+        })
+        str += `</ul>`
+        str += `\n`
+      }
     }
+    n++
   }
 
   const titleMap = {
@@ -749,12 +766,16 @@ title: VUX ${titleMapSum[lang]}${suffixMap[lang]}
     }
     let content = `---
 title: VUX ${_camelCase(i)} ${titleMap[lang]}${suffixMap[lang]}
----`
+---\n
+
+# VUX ${_camelCase(i)} ${titleMap[lang]}`
     for (let j in release) {
-      content += `\n## ${_camelCase(j)}\n`
+      content += `\n<h2><a href="/${lang}/components/${j}.html">${_camelCase(j)}</a></h2>\n`
+      content += '<ul>'
       release[j].forEach(function (line) {
-        content += `- ${line}\n`
+        content += `<li>${line}</li>\n`
       })
+      content += '</ul>'
       data.components.push({
         name: j,
         list: release[j].map(one => {

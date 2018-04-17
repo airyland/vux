@@ -21,15 +21,11 @@ body {
   padding: 5px 0;
 }
 
-.vux-component-name {
-  font-family: Josefin Sans,sans-serif;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #d95353;
-}
-
 .markdown-body h1.vux-component-name {
+  font-family: Josefin Sans,sans-serif;
   font-size: 2.5em;
+  font-weight: 600;
+  color: #d95353;
 }
 
 .header-nav {
@@ -613,6 +609,11 @@ div.tip {
 .markdown-body table {
   display: table!important;
   width: 100%;
+}
+
+.markdown-body h1, .markdown-body h2 {
+  font-family: Menlo,'Menlo Regular',Consolas,monospace;
+  font-weight: 300;
 }
 
 .markdown-body h3 {
