@@ -288,7 +288,7 @@ tr.slot-disabled {
   left: 341px;
   top: 0;
   background-color: #fff;
-  z-index: 2501;
+  z-index: 888;
   width: 100%;
 }
 @import '~github-markdown-css/github-markdown.css';
