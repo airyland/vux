@@ -114,6 +114,11 @@ props:
     version: v2.3.8
     en: if hide automatically when clicking on menus
     zh-CN: 点击菜单时是否自动隐藏
+slots:
+  header:
+    version: v2.3.5
+    en: header
+    zh-CN: 头部位置
 events:
   on-click-menu:
     params: (menuKey, menuItem)
