@@ -73,7 +73,7 @@
         <div class="chapter" v-show="isComponentPage">
           <p class="chapter-title">{{ t('Toolkit') }}</p>
           <ul class="chapter-page">
-            <li v-for="route in toolRoutes" class="chapter-page-item">
+            <li v-for="route in toolRoutes[lang]" class="chapter-page-item">
               <router-link :to="route.path">{{ t(route.title) }}</router-link>
             </li>
           </ul>
@@ -137,9 +137,14 @@
 </template>
 
 <script>
+const langs = ['en', 'zh-CN']
 const routes = require('./routes')
 const faqRoutes = require('./faq-routes')
-const toolRoutes = require('./tool-routes')
+const toolRoutes = {
+  en: require('./tool-routes-en'),
+  'zh-CN': require('./tool-routes-zh-CN'),
+}
+
 const summary = require('./summary')
 const t = require('../i18n')
 // 组件列表

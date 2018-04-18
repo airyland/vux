@@ -138,75 +138,82 @@ function getComponentName(path) {
   }
 }
 
-const faqs = glob.sync(getPath('./zh-CN/faq/*.md'))
-const faqRoutes = []
-const commonTitle = `${t('title')}`
-let faqMd = `
----
-title: ${t('faq')} - ${commonTitle}
----
-
-# ${t('faq')}
-`
-faqs.forEach(one => {
-  one = '.' + one.replace(__dirname, '')
-  const content = fs.readFileSync(getPath(one), 'utf-8')
-  const titleRs = content.match(/\n#(.*?)\n/)
-  if (titleRs && titleRs[1] && one.indexOf('index.md') === -1) {
-    faqRoutes.push({
-      title: titleRs[1].trim(),
-      path: one.replace('./', '/').replace('.md', '.html')
-    })
-
-    contents.push({
-      lang: 'zh-CN',
-      category: '常见问题',
-      title: titleRs[1].trim(),
-      url: one.replace('./', '/').replace('.md', '.html'),
-      content: md.render(content)
-    })
-  }
-})
-
-faqRoutes.forEach(one => {
-  faqMd += `
-* <router-link to="${one.path}">${one.title}</router-link>
-  `
-})
-
 let paths = []
 
-fs.writeFileSync(getPath('./src/faq-routes.json'), JSON.stringify(faqRoutes, null, 2))
+langs.forEach(lang => {
+  const faqs = glob.sync(getPath(`./${lang}/faq/*.md`))
+  const faqRoutes = []
+  const commonTitle = `${t('title')}`
+  let faqMd = `
+  ---
+  title: ${t('faq')} - ${commonTitle}
+  ---
 
-fs.writeFileSync(getPath('./zh-CN/faq/index.md'), faqMd)
+  # ${t('faq')}
+  `
+  faqs.forEach(one => {
+    one = '.' + one.replace(__dirname, '')
+    const content = fs.readFileSync(getPath(one), 'utf-8')
+    const titleRs = content.match(/\n#(.*?)\n/)
+    if (titleRs && titleRs[1] && one.indexOf('index.md') === -1) {
+      faqRoutes.push({
+        title: titleRs[1].trim(),
+        path: one.replace('./', '/').replace('.md', '.html')
+      })
+
+      contents.push({
+        lang,
+        category: '常见问题',
+        title: titleRs[1].trim(),
+        url: one.replace('./', '/').replace('.md', '.html'),
+        content: md.render(content)
+      })
+    }
+  })
+
+  faqRoutes.forEach(one => {
+    faqMd += `
+  * <router-link to="${one.path}">${one.title}</router-link>
+    `
+  })
+
+  fs.writeFileSync(getPath('./src/faq-routes.json'), JSON.stringify(faqRoutes, null, 2))
+
+  fs.writeFileSync(getPath(`./${lang}/faq/index.md`), faqMd)
+
+})
 
 /**
 * tools
 */
-let toolRoutes = []
-const tools = glob.sync(getPath('./zh-CN/tools/*.md'))
 
-tools.forEach(one => {
-  one = '.' + one.replace(__dirname, '')
-  const content = fs.readFileSync(getPath(one), 'utf-8')
-  let titleRs = content.match(/\n#(.*?)\n/)
-  if (titleRs && titleRs[1] && one.indexOf('index.md') === -1) {
-    titleRs[1] = titleRs[1].replace(/#/g, '')
-    toolRoutes.push({
-      title: titleRs[1].trim(),
-      path: one.replace('./', '/').replace('.md', '.html')
-    })
+langs.forEach(lang => {
+  let toolRoutes = []
+  const tools = glob.sync(getPath(`./${lang}/tools/*.md`))
 
-    contents.push({
-      lang: 'zh-CN',
-      category: '函数工具库',
-      title: titleRs[1].trim(),
-      url: one.replace('./', '/').replace('.md', '.html'),
-      content: md.render(content)
-    })
-  }
+  tools.forEach(one => {
+    one = '.' + one.replace(__dirname, '')
+    const content = fs.readFileSync(getPath(one), 'utf-8')
+    let titleRs = content.match(/\n#(.*?)\n/)
+    if (titleRs && titleRs[1] && one.indexOf('index.md') === -1) {
+      titleRs[1] = titleRs[1].replace(/#/g, '')
+      toolRoutes.push({
+        title: titleRs[1].trim(),
+        path: one.replace('./', '/').replace('.md', '.html')
+      })
+
+      contents.push({
+        lang,
+        category: t('Toolkit', lang),
+        title: t(titleRs[1].trim(), lang),
+        url: one.replace('./', '/').replace('.md', '.html'),
+        content: md.render(content)
+      })
+    }
+  })
+  fs.writeFileSync(getPath(`./src/tool-routes-${lang}.json`), JSON.stringify(toolRoutes, null, 2))
 })
-fs.writeFileSync(getPath('./src/tool-routes.json'), JSON.stringify(toolRoutes, null, 2))
+
 
 let files = []
 langs.forEach(lang => {
@@ -223,26 +230,31 @@ if (include) {
   })
 }
 
-let str = `
-routes.push({
-  path: '/zh-CN/lab/index.html',
-  component: () => import('../zh-CN/lab/index.md')
-})
+let str = ''
+
+langs.forEach(lang => {
+  str += `
   routes.push({
-    path: '/zh-CN/faq',
-    component: () => import('../zh-CN/faq/index.md')
+    path: '/${lang}/lab/index.html',
+    component: () => import('../${lang}/lab/index.md')
   })
   routes.push({
-    path: '/zh-CN/',
-    component: () => import('../zh-CN/README.md')
+    path: '/${lang}/faq',
+    component: () => import('../${lang}/faq/index.md')
   })
   routes.push({
-    path: '/zh-CN/about/contributors.html',
-    component: () => import('../zh-CN/about/contributors.vue')
+    path: '/${lang}/',
+    component: () => import('../${lang}/README.md')
+  })
+  routes.push({
+    path: '/${lang}/about/contributors.html',
+    component: () => import('../${lang}/about/contributors.vue')
   })`
-paths.push('/zh-CN/')
-paths.push('/zh-CN/faq/')
-paths.push('/zh-CN/about/contributors.html')
+  paths.push('/${lang}/')
+  paths.push('/${lang}/faq/')
+  paths.push('/${lang}/about/contributors.html')
+})
+
 files.forEach(file => {
   let currentPath = `${file.replace(/^.\//, '/').replace('.md', '.html')}`
 
@@ -801,7 +813,7 @@ langs.forEach(lang => {
       component: () => import('${component}')
     })
         `
-      paths.push(`/zh-CN/components/${name}.html`)
+      paths.push(`/${lang}/components/${name}.html`)
     }
   })
 })
