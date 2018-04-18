@@ -145,11 +145,11 @@ langs.forEach(lang => {
   const faqRoutes = []
   const commonTitle = `${t('title')}`
   let faqMd = `
-  ---
-  title: ${t('faq')} - ${commonTitle}
-  ---
+---
+title: ${t('faq', lang)} - ${commonTitle}
+---
 
-  # ${t('faq')}
+# ${t('faq', lang)}
   `
   faqs.forEach(one => {
     one = '.' + one.replace(__dirname, '')
