@@ -48,7 +48,7 @@ extra: |
   this.$vux.confirm.setInputValue('value') // 注意需要在 onShow 事件中执行
   ```
 props:
-  show:
+  value:
     type: Boolean
     default: false
     en: visibility of the component
