@@ -68,14 +68,16 @@ export default {
   },
   data () {
     return {
-      height: window.innerHeight - 46 - 53,
       components: this.split(components)
     }
   },
   computed: {
     ...mapState({
       demoTop: state => state.vux.demoScrollTop
-    })
+    }),
+    height(){
+      return window.innerHeight - 46 - 53
+    }
   }
 }
 </script>
