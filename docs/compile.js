@@ -9,6 +9,7 @@ const MD = require('markdown-it')
 const argv = require('yargs').argv
 let langs = ['en', 'zh-CN']
 const t = require('./i18n')
+const pkg = require('../package.json')
 
 const variables = {}
 const variableMap = {}
@@ -343,6 +344,33 @@ export default {
 
   langs.forEach(lang => {
 
+    const needImport = metas.need_import === false ? false : true
+
+    const gitMetas = require(`./${lang}/components/${componentName}_git_metas.json`)
+
+    // ldjson
+    const ldjson = {
+      "@context": "http://schema.org/",
+      "@type": "SoftwareApplication",
+      "name": `Vue Component ${componentName}`,
+      "screenshot": "",
+      "description": "Vue.js component for VUX",
+      "url": `/${lang}/components/${componentName}.html`,
+      "applicationCategory": t('Component', lang),
+      "author": {
+        "@type": "Organization",
+        "name": "VUX",
+        "url": "https://vux.li"
+      },
+      "downloadUrl": "https://vux.li",
+      "softwareVersion": pkg.version,
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 5,
+        "reviewCount": gitMetas.commitCount
+      }
+    }
+
     contents.push({
       lang: lang,
       category: t('Components', lang),
@@ -404,30 +432,37 @@ export default {
     <div class="component-demo" style="width:377px;height:600px;display:inline-block;border:1px solid #ececec;border-radius:5px;overflow:hidden;z-index:2500;">
       <iframe src="${urlWithNoTransition}" width="375" height="600" border="0" frameborder="0"></iframe>
     </div>
+  
+    <template v-if="needImport">
+      <div class="import-code-box">
+        <el-tooltip content="${t('click to copy', lang)}" placement="top">
+          <span
+            v-clipboard:copy="localImportCode"
+            v-clipboard:success="onCopy"
+            v-clipboard:error="onCopyError">
+            <el-icon class="el-icon-document"></el-icon>
+          </span>
+        </el-tooltip>
+        ${localImportCode}
+      </div>
 
-    <div class="import-code-box">
-      <el-tooltip content="${t('click to copy', lang)}" placement="top">
-        <span
-          v-clipboard:copy="localImportCode"
-          v-clipboard:success="onCopy"
-          v-clipboard:error="onCopyError">
-          <el-icon class="el-icon-document"></el-icon>
-        </span>
-      </el-tooltip>
-      ${localImportCode}
-    </div>
-
-    <div class="import-code-box">
-      <el-tooltip content="${t('click to copy', lang)}" placement="top">
-        <span
-          v-clipboard:copy="globalImportCode"
-          v-clipboard:success="onCopy"
-          v-clipboard:error="onCopyError">
-          <el-icon class="el-icon-document"></el-icon>
-        </span>
-      </el-tooltip>
-      ${globalImportCode}
-    </div>
+      <div class="import-code-box">
+        <el-tooltip content="${t('click to copy', lang)}" placement="top">
+          <span
+            v-clipboard:copy="globalImportCode"
+            v-clipboard:success="onCopy"
+            v-clipboard:error="onCopyError">
+            <el-icon class="el-icon-document"></el-icon>
+          </span>
+        </el-tooltip>
+        ${globalImportCode}
+      </div>    
+    </template>
+    <template v-else>
+      <div class="tip">
+        <p>${t('donot need import', lang)}</p>
+      </div>
+    </template>
 
     <div class="tip" style="width:600px;" v-if="metas.tip">
       ${ metas.tip ? metas.tip.replace(/`(.*?)`/g, '<code>$1</code>') : '' }
@@ -689,7 +724,14 @@ export default {
         content: 'Vue component ${componentName} for the VUX framework.'
       }],
       // https://support.google.com/webmasters/answer/189077?hl=en
-      link: ${JSON.stringify(getAlternate(lang, `/${lang}/components/${componentName}.html`))}
+      link: ${JSON.stringify(getAlternate(lang, `/${lang}/components/${componentName}.html`))},
+      script: [
+        {
+          innerHTML:'${JSON.stringify(ldjson)}',
+          type: 'application/ld+json'
+        }
+      ],
+      __dangerouslyDisableSanitizers: ['script']
     },
     filters: {
       parseCode (str) {
@@ -767,7 +809,8 @@ export default {
         gitMetas,
         componentList,
         localImportCode: \`${_localImportCode}\`,
-        globalImportCode: \`${_globalImportCode}\`
+        globalImportCode: \`${_globalImportCode}\`,
+        needImport: ${needImport}
       }
     }
   }

@@ -27,6 +27,10 @@ const list = {
   Component: {
     'zh-CN': '组件'
   },
+  'donot need import': {
+    'en': 'You don\'t need to import this component.',
+    'zh-CN': '该组件可以直接使用，不需要引入。'
+  },
   Releases: {
     'zh-CN': '发布日志'
   },
