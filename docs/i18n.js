@@ -175,6 +175,9 @@ const list = {
   },
   'inherited name': {
     'zh-CN': '继承自变量'
+  },
+  'Online developers': {
+    'zh-CN': '在线 VUX 开发者'
   }
 }
 

@@ -368,7 +368,8 @@ export default {
         "@type": "AggregateRating",
         "ratingValue": 5,
         "reviewCount": gitMetas.commitCount
-      }
+      },
+      "operatingSystem": "iOS >= 7, Android >= 4.1"
     }
 
     contents.push({
