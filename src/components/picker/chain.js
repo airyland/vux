@@ -4,7 +4,7 @@ const Manager = class {
   constructor (data, count, fixedColumns) {
     if (process.env.NODE_ENV === 'development') {
       const notStringList = data.filter(item => {
-        return (item.parent && item.parent !== 0 && parent.value !== '0') && (typeof item.parent === 'number' || typeof item.value === 'number')
+        return (item.parent && item.parent !== 0 && item.parent !== '0') && (typeof item.parent === 'number' || typeof item.value === 'number')
       })
       if (notStringList.length) {
         console.warn(`[VUX] picker data's value and parent should be string:\n${JSON.stringify(notStringList, null, 2)}`)
