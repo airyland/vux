@@ -369,7 +369,13 @@ export default {
         "ratingValue": 5,
         "reviewCount": gitMetas.commitCount
       },
-      "operatingSystem": "iOS >= 7, Android >= 4.1"
+      "operatingSystem": "iOS >= 7, Android >= 4.1",
+      "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "priceCurrency": t('priceCurrency', lang),
+        "availability": "http://schema.org/InStock"
+      }
     }
 
     contents.push({

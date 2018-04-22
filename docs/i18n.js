@@ -178,6 +178,10 @@ const list = {
   },
   'Online developers': {
     'zh-CN': '在线 VUX 开发者'
+  },
+  'priceCurrency': {
+    en: 'USD',
+    'zh-CN': 'CNY'
   }
 }
 
