@@ -109,6 +109,11 @@ tab-item:
       en: emits when current tabItem is clicked
       zh-CN: 当前 tabItem 被点击时触发
 changes:
+  next:
+    en:
+      - '[fix] fix box-sizing issue #2621. thanks to @suncodeer'
+    zh-CN:
+      - '[fix] 修复全局 box-sizing 为 border-box 时导致的高度问题 #2621。感谢 @suncodeer '
   v2.9.0:
     en:
       - '[feature] support prop:bar-position'

@@ -280,6 +280,7 @@ export default {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 17px;
+  box-sizing: content-box;
 }
 
 .scrollable::-webkit-scrollbar {
