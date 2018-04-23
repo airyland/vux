@@ -74,4 +74,7 @@ export default {
   text-align: center;
   color: #666;
 }
+.weui-grids {
+  background-color: #fff;
+}
 </style>
