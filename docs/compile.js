@@ -616,7 +616,15 @@ export default {
                     v-clipboard:success="onCopy">@{{ variable.name }}</span>
                   </el-tooltip>
                 </td>
-                <td>{{ variable.value }}</td>
+                <td>
+                  <em
+                    :ref="'propColor' + i"
+                    v-if="!$refs['propColor' + i] || $refs['propColor' + i][0].style.backgroundColor"
+                    class="prop-color"
+                    :style="{ backgroundColor: variable.value }">
+                  </em>
+                  {{ variable.value }}
+                </td>
                 <td>{{ variable['desc']['${lang}'] || '--' }}</td>
                 <td>{{ variable.inherited_name }}</td>
               </tr>
@@ -831,6 +839,12 @@ export default {
     position: absolute;
     right: 5px;
     top: 15px;
+  }
+  .prop-color {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #aaa;
   }
   .changelog-version {
     width: 110px;
