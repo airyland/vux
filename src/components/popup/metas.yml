@@ -82,6 +82,11 @@ slots:
     en: content body
     zh-CN: 弹窗主体内容
 changes:
+  next:
+    en:
+      - '[fix] fixed popup has black border on the right #2651'
+    zh-CN:
+      - '[fix] 修正弹出框右边有黑边 #2651'
   v2.9.0:
     en:
       - '[feature] support prop:should-rerender-on-show for forcing rerendering #2598'

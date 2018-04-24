@@ -219,7 +219,7 @@ export default {
   transition-property: transform;
   transition-duration: 300ms;
   max-height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 .vux-popup-dialog.vux-popup-left {
