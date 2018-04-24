@@ -42,3 +42,7 @@ cd docs
 node compile --include datetime // 只构建 datetime 相关文档
 npm run dev
 ```
+
+## 官网文档部署说明
+
+线上页面有 `30分钟` 页面缓存，定时每 `20分钟` 构建一次，因此提交后可能会需要 `1小时` 才会更新到官网。
