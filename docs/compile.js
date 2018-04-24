@@ -619,7 +619,7 @@ export default {
                 <td>
                   <em
                     :ref="'propColor' + i"
-                    v-if="!$refs['propColor' + i] || $refs['propColor' + i][0].style.backgroundColor"
+                    v-if="!$refs['propColor' + i] || ($refs['propColor' + i][0] && $refs['propColor' + i][0].style.backgroundColor)"
                     class="prop-color"
                     :style="{ backgroundColor: variable.value }">
                   </em>
