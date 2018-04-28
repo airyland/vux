@@ -2,7 +2,6 @@ import ConfirmComponent from '../../components/confirm'
 import { mergeOptions } from '../../libs/plugin_helper'
 
 let $vm
-let isVisible = false
 
 const plugin = {
   install (vue, options = {}) {
@@ -29,7 +28,6 @@ const plugin = {
         this.$watcher && this.$watcher()
         this.$watcher = $vm.$watch('showValue', (val) => {
           if (!val && options && options.onHide) {
-            isVisible = false
             options.onHide()
           }
         })
@@ -44,7 +42,6 @@ const plugin = {
           options && options.onConfirm && options.onConfirm(msg)
         })
         $vm.showValue = true
-        isVisible = true
       },
       setInputValue (val) {
         vue.nextTick(() => {
@@ -61,10 +58,9 @@ const plugin = {
       },
       hide () {
         $vm.showValue = false
-        isVisible = false
       },
       isVisible () {
-        return isVisible
+        return $vm.showValue
       }
     }
 

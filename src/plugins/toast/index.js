@@ -50,6 +50,9 @@ const plugin = {
       },
       hide () {
         $vm.show = false
+      },
+      isVisible () {
+        return $vm.show
       }
     }
 

@@ -117,6 +117,14 @@ export default {
       position: 'default',
       showPositionValue: false
     }
+  },
+  mounted () {
+    this.timer = setInterval(() => {
+      console.log(this.$vux.toast.isVisible())
+    }, 1000)
+  },
+  beforeDestroy () {
+    clearInterval(this.timer)
   }
 }
 </script>
