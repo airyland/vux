@@ -1,11 +1,25 @@
 <template>
   <div :class="disabled ? 'vux-checklist-disabled' : ''">
-    <div v-show="title" class="weui-cells__title">{{ title }}</div>
+    <div
+      v-show="title"
+      class="weui-cells__title">{{ title }}</div>
     <slot name="after-title"></slot>
     <div class="weui-cells weui-cells_checkbox">
-      <label class="weui-cell weui-check_label" :class="{'vux-checklist-label-left': labelPosition === 'left'}" :for="`checkbox_${uuid}_${index}`" v-for="(one, index) in currentOptions">
+      <label
+        class="weui-cell weui-check_label"
+        :class="{
+          'vux-checklist-label-left': labelPosition === 'left'
+        }"
+        :for="`checkbox_${uuid}_${index}`"
+        v-for="(one, index) in currentOptions">
         <div class="weui-cell__hd">
-          <input type="checkbox" class="weui-check" :name="`vux-checkbox-${uuid}`" :value="getKey(one)" v-model="currentValue" :id="disabled ? '' : `checkbox_${uuid}_${index}`" :disabled="isDisabled(getKey(one))">
+          <input type="checkbox"
+            class="weui-check"
+            :name="`vux-checkbox-${uuid}`"
+            :value="getKey(one)"
+            v-model="currentValue"
+            :id="disabled ? '' : `checkbox_${uuid}_${index}`"
+            :disabled="isDisabled(getKey(one))">
           <i class="weui-icon-checked vux-checklist-icon-checked"></i>
         </div>
         <div class="weui-cell__bd">
