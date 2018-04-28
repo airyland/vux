@@ -55,6 +55,11 @@ export default {
   vertical-align: baseline;
   display: inline-block;
 }
+.vux-mask-enter, .vux-mask-leave-active,
+.vux-mask-leave-active, .vux-mask-enter-active {
+  position: relative;
+  z-index: 1;
+}
 .vux-mask-enter, .vux-mask-leave-active {
   opacity: 0;
 }
