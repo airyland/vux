@@ -130,7 +130,7 @@
     <br/>
     <br/>
     <br/>
-    <sticky scrollBox="vux_view_box_body" :check-sticky-support="false" :offset="46">
+    <sticky scroll-box="vux_view_box_body" :check-sticky-support="false" :offset="46">
       <tab :line-width=1>
         <tab-item :selected="demo4 === item" v-for="(item, index) in list4" @click="demo4 = item" :key="index">{{item}}</tab-item>
       </tab>
