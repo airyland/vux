@@ -204,6 +204,14 @@ export default {
         }
       })
     }
+  },
+  mounted () {
+    this.timer = setInterval(() => {
+      console.log(this.$vux.confirm.isVisible())
+    }, 1000)
+  },
+  beforeDestroy () {
+    clearInterval(this.timer)
   }
 }
 </script>
