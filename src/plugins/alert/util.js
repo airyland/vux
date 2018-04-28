@@ -2,6 +2,10 @@ import AlertComponent from '../../components/alert'
 import { mergeOptions } from '../../libs/plugin_helper'
 
 export function createVM (Vue) {
+  if (typeof document === 'undefined') {
+    console.error('[VUX] Alert plugin cannot be used in ssr.')
+    return
+  }
   const Alert = Vue.extend(AlertComponent)
   const $vm = new Alert({
     el: document.createElement('div')
