@@ -104,6 +104,14 @@ export default {
         this.$vux.alert.hide()
       }, 3000)
     }
+  },
+  mounted () {
+    this.timer = setInterval(() => {
+      console.log(this.$vux.alert.isVisible())
+    }, 1000)
+  },
+  beforeDestroy () {
+    clearInterval(this.timer)
   }
 }
 </script>

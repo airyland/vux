@@ -1,15 +1,15 @@
 <template>
   <div class="vux-alert">
     <x-dialog
-    v-model="showValue"
-    :mask-transition="maskTransition"
-    :dialog-transition="dialogTransition"
-    :hide-on-blur="hideOnBlur"
-    :mask-z-index="maskZIndex"
-    @on-hide="$emit('on-hide')"
-    @on-show="$emit('on-show')">
+      v-model="showValue"
+      :mask-transition="maskTransition"
+      :dialog-transition="dialogTransition"
+      :hide-on-blur="hideOnBlur"
+      :mask-z-index="maskZIndex"
+      @on-hide="$emit('on-hide')"
+      @on-show="$emit('on-show')">
       <div class="weui-dialog__hd">
-        <strong class="weui-dialog__title">{{title}}</strong>
+        <strong class="weui-dialog__title">{{ title }}</strong>
       </div>
       <div class="weui-dialog__bd">
         <slot>
@@ -18,8 +18,8 @@
       </div>
       <div class="weui-dialog__ft">
         <a href="javascript:;"
-        class="weui-dialog__btn weui-dialog__btn_primary"
-        @click="_onHide">{{buttonText || $t('button_text')}}</a>
+          class="weui-dialog__btn weui-dialog__btn_primary"
+          @click="_onHide">{{ buttonText || $t('button_text') }}</a>
       </div>
     </x-dialog>
   </div>

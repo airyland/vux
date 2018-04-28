@@ -32,8 +32,12 @@ extra:
         console.log('Plugin: I\'m hiding')
       }
     })
+
     // 隐藏
     this.$vux.alert.hide()
+
+    // 获取显示状态
+    this.$vux.alert.isVisible() // v2.9.1 支持
     ```
 
     ::: tip
@@ -164,6 +168,11 @@ events:
     en: emits when dialog is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  next:
+    en:
+      - '[feature] add isVisible function for AlertPlugin #2704'
+    zh-CN:
+      - '[feature] 添加 isVisible 获取当前显示状态 #2704'
   v2.7.2:
     en:
       - "[feature] now we can use Alert as a module (import { AlertModule } from 'vux') #2173"
