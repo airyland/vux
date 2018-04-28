@@ -2,8 +2,10 @@ import LoadingComponent from '../../components/loading'
 import { mergeOptions } from '../../libs/plugin_helper'
 
 let $vm
+let isVisible = false // eslint-disable-line
 let watcher
 let delayTime = null
+
 const plugin = {
   install (vue, options) {
     const Loading = vue.extend(LoadingComponent)
@@ -33,6 +35,7 @@ const plugin = {
         delayTime && clearTimeout(delayTime)
         delayTime = setTimeout(() => {
           $vm.show = true
+          isVisible = true
         }, options.delay || 0)
       },
       hide () {
@@ -41,6 +44,10 @@ const plugin = {
           delayTime = null
         }
         $vm.show = false
+        isVisible = false
+      },
+      isVisible () {
+        return isVisible
       }
     }
 

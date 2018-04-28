@@ -1,8 +1,15 @@
 <template>
   <transition :name="transition">
-    <div class="weui-loading_toast vux-loading" :class="!text ? 'vux-loading-no-text' : ''" v-show="show">
+    <div
+      class="weui-loading_toast vux-loading"
+      :class="!text ? 'vux-loading-no-text' : ''"
+      v-show="show">
       <div class="weui-mask_transparent"></div>
-      <div class="weui-toast" :style="{ position: position }">
+      <div
+        class="weui-toast"
+        :style="{
+          position: position
+        }">
         <i class="weui-loading weui-icon_toast"></i>
         <p class="weui-toast__content" v-if="text">{{ $t(text) || $t('loading') }}<slot></slot></p>
       </div>

@@ -50,6 +50,14 @@ export default {
       text1: 'Processing'
     }
   },
+  mounted () {
+    this.timer = setInterval(() => {
+      console.log(this.$vux.loading.isVisible())
+    }, 1000)
+  },
+  beforeDestroy () {
+    clearInterval(this.timer)
+  },
   methods: {
     showLoading () {
       this.$vux.loading.show({
