@@ -1,3 +1,6 @@
+category:
+  en: Deprecated
+  'zh-CN': 不再维护
 icon: '&#xe653;'
 status: 'deprecated'
 tags:

@@ -298,7 +298,15 @@ function render(files, tag) {
       icon: json.icon,
       color: json.color,
       importName: json.importName,
-      items: json.items
+      items: json.items,
+    }
+    if (json.category) {
+      item = {
+        ...item,
+        category_en: json.category.en,
+        'category_zh-CN': json.category['zh-CN'],
+        category_order: json.category_order || 998
+      }
     }
 
     if (!tag && item.icon && item.name) {

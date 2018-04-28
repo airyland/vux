@@ -1,3 +1,6 @@
+category:
+  en: Deprecated
+  'zh-CN': 不再维护
 intro:
   en: a small component for lazy persons who don't want to write less code
   zh-CN: 为div设置margin值，懒人才需要的组件

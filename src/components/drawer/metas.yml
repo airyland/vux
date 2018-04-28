@@ -1,4 +1,7 @@
 icon: '&#xe62a;'
+category:
+  en: Navigation
+  zh-CN: 导航
 extra:
   en: 'this component is forked from: https://github.com/bajian/vue-drawer'
   zh-CN: |

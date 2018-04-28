@@ -1,4 +1,7 @@
 icon: '&#xe63d;'
+category:
+  en: Chart
+  zh-CN: 图表
 tags:
   en:
     - circle

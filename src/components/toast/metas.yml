@@ -1,3 +1,6 @@
+category:
+  en: Feedback
+  zh-CN: 弹窗提示
 icon: '&#xe625;'
 tags:
   en:
@@ -93,7 +96,7 @@ events:
 changes:
   next:
     en:
-      - '[feature] add isVisible function for ConfirmPlugin #2704'
+      - '[feature] add isVisible function for ToastPlugin #2704'
     zh-CN:
       - '[feature] 添加 isVisible 获取当前显示状态 #2704'
   v2.7.7:

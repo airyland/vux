@@ -1,4 +1,7 @@
 icon: '&#xe603;'
+category:
+  en: Feedback
+  zh-CN: 弹窗提示
 extra:
   zh-CN: |
 

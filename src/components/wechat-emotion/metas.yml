@@ -1,3 +1,7 @@
+category:
+  en: Deprecated
+  'zh-CN': 不再维护
+category_order: 999
 icon: '&#xe63c;'
 props:
   isGif:

@@ -1,3 +1,7 @@
+category:
+  en: Basic
+  zh-CN: 基础组件
+category_order: 1
 icon: '&#xe619;'
 import_code: '&nbsp;'
 need_import: false

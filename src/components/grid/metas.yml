@@ -1,5 +1,8 @@
 icon: '&#xe661;'
 import_code: import { Grid, GridItem } from 'vux'
+category:
+  en: Layout
+  'zh-CN': 布局
 tags:
   en:
     - grid

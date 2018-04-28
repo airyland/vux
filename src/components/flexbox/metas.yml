@@ -1,4 +1,8 @@
 icon: '&#xe61f;'
+category:
+  en: Layout
+  'zh-CN': 布局
+category_order: 2
 items:
   - flexbox
   - flexbox-item

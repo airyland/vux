@@ -1,3 +1,6 @@
+category:
+  en: Feedback
+  zh-CN: 弹窗提示
 icon: '&#xe610;'
 extra:
   en: 'require vux@^2.3.4'
