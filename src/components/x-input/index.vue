@@ -317,13 +317,17 @@ export default {
   },
   methods: {
     scrollIntoView (time = 0) {
-      setTimeout(() => {
-        if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
-          setTimeout(() => {
-            document.activeElement.scrollIntoViewIfNeeded()
-          }, time)
-        }
-      })
+      // alert('scroll into view')
+      if (/iphone/i.test(navigator.userAgent)) {
+        // return
+      }
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        // alert('will scroll')
+        setTimeout(() => {
+          // alert(this.$refs.input.length)
+          this.$refs.input.scrollIntoViewIfNeeded(true)
+        }, time)
+      }
     },
     onClickErrorIcon () {
       if (this.shouldToastError && this.firstError) {
@@ -355,7 +359,13 @@ export default {
     focusHandler ($event) {
       this.$emit('on-focus', this.currentValue, $event)
       this.isFocus = true
-      this.scrollIntoView(500)
+      // this.scrollIntoView(500)
+      // this.scrollIntoView(5000)
+      setTimeout(() => {
+        this.$refs.input.scrollIntoViewIfNeeded(false)
+        // this.$refs.input.scrollIntoViewIfNeeded()
+      }, 1000)
+      // $event.target.
     },
     onBlur ($event) {
       this.setTouched()
