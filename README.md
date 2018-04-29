@@ -121,6 +121,7 @@ npm run dev // or yarn dev
 + [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe)
 + [WePayUI](https://github.com/wepayui/wepayui)
 + [autosize](https://github.com/jackmoore/autosize)(MIT)
++ [buefy](https://github.com/buefy/buefy)
 
 ## License
 

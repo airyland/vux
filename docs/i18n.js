@@ -1,4 +1,16 @@
 const list = {
+  Intro: {
+    'zh-CN': '介绍'
+  },
+  Install: {
+    'zh-CN': '安装'
+  },
+  Examples: {
+    'zh-CN': '栗子'
+  },
+  Changelog: {
+    'zh-CN': '版本更新'
+  },
   faq: {
     'zh-CN': '常见问题'
   },

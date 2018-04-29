@@ -279,6 +279,15 @@ const colorCode = function (lang, code) {
                '</code></pre>'
 }
 
+const routesList = require(getPath(`../src/demo_list.json`))
+const map = {}
+routesList.forEach(route => {
+  if (/#/.test(route)) {
+    let pair = route.split('#')
+    map[pair[0]] = pair[1]
+  }
+})
+
 components.forEach((file) => {
   const rawMetas = fs.readFileSync(file, 'utf-8')
   const metas = yaml.safeLoad(rawMetas)
@@ -292,6 +301,39 @@ components.forEach((file) => {
 
   if (/meta/.test(componentName)) {
     return
+  }
+
+  // find demos
+  let demos = []
+  const reg = /<demo[^>]*>([\s\S]*?)<\/demo>/g
+  const demoHeight = '270px'
+  let demosDir = getPath(`../src/demos/${componentName}/`)
+  if (fs.existsSync(demosDir)) {
+    const list = glob.sync(demosDir + '/*.vue')
+    .map(one => one.replace(getPath(`../src/demos/`), ''))
+    .map(one => {
+      const route = map[one.replace('.vue', '')]
+      const code = fs.readFileSync(getPath(`../src/demos/`) + one, 'utf-8')
+
+      const rs = code.match(reg)
+      let title = 'EXAMPLE'
+      if (rs) {
+        let meta = yaml.safeLoad(rs[0].replace('<demo>\n', '').replace('</demo>', ''))
+        if (meta.title) {
+          title = meta.title
+        }
+      }
+      return {
+        file: one.replace('.vue', ''),
+        title,
+        route: route,
+        code: '<pre class="hljs"><code>' +
+               hljs.highlight('html', code.replace(reg, ''), true).value +
+               '</code></pre>',
+        height: demoHeight
+      }
+    })
+    demos = list
   }
 
   // 加入样式变量
@@ -340,9 +382,77 @@ export default {
         }
       }
     })
+
+    // add tip on last component
+    if (metas.items) {
+      const keys = metas.items
+      const last = keys[keys.length - 1]
+      metas[last].tips = metas.tips
+    }
+  }
+
+  // render child component description
+  if (metas.items) {
+    metas.items.forEach(item => {
+      if (metas[item].description) {
+        metas[item].description = md.render(metas[item].description)
+      }
+    })
   }
 
   langs.forEach(lang => {
+
+      // toc
+    let toc = []
+    if (demos.length) {
+      toc.push({
+        title: t('Intro', lang),
+        anchor: 'intro'
+      })
+      toc.push({
+        title: t('Install', lang),
+        anchor: 'install'
+      })
+      toc.push({
+        title: t('Examples', lang),
+        anchor: 'examples',
+        list: demos.map(one => {
+          return {
+            title: one.title,
+            anchor: 'examples:' + one.title
+          }
+        }).slice(0, 5)
+      })
+      if (metas.items) {
+        toc.push({
+          title: 'API',
+          anchor: 'api',
+          list: metas.items.map(item => {
+            return {
+              title: `<${item}>`,
+              anchor: 'components:' + item
+            }
+          })
+        })
+      } else {
+        toc.push({
+          title: 'API',
+          anchor: 'api'
+        })
+      }
+      toc.push({
+        title: t('Tips', lang),
+        anchor: 'tips'
+      })
+      toc.push({
+        title: t('Contributors', lang),
+        anchor: 'contributors'
+      })
+      toc.push({
+        title: t('Changelog', lang),
+        anchor: 'changelog'
+      })
+    }
 
     const needImport = metas.need_import === false ? false : true
 
@@ -416,284 +526,370 @@ export default {
 
     let str = `
   <template>
-  <div class="component-box">
+    <div class="component-box">
 
-    <div style="min-height: 600px;">
-    <h1 class="vux-component-name">${importName}</h1>
+      <div style="min-height: 600px;">
+        <a class="anchor" id="intro">${importName}</a>
+        <div class="title-box">
 
-    <p class="component-extra-links">
-      <a href="https://vux.li/demos/v2/#/component/${componentName}" target="_blank">${t('demo url', lang)}</a>
-      <a href="https://github.com/airyland/vux/blob/v2/src/demos/${importName}.vue" target="_blank" @click.prevent="showSourceCode">${t('demo source code', lang)}</a>
-      <a href="https://github.com/airyland/vux/blob/v2/src/components/${componentName}/metas.yml" target="_blank">${t('edit document', lang)}</a>
+          <el-badge value="Beta" v-if="isBeta">
+            <h1 class="vux-component-name">${importName}</h1>
+          </el-badge>
+          <h1 v-else class="vux-component-name">${importName}</h1>
+          
+          <div class="component-description">
+            <template v-if="${!!metas.description}">
+            ${md.render(metas.description || '')}
+            </template>
+          </div>
 
-      <el-popover trigger="hover" v-if="hasReady">
-        <div style="width:100%;text-align:center;">
-          <img class="qr" width="100" src="https://qr.vux.li/api.php?text=${encodeURIComponent(url)}"/>
+          <p class="component-extra-links">
+            <a href="https://vux.li/demos/v2/#/component/${componentName}" target="_blank">${t('demo url', lang)}</a>
+            <a v-if="!demos.length" href="https://github.com/airyland/vux/blob/v2/src/demos/${importName}.vue" target="_blank" @click.prevent="showSourceCode">${t('demo source code', lang)}</a>
+            <a href="https://github.com/airyland/vux/blob/v2/src/components/${componentName}/metas.yml" target="_blank">${t('edit document', lang)}</a>
+
+            <el-popover trigger="hover" v-if="hasReady">
+              <div style="width:100%;text-align:center;">
+                <img class="qr" width="100" src="https://qr.vux.li/api.php?text=${encodeURIComponent(url)}"/>
+              </div>
+              <a href="javascript:" slot="reference">
+              ${t('qr', lang)}
+              </a>
+            </el-popover>
+          </p>
+
         </div>
-        <a href="javascript:" slot="reference">
-        ${t('qr', lang)}
-        </a>
-      </el-popover>
-    </p>
 
-    <div class="component-demo" style="width:377px;height:600px;display:inline-block;border:1px solid #ececec;border-radius:5px;overflow:hidden;z-index:2500;">
-      <iframe src="${urlWithNoTransition}" width="375" height="600" border="0" frameborder="0"></iframe>
-    </div>
-  
-    <template v-if="needImport">
-      <div class="import-code-box">
-        <el-tooltip content="${t('click to copy', lang)}" placement="top">
-          <span
-            v-clipboard:copy="localImportCode"
-            v-clipboard:success="onCopy"
-            v-clipboard:error="onCopyError">
-            <el-icon class="el-icon-document"></el-icon>
-          </span>
-        </el-tooltip>
-        ${localImportCode}
-      </div>
+        <div v-if="!demos.length" class="component-demo" style="width:377px;height:600px;display:inline-block;border:1px solid #ececec;border-radius:5px;overflow:hidden;z-index:2500;">
+          <iframe src="${urlWithNoTransition}" width="375" height="600" border="0" frameborder="0"></iframe>
+        </div>
+        <div class="toc">
+          <ul v-for="t in toc">
+            <li>
+              <a :href="'#' + (t.anchor || t.title)">{{ t.title }}</a>
+              <ul v-if="t.list" v-for="_t in t.list">
+                <li><a :href="'#' + _t.anchor">{{ _t.title.slice(0, 12) }}</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      
+        <template v-if="needImport">
+          <a class="anchor" id="install">Install</a>
+          <div class="import-code-box">
+            <el-tooltip content="${t('click to copy', lang)}" placement="top">
+              <span
+                v-clipboard:copy="localImportCode"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onCopyError">
+                <el-icon class="el-icon-document"></el-icon>
+              </span>
+            </el-tooltip>
+            ${localImportCode}
+          </div>
 
-      <div class="import-code-box">
-        <el-tooltip content="${t('click to copy', lang)}" placement="top">
-          <span
-            v-clipboard:copy="globalImportCode"
-            v-clipboard:success="onCopy"
-            v-clipboard:error="onCopyError">
-            <el-icon class="el-icon-document"></el-icon>
-          </span>
-        </el-tooltip>
-        ${globalImportCode}
-      </div>    
-    </template>
-    <template v-else>
-      <div class="tip">
-        <p>${t('donot need import', lang)}</p>
-      </div>
-    </template>
-
-    <div class="tip" style="width:600px;" v-if="metas.tip">
-      ${ metas.tip ? metas.tip.replace(/`(.*?)`/g, '<code>$1</code>') : '' }
-    </div>
-
-    <h3 v-if="metas.example">${t('example', lang)}</h3>
-    <div v-if="metas.example" style="width:600px;">
-      ${exampleCode}
-    </div>
-    </div>
-
-    <div v-if="metas.extra && metas.extra['${lang}']">
-      ${ metas.extra && metas.extra[lang] ? md.render(metas.extra[lang] || '<div></div>') : '' }
-    </div>
-    <div v-if="metas.extra && !metas.extra['${lang}']">
-      ${ metas.extra && !metas.extra[lang] && typeof metas.extra === 'string' ? md.render(metas.extra || '<div></div>') : '' }
-    </div>
-
-    <template v-for="component in componentList">
-      <h2 v-show="componentList.length > 1" class="vux-component-name-sub-item">{{ component.name }}</h2>
-      <h3 v-if="component.meta.props">${t('Props', lang)}</h3>
-      <table v-if="component.meta.props">
-        <thead>
-          <tr>
-            <td>${t('name', lang)}</td>
-            <td style="width:48px;">${t('type', lang)}</td>
-            <td>${t('default value', lang)}</td>
-            <td>${t('description', lang)}</td>
-            <td>${t('required version', lang)}</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(prop, i) in component.meta.props">
-            <td class="prop-name">
-              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
-                <span
-                v-clipboard:copy="i"
-                v-clipboard:success="onCopy">{{ i }}</span>
-              </el-tooltip>
-            </td>
-            <td v-html="getTypeHTML(prop.type)"></td>
-            <td>{{ prop.default}}</td>
-            <td v-html="prop['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
-            <td>{{ prop.version || '--'}}</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3 v-if="component.meta.events">${t('Events', lang)}</h3>
-
-      <table v-if="component.meta.events">
-        <thead>
-          <tr>
-            <td>${t('name', lang)}</td>
-            <td>${t('params', lang)}</td>
-            <td>${t('description', lang)}</td>
-            <td>${t('required version', lang)}</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(event, i) in component.meta.events">
-            <td class="prop-name">
-              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
-                <span
-                v-clipboard:copy="i"
-                v-clipboard:success="onCopy">{{ i }}</span>
-              </el-tooltip>
-            </td>
-            <td v-html="event.params ? event.params.replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
-            <td v-html="event['${lang}'] ? event['${lang}'].replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
-            <td>{{ event['version'] || '--' }}</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3 v-if="component.meta.slots">${t('Slots', lang)}</h3>
-
-      <table v-if="component.meta.slots">
-        <thead>
-          <tr>
-            <td>${t('name', lang)}</td>
-            <td>${t('description', lang)}</td>
-            <td>${t('required version', lang)}</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(slot, i) in component.meta.slots" :class="{'slot-disabled': slot['status'] === 'deprecated'}">
-            <td class="prop-name">
-              <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
-                <span
-                v-clipboard:copy="i"
-                v-clipboard:success="onCopy">{{ i }}</span>
-              </el-tooltip>
-            </td>
-            <td v-html="slot['${lang}'] ? slot['${lang}'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
-            <td>{{ slot['version'] || '--' }}</td>
-          </tr>
-        </tbody>
-      </table>
-
-        <h3 v-if="component.meta.methods">${t('Functions', lang)}</h3>
-        <table v-if="component.meta.methods">
-          <thead>
-            <tr>
-              <td>${t('name', lang)}</td>
-              <td>${t('params', lang)}</td>
-              <td>${t('description', lang)}</td>
-              <td>${t('required version', lang)}</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(method, i) in component.meta.methods">
-              <td class="prop-name">
-                <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
-                  <span
-                  v-clipboard:copy="i"
-                  v-clipboard:success="onCopy">{{ i }}</span>
-                </el-tooltip>
-              </td>
-              <td v-html="method['params'] ? method['params'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
-              <td v-html="method['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
-              <td>{{ method['version'] }}</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <template v-if="component.meta.variables">
-          <h3>${t('Variables', lang)}</h3>
-          <table>
-            <thead>
-              <tr>
-                <td>${t('name', lang)}</td>
-                <td>${t('default value', lang)}</td>
-                <td>${t('description', lang)}</td>
-                <td>${t('inherited name', lang)}</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(variable, i) in component.meta.variables">
-                <td class="prop-name">
-                  <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
-                    <span
-                    v-clipboard:copy="'@' + variable.name"
-                    v-clipboard:success="onCopy">@{{ variable.name }}</span>
-                  </el-tooltip>
-                </td>
-                <td>
-                  <em
-                    :ref="'propColor' + i"
-                    v-if="!$refs['propColor' + i] || ($refs['propColor' + i][0] && $refs['propColor' + i][0].style.backgroundColor)"
-                    class="prop-color"
-                    :style="{ backgroundColor: variable.value }">
-                  </em>
-                  {{ variable.value }}
-                </td>
-                <td>{{ variable['desc']['${lang}'] || '--' }}</td>
-                <td>{{ variable.inherited_name }}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="import-code-box">
+            <el-tooltip content="${t('click to copy', lang)}" placement="top">
+              <span
+                v-clipboard:copy="globalImportCode"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onCopyError">
+                <el-icon class="el-icon-document"></el-icon>
+              </span>
+            </el-tooltip>
+            ${globalImportCode}
+          </div>    
         </template>
-  
-        <template v-if="component.meta.tips && component.meta.tips['${lang}']">
-          <br>
-          <h3>${t('Tips', lang)}</h3>
-          <div>
-            <ul>
-              <li v-for="tip in component.meta.tips['${lang}']">
-              <el-tag size="mini" type="success" class="component-tip-tag">Q</el-tag> <span class="component-tip-question">{{ tip.q }}</span>
-              <div v-html="tip.a" class="tip-answer-box"></div>
-              </li>
-            </ul>
+
+        <template v-else>
+          <div class="tip">
+            <p>${t('donot need import', lang)}</p>
           </div>
         </template>
-    </template>
 
-    <!--<h3>社区相关讨论</h3>
-    [即将上线]
-    -->
-  
-    <br>
-    <div v-if="issues.length">
-      <h3>${t('Related issues', lang)}</h3>
-      <ul>
-        <li v-for="issue in issues"><a target="_blank" :href="issue.html_url">#{{ issue.number}} <span style="color:#666;">{{ issue.title }}</span></a></li>
+        <div class="tip" style="width:600px;" v-if="metas.tip">
+          ${ metas.tip ? metas.tip.replace(/`(.*?)`/g, '<code>$1</code>') : '' }
+        </div>
+      
+        <h3 v-if="metas.example">${t('example', lang)}</h3>
+        <div v-if="metas.example" style="width:600px;">
+          ${exampleCode}
+        </div>
+      </div>
+
+      <div v-if="metas.extra && metas.extra['${lang}']">
+        ${ metas.extra && metas.extra[lang] ? md.render(metas.extra[lang] || '<div></div>') : '' }
+      </div>
+      <div v-if="metas.extra && !metas.extra['${lang}']">
+        ${ metas.extra && !metas.extra[lang] && typeof metas.extra === 'string' ? md.render(metas.extra || '<div></div>') : '' }
+      </div>
+      
+      <a v-if="demos.length" class="anchor" id="examples">Examples</a>
+      <br/>
+      <template v-if="demos.length" v-for="demo in demos">
+        <a class="anchor" :id="'examples:' + demo.title">{{ demo.title }}</a>
+        <br/>
+        <div class="demo-header">
+          <span class="demo-title">{{ demo.title }}</span>
+        </div>
+        <div class="demos" :style="{height: demo.height}">
+          <div class="demo-iframe-box">
+            <iframe :src="'http://localhost:8080/?locale=${lang}&transition=none#/components/' + demo.file + '?hide-nav=true&hide-tab-bar=true'" width="375" height="600" border="0" frameborder="0" style="margin: 0 auto;"></iframe>
+          </div>
+          <div class="demo-code-box" :style="{overflow: demo.height === demoHeight ? 'hidden' : 'scroll'}">
+            <div v-html="demo.code" contenteditable></div>
+            <div v-if="demo.height === demoHeight" class="demo-code-masker" @click="demo.height='auto'">
+              <div>
+                  <img class="demo-qr" width="100" src="https://qr.vux.li/api.php?text=${encodeURIComponent(url)}"/>
+                  <br/>
+                  <span>
+                    <el-icon class="el-icon-arrow-left"/>
+                    <el-icon class="el-icon-arrow-right"/>
+                    Show code
+                  <br/>
+                  <!--<span class="demo-path">src/demos/{{ demo.file }}.vue</span>-->
+                </span>
+              </div>
+            </div>
+            <span v-if="demo.height === 'auto'" class="hide-code" @click="demo.height=demoHeight">
+              <el-icon class="el-icon-close"></el-icon>
+            </span>
+          </div>
+        </div>
+      </template>
+
+      <template v-for="component in componentList">
+        <div :class="demos.length ? 'components-with-toc' : ''">
+          <a class="anchor" :id="'components:' + component.name">{{ component.name }}</a>
+          <br/>
+          <h2
+            v-show="componentList.length > 1"
+            class="vux-component-name-sub-item">{{ component.name }}</h2>
+            
+          <template v-if="component.meta.description">
+            <div v-html="component.meta.description"></div>
+          </template>
+
+          <template v-if="component.meta.props">
+            <h3>${t('Props', lang)}</h3>
+            <table>
+              <thead>
+                <tr>
+                  <td>${t('name', lang)}</td>
+                  <td style="width:48px;">${t('type', lang)}</td>
+                  <td>${t('default value', lang)}</td>
+                  <td>${t('description', lang)}</td>
+                  <td>${t('required version', lang)}</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(prop, i) in component.meta.props">
+                  <td class="prop-name">
+                    <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
+                      <span
+                      v-clipboard:copy="i"
+                      v-clipboard:success="onCopy">{{ i }}</span>
+                    </el-tooltip>
+                  </td>
+                  <td v-html="getTypeHTML(prop.type)"></td>
+                  <td>{{ prop.default}}</td>
+                  <td v-html="prop['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
+                  <td>{{ prop.version || '--'}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </template>
+
+          <template v-if="component.meta.events">
+            <h3>${t('Events', lang)}</h3>
+            <table>
+              <thead>
+                <tr>
+                  <td>${t('name', lang)}</td>
+                  <td>${t('params', lang)}</td>
+                  <td>${t('description', lang)}</td>
+                  <td>${t('required version', lang)}</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(event, i) in component.meta.events">
+                  <td class="prop-name">
+                    <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
+                      <span
+                      v-clipboard:copy="i"
+                      v-clipboard:success="onCopy">{{ i }}</span>
+                    </el-tooltip>
+                  </td>
+                  <td v-html="event.params ? event.params.replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
+                  <td v-html="event['${lang}'] ? event['${lang}'].replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
+                  <td>{{ event['version'] || '--' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </template>
+      
+
+          <template v-if="component.meta.slots">
+            <h3>${t('Slots', lang)}</h3>
+            <table>
+              <thead>
+                <tr>
+                  <td>${t('name', lang)}</td>
+                  <td>${t('description', lang)}</td>
+                  <td>${t('required version', lang)}</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(slot, i) in component.meta.slots" :class="{'slot-disabled': slot['status'] === 'deprecated'}">
+                  <td class="prop-name">
+                    <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
+                      <span
+                      v-clipboard:copy="i"
+                      v-clipboard:success="onCopy">{{ i }}</span>
+                    </el-tooltip>
+                  </td>
+                  <td v-html="slot['${lang}'] ? slot['${lang}'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
+                  <td>{{ slot['version'] || '--' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </template>
+          
+          <template v-if="component.meta.methods">
+            <h3>${t('Functions', lang)}</h3>
+            <table>
+              <thead>
+                <tr>
+                  <td>${t('name', lang)}</td>
+                  <td>${t('params', lang)}</td>
+                  <td>${t('description', lang)}</td>
+                  <td>${t('required version', lang)}</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(method, i) in component.meta.methods">
+                  <td class="prop-name">
+                    <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
+                      <span
+                      v-clipboard:copy="i"
+                      v-clipboard:success="onCopy">{{ i }}</span>
+                    </el-tooltip>
+                  </td>
+                  <td v-html="method['params'] ? method['params'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
+                  <td v-html="method['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
+                  <td>{{ method['version'] }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </template>
+
+          <template v-if="component.meta.variables">
+            <a class="anchor" id="variables">Variables</a>
+            <br/>
+            <h3>${t('Variables', lang)}</h3>
+            <table>
+              <thead>
+                <tr>
+                  <td>${t('name', lang)}</td>
+                  <td>${t('default value', lang)}</td>
+                  <td>${t('description', lang)}</td>
+                  <td>${t('inherited name', lang)}</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(variable, i) in component.meta.variables">
+                  <td class="prop-name">
+                    <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
+                      <span
+                      v-clipboard:copy="'@' + variable.name"
+                      v-clipboard:success="onCopy">@{{ variable.name }}</span>
+                    </el-tooltip>
+                  </td>
+                  <td>
+                    <em
+                      :ref="'propColor' + i"
+                      v-if="!$refs['propColor' + i] || ($refs['propColor' + i][0] && $refs['propColor' + i][0].style.backgroundColor)"
+                      class="prop-color"
+                      :style="{ backgroundColor: variable.value }">
+                    </em>
+                    {{ variable.value }}
+                  </td>
+                  <td>{{ variable['desc']['${lang}'] || '--' }}</td>
+                  <td>{{ variable.inherited_name }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </template>
+      
+          <template v-if="component.meta.tips && component.meta.tips['${lang}']">
+            <a class="anchor" id="tips">${t('Tips', lang)}</a>
+            <br>
+            <h3>${t('Tips', lang)}</h3>
+            <div>
+              <ul>
+                <li v-for="tip in component.meta.tips['${lang}']">
+                <el-tag size="mini" type="success" class="component-tip-tag">Q</el-tag> <span class="component-tip-question">{{ tip.q }}</span>
+                <div v-html="tip.a" class="tip-answer-box"></div>
+                </li>
+              </ul>
+            </div>
+          </template>
+        </div>
+      </template>
+
+      <!--<h3>社区相关讨论</h3>
+      [即将上线]
+      -->
+    
+      <br>
+      <div v-if="issues.length">
+        <a class="anchor" id="Issues">Issues</a>
+        <br/>
+        <h3>${t('Related issues', lang)}</h3>
+        <ul>
+          <li v-for="issue in issues"><a target="_blank" :href="issue.html_url">#{{ issue.number}} <span style="color:#666;">{{ issue.title }}</span></a></li>
+        </ul>
+      </div>
+      <br>
+    
+      <div v-if="gitMetas">
+        <a class="anchor" id="contributors">${t('Contributors', lang)}</a>
+        <h3>${t('Contributors', lang)}</h3>
+        <p>${t('Total commits quantity:', lang)} {{ gitMetas.commitCount }}，${t('Total contributors quantity:', lang)} {{gitMetas.commitUniqueCount}}
+        </p>
+        <a v-for="person in gitMetas.commitMembers" class="contributor-item" :href="'https://github.com/' + person.authorName" target="_blank" :title="'${t('contribute')}' + person.count">{{person.authorName}}</a>
+      </div>
+      <br>
+
+      <div v-if="metas.changes">
+        <a class="anchor" id="changelog">Changelog</a>
+        <br/>
+        <h3>${t('Releases', lang)}</h3>
+        <ul v-if="metas.changes">
+          <template v-for="(changelog, version) in metas.changes">
+            <li v-for="log in changelog['${lang}']">
+              <router-link :to="'/${lang}/changelog/' + version + '.html'" class="changelog-version">{{version}}</router-link> {{log}}
+            </li>
+          </template>
+        </ul>
+      </div>
+
+      <h3 v-if="metas.references">${t('Referrences', lang)}</h3>
+      <ul v-if="metas.references">
+        <li v-for="link in metas.references['${lang}']">
+          <a :href="link.link" target="_blank">{{link.title}}</a>
+        </li>
       </ul>
+
+      <el-dialog
+        class="sourcec-code-dialog"
+        top="0"
+        width="80%"
+        :visible.sync="sourceCodeDialogVisibility">
+        <div class="code-box" contenteditable v-html="demoCode"></div>
+      </el-dialog>
+
     </div>
-    <br>
-  
-    <div v-if="gitMetas">
-      <h3>${t('Contributors', lang)}</h3>
-      <p>${t('Total commits quantity:', lang)} {{ gitMetas.commitCount }}，${t('Total contributors quantity:', lang)} {{gitMetas.commitUniqueCount}}
-      </p>
-      <a v-for="person in gitMetas.commitMembers" class="contributor-item" :href="'https://github.com/' + person.authorName" target="_blank" :title="'${t('contribute')}' + person.count">{{person.authorName}}</a>
-    </div>
-    <br>
-
-    <div v-if="metas.changes">
-      <h3>${t('Releases', lang)}</h3>
-      <ul v-if="metas.changes">
-        <template v-for="(changelog, version) in metas.changes">
-          <li v-for="log in changelog['${lang}']">
-            <router-link :to="'/${lang}/changelog/' + version + '.html'" class="changelog-version">{{version}}</router-link> {{log}}
-          </li>
-        </template>
-      </ul>
-    </div>
-
-    <h3 v-if="metas.references">${t('Referrences', lang)}</h3>
-    <ul v-if="metas.references">
-      <li v-for="link in metas.references['${lang}']">
-        <a :href="link.link" target="_blank">{{link.title}}</a>
-      </li>
-    </ul>
-
-    <el-dialog
-      class="sourcec-code-dialog"
-      top="0"
-      width="80%"
-      :visible.sync="sourceCodeDialogVisibility">
-      <div class="code-box" contenteditable v-html="demoCode"></div>
-    </el-dialog>
-
-  </div>
   </template>
 
 
@@ -702,18 +898,29 @@ export default {
 
   // const metas = require('json-loader!yaml-loader!../../../src/components/${componentName}/metas.yml')
   const metas = ${JSON.stringify(metas, null, 2)}
+  const demos = ${JSON.stringify(demos, null, 2)}
+
   let componentList = []
   if (Array.isArray(metas.items)) {
-    metas.items.forEach((item, index) => {
-      const meta = {
-        name: item,
-        meta: metas[item]
-      }
-      if (index === metas.items.length - 1) {
-        meta.meta.variables = metas.variables
-      }
-      componentList.push(meta)
-    })
+    try {
+      metas.items.forEach((item, index) => {
+        const meta = {
+          name: item,
+          meta: metas[item]
+        }
+        if (meta.meta.props === null) {
+          delete meta.meta.props
+        }
+        if (index === metas.items.length - 1) {
+          if (meta.meta) {
+            meta.meta.variables = metas.variables
+          }
+        }
+        componentList.push(meta)
+      })
+    } catch (e) {
+      console.log(e)
+    }
   } else {
     componentList.push({
       meta: metas
@@ -814,6 +1021,9 @@ export default {
     },
     data () {
       return {
+        demos,
+        demoHeight: '${demoHeight}',
+        isBeta: ${metas.beta ? 'true' : 'false'},
         hasReady: false,
         issues: [],
         componentName: '${componentName}',
@@ -825,7 +1035,8 @@ export default {
         componentList,
         localImportCode: \`${_localImportCode}\`,
         globalImportCode: \`${_globalImportCode}\`,
-        needImport: ${needImport}
+        needImport: ${needImport},
+        toc: ${JSON.stringify(toc)}
       }
     }
   }
