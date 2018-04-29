@@ -335,7 +335,6 @@ export default {
       }
 
       if (this.lineOptions) {
-        console.log(this.lineOptions)
         const { shape, adjust } = this.lineOptions
         let seriesField = this.lineOptions.seriesField || ''
         let colors = this.buildColor(this.lineOptions.colors)
@@ -388,7 +387,6 @@ export default {
         }
 
         if (adjust) {
-          console.log('bar adjust', adjust)
           rs.adjust(adjust)
         }
       }
@@ -400,7 +398,6 @@ export default {
       })
 
       if (this.pieOptions) {
-        console.log('pie', JSON.stringify(this.pieOptions))
         chart.coord(this.pieOptions.coord, this.pieOptions)
         chart.axis(false)
         chart.interval()

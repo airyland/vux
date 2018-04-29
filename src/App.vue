@@ -161,16 +161,13 @@ export default {
       direction: state => state.vux.direction
     }),
     isShowBar () {
-      if (this.$route.query['hide-tab-bar']) {
+      if (this.entryUrl.indexOf('hide-tab-bar') > -1) {
         return false
       }
       return true
     },
     isShowNav () {
       if (this.entryUrl.indexOf('hide-nav') > -1) {
-        return false
-      }
-      if (this.$route.query['hide-nav']) {
         return false
       }
       return true

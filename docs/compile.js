@@ -634,13 +634,13 @@ export default {
         </div>
         <div class="demos" :style="{height: demo.height}">
           <div class="demo-iframe-box">
-            <iframe :src="'https://doc.vux.li/demos/v2/?locale=${lang}&transition=none&hide-nav=true&hide-tab-bar=true#/components/' + demo.file" width="375" height="600" border="0" frameborder="0" style="margin: 0 auto;"></iframe>
+            <iframe :src="domain + '?locale=${lang}&transition=none&hide-nav=true&hide-tab-bar=true#/components/' + demo.file" width="375" height="600" border="0" frameborder="0" style="margin: 0 auto;"></iframe>
           </div>
           <div class="demo-code-box" :style="{overflow: demo.height === demoHeight ? 'hidden' : 'scroll'}">
             <div v-html="demo.code" contenteditable></div>
             <div v-if="demo.height === demoHeight" class="demo-code-masker" @click="demo.height='auto'">
               <div>
-                  <img class="demo-qr" width="100" src="https://qr.vux.li/api.php?text=${encodeURIComponent(url)}"/>
+                  <img class="demo-qr" width="100" :src="'https://qr.vux.li/api.php?text=' + encodeURIComponent(domain + '?locale=${lang}#/components/' + demo.file)"/>
                   <br/>
                   <span>
                     <el-icon class="el-icon-arrow-left"/>
@@ -929,6 +929,11 @@ export default {
   const gitMetas = require('./${componentName}_git_metas.json')
   const demoCode = decodeURIComponent(\`${demoCode}\`)
 
+  const domainMap = {
+    'development': 'http://localhost:8080/',
+    'production': 'https://vux.li/demos/v2/'
+  }
+
   export default {
     head: {
       title: '${importName} ${t('component tutorial', lang)} | ${t('title', lang)}',
@@ -1036,7 +1041,8 @@ export default {
         localImportCode: \`${_localImportCode}\`,
         globalImportCode: \`${_globalImportCode}\`,
         needImport: ${needImport},
-        toc: ${JSON.stringify(toc)}
+        toc: ${JSON.stringify(toc)},
+        domain: domainMap[process.env.NODE_ENV]
       }
     }
   }

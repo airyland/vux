@@ -10,7 +10,7 @@
 
 <script>
 import { VChart, VTooltip, VLine, VScale } from 'vux'
-console.log(VChart)
+
 export default {
   components: {
     VChart,
