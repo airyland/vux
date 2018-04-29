@@ -1,6 +1,3 @@
-var bind = window.addEventListener ? 'addEventListener' : 'attachEvent'
-var unbind = window.removeEventListener ? 'removeEventListener' : 'detachEvent'
-var prefix = bind !== 'addEventListener' ? 'on' : ''
 
 /**
  * Bind `el` event `type` to `fn`.
@@ -14,6 +11,8 @@ var prefix = bind !== 'addEventListener' ? 'on' : ''
  */
 
 exports.bind = function (el, type, fn, capture) {
+  var bind = window.addEventListener ? 'addEventListener' : 'attachEvent'
+  var prefix = bind !== 'addEventListener' ? 'on' : ''
   el[bind](prefix + type, fn, capture || false)
   return fn
 }
@@ -30,6 +29,9 @@ exports.bind = function (el, type, fn, capture) {
  */
 
 exports.unbind = function (el, type, fn, capture) {
+  var bind = window.addEventListener ? 'addEventListener' : 'attachEvent'
+  var prefix = bind !== 'addEventListener' ? 'on' : ''
+  var unbind = window.removeEventListener ? 'removeEventListener' : 'detachEvent'
   el[unbind](prefix + type, fn, capture || false)
   return fn
 }
