@@ -144,10 +144,10 @@ let paths = []
 langs.forEach(lang => {
   const faqs = glob.sync(getPath(`./${lang}/faq/*.md`))
   const faqRoutes = []
-  const commonTitle = `${t('title')}`
+  const commonTitle = `${t('title', lang)}`
   let faqMd = `
 ---
-title: ${t('faq', lang)} - ${commonTitle}
+title: ${t('faq', lang)} | ${commonTitle}
 ---
 
 # ${t('faq', lang)}
@@ -634,7 +634,7 @@ export default {
         </div>
         <div class="demos" :style="{height: demo.height}">
           <div class="demo-iframe-box">
-            <iframe :src="'https://doc.vux.li/demos/v2/?locale=${lang}&transition=none#/components/' + demo.file + '?hide-nav=true&hide-tab-bar=true'" width="375" height="600" border="0" frameborder="0" style="margin: 0 auto;"></iframe>
+            <iframe :src="'https://doc.vux.li/demos/v2/?locale=${lang}&transition=none&hide-nav=true&hide-tab-bar=true#/components/' + demo.file" width="375" height="600" border="0" frameborder="0" style="margin: 0 auto;"></iframe>
           </div>
           <div class="demo-code-box" :style="{overflow: demo.height === demoHeight ? 'hidden' : 'scroll'}">
             <div v-html="demo.code" contenteditable></div>
