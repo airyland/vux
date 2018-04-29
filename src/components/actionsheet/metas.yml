@@ -1,3 +1,9 @@
+description:
+  Action Sheet是由用户操作后触发的一种特定的模态弹出框 ，呈现一组与当前情境相关的两个或多个选项。用户可以使用Action Sheet启动某个任务，或者确认是否开始执行某个可能具有破坏性的操作。
+  -
+  - 提供清晰准确的描述。在页面有多个唤起对象或选项本身不够明晰的情况下，提供清晰准确的描述是非常有必要的
+  -
+
 icon: '&#xe624;'
 tags:
   en:
@@ -139,7 +145,7 @@ events:
     version: v2.9.0
     en: fires when show transition ends
     zh-CN: 显示动画结束时触发
-  on-after-hide: 
+  on-after-hide:
     version: v2.9.0
     en: fires when hide transition ends
     zh-CN: 隐藏动画结束时触发
