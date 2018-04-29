@@ -41,6 +41,9 @@ export default {
   activated () {
     document.querySelector('#demo_list_box').scrollTop = this.demoTop
   },
+  mounted () {
+    this.height = window.innerHeight - 46 - 53
+  },
   methods: {
     go (name) {
       this.$router.push(`/component/${name}`)
@@ -68,7 +71,7 @@ export default {
   },
   data () {
     return {
-      height: window.innerHeight - 46 - 53,
+      height: 0,
       components: this.split(components)
     }
   },
