@@ -2620,7 +2620,14 @@ js-tokens@^3.0.0:
   version "3.0.2"
   resolved "http://registry.npm.taobao.org/js-tokens/download/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
-js-yaml@^3.4.3, js-yaml@^3.5.2, js-yaml@^3.8.3:
+js-yaml@^3.11.0:
+  version "3.11.0"
+  resolved "http://registry.npm.taobao.org/js-yaml/download/js-yaml-3.11.0.tgz#597c1a8bd57152f26d622ce4117851a51f5ebaef"
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
+js-yaml@^3.4.3, js-yaml@^3.5.2:
   version "3.8.4"
   resolved "http://registry.npm.taobao.org/js-yaml/download/js-yaml-3.8.4.tgz#520b4564f86573ba96662af85a8cafa7b4b5a6f6"
   dependencies:
@@ -4844,16 +4851,6 @@ vue-loader@^12.0.3:
     vue-hot-reload-api "^2.1.0"
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.2.2"
-
-vue-markdown-loader@^0.6.2:
-  version "0.6.2"
-  resolved "http://registry.npm.taobao.org/vue-markdown-loader/download/vue-markdown-loader-0.6.2.tgz#836792c7f9a54cdbb459080c75d0f4bbbddc4489"
-  dependencies:
-    cheerio "^0.20.0"
-    highlight.js "^9.4.0"
-    loader-utils "^0.2.15"
-    markdown-it "^6.0.5"
-    rimraf "^2.5.2"
 
 vue-meta@^1.0.4:
   version "1.0.4"
