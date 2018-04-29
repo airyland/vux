@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@antv/f2@^3.1.4-beta.2":
+  version "3.1.4-beta.2"
+  resolved "http://registry.npm.taobao.org/@antv/f2/download/@antv/f2-3.1.4-beta.2.tgz#629c533a82fafc1dc78c9ba3ef0147bacbbc025c"
+  dependencies:
+    fecha "~2.3.1"
+
 "@types/node@^6.0.46":
   version "6.0.89"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-6.0.89.tgz#154be0e6a823760cd6083aa8c48f952e2e63e0b0"
@@ -2783,6 +2789,10 @@ fd-slicer@~1.0.1:
   resolved "http://registry.npm.taobao.org/fd-slicer/download/fd-slicer-1.0.1.tgz#8b5bcbd9ec327c5041bf9ab023fd6750f1177e65"
   dependencies:
     pend "~1.2.0"
+
+fecha@~2.3.1:
+  version "2.3.3"
+  resolved "http://registry.npm.taobao.org/fecha/download/fecha-2.3.3.tgz#948e74157df1a32fd1b12c3a3c3cdcb6ec9d96cd"
 
 figures@^1.3.5:
   version "1.7.0"
