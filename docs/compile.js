@@ -634,7 +634,9 @@ export default {
         </div>
         <div class="demos" :style="{height: demo.height}">
           <div class="demo-iframe-box">
-            <iframe :src="domain + '?locale=${lang}&transition=none&hide-nav=true&hide-tab-bar=true#/components/' + demo.file" width="375" height="600" border="0" frameborder="0" style="margin: 0 auto;"></iframe>
+            <lazy-component>
+              <iframe :src="domain + '?locale=${lang}&transition=none&hide-nav=true&hide-tab-bar=true#/components/' + demo.file" width="375" height="600" border="0" frameborder="0" style="margin: 0 auto;"></iframe>
+            </lazy-component>
           </div>
           <div class="demo-code-box" :style="{overflow: demo.height === demoHeight ? 'hidden' : 'scroll'}">
             <div v-html="demo.code" contenteditable></div>

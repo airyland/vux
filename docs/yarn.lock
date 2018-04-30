@@ -4834,6 +4834,10 @@ vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "http://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
 
+vue-lazyload@^1.2.3:
+  version "1.2.3"
+  resolved "http://registry.npm.taobao.org/vue-lazyload/download/vue-lazyload-1.2.3.tgz#901f9ec15c7e6ca78781a2bae4a343686bdedb2c"
+
 vue-loader@^12.0.3:
   version "12.2.1"
   resolved "http://registry.npm.taobao.org/vue-loader/download/vue-loader-12.2.1.tgz#53f27c0973d386768f5a75156f4129b5efc6ba55"
