@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-chart :data="data">
+    <v-chart :data="data" prevent-default>
       <v-scale x :tick-count="3" />
       <v-tooltip :show-item-marker="false" show-x-value />
       <v-line />

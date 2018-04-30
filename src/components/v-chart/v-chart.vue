@@ -1,9 +1,11 @@
 <template lang="html">
-  <div :style="{
-    backgroundColor: backgroundColor,
-    width: width + 'px',
-    height: height + 'px'
-  }">
+  <div
+    :style="{
+      backgroundColor: backgroundColor,
+      width: width + 'px',
+      height: height + 'px'
+    }"
+    @touchstart="onTouchstart">
     <canvas height="260" class="noselect" ref="chart"></canvas>
     <slot></slot>
   </div>
@@ -20,7 +22,6 @@
 //   schema: ['candle']
 // }
 
-// @touchstart.prevent
 import F2 from '@antv/f2'
 
 export default {
@@ -42,6 +43,10 @@ export default {
       default: 'line'
     },
     preventRender: {
+      type: Boolean,
+      default: false
+    },
+    preventDefault: {
       type: Boolean,
       default: false
     }
@@ -131,6 +136,9 @@ export default {
     }
   },
   methods: {
+    onTouchstart (e) {
+      this.preventDefault && e.preventDefault()
+    },
     set (name, options) {
       this[`${name}Options`] = options
     },

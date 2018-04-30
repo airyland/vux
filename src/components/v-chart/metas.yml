@@ -79,6 +79,12 @@ v-chart:
       default: false
       en: whether prevent rendering
       zh-CN: 是否自定义渲染逻辑
+    prevent-default:
+      version: next
+      type: boolean
+      default: false
+      en: whether prevent default behavior
+      zh-CN: 是否阻止默认行为
   events:
     on-render:
       version: next
