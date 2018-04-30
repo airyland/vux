@@ -66,11 +66,21 @@ const list = {
   },
   'globally register': {
     'en': 'you can also register globally',
-    'zh-CN': '也可以在入口文件全局引入'
+    'zh-CN': '在入口文件全局引入'
+  },
+  'default slot': {
+    en: 'default',
+    'zh-CN': '默认插槽'
+  },
+  'required version': {
+    'zh-CN': '版本要求'
   },
   'qr': {
-    'en': 'view on mobile',
+    'en': 'view demos on mobile',
     'zh-CN': '二维码'
+  },
+  'component source code': {
+    'zh-CN': '组件源码'
   },
   'demo url': {
     'zh-CN': 'demo 原始链接'
@@ -194,6 +204,12 @@ const list = {
   'priceCurrency': {
     en: 'USD',
     'zh-CN': 'CNY'
+  },
+  'Local Registration': {
+    'zh-CN': '局部注册'
+  },
+  'Global Registration': {
+    'zh-CN': '全局注册'
   }
 }
 

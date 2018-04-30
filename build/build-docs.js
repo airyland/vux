@@ -310,6 +310,8 @@ function render(files, tag) {
     }
 
     if (!tag && item.icon && item.name) {
+      const isDir = fs.existsSync(path.join(__dirname, `../src/demos/${item.name}/`))
+      item.hasHome = isDir
       gComponents.push(item)
     }
 

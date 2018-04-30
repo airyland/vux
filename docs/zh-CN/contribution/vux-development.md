@@ -9,8 +9,11 @@ title: VUX 源码本地运行
 :::
 
 ``` bash
-yarn // 使用 yarn.lock 保证依赖版本一致
-yarn dev
+yarn # 使用 yarn.lock 保证依赖版本一致
+yarn dev # 或者 npm run dev
+
+
+yarn dev -- --env.include datetime,alert # 只运行部分组件，耗时短
 ```
 
 ## 本地查看文档
@@ -39,7 +42,7 @@ npm run doc:dev // 运行
 
 ``` bash
 cd docs
-node compile --include datetime // 只构建 datetime 相关文档
+node compile --include datetime // 只构建 datetime 相关文档，多个时以英文逗号分隔，如：datetime,alert
 npm run dev
 ```
 

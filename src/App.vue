@@ -281,11 +281,11 @@ html, body {
 
 @font-face {
   font-family: 'vux-demo';  /* project id 70323 */
-  src: url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.eot');
-  src: url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.eot?#iefix') format('embedded-opentype'),
-  url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.woff') format('woff'),
-  url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.ttf') format('truetype'),
-  url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_70323_wlronpvr565yiudi.eot');
+  src: url('//at.alicdn.com/t/font_70323_wlronpvr565yiudi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_70323_wlronpvr565yiudi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_70323_wlronpvr565yiudi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_70323_wlronpvr565yiudi.svg#iconfont') format('svg');
 }
 
 .demo-icon {

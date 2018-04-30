@@ -35,6 +35,10 @@ props:
     default: 0
     en: percentage value
     zh-CN: 进度百分比
+slots:
+  default:
+    en: content in middle of the circle
+    zh-CN: 圆圈中间显示内容
 changes:
   v2.9.0:
     en:

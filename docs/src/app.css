@@ -38,7 +38,6 @@ body {
 }
 
 .title-box {
-  border-bottom: 1px solid #eaecef;
   margin-bottom: 15px;
   padding-top: 10px;
 }
@@ -679,8 +678,11 @@ div.tip {
 }
 
 .import-code-box {
-  width: 600px;
   position: relative;
+}
+
+.markdown-body .highlight .import-code-box pre, .markdown-body .import-code-box pre {
+  max-width: none;
 }
 
 .import-code-box:hover .el-tooltip {
@@ -701,7 +703,6 @@ div.tip {
   border-radius: 3px;
   border-top-left-radius: 0px;
   margin-bottom: 25px;
-  width: 80%;
   max-height: 600px;
   overflow: hidden;
   min-width: 800px;
@@ -830,4 +831,25 @@ a.anchor {
 .toc a {
   font-size: 12px;
   color: #888;
+}
+
+.component-header-v1 {
+  min-height: 600px;
+}
+
+.el-tabs__item.is-active, .el-tabs__item:hover {
+  color: green;
+}
+
+.el-tabs__active-bar {
+  background-color: green;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: transparent;
+}
+
+.markdown-body table thead tr {
+  height: 44px;
+  background-color: #f7f7f7;
 }

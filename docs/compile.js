@@ -16,6 +16,16 @@ const variableMap = {}
 const variablePath = path.join(__dirname, '../src/styles/variable.less')
 const variableContent = fs.readFileSync(variablePath, 'utf-8').split('\n')
 
+const isInclude = function (name, include) {
+  let list = include.split(',')
+  for (let i = 0; i < list.length; i++) {
+    if (name.includes(list[i])) {
+      return true
+    }
+  }
+  return false
+}
+
 variableContent.forEach((line, index) => {
   if (/^@/.test(line)) {
     let temp = line.split(':')
@@ -227,7 +237,7 @@ files = files.map(file => {
 
 if (include) {
   files = files.filter(file => {
-    return file.includes(include)
+    return isInclude(file, include)
   })
 }
 
@@ -259,7 +269,7 @@ langs.forEach(lang => {
 files.forEach(file => {
   let currentPath = `${file.replace(/^.\//, '/').replace('.md', '.html')}`
 
-  if (!include || currentPath.includes(include)) {
+  if (!include || isInclude(currentPath, include)) {
     paths.push(currentPath)
     str += `
   routes.push({
@@ -303,39 +313,6 @@ components.forEach((file) => {
     return
   }
 
-  // find demos
-  let demos = []
-  const reg = /<demo[^>]*>([\s\S]*?)<\/demo>/g
-  const demoHeight = '270px'
-  let demosDir = getPath(`../src/demos/${componentName}/`)
-  if (fs.existsSync(demosDir)) {
-    const list = glob.sync(demosDir + '/*.vue')
-    .map(one => one.replace(getPath(`../src/demos/`), ''))
-    .map(one => {
-      const route = map[one.replace('.vue', '')]
-      const code = fs.readFileSync(getPath(`../src/demos/`) + one, 'utf-8')
-
-      const rs = code.match(reg)
-      let title = 'EXAMPLE'
-      if (rs) {
-        let meta = yaml.safeLoad(rs[0].replace('<demo>\n', '').replace('</demo>', ''))
-        if (meta.title) {
-          title = meta.title
-        }
-      }
-      return {
-        file: one.replace('.vue', ''),
-        title,
-        route: route,
-        code: '<pre class="hljs"><code>' +
-               hljs.highlight('html', code.replace(reg, ''), true).value +
-               '</code></pre>',
-        height: demoHeight
-      }
-    })
-    demos = list
-  }
-
   // 加入样式变量
   metas.variables = variables[componentName.replace('x-', '')]
 
@@ -356,7 +333,6 @@ components.forEach((file) => {
     })
   }
   const parseReg = '`(.*?)`'
-  const url = `https://vux.li/demos/v2/#/component/${componentName}`
   const _localImportCode = `import { ${importList.map(one => one.importName).join(', ')} } from 'vux'
 
 export default {
@@ -402,7 +378,64 @@ export default {
 
   langs.forEach(lang => {
 
-      // toc
+    // find demos
+    let demos = []
+    const reg = /<demo[^>]*>([\s\S]*?)<\/demo>/g
+    let demoHeight = '270px'
+    let commonNoBackgroundColor = 'true'
+    let demosDir = getPath(`../src/demos/${componentName}/`)
+    if (fs.existsSync(demosDir)) {
+      const list = glob.sync(demosDir + '/*.vue').filter(one => !one.includes('_index.vue'))
+      .map(one => one.replace(getPath(`../src/demos/`), ''))
+      .map(one => {
+        const route = map[one.replace('.vue', '')]
+        const code = fs.readFileSync(getPath(`../src/demos/`) + one, 'utf-8')
+        let height = demoHeight
+        let noBackgroundColor = commonNoBackgroundColor
+        let order = 999
+        const rs = code.match(reg)
+        let title = 'EXAMPLE'
+        if (rs) {
+          let meta = yaml.safeLoad(rs[0].replace('<demo>\n', '').replace('</demo>', ''))
+          if (typeof meta.title === 'string') {
+            title = meta.title
+          } else if (typeof meta.title === 'object') {
+            title = meta.title[lang]
+          }
+          if (meta.height) {
+            height = meta.height + 'px'
+          }
+          if (meta.noBackgroundColor ===  false) {
+            noBackgroundColor === 'false'
+          }
+          if (meta.order) {
+            order = meta.order * 1
+          }
+        }
+        return {
+          file: one.replace('.vue', ''),
+          title,
+          route: route,
+          code: '<pre class="hljs"><code>' +
+                 hljs.highlight('html', code.replace(reg, ''), true).value +
+                 '</code></pre>',
+          oriHeight: height,
+          height: height,
+          noBackgroundColor,
+          order
+        }
+      })
+      demos = list.sort((a, b) => {
+        return a.order > b.order ? 1 : -1
+      })
+    }
+
+    let url = `https://vux.li/demos/v2/#/component/${componentName}`
+    if (demos.length) {
+      url = `https://vux.li/demos/v2/#/components/${componentName}/home`
+    }
+
+    // toc
     let toc = []
     if (demos.length) {
       toc.push({
@@ -526,9 +559,9 @@ export default {
 
     let str = `
   <template>
-    <div class="component-box">
+    <div class="component-box" :class="demos.length ? 'components-with-toc' : ''">
 
-      <div style="min-height: 600px;">
+      <div :class="demos.length ? 'component-header-v2' : 'component-header-v1'">
         <a class="anchor" id="intro">${importName}</a>
         <div class="title-box">
 
@@ -536,18 +569,12 @@ export default {
             <h1 class="vux-component-name">${importName}</h1>
           </el-badge>
           <h1 v-else class="vux-component-name">${importName}</h1>
-          
-          <div class="component-description">
-            <template v-if="${!!metas.description}">
-            ${md.render(metas.description || '')}
-            </template>
-          </div>
 
           <p class="component-extra-links">
-            <a href="https://vux.li/demos/v2/#/component/${componentName}" target="_blank">${t('demo url', lang)}</a>
+            <a href="${url}" target="_blank">${t('demo url', lang)}</a>
             <a v-if="!demos.length" href="https://github.com/airyland/vux/blob/v2/src/demos/${importName}.vue" target="_blank" @click.prevent="showSourceCode">${t('demo source code', lang)}</a>
             <a href="https://github.com/airyland/vux/blob/v2/src/components/${componentName}/metas.yml" target="_blank">${t('edit document', lang)}</a>
-
+            <a href="https://github.com/airyland/vux/blob/v2/src/components/${componentName}/" target="_blank">${t('component source code', lang)}</a>
             <el-popover trigger="hover" v-if="hasReady">
               <div style="width:100%;text-align:center;">
                 <img class="qr" width="100" src="https://qr.vux.li/api.php?text=${encodeURIComponent(url)}"/>
@@ -557,6 +584,12 @@ export default {
               </a>
             </el-popover>
           </p>
+
+          <div class="component-description">
+            <template v-if="${!!metas.description}">
+            ${md.render(metas.description || '')}
+            </template>
+          </div>
 
         </div>
 
@@ -576,29 +609,35 @@ export default {
       
         <template v-if="needImport">
           <a class="anchor" id="install">Install</a>
-          <div class="import-code-box">
-            <el-tooltip content="${t('click to copy', lang)}" placement="top">
-              <span
-                v-clipboard:copy="localImportCode"
-                v-clipboard:success="onCopy"
-                v-clipboard:error="onCopyError">
-                <el-icon class="el-icon-document"></el-icon>
-              </span>
-            </el-tooltip>
-            ${localImportCode}
-          </div>
-
-          <div class="import-code-box">
-            <el-tooltip content="${t('click to copy', lang)}" placement="top">
-              <span
-                v-clipboard:copy="globalImportCode"
-                v-clipboard:success="onCopy"
-                v-clipboard:error="onCopyError">
-                <el-icon class="el-icon-document"></el-icon>
-              </span>
-            </el-tooltip>
-            ${globalImportCode}
-          </div>    
+          <h2>${t('Install', lang)}</h2>
+          <el-tabs>
+            <el-tab-pane label="${t('Local Registration', lang)}">
+              <div class="import-code-box">
+              <el-tooltip content="${t('click to copy', lang)}" placement="top">
+                <span
+                  v-clipboard:copy="localImportCode"
+                  v-clipboard:success="onCopy"
+                  v-clipboard:error="onCopyError">
+                  <el-icon class="el-icon-document"></el-icon>
+                </span>
+              </el-tooltip>
+              ${localImportCode}
+            </div>
+            </el-tab-pane>
+            <el-tab-pane label="${t('Global Registration', lang)}">
+              <div class="import-code-box">
+                <el-tooltip content="${t('click to copy', lang)}" placement="top">
+                  <span
+                    v-clipboard:copy="globalImportCode"
+                    v-clipboard:success="onCopy"
+                    v-clipboard:error="onCopyError">
+                    <el-icon class="el-icon-document"></el-icon>
+                  </span>
+                </el-tooltip>
+                ${globalImportCode}
+              </div> 
+            </el-tab-pane>
+          </el-tabs>   
         </template>
 
         <template v-else>
@@ -611,7 +650,7 @@ export default {
           ${ metas.tip ? metas.tip.replace(/`(.*?)`/g, '<code>$1</code>') : '' }
         </div>
       
-        <h3 v-if="metas.example">${t('example', lang)}</h3>
+        <h2 v-if="metas.example">${t('example', lang)}</h2>
         <div v-if="metas.example" style="width:600px;">
           ${exampleCode}
         </div>
@@ -635,12 +674,18 @@ export default {
         <div class="demos" :style="{height: demo.height}">
           <div class="demo-iframe-box">
             <lazy-component>
-              <iframe :src="domain + '?locale=${lang}&transition=none&hide-nav=true&hide-tab-bar=true#/components/' + demo.file" width="375" height="600" border="0" frameborder="0" style="margin: 0 auto;"></iframe>
+              <iframe
+                :src="domain + '?no-background-color=' + demo.noBackgroundColor +'&locale=${lang}&transition=none&hide-nav=true&hide-tab-bar=true#/components/' + demo.file"
+                width="375"
+                height="600"
+                border="0"
+                frameborder="0"
+                style="margin: 0 auto;"></iframe>
             </lazy-component>
           </div>
-          <div class="demo-code-box" :style="{overflow: demo.height === demoHeight ? 'hidden' : 'scroll'}">
+          <div class="demo-code-box" :style="{overflow: demo.height === demo.oriHeight ? 'hidden' : 'scroll'}">
             <div v-html="demo.code" contenteditable></div>
-            <div v-if="demo.height === demoHeight" class="demo-code-masker" @click="demo.height='auto'">
+            <div v-if="demo.height === demo.oriHeight" class="demo-code-masker" @click="demo.height='auto'">
               <div>
                   <img class="demo-qr" width="100" :src="'https://qr.vux.li/api.php?text=' + encodeURIComponent(domain + '?locale=${lang}#/components/' + demo.file)"/>
                   <br/>
@@ -653,7 +698,7 @@ export default {
                 </span>
               </div>
             </div>
-            <span v-if="demo.height === 'auto'" class="hide-code" @click="demo.height=demoHeight">
+            <span v-if="demo.height === 'auto'" class="hide-code" @click="demo.height=demo.oriHeight">
               <el-icon class="el-icon-close"></el-icon>
             </span>
           </div>
@@ -661,19 +706,20 @@ export default {
       </template>
 
       <template v-for="component in componentList">
-        <div :class="demos.length ? 'components-with-toc' : ''">
-          <a class="anchor" :id="'components:' + component.name">{{ component.name }}</a>
+        <div>
+          <a v-if="componentList.length > 1" class="anchor" :id="'components:' + component.name">{{ component.name }}</a>
+          <a v-else class="anchor" id="api">API</a>
           <br/>
           <h2
             v-show="componentList.length > 1"
             class="vux-component-name-sub-item">{{ component.name }}</h2>
             
-          <template v-if="component.meta.description">
+          <template v-if="component.meta.items && component.meta.description">
             <div v-html="component.meta.description"></div>
           </template>
 
           <template v-if="component.meta.props">
-            <h3>${t('Props', lang)}</h3>
+            <h2>${t('Props', lang)}</h2>
             <table>
               <thead>
                 <tr>
@@ -703,7 +749,7 @@ export default {
           </template>
 
           <template v-if="component.meta.events">
-            <h3>${t('Events', lang)}</h3>
+            <h2>${t('Events', lang)}</h2>
             <table>
               <thead>
                 <tr>
@@ -718,8 +764,8 @@ export default {
                   <td class="prop-name">
                     <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
                       <span
-                      v-clipboard:copy="i"
-                      v-clipboard:success="onCopy">{{ i }}</span>
+                      v-clipboard:copy="'@' + i"
+                      v-clipboard:success="onCopy">@{{ i }}</span>
                     </el-tooltip>
                   </td>
                   <td v-html="event.params ? event.params.replace(/${parseReg}/g, '<code>$1</code>') : '--'"></td>
@@ -732,7 +778,7 @@ export default {
       
 
           <template v-if="component.meta.slots">
-            <h3>${t('Slots', lang)}</h3>
+            <h2>${t('Slots', lang)}</h2>
             <table>
               <thead>
                 <tr>
@@ -747,7 +793,7 @@ export default {
                     <el-tooltip content="${t('click to copy', lang)}" placement="left" :hide-after="0" :open-delay="50">
                       <span
                       v-clipboard:copy="i"
-                      v-clipboard:success="onCopy">{{ i }}</span>
+                      v-clipboard:success="onCopy">{{ i === 'default' ? '${t('default slot', lang)}' : i }}</span>
                     </el-tooltip>
                   </td>
                   <td v-html="slot['${lang}'] ? slot['${lang}'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
@@ -758,7 +804,7 @@ export default {
           </template>
           
           <template v-if="component.meta.methods">
-            <h3>${t('Functions', lang)}</h3>
+            <h2>${t('Functions', lang)}</h2>
             <table>
               <thead>
                 <tr>
@@ -788,7 +834,7 @@ export default {
           <template v-if="component.meta.variables">
             <a class="anchor" id="variables">Variables</a>
             <br/>
-            <h3>${t('Variables', lang)}</h3>
+            <h2>${t('Variables', lang)}</h2>
             <table>
               <thead>
                 <tr>
@@ -826,7 +872,7 @@ export default {
           <template v-if="component.meta.tips && component.meta.tips['${lang}']">
             <a class="anchor" id="tips">${t('Tips', lang)}</a>
             <br>
-            <h3>${t('Tips', lang)}</h3>
+            <h2>${t('Tips', lang)}</h2>
             <div>
               <ul>
                 <li v-for="tip in component.meta.tips['${lang}']">
@@ -839,7 +885,7 @@ export default {
         </div>
       </template>
 
-      <!--<h3>社区相关讨论</h3>
+      <!--<h2>社区相关讨论</h2>
       [即将上线]
       -->
     
@@ -847,7 +893,7 @@ export default {
       <div v-if="issues.length">
         <a class="anchor" id="Issues">Issues</a>
         <br/>
-        <h3>${t('Related issues', lang)}</h3>
+        <h2>${t('Related issues', lang)}</h2>
         <ul>
           <li v-for="issue in issues"><a target="_blank" :href="issue.html_url">#{{ issue.number}} <span style="color:#666;">{{ issue.title }}</span></a></li>
         </ul>
@@ -856,7 +902,7 @@ export default {
     
       <div v-if="gitMetas">
         <a class="anchor" id="contributors">${t('Contributors', lang)}</a>
-        <h3>${t('Contributors', lang)}</h3>
+        <h2>${t('Contributors', lang)}</h2>
         <p>${t('Total commits quantity:', lang)} {{ gitMetas.commitCount }}，${t('Total contributors quantity:', lang)} {{gitMetas.commitUniqueCount}}
         </p>
         <a v-for="person in gitMetas.commitMembers" class="contributor-item" :href="'https://github.com/' + person.authorName" target="_blank" :title="'${t('contribute')}' + person.count">{{person.authorName}}</a>
@@ -866,7 +912,7 @@ export default {
       <div v-if="metas.changes">
         <a class="anchor" id="changelog">Changelog</a>
         <br/>
-        <h3>${t('Releases', lang)}</h3>
+        <h2>${t('Releases', lang)}</h2>
         <ul v-if="metas.changes">
           <template v-for="(changelog, version) in metas.changes">
             <li v-for="log in changelog['${lang}']">
@@ -876,7 +922,7 @@ export default {
         </ul>
       </div>
 
-      <h3 v-if="metas.references">${t('Referrences', lang)}</h3>
+      <h2 v-if="metas.references">${t('Referrences', lang)}</h2>
       <ul v-if="metas.references">
         <li v-for="link in metas.references['${lang}']">
           <a :href="link.link" target="_blank">{{link.title}}</a>
@@ -1029,7 +1075,6 @@ export default {
     data () {
       return {
         demos,
-        demoHeight: '${demoHeight}',
         isBeta: ${metas.beta ? 'true' : 'false'},
         hasReady: false,
         issues: [],
@@ -1089,7 +1134,7 @@ langs.forEach(lang => {
   glob.sync(getPath(`./${lang}/components/*.vue`)).forEach(component => {
     component = '..' + component.replace(__dirname, '')
     const name = component.replace(`../${lang}/components/`, '').replace('.vue', '')
-    if (!include || name.includes(include)) {
+    if (!include || isInclude(name, include)) {
       str += `
     routes.push({
       path: '/${lang}/components/${name}.html',
@@ -1103,7 +1148,7 @@ langs.forEach(lang => {
 
 if (include) {
   paths = paths.filter(path => {
-    return path.includes(include)
+    return isInclude(path, include)
   })
 }
 

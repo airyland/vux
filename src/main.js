@@ -25,6 +25,10 @@ let store = new Vuex.Store({
 
 Vue.use(vuexI18n.plugin, store)
 
+if (/no-background-color=true/.test(location.href)) {
+  document.body.style['background-color'] = '#fff'
+}
+
 // no transitoin in demo site
 const shouldUseTransition = !/transition=none/.test(location.href)
 
@@ -37,7 +41,10 @@ for (let i in finalLocales) {
   Vue.i18n.add(i, finalLocales[i])
 }
 
-import { DatetimePlugin, CloseDialogsPlugin, ConfigPlugin, BusPlugin, LocalePlugin, DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin, AppPlugin } from 'vux'
+import { Group, Cell, DatetimePlugin, CloseDialogsPlugin, ConfigPlugin, BusPlugin, LocalePlugin, DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin, AppPlugin } from 'vux'
+
+Vue.component('group', Group)
+Vue.component('cell', Cell)
 
 Vue.use(LocalePlugin)
 const nowLocale = Vue.locale.get()

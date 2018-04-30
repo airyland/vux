@@ -4,14 +4,16 @@
     "icon": "&#xe624;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "alert",
     "icon": "&#xe603;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "badge",
@@ -19,14 +21,16 @@
     "color": "#f74c31",
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "blur",
     "icon": "&#xe640;",
     "category_en": "Deprecated",
     "category_zh-CN": "不再维护",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "button-tab",
@@ -37,49 +41,56 @@
     ],
     "category_en": "Navigation",
     "category_zh-CN": "导航",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "calendar",
     "icon": "&#xe62b;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "card",
     "icon": "&#xe658;",
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "cell-box",
     "icon": "&#xe62a;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "cell-form-preview",
     "icon": "&#xe62a;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "cell",
     "icon": "&#xe62a;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "check-icon",
     "icon": "&#xe619;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "checker",
@@ -90,21 +101,24 @@
     ],
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "checklist",
     "icon": "&#xe61d;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "clocker",
     "icon": "&#xe620;",
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "color-picker",
@@ -112,63 +126,72 @@
     "color": "#f2c400",
     "category_en": "Deprecated",
     "category_zh-CN": "不再维护",
-    "category_order": 999
+    "category_order": 999,
+    "hasHome": false
   },
   {
     "name": "confirm",
     "icon": "&#xe608;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "countdown",
     "icon": "&#xe653;",
     "category_en": "Deprecated",
     "category_zh-CN": "不再维护",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "countup",
     "icon": "&#xe63e;",
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "datetime-range",
     "icon": "&#xe60a;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "datetime-view",
     "icon": "&#xe60a;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "datetime",
     "icon": "&#xe60a;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "divider",
     "icon": "&#xe65d;",
     "category_en": "Layout",
     "category_zh-CN": "布局",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "drawer",
     "icon": "&#xe62a;",
     "category_en": "Navigation",
     "category_zh-CN": "导航",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "flexbox",
@@ -179,7 +202,8 @@
     ],
     "category_en": "Layout",
     "category_zh-CN": "布局",
-    "category_order": 2
+    "category_order": 2,
+    "hasHome": false
   },
   {
     "name": "flow",
@@ -191,14 +215,16 @@
     ],
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "form-preview",
     "icon": "&#xe699;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "grid",
@@ -209,63 +235,72 @@
     ],
     "category_en": "Layout",
     "category_zh-CN": "布局",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "group",
     "icon": "&#xe62a;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "icon",
     "icon": "&#xe619;",
     "category_en": "Basic",
     "category_zh-CN": "基础组件",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "inline-calendar",
     "icon": "&#xe62b;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "inline-loading",
     "icon": "&#xe610;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "inline-x-number",
     "icon": "&#xe605;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "inline-x-switch",
     "icon": "&#xe61c;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "load-more",
     "icon": "&#xe610;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "loading",
     "icon": "&#xe610;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "marquee",
@@ -276,98 +311,112 @@
     ],
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "masker",
     "icon": "&#xe651;",
     "category_en": "Deprecated",
     "category_zh-CN": "不再维护",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "msg",
     "icon": "&#xe619;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "panel",
     "icon": "&#xe658;",
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "picker",
     "icon": "&#xe627;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "popover",
     "icon": "&#xe65f;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "popup-header",
     "icon": "&#xe654;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "popup-picker",
     "icon": "&#xe626;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "popup-radio",
     "icon": "&#xe60f;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "popup",
     "icon": "&#xe61e;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "previewer",
     "icon": "&#xe65c;",
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "qrcode",
     "icon": "&#xe65a;",
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "radio",
     "icon": "&#xe60f;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "range",
     "icon": "&#xe60b;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "rater",
@@ -375,35 +424,40 @@
     "color": "#FF9900",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "scroller",
     "icon": "&#xe641;",
     "category_en": "Deprecated",
     "category_zh-CN": "不再维护",
-    "category_order": 999
+    "category_order": 999,
+    "hasHome": false
   },
   {
     "name": "search",
     "icon": "&#xe63b;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "selector",
     "icon": "&#xe607;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "spinner",
     "icon": "&#xe610;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "step",
@@ -414,14 +468,16 @@
     ],
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "sticky",
     "icon": "&#xe623;",
     "category_en": "Layout",
     "category_zh-CN": "布局",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "swipeout",
@@ -433,14 +489,16 @@
     ],
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "swiper",
     "icon": "&#xe612;",
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "tab",
@@ -451,7 +509,8 @@
     ],
     "category_en": "Navigation",
     "category_zh-CN": "导航",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "tabbar",
@@ -462,21 +521,24 @@
     ],
     "category_en": "Navigation",
     "category_zh-CN": "导航",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "timeline",
     "icon": "&#xe656;",
     "category_en": "DataDisplay",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "toast",
     "icon": "&#xe625;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "v-chart",
@@ -497,111 +559,127 @@
     ],
     "category_en": "Chart",
     "category_zh-CN": "图表",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": true
   },
   {
     "name": "view-box",
     "icon": "&#xe641;",
     "category_en": "Layout",
     "category_zh-CN": "布局",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "wechat-emotion",
     "icon": "&#xe63c;",
     "category_en": "Deprecated",
     "category_zh-CN": "不再维护",
-    "category_order": 999
+    "category_order": 999,
+    "hasHome": false
   },
   {
     "name": "x-address",
     "icon": "&#xe61b;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-button",
     "icon": "&#xe616;",
     "category_en": "Basic",
     "category_zh-CN": "基础组件",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-circle",
     "icon": "&#xe63d;",
     "category_en": "Chart",
     "category_zh-CN": "图表",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": true
   },
   {
     "name": "x-dialog",
     "icon": "&#xe608;",
     "category_en": "Feedback",
     "category_zh-CN": "弹窗提示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-header",
     "icon": "&#xe654;",
     "category_en": "Navigation",
     "category_zh-CN": "导航",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-icon",
     "icon": "&#xe619;",
     "category_en": "Basic",
     "category_zh-CN": "基础组件",
-    "category_order": 1
+    "category_order": 1,
+    "hasHome": false
   },
   {
     "name": "x-img",
     "icon": "&#xe602;",
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-input",
     "icon": "&#xe614;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-number",
     "icon": "&#xe605;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-progress",
     "icon": "&#xe618;",
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-switch",
     "icon": "&#xe61c;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-table",
     "icon": "&#xe66d;",
     "category_en": "Data Display",
     "category_zh-CN": "数据展示",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-textarea",
     "icon": "&#xe611;",
     "category_en": "Form",
     "category_zh-CN": "表单",
-    "category_order": 998
+    "category_order": 998,
+    "hasHome": false
   }
 ]
