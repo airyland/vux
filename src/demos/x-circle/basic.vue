@@ -2,23 +2,36 @@
   <div class="vux-circle-demo">
     <br>
     <div style="width:150px;height:150px;">
-      <x-circle :percent="percent" :stroke-width="5" stroke-color="#04BE02">
+      <x-circle
+        :percent="percent"
+        :stroke-width="5"
+        stroke-color="#04BE02">
         <span>{{ percent }}%</span>
       </x-circle>
     </div>
-    <h4>顺时针方向</h4>
-    <div style="width:150px;height:150px;">
-      <x-circle :percent="percent" :stroke-width="5" stroke-color="#04BE02" anticlockwise="true">
-        <span>{{ percent }}%</span>
-      </x-circle>
-    </div>
-    <h4>逆时针方向</h4>
-    <br>
-    <div style="width:250px;">
+
+    <div class="circle-demo-range">
       <range v-model="percent" :min="0" :max="100"></range>
     </div>
+
+    <div style="width:150px;height:150px;">
+      <x-circle
+        :percent="percent"
+        :stroke-width="5"
+        stroke-color="#04BE02"
+        anticlockwise>
+        <span>{{ percent }}%</span>
+      </x-circle>
+    </div>
+    <h4>{{ $t('anticlockwise') }}</h4>
+    <br>
   </div>
 </template>
+
+<i18n>
+anticlockwise:
+  zh-CN: 逆时针
+</i18n>
 
 <script>
 import { XCircle, Range, Icon } from 'vux'
@@ -31,7 +44,7 @@ export default {
   },
   data () {
     return {
-      percent: 10
+      percent: 50
     }
   }
 }
@@ -42,7 +55,13 @@ export default {
   text-align: center;
 }
 .vux-circle-demo > div {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.circle-demo-range {
+  width: 250px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 </style>
 
@@ -50,6 +69,6 @@ export default {
 title:
   en: basic usage
   zh-CN: 基础用法
-height: 250
+height: 420
 order: 1
 </demo>
