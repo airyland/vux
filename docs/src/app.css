@@ -705,7 +705,7 @@ div.tip {
   margin-bottom: 25px;
   max-height: 600px;
   overflow: hidden;
-  min-width: 800px;
+  min-width: 750px;
 }
 
 .demo-header {

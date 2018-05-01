@@ -6,7 +6,7 @@ const list = {
     'zh-CN': '安装'
   },
   Examples: {
-    'zh-CN': '栗子'
+    'zh-CN': '栗子' // 故意的，不需要改
   },
   Changelog: {
     'zh-CN': '版本更新'
