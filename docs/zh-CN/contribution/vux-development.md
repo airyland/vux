@@ -4,6 +4,12 @@ title: VUX 源码本地运行
 
 # VUX 源码本地运行
 
+> phantomjs 可能会遇到无法下载的问题，建议先用 cnpm 全局安装
+
+``` bash
+cnpm install -g phantomjs-prebuilt
+```
+
 ::: tip
 请更新 `NodeJS` 版本到 `v7.6.0` 以上，`build` 命令逐步使用 `async`。
 :::
