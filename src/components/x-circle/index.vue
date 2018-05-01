@@ -55,6 +55,10 @@ export default {
     strokeLinecap: {
       type: String,
       default: 'round'
+    },
+    anticlockwise: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -72,7 +76,7 @@ export default {
     pathStyle () {
       return {
         'stroke-dasharray': `${this.len}px ${this.len}px`,
-        'stroke-dashoffset': `${((100 - this.percent) / 100 * this.len)}px`,
+        'stroke-dashoffset': `${((this.anticlockwise ? this.percent - 100 : 100 - this.percent) / 100 * this.len)}px`,
         'transition': 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease'
       }
     },

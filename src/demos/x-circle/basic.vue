@@ -6,6 +6,13 @@
         <span>{{ percent }}%</span>
       </x-circle>
     </div>
+    <h4>顺时针方向</h4>
+    <div style="width:150px;height:150px;">
+      <x-circle :percent="percent" :stroke-width="5" stroke-color="#04BE02" anticlockwise="true">
+        <span>{{ percent }}%</span>
+      </x-circle>
+    </div>
+    <h4>逆时针方向</h4>
     <br>
     <div style="width:250px;">
       <range v-model="percent" :min="0" :max="100"></range>
