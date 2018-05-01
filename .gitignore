@@ -29,4 +29,6 @@ docs/src/routes.json
 docs/src/faq-routes.json
 docs/src/tool-routes.json
 docs/src/_index.js
+docs/sitemap.txt
+docs/algolia.json
 /src/demos/**/_index.vue
