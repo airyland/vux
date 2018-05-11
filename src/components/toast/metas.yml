@@ -94,7 +94,7 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
-  next:
+  v2.9.1:
     en:
       - '[feature] add isVisible function for ToastPlugin #2704'
     zh-CN:

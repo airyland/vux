@@ -171,7 +171,7 @@ events:
     en: emits when dialog is closed
     zh-CN: 弹窗关闭时触发
 changes:
-  next:
+  v2.9.1:
     en:
       - '[feature] add isVisible function for AlertPlugin #2704'
     zh-CN:

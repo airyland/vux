@@ -68,7 +68,7 @@ slots:
     en: content area
     zh-CN: 提示文字区域
 changes:
-  next:
+  v2.9.1:
     en:
       - '[feature] add isVisible function for LoadingPlugin #2704'
       - '[fix] fix covered by element when using scroll plugins'

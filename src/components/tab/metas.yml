@@ -112,7 +112,7 @@ tab-item:
       en: emits when current tabItem is clicked
       zh-CN: 当前 tabItem 被点击时触发
 changes:
-  next:
+  v2.9.1:
     en:
       - '[fix] fix box-sizing issue #2621. thanks to @suncodeer'
     zh-CN:
