@@ -152,7 +152,7 @@ methods:
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
-  next:
+  v2.9.1:
     en:
       - '[feature] add isVisible function for ConfirmPlugin #2704'
     zh-CN:

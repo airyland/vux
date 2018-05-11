@@ -85,7 +85,7 @@ slots:
     en: content body
     zh-CN: 弹窗主体内容
 changes:
-  next:
+  v2.9.1:
     en:
       - '[fix] fixed popup has black border on the right #2651'
     zh-CN:
