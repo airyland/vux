@@ -156,7 +156,7 @@ export default {
       this.$emit('input', this.currentValue)
     } else if (this.value === 'LASTMONTH') {
       var date = new Date();
-      this.currentValue = this.getPreMonth(format(date),'YYYY-MM-DD'))
+      this.currentValue = this.getPreMonth(format(date,'YYYY-MM-DD'))
       this.$emit('input', this.currentValue)
     } else if (this.value === 'LASTMONTH_FIRST') {
       var date = new Date();
@@ -225,19 +225,17 @@ export default {
     year2 = parseInt(year2) + 1;  
       month2 = 1;  
     }  
-      var day2 = day;  
-      var days2 = new Date(year2, month2, 0);  
-      days2 = days2.getDate();  
-      if (day2 > days2) {  
-        day2 = days2;  
-      }  
-        if (month2 < 10) {  
-          month2 = '0' + month2;  
-        }  
-          
-          var t2 = year2 + '-' + month2 + '-' + day2;  
-          return t2;  
-      }  
+    var day2 = day;  
+    var days2 = new Date(year2, month2, 0);  
+    days2 = days2.getDate();  
+    if (day2 > days2) {  
+      day2 = days2;  
+    }  
+    if (month2 < 10) {  
+      month2 = '0' + month2;  
+    }       
+      var t2 = year2 + '-' + month2 + '-' + day2;  
+      return t2;   
   },
   getPreMonth(date) {  
     var arr = date.split('-');  
@@ -252,17 +250,17 @@ export default {
       year2 = parseInt(year2) - 1;  
       month2 = 12;  
     }  
-       var day2 = day;  
-       var days2 = new Date(year2, month2, 0);  
-       days2 = days2.getDate();  
-       if (day2 > days2) {  
-         day2 = days2;  
-       }  
-       if (month2 < 10) {  
-         month2 = '0' + month2;  
-       }  
-         var t2 = year2 + '-' + month2 + '-' + day2;  
-         return t2;  
+    var day2 = day;  
+    var days2 = new Date(year2, month2, 0);  
+    days2 = days2.getDate();  
+    if (day2 > days2) {  
+       day2 = days2;  
+    }  
+    if (month2 < 10) {  
+      month2 = '0' + month2;  
+    }  
+    var t2 = year2 + '-' + month2 + '-' + day2;  
+    return t2;  
   },
   watch: {
     value (newVal, oldVal) {
