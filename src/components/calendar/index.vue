@@ -156,7 +156,7 @@ export default {
       this.$emit('input', this.currentValue)
     } else if (this.value === 'LASTMONTH') {
       var date = new Date();
-      this.currentValue = this.getPreMonth(format(date),'YYYY-MM-DD'))
+      this.currentValue = this.getPreMonth(format(date,'YYYY-MM-DD'))
       this.$emit('input', this.currentValue)
     } else if (this.value === 'LASTMONTH_FIRST') {
       var date = new Date();
