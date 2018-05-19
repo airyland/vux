@@ -70,6 +70,11 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
+  next:
+    en:
+      - '[feature] support styles variable for button #2748'
+    zh-CN:
+      - '[feature] button支持样式变量 #2748'
   v2.9.0:
     en:
       - '[feature] support plain for warn-button #2478'
