@@ -2,6 +2,7 @@
 
 const path = require('path')
 const fs = require('fs')
+const os = require('os')
 const demoPath = path.resolve(__dirname, '../src/demo_list.json')
 const glob = require('glob')
 const match = path.join(__dirname, '../src/demos/*/*.vue')
@@ -64,14 +65,15 @@ module.exports = {
         const listDir = glob.sync(match).filter(one => {
           return !one.includes('_index.vue')
         }).map(one => {
-          const component = one.replace(dir, '').replace('.vue', '')
+          one = path.normalize(one)
+          const component = one.replace(dir, '').replace('.vue', '').replace(path.sep, '/')
           let title = {
             en: 'EXAMPLE',
             'zh-CN': 'EXAMPLE'
           }
           let order = 999
           const urlpath = '/components/' + component
-          let name = one.replace(dir, '').split('/')[0]
+          let name = one.replace(dir, '').split(path.sep)[0]
           if (!Array.isArray(dirs[name])) {
             dirs[name] = []
           }
@@ -80,7 +82,7 @@ module.exports = {
 
           const rs = code.match(reg)
           if (rs) {
-            let meta = yaml.safeLoad(rs[0].replace('<demo>\n', '').replace('</demo>', ''))
+            let meta = yaml.safeLoad(rs[0].replace('<demo>', '').trim().replace('</demo>', ''))
             if (typeof meta.title === 'string') {
               title.en = meta.title
               title['zh-CN'] = meta.title
@@ -158,7 +160,7 @@ path: '${path}',
 component: () => import('./demos/${filename}.vue').then(m => m.default)
 }`)
         }
-        
+
       })
 
         // 404 page
