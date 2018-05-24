@@ -2,7 +2,6 @@
 
 const path = require('path')
 const fs = require('fs')
-const os = require('os')
 const demoPath = path.resolve(__dirname, '../src/demo_list.json')
 const glob = require('glob')
 const match = path.join(__dirname, '../src/demos/*/*.vue')
