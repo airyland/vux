@@ -58,7 +58,13 @@ export default {
         maxHTML: this.maxHTML,
         disable: this.disabled,
         disabledOpacity: this.disabledOpacity,
-        initialBarWidth: window.getComputedStyle(this.$el.parentNode).width.replace('px', '') - 80
+        initialBarWidth: window.getComputedStyle(this.$el.parentNode).width.replace('px', '') - 80,
+        onTouchstart (e) {
+          _this.$emit('on-touchstart', e)
+        },
+        onTouchend (e) {
+          _this.$emit('on-touchend', e)
+        }
       }
       if (this.step !== 0) {
         options.step = this.step

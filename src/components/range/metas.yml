@@ -61,7 +61,22 @@ events:
     params: '`(value)`'
     en: emits when value is changed
     zh-CN: 绑定值变化时触发事件
+  on-touchstart:
+    version: next
+    params: '`(event)`'
+    en: trigger when finger is placed on element
+    zh-CN: 手指放到元素上时触发
+  on-touchend:
+    version: next
+    params: '`(event)`'
+    en: trigger when finger leaves the element
+    zh-CN: 手指离开元素时触发
 changes:
+  next:
+    en:
+      - '[feature] add on-touchstart and on-touchend events #2804'
+    zh-CN:
+      - '[feature] 新增on-touchstart 和 on-touchend事件 #2804'
   v2.4.0:
     en:
       - '[fix] Fix the situation cannot drag to max value #1556'

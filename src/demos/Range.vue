@@ -76,6 +76,12 @@
       </cell>
     </group>
 
+    <group title="touchstart and touchend">
+      <cell title="Default" primary="content">
+        <range :step="1" v-model="data14" @on-touchstart="onTouchstart" @on-touchend="onTouchend"></range>
+      </cell>
+    </group>
+
   </div>
 </template>
 
@@ -110,6 +116,7 @@ export default {
       data11: 30,
       data12: 0,
       data13: 10,
+      data14: 0,
       showData13: false,
       min: 0,
       max: 100,
@@ -125,6 +132,12 @@ export default {
       this.min = Math.floor(Math.random() * 30)
       this.max = Math.floor(50 + Math.random() * 100)
       this.step = 1 + Math.floor(Math.random() * 10)
+    },
+    onTouchstart (e) {
+      console.log('touchstart')
+    },
+    onTouchend (e) {
+      console.log('touchend')
     }
   }
 }
