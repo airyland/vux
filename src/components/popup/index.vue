@@ -7,7 +7,6 @@
       class="vux-popup-dialog"
       :class="[`vux-popup-${position}`, show ? 'vux-popup-show' : '']">
         <slot v-if="shouldRenderBody"></slot>
-      </div>
     </div>
   </transition>
 </template>
