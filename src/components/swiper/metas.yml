@@ -124,6 +124,11 @@ events:
     en: fires after height is caculated
     zh-CN: 高度获取后触发
 changes:
+  next:
+    en:
+      - '[fix] fix error for repeat setting data in loop #2803'
+    zh-CN:
+      - '[fix] 修复在循环模式下重复设置数据的错误 #2803'
   v2.7.7:
     en:
       - '[fix] fix cannot scroll body when touching with one item'
