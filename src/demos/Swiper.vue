@@ -8,10 +8,12 @@
     <x-button @click.native="demo01_index = 0">go to 0</x-button>
     <x-button @click.native="demo01_index = 1">go to 1</x-button>
     <x-button @click.native="demo01_index = 2">go to 2</x-button>
+    <br/>
+    <br/>
+    <divider>华丽的分割线</divider>
 
-    <br/>
-    <br/>
-    <swiper :list="demo01_list" v-model="demo02_index" @on-index-change="demo01_onIndexChange"></swiper>
+    <group-title>设置min-moving-distance为120</group-title>
+    <swiper :list="demo01_list" v-model="demo02_index" :min-moving-distance="120" @on-index-change="demo01_onIndexChange"></swiper>
     <br>
     <br>
     <divider>华丽的分割线</divider>
