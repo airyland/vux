@@ -48,7 +48,7 @@ export default {
   }
 
   &-item-content {
-    padding:0 0 1.5rem 1.2rem;
+    padding:0 0 1.5rem 1.5rem;
   }
 
   &-item-head, &-item-head-first {
@@ -67,7 +67,7 @@ export default {
   &-item-head-first {
     width:20px;
     height:20px;
-    left:-4px;top:5px;
+    left:0;top:5px;
   }
 
   &-item-tail {
@@ -75,7 +75,7 @@ export default {
     content:'';
     height:100%;
     width:2px;
-    left:5px;
+    left:9px;
     top:5px;
     background-color: @timeline-item-bg-color;
   }
