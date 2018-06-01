@@ -24,7 +24,6 @@ export default {
   data () {
     return {
       isLast: true,
-      //isFirst: true,
       headStyle: { backgroundColor: this.$parent.color }
     }
   },
