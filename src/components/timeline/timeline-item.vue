@@ -1,7 +1,7 @@
 <template>
 	<li class="vux-timeline-item">
-		<div :class="['vux-timeline-item-color', {'vux-timeline-item-head': !isFirst,'vux-timeline-item-head-first': isFirst }]" :style="headStyle">
-			<icon v-show="isFirst && $parent.isShowIcon" type="success_no_circle" class="vux-timeline-item-checked"></icon>
+		<div :class="['vux-timeline-item-color', {'vux-timeline-item-head': !ok,'vux-timeline-item-head-first': ok }]" :style="headStyle">
+			<icon v-show="ok && $parent.isShowIcon" type="success_no_circle" class="vux-timeline-item-checked"></icon>
 		</div>
 		<div class="vux-timeline-item-tail" :style="tailStyle"></div>
 		<div class="vux-timeline-item-content">
@@ -15,10 +15,16 @@ import Icon from '../icon'
 
 export default {
   name: 'timeline-item',
+  props: {
+    ok: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       isLast: true,
-      isFirst: true,
+      //isFirst: true,
       headStyle: { backgroundColor: this.$parent.color }
     }
   },
