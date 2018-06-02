@@ -151,6 +151,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[fix] fix corsor misplce when set mask #2810'
+    zh-CN:
+      - '[fix] 修复设置 mask 时，光标错位的问题 #2810'
   v2.9.0:
     en:
       - '[fix] fix wrong valid when value is empty string #2415'

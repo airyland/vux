@@ -481,6 +481,22 @@ export default {
           delete this.errors.equal
         }
       }
+    },
+    // #2810
+    _getInputMaskSelection (selection, direction, maskVal, loop) {
+      if (!this.mask || (loop && direction === 0)) {
+        return selection
+      }
+      if (direction === 0) {
+        direction = this.lastDirection
+      }
+      if (direction > 0) {
+        const maskChar = this.mask.substr(selection - direction, 1)
+        if (!maskChar.match(/[9SA]/)) {
+          return this._getInputMaskSelection(selection + 1, direction, maskVal, true)
+        }
+      }
+      return selection
     }
   },
   data () {
@@ -518,7 +534,7 @@ export default {
         this.validate()
       }
     },
-    currentValue (newVal) {
+    currentValue (newVal, oldVal) {
       if (!this.equalWith && newVal) {
         this.validateEqual()
       }
@@ -530,7 +546,23 @@ export default {
       } else {
         this.validate()
       }
+
+      let selection = this.$refs.input.selectionStart
+      let direction = newVal.length - oldVal.length
+      selection = this._getInputMaskSelection(selection, direction, this.maskValue(newVal))
+      this.lastDirection = direction
       this.$emit('input', this.maskValue(newVal))
+      // #2810
+      this.$nextTick(() => {
+        if (this.$refs.input.selectionStart !== selection) {
+          this.$refs.input.selectionStart = selection
+          this.$refs.input.selectionEnd = selection
+        }
+        if (this.currentValue !== this.maskValue(newVal)) {
+          this.currentValue = this.maskValue(newVal)
+        }
+      })
+
       if (this._debounce) {
         this._debounce()
       } else {
