@@ -127,6 +127,18 @@ props:
     default: 1000
     en: zIndex of mask
     zh-CN: 遮罩层 z-index 值
+  show-cancel-button:
+    version: next
+    type: Boolean
+    default: true
+    en: if show cancel button
+    zh-CN: 是否显示取消按钮
+  show-confirm-button:
+    version: next
+    type: Boolean
+    default: true
+    en: if show confirm button
+    zh-CN: 是否显示确定按钮
 slots:
   default:
     en: body content of the dialog
@@ -152,6 +164,11 @@ methods:
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
+  next:
+    en:
+      - '[feature] Support prop: showCancelButton showConfirmButton #2795'
+    zh-CN:
+      - '[feature] 支持 prop: showCancelButton showConfirmButton #2795'
   v2.9.1:
     en:
       - '[feature] add isVisible function for ConfirmPlugin #2704'

@@ -15,6 +15,9 @@
     <group>
       <x-switch :title="$t('closeOnConfirm=false')" v-model="show4"></x-switch>
     </group>
+    <group>
+      <x-switch :title="$t('showCancelButton=false')" v-model="show6"></x-switch>
+    </group>
     <div v-transfer-dom>
       <confirm v-model="show"
       :title="$t('Confirm deleting the item')"
@@ -72,6 +75,16 @@
       </confirm>
     </div>
     <br>
+    <div v-transfer-dom>
+      <confirm
+      v-model="show6"
+      :show-cancel-button="false"
+      :title="$t('Confirm deleting the item')"
+      @on-confirm="onConfirm">
+        <p style="text-align:center;">{{ $t('Are you sure?') }}</p>
+      </confirm>
+    </div>
+    <br>
     <div style="padding:15px;">
       <x-button @click.native="showPlugin" type="primary">{{ $t('Show') }}</x-button>
     </div>
@@ -107,6 +120,8 @@ Set default input value:
   zh-CN: 设置默认输入文字
 Call prompt by using plugin:
   zh-CN: 插件形式调用prompt
+showCancelButton=false:
+  zh-CN: 隐藏取消按钮
 </i18n>
 
 <script>
@@ -127,7 +142,8 @@ export default {
       show2: false,
       show3: false,
       show4: false,
-      show5: false
+      show5: false,
+      show6: false
     }
   },
   methods: {
