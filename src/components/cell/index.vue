@@ -116,7 +116,7 @@ export default {
   flex: 1;
 }
 .vux-label {
-  display: block;
+  display: inline-block;
   word-wrap: break-word;
   word-break: break-all;
 }
