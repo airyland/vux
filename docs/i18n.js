@@ -53,7 +53,7 @@ const list = {
     'zh-CN': '实验室'
   },
   Donate: {
-    'zh-CN': '捐赠'
+    'zh-CN': '捐赠、赞助'
   },
   'return FAQ': {
     'zh-CN': '返回 【常见问题】'

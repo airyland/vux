@@ -853,3 +853,14 @@ a.anchor {
   height: 44px;
   background-color: #f7f7f7;
 }
+
+.best-companies {
+  text-align: center;
+}
+.best-companies a {
+  display: inline-block;
+}
+.best-companies img {
+  height: 60px;
+  margin: 0;
+}

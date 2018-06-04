@@ -50,6 +50,16 @@ title: 关于 VUX
   <br>
 </p>
 
+<p class="best-companies">
+  <a href="https://www.bmqb.com/a/jobs?tracking_code=opencollective" target="_blank">
+    <img src="https://i.loli.net/2018/06/04/5b155b201c72c.png"/>
+  </a>
+  <a href="https://www.upyun.com" target="_blank">
+    <img src="https://i.loli.net/2018/06/04/5b155c199f725.png" style="height:52px;"/>
+  </a>
+</p>
+
+
 ::: warning
   **敲黑板**：VUX 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照<router-link to="/zh-CN/install/manual-usage.html">文档</router-link>正确配置。<br>
 

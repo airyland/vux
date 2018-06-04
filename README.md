@@ -59,6 +59,14 @@
   <br>
 </p>
 
+## Sponsors
+
+<p align="center">
+  <a href="https://www.bmqb.com/a/jobs?tracking_code=opencollective">
+    <img src="https://i.loli.net/2018/06/04/5b155b201c72c.png">
+  </a>
+</p>
+
 ## Requirements
 
 + vue@^2.3.0(for .sync modifier)
