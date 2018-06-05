@@ -857,10 +857,22 @@ a.anchor {
 .best-companies {
   text-align: center;
 }
+
 .best-companies a {
   display: inline-block;
 }
+
 .best-companies img {
   height: 60px;
   margin: 0;
+}
+
+#x-sponsor {
+  margin-top: 30px;
+  border: 1px solid #444;
+  color: #666;
+  text-align: center;
+  line-height: 60px;
+  font-size: 12px;
+  cursor: pointer;
 }

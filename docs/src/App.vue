@@ -20,6 +20,9 @@
 "></span></a>
           </p>
         </div>
+        <router-link tag="div" id="x-sponsor" to="/zh-CN/contribution/donate.html">
+        赞助商
+        </router-link>
         <div class="analytics">
           <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_30m.quantity }}</span><br>▴<br></p>
           <p style="font-size:12px;">{{ t('Online developers') }}
