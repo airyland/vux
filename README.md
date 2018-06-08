@@ -63,7 +63,7 @@
 
 <p align="center">
   <a href="https://www.bmqb.com/a/jobs?tracking_code=opencollective">
-    <img src="https://i.loli.net/2018/06/04/5b155b201c72c.png">
+    <img src="https://ww1.sinaimg.cn/large/663d3650gy1fs3l6w13z2j206y02bdfp.jpg">
   </a>
 </p>
 
