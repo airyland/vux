@@ -45,7 +45,7 @@
     </div>
     <div class="summary">
       <div class="summary-inner" style="left:190px;">
-        <a class="juejin" title="赞助商" href="https://juejin.im/welcome/frontend?utm_source=vux&utm_medium=word&utm_content=qianduan&utm_campaign=q2_website" target="_blank">
+        <a class="juejin" title="赞助商" href="https://juejin.im/welcome/frontend?utm_source=vuxdoc&utm_medium=word&utm_content=qianduan&utm_campaign=q2_website" target="_blank">
           <span class="juejin-name">前端社区</span><span class="juejin-url">juejin.im</span>
           <br>
           <span class="juejin-desc">
