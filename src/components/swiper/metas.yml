@@ -124,7 +124,7 @@ events:
     en: fires after height is caculated
     zh-CN: 高度获取后触发
 changes:
-  next:
+  v2.9.2:
     en:
       - '[fix] fix stuck swipe after setting min-moving-distance #2773'
       - '[fix] fix error for repeat setting data in loop #2803'

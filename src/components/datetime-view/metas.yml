@@ -18,7 +18,7 @@ methods:
     en: re-render component
     zh-CN: 强制重新渲染组件，当主动修改值或者其他非响应属性时需要调用该方法
 changes:
-  next:
+  v2.9.2:
     en:
       - '[fix] fix render error for DOM not found #2797'
     zh-CN:

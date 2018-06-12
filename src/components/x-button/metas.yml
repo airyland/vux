@@ -70,7 +70,7 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
-  next:
+  v2.9.2:
     en:
       - '[feature] support styles variable for button #2748'
     zh-CN:

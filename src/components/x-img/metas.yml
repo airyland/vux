@@ -36,7 +36,7 @@ props:
     en: the separator of image src
     zh-CN: 支持设置src的分隔符
 changes:
-  next:
+  v2.9.2:
     en:
       - '[enhance] Support prop:separator #2744'
     zh-CN:
