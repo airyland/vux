@@ -912,3 +912,7 @@ a.anchor {
 .juejin-desc {
   font-size: 12px;
 }
+
+.juejin:visited, .juejin:visited .juejin-desc {
+  color: #666;
+}
