@@ -35,16 +35,37 @@
         line-height: 1.3;
         color: #6a8bad
       }
-      .home .hero .action-button {
+
+      .home .hero .action {
+        display: flex;
+        width: 350px;
+      }
+
+      .home .hero .action > div {
+        flex: 1;
+      }
+
+      .home .hero .action-button, .home .hero .juejin-button {
         display: inline-block;
         font-size: 1.2rem;
         color: #fff;
         background-color: #3eaf7c;
-        padding: .8rem 1.6rem;
+        padding: .5rem 1.6rem;
         border-radius: 4px;
         transition: background-color .1s ease;
         box-sizing: border-box;
         border-bottom: 1px solid #389d70
+      }
+      .home .hero .juejin-button {
+        background-color: #fff;
+        color: #007fff;
+        border: 2px solid #007fff;
+        margin-left: 25px;
+        padding: 0.42rem 1.2rem;
+      }
+      .home .hero .juejin-button:hover {
+        color: #0371df;
+        border-color: #0371df;
       }
       .home .hero .action-button:hover {
         background-color: #4abf8a
@@ -114,6 +135,32 @@
         .home .feature h2 {
           font-size: 1.25rem
         }
+        .home .hero .action {
+          width: 100%;
+        }
+        .arrow {
+          display: none;
+        }
+      }
+      @media (max-width: 320px) {
+        .home .hero .action {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+        
+        .home .hero .action > div {
+          flex: 1 0 50%;
+          margin-top: 15px;
+        }
+
+        .home .hero .action a {
+          font-size: 1rem;
+          margin-left: 0;
+        }
+
+        .home .hero .action > div:first-child {
+          flex: 0 1 100%;
+        }
       }
       .action-link {
         color: #666;
@@ -161,16 +208,28 @@
             <p class="description">
               一个凑合的 Vue.js 移动端 UI 组件库
             </p>
-            <p class="action">
-              <a href="https://doc.vux.li" class="action-button">
-              查看文档 →
+            <div class="action">
+              <div>
+                <a href="https://doc.vux.li" class="action-button">
+                查看文档
+                </a>
+                <br>
+                <br>
+                <a href="https://vux.li/demos/v2/" class="action-link">
+                查看 Demo
+                </a>
+              </div>
+              <div>
+                <a href="https://juejin.im/welcome/frontend?utm_source=vux&utm_medium=word&utm_content=qianduan&utm_campaign=q2_website" class="juejin-button" target="_blank">
+              前端社区 <span class="arrow">→</span>
               </a>
               <br>
-              <br>
-              <a href="https://vux.li/demos/v2/" class="action-link">
-              查看 Demo
-              </a>
-            </p>
+                <br>
+                <a href="https://juejin.im/welcome/frontend?utm_source=vux&utm_medium=word&utm_content=qianduan&utm_campaign=q2_website" class="action-link" target="_blank">
+                访问掘金
+                </a>
+              </div>
+            </div>
             <p class="best-companies">
               <a href="https://www.bmqb.com/a/jobs?tracking_code=opencollective" target="_blank">
                 <img src="https://ww1.sinaimg.cn/large/663d3650gy1fs3l6w13z2j206y02bdfp.jpg">
@@ -190,7 +249,7 @@
               <p>是的，没有团队维护。国内大多数开发者都选择了有知名前端团队维护的组件库。<br/><br/>当然你也可以试试选择 VUX，毕竟维护两年时间，star 12k，一定程度上也说明并不比大公司团队开源的差，不是么？</p>
             </div>
             <div class="feature">
-              <h2>我们开始有了赞助支持</h2>
+              <h2>开始有了赞助支持</h2>
               <p>是的，我们开始有了赞助来支持开发迭代。<br/><br/>如果 VUX 帮你节省了大量时间的话，欢迎<a href="https://doc.vux.li/zh-CN/contribution/donate.html">捐赠</a>以鼓励支持作者。</p>
             </div>
           </div>

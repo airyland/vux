@@ -20,9 +20,11 @@
 "></span></a>
           </p>
         </div>
+        <!--
         <router-link tag="div" id="x-sponsor" to="/zh-CN/contribution/donate.html">
         赞助商
         </router-link>
+        -->
         <div class="analytics">
           <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_30m.quantity }}</span><br>▴<br></p>
           <p style="font-size:12px;">{{ t('Online developers') }}
@@ -43,6 +45,13 @@
     </div>
     <div class="summary">
       <div class="summary-inner" style="left:190px;">
+        <a class="juejin" title="赞助商" href="https://juejin.im/welcome/frontend?utm_source=vux&utm_medium=word&utm_content=qianduan&utm_campaign=q2_website" target="_blank">
+          <span class="juejin-name">前端社区</span><span class="juejin-url">juejin.im</span>
+          <br>
+          <span class="juejin-desc">
+         Vue 最佳实践&nbsp;一线大厂技术分享
+          </span>
+        </a>
         <div v-show="!isComponentPage" v-for="chapter in summary" :data-category="currentCategory" class="chapter">
           <p class="chapter-title">{{chapter.title}}</p>
           <ul class="chapter-page">

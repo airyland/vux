@@ -128,6 +128,8 @@ tr.slot-disabled {
 
 .chapter {
   margin-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .chapter-title {
@@ -272,7 +274,6 @@ tr.slot-disabled {
 }
 .summary-inner {
   height: 100vh;
-  padding: 15px;
   width: 190px;
   box-sizing: border-box;
   overflow: scroll;
@@ -471,7 +472,7 @@ div.tip {
   padding-left: 0;
   margin: 0;
   line-height: 35px;
-  height: 40px
+  height: 47px
 }
 
 .nav-list .sep {
@@ -494,7 +495,8 @@ div.tip {
 
 .nav-list .nav-item>a,.nav-list .nav-item>div {
   color: #666;
-  height: 40px;
+  height: 47px;
+  line-height: 47px;
   font-size: 14px;
   border-bottom: 3px solid transparent;
   display: block;
@@ -875,4 +877,33 @@ a.anchor {
   line-height: 60px;
   font-size: 12px;
   cursor: pointer;
+}
+
+.juejin {
+  text-decoration: none;
+  padding-bottom: 4px;
+  padding: 5px;
+  padding-left: 10px;
+  background: rgba(8, 126, 254, .12);
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.juejin:hover .juejin-desc {
+  color: #007fff;
+}
+
+.juejin-name {
+  color: #007fff;
+}
+
+.juejin-url {
+  color: #888;
+  padding-left: 15px;
+  font-size: 12px;
+}
+
+.juejin-desc {
+  font-size: 12px;
 }
