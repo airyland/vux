@@ -273,6 +273,7 @@ tr.slot-disabled {
   border-right: 1px solid #E6E6E6
 }
 .summary-inner {
+  padding-top: 60px;
   height: 100vh;
   width: 190px;
   box-sizing: border-box;
@@ -884,10 +885,14 @@ a.anchor {
   padding-bottom: 4px;
   padding: 5px;
   padding-left: 10px;
-  background: rgba(8, 126, 254, .12);
+  background-color: #e1f0ff;
   display: block;
   width: 100%;
   margin-bottom: 10px;
+  position: fixed;
+  top: 0;
+  left: 150px;
+  width: 190px;
 }
 
 .juejin:hover .juejin-desc {
