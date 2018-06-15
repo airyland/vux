@@ -349,7 +349,7 @@ export default {
         let rs = chart.line().position(this.buildPosition()).shape(shape)
 
         if (size) {
-          rs.size(size);
+          rs.size(size)
         }
 
         if (!seriesField && colors) {
@@ -442,9 +442,9 @@ export default {
         }
 
         if (!seriesField && size) {
-          rs.size(size);
+          rs.size(size)
         } else {
-          rs.size(seriesField || '', size);
+          rs.size(seriesField || '', size)
         }
       }
       chart.render()
