@@ -38,7 +38,7 @@
         </v-no-ssr>
         <option
           :value="one.key"
-          v-for="one in processOptions">{{ one.value }}</option>
+          v-for="one in processOptions">{{ direction === 'rtl' ? one.value + '&#x200E;' : one.value }}</option>
       </select>
     </div>
     <div class="weui-cell__ft vux-selector-readonly" v-else>
