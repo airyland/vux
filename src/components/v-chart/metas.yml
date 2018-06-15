@@ -4,13 +4,19 @@ category:
   zh-CN: 图表
 beta: true
 description: |
-  
+
   VChart 基于[F2@蚂蚁金服(MIT license)](https://antv.alipay.com/zh-cn/f2/3.x/)封装的图表组件。
 
   F2 是专为移动端定制的一套开箱即用的可视化解决方案，具有精简、高性能、易扩展的特性，适用于对性能、大小、扩展性要求严苛的场景。
 
   组件部分属性可能未列出，可以直接参考 [F2文档](https://antv.alipay.com/zh-cn/f2/3.x/api/index.html)
 
+changes:
+  next:
+    en:
+      - '[enhance] v-point can set size and shape, v-line can set shape'
+    zh-CN:
+      - '[enhance] v-point 可以设置size和shape, v-line 可以设置shape'
 tips:
   zh-CN:
     -
@@ -21,7 +27,7 @@ tips:
         // 入口文件处设置
         Vue.prototype.$devicePixelRatio = 2
         ```
-    - 
+    -
       q: 自定义渲染行为
       a: |
 

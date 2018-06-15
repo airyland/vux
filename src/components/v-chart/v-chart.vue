@@ -343,10 +343,14 @@ export default {
       }
 
       if (this.lineOptions) {
-        const { shape, adjust } = this.lineOptions
+        const { shape, adjust, size } = this.lineOptions
         let seriesField = this.lineOptions.seriesField || ''
         let colors = this.buildColor(this.lineOptions.colors)
         let rs = chart.line().position(this.buildPosition()).shape(shape)
+
+        if (size) {
+          rs.size(size)
+        }
 
         if (!seriesField && colors) {
           rs.color(colors)
@@ -427,14 +431,20 @@ export default {
       }
 
       if (this.pointOptions) {
-        const { seriesField } = this.pointOptions
-        let rs = chart.point().position(this.buildPosition()).style(this.pointOptions.styles)
+        const { seriesField, styles, shape, size, colors } = this.pointOptions
+        let rs = chart.point().position(this.buildPosition()).style(styles).shape(shape)
 
-        let color = this.buildColor(this.pointOptions.colors)
+        let color = this.buildColor(colors)
         if (!seriesField && color) {
           rs.color(color)
         } else {
           rs.color(seriesField || '', color)
+        }
+
+        if (!seriesField && size) {
+          rs.size(size)
+        } else {
+          rs.size(seriesField || '', size)
         }
       }
       chart.render()
