@@ -148,14 +148,14 @@ export default {
     labelStyles () {
       return {
         display: 'block',
-        width: this.$parent.labelWidth || this.$parent.$parent.labelWidth || 'auto',
-        textAlign: this.$parent.labelAlign || this.$parent.$parent.labelAlign,
-        marginRight: this.$parent.labelMarginRight || this.$parent.$parent.labelMarginRight
+        width: (this.$parent && (this.$parent.labelWidth || this.$parent.$parent.labelWidth)) || 'auto',
+        textAlign: this.$parent && (this.$parent.labelAlign || this.$parent.$parent.labelAlign),
+        marginRight: this.$parent && (this.$parent.labelMarginRight || this.$parent.$parent.labelMarginRight)
       }
     },
     labelClass () {
       return {
-        'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
+        'vux-cell-justify': this.$parent && (this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify')
       }
     }
   },
