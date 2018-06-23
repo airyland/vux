@@ -1,0 +1,270 @@
+icon: '&#xe663;'
+category:
+  en: Chart
+  zh-CN: 图表
+beta: true
+description: |
+
+  VChart 基于[F2@蚂蚁金服(MIT license)](https://antv.alipay.com/zh-cn/f2/3.x/)封装的图表组件。
+
+  F2 是专为移动端定制的一套开箱即用的可视化解决方案，具有精简、高性能、易扩展的特性，适用于对性能、大小、扩展性要求严苛的场景。
+
+  组件部分属性可能未列出，可以直接参考 [F2文档](https://antv.alipay.com/zh-cn/f2/3.x/api/index.html)
+
+changes:
+  next:
+    en:
+      - '[enhance] v-point can set size and shape, v-line can set shape'
+    zh-CN:
+      - '[enhance] v-point 可以设置size和shape, v-line 可以设置shape'
+tips:
+  zh-CN:
+    -
+      q: 全局设置分辨率(devicePixelRatio)
+      a: |
+
+        ``` js
+        // 入口文件处设置
+        Vue.prototype.$devicePixelRatio = 2
+        ```
+    -
+      q: 自定义渲染行为
+      a: |
+
+        在面对复杂的渲染逻辑时，直接使用组件无法满足。此时可以这样处理：
+
+        ``` html
+        <v-chart
+          prevent-render
+          @on-render="renderVChart"></v-chart>
+        ```
+
+        ``` js
+        methods: {
+          renderVChart ({ chart }) {
+            // do what you want
+          }
+        }
+        ```
+    -
+      q: 修改子组件配置不会自动刷新
+      a: |
+        是的，考虑到移动端更多是展示而不是操作，暂时不支持自动刷新。
+    -
+      q: 为什么我自己封装时会报错
+      a: |
+
+        要先了解 Vue 组件的生命周期，在 canvas 元素未 mounted 前 F2 无法正确渲染。
+
+        ``` js
+        mounted () {
+          this.$nextTick(( => {
+            // do what you want with F2
+          })
+        }
+        ```
+
+items:
+  - v-chart
+  - v-line
+  - v-area
+  - v-bar
+  - v-pie
+  - v-point
+  - v-scale
+  - v-axis
+  - v-guide
+  - v-tooltip
+  - v-legend
+  - v-guide
+v-chart:
+  props:
+    prevent-render:
+      version: v2.9.1
+      type: boolean
+      default: false
+      en: whether prevent rendering
+      zh-CN: 是否自定义渲染逻辑
+    prevent-default:
+      version: v2.9.1
+      type: boolean
+      default: false
+      en: whether prevent default behavior
+      zh-CN: 是否阻止默认行为
+  events:
+    on-render:
+      version: v2.9.1
+      params: '`({ chart })`'
+      en: fires before render
+      zh-CN: 渲染前触发，一般用于配合 `prevent-render` 自定义渲染逻辑
+  methods:
+    rerender:
+      version: v2.9.1
+      en: destroy and re-render canvas
+      zh-CN: 清除并重新渲染
+    repaint:
+      version: v2.9.1
+      en: repain canvas
+      zh-CN: 重新渲染
+    destroy:
+      version: v2.9.1
+      en: destroy chart
+      zh-CN: 销毁图表，canvas dom 元素不会销毁
+v-point:
+  description: |
+    点，用于点图的构建。Point 为 `Geometry` 的一部分，和其他图表组件一致，支持 shape, color, series-field 等。完整属性文档写参照 [F2 Geometry](https://antv.alipay.com/zh-cn/f2/3.x/api/geometry.html)。
+  props:
+v-line:
+  description: |
+    ::: tip
+    折线图，完整属性文档写参照 [F2 Geometry](https://antv.alipay.com/zh-cn/f2/3.x/api/geometry.html)
+    :::
+  props:
+    shape:
+      version: v2.9.1
+      type: String
+      en: shape type, one of `line`, `smooth`, `dash`
+      zh-CN: 线条形状，可选值 `line`(默认), `smooth`(平滑线), `dash`(虚线)
+    series-field:
+      version: v2.9.1
+      type: String
+      en: alias to color, specify color value or which field to color
+      zh-CN: 用于绘制多组线条时的分组字段名。该属性相当于 F2 里的 `color`，出于理解和设置方便使用 `series-field`
+    colors:
+      version: v2.9.1
+      type: String,Array
+      en: colors, use default colors if not specified
+      zh-CN: 线条颜色，可以为单个颜色或者颜色列表。不指定时使用默认颜色。
+v-guide:
+  description: |
+    ::: tip
+    辅助元素，完整属性文档写参照 [F2 Guide](https://antv.alipay.com/zh-cn/f2/3.x/api/guide.html)
+    :::
+  props:
+    type:
+      version: v2.9.1
+      type: String
+      en: guide type, one of `line`, `text`, `tag`, `rect`, `html`, `arc`
+      zh-CN: 辅助元素类型，可以为 `line`, `text`, `tag`, `rect`, `html`, `arc`
+    options:
+      version: v2.9.1
+      type: Object
+      en: guide options
+      zh-CN: 辅助元素属性对象。你也可以在 template 里将属性分开写，不需要使用该 prop，同时使用时属性会被合并。
+v-area:
+  props:
+    series-field:
+      version: v2.9.1
+      type: String
+      en: alias to color, specify color value or which field to color
+      zh-CN: 用于绘制多组线条时的分组字段名。该属性相当于 F2 里的 `color`，出于理解和设置方便使用 `series-field`
+    colors:
+      version: v2.9.1
+      type: String,Array
+      en: colors, use default colors if not specified
+      zh-CN: 线条颜色，可以为单个颜色或者颜色列表。不指定时使用默认颜色。
+v-tooltip:
+  description: |
+    ::: tip
+    该组件非必须，渲染折线图时会默认使用配置 `showCrosshairs: true`
+
+    完整属性文档写参照 [F2 Tooltip](https://antv.alipay.com/zh-cn/f2/3.x/api/tooltip.html)
+    :::
+  props:
+    disabled:
+      version: v2.9.1
+      type: boolean
+      default: false
+      en: whether disable tooltip
+      zh-CN: '[快捷属性，非 F2 原有属性]是否禁用 tooltip, 相当于调用`chart.tooltip(false)`'
+    show-x-value:
+      version: v2.9.1
+      type: boolean
+      default: false
+      en: whether set display template to `xValue:yValue`, default `xLabel:yValue`
+      zh-CN: '[快捷属性，非 F2 原有属性]用于单折线的情况，设定是否将 x 轴值显示在 tooltip 里，默认是 `xLabel:yValue` 的形式(value:23)，启用将变成 `xValue:yValue` 的形式(2017-01-01:23)，建议在 `tickCount` 无法完全显示时启用。该设置会覆盖原有 `onShow` 设置。'
+    show-value-in-legend:
+      version: v2.9.1
+      type: boolean
+      default: false
+      en: whether hide default tooltip and show value in legend
+      zh-CN: '[快捷属性，非 F2 原有属性]是否禁用默认 tooltip 而是显示在 legend 里。适用于有分组(series-field)情况。'
+v-legend:
+  description: |
+    图例。[F2 Legend](https://antv.alipay.com/zh-cn/f2/3.x/api/legend.html)。
+  props:
+    disabled:
+      version: v2.9.1
+      type: boolean
+      default: false
+      en: whether disable tooltip
+      zh-CN: '[快捷属性，非 F2 原有属性]是否禁用 legend, 相当于调用`chart.legend(false)`'
+v-bar:
+  description: |
+    柱状图，使用垂直的柱子显示类别之间的数值比较。
+  props:
+    colors:
+      version: v2.9.1
+      type: String,Array
+      en: colors, use default colors if not specified
+      zh-CN: 线条颜色，可以为单个颜色或者颜色列表。不指定时使用默认颜色。
+v-pie:
+  props:
+v-axis:
+  description: |
+    坐标轴配置。[详细文档](https://antv.alipay.com/zh-cn/f2/3.x/api/axis.html)。
+  props:
+    disabled:
+      version: v2.9.1
+      type: boolean
+      zh-CN: 禁用当前坐标轴。
+    x:
+      version: v2.9.1
+      type: boolean
+      zh-CN: '[组件属性]是否为 `x轴` 配置。'
+    y:
+      version: v2.9.1
+      type: boolean
+      zh-CN: '[组件属性]是否为 `y轴` 配置。'
+v-scale:
+  description: |
+    度量 Scale，是数据空间到图形空间的转换桥梁，负责原始数据到 [0, 1] 区间数值的相互转换工作。针对不同的数据类型对应不同类型的度量。详细文档 [F2 Scale](https://antv.alipay.com/zh-cn/f2/3.x/api/scale.html)。
+  props:
+    field:
+      version: v2.9.1
+      type: string
+      zh-CN: '[组件属性]指定 `坐标轴` 字段。对于简单数据，VChart 可以判断使用哪个字段，但是如果顺序不确定或者多字段的数据，最好手动指定。'
+    x:
+      version: v2.9.1
+      type: boolean
+      zh-CN: '[组件属性]是否为 `x轴` 配置。'
+    y:
+      version: v2.9.1
+      type: boolean
+      zh-CN: '[组件属性]是否为 `y轴` 配置。'
+    type:
+      version: v2.9.1
+      type: string
+      zh-CN: 指定不同的度量类型，支持的 type 为 `identity`、`linear`、`cat`、`timeCat`。
+    formatter:
+      version: v2.9.1
+      type: function
+      zh-CN: 回调函数，用于格式化坐标轴刻度点的文本显示，会影响数据在坐标轴 axis、图例 legend、提示信息 tooltip 上的显示。
+    range:
+      version: v2.9.1
+      type: array
+      default: '[0, 1]'
+      zh-CN: 输出数据的范围，默认[0, 1]，格式为 [min, max]，min 和 max 均为 0 至 1 范围的数据。
+    alias:
+      version: v2.9.1
+      type: string
+      zh-CN: '该数据字段的显示别名，一般用于将字段的英文名称转换成中文名(tooltip 中显示)。'
+    tick-count:
+      version: v2.9.1
+      type: number
+      default: 5
+      zh-CN: 坐标轴上刻度点的个数，设为 0 时表示全部显示。
+    ticks:
+      version: v2.9.1
+      type: array
+      zh-CN: '用于指定坐标轴上刻度点的文本信息，当用户设置了 ticks 就会按照 ticks 的个数和文本来显示。如 `[ 0, 50, 100, 150, 200, 300, 500 ]`'

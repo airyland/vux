@@ -1,20 +1,36 @@
 [
   {
     "name": "actionsheet",
-    "icon": "&#xe624;"
+    "icon": "&#xe624;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "alert",
-    "icon": "&#xe603;"
+    "icon": "&#xe603;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "badge",
     "icon": "&#xe65b;",
-    "color": "#f74c31"
+    "color": "#f74c31",
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "blur",
-    "icon": "&#xe640;"
+    "icon": "&#xe640;",
+    "category_en": "Deprecated",
+    "category_zh-CN": "不再维护",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "button-tab",
@@ -22,31 +38,59 @@
     "items": [
       "button-tab",
       "button-tab-item"
-    ]
+    ],
+    "category_en": "Navigation",
+    "category_zh-CN": "导航",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "calendar",
-    "icon": "&#xe62b;"
+    "icon": "&#xe62b;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "card",
-    "icon": "&#xe658;"
+    "icon": "&#xe658;",
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "cell-box",
-    "icon": "&#xe62a;"
+    "icon": "&#xe62a;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "cell-form-preview",
-    "icon": "&#xe62a;"
+    "icon": "&#xe62a;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "cell",
-    "icon": "&#xe62a;"
+    "icon": "&#xe62a;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "check-icon",
-    "icon": "&#xe619;"
+    "icon": "&#xe619;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "checker",
@@ -54,52 +98,100 @@
     "items": [
       "checker",
       "checker-item"
-    ]
+    ],
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "checklist",
-    "icon": "&#xe61d;"
+    "icon": "&#xe61d;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "clocker",
-    "icon": "&#xe620;"
+    "icon": "&#xe620;",
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "color-picker",
     "icon": "&#xe63f;",
-    "color": "#f2c400"
+    "color": "#f2c400",
+    "category_en": "Deprecated",
+    "category_zh-CN": "不再维护",
+    "category_order": 999,
+    "hasHome": false
   },
   {
     "name": "confirm",
-    "icon": "&#xe608;"
+    "icon": "&#xe608;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "countdown",
-    "icon": "&#xe653;"
+    "icon": "&#xe653;",
+    "category_en": "Deprecated",
+    "category_zh-CN": "不再维护",
+    "category_order": 998,
+    "hasHome": true
   },
   {
     "name": "countup",
-    "icon": "&#xe63e;"
+    "icon": "&#xe63e;",
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "datetime-range",
-    "icon": "&#xe60a;"
+    "icon": "&#xe60a;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "datetime-view",
-    "icon": "&#xe60a;"
+    "icon": "&#xe60a;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "datetime",
-    "icon": "&#xe60a;"
+    "icon": "&#xe60a;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "divider",
-    "icon": "&#xe65d;"
+    "icon": "&#xe65d;",
+    "category_en": "Layout",
+    "category_zh-CN": "布局",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "drawer",
-    "icon": "&#xe62a;"
+    "icon": "&#xe62a;",
+    "category_en": "Navigation",
+    "category_zh-CN": "导航",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "flexbox",
@@ -107,7 +199,11 @@
     "items": [
       "flexbox",
       "flexbox-item"
-    ]
+    ],
+    "category_en": "Layout",
+    "category_zh-CN": "布局",
+    "category_order": 2,
+    "hasHome": false
   },
   {
     "name": "flow",
@@ -116,11 +212,19 @@
       "flow",
       "flow-state",
       "flow-line"
-    ]
+    ],
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "form-preview",
-    "icon": "&#xe699;"
+    "icon": "&#xe699;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "grid",
@@ -128,35 +232,75 @@
     "items": [
       "grid",
       "grid-item"
-    ]
+    ],
+    "category_en": "Layout",
+    "category_zh-CN": "布局",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "group",
-    "icon": "&#xe62a;"
+    "icon": "&#xe62a;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "icon",
-    "icon": "&#xe619;"
+    "icon": "&#xe619;",
+    "category_en": "Basic",
+    "category_zh-CN": "基础组件",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "inline-calendar",
-    "icon": "&#xe62b;"
+    "icon": "&#xe62b;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "inline-loading",
-    "icon": "&#xe610;"
+    "icon": "&#xe610;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "inline-x-number",
-    "icon": "&#xe605;"
+    "icon": "&#xe605;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
+  },
+  {
+    "name": "inline-x-switch",
+    "icon": "&#xe61c;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "load-more",
-    "icon": "&#xe610;"
+    "icon": "&#xe610;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "loading",
-    "icon": "&#xe610;"
+    "icon": "&#xe610;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "marquee",
@@ -164,80 +308,156 @@
     "items": [
       "marquee",
       "marquee-item"
-    ]
+    ],
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "masker",
-    "icon": "&#xe651;"
+    "icon": "&#xe651;",
+    "category_en": "Deprecated",
+    "category_zh-CN": "不再维护",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "msg",
-    "icon": "&#xe619;"
+    "icon": "&#xe619;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "panel",
-    "icon": "&#xe658;"
+    "icon": "&#xe658;",
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "picker",
-    "icon": "&#xe627;"
+    "icon": "&#xe627;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "popover",
-    "icon": "&#xe65f;"
+    "icon": "&#xe65f;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "popup-header",
-    "icon": "&#xe654;"
+    "icon": "&#xe654;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "popup-picker",
-    "icon": "&#xe626;"
+    "icon": "&#xe626;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "popup-radio",
-    "icon": "&#xe60f;"
+    "icon": "&#xe60f;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "popup",
-    "icon": "&#xe61e;"
+    "icon": "&#xe61e;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "previewer",
-    "icon": "&#xe65c;"
+    "icon": "&#xe65c;",
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "qrcode",
-    "icon": "&#xe65a;"
+    "icon": "&#xe65a;",
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "radio",
-    "icon": "&#xe60f;"
+    "icon": "&#xe60f;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "range",
-    "icon": "&#xe60b;"
+    "icon": "&#xe60b;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "rater",
     "icon": "&#xe606;",
-    "color": "#FF9900"
+    "color": "#FF9900",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "scroller",
-    "icon": "&#xe641;"
+    "icon": "&#xe641;",
+    "category_en": "Deprecated",
+    "category_zh-CN": "不再维护",
+    "category_order": 999,
+    "hasHome": false
   },
   {
     "name": "search",
-    "icon": "&#xe63b;"
+    "icon": "&#xe63b;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "selector",
-    "icon": "&#xe607;"
+    "icon": "&#xe607;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "spinner",
-    "icon": "&#xe610;"
+    "icon": "&#xe610;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "step",
@@ -245,11 +465,19 @@
     "items": [
       "step",
       "step-item"
-    ]
+    ],
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "sticky",
-    "icon": "&#xe623;"
+    "icon": "&#xe623;",
+    "category_en": "Layout",
+    "category_zh-CN": "布局",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "swipeout",
@@ -258,11 +486,19 @@
       "swipeout",
       "swipeout-item",
       "swipeout-button"
-    ]
+    ],
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "swiper",
-    "icon": "&#xe612;"
+    "icon": "&#xe612;",
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "tab",
@@ -270,7 +506,11 @@
     "items": [
       "tab",
       "tab-item"
-    ]
+    ],
+    "category_en": "Navigation",
+    "category_zh-CN": "导航",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "tabbar",
@@ -278,74 +518,168 @@
     "items": [
       "tabbar",
       "tabbar-item"
-    ]
+    ],
+    "category_en": "Navigation",
+    "category_zh-CN": "导航",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "timeline",
-    "icon": "&#xe656;"
+    "icon": "&#xe656;",
+    "category_en": "DataDisplay",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "toast",
-    "icon": "&#xe625;"
+    "icon": "&#xe625;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
+  },
+  {
+    "name": "v-chart",
+    "icon": "&#xe663;",
+    "items": [
+      "v-chart",
+      "v-line",
+      "v-area",
+      "v-bar",
+      "v-pie",
+      "v-point",
+      "v-scale",
+      "v-axis",
+      "v-guide",
+      "v-tooltip",
+      "v-legend",
+      "v-guide"
+    ],
+    "category_en": "Chart",
+    "category_zh-CN": "图表",
+    "category_order": 998,
+    "hasHome": true
   },
   {
     "name": "view-box",
-    "icon": "&#xe641;"
+    "icon": "&#xe641;",
+    "category_en": "Layout",
+    "category_zh-CN": "布局",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "wechat-emotion",
-    "icon": "&#xe63c;"
+    "icon": "&#xe63c;",
+    "category_en": "Deprecated",
+    "category_zh-CN": "不再维护",
+    "category_order": 999,
+    "hasHome": false
   },
   {
     "name": "x-address",
-    "icon": "&#xe61b;"
+    "icon": "&#xe61b;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-button",
-    "icon": "&#xe616;"
+    "icon": "&#xe616;",
+    "category_en": "Basic",
+    "category_zh-CN": "基础组件",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-circle",
-    "icon": "&#xe63d;"
+    "icon": "&#xe63d;",
+    "category_en": "Chart",
+    "category_zh-CN": "图表",
+    "category_order": 998,
+    "hasHome": true
   },
   {
     "name": "x-dialog",
-    "icon": "&#xe608;"
+    "icon": "&#xe608;",
+    "category_en": "Feedback",
+    "category_zh-CN": "弹窗提示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-header",
-    "icon": "&#xe654;"
+    "icon": "&#xe654;",
+    "category_en": "Navigation",
+    "category_zh-CN": "导航",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-icon",
-    "icon": "&#xe619;"
+    "icon": "&#xe619;",
+    "category_en": "Basic",
+    "category_zh-CN": "基础组件",
+    "category_order": 1,
+    "hasHome": false
   },
   {
     "name": "x-img",
-    "icon": "&#xe602;"
+    "icon": "&#xe602;",
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-input",
-    "icon": "&#xe614;"
+    "icon": "&#xe614;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-number",
-    "icon": "&#xe605;"
+    "icon": "&#xe605;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-progress",
-    "icon": "&#xe618;"
+    "icon": "&#xe618;",
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-switch",
-    "icon": "&#xe61c;"
+    "icon": "&#xe61c;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-table",
-    "icon": "&#xe66d;"
+    "icon": "&#xe66d;",
+    "category_en": "Data Display",
+    "category_zh-CN": "数据展示",
+    "category_order": 998,
+    "hasHome": false
   },
   {
     "name": "x-textarea",
-    "icon": "&#xe611;"
+    "icon": "&#xe611;",
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
   }
 ]

@@ -1,3 +1,6 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe60f;'
 tags:
   en:
@@ -15,7 +18,7 @@ extra:
       </group>
     ```
     `options` can be plain array, or object list with key=> value:
-    
+
     ``` js
     const options = [ 'China', 'Japan' ]
 
@@ -29,8 +32,10 @@ extra:
       value: 'radio002'
     }]
     ```
-    
-    <p class="tip">`radio` should be used in `Group`.</p>
+
+    ::: tip
+    `radio` should be used in `Group`.
+    :::
   zh-CN: |
 
     ```html
@@ -39,7 +44,7 @@ extra:
       </group>
     ```
     `options`可以为简单数组，也可以为key=>value形式键值对
-    
+
     ``` js
     const options = [ 'China', 'Japan' ]
 
@@ -53,8 +58,10 @@ extra:
       value: 'radio002'
     }]
     ```
-    
-    <p class="tip">`radio`只能在`Group`中使用</p>
+
+    ::: tip
+    `radio`只能在`Group`中使用
+    :::
 props:
   value:
     en: radio value, use `v-model` for binding
@@ -66,7 +73,7 @@ props:
   fill-mode:
     type: Boolean
     default: false
-    en: if add an option user can fill 
+    en: if add an option user can fill
     zh-CN: 是否可填写
   fill-placeholder:
     en: placeholder for fill input

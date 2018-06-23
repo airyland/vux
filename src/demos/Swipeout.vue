@@ -37,7 +37,9 @@
         </div>
 
         <div slot="content" class="demo-content vux-1px-b">
-        {{$t('now ' + (disabled ? 'disabled' : 'enabled'))}}
+
+        now <span v-if="disabled">{{ $t('disabled') }}</span>
+        <span v-else="enabled">{{ $t('enabled') }}</span>
         </div>
       </swipeout-item>
 

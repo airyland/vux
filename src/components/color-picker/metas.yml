@@ -1,3 +1,7 @@
+category:
+  en: Deprecated
+  'zh-CN': 不再维护
+category_order: 999
 status: deprecated
 deprecated_info:
   en: use cell and slot instead

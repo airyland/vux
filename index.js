@@ -73,6 +73,7 @@ import InlineCalendar from './src/components/inline-calendar/index.vue'
 import InlineDesc from './src/components/inline-desc/index.vue'
 import InlineLoading from './src/components/inline-loading/index.vue'
 import InlineXNumber from './src/components/inline-x-number/index.vue'
+import InlineXSwitch from './src/components/inline-x-switch/index.vue'
 import InviewDirective from './src/directives/inview/index.js'
 import Loading from './src/components/loading/index.vue'
 import LoadingPlugin from './src/plugins/loading/index.js'
@@ -130,8 +131,19 @@ import TransferDom from './src/directives/transfer-dom/index.js'
 import TransferDomDirective from './src/directives/transfer-dom/index.js'
 import trim from './src/tools/string/trim'
 import Value2nameFilter from './src/filters/value2name.js'
+import VArea from './src/components/v-chart/v-area.vue'
+import VAxis from './src/components/v-chart/v-axis.vue'
+import VBar from './src/components/v-chart/v-bar.vue'
+import VChart from './src/components/v-chart/v-chart.vue'
+import VGuide from './src/components/v-chart/v-guide.vue'
 import Video from './src/components/video/index.vue'
 import ViewBox from './src/components/view-box/index.vue'
+import VLegend from './src/components/v-chart/v-legend.vue'
+import VLine from './src/components/v-chart/v-line.vue'
+import VPie from './src/components/v-chart/v-pie.vue'
+import VPoint from './src/components/v-chart/v-point.vue'
+import VScale from './src/components/v-chart/v-scale.vue'
+import VTooltip from './src/components/v-chart/v-tooltip.vue'
 import VuxComponentListData from './src/datas/vux_component_list.json'
 import WechatEmotion from './src/components/wechat-emotion/index.vue'
 import WechatPlugin from './src/plugins/wechat/index.js'
@@ -223,6 +235,7 @@ export {
   InlineDesc,
   InlineLoading,
   InlineXNumber,
+  InlineXSwitch,
   InviewDirective,
   Loading,
   LoadingPlugin,
@@ -280,8 +293,19 @@ export {
   TransferDomDirective,
   trim,
   Value2nameFilter,
+  VArea,
+  VAxis,
+  VBar,
+  VChart,
+  VGuide,
   Video,
   ViewBox,
+  VLegend,
+  VLine,
+  VPie,
+  VPoint,
+  VScale,
+  VTooltip,
   VuxComponentListData,
   WechatEmotion,
   WechatPlugin,

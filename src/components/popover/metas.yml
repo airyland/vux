@@ -1,3 +1,6 @@
+category:
+  en: Feedback
+  zh-CN: 弹窗提示
 icon: '&#xe65f;'
 tags:
   en:
@@ -44,6 +47,11 @@ events:
     en: triggers when popover hides
     zh-CN: 弹窗隐藏时触发
 changes:
+  v2.9.0:
+    en:
+      - '[fix] fix position in fixed container #2590'
+    zh-CN:
+      - '[fix] 修复在 fixed 容器里定位不正确 #2590'
   v2.0.0:
     en:
       - '[todo] wrong position if changing locale'

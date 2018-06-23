@@ -55,7 +55,7 @@ export function parseRow (tmpl, value) {
 // parse Date String
 export function parseDate (format, value) {
   const formatParts = format.split(/[^A-Za-z]+/)
-  let valueParts = value.split(/\D+/)
+  let valueParts = value.replace(/\s/g, '-').replace(/:/g, '-').replace(/\//g, '-').split('-')
   if (formatParts.length !== valueParts.length) {
     // if it is error date, use current date
     const date = formater(new Date(), format)

@@ -1,15 +1,18 @@
 icon: '&#xe603;'
+category:
+  en: Feedback
+  zh-CN: 弹窗提示
 extra:
   zh-CN: |
 
     该组件支持以`plugin`形式调用：
 
-    <p class="warning">
+    ::: warning
     以插件形式调用时，和`template`中使用不同，属性名请使用`小驼峰式`，比如`buttonText`而不是`button-text`。
     <br>
     <br>
     在 `ViewBox` 或者 `overflow-scrolling:touch` 的容器中使用时，请使用 `prop:transfer-dom` 来解决其引起的 `z-index` 失效问题。详细参考 demo。
-    </p>
+    :::
 
     ``` js
     import  { AlertPlugin } from 'vux'
@@ -32,21 +35,35 @@ extra:
         console.log('Plugin: I\'m hiding')
       }
     })
+
     // 隐藏
     this.$vux.alert.hide()
+
+    // 获取显示状态
+    this.$vux.alert.isVisible() // v2.9.1 支持
     ```
 
-    <p class="tip">
+    ::: tip
     如果你想实现在`vue-router`的`beforeEach`或者`afterEach`的 hook 里关闭，可以使用 `Vue.$vux.alert.hide()`
-    </p>
-  
-    <br>
-    <p class="tip">
-    该组件在 v2.7.2 以上支持单独调用，方法和插件使用一致。
-    </p>
+    :::
 
-    ```
+    ::: tip
+    该组件在 v2.7.2 以上支持单独调用，方法和插件使用一致。
+    :::
+
+    ``` js
     import { AlertModule } from 'vux'
+
+    AlertModule.show({
+      title: 'VUX is Cool',
+      content: this.$t('Do you agree?'),
+      onShow () {
+        console.log('Module: I\'m showing')
+      },
+      onHide () {
+        console.log('Module: I\'m hiding now')
+      }
+    })
     ```
 
 
@@ -54,9 +71,9 @@ extra:
 
     This component can be imported as plugin:
 
-    <p class="warning">
+    ::: warning
     When importing it as plugin, the usage is different from it in `template`. Please use  `little camel-case`  such as `buttonText` instead of `button-text`.
-    </p>
+    :::
 
     ``` js
     import  { AlertPlugin } from 'vux'
@@ -154,6 +171,11 @@ events:
     en: emits when dialog is closed
     zh-CN: 弹窗关闭时触发
 changes:
+  v2.9.1:
+    en:
+      - '[feature] add isVisible function for AlertPlugin #2704'
+    zh-CN:
+      - '[feature] 添加 isVisible 获取当前显示状态 #2704'
   v2.7.2:
     en:
       - "[feature] now we can use Alert as a module (import { AlertModule } from 'vux') #2173"

@@ -1,3 +1,7 @@
+category:
+  en: Deprecated
+  'zh-CN': 不再维护
+category_order: 999
 icon: '&#xe641;'
 tags:
   en:
@@ -8,13 +12,13 @@ tags:
     - 布局
     - 滚动
 extra: |
-  <p class="warning">
+  ::: warning
   该组件已经不再维护，也不建议使用，大部分情况下也不需要用到该组件。
   <br>
   建议使用第三方相关组件，相关 issue 将不会处理。
-  </p>
+  :::
 
-  <p class="warning">
+  ::: warning
   `Scroller`的内容必须是一个`div`，并且只能有一个`div`
   <br>
   `Scroller` 希望解决的是简单的列表问题而不是一个内嵌各种复杂标签交互的容器，很容易发生性能或者交互问题。
@@ -25,7 +29,7 @@ extra: |
   <br>
   <br>
   请确保在你的数据更新后进行`reset`操作(参考下面文档)，如果你做了`reset`还有问题再开`issue`并附上代码，否则将`绝对不会被处理`。
-  </p>
+  :::
 after_extra: |
   pulldown 默认配置:
 
@@ -86,7 +90,9 @@ after_extra: |
 
   方法2，绑定value, 重置状态
 
-  <p class="tip">自定义pullup模板同样是用v-model来绑定以获取状态变化</p>
+  ::: tip
+  自定义pullup模板同样是用v-model来绑定以获取状态变化
+  :::
 
   ``` html
   <scroller v-model="status"></scroller>

@@ -1,7 +1,7 @@
 <template>
   <div class="demo-list-box" id="demo_list_box" :style="{height: `${height}px`}">
       <flexbox :gutter="0" v-for="(list, index) in components" :key="index">
-        <flexbox-item :span="1/3" v-for="component in list" :key="component.name" class="cbox vux-1px-t vux-tap-active" @click.native="go(component.name.toLowerCase())">
+        <flexbox-item :span="1/3" v-for="component in list" :key="component.name" class="cbox vux-1px-t vux-tap-active" @click.native="go(component.name.toLowerCase(), component.hasHome)">
           <div class="vux-1px-r cbox-inner">
             <span class="demo-icon demo-icon-big" v-html="component.icon" :style="{color: component.color}"></span>
             <br>
@@ -41,9 +41,16 @@ export default {
   activated () {
     document.querySelector('#demo_list_box').scrollTop = this.demoTop
   },
+  mounted () {
+    this.height = window.innerHeight - 46 - 53
+  },
   methods: {
-    go (name) {
-      this.$router.push(`/component/${name}`)
+    go (name, hasHome) {
+      if (!hasHome) {
+        this.$router.push(`/component/${name}`)
+      } else {
+        this.$router.push(`/components/${name}/home`)
+      }
     },
     split (array) {
       let chunks = []
@@ -68,7 +75,7 @@ export default {
   },
   data () {
     return {
-      height: window.innerHeight - 46 - 53,
+      height: 0,
       components: this.split(components)
     }
   },

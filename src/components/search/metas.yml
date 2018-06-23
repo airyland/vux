@@ -1,3 +1,6 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe63b;'
 tags:
   en:
@@ -66,6 +69,10 @@ events:
     version: v2.6.3
     en: fires when input losts focus
     zh-CN: 输入框失去焦点时触发
+  on-clear:
+    version: v2.9.0
+    en: fires when clicking clear icon
+    zh-CN: 点击清除按钮时触发
 slots:
   default:
     en: slot above search result
@@ -86,6 +93,11 @@ methods:
     en: make input lost focus
     zh-CN: 手动设置 input 失去焦点，一般用于在 on-submit 事件中实现隐藏手机键盘
 changes:
+  v2.9.0:
+    en:
+      - '[feature] add event:on-clear #2251'
+    zh-CN:
+      - '[feature] 添加事件 on-clear #2251'
   2.7.6:
     en:
       - '[fix] fix not emit on-change and input events when cancel or clear'

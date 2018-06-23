@@ -1,151 +1,280 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <link rel=icon href=https://o3e85j0cv.qnssl.com/static/favicon.png type=image/x-icon>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-  <title>VUX - 移动端Vue组件库</title>
-  <link rel="stylesheet" href="./docute.css">
-  <style>
-    .type, .change {
-      height: 18px;
-      font-size: 12px;
-      width: 60px;
-      color: #fff;
-      border-radius: 2px;
-      text-align: center;
-      display: inline-block;
-      padding: 0 3px;
-    }
-    .change {
-      height: 14px;
-      width: 72px;
-      line-height: 14px;
-    }
-    .type-object {
-      background-color: #33ab70;
-    }
-    .type-string {
-      background-color: #27394c;
-    }
-    .type-boolean {
-      background-color: #d95353;
-    }
-    .type-function {
-      background-color: #f4a358;
-    }
-    .type-number {
-      background-color: #288af0;
-    }
-    .type-array {
-      background-color: #eb1ac1;
-    }
-    .vux-qa {
-      background-color: #33ab70;
-      color: #fff;
-      padding: 2px 5px;
-      display: inline;
-    }
-    .vux-green {
-      color: #3c763d;
-    }
-    .vux-red {
-      color: #d95353;
-    }
-    .vux-component-name {
-      font-family: Josefin Sans,sans-serif;
-      font-size: 1.5em;
-      font-weight:bold;
-      color: #d95353;
-    }
-    .markdown-body table {
-      /**
-      display: table;
-      min-width: 80%;
-      **/
-    }
-    .component-play-box {
-      width: 100%;
-      height: 30px;
-      font-size: 14px;
-      line-height: 30px;
-      border: 1px dashed #ececec;
-      text-align: center;
-      border-radius: 3px;
-      color: #888;
-      font-family: Josefin Sans,sans-serif;
-    }
-    .vux-props-title {
-      font-family: Josefin Sans,sans-serif;
-      font-size: 25px;
-      color: #33ab70;
-    }
-    .prop-key {
-      font-family: Consolas,Liberation Mono,Menlo,Courier,monospace;
-      font-size: 16px;
-    }
-    li code, .markdown-body p code, td code {
-      color: #e96900;
-      background-color: #f8f8f8;
-    }
-    .markdown-body td code {
-      background-color: #fff;
-    }
-    .change-deprecated {
-      background-color: #d95353;
-    }
-    .change-todo {
-      background-color: #27394c;
-    }
-    .change-enhance, .change-fix {
-      background-color: #288af0;
-    }
-    .change-feature {
-      background-color: #288af0;
-    }
-    .change-change {
-      background-color: #e96900;
-    }
-    .vux-demo-link {
-      color: #288af0;
-    }
-    .vux-livingearth-nav {
-      color: #42b983!important;
-    }
-    .livingearth-logo {
-      display: none!important;
-    }
-  </style>
-</head>
-<body>
-  <!-- don't remove this part start -->
-  <div id="app"></div>
-  <script src="./config.js"></script>
-  <script src="./docute.js"></script>
-  <!-- livereload script placeholder -->
-  <!-- don't remove this part end -->
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<html lang="en">
+  <!-- websites based on https://vuepress.vuejs.org/ Thanks to Evan You-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>VUX - Vue 移动端 UI 组件库</title>
+    <meta name="description" content="VUX 是基于 WeUI 和 Vue.js 的 移动端 UI 组件库，提供丰富的组件满足移动端(微信)页面常用业务需求。">
+    <link rel=icon href=https://i.loli.net/2018/04/06/5ac798bcb3f46.png type=image/x-icon>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+      a {
+        font-weight: 500;
+        color: #666;
+        text-decoration: none
+      }
+      .home {
+        padding: 0rem 2rem 0;
+        max-width: 960px;
+        margin: 0 auto
+      }
+      .home .hero {
+        text-align: center
+      }
+      .home .hero h1 {
+        font-size: 3rem
+      }
+      .home .hero .action,.home .hero .description,.home .hero h1 {
+        margin: 1.8rem auto
+      }
+      .home .hero .description {
+        max-width: 35rem;
+        font-size: 1.6rem;
+        line-height: 1.3;
+        color: #6a8bad
+      }
 
-  ga('create', 'UA-89859411-2', 'auto');
-  ga('send', 'pageview');
+      .home .hero .action {
+        display: flex;
+        width: 350px;
+      }
 
-  docute.router.afterEach(function (to) {
-    ga('set', 'page', to.fullPath);
-    ga('send', 'pageview');
-  });
+      .home .hero .action > div {
+        flex: 1;
+      }
 
-  docute.router.afterEach(function (to) {
+      .home .hero .action-button, .home .hero .juejin-button {
+        display: inline-block;
+        font-size: 1.2rem;
+        color: #fff;
+        background-color: #3eaf7c;
+        padding: .5rem 1.6rem;
+        border-radius: 4px;
+        transition: background-color .1s ease;
+        box-sizing: border-box;
+        border-bottom: 1px solid #389d70
+      }
+      .home .hero .juejin-button {
+        background-color: #fff;
+        color: #007fff;
+        border: 2px solid #007fff;
+        margin-left: 25px;
+        padding: 0.42rem 1.2rem;
+      }
+      .home .hero .juejin-button:hover {
+        color: #0371df;
+        border-color: #0371df;
+      }
+      .home .hero .action-button:hover {
+        background-color: #4abf8a
+      }
+      .home .features {
+        border-top: 1px solid #eaecef;
+        padding: 1.2rem 0;
+        margin-top: 2.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: strech;
+        justify-content: space-between
+      }
+      .home .feature {
+        flex-grow: 1;
+        flex-basis: 30%;
+        max-width: 30%
+      }
+      .home .feature h2 {
+        font-size: 1.4rem;
+        font-weight: 500;
+        border-bottom: none;
+        padding-bottom: 0;
+        color: #3a5169
+      }
+      .home .feature p {
+        color: #4e6e8e
+      }
+      .home .footer {
+        padding: 2.5rem;
+        border-top: 1px solid #eaecef;
+        text-align: center;
+        color: #4e6e8e
+      }
+      @media (max-width: 719px) {
+        .home .features {
+          flex-direction:column
+        }
+        .home .feature {
+          max-width: 100%;
+          padding: 0 2.5rem
+        }
+      }
+      @media (max-width: 419px) {
+        .home {
+          padding-left:1.5rem;
+          padding-right: 1.5rem
+        }
+        .home .hero img {
+          max-height: 210px;
+          margin: 2rem auto 1.2rem
+        }
+        .home .hero h1 {
+          font-size: 2rem
+        }
+        .home .hero .action,.home .hero .description,.home .hero h1 {
+          margin: 1.2rem auto
+        }
+        .home .hero .description {
+          font-size: 1.2rem
+        }
+        .home .hero .action-button {
+          font-size: 1rem;
+          padding: .6rem 1.2rem
+        }
+        .home .feature h2 {
+          font-size: 1.25rem
+        }
+        .home .hero .action {
+          width: 100%;
+        }
+        .arrow {
+          display: none;
+        }
+      }
+      @media (max-width: 320px) {
+        .home .hero .action {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+        
+        .home .hero .action > div {
+          flex: 1 0 50%;
+          margin-top: 15px;
+        }
 
-    if(/livingearth|pro|demos/.test(to.fullPath)) {
-      window.scrollTo(0, 0)
-    }
-  console.log(to)
-});
-</script>
-</body>
+        .home .hero .action a {
+          font-size: 1rem;
+          margin-left: 0;
+        }
+
+        .home .hero .action > div:first-child {
+          flex: 0 1 100%;
+        }
+      }
+      .action-link {
+        color: #666;
+        text-decoration: none;
+      }
+      @font-face {
+        font-family: Josefin Sans;
+        font-style: normal;
+        font-weight: 300;
+        src: local("Josefin Sans Light"),local("JosefinSans-Light"),url(https://fonts-gstatic.proxy.ustclug.org/s/josefinsans/v9/C6HYlRF50SGJq1XyXj04z7sKtFnhOiVZh9MDlvO1Vys.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: Josefin Sans;
+        font-style: normal;
+        font-weight: 300;
+        src: local("Josefin Sans Light"),local("JosefinSans-Light"),url(https://fonts-gstatic.proxy.ustclug.org/s/josefinsans/v9/C6HYlRF50SGJq1XyXj04z0ZRWJQ0UjzR2Uv6RollX_g.woff2) format("woff2");
+      }
+      .vux-title {
+        font-size: 60px;
+        font-weight: 600;
+        font-family: Josefin Sans,sans-serif;
+      }
+      .best-companies {
+        text-align: center;
+      }
+      .best-companies a {
+        display: inline-block;
+      }
+      .best-companies img {
+        height: 48px;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="theme-container no-sidebar">
+        <div class="home">
+          <div class="hero">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1024px" height="1024px" viewBox="0 0 1024 1024" enable-background="new 0 0 1024 1024" xml:space="preserve" style="width:120px;height:120px;">
+              <path data-index="path_0" fill="#35495e" d="M512 816.64 51.2 985.6l460.8-947.2 460.8 947.2L512 816.64 512 816.64zM509.44 207.36 189.44 862.72l317.44-117.76L506.88 207.36 509.44 207.36zM509.44 207.36" class="svgpath"></path>
+            </svg>
+            <h1 class="vux-title">VUX</h1>
+            <p class="description">
+              一个凑合的 Vue.js 移动端 UI 组件库
+            </p>
+            <div class="action">
+              <div>
+                <a href="https://doc.vux.li" class="action-button">
+                查看文档
+                </a>
+                <br>
+                <br>
+                <a href="https://vux.li/demos/v2/" class="action-link">
+                查看 Demo
+                </a>
+              </div>
+              <div>
+                <a href="https://juejin.im/welcome/frontend?utm_source=vux&utm_medium=word&utm_content=qianduan&utm_campaign=q2_website" class="juejin-button" target="_blank">
+              前端社区 <span class="arrow">→</span>
+              </a>
+              <br>
+                <br>
+                <a href="https://juejin.im/welcome/frontend?utm_source=vux&utm_medium=word&utm_content=qianduan&utm_campaign=q2_website" class="action-link" target="_blank">
+                访问掘金
+                </a>
+              </div>
+            </div>
+            <p class="best-companies">
+              <a href="https://www.bmqb.com/a/jobs?tracking_code=opencollective" target="_blank">
+                <img src="https://ww1.sinaimg.cn/large/663d3650gy1fs3l6w13z2j206y02bdfp.jpg">
+              </a>
+              <a href="https://www.upyun.com" target="_blank">
+                <img src="https://ww1.sinaimg.cn/large/663d3650gy1fs3l83hokej20b4040weg.jpg" style="height:42px;">
+              </a>
+            </p>
+          </div>
+          <div class="features">
+            <div class="feature">
+              <h2>体验不极致</h2>
+              <p>是的，VUX 还有很多问题，远远不完美，但一直在解决。<br/><br/>如果你在使用并且觉得有一些问题，不妨开个 issue 反馈一下，我们乐意解决详细描述的问题。</p>
+            </div>
+            <div class="feature">
+              <h2>维护靠个人</h2>
+              <p>是的，没有团队维护。国内大多数开发者都选择了有知名前端团队维护的组件库。<br/><br/>当然你也可以试试选择 VUX，毕竟维护两年时间，star 12k，一定程度上也说明并不比大公司团队开源的差，不是么？</p>
+            </div>
+            <div class="feature">
+              <h2>开始有了赞助支持</h2>
+              <p>是的，我们开始有了赞助来支持开发迭代。<br/><br/>如果 VUX 帮你节省了大量时间的话，欢迎<a href="https://doc.vux.li/zh-CN/contribution/donate.html">捐赠</a>以鼓励支持作者。</p>
+            </div>
+          </div>
+          <div class="footer">
+            MIT Licensed | Copyright © 2016-present Airyland | website based on <a href="https://vuepress.vuejs.org/">vuepress</a> by Evan You
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-89859411-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
 </html>

@@ -32,6 +32,7 @@ class Swiper {
     this.realCount = this.$items.length // real items length
     this._position = [] // used by go event
     this._firstItemIndex = 0
+    this._isMoved = false // used by minMovingDistance #2773
     if (!this.count) {
       return
     }
@@ -135,6 +136,7 @@ class Swiper {
       }
       $item.style.webkitTransform = transform
       $item.style.transform = transform
+      me._isMoved = true
     })
   }
 
@@ -145,6 +147,7 @@ class Swiper {
       me._start.x = e.changedTouches[0].pageX
       me._start.y = e.changedTouches[0].pageY
       me._setTransition('none')
+      me._isMoved = false
     }
     me.touchmoveHandler = (e) => {
       if (me.count === 1) {
@@ -163,7 +166,7 @@ class Swiper {
       if (!this._options.loop && (this._current === this.count - 1 || this._current === 0)) {
         distance = distance / 3
       }
-      if (((me._options.minMovingDistance && Math.abs(distance) >= me._options.minMovingDistance) || !me._options.minMovingDistance) && noScrollerY) {
+      if ((((me._options.minMovingDistance && Math.abs(distance) >= me._options.minMovingDistance) || !me._options.minMovingDistance) && noScrollerY) || me._isMoved) {
         me._setTransform(distance)
       }
 
@@ -183,7 +186,7 @@ class Swiper {
       }
 
       distance = me.getDistance(distance)
-      if (distance !== 0 && me._options.minMovingDistance && Math.abs(distance) < me._options.minMovingDistance) {
+      if (distance !== 0 && me._options.minMovingDistance && Math.abs(distance) < me._options.minMovingDistance && !me._isMoved) {
         return
       }
       if (distance > me._options.threshold) {

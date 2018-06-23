@@ -28,6 +28,7 @@ export default {
         offset: _this.offset,
         errorClass: _this.errorClass,
         successClass: _this.successClass,
+        separator: _this.separator,
         success (ele) {
           _this.$emit('on-success', _this.src, ele)
         },
@@ -72,7 +73,8 @@ export default {
     delay: {
       type: Number,
       default: 0
-    }
+    },
+    separator: String
   },
   watch: {
     src (val) {

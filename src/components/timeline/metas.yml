@@ -1,3 +1,6 @@
+category:
+  en: DataDisplay
+  zh-CN: 数据展示
 icon: '&#xe656;'
 import_code: "import { Timeline, TimelineItem } from 'vux'"
 extra: |

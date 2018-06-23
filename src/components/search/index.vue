@@ -152,6 +152,7 @@ export default {
       if (this.autoFixed && !this.isFixed) {
         this.isFixed = true
       }
+      this.$emit('on-clear')
     },
     cancel () {
       this.isCancel = true

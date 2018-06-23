@@ -1,3 +1,6 @@
+category:
+  en: Data Display
+  zh-CN: 数据展示
 icon: '&#xe65a;'
 tags:
   - qr
@@ -30,6 +33,11 @@ props:
     en: 'render type, can be `img` or `canvas`'
     zh-CN: '渲染类型，可以为`img`(适合需要在微信需要长按识别的场景)和`canvas`'
 changes:
+  v2.9.1:
+    en: 
+      - '[fix] fix missing support for Chinese works #2652'
+    zh-CN:
+      - '[fix] 修复中文支持 #2652'
   v2.7.0:
     en:
       - '[fix] fix errors when value is undefined #2070'

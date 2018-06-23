@@ -36,6 +36,7 @@ Horizontal.prototype.setPosition = function (val) {
 }
 
 Horizontal.prototype.onmousedown = function (e) {
+  this.options.onTouchstart(e)
   if (e.touches) e = e.touches[0]
   this.startX = e.clientX
   this.handleOffsetX = this.handle.offsetLeft
@@ -79,6 +80,7 @@ Horizontal.prototype.unselectable = function (element, set) {
 }
 
 Horizontal.prototype.onmouseup = function (e) {
+  this.options.onTouchend(e)
   this.unselectable(this.slider, false)
 }
 

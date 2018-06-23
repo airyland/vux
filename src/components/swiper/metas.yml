@@ -1,6 +1,9 @@
+category:
+  en: Data Display
+  zh-CN: 数据展示
 icon: '&#xe612;'
 extra: |
-  <p class="tip">
+  ::: tip
     `list`为图片列表快捷设置，如果你需要自定义一些样式，或者内容并不为纯图片，可以引用`swiper-item`组件来自定义。
     <br>
     `list` 格式如下
@@ -19,27 +22,30 @@ extra: |
     }]
     ```
 
-    <br>
     `fallbackImg` 在 `v2.5.13` 支持，它将在 `img` 加载失败时显示，注意的是 `fallbackImg` 可能会在 `img` 加载成功时也进行了加载，只是不会显示（取决于浏览器实现）。
 
-  </p>
-  <p class="warning">
+  :::
+
+  ::: warning
   不要在`swiper`里嵌套`scroller`，在`web`上过于复杂化而且手势会有冲突，相关`Issue`将不会处理。
-  <br>
-  <br>
-  需要注意的是，在使用 `swiper-item` 而非 `list` 图片列表时，如果只有两项，将无法实现 `loop` 循环播放。
   <br>
   <br>
   该组件场景是固定高度的内容列表，不支持为不同 swiper-item 设置不同高度。
   <br>
   <br>
   如果确实需要设置不同高度，可以通过 ref 获取 swiper, 通过 this.$refs.swiper.xheight = '100px' 设置。 切记，需要放在 $nextTick 中执行。
-  </p>
+  :::
+tips:
+  zh-CN:
+    -
+      q: swiper-item 只有两项时无法循环播放
+      a: |
+        是的，建议直接使用 `list` 来实现循环。因为实现原理是对`swiper-item`元素进行移动，需要至少有`3`个`swiper-item`才能保证有上一张和下一张可以切换。
 props:
   list:
     type: Array
-    en: image list
-    zh-CN: 图片列表
+    en: image list, use swiper-item if you need to customize style
+    zh-CN: 轮播图片列表，如果有自定义样式需求，请使用 swiper-item(使用 swiper-item 时仅有2个的情况下不支持循环)
   direction:
     type: String
     default: horizontal
@@ -76,12 +82,12 @@ props:
   interval:
     type: Number
     default: 3000
-    en: interval value 
+    en: interval value
     zh-CN: 轮播停留时长
   threshold:
     type: Number
     default: 50
-    en: threshold value 
+    en: threshold value
     zh-CN: 当滑动超过这个距离时才滑动
   duration:
     type: Number
@@ -93,7 +99,7 @@ props:
     default: 180px
     en: height value
     zh-CN: '高度值。如果为`100%`宽度并且知道宽高比，可以设置`aspect-ratio`自动计算高度'
-  aspect-ratio: 
+  aspect-ratio:
     type: Number
     en: if specified, height will be caculated automatically
     zh-CN: 用以根据当前可用宽度计算高度值
@@ -118,12 +124,19 @@ events:
     en: fires after height is caculated
     zh-CN: 高度获取后触发
 changes:
+  v2.9.2:
+    en:
+      - '[fix] fix stuck swipe after setting min-moving-distance #2773'
+      - '[fix] fix error for repeat setting data in loop #2803'
+    zh-CN:
+      - '[fix] 修复设置最小移动距离后滑动卡住 #2773'
+      - '[fix] 修复在循环模式下重复设置数据的错误 #2803'
   v2.7.7:
     en:
       - '[fix] fix cannot scroll body when touching with one item'
     zh-CN:
       - '[fix] 修复只有一个 item 时无法滚动页面的问题'
-  2.7.6:
+  v2.7.6:
     en:
       - '[enhance] stop moving width one item'
     zh-CN:

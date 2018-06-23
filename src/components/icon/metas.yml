@@ -1,3 +1,6 @@
+category:
+  en: Basic
+  zh-CN: 基础组件
 icon: '&#xe619;'
 after_extra: |
   ``` html

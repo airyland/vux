@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="../assets/demo/filter_bg.jpg" style="width: 100%">
+    <img src="https://ws1.sinaimg.cn/large/663d3650gy1fq685v5csyj208c06ygm0.jpg" style="width: 100%">
     <br>
     <search @on-submit="onSubmit" :auto-fixed="autoFixed" @on-focus="onFocus" @on-cancel="onCancel"></search>
     <divider>set value</divider>

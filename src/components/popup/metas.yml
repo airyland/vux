@@ -1,3 +1,6 @@
+category:
+  en: Feedback
+  zh-CN: 弹窗提示
 icon: '&#xe61e;'
 tags:
   en:
@@ -55,6 +58,18 @@ props:
     default: true
     en: whether hide popup on deactived event when using keep-alive
     zh-CN: 是否在 deactived 事件触发时自动关闭，避免在路由切换时依然显示弹窗
+  should-rerender-on-show:
+    version: v2.9.0
+    type: Boolean
+    default: false
+    en: whether rerender body on show
+    zh-CN: 是否在显示时重新渲染内容区域(以及滚动到顶部)，适用于每次显示弹窗需要重新获取数据初始化的场景
+  should-scroll-top-on-show:
+    version: v2.9.0
+    type: Boolean
+    default: false
+    en: whether scroll top on show，add class vux-scrollable if you customize the scrollable div
+    zh-CN: 是否在显示时自动滚动到顶部，当你自定义滚动容器时需要手动为该容器加上类名 vux-scrollable
 events:
   on-hide:
     en: emits when then popup is closed
@@ -70,6 +85,18 @@ slots:
     en: content body
     zh-CN: 弹窗主体内容
 changes:
+  v2.9.1:
+    en:
+      - '[fix] fixed popup has black border on the right #2651'
+    zh-CN:
+      - '[fix] 修正弹出框右边有黑边 #2651'
+  v2.9.0:
+    en:
+      - '[feature] support prop:should-rerender-on-show for forcing rerendering #2598'
+      - '[feature] support prop:should-scroll-top-on-show for forcing scrolling top #2598'
+    zh-CN:
+      - '[feature] 支持 should-rerender-on-show 实现每次打开重新渲染 #2598'
+      - '[feature] 支持自动滚动到顶部 #2598'
   v2.5.12:
     en:
       - '[fix] clean vux-modal-open on beforeDestroy and deactivated #1921'

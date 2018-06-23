@@ -1,3 +1,6 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe62a;'
 extra:
   zh-CN: >
@@ -9,9 +12,11 @@ extra:
       </group>
     ```
 
-    <p class="tip">与`cell`相比，`cell-box`更自由和灵活，只提供`is-link`和`link`属性，内容直接使用默认slot定义。
+    ::: tip
+    与`cell`相比，`cell-box`更自由和灵活，只提供`is-link`和`link`属性，内容直接使用默认slot定义。
     <br>
-    `cell-box`同样只能在`Group`中使用</p>
+    `cell-box`同样只能在`Group`中使用
+    :::
 tags:
   - cell
   - form

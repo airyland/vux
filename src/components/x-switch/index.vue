@@ -92,30 +92,6 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../styles/weui/widget/weui_cell/weui_form/weui_form_common';
-@import '../../styles/weui/widget/weui_cell/weui_switch';
-
-.weui-cell_switch .weui-cell__ft {
-  font-size: 0;
-  position: relative;
-}
-
-input.weui-switch[disabled] {
-  opacity: @switch-disabled-opacity;
-}
-
-.vux-x-switch.weui-cell_switch {
-  padding-top: 6px;
-  padding-bottom: 6px;
-}
-
-.vux-x-switch-overlay {
-  width: 60px;
-  height: 50px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  opacity: 0;
-}
+@import '../inline-x-switch/style.less';
 </style>
 

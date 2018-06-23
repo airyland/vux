@@ -1,3 +1,6 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe62b;'
 extra:
   zh-CN: |
@@ -8,12 +11,15 @@ extra:
       </group>
     ```
 
-    <p class="tip">`calendar`只能在`Group`中使用
+    ::: tip
+    `calendar`只能在`Group`中使用
     <br>
      除了`title`和 `value`, 其他`props`和`inline-calendar`完全一致。
-    </p>
+    :::
 
-    <p class="tip">当绑定值为数组时，日历将为多选模式</p>
+    ::: tip
+    当绑定值为数组时，日历将为多选模式
+    :::
 
   en: |
 
@@ -23,10 +29,11 @@ extra:
       </group>
     ```
 
-    <p class="tip">`calendar` can be only used in `Group`
+    ::: tip
+    `calendar` can be only used in `Group`
     <br>
     Except `title` and `value`, other `props` are the same as those of `inline-calendar`.
-    </p>
+    :::
 
 tags:
   en:

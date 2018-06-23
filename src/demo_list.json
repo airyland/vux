@@ -111,5 +111,6 @@
   "XImgPopup#/demo/x-img-popup",
   "WeekCalendar",
   "NumberRoller",
-  "IconLoading"
+  "IconLoading",
+  "InlineXSwitch"
 ]

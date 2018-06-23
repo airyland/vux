@@ -58,6 +58,9 @@ const plugin = {
       },
       hide () {
         $vm.showValue = false
+      },
+      isVisible () {
+        return $vm.showValue
       }
     }
 

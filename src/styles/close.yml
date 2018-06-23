@@ -3,10 +3,10 @@ name:
   zh-CN: 纯 css 关闭图标
 doc: |
 
-  <p class="tip">
+  ::: tip
   关闭图标主要应用于弹窗(popup)的左侧关闭按钮。
-  </p>
-  
+  :::
+
   在你项目的`App.vue`引入，组件内不需要再重复引入。
 
   ``` html
@@ -32,5 +32,3 @@ doc: |
   ``` html
   <span class="vux-close" style="color:red;"></span>
   ```
-
-

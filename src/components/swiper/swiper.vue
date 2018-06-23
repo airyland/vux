@@ -193,8 +193,10 @@ export default {
         this.swiper && this.swiper._auto()
       }
     },
-    list (val) {
-      this.rerender()
+    list (val, oldVal) {
+      if (JSON.stringify(val) !== JSON.stringify(oldVal)) {
+        this.rerender()
+      }
     },
     current (currentIndex) {
       this.index = currentIndex

@@ -1,3 +1,6 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe61b;'
 import_code: "&nbsp;"
 extra:
@@ -19,11 +22,13 @@ extra:
     import { XAddress, ChinaAddressV1Data } from 'vux'
     ```
 
-    <p class="tip">
+    ::: tip
     you can view source data at [src/datas](https://github.com/airyland/vux/tree/v2/src/datas).
-    </p>
+    :::
 
-    <p class="tip">`x-address` should be used in `Group`</p>
+    ::: tip
+    `x-address` should be used in `Group`
+    :::
 
   zh-CN: |
     ```html
@@ -40,12 +45,14 @@ extra:
     // 如果需要引入旧版数据
     import { XAddress, ChinaAddressV2Data } from 'vux'
     ```
-    <p class="tip">
+    ::: tip
     如果你需要单独引入地址数据，可以在源码[src/datas](https://github.com/airyland/vux/tree/v2/src/datas)找到。
-    </p>
-    <p class="tip">设计上 `x-address` 只能在 `Group` 中使用。但是你依然可以不在 `Group` 中使用，使用 `display:none` 隐藏然后用 :show.sync 来控制组件显示状态。</p>
+    :::
+    ::: tip
+    设计上 `x-address` 只能在 `Group` 中使用。但是你依然可以不在 `Group` 中使用，使用 `display:none` 隐藏然后用 :show.sync 来控制组件显示状态。
+    :::
 
-    
+
     ``` html
     <x-address style="display:none;" title="title" v-model="value" :list="addressData" placeholder="请选择地址" :show.sync="showAddress"></x-address>
     ```
@@ -120,6 +127,11 @@ props:
     type: Boolean
     en: popup show (supports the .sync modifier next)
     zh-CN: 显示 (支持.sync修饰 next)
+  disabled:
+    version: v2.9.0
+    type: Boolean
+    en: whether disabled selecting
+    zh-CN: 是否禁用选择
 slots:
   title:
     version: v2.3.8
@@ -138,6 +150,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  v2.9.0:
+    en:
+      - '[feature] add prop:disabled #2641'
+    zh-CN:
+      - '[feature] 添加属性 disabled 支持禁用 #2641'
   v2.8.0:
     en:
       - '[change] remove empty root div #2371'

@@ -19,7 +19,12 @@
 
     <actionsheet v-model="show4" :menus="menus1" :close-on-clicking-mask="false" show-cancel @on-click-mask="console('on click mask')"></actionsheet>
 
-    <actionsheet v-model="show1" :menus="menus1" @on-click-menu="click"></actionsheet>
+    <actionsheet
+      v-model="show1"
+      :menus="menus1"
+      @on-click-menu="click"
+      @on-after-hide="log('after hide')"
+      @on-after-show="log('after show')"></actionsheet>
 
     <actionsheet v-model="show2" :menus="menus2" @on-click-menu="click" show-cancel></actionsheet>
 
@@ -31,7 +36,13 @@
       <p slot="header" v-html="$t('Actionsheet header')"></p>
     </actionsheet>
 
-    <actionsheet v-model="show7" :menus="menu7" theme="android" @on-click-menu="click">
+    <actionsheet
+      v-model="show7"
+      :menus="menu7"
+      theme="android"
+      @on-click-menu="click"
+      @on-after-hide="log('after hide')"
+      @on-after-show="log('after show')">
     </actionsheet>
 
     <toast v-model="showSuccess">{{ $t('Deleted~') }}</toast>
@@ -144,6 +155,9 @@ export default {
     }
   },
   methods: {
+    log (str) {
+      console.log(str)
+    },
     demo8doClose () {
       this.$vux.loading.show({
         text: 'processing'

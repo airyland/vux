@@ -1,3 +1,6 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe611;'
 extra:
   zh-CN: |
@@ -8,7 +11,9 @@ extra:
       </group>
     ```
 
-    <p class="tip">`x-textarea`只能在`Group`中使用</p>
+    ::: tip
+    `x-textarea`只能在`Group`中使用
+    :::
 tags:
   en:
     - form

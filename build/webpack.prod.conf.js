@@ -22,7 +22,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: false, // config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    publicPath: argv.cdn ? 'https://static.vux.li/demos/v2/' : './',
+    publicPath: argv.cdn ? 'https://upcdn.vux.li/demos/v2/' : './',
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },

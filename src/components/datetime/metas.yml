@@ -1,13 +1,16 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe60a;'
 extra: |
-  <p class="tip">
+  ::: tip
   需要在`Group`组件里使用
-  </p>
+  :::
 
 
   该组件支持以`plugin`形式调用：
 
-  ```
+  ``` js
   // 以 plugin 形式使用时，请在入口处引入：
   import { DatetimePlugin } from 'vux'
   Vue.use(DatetimePlugin)
@@ -25,7 +28,15 @@ extra: |
 
   this.$vux.datetime.hide()
   ```
-
+tips:
+  zh-CN:
+    -
+      q: 是否支持秒(ss)
+      a: 不支持，目前常用需求场景并没有需要精确到秒。
+    - q: on-confirm 事件获取不到正确的值
+      a: |
+       在 `v2.9.0` 之前 on-confirm 不会附带当前值参数，你需要在 `this.$nextTick` 后获取。
+       相关 issue: [#2632](https://github.com/airyland/vux/issues/2632)
 tags:
   en:
     - date
@@ -39,8 +50,8 @@ props:
   format:
     type: String
     default: 'YYYY-MM-DD'
-    en: date format. Special characters are not supported, for example, YYYY-MM-DD HH:mm:ss
-    zh-CN: 时间格式，不支持特殊字符，只能类似 YYYY-MM-DD HH:mm:ss 这样的格式
+    en: date format. Special characters are not supported, for example, YYYY-MM-DD HH:mm(do not support ss)
+    zh-CN: 时间格式，不支持特殊字符，只能类似 YYYY-MM-DD HH:mm 这样的格式（不支持秒 ss）, 另外支持 YYYY-MM-DD A 这样的格式(A为上下午)
   title:
     type: String
     default: ''
@@ -172,6 +183,11 @@ props:
     type: Function
     en: 'dynamically set days list, params `({year, month, min, max}, generateRange)`'
     zh-CN: '动态设置日期列表，参数为 `({year, month, min, max}, generateRange)`'
+  order-map:
+    version: v2.9.0
+    type: Object
+    en: 'set column order, `{year: 1, month: 2, day: 3, hour: 4, minute: 5, noon: 6}`'
+    zh-CN: '自定义列顺序, 如 `{year: 1, month: 2, day: 3, hour: 4, minute: 5, noon: 6}`'
 slots:
   default:
     en: trigger element content
@@ -202,9 +218,23 @@ events:
     zh-CN: 点击取消按钮或者遮罩时触发，等同于事件 on-hide(cancel)
   on-confirm:
     version: v2.7.4
+    params: '`(value)` v2.9.0 支持该参数'
     en: fires when confirm button is clicked
     zh-CN: 点击确定按钮时触发，等同于事件 on-hide(confirm)
 changes:
+  v2.9.0:
+    en:
+      - '[feature] support order-map to customize column orders #2300'
+      - '[fix] fix mask cause body scroll in iOS #2593'
+      - '[feature] add arg:value for event:on-confirm #2632'
+      - '[fix] fire event:on-confirm after nextTick #2632'
+      - '[feature] support format YYYY-MM-DD A #2627 @jack87918'
+    zh-CN:
+      - '[feature] 支持使用 order-map 自定义列顺序 #2300'
+      - '[fix] 修复遮罩导致页面滚动 #2593'
+      - '[feature] 事件 on-confirm 添加当前值 #2632'
+      - '[fix] 在 nextTick 后触发 on-confirm 事件 #2632'
+      - '[feature] 支持格式 YYYY-MM-DD A 选择上下午 #2627 @jack87918'
   v2.7.8:
     en:
       - '[fix] fix `on-hide` event trigger twice #2379'
@@ -212,7 +242,7 @@ changes:
     zh-CN:
       - '[fix] 修复 `on-hide` 事件触发两次的问题 #2379'
       - '[fix] 修复初始化时 `show` 值为 `true` 无效的问题'
-  2.7.6:
+  v2.7.6:
     en:
       - '[fix] column value use number type, fix binding value is not equal to datetimepicker value #2296'
     zh-CN:

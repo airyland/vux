@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@antv/f2@^3.1.4-beta.2":
+  version "3.1.4-beta.2"
+  resolved "http://registry.npm.taobao.org/@antv/f2/download/@antv/f2-3.1.4-beta.2.tgz#629c533a82fafc1dc78c9ba3ef0147bacbbc025c"
+  dependencies:
+    fecha "~2.3.1"
+
 "@types/node@^6.0.46":
   version "6.0.89"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-6.0.89.tgz#154be0e6a823760cd6083aa8c48f952e2e63e0b0"
@@ -2784,6 +2790,10 @@ fd-slicer@~1.0.1:
   dependencies:
     pend "~1.2.0"
 
+fecha@~2.3.1:
+  version "2.3.3"
+  resolved "http://registry.npm.taobao.org/fecha/download/fecha-2.3.3.tgz#948e74157df1a32fd1b12c3a3c3cdcb6ec9d96cd"
+
 figures@^1.3.5:
   version "1.7.0"
   resolved "http://registry.npm.taobao.org/figures/download/figures-1.7.0.tgz#cbe1e3affcf1cd44b80cadfed28dc793a9701d2e"
@@ -3882,7 +3892,13 @@ js-tokens@^3.0.0:
   version "3.0.2"
   resolved "http://registry.npm.taobao.org/js-tokens/download/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
-js-yaml@3.x, js-yaml@^3.5.1, js-yaml@^3.5.2, js-yaml@^3.6.1, js-yaml@^3.7.0, js-yaml@^3.8.1:
+js-yaml-loader@^0.1.0:
+  version "0.1.0"
+  resolved "http://registry.npm.taobao.org/js-yaml-loader/download/js-yaml-loader-0.1.0.tgz#3cb5e79d613883764aa241c30e3fcd0daaefd8ed"
+  dependencies:
+    js-yaml "^3.9.1"
+
+js-yaml@3.x, js-yaml@^3.5.1, js-yaml@^3.6.1, js-yaml@^3.7.0, js-yaml@^3.8.1:
   version "3.8.4"
   resolved "http://registry.npm.taobao.org/js-yaml/download/js-yaml-3.8.4.tgz#520b4564f86573ba96662af85a8cafa7b4b5a6f6"
   dependencies:
@@ -3892,6 +3908,13 @@ js-yaml@3.x, js-yaml@^3.5.1, js-yaml@^3.5.2, js-yaml@^3.6.1, js-yaml@^3.7.0, js-
 js-yaml@^3.4.3:
   version "3.10.0"
   resolved "http://registry.npm.taobao.org/js-yaml/download/js-yaml-3.10.0.tgz#2e78441646bd4682e963f22b6e92823c309c62dc"
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
+js-yaml@^3.9.1:
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.11.0.tgz#597c1a8bd57152f26d622ce4117851a51f5ebaef"
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
@@ -7073,9 +7096,9 @@ vue-style-loader@^4.0.1:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@2.5.2:
-  version "2.5.2"
-  resolved "http://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.5.2.tgz#6f198ebc677b8f804315cd33b91e849315ae7177"
+vue-template-compiler@2.5.16:
+  version "2.5.16"
+  resolved "http://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.5.16.tgz#93b48570e56c720cdf3f051cc15287c26fbd04cb"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -7090,9 +7113,9 @@ vue-test-utils@1.0.0-beta:
   dependencies:
     lodash "^4.17.4"
 
-vue@2.5.2:
-  version "2.5.2"
-  resolved "http://registry.npm.taobao.org/vue/download/vue-2.5.2.tgz#fd367a87bae7535e47f9dc5c9ec3b496e5feb5a4"
+vue@2.5.16:
+  version "2.5.16"
+  resolved "http://registry.npm.taobao.org/vue/download/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 
 vuex-i18n@^1.3.1:
   version "1.4.1"
@@ -7110,9 +7133,9 @@ vux-blazy@^1.6.4:
   version "1.6.4"
   resolved "http://registry.npm.taobao.org/vux-blazy/download/vux-blazy-1.6.4.tgz#e33073d902e0a3844ef1a463cce3ca2e0aab47bf"
 
-vux-loader@^1.2.0:
-  version "1.2.0"
-  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.2.0.tgz#f50c3f5a58599607746f37f836e91393e011f942"
+vux-loader@^1.2.9:
+  version "1.2.9"
+  resolved "http://registry.npm.taobao.org/vux-loader/download/vux-loader-1.2.9.tgz#51de423753332ce102eae1551a28b2b1155142b3"
   dependencies:
     acorn "^5.1.2"
     compare-versions "^3.1.0"
@@ -7436,12 +7459,6 @@ y18n@^3.2.1:
 yallist@^2.1.2:
   version "2.1.2"
   resolved "http://registry.npm.taobao.org/yallist/download/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
-
-yaml-loader@^0.4.0:
-  version "0.4.0"
-  resolved "http://registry.npm.taobao.org/yaml-loader/download/yaml-loader-0.4.0.tgz#4aae447d13c1aa73a989d8a2a5309b0b1a3ca353"
-  dependencies:
-    js-yaml "^3.5.2"
 
 yargs-parser@^4.2.0:
   version "4.2.1"

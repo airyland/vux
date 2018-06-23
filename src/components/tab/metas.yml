@@ -1,3 +1,6 @@
+category:
+  en: Navigation
+  zh-CN: 导航
 icon: '&#xe615;'
 items:
   - tab
@@ -24,18 +27,24 @@ tab:
     line-width:
       type: Number
       default: 3
+      en: line width
       zh-CN: 线条宽度
     active-color:
+      en: selected text color
       zh-CN: 选中时文字颜色
     default-color:
+      en: default text color
       zh-CN: 默认文字颜色
     disabled-color:
+      en: disabled text color
       zh-CN: 不可点击时文字颜色
     bar-active-color:
+      en: active color for bar
       zh-CN: '设置底部`bar`颜色，该颜色也可以通过`less`变量`@tab-bar-active-color`设置。'
     animate:
       type: Boolean
       default: true
+      en: whether use transition
       zh-CN: 切换时是否需要动画
     custom-bar-width:
       type: String, Function
@@ -61,8 +70,21 @@ tab:
       zh-CN: 徽标文字颜色
     prevent-default:
       version: v2.7.2
+      default: false
       en: whether prevent auto-switching tab-item when tab-item is clicked
       zh-CN: 是否禁止自动切换 tab-item
+    scroll-threshold:
+      version: v2.8.1
+      type: Number
+      default: 4
+      en: scroll tabs threshold
+      zh-CN: 滚动阀值，超过可滚动
+    bar-position:
+      version: v2.9.0
+      type: String
+      default: bottom
+      en: bar position, one of [bottom, top]. only works when animate is true.
+      zh-CN: 边框位置，可以为 bottom 或者 top。仅支持 animate 为 true 的情况。
   event:
     on-index-change:
       params: '`(index)`'
@@ -78,8 +100,10 @@ tab-item:
     disabled:
       type: Boolean
       default: false
+      en: wheher disabled clicking
       zh-CN: 是否不可选
     active-class:
+      en: active classname for current tab-item
       zh-CN: 当前项选中时的class
   events:
     on-item-click:
@@ -88,6 +112,21 @@ tab-item:
       en: emits when current tabItem is clicked
       zh-CN: 当前 tabItem 被点击时触发
 changes:
+  v2.9.1:
+    en:
+      - '[fix] fix box-sizing issue #2621. thanks to @suncodeer'
+    zh-CN:
+      - '[fix] 修复全局 box-sizing 为 border-box 时导致的高度问题 #2621。感谢 @suncodeer '
+  v2.9.0:
+    en:
+      - '[feature] support prop:bar-position'
+    zh-CN:
+      - '[feature] 支持使用 bar-position 定义边框位置'
+  v2.8.1:
+    en:
+      - '[feature] support prop:scroll-threshold'
+    zh-CN:
+      - '[feature] 支持滚动'
   v2.7.2:
     en:
       - '[feature] support prop:prevent-default #2176'
@@ -111,5 +150,7 @@ changes:
       - '[feature] 支持定义 bar 宽度'
       - '[fix] 修复初始化时没有 tab-item 时导致报错 #1038 @liu2010y'
   v2.1.0-rc.46:
+    en:
+      - '[feature] add prop:bar-active-color #715 @greedying'
     zh-CN:
       - '[feature] 支持设置 `bar-active-color` #715 @greedying'

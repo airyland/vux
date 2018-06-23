@@ -122,7 +122,7 @@
       ref="input"/>
     </div>
     <div class="weui-cell__ft">
-      <icon type="clear" v-show="!hasRightFullHeightSlot && !equalWith && showClear && currentValue !== '' && !readonly && !disabled" @click.native="clear"></icon>
+      <icon type="clear" v-show="!hasRightFullHeightSlot && !equalWith && showClear && currentValue !== '' && !readonly && !disabled && isFocus" @click.native="clear"></icon>
 
       <icon @click.native="onClickErrorIcon" class="vux-input-icon" type="warn" :title="!valid ? firstError : ''" v-show="showWarn"></icon>
       <icon @click.native="onClickErrorIcon" class="vux-input-icon" type="warn" v-if="!novalidate && hasLengthEqual && dirty && equalWith && !valid"></icon>
@@ -188,7 +188,7 @@ export default {
       }
     }
 
-    if (this.required && typeof this.currentValue === 'undefined') {
+    if (this.required && (typeof this.currentValue === 'undefined' || this.currentValue === '')) {
       this.valid = false
     }
     this.handleChangeEvent = true
@@ -210,6 +210,7 @@ export default {
     if (this._debounce) {
       this._debounce.cancel()
     }
+    window.removeEventListener('resize', this.scrollIntoView)
   },
   mixins: [Base],
   components: {
@@ -311,7 +312,23 @@ export default {
       return !this.novalidate && !this.equalWith && !this.valid && this.firstError && (this.touched || this.forceShowError)
     }
   },
+  mounted () {
+    window.addEventListener('resize', this.scrollIntoView)
+  },
   methods: {
+    scrollIntoView (time = 0) {
+      // alert('scroll into view')
+      if (/iphone/i.test(navigator.userAgent)) {
+        // return
+      }
+      if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+        // alert('will scroll')
+        setTimeout(() => {
+          // alert(this.$refs.input.length)
+          this.$refs.input.scrollIntoViewIfNeeded(true)
+        }, time)
+      }
+    },
     onClickErrorIcon () {
       if (this.shouldToastError && this.firstError) {
         this.showErrorToast = true
@@ -331,6 +348,7 @@ export default {
     clear () {
       this.currentValue = ''
       this.focus()
+      this.$emit('on-click-clear-icon')
     },
     focus () {
       this.$refs.input.focus()
@@ -340,10 +358,19 @@ export default {
     },
     focusHandler ($event) {
       this.$emit('on-focus', this.currentValue, $event)
+      this.isFocus = true
+      // this.scrollIntoView(500)
+      // this.scrollIntoView(5000)
+      setTimeout(() => {
+        this.$refs.input.scrollIntoViewIfNeeded(false)
+        // this.$refs.input.scrollIntoViewIfNeeded()
+      }, 1000)
+      // $event.target.
     },
     onBlur ($event) {
       this.setTouched()
       this.validate()
+      this.isFocus = false
       this.$emit('on-blur', this.currentValue, $event)
     },
     onKeyUp (e) {
@@ -454,10 +481,26 @@ export default {
           delete this.errors.equal
         }
       }
+    },
+    // #2810
+    _getInputMaskSelection (selection, direction, maskVal, loop) {
+      if (!this.mask || (loop && direction === 0)) {
+        return selection
+      }
+      if (direction === 0) {
+        direction = this.lastDirection
+      }
+      if (direction > 0) {
+        const maskChar = this.mask.substr(selection - direction, 1)
+        if (!maskChar.match(/[9SA]/)) {
+          return this._getInputMaskSelection(selection + 1, direction, maskVal, true)
+        }
+      }
+      return selection
     }
   },
   data () {
-    let data = {
+    return {
       hasRightFullHeightSlot: false,
       hasRestrictedLabel: false,
       firstError: '',
@@ -465,9 +508,9 @@ export default {
       hasLengthEqual: false,
       valid: true,
       currentValue: '',
-      showErrorToast: false
+      showErrorToast: false,
+      isFocus: false
     }
-    return data
   },
   watch: {
     mask (val) {
@@ -491,7 +534,7 @@ export default {
         this.validate()
       }
     },
-    currentValue (newVal) {
+    currentValue (newVal, oldVal) {
       if (!this.equalWith && newVal) {
         this.validateEqual()
       }
@@ -503,7 +546,23 @@ export default {
       } else {
         this.validate()
       }
+
+      let selection = this.$refs.input.selectionStart
+      let direction = newVal.length - oldVal.length
+      selection = this._getInputMaskSelection(selection, direction, this.maskValue(newVal))
+      this.lastDirection = direction
       this.$emit('input', this.maskValue(newVal))
+      // #2810
+      this.$nextTick(() => {
+        if (this.$refs.input.selectionStart !== selection) {
+          this.$refs.input.selectionStart = selection
+          this.$refs.input.selectionEnd = selection
+        }
+        if (this.currentValue !== this.maskValue(newVal)) {
+          this.currentValue = this.maskValue(newVal)
+        }
+      })
+
       if (this._debounce) {
         this._debounce()
       } else {
@@ -541,7 +600,11 @@ export default {
   padding-bottom: 0;
 }
 .vux-x-input.disabled {
-  color: rgba(0, 0, 0, 0.3);
+  .weui-input {
+    text-fill-color: #888;
+    -webkit-text-fill-color: #888; /* Override iOS / Android font color change */
+    opacity: 1; /* Override iOS opacity change affecting text & background color */
+  }
 }
 .vux-x-input-right-full {
   margin-left: 5px;

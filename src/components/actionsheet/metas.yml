@@ -1,3 +1,11 @@
+description: |
+  Action Sheet是由用户操作后触发的一种特定的模态弹出框 ，呈现一组与当前情境相关的两个或多个选项。用户可以使用Action Sheet启动某个任务，或者确认是否开始执行某个可能具有破坏性的操作。
+  - 高亮危险操作。将危险操作用红色标注，为他们提供其它替代的安全选项。
+  - 提供清晰准确的描述。在页面有多个唤起Action Sheet的对象或选项本身不够明晰的情况下，提供清晰准确的描述是非常有必要的。
+  - 不要放置过多选项以至于需要滚动才能看完全部选项。
+category:
+  en: Feedback
+  zh-CN: 弹窗提示
 icon: '&#xe624;'
 tags:
   en:
@@ -114,23 +122,41 @@ props:
     version: v2.3.8
     en: if hide automatically when clicking on menus
     zh-CN: 点击菜单时是否自动隐藏
+slots:
+  header:
+    version: v2.3.5
+    en: header
+    zh-CN: 头部位置
 events:
   on-click-menu:
     params: (menuKey, menuItem)
-    en: triggers when clicking on the menu
+    en: fires when clicking on the menu
     zh-CN: 点击菜单时触发
   on-click-menu-{menuKey}:
     params: (menuKey)
     en: shortcut event for easier listening, `menuKey` is related to `label`. For exapmple, you can listen on `on-click-menu-delete` if you have a menu named `delete`
     zh-CN: 点击事件的快捷方式, `menuKey`与`label`的值有关。举例：如果你有一个菜单名字为`delete`, 那么你可以监听 `on-click-menu-delete`
   on-click-menu-cancel:
-    en: triggers when clicking on the cancel menu
+    en: fires when clicking on the cancel menu
     zh-CN: 点击取消菜单时触发
   on-click-mask:
     version: v2.3.4
-    en: triggers when clicking on mask
+    en: fires when clicking on mask
     zh-CN: 点击遮罩时触发
+  on-after-show:
+    version: v2.9.0
+    en: fires when show transition ends
+    zh-CN: 显示动画结束时触发
+  on-after-hide:
+    version: v2.9.0
+    en: fires when hide transition ends
+    zh-CN: 隐藏动画结束时触发
 changes:
+  v2.9.0:
+    en:
+      - '[feature] add event:on-after-show event:on-after-hide #2465'
+    zh-CN:
+      - '[feature] 支持 事件 on-after-show on-after-hide #2465'
   v2.7.4:
     en:
       - '[fix] fix wrong event param when value is zero #2209'

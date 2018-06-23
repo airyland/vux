@@ -1,3 +1,6 @@
+category:
+  en: Basic
+  zh-CN: 基础组件
 icon: '&#xe616;'
 tags:
   en:
@@ -6,18 +9,25 @@ tags:
   zh-CN:
     - 表单
     - 按钮
-extra: |
-
- <p class="warning">
-  按照`Vue`[文档](https://cn.vuejs.org/v2/guide/components.html#使用-v-on-绑定自定义事件)，在组件上绑定点击事件请使用`@click.native`。
- </p>
-
+tips:
+  en:
+    -
+      q: |
+        @click event binding not working
+      a: |
+        As `Vue`[document](https://vuejs.org/v2/guide/components-custom-events.html#Binding-Native-Events-to-Components) says，use `.native` modifier for `v-on`, so you should use `@click.native`。
+  zh-CN:
+    -
+      q: |
+        @click 绑定事件不生效
+      a: |
+        按照`Vue`[文档](https://cn.vuejs.org/v2/guide/components.html#%E7%BB%99%E7%BB%84%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6)，在组件上绑定原生点击事件请使用`@click.native`。
 props:
   type:
     type: String
     default: default
-    en: button style type, one of default, primary, warn
-    zh-CN: 按钮类型，可选值为 `default,primary,warn`
+    en: button style type, one of `default`, `primary`, `warn`
+    zh-CN: 按钮类型，可选值为 `default`,`primary`,`warn`
   disabled:
     type: Boolean
     default: false
@@ -60,6 +70,16 @@ slots:
     en: button text
     zh-CN: 按钮文字
 changes:
+  v2.9.2:
+    en:
+      - '[feature] support styles variable for button #2748'
+    zh-CN:
+      - '[feature] button支持样式变量 #2748'
+  v2.9.0:
+    en:
+      - '[feature] support plain for warn-button #2478'
+    zh-CN:
+      - '[feature] warn 类型支持 plain 样式 #2478'
   v2.7.5:
     en:
       - '[fix] fix plain and disabled class error'

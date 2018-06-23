@@ -1,3 +1,6 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe60a;'
 props:
   value:
@@ -15,6 +18,11 @@ methods:
     en: re-render component
     zh-CN: 强制重新渲染组件，当主动修改值或者其他非响应属性时需要调用该方法
 changes:
+  v2.9.2:
+    en:
+      - '[fix] fix render error for DOM not found #2797'
+    zh-CN:
+      - '[fix] 修复render错误，未找到DOM元素 #2797'
   v2.5.0:
     en:
       - '[feature] new component'

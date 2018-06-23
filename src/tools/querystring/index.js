@@ -82,7 +82,7 @@ QueryString.stringify = function (obj, sep, eq, arrayKey) {
  *   // returns {a: 'b', c: 'c'}
  */
 QueryString.parse = function (str, sep, eq) {
-  if (typeof str === 'undefined') {
+  if (typeof str === 'undefined' && typeof document !== 'undefined') {
     str = document.location.search
   }
   var ret = {};

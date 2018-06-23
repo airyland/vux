@@ -1,3 +1,6 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe614;'
 extra:
   zh-CN: |
@@ -7,14 +10,17 @@ extra:
       </group>
     ```
 
-    <p class="tip">`x-input`只能在`Group`中使用</p>
+    ::: tip
+    `x-input`只能在`Group`中使用
+    :::
 
     如果你想实现在输入框右边按钮切换密码明文，请使用`slot=right`实现`type`切换。
     <br>
-    <p class="warning">`mask` 在 `2.6.1` 支持，但注意的是使用 mask 后值也是经过 mask 处理后的值，进行判断或者提交到接口前应该注意。
+    ::: warning
+    `mask` 在 `2.6.1` 支持，但注意的是使用 mask 后值也是经过 mask 处理后的值，进行判断或者提交到接口前应该注意。
     <br>
-    比如格式化手机号码，`mask` 值为 `999 9999 9999`，得到的值将是 13 位的 `145 3456 3456`，提交或者判断都应该先清除中间空格。此时也不应该用 is-type=china-mobile 进行验证。
-    </p>
+    比如格式化手机号码，`mask` 值为 `999 9999 9999`，得到的值将是 13 位的 `145 3456 3456`，提交或者判断都应该先清除中间空格。
+    :::
 tags:
   en:
     - form
@@ -108,7 +114,7 @@ slots:
   right:
     zh-CN: '用以在输入框右边显示内容，比如单位，切换密码显示方式等'
   right-full-height:
-    version: next
+    version: v2.8.1
     zh-CN: '用于放置和 cell 高度的验证码图片'
 events:
   on-blur:
@@ -128,6 +134,10 @@ events:
     params: '`(error)`'
     en: fires when clicking error icon
     zh-CN: '点击错误图标时触发，你可以关闭 `should-toast-error` 然后用这个事件来自定义显示错误的提示内容'
+  on-click-clear-icon:
+    version: v2.9.0
+    en: fires when clicking clear icon
+    zh-CN: 点击清除按钮时触发
 methods:
   focus:
     en: get input focus
@@ -141,7 +151,25 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
-  next:
+  v2.9.2:
+    en:
+      - '[fix] fix corsor misplce when set mask #2810'
+    zh-CN:
+      - '[fix] 修复设置 mask 时，光标错位的问题 #2810'
+  v2.9.0:
+    en:
+      - '[fix] fix wrong valid when value is empty string #2415'
+      - '[fix] fix disabled style in iOS #2458'
+      - '[change] show clear icon only when input gets focus #2567'
+      - '[feature] add event:on-click-clear-icon #2603'
+      - '[enhance] scroll input element into view when getting focus #2604'
+    zh-CN:
+      - '[fix] 修复在空值时 valid 为 true 的问题 #2415'
+      - '[fix] 修复 disabled 样式在 iOS 下过浅的问题 #2458'
+      - '[change] 仅在获得焦点时显示清除按钮 #2567'
+      - '[feature] 支持事件 on-click-clear-icon #2603'
+      - '[enhance] 获得焦点时滚动到可视区域(Android) #2604'
+  v2.8.1:
     en:
       - '[feature] add slot:right-full-height for containing captcha #2475'
     zh-CN:
@@ -161,7 +189,7 @@ changes:
       - '[fix] Fix error message not change bugs #2348'
     zh-CN:
       - '[fix] 修复报错信息不会改变的问题 #2348'
-  2.7.6:
+  v2.7.6:
     en:
       - '[feature] add disabled class #2279'
     zh-CN:

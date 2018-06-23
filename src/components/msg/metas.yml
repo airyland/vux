@@ -1,4 +1,21 @@
+category:
+  en: Feedback
+  zh-CN: 弹窗提示
 icon: '&#xe619;'
+extra:
+  zh-CN: |
+
+    `prop:buttons` 列表是 `slot:buttons` 插槽的默认显示内容，如果 `prop:buttons` 无法满足需求，可以使用 `slot:buttons` 引入 `x-button` 组件。
+
+    ``` html
+    <msg>
+      <template slot="buttons">
+        <x-button plain type="primary">hello</x-button>
+        <x-button>world</x-button>
+      </template>
+    </msg>
+    ```
+
 props:
   title:
     en: text to show operation status
@@ -22,6 +39,11 @@ slots:
     en: used for custom description
     zh-CN: 自定义描述文字内容
 changes:
+  v2.9.0:
+    en:
+      - '[change] prop:buttons displays as slot:buttons default content'
+    zh-CN:
+      - '[change] prop:buttons 数组作为 slot:buttons 默认内容'
   v2.1.0:
     en:
       - '[feature] new component'

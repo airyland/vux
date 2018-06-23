@@ -1,18 +1,37 @@
+category:
+  en: Feedback
+  zh-CN: 弹窗提示
 icon: '&#xe608;'
 tags:
   en:
     - dialog
   zh-CN:
     - 弹窗
+tips:
+  zh-CN:
+    -
+      q: rem 适配时 dialog 宽度过小
+      a: >
+        [#2578](https://github.com/airyland/vux/issues/2578) 原因是由于 viewport 影响，样式里针对大屏的样式生效：
+
+        ``` css
+        @media screen and (min-width: 1024px) {
+          .weui-dialog {
+            width: 35%;
+          }
+        }
+        ```
+
+        目前只能手动覆盖该样式，如果你有更好的解决方式欢迎建议或者提 `PR`。
 extra:
   en: |
 
-    <p class="warning">
+    ::: warning
     if you use `XDialog` inside `ViewBox` or use `overflowScrolling:touch`，please should import `directive:transfer-dom` to fix `z-index` invalid issue。
     <br>
     <br>
     otherwise, you don't need to use `v-transfer-dom`.
-    </p>
+    :::
 
     ``` js
     import { TransferDomDirective as TransferDom } from 'vux'
@@ -32,12 +51,13 @@ extra:
     ```
 
   zh-CN: |
-    <p class="warning">
-    如果当前组件所在位置某一父级使用了 `ViewBox` 组件或者直接使用了 Safari 的 `overflowScrolling:touch`，请引入指令 `transfer-dom` 以解决其带来的 `z-index` 失效问题。
+
+    ::: warning
+    如果当前组件某一父级使用了 `ViewBox` 组件或者直接使用了 Safari 的 `overflowScrolling:touch`，请引入指令 `transfer-dom` 以解决其带来的 `z-index` 失效问题。
     <br>
     <br>
     如果你没有使用，那么不需要参照 demo 加上`v-transfer-dom`
-    </p>
+    :::
 
     ``` js
     import { TransferDomDirective as TransferDom } from 'vux'
@@ -54,11 +74,11 @@ extra:
       <x-dialog></x-dialog>
     </div>
     ```
-    <p class="warning">
+    ::: warning
     `scroll` 属性已经在 v2.5.12 废弃，因为它并没有实现阻止 body 滚动。
     <br>
     如果你是 `100%` 布局，按照下面配置布局可以实现阻止滚动。
-    </p>
+    :::
 
     ``` js
     import { ConfigPlugin } from 'vux'
@@ -116,6 +136,13 @@ slots:
     en: main content of the dialog
     zh-CN: 弹窗的主体内容
 changes:
+  v2.9.0:
+    en:
+      - '[feature] support variable dialog-gap-width #2640'
+      - '[enhance] support dialog-width and dialog-max-width variable #2577'
+    zh-CN:
+      - '[feature] 支持样式变量 dialog-gap-width #2640'
+      - '[enhance] 支持样式变量 dialog-width and dialog-max-width #2577'
   v2.7.4:
     en:
       - '[fix] fix position:absolute issue #2220'

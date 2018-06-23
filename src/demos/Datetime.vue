@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div style="padding:15px;">
       <x-button type="primary" plain @click.native="showPlugin">{{ $t('Used as a plugin') }}</x-button>
     </div>
@@ -11,7 +10,7 @@
         @on-change="change"
         :title="$t('Birthday')"
         @on-cancel="log('cancel')"
-        @on-confirm="log('confirm')"
+        @on-confirm="onConfirm"
         @on-hide="log('hide', $event)"></datetime>
     </group>
 
@@ -57,6 +56,10 @@
     <div style="padding:15px;">
       <x-button type="primary" @click.native="toggleFormat">{{ $t('Toggle format') }}</x-button>
     </div>
+
+    <group title="noon">
+      <datetime title="noon" v-model="noonValue" format="YYYY-MM-DD A"></datetime>
+    </group>
 
     <group :title="$t('Placeholder')">
       <datetime v-model="value3" default-selected-value="2017-06-18 13" format="YYYY-MM-DD HH" :placeholder="$t('Please select')" @on-change="change" :title="$t('Start time')"></datetime>
@@ -107,6 +110,22 @@
     <div style="padding:15px;">
       <x-button type="primary" plain @click.native="visibility = true">显示</x-button>
     </div>
+
+    <group :title="$t('Default format: YYYY-MM-DD')">
+      <datetime
+        :order-map="{
+          year: 3,
+          month: 2,
+          day: 1
+        }"
+        v-model="value1"
+        @on-change="change"
+        title="customize column order"
+        @on-cancel="log('cancel')"
+        @on-confirm="onConfirm"
+        @on-hide="log('hide', $event)"></datetime>
+    </group>
+
 
   </div>
 </template>
@@ -185,6 +204,7 @@ export default {
   },
   data () {
     return {
+      noonValue: '2018-04-13 PM',
       readonly: true,
       minuteListValue: '2017-06-12 09:00',
       hourListValue: '2017-06-12 09:00',
@@ -228,6 +248,10 @@ export default {
     log (str1, str2 = '') {
       console.log(str1, str2)
     },
+    onConfirm (val) {
+      console.log('on-confirm arg', val)
+      console.log('current value', this.value1)
+    },
     showPlugin () {
       this.$vux.datetime.show({
         cancelText: '取消',
@@ -246,7 +270,11 @@ export default {
       })
     },
     toggleFormat () {
-      this.format = this.format === 'YYYY-MM-DD HH:mm' ? 'YYYY-MM-DD' : 'YYYY-MM-DD HH:mm'
+      if (this.format === 'YYYY-MM-DD') {
+        this.format = 'YYYY-MM-DD HH:mm'
+      } else if (this.format === 'YYYY-MM-DD HH:mm') {
+        this.format = 'YYYY-MM-DD'
+      }
     },
     change (value) {
       console.log('change', value)

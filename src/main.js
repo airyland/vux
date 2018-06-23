@@ -8,6 +8,8 @@ import Vuex from 'vuex'
 import vuexI18n from 'vuex-i18n'
 import VueRouter from 'vue-router'
 import { sync } from 'vuex-router-sync'
+import vuxLocales from './locales/all.yml'
+import componentsLocales from './locales/components.yml'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
@@ -23,8 +25,12 @@ let store = new Vuex.Store({
 
 Vue.use(vuexI18n.plugin, store)
 
-const vuxLocales = require('json-loader!yaml-loader!./locales/all.yml')
-const componentsLocales = require('json-loader!yaml-loader!./locales/components.yml')
+if (/no-background-color=true/.test(location.href)) {
+  document.body.style['background-color'] = '#fff'
+}
+
+// no transitoin in demo site
+const shouldUseTransition = !/transition=none/.test(location.href)
 
 const finalLocales = {
   'en': objectAssign(vuxLocales['en'], componentsLocales['en']),
@@ -35,7 +41,10 @@ for (let i in finalLocales) {
   Vue.i18n.add(i, finalLocales[i])
 }
 
-import { DatetimePlugin, CloseDialogsPlugin, ConfigPlugin, BusPlugin, LocalePlugin, DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin, AppPlugin } from 'vux'
+import { Group, Cell, DatetimePlugin, CloseDialogsPlugin, ConfigPlugin, BusPlugin, LocalePlugin, DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin, AppPlugin } from 'vux'
+
+Vue.component('group', Group)
+Vue.component('cell', Cell)
 
 Vue.use(LocalePlugin)
 const nowLocale = Vue.locale.get()
@@ -49,7 +58,7 @@ store.registerModule('vux', {
   state: {
     demoScrollTop: 0,
     isLoading: false,
-    direction: 'forward'
+    direction: shouldUseTransition ? 'forward' : ''
   },
   mutations: {
     updateDemoPosition (state, payload) {
@@ -59,6 +68,9 @@ store.registerModule('vux', {
       state.isLoading = payload.isLoading
     },
     updateDirection (state, payload) {
+      if (!shouldUseTransition) {
+        return
+      }
       state.direction = payload.direction
     }
   },

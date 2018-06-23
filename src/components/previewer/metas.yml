@@ -1,3 +1,6 @@
+category:
+  en: Data Display
+  zh-CN: 数据展示
 icon: '&#xe65c;'
 tags:
   en:
@@ -7,6 +10,13 @@ tags:
   zh-CN:
     - 预览
     - 图片
+tips:
+  zh-CN:
+    -
+      q: 建议为所有图片定义尺寸
+      a: |
+        PhotoSwipe 本身要求设置宽高，Previewer 组件会尝试对没有设置宽高的图片先加载再显示，可能会造成性能问题或者宽带浪费。
+        相关 issue:[#2321](https://github.com/airyland/vux/issues/2321)
 extra:
   en: |
 
@@ -29,7 +39,9 @@ extra:
     }]
     ```
 
-    <p class="warning">before v2.4.0, `w` and `h` should be specified.</p>
+    ::: warning
+    before v2.4.0, `w` and `h` should be specified.
+    :::
 
     Prevewing an image by index:
 
@@ -57,7 +69,9 @@ extra:
     }]
     ```
 
-    <p class="warning">注意在 v2.4.0 之前 w 和 h 都必须填写</p>
+    ::: warning
+    注意在 v2.4.0 之前 w 和 h 都必须填写
+    :::
 
     显示特定index的图片，使用`ref`:
 
@@ -101,7 +115,7 @@ events:
     en: fires after closing
     zh-CN: 关闭时触发
   on-index-change:
-    version: next
+    version: v2.8.1
     en: fires after index changes(shall not fire on first opening slide)
     zh-CN: 切换图片后触发(首次打开不会触发)
 methods:
@@ -114,7 +128,7 @@ methods:
     version: v2.5.10
     en: go to previous image
     zh-CN: 跳转到上一张
-  next:
+  v2.9.1:
     version: v2.5.10
     en: go to next image
     zh-CN: 跳转到下一张
@@ -132,7 +146,7 @@ slots:
     en: slot before control button list
     zh-CN: 操作按钮之前，可以添加自定义图标
 changes:
-  next:
+  v2.8.1:
     en:
       - '[feature] add event:on-index-change #2505'
     zh-CN:

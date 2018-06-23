@@ -1,6 +1,7 @@
 build/
 demo/
 dist/
+docs/
 node_modules/
 examples/
 test/

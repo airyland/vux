@@ -1,4 +1,3 @@
-# This file is built by build_locales.js, so don't try to modify it manually
 en:
   vux.actionsheet.cancel: cancel
   vux.alert.button_text: OK

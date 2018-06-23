@@ -16,6 +16,7 @@ const TEMPLATE = `<div class="dp-container">
     <div class="dp-item" data-role="year"></div>
     <div class="dp-item" data-role="month"></div>
     <div class="dp-item" data-role="day"></div>
+    <div class="dp-item" data-role="noon"></div>
     <div class="dp-item" data-role="hour"></div>
     <div class="dp-item" data-role="minute"></div>
   </div>
@@ -29,7 +30,8 @@ const TYPE_MAP = {
   month: ['MM', 'M'],
   day: ['DD', 'D'],
   hour: ['HH', 'H'],
-  minute: ['mm', 'm']
+  minute: ['mm', 'm'],
+  noon: ['A']
 }
 
 let MASK = null
@@ -55,6 +57,7 @@ const DEFAULT_CONFIG = {
   yearRow: '{value}',
   monthRow: '{value}',
   dayRow: '{value}',
+  noonRow: '{value}',
   hourRow: '{value}',
   minuteRow: '{value}',
   format: 'YYYY-MM-DD',
@@ -71,7 +74,8 @@ const DEFAULT_CONFIG = {
   renderInline: false,
   computeHoursFunction: null,
   computeDaysFunction: null,
-  isOneInstance: false
+  isOneInstance: false,
+  orderMap: {}
 }
 
 function renderScroller (el, data, value, fn) {
@@ -97,6 +101,9 @@ function showMask () {
 
     MASK.addEventListener('click', function () {
       CURRENT_PICKER && CURRENT_PICKER.hide('cancel')
+    }, false)
+    MASK.addEventListener('touchmove', function (e) {
+      e.preventDefault()
     }, false)
   }
 
@@ -178,7 +185,7 @@ DatetimePicker.prototype = {
     }
 
     each(TYPE_MAP, function (type) {
-      self[type + 'Scroller'] && self[type + 'Scroller'].select(trimZero(newValueMap[type]), false)
+      self[type + 'Scroller'] && self[type + 'Scroller'].select(type === 'noon' ? newValueMap[type] : trimZero(newValueMap[type]), false)
     })
 
     setTimeout(function () {
@@ -211,7 +218,12 @@ DatetimePicker.prototype = {
     if (self.container) {
       self._show(newValueMap)
     } else {
-      const container = self.container = toElement(config.template)
+      let template = config.template
+      for (let i in config.orderMap) {
+        template = template.replace(`data-role="${i}"`, `data-role="${i}" style="order:${config.orderMap[i]}"`)
+      }
+
+      const container = self.container = toElement(template)
       if (config.isOneInstance) {
         container.id = 'vux-datetime-instance'
       }
@@ -367,6 +379,18 @@ DatetimePicker.prototype = {
         value: i
       })
     }
+
+    if (type === 'noon') {
+      data.push({
+        name: '上午',
+        value: 'AM'
+      })
+      data.push({
+        name: '下午',
+        value: 'PM'
+      })
+    }
+
     if (type === 'hour' && this.config.hourList) {
       data = this.config.hourList.map(hour => {
         return {

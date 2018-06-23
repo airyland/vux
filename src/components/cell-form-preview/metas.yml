@@ -1,3 +1,6 @@
+category:
+  en: Form
+  'zh-CN': 表单
 name: cell-form-preview
 icon: '&#xe62a;'
 tags:
@@ -9,9 +12,9 @@ tags:
     - 预览
 extra: |
 
-  <p class="warning">
+  ::: warning
     `CellFormPreview` 需要在 `Group` 组件中使用。
-  </p>
+  :::
 
 
   ```  html
