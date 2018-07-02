@@ -88,25 +88,36 @@ export default {
           return
         }
 
-        _this.scroller[i] && _this.scroller[i].destroy()
-        _this.scroller[i] = new Scroller(_this.getId(i), {
-          data: data[i],
-          defaultValue: value[i] || data[i][0].value,
-          itemClass: _this.itemClass,
-          onSelect (value) {
-            _this.$set(_this.currentValue, i, value)
-            if (!this.columns || (this.columns && _this.getValue().length === _this.store.count)) {
-              _this.$nextTick(() => {
-                _this.$emit('on-change', _this.getValue())
-              })
-            }
-            if (_this.columns !== 0) {
-              _this.renderChain(i + 1)
-            }
+        if (_this.scroller[i]) {
+          let selectValue = _this.scroller[i].getValue()
+          if (_this.currentData[i].filter(item => item.value === selectValue).length === 0) {
+            _this.scroller[i] = _this.scroller[i].destroy()
           }
-        })
+        }
+
+        if (typeof _this.scroller[i] === 'undefined') {
+          _this.scroller[i] = new Scroller(_this.getId(i), {
+            data: data[i],
+            defaultValue: value[i] || data[i][0].value,
+            itemClass: _this.itemClass,
+            onSelect (value) {
+              _this.$set(_this.currentValue, i, value)
+              if (!this.columns || (this.columns && _this.getValue().length === _this.store.count)) {
+                _this.$nextTick(() => {
+                  _this.$emit('on-change', _this.getValue())
+                })
+              }
+              if (_this.columns !== 0) {
+                _this.renderChain(i + 1)
+              }
+            }
+          })
+        }
+
         if (_this.currentValue) {
-          _this.scroller[i].select(value[i])
+          if (_this.scroller[i].getValue() !== value[i]) {
+            _this.scroller[i].select(value[i])
+          }
         }
       }
     },
