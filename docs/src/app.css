@@ -268,14 +268,14 @@ tr.slot-disabled {
 }
 .summary {
   height: 100vh;
-  width: 190px;
+  width: 205px;
   overflow: hidden;
   border-right: 1px solid #E6E6E6
 }
 .summary-inner {
-  padding-top: 60px;
+  padding-top: 105px;
   height: 100vh;
-  width: 190px;
+  width: 205px;
   box-sizing: border-box;
   overflow: scroll;
 }
@@ -297,7 +297,7 @@ tr.slot-disabled {
 }
 .header-nav {
   position: fixed;
-  left: 341px;
+  left: 355px;
   top: 0;
   background-color: #fff;
   z-index: 888;
@@ -882,17 +882,16 @@ a.anchor {
 
 .juejin {
   text-decoration: none;
-  padding-bottom: 4px;
-  padding: 5px;
-  padding-left: 10px;
-  background-color: #e1f0ff;
   display: block;
-  width: 100%;
   margin-bottom: 10px;
   position: fixed;
   top: 0;
   left: 150px;
   width: 190px;
+}
+
+.juejin img {
+  width: 205px;
 }
 
 .juejin:hover .juejin-desc {

@@ -45,13 +45,10 @@
     </div>
     <div class="summary">
       <div class="summary-inner" style="left:190px;">
-        <a class="juejin" title="赞助商" href="https://juejin.im/welcome/frontend?utm_source=vuxdoc&utm_medium=word&utm_content=qianduan&utm_campaign=q2_website" target="_blank">
-          <span class="juejin-name">前端社区</span><span class="juejin-url">juejin.im</span>
-          <br>
-          <span class="juejin-desc">
-         Vue 最佳实践&nbsp;一线大厂技术分享
-          </span>
+        <a class="juejin" title="赞助商" href="https://juejin.im/welcome/frontend?utm_source=vuxdoc&utm_medium=word&utm_content=qianduan&utm_campaign=q3_website" target="_blank">
+         <img src="https://vux-doc.vux.li/juejin_205_100.png">
         </a>
+
         <div v-show="!isComponentPage" v-for="chapter in summary" :data-category="currentCategory" class="chapter">
           <p class="chapter-title">{{chapter.title}}</p>
           <ul class="chapter-page">
