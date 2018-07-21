@@ -67,6 +67,14 @@
   </a>
 </p>
 
+## WeApp Studio 其他产品
+
+<p align="center">
+  <a href="https://werss.app?utm_source=vux-github">
+    <img src="https://cdn.weapp.design/werss/werss-logo.png" width="250">
+  </a>
+</p>
+
 ## Requirements
 
 + vue@^2.3.0(for .sync modifier)
