@@ -59,6 +59,11 @@ title: 关于 VUX
   </a>
 </p>
 
+<p align="center">
+  <a href="https://werss.app?utm_source=vux-doc">
+    <img src="https://cdn.weapp.design/werss/werss-logo.png" width="250">
+  </a>
+</p>
 
 ::: warning
   **敲黑板**：VUX 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照<router-link to="/zh-CN/install/manual-usage.html">文档</router-link>正确配置。<br>
