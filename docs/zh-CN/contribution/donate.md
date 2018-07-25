@@ -12,6 +12,10 @@ title: 捐赠支持 VUX
   <a href="https://www.upyun.com" target="_blank">
     <img src="https://ww1.sinaimg.cn/large/663d3650gy1fs3l83hokej20b4040weg.jpg" style="height:52px;"/>
   </a>
+  <br>
+  <a href="https://www.sb/?utm_source=vux">
+    <img src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1ftmvim3r34j3056034wee.jpg">
+  </a>
 </p>
 
 <br>

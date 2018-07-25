@@ -63,6 +63,11 @@ title: 关于 VUX
   <a href="https://werss.app?utm_source=vux-doc">
     <img src="https://cdn.weapp.design/werss/werss-logo.png" width="250">
   </a>
+  <br>
+  <br>
+  <a href="https://www.sb/?utm_source=vux">
+    <img src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1ftmvim3r34j3056034wee.jpg" height="90">
+  </a>
 </p>
 
 ::: warning
