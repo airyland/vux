@@ -6,7 +6,7 @@
       <div class="weui-mask" @click="hide" v-show="show" :style="maskStyle"></div>
     </transition>
     <transition :name="dialogTransition">
-      <div :class="dialogClass" v-show="show" :style="dialogStyle">
+      <div :class="dialogClass" v-show="show" :style="computedDialogStyle">
         <slot></slot>
       </div>
     </transition>
@@ -62,6 +62,16 @@ export default {
           zIndex: this.maskZIndex
         }
       }
+    },
+    computedDialogStyle () {
+      let ret = {};
+      if (typeof this.maskZIndex !== 'undefined') {
+        ret.zIndex = this.maskZIndex + 1;
+      }
+      if (JSON.stringify(this.dialogStyle) !== '{}') {
+        Object.assign(ret, this.dialogStyle);
+      }
+      return ret;
     }
   },
   mounted () {
