@@ -51,9 +51,6 @@ title: 关于 VUX
 </p>
 
 <p class="best-companies">
-  <a href="https://www.bmqb.com/a/jobs?tracking_code=opencollective" target="_blank">
-    <img src="https://ww1.sinaimg.cn/large/663d3650gy1fs3l6w13z2j206y02bdfp.jpg"/>
-  </a>
   <a href="https://www.upyun.com" target="_blank">
     <img src="https://ww1.sinaimg.cn/large/663d3650gy1fs3l83hokej20b4040weg.jpg" style="height:52px;"/>
   </a>
