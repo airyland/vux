@@ -78,13 +78,15 @@ export default {
         const index = this.photoswipe.getCurrentIndex()
         this.photoswipe.invalidateCurrItems()
         this.photoswipe.items.splice(index, 1)
-        let goToIndex = index
-        if (goToIndex > this.photoswipe.items.length - 1) {
-          goToIndex = 0
+        if (this.showing) {
+          let goToIndex = index
+          if (goToIndex > this.photoswipe.items.length - 1) {
+            goToIndex = 0
+          }
+          this.photoswipe.goTo(goToIndex)
+          this.photoswipe.updateSize(true)
+          this.photoswipe.ui.update()
         }
-        this.photoswipe.goTo(goToIndex)
-        this.photoswipe.updateSize(true)
-        this.photoswipe.ui.update()
       } else if (!newVal.length) {
         this.close()
       }
@@ -130,6 +132,7 @@ export default {
 
       this.photoswipe.init()
       this.photoswipe.listen('close', () => {
+        this.showing = false
         this.$emit('on-close')
       })
       this.photoswipe.listen('afterChange', (a, b) => {
@@ -139,6 +142,7 @@ export default {
       })
     },
     show (index) {
+      this.showing = true
       this.init(index)
     },
     getCurrentIndex () {
@@ -171,6 +175,11 @@ export default {
       default () {
         return {}
       }
+    }
+  },
+  data () {
+    return {
+      showing: true
     }
   }
 }
