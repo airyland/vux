@@ -39,7 +39,7 @@ if (typeof window !== 'undefined') {
   }())
 }
 
-module.exports = {
+export default {
 
   // A requestAnimationFrame wrapper / polyfill.
   requestAnimationFrame: (function () {

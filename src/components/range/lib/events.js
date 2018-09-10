@@ -6,12 +6,6 @@ var events = require('./event')
 var delegate = require('./delegate')
 
 /**
- * Expose `Events`.
- */
-
-module.exports = Events
-
-/**
  * Initialize an `Events` with the given
  * `el` object which events will be bound to,
  * and the `obj` which will receive method calls.
@@ -173,3 +167,9 @@ function parse (event) {
     selector: parts.join(' ')
   }
 }
+
+/**
+ * Expose `Events`.
+ */
+
+export default Events

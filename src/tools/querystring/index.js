@@ -7,7 +7,7 @@
 //  - http://developer.yahoo.com/yui/3/api/QueryString.html
 //  - https://github.com/lifesinger/dew/tree/master/lib/querystring
 
-var QueryString = exports;
+var QueryString = {};
 
 // The escape/unescape function used by stringify/parse, provided so that it
 // could be overridden if necessary. This is important in cases where
@@ -166,3 +166,5 @@ function isPlainObject(o) {
 function isPrimitive(o) {
   return o !== Object(o);
 }
+
+export default QueryString

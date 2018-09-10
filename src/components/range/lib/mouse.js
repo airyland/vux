@@ -7,14 +7,6 @@ var emitter = require('./emitter')
 var event = require('./event')
 
 /**
- * export `Mouse`
- */
-
-module.exports = function (el, obj) {
-  return new Mouse(el, obj)
-}
-
-/**
  * initialize new `Mouse`.
  *
  * @param {Element} el
@@ -79,4 +71,12 @@ Mouse.prototype.bind = function () {
 Mouse.prototype.unbind = function () {
   event.unbind(this.el, 'mousedown', this.down)
   this.down = null
+}
+
+/**
+ * export `Mouse`
+ */
+
+export default function (el, obj) {
+  return new Mouse(el, obj)
 }

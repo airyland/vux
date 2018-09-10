@@ -5,20 +5,14 @@
 var matches = require('./matches-selector')
 
 /**
- * Export `closest`
- */
-
-module.exports = closest
-
-/**
- * Closest
+ * Export Closest
  *
  * @param {Element} el
  * @param {String} selector
  * @param {Element} scope (optional)
  */
 
-function closest (el, selector, scope) {
+export default function (el, selector, scope) {
   scope = scope || document.documentElement
 
   // walk up the dom
