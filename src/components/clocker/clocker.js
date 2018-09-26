@@ -67,7 +67,7 @@ function strftime (offsetObject) {
         var plural = directive[3] || ''
         var value = null
         // Get the key
-        var key
+        var key = null
         directive = directive[2]
         // Swap shot-versions directives
         if (DIRECTIVE_KEY_MAP.hasOwnProperty(directive)) {
