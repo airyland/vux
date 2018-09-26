@@ -67,11 +67,15 @@ function strftime (offsetObject) {
         var plural = directive[3] || ''
         var value = null
         // Get the key
+        var key
         directive = directive[2]
         // Swap shot-versions directives
         if (DIRECTIVE_KEY_MAP.hasOwnProperty(directive)) {
-          value = DIRECTIVE_KEY_MAP[directive]
-          value = Number(offsetObject[value])
+          key = DIRECTIVE_KEY_MAP[directive]
+          value = Number(offsetObject[key])
+          if (i === 0 && key === 'hours') {
+            value += Number(offsetObject['days']) * 24
+          }
         }
         if (value !== null) {
           // Pluralize
