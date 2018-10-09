@@ -178,7 +178,7 @@ export default {
   computed: {
     styles () {
       if (!this.$parent) {
-        return {}
+        return null
       }
       return {
         width: this.$parent.labelWidth,
@@ -259,7 +259,7 @@ export default {
     },
     labelClass () {
       if (!this.$parent) {
-        return {}
+        return null
       }
       return {
         'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
