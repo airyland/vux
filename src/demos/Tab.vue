@@ -39,6 +39,17 @@
     <br/>
     <br/>
     <br/>
+    <divider>自适应文字的宽度</divider>
+    <tab :line-width="1" type="selfAdap">
+      <tab-item selected><span class="tabItem">AA4444444444</span></tab-item>
+      <tab-item><span class="tabItem">AAAA1111111</span></tab-item>
+      <tab-item><span class="tabItem">AAAAAAA</span></tab-item>
+      <tab-item><span class="tabItem">AAA</span></tab-item>
+      <tab-item><span class="tabItem">AAAAAAA</span></tab-item>
+    </tab>
+    <br/>
+    <br/>
+    <br/>
     <divider>{{ $t('set bar-active-color')}}</divider>
     <tab bar-active-color="#668599" :line-width="1">
       <tab-item>已发货</tab-item>
@@ -238,5 +249,9 @@ export default {
 .tab-swiper {
   background-color: #fff;
   height: 100px;
+}
+.tabItem {
+  display: inline-block;
+  padding: 0 10px;
 }
 </style>

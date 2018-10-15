@@ -5,7 +5,7 @@
     <div class="vux-tab-container">
       <div
         class="vux-tab"
-        :class="[{'vux-tab-no-animate': !animate},{ scrollable }]"
+        :class="[{'vux-tab-no-animate': !animate},{ scrollable },{'flex-adap':type!=='selfAdap'&&scrollable}]"
         ref="nav">
         <slot></slot>
         <div
@@ -30,6 +30,13 @@ export default {
   name: 'tab',
   mixins: [parentMixin],
   mounted () {
+    if (this.type === 'selfAdap') {
+      this.tabWidths = []
+      this.tabWidths.push(0)
+      for (let i = 0; i < this.$children.length; i++) {
+        this.tabWidths.push(this.$children[i].$el.getBoundingClientRect().width)
+      }
+    }
     // stop bar anmination on first loading
     this.$nextTick(() => {
       setTimeout(() => {
@@ -46,6 +53,10 @@ export default {
     barActiveColor: String,
     defaultColor: String,
     disabledColor: String,
+    type: {
+      type: String,
+      default: 'normal'
+    },
     animate: {
       type: Boolean,
       default: true
@@ -67,6 +78,13 @@ export default {
   computed: {
     barLeft () {
       if (this.hasReady) {
+        if (this.type === 'selfAdap') {
+          let left = 0
+          for (let i = 0; i <= this.currentIndex; i++) {
+            left += this.tabWidths[i]
+          }
+          return `${left}px`
+        }
         const count = this.scrollable ? (window.innerWidth / this.$children[this.currentIndex || 0].$el.getBoundingClientRect().width) : this.number
         return `${this.currentIndex * (100 / count)}%`
       }
@@ -88,10 +106,14 @@ export default {
     barStyle () {
       const commonStyle = {
         left: this.barLeft,
-        right: this.barRight,
         display: 'block',
         height: this.lineWidth + 'px',
         transition: !this.hasReady ? 'none' : null
+      }
+      if (this.type === 'selfAdap') {
+        commonStyle.width = this.tabWidths[this.currentIndex + 1] + 'px'
+      } else {
+        commonStyle.right = this.barRight
       }
       if (!this.customBarWidth) {
         commonStyle.backgroundColor = this.barActiveColor || this.activeColor
@@ -121,7 +143,8 @@ export default {
     return {
       direction: 'forward',
       right: '100%',
-      hasReady: false
+      hasReady: false,
+      tabWidths: []
     }
   },
   methods: {
@@ -292,7 +315,7 @@ export default {
   position: absolute;
 }
 
-.scrollable .vux-tab-item {
+.flex-adap .vux-tab-item {
   flex: 0 0 22%;
 }
 
