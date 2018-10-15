@@ -39,6 +39,17 @@
     <br/>
     <br/>
     <br/>
+    <divider>自适应文字的宽度</divider>
+    <tab :line-width="1" type="selfAdap">
+      <tab-item selected><span class="tabItem">AA4444444444</span></tab-item>
+      <tab-item><span class="tabItem">AAAA1111111</span></tab-item>
+      <tab-item><span class="tabItem">AAAAAAA</span></tab-item>
+      <tab-item><span class="tabItem">AAA</span></tab-item>
+      <tab-item><span class="tabItem">AAAAAAA</span></tab-item>
+    </tab>
+    <br/>
+    <br/>
+    <br/>
     <divider>{{ $t('set bar-active-color')}}</divider>
     <tab bar-active-color="#668599" :line-width="1">
       <tab-item>已发货</tab-item>
@@ -101,8 +112,10 @@
     <br/>
     <br/>
     <div>
-       <tab :line-width=2 active-color='#fc378c' v-model="index">
-        <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">{{item}}</tab-item>
+      <tab :line-width=2 active-color='#fc378c' v-model="index">
+        <tab-item class="vux-center" :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item"
+                  :key="index">{{item}}
+        </tab-item>
       </tab>
       <swiper v-model="index" height="100px" :show-dots="false">
         <swiper-item v-for="(item, index) in list2" :key="index">
@@ -125,14 +138,18 @@
     <br/>
     <br/>
     <tab :line-width="2">
-      <tab-item :selected="demo3 === item" v-for="(item, index) in list3" :class="{'vux-1px-r': index===0}" @click="demo3 = item" :key="index">{{item}}</tab-item>
+      <tab-item :selected="demo3 === item" v-for="(item, index) in list3" :class="{'vux-1px-r': index===0}"
+                @click="demo3 = item" :key="index">{{item}}
+      </tab-item>
     </tab>
     <br/>
     <br/>
     <br/>
     <sticky scroll-box="vux_view_box_body" :check-sticky-support="false" :offset="46">
       <tab :line-width=1>
-        <tab-item :selected="demo4 === item" v-for="(item, index) in list4" @click="demo4 = item" :key="index">{{item}}</tab-item>
+        <tab-item :selected="demo4 === item" v-for="(item, index) in list4" @click="demo4 = item" :key="index">
+          {{item}}
+        </tab-item>
       </tab>
     </sticky>
     <br v-for="i in 40">
@@ -140,12 +157,13 @@
 </template>
 
 <i18n>
-set bar-active-color:
+  set bar-active-color:
   zh-CN: 设置bar颜色
 </i18n>
 
 <script>
 import { Tab, TabItem, Sticky, Divider, XButton, Swiper, SwiperItem } from 'vux'
+
 const list = () => ['精选', '美食', '电影', '酒店', '外卖']
 
 export default {
@@ -217,26 +235,35 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '~vux/src/styles/1px.less';
-@import '~vux/src/styles/center.less';
+  @import '~vux/src/styles/1px.less';
+  @import '~vux/src/styles/center.less';
 
-.box {
-  padding: 15px;
-}
-.active-6-1 {
-  color: rgb(252, 55, 140) !important;
-  border-color: rgb(252, 55, 140) !important;
-}
-.active-6-2 {
-  color: #04be02 !important;
-  border-color: #04be02 !important;
-}
-.active-6-3 {
-  color: rgb(55, 174, 252) !important;
-  border-color: rgb(55, 174, 252) !important;
-}
-.tab-swiper {
-  background-color: #fff;
-  height: 100px;
-}
+  .box {
+    padding: 15px;
+  }
+
+  .active-6-1 {
+    color: rgb(252, 55, 140) !important;
+    border-color: rgb(252, 55, 140) !important;
+  }
+
+  .active-6-2 {
+    color: #04be02 !important;
+    border-color: #04be02 !important;
+  }
+
+  .active-6-3 {
+    color: rgb(55, 174, 252) !important;
+    border-color: rgb(55, 174, 252) !important;
+  }
+
+  .tab-swiper {
+    background-color: #fff;
+    height: 100px;
+  }
+
+  .tabItem {
+    display: inline-block;
+    padding: 0 10px;
+  }
 </style>
