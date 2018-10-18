@@ -171,152 +171,152 @@ export default {
 
 
 <style lang="less">
-  @import '../../styles/variable.less';
+@import '../../styles/variable.less';
 
-  @prefixClass: vux-tab;
-  @easing-in-out: cubic-bezier(0.35, 0, 0.25, 1);
-  @effect-duration: .3s;
+@prefixClass: vux-tab;
+@easing-in-out: cubic-bezier(0.35, 0, 0.25, 1);
+@effect-duration: .3s;
 
-  .@{prefixClass} {
+.@{prefixClass} {
 
-    &-ink-bar {
-      position: absolute;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: @tab-bar-active-color;
-      text-align: center;
-
-      &-transition-forward {
-        transition: right @effect-duration @easing-in-out,
-        left @effect-duration @easing-in-out @effect-duration * 0.3;
-      }
-      &-transition-backward {
-        transition: right @effect-duration @easing-in-out @effect-duration * 0.3,
-        left @effect-duration @easing-in-out;
-      }
-    }
-
-  }
-
-  .vux-tab-bar-top .@{prefixClass} {
-    &-ink-bar {
-      top: 0;
-    }
-  }
-
-  .vux-tab {
-    display: flex;
-    background-color: #fff;
-    height: 44px;
-    position: relative;
-  }
-
-  .vux-tab button {
-    padding: 0;
-    border: 0;
-    outline: 0;
-    background: 0 0;
-    appearance: none;
-  }
-
-  .vux-tab .vux-tab-item {
-    display: block;
-    flex: 1;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
-    background-size: 100% 1px;
-    font-size: 14px;
-    text-align: center;
-    line-height: 44px;
-    color: @tab-text-default-color;
-  }
-
-  .vux-tab .vux-tab-item.vux-tab-selected {
-    color: @tab-text-active-color;
-    border-bottom: 3px solid @tab-text-active-color;
-  }
-
-  .vux-tab-bar-top {
-    .vux-tab .vux-tab-item {
-      background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) top left no-repeat;
-      background-size: 100% 1px;
-    }
-    .vux-tab .vux-tab-item.vux-tab-selected {
-      border-bottom: none;
-      border-top: 3px solid @tab-text-active-color;
-    }
-  }
-
-  .vux-tab .vux-tab-item.vux-tab-disabled {
-    color: @tab-text-disabled-color;
-  }
-
-  .vux-tab.vux-tab-no-animate .vux-tab-item.vux-tab-selected {
-    background: 0 0;
-  }
-
-  /** when=prop:custom-bar-width **/
-  .vux-tab-bar-inner {
-    display: block;
-    background-color: @tab-text-active-color;
-    margin: auto;
-    height: 100%;
-    transition: width 0.3s @easing-in-out;
-  }
-
-  .vux-tab-item-badge {
+  &-ink-bar {
     position: absolute;
-    top: 0;
+    height: 2px;
     bottom: 0;
-    box-sizing: border-box;
-    display: inline-block;
-    height: 18px;
-    min-width: 18px;
-    padding: 0 4px;
-    border-radius: 30px;
-    margin: auto 0 auto 4px;
-    line-height: 18px;
-    font-size: 11px;
-    background-clip: padding-box;
-    vertical-align: middle;
-  }
-
-  .vux-tab-wrap {
-    position: relative;
-    padding-top: 44px;
-  }
-
-  .vux-tab-container {
-    height: 44px;
-    top: 0;
     left: 0;
-    right: 0;
-    overflow: hidden;
-    position: absolute;
+    background-color: @tab-bar-active-color;
+    text-align: center;
+
+    &-transition-forward {
+      transition: right @effect-duration @easing-in-out,
+      left @effect-duration @easing-in-out @effect-duration * 0.3;
+    }
+    &-transition-backward {
+      transition: right @effect-duration @easing-in-out @effect-duration * 0.3,
+      left @effect-duration @easing-in-out;
+    }
   }
 
-  .scrollable {
-    overflow-y: hidden;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 17px;
-    box-sizing: content-box;
-  }
+}
 
-  .scrollable::-webkit-scrollbar {
-    display: none;
+.vux-tab-bar-top .@{prefixClass} {
+  &-ink-bar {
+    top: 0;
   }
+}
 
-  .scrollable .vux-tab-ink-bar {
-    bottom: 17px;
-    position: absolute;
-  }
+.vux-tab {
+  display: flex;
+  background-color: #fff;
+  height: 44px;
+  position: relative;
+}
 
-  .flex-adap .vux-tab-item {
-    flex: 0 0 22%;
+.vux-tab button {
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: 0 0;
+  appearance: none;
+}
+
+.vux-tab .vux-tab-item {
+  display: block;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
+  background-size: 100% 1px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 44px;
+  color: @tab-text-default-color;
+}
+
+.vux-tab .vux-tab-item.vux-tab-selected {
+  color: @tab-text-active-color;
+  border-bottom: 3px solid @tab-text-active-color;
+}
+
+.vux-tab-bar-top {
+  .vux-tab .vux-tab-item {
+    background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) top left no-repeat;
+    background-size: 100% 1px;
   }
+  .vux-tab .vux-tab-item.vux-tab-selected {
+    border-bottom: none;
+    border-top: 3px solid @tab-text-active-color;
+  }
+}
+
+.vux-tab .vux-tab-item.vux-tab-disabled {
+  color: @tab-text-disabled-color;
+}
+
+.vux-tab.vux-tab-no-animate .vux-tab-item.vux-tab-selected {
+  background: 0 0;
+}
+
+/** when=prop:custom-bar-width **/
+.vux-tab-bar-inner {
+  display: block;
+  background-color: @tab-text-active-color;
+  margin: auto;
+  height: 100%;
+  transition: width 0.3s @easing-in-out;
+}
+
+.vux-tab-item-badge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 18px;
+  min-width: 18px;
+  padding: 0 4px;
+  border-radius: 30px;
+  margin: auto 0 auto 4px;
+  line-height: 18px;
+  font-size: 11px;
+  background-clip: padding-box;
+  vertical-align: middle;
+}
+
+.vux-tab-wrap {
+  position: relative;
+  padding-top: 44px;
+}
+
+.vux-tab-container {
+  height: 44px;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.scrollable {
+  overflow-y: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 17px;
+  box-sizing: content-box;
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable .vux-tab-ink-bar {
+  bottom: 17px;
+  position: absolute;
+}
+
+.flex-adap .vux-tab-item {
+  flex: 0 0 22%;
+}
 
 </style>
