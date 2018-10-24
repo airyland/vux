@@ -38,6 +38,15 @@
     </tab>
     <br/>
     <br/>
+    <divider>自适应文字的宽度</divider>
+    <tab :line-width="1" type="selfAdap">
+      <tab-item selected><span class="tabItem">Latest</span></tab-item>
+      <tab-item><span class="tabItem">Insurance</span></tab-item>
+      <tab-item><span class="tabItem">Food & Drinks</span></tab-item>
+      <tab-item><span class="tabItem">Transportation</span></tab-item>
+      <tab-item><span class="tabItem">house & home</span></tab-item>
+    </tab>
+    <br/>
     <br/>
     <divider>{{ $t('set bar-active-color')}}</divider>
     <tab bar-active-color="#668599" :line-width="1">
@@ -238,5 +247,10 @@ export default {
 .tab-swiper {
   background-color: #fff;
   height: 100px;
+}
+.tabItem {
+  display: inline-block;
+  padding: 0 8px;
+  white-space: nowrap;
 }
 </style>
