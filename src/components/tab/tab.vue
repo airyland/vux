@@ -5,7 +5,7 @@
     <div class="vux-tab-container">
       <div
         class="vux-tab"
-        :class="[{'vux-tab-no-animate': !animate},{ scrollable }]"
+        :class="[{'vux-tab-no-animate': !animate},{ scrollable },{'flex-adap':type!=='selfAdap'&&scrollable}]"
         ref="nav">
         <slot></slot>
         <div
@@ -46,6 +46,10 @@ export default {
     barActiveColor: String,
     defaultColor: String,
     disabledColor: String,
+    type: {
+      type: String,
+      default: 'normal'
+    },
     animate: {
       type: Boolean,
       default: true
@@ -67,8 +71,17 @@ export default {
   computed: {
     barLeft () {
       if (this.hasReady) {
-        const count = this.scrollable ? (window.innerWidth / this.$children[this.currentIndex || 0].$el.getBoundingClientRect().width) : this.number
-        return `${this.currentIndex * (100 / count)}%`
+        let left = 0
+        if (this.type === 'selfAdap') {
+          for (let i = 0; i < this.currentIndex; i++) {
+            left += this.$children[i].$el.getBoundingClientRect().width
+          }
+          left = `${left}px`
+        } else {
+          const count = this.scrollable ? (window.innerWidth / this.$children[this.currentIndex || 0].$el.getBoundingClientRect().width) : this.number
+          left = `${this.currentIndex * (100 / count)}%`
+        }
+        return left
       }
     },
     barRight () {
@@ -88,10 +101,14 @@ export default {
     barStyle () {
       const commonStyle = {
         left: this.barLeft,
-        right: this.barRight,
         display: 'block',
         height: this.lineWidth + 'px',
         transition: !this.hasReady ? 'none' : null
+      }
+      if (this.type === 'selfAdap') {
+        commonStyle.width = this.$children.length > 0 ? this.$children[this.currentIndex].$el.getBoundingClientRect().width + 'px' : 0 + 'px'
+      } else {
+        commonStyle.right = this.barRight
       }
       if (!this.customBarWidth) {
         commonStyle.backgroundColor = this.barActiveColor || this.activeColor
@@ -292,7 +309,7 @@ export default {
   position: absolute;
 }
 
-.scrollable .vux-tab-item {
+.flex-adap .vux-tab-item {
   flex: 0 0 22%;
 }
 
