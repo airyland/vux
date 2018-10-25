@@ -60,14 +60,14 @@ export default {
       type: Boolean,
       default: false
     },
-    id : {
+    id: {
       type: String,
       default: 'vux-circle-gradient'
     }
   },
   computed: {
-    url(){
-      return 'url(#'+this.id+')'
+    url () {
+      return 'url(#' + this.id + ')'
     },
     radius () {
       return 50 - this.strokeWidth / 2
