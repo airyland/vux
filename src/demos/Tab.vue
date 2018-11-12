@@ -180,6 +180,7 @@ export default {
       demo4: '即将上映',
       demoDisabled: 'A',
       index: 0,
+      scrollThreshold: 3,
       getBarWidth: function (index) {
         return (index + 1) * 22 + 'px'
       }

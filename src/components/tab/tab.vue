@@ -5,7 +5,7 @@
     <div class="vux-tab-container">
       <div
         class="vux-tab"
-        :class="[{'vux-tab-no-animate': !animate},{ scrollable },{'flex-adap':type!=='selfAdap'&&scrollable}]"
+        :class="[{'vux-tab-no-animate': !animate},{ scrollable },{'self-adap':type=='selfAdap'}]"
         ref="nav">
         <slot></slot>
         <div
@@ -233,7 +233,10 @@ export default {
   line-height: 44px;
   color: @tab-text-default-color;
 }
-
+.self-adap .vux-tab-item{
+  flex: none;
+  width: auto;
+}
 .vux-tab .vux-tab-item.vux-tab-selected {
   color: @tab-text-active-color;
   border-bottom: 3px solid @tab-text-active-color;
