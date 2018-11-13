@@ -45,8 +45,8 @@
     </div>
     <div class="summary">
       <div class="summary-inner" style="left:190px;">
-        <a class="juejin" title="赞助商" href="https://conf.juejin.im/2018/mini-programs?utm_medium=vuxjc&utm_source=banner" target="_blank">
-         <img src="https://ww1.sinaimg.cn/large/663d3650ly1fuog5dpx42j20ms0b4jtl.jpg">
+        <a class="juejin" title="赞助商" href=" https://juejin.im/welcome/frontend?utm_source=vuxdoc&utm_medium=banner&utm_content=fe&utm_campaign=q4_website" target="_blank">
+         <img src="http://ww1.sinaimg.cn/large/663d3650gy1fx6hv6iiizj20nc0b40ud.jpg">
         </a>
 
         <div v-show="!isComponentPage" v-for="chapter in summary" :data-category="currentCategory" class="chapter">
