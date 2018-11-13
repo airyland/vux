@@ -40,12 +40,11 @@
     <br/>
     <br/>
     <divider>自适应文字的宽度</divider>
-    <tab :line-width="1" type="selfAdap">
-      <tab-item selected><span class="tabItem">AA4444444444</span></tab-item>
-      <tab-item><span class="tabItem">AAAA1111111</span></tab-item>
-      <tab-item><span class="tabItem">AAAAAAA</span></tab-item>
-      <tab-item><span class="tabItem">AAA</span></tab-item>
-      <tab-item><span class="tabItem">AAAAAAA</span></tab-item>
+    <tab :line-width="1" type="selfAdap" :scrollThreshold="Number(3)">
+      <tab-item selected><span class="tabItem">Latest</span></tab-item>
+      <tab-item><span class="tabItem">Transportation</span></tab-item>
+      <tab-item><span class="tabItem">Food & Drinks</span></tab-item>
+      <tab-item><span class="tabItem">Insurance</span></tab-item>
     </tab>
     <br/>
     <br/>
@@ -252,7 +251,9 @@ export default {
   height: 100px;
 }
 .tabItem {
+  font-size: 16px;
   display: inline-block;
-  padding: 0 10px;
+  padding: 0 15px;
+  white-space:nowrap;
 }
 </style>

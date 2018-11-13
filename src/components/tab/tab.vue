@@ -5,7 +5,7 @@
     <div class="vux-tab-container">
       <div
         class="vux-tab"
-        :class="[{'vux-tab-no-animate': !animate},{ scrollable },{'self-adap':type=='selfAdap'}]"
+        :class="[{'vux-tab-no-animate': !animate},{ scrollable },{'self-adap':type==='selfAdap'},{'flex-adap':type!=='selfAdap'&scrollable}]"
         ref="nav">
         <slot></slot>
         <div
@@ -226,8 +226,6 @@ export default {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) bottom left no-repeat;
-  background-size: 100% 1px;
   font-size: 14px;
   text-align: center;
   line-height: 44px;
@@ -299,6 +297,7 @@ export default {
   right: 0;
   overflow: hidden;
   position: absolute;
+  border-bottom: 1px solid rgba(229, 229, 229, 1);
 }
 
 .scrollable {
