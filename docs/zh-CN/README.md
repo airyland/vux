@@ -68,9 +68,11 @@ title: 关于 VUX
 </p>
 
 ::: warning
-  **敲黑板**：VUX 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照<router-link to="/zh-CN/install/manual-usage.html">文档</router-link>正确配置。<br>
+  VUX 必须配合 `vux-loader` 使用，如果不使用 vux2 模板请按照<router-link to="/zh-CN/install/manual-usage.html">文档</router-link>正确配置。<br>
 
   **less@3.x** 有严重的兼容问题，请暂时使用 **less@^2.7.3**。
+  
+  暂未适配 vue-cli@3.x，请知悉。
 :::
 
 ## 简介
