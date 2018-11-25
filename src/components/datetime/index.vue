@@ -6,9 +6,9 @@
     :data-confirm-text="$t('confirm_text')"
     href="javascript:">
     <slot>
-      <div>
+      <div class="weui-cell__hd">
         <slot name="title">
-          <p
+          <p class="weui-label"
             :style="styles"
             :class="labelClass"
             v-html="title"></p>
@@ -16,7 +16,7 @@
         <inline-desc v-if="inlineDesc">{{ inlineDesc }}</inline-desc>
       </div>
       <div
-        class="weui-cell__ft vux-cell-primary vux-datetime-value"
+        class="weui-cell__bd vux-cell-primary vux-datetime-value"
         :style="{
           textAlign: valueTextAlign
         }">
@@ -24,13 +24,15 @@
           class="vux-cell-placeholder"
           v-if="!currentValue && placeholder">{{ placeholder }}</span>
         <span
-          class="vux-cell-value"
+          class="weui-input"
           v-if="currentValue">{{ displayFormat ? displayFormat(currentValue) : currentValue }}</span>
         <icon
           class="vux-input-icon"
           type="warn"
           v-show="!valid"
           :title="firstError"></icon>
+      </div>
+      <div class="weui-cell__ft">
       </div>
     </slot>
   </a>
