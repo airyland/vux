@@ -16,7 +16,7 @@ const TEMPLATE = `
 </div>
 `
 
-const Animate = require('./animate')
+import Animate from './animate'
 const { getElement, getComputedStyle, easeOutCubic, easeInOutCubic } = require('./util')
 const passiveSupported = require('../../libs/passive_supported')
 
