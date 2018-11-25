@@ -8,7 +8,7 @@
     <slot>
       <div>
         <slot name="title">
-          <p
+          <p class="weui-label"
             :style="styles"
             :class="labelClass"
             v-html="title"></p>
