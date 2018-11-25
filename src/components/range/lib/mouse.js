@@ -10,7 +10,7 @@ var event = require('./event')
  * export `Mouse`
  */
 
-module.exports = function (el, obj) {
+export default function (el, obj) {
   return new Mouse(el, obj)
 }
 

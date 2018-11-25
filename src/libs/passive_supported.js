@@ -9,4 +9,4 @@ try {
   window.addEventListener('test', null, options)
 } catch (err) {}
 
-module.exports = passiveSupported
+export default passiveSupported

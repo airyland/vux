@@ -9,7 +9,7 @@ var delegate = require('./delegate')
  * Expose `Events`.
  */
 
-module.exports = Events
+export { Events as default }
 
 /**
  * Initialize an `Events` with the given

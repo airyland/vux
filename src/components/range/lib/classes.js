@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 
-const index = require('../utils').indexof
+import { indexof as index } from '../utils'
 
 /**
  * Whitespace regexp.
@@ -24,7 +24,7 @@ var toString = Object.prototype.toString
  * @api public
  */
 
-module.exports = function (el) {
+export default function (el) {
   return new ClassList(el)
 }
 

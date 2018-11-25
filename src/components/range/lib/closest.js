@@ -8,7 +8,7 @@ var matches = require('./matches-selector')
  * Export `closest`
  */
 
-module.exports = closest
+export { closest as default }
 
 /**
  * Closest
