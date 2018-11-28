@@ -1,5 +1,9 @@
 <template>
-  <div class="weui-grids">
+  <div
+    class="weui-grids"
+    :class="{
+      'vux-grid-no-lr-borders': !showLrBorders
+    }">
     <slot></slot>
   </div>
 </template>
@@ -10,6 +14,7 @@ export default {
   methods: {
     countColumn () {
       this.childrenSize = this.$children.length
+      this.$children.forEach((c, index) => (c.index = index))
     }
   },
   props: {
@@ -25,6 +30,14 @@ export default {
     },
     cols: {
       type: Number
+    },
+    showLrBorders: {
+      type: Boolean,
+      default: true
+    },
+    showVerticalDividers: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -41,4 +54,10 @@ export default {
 </script>
 <style lang="less">
 @import '../../styles/weui/widget/weui-grid/weui-grid.less';
+
+.weui-grids.vux-grid-no-lr-borders {
+  &:after {
+    display: none;
+  }
+}
 </style>

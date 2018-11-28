@@ -1,6 +1,6 @@
 <template>
   <div class="vux-cell-box">
-    <div class="weui-cell vux-tap-active weui-cell_access" @click="onClick" v-show="showCell">
+    <div class="weui-cell vux-tap-active" :class="{'weui-cell_access': !disabled}" @click="onClick" v-show="showCell">
       <div class="weui-cell__hd">
         <slot name="title" label-class="weui-label" :label-style="labelStyles" :label-title="title">
           <label class="weui-label" :class="labelClass" :style="labelStyles" v-if="title" v-html="title"></label>
@@ -141,20 +141,21 @@ export default {
     },
     columnWidth: Array,
     popupStyle: Object,
-    popupTitle: String
+    popupTitle: String,
+    disabled: Boolean
   },
   computed: {
     labelStyles () {
       return {
         display: 'block',
-        width: this.$parent.labelWidth || this.$parent.$parent.labelWidth || 'auto',
-        textAlign: this.$parent.labelAlign || this.$parent.$parent.labelAlign,
-        marginRight: this.$parent.labelMarginRight || this.$parent.$parent.labelMarginRight
+        width: (this.$parent && (this.$parent.labelWidth || this.$parent.$parent.labelWidth)) || 'auto',
+        textAlign: this.$parent && (this.$parent.labelAlign || this.$parent.$parent.labelAlign),
+        marginRight: this.$parent && (this.$parent.labelMarginRight || this.$parent.$parent.labelMarginRight)
       }
     },
     labelClass () {
       return {
-        'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
+        'vux-cell-justify': this.$parent && (this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify')
       }
     }
   },
@@ -164,7 +165,9 @@ export default {
       return value2name(this.currentValue, this.data)
     },
     onClick () {
-      this.showValue = true
+      if (!this.disabled) {
+        this.showValue = true
+      }
     },
     onHide (type) {
       this.showValue = false

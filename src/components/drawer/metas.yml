@@ -1,13 +1,41 @@
 icon: '&#xe62a;'
+category:
+  en: Navigation
+  zh-CN: 导航
 extra:
   en: 'this component is forked from: https://github.com/bajian/vue-drawer'
   zh-CN: |
 
     当前组件 forked 自 https://github.com/bajian/vue-drawer
 
-    <p class="tip">
-      因为 router-view 组件需要包含在 drawer 组件里，因此源码请参考 App.vue https://github.com/airyland/vux/blob/v2/src/App.vue
-    </p>
+    drawer 设计是作为公用侧边栏使用，所以不支持直接在单页面里使用，而是配合 `router-view` 来使用。
+
+    
+    ``` html
+    <template>
+      <div>
+        <drawer
+          width="200px;"
+          :show.sync="drawerVisibility">
+
+        <div slot="drawer">
+          <!-- 菜单内容 -->
+        </div>
+
+        <!-- rourer-view 作为默认插槽内容 -->
+        <div>
+          <router-view></router-view>
+        </div>
+
+        </drawer>
+      </div>
+    </template>
+
+    ```
+
+    ::: tip
+      源码请参考 [App.vue](https://github.com/airyland/vux/blob/v2/src/App.vue)
+    :::
 
 props:
   show:

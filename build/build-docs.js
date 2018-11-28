@@ -1,5 +1,4 @@
 'use strict'
-
 const glob = require("glob")
 const fs = require('fs')
 const yaml = require('js-yaml')
@@ -10,12 +9,10 @@ const rimraf = require('rimraf')
 const semver = require('semver')
 const sortObj = require('sort-object')
 
-rimraf.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
-mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/demos'))
-mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/changes'))
-mkdirp.sync(path.resolve(__dirname, '../docs/changes'))
-mkdirp.sync(path.resolve(__dirname, '../docs/changes/en'))
-mkdirp.sync(path.resolve(__dirname, '../docs/changes/zh-CN'))
+mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/changelog'))
+mkdirp.sync(path.resolve(__dirname, '../docs/en/changelog'))
+mkdirp.sync(path.resolve(__dirname, '../docs/zh-CN/components'))
+mkdirp.sync(path.resolve(__dirname, '../docs/en/components'))
 
 const aliasMap = {
   Base64Tool: 'base64',
@@ -190,7 +187,6 @@ glob(getPath("../src/components/**/*.vue"), {}, function (er, files) {
     en: enRs,
     'zh-CN': zhCnRs
   })
-  dump = '# This file is built by build_locales.js, so don\'t try to modify it manually\n' + dump
 
   fs.writeFileSync(getPath('../src/locales/all.yml'), dump)
   fs.writeFileSync(getPath('../src/locales/en.yml'), yaml.safeDump(enRs))
@@ -207,9 +203,6 @@ function setKey(object, name) {
 
 glob(getPath('../src/**/metas.yml'), {}, function (err, files) {
   render(files)
-  render(files, 'form')
-  render(files, 'dialog')
-  render(files, 'layout')
 })
 
 glob(getPath('../src/tools/**/metas.yml'), {}, function (err, files) {
@@ -305,10 +298,20 @@ function render(files, tag) {
       icon: json.icon,
       color: json.color,
       importName: json.importName,
-      items: json.items
+      items: json.items,
+    }
+    if (json.category) {
+      item = {
+        ...item,
+        category_en: json.category.en,
+        'category_zh-CN': json.category['zh-CN'],
+        category_order: json.category_order || 998
+      }
     }
 
     if (!tag && item.icon && item.name) {
+      const isDir = fs.existsSync(path.join(__dirname, `../src/demos/${item.name}/`))
+      item.hasHome = isDir
       gComponents.push(item)
     }
 
@@ -353,8 +356,6 @@ function render(files, tag) {
 
   buildChanges(infos)
   buildChanges(infos, 'en')
-
-  buildDemos(infos)
 
   let langs = ['zh-CN', 'en']
   for (var i = 0; i < langs.length; i++) {
@@ -459,14 +460,6 @@ nav: ${lang}
     */
       docs += `\n\n\n`
     })
-
-    if (!tag) {
-      fs.writeFileSync(getPath(`../docs/${lang}/components.md`), docs)
-
-    } else {
-      fs.writeFileSync(getPath(`../docs/${lang}/components_${tag}.md`), docs)
-
-    }
   }
 
 }
@@ -664,71 +657,6 @@ function _camelCase(input) {
   return str.slice(0, 1).toUpperCase() + str.slice(1)
 }
 
-function buildDemos(infos) {
-  infos.forEach((one) => {
-    let str = ''
-    let url = `https://vux.li/demos/v2/#/component/${one.name}`
-    str += `---
-nav: zh-CN
----
-
-
-### ${_camelCase(one.name)}_COM
-
-<img width="100" src="http://qr.topscan.com/api.php?text=${encodeURIComponent(url)}"/>
-
-<a href="${url}" target="_blank" style="font-size:12px;color:#888;">demo 原始链接：${url}</a>
-
-`
-
-if (one.metas.references) {
-        str += `\n#### 交互&设计参考`
-        if (one.metas.references['zh-CN']) {
-          const cnList = one.metas.references['zh-CN']
-          cnList.forEach((item) => {
-            str += `\n- [${item.title}](${item.link})`
-          })
-        }
-      }
-
-str += `
-
----
-
-#### 演示
-
- <div style="width:377px;height:667px;display:inline-block;border:1px dashed #ececec;border-radius:5px;overflow:hidden;">
-   <iframe src="${url}" width="375" height="667" border="0" frameborder="0"></iframe>
- </div>
-`
-
-    try {
-      str += `\n#### demo 代码\n`
-
-      str += `
-<p class="tip">下面的$t是Demo的i18n使用的翻译函数，一般情况下可以直接使用字符串。另外，下面代码隐藏了i18n标签部分的代码。</p>
-`
-
-      str += '\n``` html\n'
-
-      let code = fs.readFileSync(getPath(`../src/demos/${_camelCase(one.name)}.vue`), 'utf-8')
-      str += `${code.replace(/<i18n[^>]*>([\s\S]*?)<\/i18n>/g, '')}\n`
-      str += '```\n'
-
-
-      str += `
-
-#### Github Issue`
-
-      fs.writeFileSync(getPath(`../docs/zh-CN/demos/${one.name}.md`), str)
-
-    } catch (e) {
-      console.log(e)
-    }
-
-  })
-}
-
 function parseChange(str) {
   str = str.replace(/#(\d+)\s?/g, function (a, b) {
     return `<a href="https://github.com/airyland/vux/issues/${b}" target="_blank">#${b}</a> `
@@ -739,15 +667,18 @@ function parseChange(str) {
   return str
 }
 
-function parseTag(firstTag, tag) {
+const strMap = {
+  en: 'not release yet',
+  'zh-CN': '未发布'
+}
+function parseTag(firstTag, tag, lang) {
   if (tag === 'next') {
-    return `${tag} (not release yet)`
+    return `${tag} (${strMap[lang]})`
   }
   return tag
 }
 
 function buildChanges(infos, lang = 'zh-CN') {
-
   const toolInfos = require(getPath('../src/tools/changes.json'))
   const pluginInfos = require(getPath('../src/plugins/changes.json'))
   const directiveInfos = require(getPath('../src/directives/changes.json'))
@@ -768,9 +699,19 @@ function buildChanges(infos, lang = 'zh-CN') {
       }
     }
   })
+  const titleMapSum = {
+    en: 'releases',
+    'zh-CN': '发布日志'
+  }
+  const suffixMap = {
+    en: ' | VUX - Vue.js Mobile UI Component Framework',
+    'zh-CN': ' | VUX - 基于 WeUI 和 Vue 的移动端组件库'
+  }
   let str = `---
-nav: ${lang}
----\n`
+title: VUX ${titleMapSum[lang]}${suffixMap[lang]}
+---\n
+
+# VUX ${titleMapSum[lang]}`
 
   rs = sortObj(rs, {
     sort: function (a, b) {
@@ -787,28 +728,44 @@ nav: ${lang}
   let firstTag = Object.keys(rs)[0]
   let releases = {}
 
+  let n = 0
   for (let i in rs) {
     releases[i] = {}
       // releases += `\n # ${i}\n`
-    str += `\n### ${parseTag(firstTag, i)}_COM\n`
+    if (/next/.test(parseTag(firstTag, i, lang))) {
+      str += `\n<h2>${parseTag(firstTag, i, lang)}</h2>\n`
+    } else {
+      str += `\n<h2><a href="/${lang}/changelog/${parseTag(firstTag, i)}.html">${parseTag(firstTag, i)}</a></h2>\n`
+    }
     for (let j in rs[i]) {
       // releases += `\n## ${_camelCase(j)}\n`
       releases[i][j] = []
-      str += `\n#### ${_camelCase(j)}\n`
-      str += `<ul>`
+
       rs[i][j] && rs[i][j].forEach(one => {
-        str += `${parseChange(getChangeTagHTML(one))}`
-          // releases += `- ${one}\n`
         releases[i][j].push(one)
       })
-      str += `</ul>`
-      str += `\n`
+
+      if (n <= 2) {
+        str += `\n### ${_camelCase(j)}\n`
+        str += `<ul>`
+        rs[i][j] && rs[i][j].forEach(one => {
+          str += `${parseChange(getChangeTagHTML(one))}`
+        })
+        str += `</ul>`
+        str += `\n`
+      }
     }
+    n++
+  }
+
+  const titleMap = {
+    en: 'released',
+    'zh-CN': '发布日志'
   }
 
   for (let i in releases) {
     const release = releases[i]
-    let file = getPath(`../docs/changes/${lang}/${i}.md`)
+    let file = getPath(`../docs/${lang}/changelog/${i}.md`)
     let htmlFile = getPath(`../docs/changes/${lang}/${i}.html`)
 
     let data = {
@@ -817,12 +774,18 @@ nav: ${lang}
       title: `${i}发布`,
       components: []
     }
-    let content = ''
+    let content = `---
+title: VUX ${_camelCase(i)} ${titleMap[lang]}${suffixMap[lang]}
+---\n
+
+# VUX ${_camelCase(i)} ${titleMap[lang]}`
     for (let j in release) {
-      content += `\n## ${_camelCase(j)}\n`
+      content += `\n<h2><a href="/${lang}/components/${j}.html">${_camelCase(j)}</a></h2>\n`
+      content += '<ul>'
       release[j].forEach(function (line) {
-        content += `- ${line}\n`
+        content += `<li>${line}</li>\n`
       })
+      content += '</ul>'
       data.components.push({
         name: j,
         list: release[j].map(one => {
@@ -836,6 +799,5 @@ nav: ${lang}
   }
 
   str += '\n'
-
-  fs.writeFileSync(getPath(`../docs/${lang}/changes.md`), str)
+  fs.writeFileSync(getPath(`../docs/${lang}/changelog/changelog.md`), str)
 }

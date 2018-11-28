@@ -1,10 +1,25 @@
 <template>
   <div class="vux-circle">
     <svg viewBox="0 0 100 100">
-      <path :d="pathString" :stroke="trailColor" :stroke-width="trailWidth" :fill-opacity="0"/>
-      <path :d="pathString" :stroke-linecap="strokeLinecap" :stroke="strokeColor" :stroke-width="strokeWidth" fill-opacity="0" :style="pathStyle"/>
+      <defs v-if="isGradient">
+        <linearGradient id="vux-circle-gradient" x1="10%" y1="45%" x2="50%" y2="0%">
+          <stop offset="0%" :style="{'stop-color': strokeColor[0], 'stop-opacity': 1}"/>
+          <stop offset="100%" :style="{'stop-color': strokeColor[1], 'stop-opacity': 1}"/>
+        </linearGradient>
+      </defs>
+      <path :d="pathString"
+        :stroke="trailColor"
+        :stroke-width="trailWidth"
+        :fill-opacity="0"/>
+      <path :d="pathString"
+        :stroke-linecap="strokeLinecap"
+        :stroke="isGradient ? 'url(#vux-circle-gradient)' : strokeColor"
+        :stroke-width="strokeWidth"
+        fill-opacity="0" :style="pathStyle"/>
     </svg>
-    <div class="vux-circle-content"><slot></slot></div>
+    <div class="vux-circle-content">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -22,7 +37,7 @@ export default {
       default: 1
     },
     strokeColor: {
-      type: String,
+      type: [Array, String],
       default: '#3FC7FA'
     },
     trailWidth: {
@@ -40,6 +55,10 @@ export default {
     strokeLinecap: {
       type: String,
       default: 'round'
+    },
+    anticlockwise: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -57,9 +76,12 @@ export default {
     pathStyle () {
       return {
         'stroke-dasharray': `${this.len}px ${this.len}px`,
-        'stroke-dashoffset': `${((100 - this.percent) / 100 * this.len)}px`,
+        'stroke-dashoffset': `${((this.anticlockwise ? this.percent - 100 : 100 - this.percent) / 100 * this.len)}px`,
         'transition': 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease'
       }
+    },
+    isGradient () {
+      return typeof this.strokeColor !== 'string'
     }
   }
 }

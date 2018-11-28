@@ -1,10 +1,17 @@
 <template>
   <transition :name="transition">
-    <div class="weui-loading_toast vux-loading" v-show="show">
+    <div
+      class="weui-loading_toast vux-loading"
+      :class="!text ? 'vux-loading-no-text' : ''"
+      v-show="show">
       <div class="weui-mask_transparent"></div>
-      <div class="weui-toast" :style="{ position: position }">
+      <div
+        class="weui-toast"
+        :style="{
+          position: position
+        }">
         <i class="weui-loading weui-icon_toast"></i>
-        <p class="weui-toast__content">{{ $t(text) || $t('loading') }}<slot></slot></p>
+        <p class="weui-toast__content" v-if="text">{{ $t(text) || $t('loading') }}<slot></slot></p>
       </div>
     </div>
   </transition>
@@ -46,7 +53,7 @@ export default {
 @import '../../styles/weui/widget/weui-loading/weui-loading.less';
 
 .vux-loading .weui-toast {
-  z-index: 5001;
+  z-index: @loading-z-index;
 }
 .weui-icon_toast.weui-loading {
   margin: 30px 0 0;
@@ -55,10 +62,18 @@ export default {
   vertical-align: baseline;
   display: inline-block;
 }
+.vux-mask-enter, .vux-mask-leave-active,
+.vux-mask-leave-active, .vux-mask-enter-active {
+  position: relative;
+  z-index: 1;
+}
 .vux-mask-enter, .vux-mask-leave-active {
   opacity: 0;
 }
 .vux-mask-leave-active, .vux-mask-enter-active {
   transition: opacity 300ms;
+}
+.vux-loading-no-text .weui-toast {
+  min-height: 98px;
 }
 </style>

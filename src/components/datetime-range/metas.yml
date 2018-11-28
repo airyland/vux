@@ -1,10 +1,13 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe60a;'
 extra: |
-  <p class="tip">
+  ::: tip
   该组件和 `Datetime` 组件不同的地方是`年月日`集中显示在一栏，适合范围不大的日期选择。
   <br />
   需要在`Group`组件里使用
-  </p>
+  :::
 tags:
   en:
     - date

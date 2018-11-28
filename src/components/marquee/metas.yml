@@ -1,3 +1,6 @@
+category:
+  en: Data Display
+  'zh-CN': 数据展示
 icon: '&#xe662;'
 import_code: "import { Marquee, MarqueeItem } from 'vux'"
 items:

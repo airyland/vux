@@ -79,7 +79,7 @@ export default {
     },
     labelClass () {
       return {
-        'vux-cell-justify': getParentProp(this, 'justify') === 'justify'
+        'vux-cell-justify': this.$parent && (this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify')
       }
     },
     style () {
@@ -116,12 +116,12 @@ export default {
   flex: 1;
 }
 .vux-label {
-  display: block;
+  display: inline-block;
   word-wrap: break-word;
   word-break: break-all;
 }
 .weui-cell__ft .weui-loading {
-  display: block;
+  display: inline-block;
 }
 .weui-cell__ft.vux-cell-align-left {
   text-align: left;

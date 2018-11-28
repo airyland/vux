@@ -16,17 +16,18 @@
           <slot><div v-html="content"></div></slot>
         </div>
         <div v-else class="vux-prompt">
-          <input class="vux-prompt-msgbox"
-                 v-bind="inputAttrs"
-                 v-model="msg"
-                 :placeholder="placeholder"
-                 @touchstart="setInputFocus"
-                 ref="input"/>
+          <input
+            class="vux-prompt-msgbox"
+            v-bind="getInputAttrs()"
+            v-model="msg"
+            :placeholder="placeholder"
+            @touchend="setInputFocus"
+            ref="input"/>
         </div>
       </template>
       <div class="weui-dialog__ft">
-        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" @click="_onCancel">{{cancelText || $t('cancel_text')}}</a>
-        <a href="javascript:;" class="weui-dialog__btn" :class="`weui-dialog__btn_${confirmType}`" @click="_onConfirm">{{confirmText || $t('confirm_text')}}</a>
+        <a v-if="showCancelButton" href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" @click="_onCancel">{{cancelText || $t('cancel_text')}}</a>
+        <a v-if="showConfirmButton" href="javascript:;" class="weui-dialog__btn" :class="`weui-dialog__btn_${confirmType}`" @click="_onConfirm">{{confirmText || $t('confirm_text')}}</a>
       </div>
     </x-dialog>
   </div>
@@ -94,6 +95,14 @@ export default {
     confirmType: {
       type: String,
       default: 'primary'
+    },
+    showCancelButton: {
+      type: Boolean,
+      default: true
+    },
+    showConfirmButton: {
+      type: Boolean,
+      default: true
     }
   },
   created () {
@@ -128,10 +137,18 @@ export default {
     }
   },
   methods: {
+    getInputAttrs () {
+      return this.inputAttrs || {
+        type: 'text'
+      }
+    },
     setInputValue (val) {
       this.msg = val
     },
-    setInputFocus () {
+    setInputFocus (evt) {
+      if (evt) {
+        evt.preventDefault()
+      }
       this.$refs.input.focus()
     },
     _onConfirm () {

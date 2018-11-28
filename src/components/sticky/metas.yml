@@ -1,3 +1,6 @@
+category:
+  en: Layout
+  zh-CN: 布局
 icon: '&#xe623;'
 tags:
   en:
@@ -7,13 +10,15 @@ tags:
     - 布局
     - 定位
 extra: |
-  <p class="tip">在Chrome模拟器运行时你可能会发现没有效果，这是因为Chrome并不支持原生sticky实现而模拟器环境是iPhone，目前程序是根据Safari版本来判断是否原生支持sticky。因此你可以切换到Android系统进行测试，但是真机上是完全正常的交互。
+  ::: tip
+  在Chrome模拟器运行时你可能会发现没有效果，这是因为Chrome并不支持原生sticky实现而模拟器环境是iPhone，目前程序是根据Safari版本来判断是否原生支持sticky。因此你可以切换到Android系统进行测试，但是真机上是完全正常的交互。
   <br>
   <br>
   你也可以设置禁用原生支持检测以获得相同的效果：`:check-sticky-support="false"`
-  </p>
+  :::
 
   如果你没有使用`100%`的布局，也没有头部可以直接这样使用
+
   ``` html
   <sticky>
     <div>Blabla</div>
@@ -42,12 +47,13 @@ extra: |
   <sticky scroll-box="vux_view_box_body" :offset="46">
     <div>Blabla</div>
   </sticky>
-  <div class="vux-sticky-fill" style="height:44px;"><div>
+  <div class="vux-sticky-fill" style="height:44px;"></div>
   ```
 
-  <p class="warning">
-  请不要直接照抄 demo 代码，滚动容器为 window 时请不要指定 scroll-box，滚动容器并非使用 `view-box` 时 id 并不是 `vux_view_box_body`，请按照实际情况来设定。
-  </p>
+  ::: warning
+  请不要直接照复制 demo 代码，滚动容器为 window 时请不要指定 scroll-box，滚动容器并非使用 `view-box` 时 id 并不是 `vux_view_box_body`，请按照实际情况来设定。
+  :::
+
 
 props:
   scroll-box:
@@ -64,6 +70,12 @@ props:
     default: 0
     en: top distance
     zh-CN: '距离顶部高度，在存在头部（如使用了`x-header`）的情况下需要设置一个距离'
+  disabled:
+    version: v2.9.0
+    type: Boolean
+    default: false
+    en: whether disable sticky
+    zh-CN: 是否禁用，在某些浏览器禁用，比如万恶的 UC
 slots:
   default:
     en: content
@@ -73,7 +85,45 @@ methods:
     version: v2.5.4
     en: manually re-bind sticky
     zh-CN: 手动重新绑定，用于内容变化导致位置变化定位不再正确的情况
+tips:
+  zh-CN:
+    - 
+      q: 定位位置、时机不正确
+      a: |
+        出现这个问题可能是由于在 sticky 上方布局存在异步加载内容，比如图片、延迟加载的内容块。
+
+        这些情况下需要自己判断正确的加载完成的时机调用  `bindSticky` 方法。如果知道图片或者延迟加载的区域大小可以直接设置尺寸用以占位，其他情况下要根据实际情况处理。
+
+        相关 issue: [#2564](https://github.com/airyland/vux/issues/2564)。
+    -
+      q: UC 浏览器下闪烁跳动
+      a: |
+
+        `UC 浏览器`的 webview 不支持 `sticky` 也无法实时响应 `onscroll` 事件，fixed 定位的元素会在滚动时跳动，暂时无法解决。
+
+        如果面对的用户群使用 UC 浏览器，建议暂时使用绑定属性 `disabled` 来禁用功能。
+
+
+        ``` js
+        data () {
+          return {
+            disabled: typeof navigator !== 'undefined' && /iphone/i.test(navigator.userAgent) && /ucbrowser/i.test(navigator.userAgent)
+          }
+        }
+        ```
+
+        如果你有解决方案，欢迎来 PR 贡献。
+
+        相关 issue [#2601](https://github.com/airyland/vux/issues/2601)。
+
 changes:
+  v2.9.0:
+    en:
+      - '[feature] add prop:disabled #2601'
+      - '[enhance] add development tip if scroll-box doesnot exist'
+    zh-CN:
+      - '[feature] 添加属性 disabled #2601'
+      - '[enhance] scroll-box 不存在时在开发模式下进行提示'
   v2.7.7:
     en:
       - '[fix] Fix the problem of inaccurate positioning and invalid positioning 0 #2367'

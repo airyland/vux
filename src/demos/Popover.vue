@@ -27,6 +27,16 @@
       </div>
       <button class="btn btn-default">{{ $t('Popover on right') }}</button>
     </popover>
+
+    <div style="position:fixed;bottom:50px;text-align:center;width:100%;">
+      <p>fixed element</p>
+      <popover placement="right" style="margin: 20px;">
+        <div slot="content" class="popover-demo-content">
+          hello world
+        </div>
+        <button class="btn btn-default">{{ $t('Popover on right') }}</button>
+      </popover>
+    </div>
   </div>
 </template>
 

@@ -162,7 +162,7 @@
     default-item-class="demo5-item"
     selected-item-class="demo5-item-selected"
     >
-      <checker-item v-for="i in [1, 2, 3]" :key="i" :value="i">{{[$t('good'), $t('nice'),$t('awesome')][i - 1]}}</checker-item>
+      <checker-item v-for="i in [1, 2, 3]" :key="i" :value="i">{{['good', 'nice','awesome'][i - 1]}}</checker-item>
     </checker>
   </div>
 </template>

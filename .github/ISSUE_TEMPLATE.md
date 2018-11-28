@@ -1,5 +1,10 @@
-<!-- 随随便便提的问题，连代码格式化也不会的会被随随便便关掉 -->
+<!--
+IMPORTANT: Please use the following link to create a new issue:
 
-<!-- 任何代码问题请首先直接给出清除了业务逻辑的代码，不要浪费大家时间 -->
+  https://doc.vux.li/issue-generator/
 
-<!-- Scroller 组件已经不再维护，请使用社区其他组件，issue 不会处理 -->
+If your issue was not created using the app above, it will be closed immediately.
+
+中文用户请注意：
+请使用上面的链接来创建新的 issue。如果不是用上述工具创建的 issue 会被关闭。
+-->

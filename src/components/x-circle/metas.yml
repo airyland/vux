@@ -1,4 +1,7 @@
 icon: '&#xe63d;'
+category:
+  en: Chart
+  zh-CN: 图表
 tags:
   en:
     - circle
@@ -13,10 +16,10 @@ props:
     en: top line's width
     zh-CN: 线条宽度
   stroke-color:
-    type: String
+    type: String, Array
     default: '#3FC7FA'
     en: top line's color
-    zh-CN: 线条颜色
+    zh-CN: 线条颜色，数组时表示渐变
   trail-width:
     type: Number
     default: 1
@@ -32,3 +35,23 @@ props:
     default: 0
     en: percentage value
     zh-CN: 进度百分比
+  anticlockwise:
+    type: Boolean
+    default: false
+    en: show percent anticlockwise
+    zh-CN: 按逆时针方向展示百分比
+slots:
+  default:
+    en: content in middle of the circle
+    zh-CN: 圆圈中间显示内容
+changes:
+  v2.9.0:
+    en:
+      - '[feature] support gradient #2616 @spencer1994'
+    zh-CN:
+      - '[feature] 支持渐变色 #2616 @spencer1994'
+  v2.9.1:
+    en:
+      - '[feature] support show percent anticlockwise'
+    zh:
+      - '[feature] 支持按逆时针方向显示百分比'

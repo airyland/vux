@@ -1,8 +1,11 @@
+category:
+  en: Layout
+  'zh-CN': 布局
 icon: '&#xe65d;'
 extra: |
-  <p class="tip">
+  ::: tip
   不支持配置分割线颜色，因为线条是通过图片来实现的。好处是在任何背景颜色下都可以适应。如果需要配置颜色，请使用<a href="#" jump-to-id="loadmore">`load-more`</a>组件。
-  </p>
+  :::
 
   ``` html
   <divider>我是有底线的</divider>

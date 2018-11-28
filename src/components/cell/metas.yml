@@ -1,13 +1,18 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe62a;'
 extra:
-  zh-CN: >
+  zh-CN: |
     ```html
       <group>
         <cell title="title" value="value"></cell>
       </group>
     ```
 
-    <p class="tip">cell只能在`Group`中使用</p>
+    ::: tip
+    Cell 组件只能在`Group`中使用
+    :::
 tags:
   en:
     - cell
@@ -103,6 +108,16 @@ slots:
     en: title slot
     zh-CN: title 插槽，方便自定义样式
 changes:
+  v2.9.0:
+    en:
+      - '[fix] fix weui-loading style'
+    zh-CN:
+      - '[fix] 修复 weui-loading 样式'
+  v2.8.1:
+    en:
+      - '[fix] fix justify class #2545'
+    zh-CN:
+      - '[fix] 修复 justify 类名 #2545'
   v2.7.0:
     en:
       - '[fix] fix ssr rendering issue'

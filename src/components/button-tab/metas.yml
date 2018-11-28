@@ -1,3 +1,6 @@
+category:
+  en: Navigation
+  'zh-CN': 导航
 icon: '&#xe659;'
 import_code: |
   import { ButtonTab, ButtonTabItem } from 'vux'

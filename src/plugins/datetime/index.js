@@ -19,6 +19,18 @@ const libs = {
 
 export default {
   install (Vue) {
+    // inject style
+    const _Datetime = Vue.extend(DatetimeComponent)
+    const div = document.createElement('div')
+    if (typeof document !== 'undefined') {
+      let $vm = new _Datetime({
+        el: div
+      })
+      $vm.$el.style.display = 'none'
+      $vm.$el.className += ' vux-datetime-style-inject'
+      document.body.appendChild($vm.$el)
+    }
+
     if (!Vue.$vux) {
       Vue.$vux = {
         datetime: libs
@@ -34,4 +46,3 @@ export default {
     })
   }
 }
-

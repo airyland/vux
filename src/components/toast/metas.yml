@@ -1,3 +1,6 @@
+category:
+  en: Feedback
+  zh-CN: 弹窗提示
 icon: '&#xe625;'
 tags:
   en:
@@ -10,9 +13,9 @@ tags:
 extra: |
  该组件支持以`plugin`形式调用：
 
- <p class="warning">
+ ::: warning
   以插件形式调用时，和`template`中使用不同，属性名请使用`小驼峰式`，比如`isShowMask`而不是`is-show-mask`。
-  </p>
+ :::
 
  ``` js
  import  { ToastPlugin } from 'vux'
@@ -37,6 +40,9 @@ extra: |
 
  // 隐藏
  this.$vux.toast.hide()
+
+ // 获取显示状态
+ this.$vux.toast.isVisible() // v2.9.1 开始支持
  ```
 
 props:
@@ -88,6 +94,11 @@ events:
     en: emits when toast hides
     zh-CN: 提示隐藏时触发
 changes:
+  v2.9.1:
+    en:
+      - '[feature] add isVisible function for ToastPlugin #2704'
+    zh-CN:
+      - '[feature] 添加 isVisible 获取当前显示状态 #2704'
   v2.7.7:
     en:
       - '[fix] plugin options is used as toast default options'

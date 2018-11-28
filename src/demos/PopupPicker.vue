@@ -10,6 +10,7 @@
           </span>
         </template>
       </popup-picker>
+      <datetime title="datetime" v-model="date"></datetime>
     </group>
     <br>
     <div class="picker-buttons">
@@ -63,7 +64,7 @@ please select:
 </i18n>
 
 <script>
-import { PopupPicker, Group, Cell, Picker, XButton, Divider, XSwitch } from 'vux'
+import { Datetime, PopupPicker, Group, Cell, Picker, XButton, Divider, XSwitch } from 'vux'
 
 export default {
   components: {
@@ -73,7 +74,8 @@ export default {
     XButton,
     Divider,
     Cell,
-    XSwitch
+    XSwitch,
+    Datetime
   },
   methods: {
     onChange (val) {
@@ -104,6 +106,7 @@ export default {
   },
   data () {
     return {
+      date: '',
       title1: '手机机型',
       title2: '详细机型',
       title3: '联动显示值',

@@ -1,11 +1,16 @@
+category:
+  en: Basic
+  zh-CN: 基础组件
+category_order: 1
 icon: '&#xe619;'
 import_code: '&nbsp;'
+need_import: false
 extra:
   en: |
 
-    <p class="tip">
+    ::: tip
     Icons come from [Ionicons(MIT)](http://ionicons.com/)
-    </p>
+    :::
 
     `x-icon` is a virtual component，which means you don't need to import `XIcon`, `vux-loader@^1.0.46` will transform your code into `inline svg`。
 
@@ -19,11 +24,11 @@ extra:
     ```
   zh-CN: |
 
-    <p class="tip">
+    ::: tip
     组件来自于 [Ionicons(MIT)](http://ionicons.com/)，你可以在网站上面看到所有的图标。
     <br />
     该组件无法在`script`引入的方式中使用，需要自行拷贝 svg 资源。
-    </p>
+    :::
 
     `x-icon` 是一个虚拟(占位)组件，你不需要引入`XIcon` 组件，当调用时`vux-loader@^1.0.43`会自动将转换成 `inline svg`。
 
@@ -38,11 +43,11 @@ extra:
     <x-icon type="ios-arrow-up" size="30"></x-icon>
     ```
 
-    <p class="warning">
+    ::: warning
      x-icon 无法动态设置 `type`，只能单个引入，原因是 x-icon 组件主要目的是实现按需引入图标。
      <br>
      若要实现动态切换那么也意味着整个 icon 列表都得引入，因此暂时不支持。
-    </p>
+    :::
 props:
   type:
     en: icon name

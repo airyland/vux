@@ -1,3 +1,6 @@
+category:
+  en: Form
+  'zh-CN': 表单
 icon: '&#xe61d;'
 tags:
   en:
@@ -6,7 +9,9 @@ tags:
     - form
 extra: |
 
+  ::: tip
   从 v2.6.2 开始，max=1即为单选模式，不会要求先取消上一个选中的才能选中下一个值。
+  :::
 
 props:
   value:

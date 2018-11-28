@@ -1,3 +1,6 @@
+category:
+  en: Data Display
+  zh-CN: 数据展示
 icon: '&#xe602;'
 props:
   default-src:
@@ -29,7 +32,15 @@ props:
     default: 0
     en: delay execute lazyload function because sometimes transition between routes will cause problems
     zh-CN: 延迟执行，在存在路由过渡时立即执行可能会导致进入页面后并不会正确加载图片。该属性在 2.5.4 后已经不推荐使用，推荐使用 BusPlugin 来通知组件页面已经载入完成。
+  separator:
+    en: the separator of image src
+    zh-CN: 支持设置src的分隔符
 changes:
+  v2.9.2:
+    en:
+      - '[enhance] Support prop:separator #2744'
+    zh-CN:
+      - '[enhance] 支持设置separator属性 #2744'
   v2.6.0:
     en:
       - '[fix] re-initialize when src is changed #1901'

@@ -8,10 +8,12 @@
     <x-button @click.native="demo01_index = 0">go to 0</x-button>
     <x-button @click.native="demo01_index = 1">go to 1</x-button>
     <x-button @click.native="demo01_index = 2">go to 2</x-button>
+    <br/>
+    <br/>
+    <divider>华丽的分割线</divider>
 
-    <br/>
-    <br/>
-    <swiper :list="demo01_list" v-model="demo02_index" @on-index-change="demo01_onIndexChange"></swiper>
+    <group-title>设置min-moving-distance为120</group-title>
+    <swiper :list="demo01_list" v-model="demo02_index" :min-moving-distance="120" @on-index-change="demo01_onIndexChange"></swiper>
     <br>
     <br>
     <divider>华丽的分割线</divider>
@@ -109,17 +111,17 @@ import { Swiper, GroupTitle, SwiperItem, XButton, Divider } from 'vux'
 
 const baseList = [{
   url: 'javascript:',
-  img: 'https://static.vux.li/demo/1.jpg',
+  img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg',
   title: '送你一朵fua'
 }, {
   url: 'javascript:',
-  img: 'https://static.vux.li/demo/2.jpg',
+  img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw1k2wj20p00goq7n.jpg',
   title: '送你一辆车'
 }, {
   url: 'javascript:',
-  img: 'https://static.vux.li/demo/5.jpg',
+  img: 'https://static.vux.li/demo/5.jpg', // 404
   title: '送你一次旅行',
-  fallbackImg: 'https://static.vux.li/demo/3.jpg'
+  fallbackImg: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw50iwj20ff0aaaci.jpg'
 }]
 
 const imgList = [

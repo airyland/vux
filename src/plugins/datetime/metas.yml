@@ -1,4 +1,9 @@
 changes:
+  v2.8.1:
+    en:
+      - '[fix] fix style missing #2375'
+    zh-CN:
+      - '[fix] 修复单独插件引用时无样式 #2375'
   v2.5.12:
     en:
       - '[fix] Fix datetime show multiple times #1927'

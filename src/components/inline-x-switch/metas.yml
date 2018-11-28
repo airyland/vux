@@ -1,0 +1,38 @@
+category:
+  en: Form
+  'zh-CN': 表单
+icon: '&#xe61c;'
+tags:
+  en:
+    - switch
+    - form
+  zh-CN:
+    - 表单
+    - 开关
+props:
+  disabled:
+    type: Boolean
+    default: false
+    en: if disabled
+    zh-CN: 是否不可点击
+  value:
+    type: Boolean
+    default: false
+    en: "component's value, use `v-model` for binding"
+    zh-CN: '表单值, 使用`v-model`绑定'
+  value-map:
+    type: Array
+    default: '[false, true]'
+    en: customize not-boolean values
+    zh-CN: 用于自定义 false 和 true 映射的实际值，用于方便处理比如接口返回了 0 1 这类非 boolean 值的情况
+events:
+  on-change:
+    params: '`(value)`'
+    en: triggers when value change, params is (currentValue)
+    zh-CN: 值变化时触发，参数为 (currentValue)
+changes:
+  v2.9.0:
+    en:
+      - '[feature] new component #2624'
+    zh-CN:
+      - '[feature] 新组件 #2624'

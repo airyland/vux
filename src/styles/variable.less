@@ -6,9 +6,25 @@
 /**
 * actionsheet
 */
+/**
+* en: primary type text color of menu item
+* zh-CN: 菜单项primary类型的文本颜色
+*/
 @actionsheet-label-primary-color: #1AAD19;
+/**
+* en: warn type text color of menu item
+* zh-CN: 菜单项warn类型的文本颜色
+*/
 @actionsheet-label-warn-color: #E64340;
+/**
+* en: default type text color of menu item
+* zh-CN: 菜单项default类型的文本颜色
+*/
 @actionsheet-label-default-color: #000;
+/**
+* en: disabled type text color of menu item
+* zh-CN: 菜单项disabled类型的文本颜色
+*/
 @actionsheet-label-disabled-color: #ccc;
 
 /**
@@ -37,6 +53,13 @@
 @dialog-button-text-primary-color: #0BB20C;
 @dialog-button-text-default-color: #353535;
 @dialog-button-text-warn-color: #E64340;
+@dialog-width: 80%; // also affects alert confirm
+@dialog-max-width: 300px; // also affects alert confirm
+/**
+* en: title and content's padding-left and padding-right
+* zh-CN: 标题及内容区域的 padding-left 和 padding-right
+*/
+@dialog-gap-width: 1.6em; // alias @weuiDialogGapWidth
 
 /**
 * x-number
@@ -108,32 +131,183 @@
 @switch-checked-bg-color: @theme-color;
 @switch-checked-border-color: @theme-color;
 @switch-disabled-opacity: 0.6;
+@switch-height: 32px;
 
 /**
 * Button
 */
+/**
+* en: border radius
+* zh-CN: 圆角边框
+*/
 @button-global-border-radius: 5px;
+/**
+* en: font color
+* zh-CN: 字体颜色
+*/
 @button-global-font-color: #FFFFFF;
+/**
+* en: margin-top value between previous button, not works when there is only one button
+* zh-CN: 与相邻按钮的 margin-top 间隙，只有一个按钮时不生效
+*/
 @button-global-margin-top: 15px;
+/**
+* en: button height
+* zh-CN: 按钮高度
+*/
 @button-global-height: 42px;
+/**
+* en: the font color in disabled
+* zh-CN: disabled状态下的字体颜色
+*/
 @button-global-disabled-font-color: rgba(255,255,255,.6);
+/**
+* en: the font color in disabled
+* zh-CN: disabled状态下的字体颜色
+*/
 @button-global-active-font-color: rgba(255,255,255,.6);
+/**
+* en: font size
+* zh-CN: 字体大小
+*/
 @button-global-font-size: 18px;
 
+/**
+* en: the font size of the mini type
+* zh-CN: mini类型的字体大小
+*/
+@button-mini-font-size: 13px;
+/**
+* en: the line height of the mini type
+* zh-CN: mini类型的行高
+*/
+@button-mini-line-height: 2.3;
+
+/**
+* en: the background color of the warn type
+* zh-CN: warn类型的背景颜色
+*/
 @button-warn-bg-color: #E64340;
+/**
+* en: the background color of the warn type in active
+* zh-CN: active状态下，warn类型的背景颜色
+*/
 @button-warn-active-color: #CE3C39;
+/**
+* en: the background color of the warn type in disabled
+* zh-CN: disabled状态下，warn类型的背景颜色
+*/
 @button-warn-disabled-bg-color: #EC8B89;
 
+/**
+* en: the background color of the default type
+* zh-CN: default类型的背景颜色
+*/
 @button-default-bg-color: #F8F8F8;
+/**
+* en: the font color of the default type
+* zh-CN: default类型的字体颜色
+*/
 @button-default-font-color: #000000;
+/**
+* en: the background color of the default type in active
+* zh-CN: active状态下，default类型的背景颜色
+*/
 @button-default-active-bg-color: #DEDEDE;
+/**
+* en: the font color of the default type in disabled
+* zh-CN: disabled状态下，default类型的字体颜色
+*/
 @button-default-disabled-font-color: rgba(0,0,0,.3);
+/**
+* en: the background color of the default type in disabled
+* zh-CN: disabled状态下，default类型的背景颜色
+*/
 @button-default-disabled-bg-color: #F7F7F7;
+/**
+* en: the font color of the default type in active
+* zh-CN: active状态下，default类型的字体颜色
+*/
 @button-default-active-font-color: rgba(0,0,0,.6);
 
+/**
+* en: the background color of the primary type
+* zh-CN: primary类型的背景颜色
+*/
 @button-primary-bg-color: #1AAD19;
+/**
+* en: the background color of the primary type in active
+* zh-CN: active状态下，primary类型的背景颜色
+*/
 @button-primary-active-bg-color: #179B16;
+/**
+* en: the background color of the primary type in disabled
+* zh-CN: disabled状态下，primary类型的背景颜色
+*/
 @button-primary-disabled-bg-color: #9ED99D;
+
+/**
+* en: the font color of the plain primary type
+* zh-CN: plain的primary类型的字体颜色
+*/
+@button-plain-primary-color: rgba(26,173,25,1);
+/**
+* en: the border color of the plain primary type
+* zh-CN: plain的primary类型的边框颜色
+*/
+@button-plain-primary-border-color: rgba(26,173,25,1);
+/**
+* en: the font color of the plain primary type in active
+* zh-CN: active状态下，plain的primary类型的字体颜色
+*/
+@button-plain-primary-active-color: rgba(26,173,25,.6);
+/**
+* en: the border color of the plain primary type in active
+* zh-CN: active状态下，plain的primary类型的边框颜色
+*/
+@button-plain-primary-active-border-color: rgba(26,173,25,.6);
+
+/**
+* en: the font color of the plain default type
+* zh-CN: plain的default类型的字体颜色
+*/
+@button-plain-default-color: rgba(53,53,53,1);
+/**
+* en: the border color of the plain default type
+* zh-CN: plain的default类型的边框颜色
+*/
+@button-plain-default-border-color: rgba(53,53,53,1);
+/**
+* en: the font color of the plain default type in active
+* zh-CN: active状态下，plain的default类型的字体颜色
+*/
+@button-plain-default-active-color: rgba(53,53,53,.6);
+/**
+* en: the border color of the plain default type in active
+* zh-CN: active状态下，plain的default类型的边框颜色
+*/
+@button-plain-default-active-border-color: rgba(53,53,53,.6);
+
+/**
+* en: the font color of the plain warn type
+* zh-CN: plain的warn类型的字体颜色
+*/
+@button-plain-warn-color: rgba(206,60,57,1);
+/**
+* en: the border color of the plain warn type
+* zh-CN: plain的warn类型的边框颜色
+*/
+@button-plain-warn-border-color: rgba(206,60,57,1);
+/**
+* en: the font color of the plain warn type in active
+* zh-CN: active状态下，plain的warn类型的字体颜色
+*/
+@button-plain-warn-active-color: rgba(206,60,57,.6);
+/**
+* en: the border color of the plain warn type in active
+* zh-CN: active状态下，plain的warn类型的边框颜色
+*/
+@button-plain-warn-active-border-color: rgba(206,60,57,.6);
 
 /**
 * swipeout
@@ -153,6 +327,10 @@
 /**
 * Badge
 */
+/**
+* en: badge background color
+* zh-CN: badge的背景颜色
+*/
 @badge-bg-color: #f74c31;
 
 /**
@@ -166,21 +344,65 @@
 /**
 * Button tab
 */
+/**
+* en: not used
+* zh-CN: 未被使用
+*/
 @button-tab-border-width: 1px;
+/**
+* en: border radius color
+* zh-CN: 圆角边框的半径
+*/
 @button-tab-border-radius: 16px;
-
+/**
+* en: border color
+* zh-CN: 边框的颜色
+*/
 @button-tab-border-color: @theme-color;
+/**
+* en: not used
+* zh-CN: 默认状态下圆角边框的颜色
+*/
 @button-tab-default-border-color: @button-tab-border-color;
+/**
+* en: not used
+* zh-CN: 未被使用
+*/
 @button-tab-active-border-color: @button-tab-border-color;
-
+/**
+* en: default background color
+* zh-CN: 默认状态下的背景颜色
+*/
 @button-tab-default-background-color: #fdfdfd;
+/**
+* en: selected background color
+* zh-CN: 选中状态下的背景颜色
+*/
 @button-tab-active-background-color: @theme-color;
-
+/**
+* en: not used
+* zh-CN: 未被使用
+*/
 @button-tab-active-font-color: #FFF; /* alias */
+/**
+* en: not used
+* zh-CN: 未被使用
+*/
 @button-tab-active-text-color: @button-tab-active-font-color;
+/**
+* en: default text color
+* zh-CN: 默认状态下的文本颜色
+*/
 @button-tab-default-text-color: #999;
-
+/**
+* en: height
+* zh-CN: 元素高度
+*/
 @button-tab-height: 30px;
+/**
+* en: line height
+* zh-CN: 元素行高
+*/
 @button-tab-line-height: 31px;
 
 /**
@@ -231,16 +453,54 @@
 /**
 * group
 */
+/**
+* en: margin-top of title
+* zh-CN: 标题的margin-top
+*/
 @group-title-margin-top: .77em;
+/**
+* en: margin-bottom of title
+* zh-CN: 标题的margin-bottom
+*/
 @group-title-margin-bottom: .3em;
+/**
+* en: margin-top of footer title
+* zh-CN: 底部标题的margin-top
+*/
+@group-footer-title-margin-top: .3em;
+/**
+* en: margin-bottom of footer title
+* zh-CN: 底部标题的margin-bottom
+*/
+@group-footer-title-margin-bottom: .77em;
 
 /**
 * toast
 */
+/**
+* en: text color of content
+* zh-CN: 内容文本颜色
+*/
 @toast-content-font-size: 16px;
+/**
+* en: default top
+* zh-CN: 默认状态下距离顶部的高度
+*/
 @toast-top: 180px;
+/**
+* en: position top
+* zh-CN: 顶部显示的高度
+*/
 @toast-position-top-offset: 10px;
+/**
+* en: position bottom
+* zh-CN: 底部显示的高度
+*/
 @toast-position-bottom-offset: 10px;
+/**
+* en: z-index
+* zh-CN: z-index
+*/
 @toast-z-index: 5001;
 
 /**
@@ -251,15 +511,55 @@
 /**
 * calendar
 */
+/**
+* en: forward and backward arrows color
+* zh-CN: 前进后退的箭头颜色
+*/
 @calendar-arrow-color: @theme-color;
+/**
+* en: text color of week highlight
+* zh-CN: 周末高亮的文本颜色
+*/
 @calendar-highlight-color: #E59313;
+/**
+* en: background color when selected
+* zh-CN: 选中时的背景颜色
+*/
 @calendar-selected-bg-color: @theme-color;
+/**
+* en: text color when disabled
+* zh-CN: 禁用时的文本颜色
+*/
 @calendar-disabled-font-color: #c0c0c0;
+/**
+* en: text color of today
+* zh-CN: 今天的文本颜色
+*/
 @calendar-today-font-color: @theme-color;
+/**
+* en: font size of cell
+* zh-CN: 单元格的字号
+*/
 @calendar-date-item-font-size: 16px;
+/**
+* en: background color
+* zh-CN: 背景颜色
+*/
 @calendar-bg-color: #fff;
+/**
+* en: size of date cell
+* zh-CN: 日期单元格尺寸大小
+*/
 @calendar-each-date-item-size: 26px;
+/**
+* en: line height of date cell
+* zh-CN: 日期单元格的行高
+*/
 @calendar-each-date-item-line-height: 25px;
+/**
+* en: text color of header
+* zh-CN: 头部的文本颜色
+*/
 @calendar-header-day-item-color: #000;
 
 /**
@@ -277,17 +577,45 @@
 /**
 * search
 */
+/**
+* en: text color of cancel button
+* zh-CN: 取消按钮文本颜色
+*/
 @search-cancel-font-color: #09BB07;
+/**
+* en: background color
+* zh-CN: 背景颜色
+*/
 @search-bg-color: #EFEFF4;
+/**
+* en: text color of placeholder
+* zh-CN: placeholder文本颜色
+*/
 @search-placeholder-font-color: #9B9B9B;
 
 /**
 * radio
+*/
+/**
+* en: checked icon color
+* zh-CN: 选中状态的图标颜色
 */
 @radio-checked-icon-color: #09BB07;
 
 /**
 * loadmore
 */
+/**
+* en: not used
+* zh-CN: 未被使用
+*/
 @load-more-line-color: #E5E5E5;
 
+/**
+* loading
+*/
+/**
+* en: z-index
+* zh-CN: z-index
+*/
+@loading-z-index: 5001;

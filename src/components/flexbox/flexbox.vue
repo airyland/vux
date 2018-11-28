@@ -63,12 +63,13 @@ export default {
     }
   }
 }
-.vux-flex-col 
+
 .vux-flex-row {
   box-direction: row;
   box-orient: horizontal;
   flex-direction: row;
 }
+
 .vux-flex-col {
   box-orient: vertical;
   flex-direction: column;

@@ -35,7 +35,7 @@
     </group>
 
     <group title="disabled">
-      <x-input title='value' disabled v-model="disabledValue"></x-input>
+      <x-input title='value' text-align="right" disabled v-model="disabledValue"></x-input>
     </group>
 
     <group title="set type = tel">
@@ -90,9 +90,9 @@
         @on-enter="onEnter"></x-input>
     </group>
 
-    <group title="验证码" class="weui-cells_form">
-      <x-input title="验证码" class="weui-cell_vcode">
-        <img slot="right" class="weui-vcode-img" src="https://i.loli.net/2017/09/18/59bf7f32425d5.jpg">
+    <group title="验证码">
+      <x-input title="验证码">
+        <img slot="right-full-height" src="https://ws1.sinaimg.cn/large/663d3650gy1fq684go3glj203m01hmwy.jpg">
       </x-input>
       <x-input title="发送验证码" class="weui-vcode">
         <x-button slot="right" type="primary" mini>发送验证码</x-button>

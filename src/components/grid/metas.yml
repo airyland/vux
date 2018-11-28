@@ -1,5 +1,8 @@
 icon: '&#xe661;'
 import_code: import { Grid, GridItem } from 'vux'
+category:
+  en: Layout
+  'zh-CN': 布局
 tags:
   en:
     - grid
@@ -34,6 +37,18 @@ grid:
       default: 3
       en: the number of columns. if there is more than one row in grid, need to set cols value, otherwise all grid items will show in one row with the same width
       zh-CN: 列数。如果为非单行 Grid，需要设置 cols，否则所有 GridItem 会平均宽度显示在一行。
+    show-lr-borders:
+      type: Boolean
+      version: v2.8.1
+      default: true
+      en: whether show left and right borders
+      zh-CN: 是否显示左右边框
+    show-vertical-dividers:
+      type: Boolean
+      version: v2.8.1
+      default: true
+      en: whether show vertical dividers
+      zh-CN: 是否显示垂直分割线
   slots:
     default:
       en: 'default slot for `grid-item` list'
@@ -51,12 +66,17 @@ grid-item:
       zh-CN: vue-router 路径
   slots:
     icon:
-      en: 'icon slot, use `<img>`'
-      zh-CN: "图标内容，直接使用`<img>`标签"
+      en: 'icon slot, use tag:`img`'
+      zh-CN: "图标内容，直接使用`img`标签"
     label:
       en: slot for label, the same func as prop:label
       zh-CN: label 文字的 slot，作用同 prop:label
 changes:
+  v2.8.1:
+    en:
+      - '[feature] add prop:show-lr-borders and prop:show-vertical-dividers #2488'
+    zh-CN:
+      - '[feature] 支持 prop:show-lr-borders、prop:show-vertical-dividers 用以隐藏左右边线及垂直分割线 #2488'
   v2.6.1:
     en:
       - '[feature] add `cols` props'

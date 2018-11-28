@@ -33,15 +33,17 @@
       </div>
 
       <!-- main content -->
-      <view-box ref="viewBox" body-padding-top="46px" body-padding-bottom="55px">
+      <view-box ref="viewBox" :body-padding-top="isShowNav ? '46px' : '0'" body-padding-bottom="55px">
 
-        <x-header slot="header"
-        style="width:100%;position:absolute;left:0;top:0;z-index:100;"
-        :left-options="leftOptions"
-        :right-options="rightOptions"
-        :title="title"
-        :transition="headerTransition"
-        @on-click-more="onClickMore">
+        <x-header
+          v-if="isShowNav"
+          slot="header"
+          style="width:100%;position:absolute;left:0;top:0;z-index:100;"
+          :left-options="leftOptions"
+          :right-options="rightOptions"
+          :title="title"
+          :transition="headerTransition"
+          @on-click-more="onClickMore">
           <span v-if="route.path === '/' || route.path === '/component/drawer'" slot="overwrite-left" @click="drawerVisibility = !drawerVisibility">
             <x-icon type="navicon" size="35" style="fill:#fff;position:relative;top:-8px;left:-3px;"></x-icon>
           </span>
@@ -54,7 +56,7 @@
           <router-view class="router-view"></router-view>
         </transition>
 
-        <tabbar class="vux-demo-tabbar" icon-class="vux-center" v-show="!isTabbarDemo" slot="bottom">
+        <tabbar class="vux-demo-tabbar" icon-class="vux-center" v-show="!isTabbarDemo && isShowBar" slot="bottom">
           <tabbar-item :link="{path:'/'}" :selected="route.path === '/'">
             <span class="demo-icon-22 vux-demo-tabbar-icon-home" slot="icon" style="position:relative;top: -2px;">&#xe637;</span>
             <span slot="label">Home</span>
@@ -159,10 +161,16 @@ export default {
       direction: state => state.vux.direction
     }),
     isShowBar () {
-      if (/component/.test(this.path)) {
-        return true
+      if (this.entryUrl.indexOf('hide-tab-bar') > -1) {
+        return false
       }
-      return false
+      return true
+    },
+    isShowNav () {
+      if (this.entryUrl.indexOf('hide-nav') > -1) {
+        return false
+      }
+      return true
     },
     leftOptions () {
       return {
@@ -203,6 +211,7 @@ export default {
   },
   data () {
     return {
+      entryUrl: document.location.href,
       showMenu: false,
       menus: {
         'language.noop': '<span class="menu-title">Language</span>',
@@ -272,11 +281,11 @@ html, body {
 
 @font-face {
   font-family: 'vux-demo';  /* project id 70323 */
-  src: url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.eot');
-  src: url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.eot?#iefix') format('embedded-opentype'),
-  url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.woff') format('woff'),
-  url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.ttf') format('truetype'),
-  url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_70323_wlronpvr565yiudi.eot');
+  src: url('//at.alicdn.com/t/font_70323_wlronpvr565yiudi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_70323_wlronpvr565yiudi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_70323_wlronpvr565yiudi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_70323_wlronpvr565yiudi.svg#iconfont') format('svg');
 }
 
 .demo-icon {

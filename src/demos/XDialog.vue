@@ -23,7 +23,7 @@
     <div v-transfer-dom>
       <x-dialog v-model="show" class="dialog-demo">
         <div class="img-box">
-          <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
+          <img src="https://ws1.sinaimg.cn/large/663d3650gy1fq6824ur1dj20ia0pydlm.jpg" style="max-width:100%">
         </div>
         <div @click="show=false">
           <span class="vux-close"></span>
@@ -34,7 +34,7 @@
     <div v-transfer-dom>
       <x-dialog :show.sync="show2" class="dialog-demo">
         <div class="img-box">
-          <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
+          <img src="https://ws1.sinaimg.cn/large/663d3650gy1fq6824ur1dj20ia0pydlm.jpg" style="max-width:100%">
         </div>
         <div @click="show2=false">
           <span class="vux-close"></span>
@@ -45,7 +45,7 @@
     <div v-transfer-dom>
       <x-dialog v-model="showHideOnBlur" class="dialog-demo" hide-on-blur>
         <div class="img-box">
-          <img src="../assets/demo/dialog/01.jpg" style="max-width:100%">
+          <img src="https://ws1.sinaimg.cn/large/663d3650gy1fq6824ur1dj20ia0pydlm.jpg" style="max-width:100%">
         </div>
         <div @click="showHideOnBlur=false">
           <span class="vux-close"></span>

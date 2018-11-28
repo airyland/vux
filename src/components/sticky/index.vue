@@ -33,6 +33,9 @@ export default {
   },
   methods: {
     bindSticky () {
+      if (this.disabled) {
+        return
+      }
       this.$nextTick(() => {
         sticky(this.$el, {
           scrollBox: this.scrollBox,
@@ -42,7 +45,7 @@ export default {
       })
     }
   },
-  props: ['scrollBox', 'offset', 'checkStickySupport']
+  props: ['scrollBox', 'offset', 'checkStickySupport', 'disabled']
 }
 </script>
 

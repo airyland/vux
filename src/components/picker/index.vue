@@ -24,7 +24,7 @@ export default {
   created () {
     if (this.columns !== 0) {
       const length = this.columns
-      this.store = new Manager(this.data, length, this.fixedColumns)
+      this.store = new Manager(this.data, length, this.fixedColumns || this.columns)
       this.currentData = this.store.getColumns(this.value)
     }
   },
@@ -226,7 +226,7 @@ export default {
             return
           }
           const length = this.columns
-          this.store = new Manager(newData, length, this.fixedColumns)
+          this.store = new Manager(newData, length, this.fixedColumns || this.columns)
           this.currentData = this.store.getColumns(this.currentValue)
         }
       }

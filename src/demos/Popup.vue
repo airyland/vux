@@ -9,7 +9,18 @@
       <x-switch title="default max-height=100%" v-model="show12"></x-switch>
       <x-switch title="set max-height=50%" v-model="show13"></x-switch>
     </group>
+
+    <group>
+      <x-switch title="donot force rerender on open" v-model="show15"></x-switch>
+      <x-switch title="force rerender on open" v-model="show14"></x-switch>
+      
+    </group>
     
+    <group>
+      <x-switch title="scroll top on show" inline-desc="default scrollable div" v-model="show17"></x-switch>
+      <x-switch title="scroll top on show" inline-desc="custom scrollable div" v-model="show16"></x-switch>
+    </group>
+
     <div v-transfer-dom>
       <popup v-model="show" @on-hide="log('hide')" @on-show="log('show')">
         <div class="popup0">
@@ -149,6 +160,39 @@
     </div>
 
     <div v-transfer-dom>
+      <popup v-model="show17" position="bottom" should-scroll-top-on-show>
+        <group>
+          <cell v-for="i in 20" :key="i" :title="i"></cell>
+        </group>
+        <div style="padding: 15px;">
+          <x-button @click.native="show17 = false" plain type="primary"> Close Me </x-button>
+        </div>
+      </popup>
+    </div>
+
+    <div v-transfer-dom>
+      <popup v-model="show14" position="bottom" should-rerender-on-show>
+        <div>
+          <toggle-text @click.native="show14 = false"></toggle-text>
+        </div>
+      </popup>
+    </div>
+
+    <div v-transfer-dom>
+      <popup v-model="show15" position="bottom">
+        <div>
+          <toggle-text @click.native="show15 = false"></toggle-text>
+        </div>
+      </popup>
+    </div>
+
+    <div v-transfer-dom>
+      <popup v-model="show16" position="bottom" should-scroll-top-on-show>
+        <toggle-text @click.native="show16 = false" scrollable class="vux-scrollable"></toggle-text>
+      </popup>
+    </div>
+
+    <div v-transfer-dom>
       <popup v-model="show13" position="bottom" max-height="50%">
         <group>
           <cell v-for="i in 20" :key="i" :title="i"></cell>
@@ -165,6 +209,8 @@
 <script>
 import { TransferDom, Popup, Group, Cell, XButton, XSwitch, Toast, XAddress, ChinaAddressData } from 'vux'
 
+import ToggleText from './ToggleText'
+
 export default {
   directives: {
     TransferDom
@@ -176,7 +222,8 @@ export default {
     XSwitch,
     Toast,
     XAddress,
-    XButton
+    XButton,
+    ToggleText
   },
   data () {
     return {
@@ -196,7 +243,11 @@ export default {
       show10: false,
       show11: false,
       show12: false,
-      show13: false
+      show13: false,
+      show14: false,
+      show15: false,
+      show16: false,
+      show17: false
     }
   },
   methods: {

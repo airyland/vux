@@ -132,6 +132,11 @@ export default {
       this.photoswipe.listen('close', () => {
         this.$emit('on-close')
       })
+      this.photoswipe.listen('afterChange', (a, b) => {
+        this.$emit('on-index-change', {
+          currentIndex: this.photoswipe.getCurrentIndex()
+        })
+      })
     },
     show (index) {
       this.init(index)

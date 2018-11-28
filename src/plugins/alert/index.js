@@ -14,6 +14,9 @@ const plugin = {
       },
       hide () {
         return hide.call(this, $vm)
+      },
+      isVisible () {
+        return $vm.showValue
       }
     }
 

@@ -1,3 +1,6 @@
+category:
+  en: Navigation
+  zh-CN: 导航
 icon: '&#xe657;'
 items:
   - tabbar
@@ -6,9 +9,9 @@ import_code: "import { Tabbar, TabbarItem } from 'vux'"
 extra: |
   支持简单模式，即不指定`icon`，`label`将垂直居中显示。
 
-  <p class="warning">
+  ::: warning
   默认定位为 `absolute`，适用于 `100%页面布局`，如果你并非 100% 布局(可以配合使用 view-box 组件)，请手动重置样式为 `position: fixed`
-  </p>
+  :::
 
 tags:
   en:

@@ -1,3 +1,6 @@
+category:
+  en: Feedback
+  zh-CN: 弹窗提示
 icon: '&#xe608;'
 tags:
   en:
@@ -10,16 +13,16 @@ tags:
     - 确认
 extra: |
 
-  <p class="tip">
+  ::: tip
    建议参照例子使用 `v-transfer-dom` 将弹窗插入 `body` 节点下，避免组件非 body 子节点导致的各种问题。
-  </p>
+  :::
 
 
   该组件支持以`plugin`形式调用：
 
-  <p class="warning">
+  ::: warning
   以插件形式调用时，和`template`中使用不同，属性名请使用`小驼峰式`，比如`confirmText`而不是`confirm-text`。
-  </p>
+  :::
 
   ``` js
   import  { ConfirmPlugin } from 'vux'
@@ -37,18 +40,24 @@ extra: |
     },
     onConfirm () {}
   })
+
   // 隐藏
   this.$vux.confirm.hide()
+
   // prompt形式调用
   this.$vux.confirm.prompt('placeholder', {
     onCancel () {}
     onConfirm () {}
   })
+
   // 设置输入值
   this.$vux.confirm.setInputValue('value') // 注意需要在 onShow 事件中执行
+
+  // 获取显示状态
+  this.$vux.confirm.isVisible() // v2.9.1 支持
   ```
 props:
-  show:
+  value:
     type: Boolean
     default: false
     en: visibility of the component
@@ -118,6 +127,18 @@ props:
     default: 1000
     en: zIndex of mask
     zh-CN: 遮罩层 z-index 值
+  show-cancel-button:
+    version: v2.9.2
+    type: Boolean
+    default: true
+    en: if show cancel button
+    zh-CN: 是否显示取消按钮
+  show-confirm-button:
+    version: v2.9.2
+    type: Boolean
+    default: true
+    en: if show confirm button
+    zh-CN: 是否显示确定按钮
 slots:
   default:
     en: body content of the dialog
@@ -137,17 +158,29 @@ events:
     en: triggers when the dialog hides
     zh-CN: 弹窗隐藏时触发
 methods:
-  v2.6.4:
-    en:
-      - '[feature] support prop:mask-z-index'
-    zh-CN:
-      - '[feature] 支持属性 mask-z-index 设置遮罩 z-index'
   setInputValue:
     version: v2.5.5
     params: '(value)'
     en: set input value when show-input is true
     zh-CN: 设置输入值，当 show-input 为 true 时有效
 changes:
+  v2.9.2:
+    en:
+      - '[feature] Support prop: showCancelButton showConfirmButton #2795'
+    zh-CN:
+      - '[feature] 支持 prop: showCancelButton showConfirmButton #2795'
+  v2.9.1:
+    en:
+      - '[feature] add isVisible function for ConfirmPlugin #2704'
+    zh-CN:
+      - '[feature] 添加 isVisible 获取当前显示状态 #2704'
+  v2.9.0:
+    en:
+      - '[fix] fix inputAttrs issue with no-default-value #2618'
+      - '[fix] fix focus auto-blur issue #2610'
+    zh-CN:
+      - '[fix] 修复 inputAttrs 无默认值导致的报错 #2618'
+      - '[fix] 修复输入框获取焦点后又失去焦点 #2610'
   v2.8.0:
     en:
       - '[fix] fix hard to move cursor'
