@@ -1,17 +1,25 @@
 <template>
-  <i :class="[className, isMsg ? 'weui-icon_msg' : '']"></i>
+  <i :class="className"></i>
 </template>
 
 <script>
 export default {
   name: 'icon',
   props: {
-    type: String,
+    type: {
+      type: String,
+      required: true
+    },
     isMsg: Boolean
   },
   computed: {
     className () { // compatible with old type param
-      return `weui-icon weui_icon_${this.type} weui-icon-${this.type.replace(/_/g, '-')}`
+      return {
+        'weui-icon': true,
+        [` weui_icon_${this.type}`]: true,
+        [`weui-icon-${this.type.replace(/_/g, '-')}`]: true,
+        'weui-icon_msg': !!this.isMsg
+      }
     }
   }
 }
