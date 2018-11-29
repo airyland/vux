@@ -21,18 +21,22 @@ export default {
     InlineDesc
   },
   computed: {
+    parent () {
+      const {$parent} = this
+      return $parent || {}
+    },
     labelStyle () {
       let isHTML = /<\/?[^>]*>/.test(this.title)
       let width = Math.min(isHTML ? 5 : (this.title.length + 1), 14) + 'em'
       return cleanStyle({
         display: 'block',
-        width: this.$parent.labelWidth || width,
-        textAlign: this.$parent.labelAlign
+        width: this.parent.labelWidth || width,
+        textAlign: this.parent.labelAlign
       })
     },
     labelClass () {
       return {
-        'vux-cell-justify': this.$parent && this.$parent.labelAlign === 'justify'
+        'vux-cell-justify': this.parent.labelAlign === 'justify'
       }
     }
   },
