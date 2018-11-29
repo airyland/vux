@@ -32,10 +32,11 @@ export default {
   computed: {
     style () {
       let styles = {}
-      let marginName = this.$parent.orient === 'horizontal' ? 'marginLeft' : 'marginTop'
+      const {$parent = {}} = this
+      let marginName = $parent.orient === 'horizontal' ? 'marginLeft' : 'marginTop'
 
-      if (this.$parent.gutter * 1 !== 0) {
-        styles[marginName] = `${this.$parent.gutter}px`
+      if ($parent.gutter * 1 !== 0) {
+        styles[marginName] = `${$parent.gutter}px`
       }
 
       if (this.span) {
