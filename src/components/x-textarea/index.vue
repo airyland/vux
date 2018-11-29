@@ -144,7 +144,7 @@ export default {
       }
     },
     labelStyles () {
-      const {$parent = {}} = this;
+      const {$parent = {}} = this
       return {
         width: $parent.labelWidth || (this.labelWidth + 'em'),
         textAlign: $parent.labelAlign,
