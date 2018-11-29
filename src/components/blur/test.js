@@ -5,7 +5,11 @@ import { expect } from 'chai'
 
 describe('Blur', () => {
   it('basic', () => {
-    const wrapper = mount(Comp)
+    const wrapper = mount(Comp, {
+      propsData: {
+        url: 'https://www.baidu.com'
+      }
+    })
     expect(wrapper.name()).to.equal('blur')
   })
 })

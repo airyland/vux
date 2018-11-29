@@ -5,7 +5,11 @@ import { expect } from 'chai'
 
 describe('Calendar', () => {
   it('basic', () => {
-    const wrapper = mount(Comp)
+    const wrapper = mount(Comp, {
+      propsData: {
+        title: 'title'
+      }
+    })
     expect(wrapper.name()).to.equal('calendar')
   })
 })

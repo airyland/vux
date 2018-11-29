@@ -5,7 +5,11 @@ import { expect } from 'chai'
 
 describe('ColorPicker', () => {
   it('basic', () => {
-    const wrapper = mount(Comp)
+    const wrapper = mount(Comp, {
+      propsData: {
+        colors: '#fff'
+      }
+    })
     expect(wrapper.name()).to.equal('color-picker')
   })
 })
