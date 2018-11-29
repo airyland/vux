@@ -111,6 +111,7 @@ export default {
       return false
     },
     labelClass () {
+      if (!this.$parent) return {}
       return {
         'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
       }

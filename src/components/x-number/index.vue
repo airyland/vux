@@ -78,6 +78,7 @@ export default {
       return typeof this.max === 'undefined' ? false : (this.currentValue === '' ? true : this.currentValue >= this.max)
     },
     labelClass () {
+      if (!this.$parent) return {}
       return {
         'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
       }

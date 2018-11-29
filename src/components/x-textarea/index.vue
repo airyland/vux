@@ -144,16 +144,18 @@ export default {
       }
     },
     labelStyles () {
+      const {$parent = {}} = this;
       return {
-        width: this.$parent.labelWidth || (this.labelWidth + 'em'),
-        textAlign: this.$parent.labelAlign,
-        marginRight: this.$parent.labelMarginRight
+        width: $parent.labelWidth || (this.labelWidth + 'em'),
+        textAlign: $parent.labelAlign,
+        marginRight: $parent.labelMarginRight
       }
     },
     labelWidth () {
       return this.title.replace(/[^x00-xff]/g, '00').length / 2 + 1
     },
     labelClass () {
+      if (!this.$parent) return {}
       return {
         'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
       }

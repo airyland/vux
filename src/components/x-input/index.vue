@@ -276,15 +276,16 @@ export default {
   },
   computed: {
     labelStyles () {
+      const {$parent = {}} = this
       return {
-        width: this.labelWidthComputed || this.$parent.labelWidth || this.labelWidthComputed,
-        textAlign: this.$parent.labelAlign,
-        marginRight: this.$parent.labelMarginRight
+        width: this.labelWidthComputed || $parent.labelWidth || this.labelWidthComputed,
+        textAlign: $parent.labelAlign,
+        marginRight: $parent.labelMarginRight
       }
     },
     labelClass () {
       return {
-        'vux-cell-justify': this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify'
+        'vux-cell-justify': this.$parent && (this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify')
       }
     },
     pattern () {
