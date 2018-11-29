@@ -154,8 +154,9 @@ export default {
       }
     },
     labelClass () {
+      if (!this.$parent) return {}
       return {
-        'vux-cell-justify': this.$parent && (this.$parent.labelAlign === 'justify' || this.$parent.$parent.labelAlign === 'justify')
+        'vux-cell-justify': this.$parent.labelAlign === 'justify' || (this.$parent.$parent && this.$parent.$parent.labelAlign === 'justify')
       }
     }
   },
