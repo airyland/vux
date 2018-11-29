@@ -5,7 +5,9 @@
 * Licensed under the MIT License.
 * https://raw.github.com/zynga/scroller/master/MIT-LICENSE.txt
 */
-
+import Animate from './animate'
+import { getElement, getComputedStyle, easeOutCubic, easeInOutCubic } from './util'
+import passiveSupported from '../../libs/passive_supported'
 const isBrowser = typeof window === 'object'
 
 const TEMPLATE = `
@@ -15,10 +17,6 @@ const TEMPLATE = `
   <div class="scroller-content" data-role="content"></div>
 </div>
 `
-
-const Animate = require('./animate')
-const { getElement, getComputedStyle, easeOutCubic, easeInOutCubic } = require('./util')
-const passiveSupported = require('../../libs/passive_supported')
 
 const getDpr = function () {
   let dpr = 1

@@ -1,4 +1,4 @@
-const passiveSupported = require('../../libs/passive_supported')
+import passiveSupported from '../../libs/passive_supported'
 const isBrowser = typeof window === 'object'
 
 // not a good way but works well

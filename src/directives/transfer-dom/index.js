@@ -1,6 +1,6 @@
 // Thanks to: https://github.com/calebroseland/vue-dom-portal
 
-const objectAssign = require('object-assign')
+import objectAssign from 'object-assign'
 /**
  * Get target DOM Node
  * @param {(Node|string|Boolean)} [node=document.body] DOM Node, CSS selector, or Boolean

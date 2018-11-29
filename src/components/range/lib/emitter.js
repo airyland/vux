@@ -3,7 +3,7 @@
  * Expose `Emitter`.
  */
 
-module.exports = Emitter
+export default Emitter
 
 /**
  * Initialize a new `Emitter`.

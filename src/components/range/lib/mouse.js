@@ -3,14 +3,14 @@
  * dependencies.
  */
 
-var emitter = require('./emitter')
-var event = require('./event')
+import emitter from './emitter'
+import event from './event'
 
 /**
  * export `Mouse`
  */
 
-module.exports = function (el, obj) {
+export default function (el, obj) {
   return new Mouse(el, obj)
 }
 

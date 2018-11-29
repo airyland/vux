@@ -21,7 +21,7 @@
 </template>
 
 <script>
-const Big = require('big.js')
+import Big from 'big.js'
 export default {
   name: 'x-number',
   props: {

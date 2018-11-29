@@ -2,13 +2,13 @@
  * Module Dependencies
  */
 
-var matches = require('./matches-selector')
+import matches from './matches-selector'
 
 /**
  * Export `closest`
  */
 
-module.exports = closest
+export default closest
 
 /**
  * Closest
