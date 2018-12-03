@@ -119,6 +119,7 @@ props:
   input-attrs:
     version: v2.5.7
     type: Object
+    default: {type: 'text'}
     en: input attributes
     zh-CN: input 属性
   mask-z-index:
