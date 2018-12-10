@@ -374,7 +374,8 @@ export default {
       this.$emit('on-blur', this.currentValue, $event)
     },
     onKeyUp (e) {
-      if (e.key === 'Enter') {
+			const keyCode = e.keyCode || e.which
+			if (keyCode === 13) {
         e.target.blur()
         this.$emit('on-enter', this.currentValue, e)
       }

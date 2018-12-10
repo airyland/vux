@@ -151,6 +151,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+    en:
+      - '[fix] fix can't match enter in onKeyUp in some browsers #3028'
+    en:
+      - '[fix] 修复在某些浏览器中 onKeyUp 方法中对 enter 键判断不兼容的问题 #3028'
   v2.9.2:
     en:
       - '[fix] fix corsor misplce when set mask #2810'
