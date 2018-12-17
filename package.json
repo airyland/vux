@@ -1,9 +1,10 @@
 {
-  "name": "vux",
+  "name": "vux-logwire",
   "version": "2.9.2",
   "main": "index.js",
-  "description": "Mobile web UI based on Vue and WeUI",
+  "description": "Mobile web UI based on Vue and WeUI for local test",
   "keywords": [
+    "vux-logwire",
     "vux",
     "vue",
     "vue ui",
@@ -16,10 +17,10 @@
     "framework",
     "frontend"
   ],
-  "author": "airyland <airyland@qq.com>",
+  "author": "prasino <foozhenzhen@163.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airyland/vux"
+    "url": "https://github.com/Prasinooo/vux"
   },
   "license": "MIT",
   "scripts": {

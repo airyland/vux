@@ -374,6 +374,7 @@ export default {
       this.$emit('on-blur', this.currentValue, $event)
     },
     onKeyUp (e) {
+      alert(`e.keyCode:${e.keyCode}, e.which: ${e.which}`)
       const keyCode = e.keyCode || e.which
       if (keyCode === 13) {
         this.$emit('on-enter', this.currentValue, e)
