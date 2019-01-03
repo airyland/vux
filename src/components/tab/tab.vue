@@ -67,13 +67,13 @@ export default {
   computed: {
     barLeft () {
       if (this.hasReady) {
-        const count = this.scrollable ? (window.innerWidth / this.$children[this.currentIndex || 0].$el.getBoundingClientRect().width) : this.number
+        const count = this.scrollable ? (this.$el.getBoundingClientRect().width / this.$children[this.currentIndex || 0].$el.getBoundingClientRect().width) : this.number
         return `${this.currentIndex * (100 / count)}%`
       }
     },
     barRight () {
       if (this.hasReady) {
-        const count = this.scrollable ? (window.innerWidth / this.$children[this.currentIndex || 0].$el.getBoundingClientRect().width) : this.number
+        const count = this.scrollable ? (this.$el.getBoundingClientRect().width / this.$children[this.currentIndex || 0].$el.getBoundingClientRect().width) : this.number
         return `${(count - this.currentIndex - 1) * (100 / count)}%`
       }
     },
