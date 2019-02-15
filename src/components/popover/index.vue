@@ -6,7 +6,6 @@
     </span>
     <div
       class="vux-popover"
-      :class="popover-class"
       v-transfer-dom
       ref="popover"
       :style="popoverStyle"
