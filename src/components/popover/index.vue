@@ -48,7 +48,7 @@ export default {
     },
     popoverStyle: {
       type: Object,
-      default() {
+      default () {
         return {}
       }
     }
