@@ -114,7 +114,7 @@ export default {
         top: 0,
         left: 0
       },
-      show: true,
+      show: true
     }
   },
   computed: {
