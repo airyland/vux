@@ -6,6 +6,7 @@
     </span>
     <div
       class="vux-popover"
+      :class="popover-class"
       v-transfer-dom
       ref="popover"
       :style="popoverStyle"
@@ -45,6 +46,12 @@ export default {
     gutter: {
       type: Number,
       default: 5
+    },
+    popoverStyle: {
+      type: Object,
+      default() {
+        return {}
+      }
     }
   },
   methods: {
@@ -109,7 +116,6 @@ export default {
         left: 0
       },
       show: true,
-      popoverStyle: {}
     }
   },
   computed: {
