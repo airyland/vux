@@ -57,9 +57,10 @@
         v-for="item in results"
         @click="handleResultClick(item)">
         <div class="weui-cell__bd weui-cell_primary">
-          <p>{{item.title}}</p>
+          <slot name="item" :item="item"><p>{{item.title}}</p></slot>
         </div>
       </div>
+      <slot name="bottom"></slot>
     </div>
   </div>
 </template>
