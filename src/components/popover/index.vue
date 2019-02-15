@@ -86,11 +86,11 @@ export default {
         this.show = false
       }
 
-      this.popoverStyle = {
+      Object.assign(this.popoverStyle, {
         top: this.position.top + 'px',
         left: this.position.left + 'px',
         display: isReset ? this.popoverStyle.display : 'none'
-      }
+      })
     },
     onClickedOutside () {
       if (this.show) {
