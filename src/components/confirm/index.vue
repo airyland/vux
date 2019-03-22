@@ -122,7 +122,7 @@ export default {
           this.msg = ''
           const str = navigator.userAgent.toLowerCase()
           const isIOS = str.match(/cpu iphone os (.*?) like mac os/)
-          if(!isIOS || parseInt(isIOS[1])< 11){//非IOS系统及IOS版本小于11
+          if (!isIOS || parseInt(isIOS[1]) < 11) { // 非IOS系统及IOS版本小于11
             setTimeout(() => {
               if (this.$refs.input) {
                 this.setInputFocus()
