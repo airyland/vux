@@ -25,7 +25,7 @@ const locale = function (options = {}) {
         return this.defaultLocal
       }
 
-      return navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage)
+      return navigator.languages && navigator.languages.length ? navigator.languages[0] : (navigator.language || navigator.userLanguage)
     },
     set: function (locale) {
       if (this.storageList.indexOf('cookie') > -1) {
