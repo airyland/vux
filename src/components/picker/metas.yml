@@ -144,7 +144,7 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
-  next:
+  2.9.3:
     en:
       - '[fix] "fix Uncaught TypeError: Cannot assign to read only property 'exports' of object '#'" bug #3386'
     zh-CN:

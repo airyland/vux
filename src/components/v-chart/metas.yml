@@ -12,7 +12,7 @@ description: |
   组件部分属性可能未列出，可以直接参考 [F2文档](https://antv.alipay.com/zh-cn/f2/3.x/api/index.html)
 
 changes:
-  next:
+  2.9.3:
     en:
       - '[enhance] v-point can set size and shape, v-line can set shape'
     zh-CN:
