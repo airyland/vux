@@ -45,9 +45,9 @@
     </div>
     <div class="summary">
       <div class="summary-inner" style="left:190px;">
-        <a class="juejin" title="赞助商" href=" https://juejin.im/welcome/frontend?utm_source=vuxdoc&utm_medium=banner&utm_content=fe&utm_campaign=q4_website" target="_blank">
+        <!-- <a class="juejin" title="赞助商" href=" https://juejin.im/welcome/frontend?utm_source=vuxdoc&utm_medium=banner&utm_content=fe&utm_campaign=q4_website" target="_blank">
          <img src="http://ww1.sinaimg.cn/large/663d3650gy1fx6hv6iiizj20nc0b40ud.jpg">
-        </a>
+        </a> -->
 
         <div v-show="!isComponentPage" v-for="chapter in summary" :data-category="currentCategory" class="chapter">
           <p class="chapter-title">{{chapter.title}}</p>
