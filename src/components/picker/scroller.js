@@ -25,7 +25,7 @@ const {
 } = require('./util')
 const passiveSupported = require('../../libs/passive_supported')
 
-const getDpr = function() {
+const getDpr = function () {
   let dpr = 1
   if (isBrowser) {
     if (window.VUX_CONFIG && window.VUX_CONFIG.$picker && window.VUX_CONFIG.$picker.respectHtmlDataDpr) {
@@ -35,7 +35,7 @@ const getDpr = function() {
   return dpr
 }
 
-const Scroller = function(container, options) {
+const Scroller = function (container, options) {
   const self = this
 
   self.dpr = getDpr()
@@ -44,7 +44,7 @@ const Scroller = function(container, options) {
 
   self.options = {
     itemClass: 'scroller-item',
-    onSelect() {},
+    onSelect () {},
     defaultValue: 0,
     data: []
   }
@@ -67,13 +67,13 @@ const Scroller = function(container, options) {
   var data = self.options.data
   var html = ''
   if (data.length && data[0].constructor === Object) {
-    data.forEach(function(row) {
+    data.forEach(function (row) {
       html += '<div class="' + self.options.itemClass + '" data-value=' + JSON.stringify({
         value: encodeURI(row.value)
       }) + '>' + row.name + '</div>'
     })
   } else {
-    data.forEach(function(val) {
+    data.forEach(function (val) {
       html += '<div class="' + self.options.itemClass + '" data-value=' + JSON.stringify({
         value: encodeURI(val)
       }) + '>' + val + '</div>'
@@ -85,7 +85,7 @@ const Scroller = function(container, options) {
 
   self.__itemHeight = parseFloat(getComputedStyle(indicator, 'height'), 10)
 
-  self.__callback = options.callback || function(top) {
+  self.__callback = options.callback || function (top) {
     const distance = -top * self.dpr
     content.style.webkitTransform = 'translate3d(0, ' + distance + 'px, 0)'
     content.style.transform = 'translate3d(0, ' + distance + 'px, 0)'
@@ -102,7 +102,7 @@ const Scroller = function(container, options) {
   }
   self.select(self.options.defaultValue, false)
 
-  const touchStartHandler = function(e) {
+  const touchStartHandler = function (e) {
     if (e.target.tagName.match(/input|textarea|select/i)) {
       return
     }
@@ -110,11 +110,11 @@ const Scroller = function(container, options) {
     self.__doTouchStart(e, e.timeStamp)
   }
 
-  const touchMoveHandler = function(e) {
+  const touchMoveHandler = function (e) {
     self.__doTouchMove(e, e.timeStamp)
   }
 
-  const touchEndHandler = function(e) {
+  const touchEndHandler = function (e) {
     self.__doTouchEnd(e.timeStamp)
   }
 
@@ -160,7 +160,7 @@ var members = {
   __maxDecelerationScrollTop: null,
   __decelerationVelocityY: null,
 
-  __setDimensions(clientHeight, contentHeight) {
+  __setDimensions (clientHeight, contentHeight) {
     var self = this
 
     self.__clientHeight = clientHeight
@@ -173,7 +173,7 @@ var members = {
     self.__maxScrollTop = self.__minScrollTop + totalItemCount * self.__itemHeight - 0.1
   },
 
-  selectByIndex(index, animate) {
+  selectByIndex (index, animate) {
     var self = this
     if (index < 0 || index > self.__content.childElementCount - 1) {
       return
@@ -185,7 +185,7 @@ var members = {
     self.__selectItem(self.__content.children[index])
   },
 
-  select(value, animate) {
+  select (value, animate) {
     var self = this
 
     var children = self.__content.children
@@ -199,11 +199,11 @@ var members = {
     self.selectByIndex(0, animate)
   },
 
-  getValue() {
+  getValue () {
     return this.value
   },
 
-  scrollTo(top, animate) {
+  scrollTo (top, animate) {
     var self = this
 
     animate = (animate === undefined) ? true : animate
@@ -224,11 +224,11 @@ var members = {
     self.__publish(top, 250)
   },
 
-  destroy() {
+  destroy () {
     this.__component.parentNode && this.__component.parentNode.removeChild(this.__component)
   },
 
-  __selectItem(selectedItem) {
+  __selectItem (selectedItem) {
     var self = this
 
     var selectedItemClass = self.options.itemClass + '-selected'
@@ -245,7 +245,7 @@ var members = {
     self.value = decodeURI(JSON.parse(selectedItem.dataset.value).value)
   },
 
-  __scrollingComplete() {
+  __scrollingComplete () {
     var self = this
 
     var index = Math.round((self.__scrollTop - self.__minScrollTop - self.__itemHeight / 2) / self.__itemHeight)
@@ -257,7 +257,7 @@ var members = {
     }
   },
 
-  __doTouchStart(ev, timeStamp) {
+  __doTouchStart (ev, timeStamp) {
     const touches = ev.touches
     const self = this
     const target = ev.touches ? ev.touches[0] : ev
@@ -308,7 +308,7 @@ var members = {
     self.__positions = []
   },
 
-  __doTouchMove(ev, timeStamp, scale) {
+  __doTouchMove (ev, timeStamp, scale) {
     const self = this
     const touches = ev.touches
     const target = ev.touches ? ev.touches[0] : ev
@@ -396,7 +396,7 @@ var members = {
     self.__lastScale = scale
   },
 
-  __doTouchEnd(timeStamp) {
+  __doTouchEnd (timeStamp) {
     var self = this
 
     if (timeStamp instanceof Date) {
@@ -464,7 +464,7 @@ var members = {
   },
 
   // Applies the scroll position to the content element
-  __publish(top, animationDuration) {
+  __publish (top, animationDuration) {
     var self = this
 
     // Remember whether we had an animation, then we try to continue based on the current "drive" of the animation
@@ -481,7 +481,7 @@ var members = {
       var oldTop = self.__scrollTop
       var diffTop = top - oldTop
 
-      var step = function(percent, now, render) {
+      var step = function (percent, now, render) {
         self.__scrollTop = oldTop + (diffTop * percent)
         // Push values out
         if (self.__callback) {
@@ -489,11 +489,11 @@ var members = {
         }
       }
 
-      var verify = function(id) {
+      var verify = function (id) {
         return self.__isAnimating === id
       }
 
-      var completed = function(renderedFramesPerSecond, animationId, wasFinished) {
+      var completed = function (renderedFramesPerSecond, animationId, wasFinished) {
         if (animationId === self.__isAnimating) {
           self.__isAnimating = false
         }
@@ -514,14 +514,14 @@ var members = {
   },
 
   // Called when a touch sequence end and the speed of the finger was high enough to switch into deceleration mode.
-  __startDeceleration(timeStamp) {
+  __startDeceleration (timeStamp) {
     var self = this
 
     self.__minDecelerationScrollTop = self.__minScrollTop
     self.__maxDecelerationScrollTop = self.__maxScrollTop
 
     // Wrap class method
-    var step = function(percent, now, render) {
+    var step = function (percent, now, render) {
       self.__stepThroughDeceleration(render)
     }
 
@@ -530,7 +530,7 @@ var members = {
 
     // Detect whether it's still worth to continue animating steps
     // If we are already slow enough to not being user perceivable anymore, we stop the whole process here.
-    var verify = function() {
+    var verify = function () {
       var shouldContinue = Math.abs(self.__decelerationVelocityY) >= minVelocityToKeepDecelerating
       if (!shouldContinue) {
         self.__didDecelerationComplete = true
@@ -538,7 +538,7 @@ var members = {
       return shouldContinue
     }
 
-    var completed = function(renderedFramesPerSecond, animationId, wasFinished) {
+    var completed = function (renderedFramesPerSecond, animationId, wasFinished) {
       self.__isDecelerating = false
       if (self.__scrollTop <= self.__minScrollTop || self.__scrollTop >= self.__maxScrollTop) {
         self.scrollTo(self.__scrollTop)
@@ -554,7 +554,7 @@ var members = {
   },
 
   // Called on every step of the animation
-  __stepThroughDeceleration(render) {
+  __stepThroughDeceleration (render) {
     var self = this
 
     var scrollTop = self.__scrollTop + self.__decelerationVelocityY
