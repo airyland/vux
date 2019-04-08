@@ -1,5 +1,4 @@
 module.exports = {
-  runtimeCompiler: true,
   configureWebpack: config => {
   	require('@vux/loader').merge(config, {
   	  	plugins: ['vux-ui', {
