@@ -1,4 +1,4 @@
-const time = Date.now || function() {
+const time = Date.now || function () {
   return +new Date()
 }
 
@@ -12,8 +12,8 @@ let millisecondsPerSecond = 1000
 
 // requestAnimationFrame polyfill by Erik Möller
 // fixes from Paul Irish and Tino Zijdel
-if (typeof window !== 'undefined') {;
-  (function() {
+if (typeof window !== 'undefined') {
+  ;(function () {
     var lastTime = 0
     var vendors = ['ms', 'moz', 'webkit', 'o']
     for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
@@ -22,19 +22,18 @@ if (typeof window !== 'undefined') {;
     }
 
     if (!window.requestAnimationFrame) {
-      window.requestAnimationFrame = function(callback, element) {
+      window.requestAnimationFrame = function (callback, element) {
         var currTime = new Date().getTime()
         var timeToCall = Math.max(0, 16 - (currTime - lastTime))
-        var id = window.setTimeout(function() {
-            callback(currTime + timeToCall)
-          },
-          timeToCall)
+        var id = window.setTimeout(function () {
+          callback(currTime + timeToCall)
+        }, timeToCall)
         lastTime = currTime + timeToCall
         return id
       }
     }
     if (!window.cancelAnimationFrame) {
-      window.cancelAnimationFrame = function(id) {
+      window.cancelAnimationFrame = function (id) {
         clearTimeout(id)
       }
     }
@@ -44,17 +43,17 @@ if (typeof window !== 'undefined') {;
 export default {
 
   // A requestAnimationFrame wrapper / polyfill.
-  requestAnimationFrame: (function() {
+  requestAnimationFrame: (function () {
     if (typeof window !== 'undefined') {
       var requestFrame = window.requestAnimationFrame
-      return function(callback, root) {
+      return function (callback, root) {
         requestFrame(callback, root)
       }
     }
   })(),
 
   // Stops the given animation.
-  stop(id) {
+  stop (id) {
     var cleared = running[id] != null
     if (cleared) {
       running[id] = null
@@ -63,12 +62,12 @@ export default {
   },
 
   // Whether the given animation is still running.
-  isRunning(id) {
+  isRunning (id) {
     return running[id] != null
   },
 
   // Start the animation.
-  start(stepCallback, verifyCallback, completedCallback, duration, easingMethod, root) {
+  start (stepCallback, verifyCallback, completedCallback, duration, easingMethod, root) {
     var _this = this
     var start = time()
     var lastFrame = start
@@ -76,9 +75,9 @@ export default {
     var dropCounter = 0
     var id = counter++
 
-      if (!root) {
-        root = document.body
-      }
+    if (!root) {
+      root = document.body
+    }
 
     // Compacting running db automatically every few new animations
     if (id % 20 === 0) {
@@ -90,7 +89,7 @@ export default {
     }
 
     // This is the internal step method which is called every few milliseconds
-    var step = function(virtual) {
+    var step = function (virtual) {
       // Normalize virtual value
       var render = virtual !== true
       // Get current time
