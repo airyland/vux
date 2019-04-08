@@ -3,6 +3,7 @@ demo/
 dist/
 docs/
 node_modules/
+packages/
 examples/
 test/
 /src/*.vue
