@@ -10,7 +10,7 @@
  * @api public
  */
 
-exports.bind = function (el, type, fn, capture) {
+const bind = function (el, type, fn, capture) {
   var bind = window.addEventListener ? 'addEventListener' : 'attachEvent'
   var prefix = bind !== 'addEventListener' ? 'on' : ''
   el[bind](prefix + type, fn, capture || false)
@@ -28,10 +28,14 @@ exports.bind = function (el, type, fn, capture) {
  * @api public
  */
 
-exports.unbind = function (el, type, fn, capture) {
+const unbind = function (el, type, fn, capture) {
   var bind = window.addEventListener ? 'addEventListener' : 'attachEvent'
   var prefix = bind !== 'addEventListener' ? 'on' : ''
   var unbind = window.removeEventListener ? 'removeEventListener' : 'detachEvent'
   el[unbind](prefix + type, fn, capture || false)
   return fn
+}
+export default {
+  bind,
+  unbind
 }

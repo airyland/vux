@@ -24,7 +24,7 @@
 <script>
 import { Cell, Group, Badge, Divider } from 'vux'
 
-const pkg = require('../../package.json')
+import pkg from '../../package.json'
 const version = pkg.version
 const vueVersion = pkg.devDependencies.vue
 

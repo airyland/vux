@@ -1,10 +1,10 @@
 /*
- * Anima Scroller
- * Based Zynga Scroller (http://github.com/zynga/scroller)
- * Copyright 2011, Zynga Inc.
- * Licensed under the MIT License.
- * https://raw.github.com/zynga/scroller/master/MIT-LICENSE.txt
- */
+* Anima Scroller
+* Based Zynga Scroller (http://github.com/zynga/scroller)
+* Copyright 2011, Zynga Inc.
+* Licensed under the MIT License.
+* https://raw.github.com/zynga/scroller/master/MIT-LICENSE.txt
+*/
 
 const isBrowser = typeof window === 'object'
 
@@ -17,13 +17,13 @@ const TEMPLATE = `
 `
 
 import Animate from './animate'
-const {
+import {
   getElement,
   getComputedStyle,
   easeOutCubic,
   easeInOutCubic
-} = require('./util')
-const passiveSupported = require('../../libs/passive_supported')
+} from './util'
+import passiveSupported from '../../libs/passive_supported'
 
 const getDpr = function () {
   let dpr = 1

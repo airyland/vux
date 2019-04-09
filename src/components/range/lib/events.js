@@ -2,14 +2,14 @@
  * Module dependencies.
  */
 
-var events = require('./event')
-var delegate = require('./delegate')
+import events from './event'
+import {bind} from './delegate'
 
 /**
  * Expose `Events`.
  */
 
-module.exports = Events
+export default Events
 
 /**
  * Initialize an `Events` with the given
@@ -81,7 +81,7 @@ Events.prototype.bind = function (event, method) {
 
   // bind
   if (e.selector) {
-    cb = delegate.bind(el, e.selector, name, cb)
+    cb = bind(el, e.selector, name, cb)
   } else {
     events.bind(el, name, cb)
   }

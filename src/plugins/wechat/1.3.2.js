@@ -363,7 +363,6 @@ let wx
             }
           }, e))
         },
-        getLocation: function (e) {},
         previewImage: function (e) {
           i(h.previewImage, {
             current: e.current,
