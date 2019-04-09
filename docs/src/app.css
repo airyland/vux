@@ -273,7 +273,7 @@ tr.slot-disabled {
   border-right: 1px solid #E6E6E6
 }
 .summary-inner {
-  padding-top: 105px;
+  padding-top: 15px;
   height: 100vh;
   width: 205px;
   box-sizing: border-box;
@@ -297,7 +297,6 @@ tr.slot-disabled {
 }
 .header-nav {
   position: fixed;
-  left: 355px;
   top: 0;
   background-color: #fff;
   z-index: 888;

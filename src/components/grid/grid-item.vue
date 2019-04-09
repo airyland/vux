@@ -25,7 +25,7 @@ import { go } from '../../libs/router'
 
 export default {
   name: 'grid-item',
-  props: ['icon', 'label', 'link'],
+  props: ['icon', 'label', 'link', 'disabled'],
   created () {
     this.$parent.countColumn()
   },
@@ -52,8 +52,10 @@ export default {
   },
   methods: {
     onClick () {
-      this.$emit('on-item-click')
-      go(this.link, this.$router)
+      if (!this.disabled && !this.$parent.disabled) {
+        this.$emit('on-item-click')
+        go(this.link, this.$router)
+      }
     }
   },
   data () {
