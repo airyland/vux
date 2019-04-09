@@ -38,6 +38,10 @@ export default {
     showVerticalDividers: {
       type: Boolean,
       default: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
