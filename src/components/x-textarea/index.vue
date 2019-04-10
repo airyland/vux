@@ -115,8 +115,17 @@ export default {
       this.currentValue = val
     },
     currentValue (newVal) {
-      if (this.max && newVal && newVal.length > this.max) {
-        this.currentValue = newVal.slice(0, this.max)
+      if (this.max && newVal) {
+        let len = newVal.replace(/\n/g, 'aa').length
+        if (len > this.max) {
+          let newLines = newVal.match(/\n/g).length
+          this.currentValue = newVal.slice(0, this.max - newLines)
+          this.$nextTick(() => {
+            if (this.autosize) {
+              this.updateAutosize()
+            }
+          })
+        }
       }
       this.$emit('input', this.currentValue)
       this.$emit('on-change', this.currentValue)
