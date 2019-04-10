@@ -537,6 +537,7 @@ export default {
       }
     },
     currentValue (newVal, oldVal) {
+      let selection = null
       if (!this.equalWith && newVal) {
         this.validateEqual()
       }
@@ -548,11 +549,13 @@ export default {
       } else {
         this.validate()
       }
-
-      let selection = this.$refs.input.selectionStart
-      let direction = newVal.length - oldVal.length
-      selection = this._getInputMaskSelection(selection, direction, this.maskValue(newVal))
-      this.lastDirection = direction
+      // #2960
+      try {
+        selection = this.$refs.input.selectionStart
+        let direction = newVal.length - oldVal.length
+        selection = this._getInputMaskSelection(selection, direction, this.maskValue(newVal))
+        this.lastDirection = direction
+      } catch (e) {}
       this.$emit('input', this.maskValue(newVal))
       // #2810
       this.$nextTick(() => {
