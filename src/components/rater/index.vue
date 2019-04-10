@@ -11,7 +11,7 @@
 export default {
   name: 'rater',
   created () {
-    this.currentValue = parseInt(this.value)
+    this.currentValue = parseFloat(this.value)
   },
   mounted () {
     this.updateStyle()
