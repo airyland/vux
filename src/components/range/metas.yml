@@ -50,7 +50,7 @@ props:
     type: Number
     en: opacity value when is disabled
     zh-CN: 禁用样式的透明度
-  rangeBarHeight:
+  range-bar-height:
     type: Number
     default: 1
     en: range bar's height
