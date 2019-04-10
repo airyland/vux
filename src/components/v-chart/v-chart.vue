@@ -447,6 +447,9 @@ export default {
           rs.size(seriesField || '', size)
         }
       }
+
+      // 在渲染前执触发on-render使之可以做自定义设置
+      this.$emit('on-render', { chart })
       chart.render()
       this.chart = chart
     }
