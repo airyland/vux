@@ -310,7 +310,7 @@ export default {
   updated () {
     this.reset()
   },
-  beforeDestroy () {
+  destroyed () {
     if (this.pullup) {
       this._xscroll.unplug(this.pullup)
       this.pullup.pluginDestructor()

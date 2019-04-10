@@ -74,7 +74,7 @@ methods:
     en: get full value including all the props(if option items are object)
     zh-CN: 获取当前完整值，在使用了 valueMap 里可以用该方法来获取当前选中值的原始对象
 changes:
-  next:
+  2.9.3:
     en:
       - '[fix] fix the chinese bracket show error when direction=rtl #2864'
     zh-CN:

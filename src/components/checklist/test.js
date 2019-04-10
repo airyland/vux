@@ -5,7 +5,11 @@ import { expect } from 'chai'
 
 describe('Checklist', () => {
   it('basic', () => {
-    const wrapper = mount(Comp)
+    const wrapper = mount(Comp, {
+      propsData: {
+        options: []
+      }
+    })
     expect(wrapper.name()).to.equal('checklist')
   })
 })

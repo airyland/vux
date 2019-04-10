@@ -1,7 +1,7 @@
-const { findClosest, getWidth, percentage } = require('./utils')
-const classes = require('./lib/classes')
-const mouse = require('./lib/mouse')
-const events = require('./lib/events')
+import { findClosest, getWidth, percentage } from './utils'
+import classes from './lib/classes'
+import mouse from './lib/mouse'
+import events from './lib/events'
 
 function Horizontal (element, options) {
   this.element = element

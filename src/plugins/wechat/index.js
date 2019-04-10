@@ -1,4 +1,4 @@
-const wx = require('./1.3.2.js').wx
+import { wx } from './1.3.2.js'
 
 const plugin = {
   install (Vue) {

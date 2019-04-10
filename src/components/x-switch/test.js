@@ -5,7 +5,11 @@ import { expect } from 'chai'
 
 describe('XSwitch', () => {
   it('basic', () => {
-    const wrapper = mount(Comp)
+    const wrapper = mount(Comp, {
+      propsData: {
+        title: 'XSwitch'
+      }
+    })
     expect(wrapper.name()).to.equal('x-switch')
   })
 })

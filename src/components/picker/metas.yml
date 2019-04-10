@@ -149,6 +149,11 @@ changes:
       - '[fix] Fix chain mode get value is wrong when quickly scroll multiple children.'
     zh-CN:
       - '[fix] 修复多级联动模式下，快速滚动多个项，取值不正确'
+  2.9.3:
+    en:
+      - '[fix] "fix Uncaught TypeError: Cannot assign to read only property 'exports' of object '#'" bug #3386'
+    zh-CN:
+      - '[fix] 修复 "fix Uncaught TypeError: Cannot assign to read only property 'exports' of object '#'" bug #3386'
   v2.9.0:
     en:
       - '[enhance] show warning when picker value is not a string #2568'

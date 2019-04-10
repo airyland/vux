@@ -1,0 +1,1 @@
+module.exports = 'this should be a function';

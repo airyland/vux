@@ -59,6 +59,10 @@ function escapedRegExp (str) {
 function strftime (offsetObject) {
   return function (format) {
     var directives = format.match(/%(-|!)?[A-Z]{1}(:[^]+)?/gi)
+    var d2h = false
+    if (directives.indexOf('%D') < 0 && directives.indexOf('%H') >= 0) {
+      d2h = true
+    }
     if (directives) {
       for (var i = 0, len = directives.length; i < len; ++i) {
         var directive = directives[i].match(/%(-|!)?([a-zA-Z]{1})(:[^]+)?/)
@@ -66,12 +70,16 @@ function strftime (offsetObject) {
         var modifier = directive[1] || ''
         var plural = directive[3] || ''
         var value = null
+        var key = null
         // Get the key
         directive = directive[2]
         // Swap shot-versions directives
         if (DIRECTIVE_KEY_MAP.hasOwnProperty(directive)) {
-          value = DIRECTIVE_KEY_MAP[directive]
-          value = Number(offsetObject[value])
+          key = DIRECTIVE_KEY_MAP[directive]
+          value = Number(offsetObject[key])
+          if (key === 'hours' && d2h) {
+            value += Number(offsetObject['days']) * 24
+          }
         }
         if (value !== null) {
           // Pluralize

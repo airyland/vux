@@ -1,8 +1,7 @@
 /**
  * Module dependencies.
  */
-
-const index = require('../utils').indexof
+import { indexof } from '../utils'
 
 /**
  * Whitespace regexp.
@@ -24,7 +23,7 @@ var toString = Object.prototype.toString
  * @api public
  */
 
-module.exports = function (el) {
+export default function (el) {
   return new ClassList(el)
 }
 
@@ -60,7 +59,7 @@ ClassList.prototype.add = function (name) {
 
   // fallback
   var arr = this.array()
-  var i = index(arr, name)
+  var i = indexof(arr, name)
   if (!~i) arr.push(name)
   this.el.className = arr.join(' ')
   return this
@@ -89,7 +88,7 @@ ClassList.prototype.remove = function (name) {
 
   // fallback
   var arr = this.array()
-  var i = index(arr, name)
+  var i = indexof(arr, name)
   if (~i) arr.splice(i, 1)
   this.el.className = arr.join(' ')
   return this
@@ -183,5 +182,5 @@ ClassList.prototype.has =
 ClassList.prototype.contains = function (name) {
   return this.list
     ? this.list.contains(name)
-    : !!~index(this.array(), name)
+    : !!~indexof(this.array(), name)
 }

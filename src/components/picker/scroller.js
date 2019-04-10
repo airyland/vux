@@ -16,9 +16,14 @@ const TEMPLATE = `
 </div>
 `
 
-const Animate = require('./animate')
-const { getElement, getComputedStyle, easeOutCubic, easeInOutCubic } = require('./util')
-const passiveSupported = require('../../libs/passive_supported')
+import Animate from './animate'
+import {
+  getElement,
+  getComputedStyle,
+  easeOutCubic,
+  easeInOutCubic
+} from './util'
+import passiveSupported from '../../libs/passive_supported'
 
 const getDpr = function () {
   let dpr = 1
@@ -65,11 +70,15 @@ const Scroller = function (container, options) {
   var html = ''
   if (data.length && data[0].constructor === Object) {
     data.forEach(function (row) {
-      html += '<div class="' + self.options.itemClass + '" data-value=' + JSON.stringify({value: encodeURI(row.value)}) + '>' + row.name + '</div>'
+      html += '<div class="' + self.options.itemClass + '" data-value=' + JSON.stringify({
+        value: encodeURI(row.value)
+      }) + '>' + row.name + '</div>'
     })
   } else {
     data.forEach(function (val) {
-      html += '<div class="' + self.options.itemClass + '" data-value=' + JSON.stringify({value: encodeURI(val)}) + '>' + val + '</div>'
+      html += '<div class="' + self.options.itemClass + '" data-value=' + JSON.stringify({
+        value: encodeURI(val)
+      }) + '>' + val + '</div>'
     })
   }
   content.innerHTML = html
@@ -111,8 +120,12 @@ const Scroller = function (container, options) {
     self.__doTouchEnd(e.timeStamp)
   }
 
-  const willPreventDefault = passiveSupported ? {passive: false} : false
-  const willNotPreventDefault = passiveSupported ? {passive: true} : false
+  const willPreventDefault = passiveSupported ? {
+    passive: false
+  } : false
+  const willNotPreventDefault = passiveSupported ? {
+    passive: true
+  } : false
 
   component.addEventListener('touchstart', touchStartHandler, willPreventDefault)
   component.addEventListener('mousedown', touchStartHandler, willPreventDefault)

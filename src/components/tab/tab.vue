@@ -81,7 +81,7 @@ export default {
     innerBarStyle () {
       return {
         width: typeof this.customBarWidth === 'function' ? this.customBarWidth(this.currentIndex) : this.customBarWidth,
-        backgroundColor: this.barActiveColor || this.activeColor
+        background: this.barActiveColor || this.activeColor
       }
     },
     // end
@@ -94,9 +94,9 @@ export default {
         transition: !this.hasReady ? 'none' : null
       }
       if (!this.customBarWidth) {
-        commonStyle.backgroundColor = this.barActiveColor || this.activeColor
+        commonStyle.background = this.barActiveColor || this.activeColor
       } else {
-        commonStyle.backgroundColor = 'transparent' // when=prop:custom-bar-width
+        commonStyle.background = 'transparent' // when=prop:custom-bar-width
       }
       return commonStyle
     },

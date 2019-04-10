@@ -2,8 +2,8 @@
  * Module dependencies.
  */
 
-var closest = require('./closest')
-var event = require('./event')
+import closest from './closest'
+import event from './event'
 
 /**
  * Delegate event `type` to `selector`
@@ -19,7 +19,7 @@ var event = require('./event')
  * @api public
  */
 
-exports.bind = function (el, selector, type, fn, capture) {
+export const bind = function (el, selector, type, fn, capture) {
   return event.bind(el, type, function (e) {
     var target = e.target || e.srcElement
     e.delegateTarget = closest(target, selector, true, el)
@@ -37,6 +37,6 @@ exports.bind = function (el, selector, type, fn, capture) {
  * @api public
  */
 
-exports.unbind = function (el, type, fn, capture) {
+export const unbind = function (el, type, fn, capture) {
   event.unbind(el, type, fn, capture)
 }
