@@ -69,6 +69,15 @@
     <br/>
     <br/>
     <br/>
+    <divider>not full width</divider>
+    <tab style="width: 80%;">
+      <tab-item>已发货</tab-item>
+      <tab-item selected>未发货</tab-item>
+      <tab-item>全部订单</tab-item>
+    </tab>
+    <br/>
+    <br/>
+    <br/>
     <divider>disabled</divider>
     <tab>
       <tab-item selected>A</tab-item>
