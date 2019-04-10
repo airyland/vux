@@ -128,7 +128,7 @@ methods:
     version: v2.5.10
     en: go to previous image
     zh-CN: 跳转到上一张
-  v2.9.1:
+  next:
     version: v2.5.10
     en: go to next image
     zh-CN: 跳转到下一张
