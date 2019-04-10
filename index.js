@@ -76,6 +76,7 @@ import InlineXNumber from './src/components/inline-x-number/index.vue'
 import InlineXSwitch from './src/components/inline-x-switch/index.vue'
 import InviewDirective from './src/directives/inview/index.js'
 import Loading from './src/components/loading/index.vue'
+import LoadingModule from './src/plugins/loading/module'
 import LoadingPlugin from './src/plugins/loading/index.js'
 import LoadMore from './src/components/load-more/index.vue'
 import LocalePlugin from './src/plugins/locale/index.js'
@@ -238,6 +239,7 @@ export {
   InlineXSwitch,
   InviewDirective,
   Loading,
+  LoadingModule,
   LoadingPlugin,
   LoadMore,
   LocalePlugin,
