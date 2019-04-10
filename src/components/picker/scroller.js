@@ -38,6 +38,8 @@ const getDpr = function () {
 const Scroller = function (container, options) {
   const self = this
 
+  self.isDestroy = false
+
   self.dpr = getDpr()
 
   options = options || {}
@@ -225,6 +227,7 @@ var members = {
   },
 
   destroy () {
+    this.isDestroy = true
     this.__component.parentNode && this.__component.parentNode.removeChild(this.__component)
   },
 
@@ -252,7 +255,7 @@ var members = {
 
     self.__selectItem(self.__content.children[index])
 
-    if (self.__prevValue !== null && self.__prevValue !== self.value) {
+    if (self.__prevValue !== null && self.__prevValue !== self.value && !self.isDestroy) {
       self.options.onSelect(self.value)
     }
   },
