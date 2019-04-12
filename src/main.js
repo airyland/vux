@@ -195,7 +195,7 @@ router.beforeEach(function (to, from, next) {
   }
 
   // 判断是否是ios左滑返回 或者 右滑前进
-  if (!isPush && (((Date.now() - endTime) < 377) || isTouchStart)) {
+  if (toIndex && toIndex !== '0' && !isPush && (((Date.now() - endTime) < 377) || isTouchStart)) {
     store.commit('updateDirection', {direction: ''})
   } else {
     store.commit('updateDirection', { direction: direction })
