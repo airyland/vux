@@ -144,7 +144,7 @@ methods:
     en: get labels of current value
     zh-CN: 根据 value 获取字面值
 changes:
-  next:
+  v2.9.4:
     en:
       - '[fix] Fix chain mode get value is wrong when quickly scroll multiple children.'
     zh-CN:
