@@ -96,7 +96,6 @@ module.exports.merge = function (oldConfig, vuxConfig) {
     loader: path.resolve(__dirname, './i18n-loader')
   })
 
-
   let variables = {}
 
   oldConfig = Object.assign({
@@ -440,7 +439,7 @@ module.exports.merge = function (oldConfig, vuxConfig) {
    */
   config.module[loaderKey].forEach(function (rule) {
     if (Array.isArray(rule.use)) {
-      if (rule.use.filter(one => one.loader === 'babel-loader')) {
+      if (rule.use.filter(one => one.loader === 'babel-loader').length) {
         rule.use.push({
           loader: jsLoader
         })
@@ -481,8 +480,6 @@ module.exports.merge = function (oldConfig, vuxConfig) {
       })
     }
   })
-
-
 
   /**
    * ======== set compiling vux js source ========
