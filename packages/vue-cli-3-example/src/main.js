@@ -4,7 +4,6 @@ import router from './router'
 import store from './store'
 
 import { AlertPlugin } from 'vux'
-console.log(AlertPlugin)
 
 Vue.use(AlertPlugin)
 
