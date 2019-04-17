@@ -22,7 +22,7 @@
 //   schema: ['candle']
 // }
 
-import F2 from '@antv/f2'
+import F2 from '@antv/f2/lib/index-all'
 
 export default {
   props: {
@@ -67,6 +67,8 @@ export default {
 
       barOptions: null,
 
+      labellinePieOptions: null,
+
       pieOptions: null,
 
       guideOptions: null,
@@ -78,6 +80,8 @@ export default {
 
       guides: [],
 
+      pieLabels: [],
+
       seriesField: '',
 
       xAxisOptions: null,
@@ -88,7 +92,7 @@ export default {
   },
   computed: {
     currentData () {
-      if (this.pieOptions) {
+      if (this.pieOptions || this.labellinePieOptions) {
         return this.data.slice().map(item => {
           item.a = '1'
           return item
@@ -161,6 +165,9 @@ export default {
     addGuide (options) {
       this.guides.push(options)
     },
+    addPielabel (options) {
+      this.pieLabels.push(options)
+    },
     setScale (options) {
       if (options.x) {
         this.xFieldOptions = options.x
@@ -190,6 +197,9 @@ export default {
         })
       }
       return color
+    },
+    setLabellinePie (options = {}) {
+      this.labellinePieOptions = options
     },
     setPie (options = {}) {
       this.pieOptions = options
@@ -373,6 +383,14 @@ export default {
         })
       }
 
+      if (this.pieLabels.length) {
+        this.pieLabels.forEach(pieLabel => {
+          chart.pieLabel(
+            pieLabel.options
+          )
+        })
+      }
+
       if (this.areaOptions) {
         const { adjust, seriesField } = this.areaOptions
         let color = this.buildColor(this.areaOptions.colors)
@@ -409,25 +427,37 @@ export default {
         }
       })
 
+      if (this.labellinePieOptions) {
+        chart.coord(this.labellinePieOptions.coord, this.labellinePieOptions)
+        chart.axis(false)
+        chart.legend(false)
+        chart.tooltip(false)
+        chart.interval().position('a*percent').color(this.labellinePieOptions.seriesField,
+          (this.labellinePieOptions.colors && this.labellinePieOptions.colors.length)
+            ? this.labellinePieOptions.colors
+            : '').adjust('stack')
+      }
+
       if (this.pieOptions) {
         chart.coord(this.pieOptions.coord, this.pieOptions)
         chart.axis(false)
         chart.interval()
-        .position('a*percent')
-        .color(this.pieOptions.seriesField, (this.pieOptions.colors && this.pieOptions.colors.length) ? this.pieOptions.colors : '')
-        .adjust('stack')
-        .style({
-          lineWidth: 1,
-          stroke: '#fff',
-          lineJoin: 'round',
-          lineCap: 'round'
-        })
-        .animate({
-          appear: {
-            duration: 1200,
-            easing: 'bounceOut'
-          }
-        })
+          .position('a*percent')
+          .color(this.pieOptions.seriesField,
+            (this.pieOptions.colors && this.pieOptions.colors.length) ? this.pieOptions.colors : '')
+          .adjust('stack')
+          .style({
+            lineWidth: 1,
+            stroke: '#fff',
+            lineJoin: 'round',
+            lineCap: 'round'
+          })
+          .animate({
+            appear: {
+              duration: 1200,
+              easing: 'bounceOut'
+            }
+          })
       }
 
       if (this.pointOptions) {
@@ -469,11 +499,12 @@ export default {
 <style lang="css">
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                   supported by Chrome and Opera */
 }
 </style>
