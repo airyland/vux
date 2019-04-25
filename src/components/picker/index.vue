@@ -187,6 +187,8 @@ export default {
               this.render(this.currentData, val)
             })
           }
+        } else {
+          this.render(this.currentData, [])
         }
       } else {
         if (val.length) {

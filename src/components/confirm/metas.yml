@@ -31,14 +31,12 @@ extra: |
 
   ``` js
   // 显示
-  const _this = this // 需要注意 onCancel 和 onConfirm 的 this 指向
   this.$vux.confirm.show({
     // 组件除show外的属性
-    onCancel () {
-      console.log(this) // 非当前 vm
-      console.log(_this) // 当前 vm
+    onCancel : () => {
+      console.log(this) //当前 vm
     },
-    onConfirm () {}
+    onConfirm : () => {}
   })
 
   // 隐藏
@@ -46,8 +44,8 @@ extra: |
 
   // prompt形式调用
   this.$vux.confirm.prompt('placeholder', {
-    onCancel () {}
-    onConfirm () {}
+    onCancel : () => {}
+    onConfirm : () =>{}
   })
 
   // 设置输入值
@@ -119,6 +117,7 @@ props:
   input-attrs:
     version: v2.5.7
     type: Object
+    default: {type: 'text'}
     en: input attributes
     zh-CN: input 属性
   mask-z-index:

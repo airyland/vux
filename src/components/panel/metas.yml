@@ -29,6 +29,15 @@ events:
   on-click-footer:
     en: emits when clicking footer
     zh-CN: 点击尾部时触发
+slots:
+  header:
+    version: v2.7.5
+    zh-CN: 头部位置
+    en: header
+  body:
+    version: v2.7.5
+    zh-CN: 主体内容部分
+    en: the main body part
 changes:
   v2.7.9:
     en:

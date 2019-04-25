@@ -1004,10 +1004,10 @@
   resolved "http://registry.npm.taobao.org/@vue/web-component-wrapper/download/@vue/web-component-wrapper-1.2.0.tgz#bb0e46f1585a7e289b4ee6067dcc5a6ae62f1dd1"
   integrity sha1-uw5G8VhafiibTuYGfcxaauYvHdE=
 
-"@vux/loader@2.0.0-rc2":
-  version "2.0.0-rc2"
-  resolved "http://registry.npm.taobao.org/@vux/loader/download/@vux/loader-2.0.0-rc2.tgz#06bade9758486f226af91eb6e931e14972a99d72"
-  integrity sha1-Brrel1hIbyJq+R626THhSXKpnXI=
+"@vux/loader@^2.0.0-rc4":
+  version "2.0.0-rc4"
+  resolved "http://registry.npm.taobao.org/@vux/loader/download/@vux/loader-2.0.0-rc4.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2F%40vux%2Floader%2Fdownload%2F%40vux%2Floader-2.0.0-rc4.tgz#e4d2412ec658ff789bfda3b2c035b9960bdada30"
+  integrity sha1-5NJBLsZY/3ib/aOywDW5lgva2jA=
   dependencies:
     "@babel/core" "^7.4.3"
     acorn "^5.1.2"

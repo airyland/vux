@@ -56,22 +56,25 @@ export default {
     init (isReset) {
       const trigger = this.$refs.trigger.children[0]
       const popover = this.$refs.popover
+      const scrollTop = window.pageYOffset ||
+                    document.documentElement.scrollTop ||
+                    document.body.scrollTop
       switch (this.placement) {
         case 'top' :
           this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2
-          this.position.top = trigger.getBoundingClientRect().top - popover.offsetHeight - this.gutter
+          this.position.top = scrollTop + trigger.getBoundingClientRect().top - popover.offsetHeight - this.gutter
           break
         case 'left':
           this.position.left = trigger.offsetLeft - popover.offsetWidth - this.gutter
-          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - popover.offsetHeight / 2
+          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - popover.offsetHeight / 2
           break
         case 'right':
           this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.gutter
-          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - popover.offsetHeight / 2
+          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - popover.offsetHeight / 2
           break
         case 'bottom':
           this.position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2
-          this.position.top = trigger.getBoundingClientRect().top + trigger.offsetHeight + this.gutter
+          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight + this.gutter
           break
         default:
           console.warn('Wrong placement prop')

@@ -142,19 +142,21 @@ export default {
       this.init(index)
     },
     getCurrentIndex () {
-      return this.photoswipe.getCurrentIndex()
+      if (this.photoswipe) {
+        return this.photoswipe.getCurrentIndex()
+      }
     },
     close () {
-      this.photoswipe.close()
+      this.photoswipe && this.photoswipe.close()
     },
     goTo (index) {
-      this.photoswipe.goTo(index)
+      this.photoswipe && this.photoswipe.goTo(index)
     },
     prev () {
-      this.photoswipe.prev()
+      this.photoswipe && this.photoswipe.prev()
     },
     next () {
-      this.photoswipe.next()
+      this.photoswipe && this.photoswipe.next()
     }
   },
   props: {

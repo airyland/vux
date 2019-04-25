@@ -28,7 +28,7 @@
       <button class="btn btn-default">{{ $t('Popover on right') }}</button>
     </popover>
 
-    <div style="position:fixed;bottom:50px;text-align:center;width:100%;">
+    <div style="position:fixed;bottom:100px;text-align:center;width:100%;">
       <p>fixed element</p>
       <popover placement="right" style="margin: 20px;">
         <div slot="content" class="popover-demo-content">
@@ -37,6 +37,14 @@
         <button class="btn btn-default">{{ $t('Popover on right') }}</button>
       </popover>
     </div>
+    <p style="padding-top:500px">
+      <popover placement="top" style="margin: 20px;" @on-show="onShow" @on-hide="onHide">
+        <div slot="content" class="popover-demo-content">
+          hello world
+        </div>
+      <button class="btn btn-default">{{ $t('Popover with scroll height') }}</button>
+      </popover>
+    </p>
   </div>
 </template>
 
@@ -49,6 +57,8 @@ Popover on left:
   zh-CN: 左边出现
 Popover on right:
   zh-CN: 右边出现
+Popover with scroll height:
+  zh-CN: 滚动条
 </i18n>
 
 <script>

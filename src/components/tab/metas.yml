@@ -112,6 +112,11 @@ tab-item:
       en: emits when current tabItem is clicked
       zh-CN: 当前 tabItem 被点击时触发
 changes:
+  v2.9.4:
+    en:
+      - '[fix] tab  #2850'
+    zh-CN:
+      - '[change] 修复 tab的父级width没有100%或者有padding 滚动造成文字跟横杠错位问题 #2850'
   v2.9.1:
     en:
       - '[fix] fix box-sizing issue #2621. thanks to @suncodeer'

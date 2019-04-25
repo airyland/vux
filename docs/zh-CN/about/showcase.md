@@ -22,3 +22,4 @@ title: VUX 使用案例
 <img src="https://ws1.sinaimg.cn/large/663d3650gy1fpmuvjf5x6j208c08c74f.jpg" width="150">
 <img src="https://common-1251785959.cosbj.myqcloud.com/mdachu.jpg" width="150">
 <img src="https://img.yw0511.com/others/1528080310.png" width="150" alt="原味生活">
+<img src="http://images.wumakeji.com/niuxiaoyun/1528080310.jpg" width="150" alt="牛小云">
