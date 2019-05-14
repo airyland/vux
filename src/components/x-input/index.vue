@@ -41,6 +41,8 @@
       v-if="type === 'number'"
       class="weui-input"
       :maxlength="max"
+      :oninput="'if(value.length>' + this.max + ')value=value.slice(0,' + this.max + ')'"
+      onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))"
       :autocomplete="autocomplete"
       :autocapitalize="autocapitalize"
       :autocorrect="autocorrect"

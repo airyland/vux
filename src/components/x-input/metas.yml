@@ -151,6 +151,11 @@ methods:
     en: reset input value and clear errors
     zh-CN: 重置输入框值，清除错误信息
 changes:
+  next:
+  en:
+    - '[fix] Max restricts the longest input character when type is number'
+  zh-CN:
+    - '[enhance] type 为 number 时使 max 限制最长输入字符'
   v2.9.2:
     en:
       - '[fix] fix corsor misplce when set mask #2810'
