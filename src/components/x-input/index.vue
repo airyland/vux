@@ -364,11 +364,11 @@ export default {
       this.isFocus = true
       // this.scrollIntoView(500)
       // this.scrollIntoView(5000)
-      setTimeout(() => {
-        // 因为有1秒的延迟，如果切换了页面，input已经不存在，所以加个判断
-        !this.$refs.input || this.$refs.input.scrollIntoViewIfNeeded(false)
-        // this.$refs.input.scrollIntoViewIfNeeded()
-      }, 1000)
+      // setTimeout(() => {
+      //   // 因为有1秒的延迟，如果切换了页面，input已经不存在，所以加个判断
+      //   !this.$refs.input || this.$refs.input.scrollIntoViewIfNeeded(false)
+      //   // this.$refs.input.scrollIntoViewIfNeeded()
+      // }, 1000)
       // $event.target.
     },
     onBlur ($event) {
