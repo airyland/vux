@@ -46,7 +46,7 @@ props:
     type: Boolean
     default: false
     en: if is required
-    zh-CN: 是否必值，如果不禁用验证，当没有填写时会在右侧显示错误icon
+    zh-CN: 是否必填，如果不禁用验证，当没有填写时会在右侧显示错误icon
   title:
     en: label text
     zh-CN: label文字
