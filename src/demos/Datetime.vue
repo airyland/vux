@@ -61,6 +61,10 @@
       <datetime title="noon" v-model="noonValue" format="YYYY-MM-DD A"></datetime>
     </group>
 
+    <group title="custom noon">
+      <datetime title="custom noon" v-model="customNoonValue" :noon-list="[{name:'上午',value:'上午'}, {name:'下午',value:'下午'},{name:'晚上',value:'晚上'}]" format="YYYY-MM-DD A"></datetime>
+    </group>
+
     <group :title="$t('Placeholder')">
       <datetime v-model="value3" default-selected-value="2017-06-18 13" format="YYYY-MM-DD HH" :placeholder="$t('Please select')" @on-change="change" :title="$t('Start time')"></datetime>
     </group>
@@ -205,6 +209,7 @@ export default {
   data () {
     return {
       noonValue: '2018-04-13 PM',
+      customNoonValue: '2018-04-13 下午',
       readonly: true,
       minuteListValue: '2017-06-12 09:00',
       hourListValue: '2017-06-12 09:00',

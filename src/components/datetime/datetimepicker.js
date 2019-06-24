@@ -51,6 +51,7 @@ const DEFAULT_CONFIG = {
   minHour: 0,
   maxHour: 23,
   hourList: null,
+  noonList: null,
   minuteList: null,
   startDate: null,
   endDate: null,
@@ -389,6 +390,10 @@ DatetimePicker.prototype = {
         name: '下午',
         value: 'PM'
       })
+
+      if (this.config.noonList) {
+        data = this.config.noonList
+      }
     }
 
     if (type === 'hour' && this.config.hourList) {
