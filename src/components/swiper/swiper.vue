@@ -84,7 +84,8 @@ export default {
         duration: this.duration,
         height: this.height || this._height,
         minMovingDistance: this.minMovingDistance,
-        imgList: this.imgList
+        imgList: this.imgList,
+        touchable: this.touchable
       })
       .on('swiped', (prev, index) => {
         this.current = index % this.length
@@ -173,6 +174,10 @@ export default {
     value: {
       type: Number,
       default: 0
+    },
+    touchable: {
+      type:Boolean,
+      default: true
     }
   },
   data () {

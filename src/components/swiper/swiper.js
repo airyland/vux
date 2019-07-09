@@ -12,6 +12,7 @@ class Swiper {
       duration: 300,
       auto: false,
       loop: false,
+      touchable: true,
       interval: 3000,
       height: 'auto',
       minMovingDistance: 0
@@ -141,12 +142,14 @@ class Swiper {
   _bind () {
     const me = this
     me.touchstartHandler = (e) => {
+      if (!this._options.touchable) return;
       me.stop()
       me._start.x = e.changedTouches[0].pageX
       me._start.y = e.changedTouches[0].pageY
       me._setTransition('none')
     }
     me.touchmoveHandler = (e) => {
+      if (!this._options.touchable) return;
       if (me.count === 1) {
         return
       }
@@ -171,6 +174,7 @@ class Swiper {
     }
 
     me.touchendHandler = (e) => {
+      if (!this._options.touchable) return;
       if (me.count === 1) {
         return
       }
