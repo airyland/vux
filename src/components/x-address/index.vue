@@ -1,7 +1,7 @@
 <template>
   <popup-picker
     :fixed-columns="hideDistrict ? 2 : 0"
-    :columns="3"
+    :columns="columns"
     :data="list"
     :title="title"
     v-model="currentValue"
@@ -54,6 +54,12 @@ export default {
       type: Array,
       default () {
         return []
+      }
+    },
+    columns: {
+      type: Number,
+      default () {
+        return 3
       }
     },
     rawValue: Boolean,
