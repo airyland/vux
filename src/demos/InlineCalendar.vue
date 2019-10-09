@@ -8,7 +8,7 @@
   :show.sync="show"
   v-model="value"
   start-date="2016-04-01"
-  end-date="2018-05-30"
+  :end-date="endDate"
   :range="range"
   :show-last-month="showLastMonth"
   :show-next-month="showNextMonth"
@@ -128,6 +128,7 @@ We can render a list of calendars order by month:
 
 <script>
 import { InlineCalendar, Group, XSwitch, Radio, XButton, Cell, Divider } from 'vux'
+import dayjs from 'dayjs'
 
 export default {
   methods: {
@@ -140,6 +141,7 @@ export default {
   },
   data () {
     return {
+      endDate: dayjs().add(30, 'd').format('YYYY-MM-DD'),
       show: true,
       value: '',
       listValue: '',

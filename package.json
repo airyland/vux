@@ -78,6 +78,7 @@
     "connect-history-api-fallback": "^1.3.0",
     "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
+    "dayjs": "^1.8.16",
     "docute-cli": "^0.4.0",
     "eslint": "^3.14.1",
     "eslint-config-standard": "^6.2.1",
