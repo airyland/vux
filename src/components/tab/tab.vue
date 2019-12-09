@@ -133,11 +133,11 @@ export default {
       }
       const currentIndexTab = this.$children[this.currentIndex].$el
       let count = 0
+      const scrollDuration = 15
       // scroll animation
       const step = () => {
-        const scrollDuration = 15
         const nav = this.$refs.nav
-        nav.scrollLeft += (currentIndexTab.offsetLeft - (nav.offsetWidth - currentIndexTab.offsetWidth) / 2 - nav.scrollLeft) / scrollDuration
+        nav.scrollLeft += (currentIndexTab.offsetLeft - (nav.offsetWidth - currentIndexTab.offsetWidth) / 2 - nav.scrollLeft) / (scrollDuration - count)
         if (++count < scrollDuration) {
           window.requestAnimationFrame(step)
         }
