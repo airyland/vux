@@ -67,7 +67,13 @@
   </a>
 </p>
 
-## WeApp Studio 其他产品
+## 我们的产品
+
+<p align="center">
+  <a href="https://wereader.app?utm_source=vux-github">
+    <img src="https://i.loli.net/2019/12/30/SM4y7mfunjvhWEc.png" width="125">
+  </a>
+</p>
 
 <p align="center">
   <a href="https://werss.app?utm_source=vux-github">
