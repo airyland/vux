@@ -69,6 +69,11 @@ export default {
       })
     }
   },
+  data () {
+    return {
+      isOpen: false
+    }
+  }, 
   watch: {
     imgs (newVal, oldVal) {
       if (!this.photoswipe) {
@@ -82,9 +87,11 @@ export default {
         if (goToIndex > this.photoswipe.items.length - 1) {
           goToIndex = 0
         }
-        this.photoswipe.goTo(goToIndex)
-        this.photoswipe.updateSize(true)
-        this.photoswipe.ui.update()
+        if (this.isOpen) {
+          this.photoswipe.goTo(goToIndex)
+          this.photoswipe.updateSize(true)
+          this.photoswipe.ui.update()
+        }
       } else if (!newVal.length) {
         this.close()
       }
@@ -130,6 +137,7 @@ export default {
 
       this.photoswipe.init()
       this.photoswipe.listen('close', () => {
+        this.isOpen = false
         this.$emit('on-close')
       })
       this.photoswipe.listen('afterChange', (a, b) => {
