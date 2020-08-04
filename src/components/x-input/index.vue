@@ -372,7 +372,12 @@ export default {
     onBlur ($event) {
       this.setTouched()
       this.validate()
-      this.isFocus = false
+      // this.isFocus = false
+      //适配手机端浏览器  微信浏览器点击清除图标按钮无效问题
+      setTimeout(() => {
+        this.isFocus = false
+        this.blur();
+      },0)
       this.$emit('on-blur', this.currentValue, $event)
     },
     onKeyUp (e) {
