@@ -326,7 +326,7 @@ export default {
         // alert('will scroll')
         setTimeout(() => {
           // alert(this.$refs.input.length)
-          this.$refs.input.scrollIntoViewIfNeeded(true)
+          document.activeElement === this.$refs.input && this.$refs.input.scrollIntoViewIfNeeded(true)
         }, time)
       }
     },
