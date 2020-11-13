@@ -95,6 +95,7 @@ export default {
       const touch = ev.touches ? ev.touches[0] : ev
       this.pageX = touch.pageX
       this.pageY = touch.pageY
+      ev.stopPropagation()
     },
     move (ev) {
       if (this.disabled) {
@@ -144,6 +145,7 @@ export default {
         }
         ev.preventDefault()
       }
+      ev.stopPropagation()
     },
     end (ev) {
       if (this.disabled) {
@@ -178,6 +180,7 @@ export default {
 
       this.pageX = this.pageY = this.valid = undefined
       this.direction = ''
+      ev.stopPropagation()
     },
     setOffset (x, animated = false, force) {
       this.isAnimated = animated
