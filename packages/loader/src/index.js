@@ -3,8 +3,6 @@
 const path = require('path')
 const fs = require('fs')
 const merge = require('webpack-merge')
-const utils = require('loader-utils')
-const less = require('less')
 const yaml = require('js-yaml')
 const _ = require('lodash')
 const pkg = require('../package')
@@ -80,6 +78,12 @@ module.exports.merge = function (oldConfig, vuxConfig) {
     loader: path.resolve(__dirname, './template-loader')
   })
 
+  oldConfig.module.rules.push({
+    test: /\.js/,
+    loader: path.resolve(__dirname, './js-loader')
+  })
+
+  // ditto
   oldConfig.module.rules.push({
     resourceQuery: /\.js/,
     loader: path.resolve(__dirname, './js-loader')

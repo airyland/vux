@@ -5,7 +5,7 @@ const fs = require('fs')
 const i18nReplaceForScript = require('../libs/replace-i18n-for-script').replace
 const getI18nBlockWithLocale = require('../libs/get-i18n-block').getWithLocale
 const path = require('path')
-const parser = require('./libs/import-parser-v2')
+// const parser = require('./libs/import-parser-v2')
 
 
 module.exports = function (source) {
@@ -80,11 +80,11 @@ module.exports = function (source) {
     //   })
     //   return str
     // }, 'vux')
-    try {
-      source = parser(source)
-    } catch (e) {
-      console.log(e)
-    }
+    // try {
+    //   source = parser(source)
+    // } catch (e) {
+    //   console.log(e)
+    // }
   }
 
   if (config.options.vuxWriteFile === true) {
