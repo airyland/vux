@@ -114,7 +114,6 @@ export default {
 @import '../../styles/vux-modal.css';
 
 .vux-x-dialog-absolute .weui-dialog {
-  position: absolute;
   top:45%;
   transform: translateY(-50%);
 }
