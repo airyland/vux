@@ -210,7 +210,6 @@ export default {
     if (this._debounce) {
       this._debounce.cancel()
     }
-    window.removeEventListener('resize', this.scrollIntoView)
   },
   mixins: [Base],
   components: {
@@ -312,9 +311,6 @@ export default {
     showWarn () {
       return !this.novalidate && !this.equalWith && !this.valid && this.firstError && (this.touched || this.forceShowError)
     }
-  },
-  mounted () {
-    window.addEventListener('resize', this.scrollIntoView)
   },
   methods: {
     scrollIntoView (time = 0) {
