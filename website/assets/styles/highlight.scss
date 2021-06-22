@@ -1,0 +1,83 @@
+code {
+  position: relative;
+  display: block;
+  padding: 16px;
+  overflow-x: auto;
+  color: $nutui-doc-code-color;
+  font-weight: 400;
+  font-size: 14px;
+  font-family: $nutui-doc-code-font-family;
+  line-height: 26px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  -webkit-font-smoothing: auto;
+  background-color: #fafafa;
+  border-radius: 16px;
+}
+
+pre {
+  margin: 20px 0 0;
+
+  + p {
+    margin-top: 20px;
+  }
+}
+
+.hljs {
+  display: block;
+  padding: 30px;
+  overflow-x: auto;
+  background: #f7f8fa;
+}
+
+.hljs-subst {
+  color: $nutui-doc-code-color;
+}
+
+.hljs-string,
+.hljs-meta,
+.hljs-symbol,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-addition {
+  color: $nutui-doc-green;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #999;
+}
+
+.hljs-params,
+.hljs-keyword,
+.hljs-attribute {
+  color: $nutui-doc-purple;
+}
+
+.hljs-deletion,
+.hljs-variable,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-bullet,
+.hljs-link {
+  color: #eb6f6f;
+}
+
+.hljs-attr,
+.hljs-selector-tag,
+.hljs-title,
+.hljs-section,
+.hljs-built_in,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-strong {
+  color: #4994df;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}

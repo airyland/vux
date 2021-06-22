@@ -1,0 +1,81 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+.weui-cell_switch {
+    padding-top: (@weuiCellHeight - @weuiSwitchHeight) / 2;
+    padding-bottom: (@weuiCellHeight - @weuiSwitchHeight) / 2;
+}
+.weui-switch {
+    appearance: none;
+}
+.weui-switch,
+.weui-switch-cp__box {
+    position: relative;
+    width: 52px;
+    height: @weuiSwitchHeight;
+    border: 2px solid @weuiLineColorLight;
+    outline: 0;
+    border-radius: 16px;
+    box-sizing: border-box;
+    transition: background-color 0.1s, border 0.1s;
+
+    &:before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: 15px;
+        background-color: var(--weui-BG-3);
+        transition: transform 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+    }
+    &:after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: @weuiSwitchHeight - 4;
+        height: @weuiSwitchHeight - 4;
+        border-radius: 15px;
+        background-color: #fff; // 固定色值
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        transition: transform 0.35s cubic-bezier(0.4, 0.4, 0.25, 1.35);
+    }
+}
+.weui-switch:checked,
+.weui-switch-cp__input:checked + .weui-switch-cp__box,
+.weui-switch-cp__input[aria-checked="true"] + .weui-switch-cp__box {
+    border-color: @weuiColorPrimary;
+    background-color: @weuiColorPrimary;
+    &:before {
+        transform: scale(0);
+    }
+    &:after {
+        transform: translateX(20px);
+    }
+}
+
+// 兼容小程序/IE Edge的版本
+.weui-switch-cp__input {
+    position: absolute;
+    left: -9999px;
+}
+.weui-switch-cp__box {
+    display: block;
+}

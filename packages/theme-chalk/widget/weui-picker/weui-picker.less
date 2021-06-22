@@ -1,0 +1,129 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+@pickerItemHeight: 48px;
+.weui-picker {
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    left: 0;
+    bottom: 0;
+    z-index: 5000;
+    background-color: var(--weui-BG-2);
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    backface-visibility: hidden;
+    transform: translate(0, 100%);
+    //slide up animation
+    transition: transform 0.3s;
+}
+
+.weui-picker__hd {
+    display: flex;
+    padding: 16px;
+    padding: 16px calc(16px ~"+ constant(safe-area-inset-right)") 16px calc(16px ~"+ constant(safe-area-inset-left)");
+    padding: 16px calc(16px ~"+ env(safe-area-inset-right)") 16px calc(16px ~"+ env(safe-area-inset-left)");
+    position: relative;
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.4;
+    &:after {
+        .setBottomLine(@weuiLineColorLight);
+    }
+}
+
+.weui-picker__bd {
+    display: flex;
+    position: relative;
+    background-color: var(--weui-BG-2);
+    height: 240px;
+    overflow: hidden;
+}
+
+.weui-picker__group {
+    flex: 1;
+    position: relative;
+    height: 100%;
+    &:first-child {
+        .weui-picker__item {
+            padding-left: constant(safe-area-inset-left);
+            padding-left: env(safe-area-inset-left);
+        }
+    }
+    &:last-child {
+        .weui-picker__item {
+            padding-right: constant(safe-area-inset-right);
+            padding-right: env(safe-area-inset-right);
+        }
+    }
+}
+
+.weui-picker__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    z-index: 3;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+    .dark({
+        background-image: linear-gradient(180deg, rgba(25, 25, 25, 0.95), rgba(25, 25, 25, 0.6)), linear-gradient(0deg, rgba(25, 25, 25, 0.95), rgba(25, 25, 25, 0.6));
+    });
+    
+    background-position: top, bottom;
+    background-size: 100% 92px;
+    background-repeat: no-repeat;
+    transform: translateZ(0);
+}
+
+.weui-picker__indicator {
+    width: 100%;
+    height: 56px;
+    position: absolute;
+    left: 0;
+    top: 92px;
+    z-index: 3;
+    &:before {
+        .setTopLine(@weuiLineColorLight);
+    }
+    &:after {
+        .setBottomLine(@weuiLineColorLight);
+    }
+}
+
+.weui-picker__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.weui-picker__item {
+    height: @pickerItemHeight;
+    line-height: @pickerItemHeight;
+    text-align: center;
+    color: @weuiTextColorTitle;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.weui-picker__item_disabled {
+    color: @weuiTextColorDesc;
+}

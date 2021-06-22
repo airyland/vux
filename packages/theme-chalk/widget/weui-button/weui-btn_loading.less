@@ -1,0 +1,37 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+.weui-btn_loading {
+    .weui-loading {
+        margin: -0.2em 0.34em 0 0;
+    }
+    .weui-primary-loading {
+        margin: -.2em 8px 0 0;
+        vertical-align:middle;
+    }
+    &.weui-btn_primary {
+        background-color: @weuiBtnPrimaryActiveBg;
+        color: var(--weui-WHITE);
+    }
+    &.weui-btn_default {
+        background-color: @weuiBtnDefaultActiveBg;
+    }
+    &.weui-btn_warn {
+        background-color: @weuiBtnWarnActiveBg;
+    }
+}

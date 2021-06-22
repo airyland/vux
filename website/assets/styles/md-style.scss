@@ -1,0 +1,261 @@
+@import 'highlight.scss';
+
+.doc-content-document {
+  position: relative;
+  background: #fff;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 40px;
+  padding-right: 480px;
+  .card {
+    margin-bottom: 24px;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: $nutui-doc-border-radius;
+    box-shadow: 0 8px 12px #ebedf0;
+  }
+
+  a {
+    margin: 0 1px;   
+    color: $nutui-doc-blue;
+    -webkit-font-smoothing: auto;
+
+    &:hover {
+      color: darken($nutui-doc-blue, 10%);
+    }
+
+    &:active {
+      color: darken($nutui-doc-blue, 20%);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $nutui-doc-black;
+    font-weight: bold;
+    line-height: 1.5;
+
+    &[id] {
+      cursor: pointer;
+    }
+  }
+
+  h1 {
+    margin: 0 0 30px;
+    font-size: 30px;
+    cursor: #1a1a1a;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 56px;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -26px;
+      left: 16px;
+      width: 44px;
+      height: 17px;
+      background: url('https://img10.360buyimg.com/imagetools/jfs/t1/136135/19/14659/946/5fa20aa8E33a9aa26/d329fbe669171208.png');
+      background-size: 100% 100%;
+    }
+  }
+
+  h2 {
+    margin: 45px 0 20px;
+    font-size: 24px;
+  }
+
+  h3 {
+    margin: 16px 0px;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  h4 {
+    margin: 24px 0 12px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  h5 {
+    margin: 24px 0 12px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  p {
+    color: $nutui-doc-text-color;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  strong {
+    margin: 24px 0 12px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+  table {
+    width: 100%;
+    margin-top: 12px;
+    color: $nutui-doc-text-color;
+    font-size: 14px;
+    line-height: 1.5;
+    border-collapse: collapse;
+    border: 1px solid #eee;
+    th {
+      padding: 8px 20px;
+      font-weight: 600;
+      text-align: left;
+      border-left: 1px solid #e9e9e9;
+      background-color: #f7f8fa;
+      // &:first-child {
+      //   padding-left: 0;
+      // }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    td {
+      padding: 8px 20px;
+      border-top: 1px solid $nutui-doc-code-background-color;
+      border-left: 1px solid #e9e9e9;
+      &:first-child {
+        // padding-left: 0;
+        border-left: 0px;
+        // version tag
+        code {
+          margin: 0;
+          padding: 2px 6px;
+          color: $nutui-doc-blue;
+          font-weight: 600;
+          font-size: 11px;
+          background-color: fade($nutui-doc-blue, 10%);
+          border-radius: 20px;
+        }
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    em {
+      color: $nutui-doc-green;
+      font-size: 14px;
+      font-family: $nutui-doc-code-font-family;
+      font-style: normal;
+      -webkit-font-smoothing: auto;
+    }
+  }
+
+  ul li,
+  ol li {
+    position: relative;
+    margin: 5px 0 5px 10px;
+    padding-left: 15px;
+    color: $nutui-doc-text-color;
+    font-size: 15px;
+    line-height: 26px;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      width: 6px;
+      height: 6px;
+      margin-top: 10px;
+      border: 1px solid $nutui-doc-dark-grey;
+      border-radius: 50%;
+      content: '';
+    }
+  }
+
+  hr {
+    margin: 30px 0;
+    border: 0 none;
+    border-top: 1px solid #eee;
+  }
+
+  p > code,
+  li > code,
+  table code {
+    display: inline;
+    margin: 0 2px;
+    padding: 2px 5px;
+    font-size: 14px;
+    font-family: inherit;
+    word-break: keep-all;
+    background-color: $nutui-doc-background-color;
+    border-radius: 4px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  p > code {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 24px;
+    overflow: hidden;
+  }
+
+  blockquote {
+    margin: 16px 0px;
+    padding: 16px;
+    background-color: #fff4f0;
+    border-left: 6px solid #fa192c;
+    p {
+      color: #1a1a1a;
+    }
+  }
+
+  img {
+    // width: 100%;
+    // margin: 16px 0;
+    // border-radius: $nutui-doc-border-radius;
+  }
+
+  &--changelog,
+  &--changelog-v3 {
+    strong {
+      display: block;
+      margin: 24px 0 12px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    h3 {
+      + p code {
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+        font-size: 20px;
+      }
+    }
+  }
+  .handle-part {
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .online-btn {
+      display: block;
+      color: #5555e2;
+      background-color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      &:hover {
+        color: blue;
+        text-decoration: underline;
+      }
+    }
+  }
+}

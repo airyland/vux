@@ -1,0 +1,15 @@
+@import 'fn';
+
+body {
+    .varsLight();
+}
+
+@media (prefers-color-scheme: dark) {
+    body:not([data-weui-theme='light']) {
+        .varsDark();
+    }
+}
+
+body[data-weui-theme='dark'] {
+    .varsDark();
+}

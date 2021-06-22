@@ -1,0 +1,108 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+/*
+z-index:
+0: .weui-swiped-btn
+1: .weui-cell_swiped .weui-cell__bd
+2: .weui-cells和.weui-cell的1px线
+*/
+
+.weui-cells {
+    margin-top: @weuiCellsMarginTop;
+    background-color: @weuiCellBg;
+    line-height: @weuiCellLineHeight;
+    font-size: @weuiCellFontSize; //cell中间有效高度23px，跟客户端默认图标尺寸一致
+    overflow: hidden; //因为每个cell的border使用before元素left搞的，ie下伪元素的containing block估计跟标准不同，在cell上用oh不生效
+
+    // onepx
+    position: relative;
+    &:before {
+        .setTopLine(@weuiCellBorderColor);
+
+        z-index: 2;
+    }
+    &:after {
+        .setBottomLine(@weuiCellBorderColor);
+
+        z-index: 2;
+    }
+}
+
+.weui-cells__title {
+    margin-top: 16px;
+    margin-bottom: 3px;
+    padding-left: @weuiCellGapH;
+    padding-right: @weuiCellGapH;
+    color: @weuiTextColorDesc;
+    font-size: @weuiCellTipsFontSize;
+    line-height: 1.4;
+
+    & + .weui-cells {
+        margin-top: 0;
+    }
+}
+
+.weui-cells__tips {
+    margin-top: 8px;
+    color: @weuiTextColorDesc;
+    padding-left: @weuiCellGapH;
+    padding-right: @weuiCellGapH;
+    font-size: @weuiCellTipsFontSize;
+    line-height: 1.4;
+    a,
+    navigator {
+        color: @weuiLinkColorDefault;
+    }
+    navigator {
+        display: inline;
+    }
+}
+
+.weui-cell {
+    padding: @weuiCellGapV;
+    position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+    display: flex;
+    align-items: center;
+    &:before {
+        .setTopLine(@weuiCellBorderColor);
+
+        left: @weuiCellGapH;
+        z-index: 2;
+    }
+    &:first-child {
+        &:before {
+            display: none;
+        }
+    }
+}
+.weui-cell_active {
+    &:active {
+        background-color: @weuiBgColorActive;
+    }
+}
+.weui-cell_primary {
+    align-items: flex-start;
+}
+.weui-cell__bd {
+    flex: 1;
+}
+.weui-cell__ft {
+    text-align: right;
+    color: @weuiTextColorDesc;
+}

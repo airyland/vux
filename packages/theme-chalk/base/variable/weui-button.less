@@ -1,0 +1,60 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+.setColor(--weui-BTN-DISABLED-FONT-COLOR, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
+.setColor(--weui-BTN-DEFAULT-BG, #f2f2f2, rgba(255, 255, 255, 0.08));
+.setColor(--weui-BTN-DEFAULT-COLOR, #06ae56, rgba(255, 255, 255, 0.8));
+.setColor(--weui-BTN-DEFAULT-ACTIVE-BG, overlay(rgba(0, 0, 0, 0.05), #f2f2f2), overlay(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.08)));
+
+@weuiBtnWidth: 184px;
+@weuiBtnHeight: 40px;
+@weuiBtnFontSize: 17px;
+@weuiBtnBorderRadius: 4px;
+@weuiBtnDefaultGap: 16px;
+
+@weuiBtnMiniFontSize: 16px;
+@weuiBtnMiniHeight: 32px;
+
+@weuiBtnCellHeight: 56px;
+@weuiBtnCellGap: 16px;
+@weuiBtnCellLineHeight:unit(((@weuiBtnCellHeight - 2 * @weuiBtnCellGap) / @weuiBtnFontSize));
+
+@weuiBtnFontColor: #fff;
+@weuiBtnDisabledFontColor: var(--weui-BTN-DISABLED-FONT-COLOR);
+@weuiBtnDisabledBg: var(--weui-BTN-DEFAULT-BG);
+
+// default
+@weuiBtnDefaultFontColor: var(--weui-BTN-DEFAULT-COLOR);
+@weuiBtnDefaultDisabledFontColor: @weuiBtnDisabledFontColor;
+@weuiBtnDefaultBg: var(--weui-BTN-DEFAULT-BG);
+@weuiBtnDefaultActiveBg: var(--weui-BTN-DEFAULT-ACTIVE-BG);
+@weuiBtnDefaultDisabledBg: @weuiBtnDisabledBg;
+
+// primary
+@weuiBtnPrimaryFontColor: @weuiBtnFontColor;
+@weuiBtnPrimaryDisabledFontColor: @weuiBtnDisabledFontColor;
+@weuiBtnPrimaryBg: var(--weui-BRAND);
+@weuiBtnPrimaryActiveBg: var(--weui-TAG-TEXT-GREEN);
+@weuiBtnPrimaryDisabledBg: @weuiBtnDisabledBg;
+
+// warn
+@weuiBtnWarnFontColor: @weuiColorWarn;
+@weuiBtnWarnDisabledFontColor: @weuiBtnDisabledFontColor;
+@weuiBtnWarnBg: @weuiBtnDefaultBg;
+@weuiBtnWarnActiveBg: @weuiBtnDefaultActiveBg;
+@weuiBtnwarnDisabledBg: @weuiBtnDefaultDisabledBg;

@@ -1,0 +1,128 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@weuiSearchInputHeight:32px;
+
+@import "../../base/fn";
+.weui-search-bar {
+    position: relative;
+    padding: 8px;
+    display: flex;
+    box-sizing: border-box;
+    background-color: @weuiBgColorDefault;
+    -webkit-text-size-adjust: 100%;
+    align-items: center;
+    &.weui-search-bar_focusing {
+        .weui-search-bar__cancel-btn {
+            display: block;
+        }
+        .weui-search-bar__label {
+            display: none;
+        }
+    }
+
+    .weui-icon-search {
+        width: 16px;
+        height: 16px;
+    }
+}
+.weui-search-bar__form {
+    position: relative;
+    flex: auto;
+    background-color: var(--weui-BG-2);
+    border-radius: 4px;
+}
+.weui-search-bar__box {
+    position: relative;
+    padding-left: 28px;
+    padding-right: 32px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    .weui-search-bar__input {
+        padding: 8px 0;
+        width: 100%;
+        height: unit((@weuiSearchInputHeight - 16px))/14em;
+        border: 0;
+        font-size: 14px;
+        line-height: unit((@weuiSearchInputHeight - 16px))/14em;
+        box-sizing: content-box;
+        background: transparent;
+        caret-color: @weuiColorPrimary;
+        color: @weuiTextColorTitle;
+        &:focus {
+            outline: none;
+        }
+    }
+    .weui-icon-search {
+        position: absolute;
+        top: 50%;
+        left: 8px;
+        margin-top: -8px;
+    }
+    .weui-icon-clear {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -16px;
+        padding: 8px;
+        width: 16px;
+        height: 16px;
+        mask-size: 16px;
+    }
+}
+.weui-search-bar__label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    font-size: 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: @weuiTextColorDesc;
+    background: var(--weui-BG-2);
+    span {
+        display: inline-block;
+        font-size: 14px;
+        vertical-align: middle;
+    }
+    .weui-icon-search {
+        margin-right: 4px;
+    }
+}
+.weui-search-bar__cancel-btn {
+    display: none;
+    margin-left: 8px;
+    line-height: 28px;
+    color: @weuiLinkColorDefault;
+    white-space: nowrap;
+}
+.weui-search-bar__input:not(:valid) + .weui-icon-clear {
+    display: none;
+}
+
+//干掉input[search]默认的clear button
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
