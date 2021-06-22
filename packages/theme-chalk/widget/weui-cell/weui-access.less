@@ -1,0 +1,56 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+.weui-cell_access {
+    .setTapColor();
+
+    color: inherit;
+    &:active {
+        background-color: @weuiBgColorActive;
+    }
+    .weui-cell__ft {
+        padding-right: 22px;
+        position: relative;
+        &:after {
+            content: " ";
+            width: 12px;
+            height: 24px;
+            mask-position: 0 0;
+            mask-repeat: no-repeat;
+            mask-size: 100%;
+            background-color: currentColor;
+            color: @weuiTextColorTips;
+            mask-image: url(data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M2.454%206.58l1.06-1.06%205.78%205.779a.996.996%200%20010%201.413l-5.78%205.779-1.06-1.061%205.425-5.425-5.425-5.424z%22%20fill%3D%22%23B2B2B2%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E);
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-top: -12px;
+        }
+    }
+}
+.weui-cell_link {
+    color: @weuiLinkColorDefault;
+    font-size: 17px;
+
+    // 由于weui-cell:first-child的:before为隐藏，所以这里要重新显示出来
+    &:first-child {
+        &:before {
+            display: block;
+        }
+    }
+}

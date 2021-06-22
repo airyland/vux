@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "target": "ES2019",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": false,
+    "declaration": false,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "outDir": "./es",
+    "types": ["vite/client", "jest"],
+    "paths": {
+      "@/*": ["packages/*"],
+      "@vux/*": ["packages/*"]
+    }
+  },
+  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.tsx", "packages/**/*.vue", "./*.d.ts", "sites/**/*.d.ts"],
+  "exclude": ["node_modules", "packages/**/demo.vue", "packages/utils/**"]
+}

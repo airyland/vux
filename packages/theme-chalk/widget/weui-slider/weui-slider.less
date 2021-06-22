@@ -1,0 +1,63 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+.weui-slider {
+    padding: 15px 18px;
+    user-select: none;
+}
+
+.weui-slider__inner {
+    position: relative;
+    height: 2px;
+    background-color: @weuiLineColorLight;
+}
+
+.weui-slider__track {
+    height: 2px;
+    background-color: @weuiColorPrimary;
+    width: 0;
+}
+
+.weui-slider__handler {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 28px;
+    height: 28px;
+    margin-left: -14px;
+    margin-top: -14px;
+    border-radius: 50%;
+    background-color: #fff; // 固定色值
+    box-shadow: 0 0 4px var(--weui-FG-3);
+}
+
+
+.weui-slider-box {
+    display: flex;
+    align-items: center;
+    .weui-slider {
+        flex: 1;
+    }
+}
+.weui-slider-box__value {
+    margin-left: 0.5em;
+    min-width: 24px;
+    color: @weuiTextColorDesc;
+    text-align: center;
+    font-size: 14px;
+}

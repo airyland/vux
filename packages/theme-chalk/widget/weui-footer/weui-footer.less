@@ -1,0 +1,71 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+.weui-footer {
+    color: @weuiTextColorTips;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+    a,
+    navigator {
+        color: @weuiLinkColorDefault;
+    }
+    navigator {
+        display: inline;
+    }
+}
+.weui-footer_fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-bottom: calc(16px ~"+ constant(safe-area-inset-bottom)");
+    padding-bottom: calc(16px ~"+ env(safe-area-inset-bottom)");
+    left: constant(safe-area-inset-left);
+    left: env(safe-area-inset-left);
+    right: constant(safe-area-inset-right);
+    right: env(safe-area-inset-right);
+}
+.weui-footer__links {
+    font-size: 0;
+}
+.weui-footer__link {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 8px;
+    position: relative;
+    font-size: 14px;
+    &:before {
+        .setLeftLine();
+
+        left: -8px;
+        top: 0.36em;
+        bottom: 0.36em;
+    }
+    &:first-child {
+        &:before {
+            display: none;
+        }
+    }
+}
+.weui-footer__text {
+    padding: 0 16px;
+    font-size: 12px;
+}

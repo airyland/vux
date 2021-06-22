@@ -1,0 +1,118 @@
+{
+  "name": "vux",
+  "build": {
+    "vetur": {
+      "tagPrefix": "vux-"
+    }
+  },
+  "header": [
+    {
+      "name": "guide",
+      "cName": "指南",
+      "path": "/intro"
+    },
+    {
+      "name": "component",
+      "cName": "组件"
+    },
+    {
+      "name": "example",
+      "cName": "示例",
+      "link": "demo.html#/"
+    },
+    {
+      "name": "resource",
+      "cName": "资源",
+      "path": "/resource"
+    }
+  ],
+  "docs": {
+    "name": "指南",
+    "packages": [
+      {
+        "name": "intro",
+        "cName": "介绍",
+        "show": true
+      },
+      {
+        "name": "start",
+        "cName": "快速上手",
+        "show": true
+      },
+      {
+        "name": "theme",
+        "cName": "主题定制",
+        "show": true
+      },
+      {
+        "name": "international",
+        "cName": "国际化",
+        "show": true
+      },
+      {
+        "name": "https://github.com/airyland/vux/commits/v3",
+        "cName": "更新日志",
+        "show": true,
+        "isLink": true
+      }
+    ]
+  },
+  "nav": [
+    {
+      "name": "布局组件",
+      "packages": [
+        {
+          "version": "3.0.0",
+          "name": "Button",
+          "sort": 1,
+          "cName": "按钮",
+          "type": "component",
+          "show": true,
+          "desc": "测试·1",
+          "author": "test"
+        }
+      ]
+    },
+    {
+      "name": "操作反馈",
+      "packages": []
+    },
+    {
+      "name": "基础组件",
+      "packages": [
+        {
+          "version": "3.0.0",
+          "name": "Icon",
+          "type": "component",
+          "cName": "图标",
+          "desc": "基于字体的图标集，可以通过 Icon 组件使用，也可以在其他组件中通过 icon 属性引用",
+          "sort": 1,
+          "show": true,
+          "author": "undefined-design"
+        },
+        {
+          "version": "3.0.0",
+          "name": "Loading",
+          "type": "component",
+          "cName": "加载",
+          "desc": "加载图标，用于表示加载中的过渡状态",
+          "sort": 2,
+          "show": true,
+          "author": "undefined-design"
+        }
+      ]
+    },
+    {
+      "name": "导航组件",
+      "packages": []
+    },
+    {
+      "name": "数据录入",
+      "packages": []
+    },
+    {
+      "name": "业务组件",
+      "packages": []
+    }
+  ]
+}

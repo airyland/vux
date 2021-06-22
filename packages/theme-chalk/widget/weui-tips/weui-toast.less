@@ -1,0 +1,96 @@
+/*
+* Tencent is pleased to support the open source community by making WeUI available.
+* 
+* Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+* 
+* Licensed under the MIT License (the "License"); you may not use this file except in compliance
+* with the License. You may obtain a copy of the License at
+* 
+*       http://opensource.org/licenses/MIT
+* 
+* Unless required by applicable law or agreed to in writing, software distributed under the License is
+* distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+* either express or implied. See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+@import "../../base/fn";
+
+.weui-toast {
+    position: fixed;
+    z-index: 5000;
+    width: 136px;
+    height: 136px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--weui-BG-4);
+    box-sizing:border-box;
+    line-height:1.4;
+}
+.weui-toast_text {
+  height:auto;
+  min-width:152px;
+  max-width:216px;
+  padding:12px 0;
+  .weui-toast__content {
+    font-size:14px;
+  }
+}
+.weui-icon_toast {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-bottom:16px;
+    &.weui-icon-success-no-circle {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    &.weui-icon-warn {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    &.weui-loading {
+      width:36px;
+      height:36px;
+    }
+    &.weui-primary-loading {
+      font-size:40px;
+      color:#EDEDED;
+      &:before{
+        border-width:4px 0 4px 4px;
+      }
+      &:after{
+        border-width:4px 4px 4px 0;
+      }
+      .weui-primary-loading__dot{
+        width:4px;
+        height:4px;
+        border-top-right-radius:4px;
+        border-bottom-right-radius:4px;
+      }
+    }
+}
+
+.weui-toast__content {
+    font-size: 17px;
+    padding:0 12px;
+    .hyphens;
+}
+
+// 多行文本场景
+.weui-toast_text-more{
+  .weui-icon_toast{
+    margin-bottom:12px;
+  }
+  .weui-toast__content{
+    font-size:14px;
+    line-height:1.6;
+  }
+}
+

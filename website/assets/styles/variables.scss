@@ -1,0 +1,111 @@
+// doc
+$doc-default-color: #fa2c19;
+$doc-default-primary-bg: linear-gradient(
+  135deg,
+  rgba(250, 25, 44, 1) 0%,
+  rgba(250, 39, 40, 1) 45%,
+  rgba(250, 56, 31, 1) 83%,
+  rgba(250, 63, 25, 1) 100%
+);
+
+// clolr
+// 红色
+$theme-red: #fa2c19;
+$theme-red-word: #fff;
+$theme-red-border: #fff;
+$theme-red-input: #fff;
+$theme-red-actice: #fff;
+$theme-red-select-border: #f0f2f5;
+$theme-red-select-word: #666;
+$theme-red-select-bg: #fff;
+$theme-red-header-bg: url('../../assets/images/header-bg.png');
+$theme-red-footer-word1: #1a1a1a;
+$theme-red-footer-word2: #666;
+$theme-red-footer-word3: #1d1d21;
+$theme-red-footer-word4: #808080;
+$theme-red-footer-bg: #fff;
+$theme-red-footer-border: #eaf0fb;
+$theme-red-gradient: linear-gradient(
+  135deg,
+  rgba(250, 44, 25, 1) 0%,
+  rgba(250, 63, 25, 1) 45%,
+  rgba(250, 89, 25, 1) 83%,
+  rgba(250, 100, 25, 1) 100%
+);
+// 白色
+$theme-white: #fff;
+$theme-white-word: #1a1a1a;
+$theme-white-input: #ccc;
+$theme-white-border: #d8d8d8;
+$theme-white-actice: #fa2c19;
+$theme-white-select-border: #f0f2f5;
+$theme-white-select-word: #666;
+$theme-white-select-bg: #fff;
+$theme-white-box-border: #f5f5f5;
+$theme-white-footer-word1: #1a1a1a;
+$theme-white-footer-word2: #666;
+$theme-white-footer-word3: #1d1d21;
+$theme-white-footer-word4: #808080;
+$theme-white-footer-hover: #fa2c19;
+$theme-white-footer-bg: #fff;
+$theme-white-footer-border: #eaf0fb;
+$theme-white-theme-border: #f5f6f7;
+$theme-white-circle: #fff;
+$theme-white-circle-border: #e5e5e5;
+$theme-white-index-desc: #959fb1;
+
+// 黑色
+$theme-black-word: #ccc;
+$theme-black-input: #ccc;
+$theme-black-border: #d8d8d8;
+$theme-black-actice: #fff;
+$theme-black-select-bg: #1d1d1d;
+$theme-black-select-border: #c1c1c3;
+$theme-black-select-hover: #797a7b;
+$theme-black-select-word: #fff;
+$theme-black-box-border: #6b5554;
+$theme-black-footer-word1: #fff;
+$theme-black-footer-word2: #f5f5f5;
+$theme-black-footer-word3: #f5f5f5;
+$theme-black-footer-word4: #808080;
+$theme-black-footer-hover: #fa2c19;
+$theme-black-footer-bg: #1d1d21;
+$theme-black-footer-border: transparent;
+$theme-black-theme-border: #666;
+$theme-black-circle: #1a1a1a;
+// header
+$doc-default-header-color: #ffffff;
+$doc-header-height: 64px;
+$doc-header-bg: url('../../assets/images/header-bg.png') no-repeat;
+// nav
+$doc-default-nav-bg: #ffffff;
+// 标题常规文字
+$title-color: #1a1a1a;
+$doc-default-nav-color: #1a1a1a;
+// footer
+// $doc-default-header-color: #ffffff;
+// $doc-footer-height: 73px;
+// home
+$theme-black-content-bg: #060506;
+
+//markdown-add-style
+$nutui-doc-black: #323233;
+$nutui-doc-blue: #1989fa;
+$nutui-doc-purple: #8080ff;
+$nutui-doc-fuchsia: #a7419e;
+$nutui-doc-green: #4fc08d;
+$nutui-doc-text-color: #666666;
+$nutui-doc-text-light-blue: rgba(69, 90, 100, 0.6);
+$nutui-doc-background-color: #f7f8fa;
+$nutui-doc-grey: #999;
+$nutui-doc-dark-grey: #666;
+$nutui-doc-light-grey: #ccc;
+$nutui-doc-border-color: #f1f4f8;
+$nutui-doc-code-color: #58727e;
+$nutui-doc-code-background-color: #f1f4f8;
+$nutui-doc-code-font-family: 'Source Code Pro', 'Monaco', 'Inconsolata',
+  monospace;
+$nutui-doc-padding: 24px;
+$nutui-doc-row-max-width: 1680px;
+$nutui-doc-nav-width: 220px;
+$nutui-doc-border-radius: 20px;

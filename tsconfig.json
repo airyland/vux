@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    // "rootDir": "./packages",
+    "target": "es6",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "noLib": false,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "allowSyntheticDefaultImports": true,
+    "types": ["vite/client", "jest"],
+    "paths": {
+      "@/*": ["packages/*"],
+      "@vux/*": ["packages/*"]
+    }
+  },
+  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.vue", "./*.d.ts", "website/**/*.ts", "website/**/*.d.ts", "website/**/*.vue"],
+  "exclude": ["./node_modules"]
+}
