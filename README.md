@@ -89,8 +89,6 @@
 
 ## Requirements
 
-> 暂未适配 vue-cli@3.x，请注意。
-
 + vue@^2.3.0(for .sync modifier)
 + webpack@^2.0
 + node@^7.6(development)
