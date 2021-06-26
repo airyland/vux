@@ -1,6 +1,6 @@
 {
   "name": "vux",
-  "version": "2.9.4",
+  "version": "2.9.5",
   "main": "index.js",
   "description": "Mobile web UI based on Vue and WeUI",
   "keywords": [
