@@ -3,11 +3,12 @@
     class="vux-x-dialog"
     :class="{'vux-x-dialog-absolute': layout === 'VIEW_BOX'}">
     <transition :name="maskTransition">
-      <div class="weui-mask" @click="hide" v-show="show" :style="maskStyle"></div>
-    </transition>
-    <transition :name="dialogTransition">
-      <div :class="dialogClass" v-show="show" :style="dialogStyle">
-        <slot></slot>
+      <div class="weui-mask" @click="hide" v-show="show" :style="maskStyle">
+        <transition :name="dialogTransition">
+          <div :class="dialogClass" v-show="show" :style="dialogStyle">
+            <slot></slot>
+          </div>
+        </transition>
       </div>
     </transition>
   </div>
@@ -113,8 +114,4 @@ export default {
 @import '../../styles/weui/widget/weui_tips/weui_dialog';
 @import '../../styles/vux-modal.css';
 
-.vux-x-dialog-absolute .weui-dialog {
-  top:45%;
-  transform: translateY(-50%);
-}
 </style>
