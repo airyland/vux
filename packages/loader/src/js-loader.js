@@ -9,7 +9,7 @@ const fs = require('fs')
 
 module.exports = function (source) {
 
-  if (!/\.js$/.test(this.resourcePath)) {
+  if (!/(\.jsx?|\.tsx?|\.vue)$/.test(this.resourcePath) || /node_modules/.test(this.resourcePath)) {
     return source
   }
   
@@ -38,7 +38,7 @@ module.exports = function (source) {
     // }, 'vux')    
   }
 
-  source = parser(source)
+  source = parser(source, this.resourcePath)
 
   if(/** vuxConfig.options.vuxDev && **/ /main\.js/.test(this.resourcePath)) {
     source = source.replace(/!vux\/src/g, '!.')

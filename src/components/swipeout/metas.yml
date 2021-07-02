@@ -31,6 +31,11 @@ swipeout-button:
     width:
       default: 80
       zh-CN: 按钮宽度
+    disabled:
+      type: Boolean
+      default: false
+      en: if disabled
+      zh-CN: 是否禁用
 swipeout-item:
   props:
     sensitivity:
@@ -70,6 +75,11 @@ swipeout-item:
     on-close:
       zh-CN: 菜单完全关闭时触发
 changes:
+  next:
+    en:
+      - '[feature] Add prop:disabled'
+    zh-CN:
+      - '[feature] 添加属性 disabled'
   v2.5.5:
     en:
       - '[enhance] swipeout-item add render method #1688'

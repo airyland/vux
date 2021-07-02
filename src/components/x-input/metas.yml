@@ -46,7 +46,7 @@ props:
     type: Boolean
     default: false
     en: if is required
-    zh-CN: 是否必值，如果不禁用验证，当没有填写时会在右侧显示错误icon
+    zh-CN: 是否必填，如果不禁用验证，当没有填写时会在右侧显示错误icon
   title:
     en: label text
     zh-CN: label文字
@@ -102,6 +102,7 @@ props:
     en: (beta) value mask, 9 for DIGIT, A for ALPHA, S for ALPHA AND DIGIT
     zh-CN: (beta) 值格式化，依赖于 vanilla-masker，其中 9 表示数字，A 表示大写字母，S 表示数字或者字母
   should-toast-error:
+    type: Boolean
     version: v2.6.3
     default: true
     en: whether toast error when clicking on error icon
