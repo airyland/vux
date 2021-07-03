@@ -1,6 +1,7 @@
 // THIS FILE IS ONLY FOR IDE ENTRY CHECKING NOT FOR REAL USAGE
 
-console.warn('VUX: 如果你看到这一行，说明 vux-loader 配置有问题或者代码书写规范的原因导致无法解析成按需引入组件，会导致打包体积过大。请升级到最新版本 vux-loader，建议开启 eslint(standard)。')
+console.warn(
+  'VUX: 如果你看到这一行，说明 vux-loader 配置有问题或者代码书写规范的原因导致无法解析成按需引入组件，会导致打包体积过大。请升级到最新版本 vux-loader，建议开启 eslint(standard)。')
 
 import Actionsheet from './src/components/actionsheet/index.vue'
 import Agree from './src/components/agree/index.vue'
@@ -139,9 +140,11 @@ import VChart from './src/components/v-chart/v-chart.vue'
 import VGuide from './src/components/v-chart/v-guide.vue'
 import Video from './src/components/video/index.vue'
 import ViewBox from './src/components/view-box/index.vue'
+import VLabellinePie from './src/components/v-chart/v-labelline-pie.vue'
 import VLegend from './src/components/v-chart/v-legend.vue'
 import VLine from './src/components/v-chart/v-line.vue'
 import VPie from './src/components/v-chart/v-pie.vue'
+import VPielabel from './src/components/v-chart/v-pielabel.vue'
 import VPoint from './src/components/v-chart/v-point.vue'
 import VScale from './src/components/v-chart/v-scale.vue'
 import VTooltip from './src/components/v-chart/v-tooltip.vue'
@@ -302,9 +305,11 @@ export {
   VGuide,
   Video,
   ViewBox,
+  VLabellinePie,
   VLegend,
   VLine,
   VPie,
+  VPielabel,
   VPoint,
   VScale,
   VTooltip,
