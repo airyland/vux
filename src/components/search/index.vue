@@ -235,7 +235,7 @@ export default {
   top: 0;
   z-index: 5;
   background: rgba(255, 255, 255, 1);
-  backdrop-filter: blur(5px);
+  // backdrop-filter: blur(5px);
 }
 .vux-search-box {
   width: 100%;
