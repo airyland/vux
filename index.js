@@ -60,6 +60,8 @@ import FlexboxItem from './src/components/flexbox/flexbox-item.vue'
 import Flow from './src/components/flow/flow.vue'
 import FlowLine from './src/components/flow/flow-line.vue'
 import FlowState from './src/components/flow/flow-state.vue'
+import Form from './src/components/form/form.vue'
+import FormField from './src/components/form/field.vue'
 import FormatTimeFilter from './src/filters/format-time.js'
 import FormPreview from './src/components/form-preview/index.vue'
 import FriendlyTimeFilter from './src/filters/friendly-time.js'
@@ -223,6 +225,8 @@ export {
   Flow,
   FlowLine,
   FlowState,
+  Form,
+  FormField,
   FormatTimeFilter,
   FormPreview,
   FriendlyTimeFilter,

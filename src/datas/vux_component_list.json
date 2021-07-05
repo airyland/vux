@@ -227,6 +227,30 @@
     "hasHome": false
   },
   {
+    "name": "form",
+    "icon": "&#xe699;",
+    "items": [
+      "form",
+      "form-field"
+    ],
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
+  },
+  {
+    "name": "form",
+    "icon": "&#xe699;",
+    "items": [
+      "form",
+      "form-field"
+    ],
+    "category_en": "Form",
+    "category_zh-CN": "表单",
+    "category_order": 998,
+    "hasHome": false
+  },
+  {
     "name": "grid",
     "icon": "&#xe661;",
     "items": [

@@ -1,0 +1,74 @@
+category:
+  en: Form
+  'zh-CN': 表单
+icon: '&#xe699;'
+items:
+  - form
+  - form-field
+tags:
+  en:
+    - form
+    - form-field
+  zh-CN:
+    - 表单
+    - 表单域
+form:
+  props:
+    model:
+      type: Object
+      default: {}
+      en: form data model
+      zh-CN: 表单数据对象(必填)
+  methods:
+    validate:
+      params: '(valid, invalidFields)'
+      en: form validate method, will return a function which has params is valid & invalidFields
+      zh-CN: 对整个表单进行校验的方法，参数为一个回调函数，该回调函数会在校验结束后被调用，并传入两个参数：valid(是否校验通过),invalidFields(未通过校验的字段)，若不传入回调函数，则会返回一个promise
+    resetFields:
+      en: form reset method, reset all fields to initial value & clear form validation
+      zh-CN: 对整个表单进行重置，将所有字段值重置为初始值并移除校验结果
+    clearValidate:
+      en: form clear validation method, which can pass field's prop or Array props as params
+      zh-CN: 移除表单项的校验结果，传入待移除的表单项prop或者prop组成的数组，如不传则移除整个表单的校验结果
+form-field:
+  props:
+    prop:
+      type: String
+      en: form field key, required to bind key into form model
+      zh-CN: 表单域字段，传入`Form`组件的`model`中的`key`，在使用validate方法情况下，为必填
+    title:
+      type: String
+      en: form field label
+      zh-CN: label标签的文本
+    placeholder:
+      type: String
+      en: form field placeholder
+      zh-CN: 表单域占位符的文本
+    type:
+      type: String
+      en: build-in component type, current support `input`, `textarea`, `number`, `datetime`, `picker`, `radio`
+      zh-CN: 内置组件类型，目前已有：`input`, `textarea`, `number`, `datetime`, `picker`, `radio`
+    props:
+      type: Object
+      en: build-in component's self props
+      zh-CN: 内置组件对应组件的props
+    events:
+      type: Object
+      en: build-in component's self events
+      zh-CN: 内置组件对应组件的events
+    rules:
+      type: Array, Object
+      en: validator rules for form field, [async-validator](https://github.com/yiminghe/async-validator)
+      zh-CN: 校验规则，参考[async-validator](https://github.com/yiminghe/async-validator)
+    required:
+      type: Boolean
+      en: validate for required alias
+      zh-CN: 是否必填
+    message:
+      type: String
+      en: validate for required message
+      zh-CN: 校验提示语
+  slots:
+    default:
+      en: when use custom component, form-field's slot will render custom component, else when use build-in component, form-field's slot will as build-in component's slot
+      zh-CN: 当使用自定义组件时，form-field的插槽用于渲染自定义组件，当使用内置组件时，form-field的插槽会作为内置组件的插槽
