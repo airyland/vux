@@ -58,6 +58,7 @@
           >
             <datetime
               title="Datetime"
+              v-model="formData.ff"
             ></datetime>
           </x-form-field>
           <x-form-field
@@ -132,7 +133,7 @@ export default {
         cc: 0,
         dd: '',
         ee: ['NBA'],
-        ff: '2020-11-11'
+        ff: ''
       },
       options: ['A', 'B', 'C'],
       pickerOptions: [['NBA', 'NFL', 'MLB']],
