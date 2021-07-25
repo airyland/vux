@@ -7,63 +7,21 @@
     'is-error': validateState === 'error',
   }"
   >
-    <slot>
-      <component
-        :is="fieldComponent"
-        :placeholder="placeholder"
-        :title="title"
-        :required="isRequired"
-        :ref="`vux${type}`"
-        v-model="fieldValue"
-        v-bind="props"
-        v-on="events"
-      >
-        <template
-          v-for="(_, slot) of $scopedSlots"
-          v-slot:[slot]="scope"
-        >
-          <slot
-            :name="slot"
-            v-bind="scope"
-          />
-        </template>
-      </component>
-    </slot>
+    <slot></slot>
   </div>
 </template>
 <script>
 import AsyncValidator from 'async-validator'
-import components from './components'
 export default {
   name: 'VuxFormField',
   inject: ['form'],
-  components: {
-    ...Object.values(Array.from(components))
-  },
-  model: {
-    prop: 'value',
-    event: 'on-change'
-  },
   props: {
     prop: String,
-    value: [String, Number, Boolean, Array, Object, Date],
-    title: String,
-    placeholder: String,
-    type: String,
-    props: Object,
-    events: Object,
     rules: [Object, Array],
     required: Boolean,
     message: String
   },
   computed: {
-    fieldComponent () {
-      const { component, type } = this
-      if (component) {
-        return component
-      }
-      return components[type]
-    },
     isRequired () {
       const { rules, required } = this
       if (rules && rules.length) {
@@ -84,22 +42,11 @@ export default {
     },
     modelValue (val) {
       this.fieldValue = val
-    },
-    value (val) {
-      this.fieldValue = val
-      // https://github.com/airyland/vux/blob/v2/src/components/x-textarea/index.vue#L120
-      // 内容小于最大长度时需要手动更新文本框高度
-      const { type } = this
-      if (type === 'textarea' && !!val) {
-        this.$nextTick(() => {
-          this.$refs[`vux${type}`].updateAutosize()
-        })
-      }
     }
   },
   data () {
     return {
-      fieldValue: this.value || this.form.model[this.prop],
+      fieldValue: this.form.model[this.prop],
       validateState: '',
       validateMessage: this.message,
       initialValue: ''

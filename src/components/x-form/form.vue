@@ -3,25 +3,10 @@
     ref="form"
     class="vux-form"
   >
-    <slot>
-      <group
-        v-for="(group, index) in groups"
-        :key="index"
-        :title="group.title"
-      >
-        <form-field
-          v-for="(field, index) in group.fields"
-          :key="index"
-          v-model="model[field.prop]"
-          v-bind="field"
-        ></form-field>
-      </group>
-    </slot>
+    <slot></slot>
   </form>
 </template>
 <script>
-import Group from '../group'
-import FormField from './field'
 export default {
   name: 'VuxForm',
   provide () {
@@ -29,34 +14,12 @@ export default {
       form: this
     }
   },
-  components: {
-    Group,
-    FormField
-  },
   props: {
     model: {
       type: Object,
       default: () => {
         return {}
       }
-    },
-    schema: {
-      type: Object,
-      default: () => {
-        return {}
-      }
-    }
-  },
-  computed: {
-    groups: (vm) => {
-      const { schema } = vm
-      const { groups = [], fields } = schema
-      if (fields) {
-        groups.unshift({
-          fields
-        })
-      }
-      return groups
     }
   },
   data () {
@@ -65,9 +28,6 @@ export default {
     }
   },
   methods: {
-    submit (cb) {
-      this.validate(cb)
-    },
     validate (cb) {
       let promise
       // if no callback, return promise
@@ -127,5 +87,5 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="less">
 </style>
