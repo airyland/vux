@@ -116,8 +116,7 @@ export default {
     },
     currentValue (newVal) {
       if (this.max && newVal) {
-        let len = newVal.replace(/\n/g, 'aa').length
-        if (len > this.max) {
+        if (newVal.length > this.max) {
           let newLines = newVal.match(/\n/g).length
           this.currentValue = newVal.slice(0, this.max - newLines)
           this.$nextTick(() => {
@@ -139,10 +138,7 @@ export default {
   },
   computed: {
     count () {
-      let len = 0
-      if (this.currentValue) {
-        len = this.currentValue.replace(/\n/g, 'aa').length
-      }
+      const len = this.currentValue ? this.currentValue.length : 0
       return len > this.max ? this.max : len
     },
     textareaStyle () {
