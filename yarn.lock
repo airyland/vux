@@ -365,6 +365,11 @@ async-each@^1.0.0:
   resolved "http://registry.npm.taobao.org/async-each/download/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
   integrity sha1-GdOGodntxufByF04iu28xW0zYC0=
 
+async-validator@^3.5.2:
+  version "3.5.2"
+  resolved "http://registry.npm.taobao.org/async-validator/-/async-validator-3.5.2.tgz#68e866a96824e8b2694ff7a831c1a25c44d5e500"
+  integrity sha1-aOhmqWgk6LJpT/eoMcGiXETV5QA=
+
 async.each@^0.5.2:
   version "0.5.2"
   resolved "http://registry.npm.taobao.org/async.each/download/async.each-0.5.2.tgz#5b8ce56c9f48805c22b9e514546f4eef9478a220"

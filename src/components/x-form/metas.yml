@@ -1,0 +1,50 @@
+category:
+  en: XForm
+  'zh-CN': 表单
+icon: '&#xe699;'
+items:
+  - x-form
+  - x-form-field
+tags:
+  en:
+    - x-form
+    - x-form-field
+  zh-CN:
+    - 表单
+    - 表单域
+x-form:
+  props:
+    model:
+      type: Object
+      default: {}
+      en: form data model
+      zh-CN: 表单数据对象(必填)
+  methods:
+    validate:
+      params: '(valid, invalidFields)'
+      en: form validate method, will return a function which has params is valid & invalidFields
+      zh-CN: 对整个表单进行校验的方法，参数为一个回调函数，该回调函数会在校验结束后被调用，并传入两个参数：valid(是否校验通过),invalidFields(未通过校验的字段)，若不传入回调函数，则会返回一个promise
+    resetFields:
+      en: form reset method, reset all fields to initial value & clear form validation
+      zh-CN: 对整个表单进行重置，将所有字段值重置为初始值并移除校验结果
+    clearValidate:
+      en: form clear validation method, which can pass field's prop or Array props as params
+      zh-CN: 移除表单项的校验结果，传入待移除的表单项prop或者prop组成的数组，如不传则移除整个表单的校验结果
+x-form-field:
+  props:
+    prop:
+      type: String
+      en: form field key, required to bind key into form model
+      zh-CN: 表单域字段，传入`Form`组件的`model`中的`key`，在使用validate方法情况下，为必填
+    rules:
+      type: Array, Object
+      en: validator rules for form field, [async-validator](https://github.com/yiminghe/async-validator)
+      zh-CN: 校验规则，参考[async-validator](https://github.com/yiminghe/async-validator)
+    required:
+      type: Boolean
+      en: validate for required alias
+      zh-CN: 是否必填
+    message:
+      type: String
+      en: validate for required message
+      zh-CN: 校验提示语，当`required` prop存在时，需要message来覆盖`async-validate`的默认提示语

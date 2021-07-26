@@ -53,6 +53,7 @@
   "DevTip": "src/components/dev-tip/index.vue",
   "Divider": "src/components/divider/index.vue",
   "Drawer": "src/components/drawer/index.vue",
+  "Field": "src/components/form/field.vue",
   "Flexbox": "src/components/flexbox/flexbox.vue",
   "FlexboxItem": "src/components/flexbox/flexbox-item.vue",
   "Flow": "src/components/flow/flow.vue",
@@ -159,5 +160,6 @@
   "XProgress": "src/components/x-progress/index.vue",
   "XSwitch": "src/components/x-switch/index.vue",
   "XTable": "src/components/x-table/index.vue",
-  "XTextarea": "src/components/x-textarea/index.vue"
+  "XTextarea": "src/components/x-textarea/index.vue",
+  "XForm": "src/components/x-form/form.vue"
 }

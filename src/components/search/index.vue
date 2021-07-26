@@ -18,7 +18,7 @@
           <input
             v-model="currentValue"
             ref="input"
-            type="search"
+            :type="type"
             autocomplete="off"
             class="weui-search-bar__input"
             :id="`search_input_${uuid}`"
@@ -80,6 +80,10 @@ export default {
   name: 'search',
   mixins: [uuidMixin],
   props: {
+    type: {
+      type: String,
+      default: 'search'
+    },
     required: {
       type: Boolean,
       default: false
@@ -231,7 +235,7 @@ export default {
   top: 0;
   z-index: 5;
   background: rgba(255, 255, 255, 1);
-  backdrop-filter: blur(5px);
+  // backdrop-filter: blur(5px);
 }
 .vux-search-box {
   width: 100%;

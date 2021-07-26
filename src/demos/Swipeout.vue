@@ -17,7 +17,7 @@
       <swipeout-item :threshold=".5" underlay-color="#ccc">
         <div slot="right-menu">
           <swipeout-button @click.native="onButtonClick('fav')" background-color="#336DD6">{{$t('Fav')}}</swipeout-button>
-          <swipeout-button @click.native="onButtonClick('delete')" background-color="#D23934">{{$t('Delete')}}</swipeout-button>
+          <swipeout-button @click.native="onButtonClick('delete')" background-color="#D23934" disabled>{{$t('Delete')}}</swipeout-button>
         </div>
         <div slot="content" class="demo-content vux-1px-tb">
         {{$t('threshold = 0.5')}}

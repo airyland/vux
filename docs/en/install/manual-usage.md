@@ -4,6 +4,8 @@ title: VUX 手动配置使用
 
 # 手动配置使用
 
+[https://github.com/airyland/vux/tree/v2/packages/vue-cli-3-example](https://github.com/airyland/vux/tree/v2/packages/vue-cli-3-example)
+
 ::: tip
 注意的是下面事项并非表示 VUX 使用繁琐，部分只是出于确保有正确的依赖和配置，而部分是出于优化。
 :::
@@ -26,16 +28,30 @@ title: VUX 手动配置使用
 
   ``` js
   // vux-loader
-  plugins: [{
-    name: 'vux-ui'
-  }]
+  module.exports = {
+    configureWebpack: config => {
+      require('@vux/loader').merge(config, {
+          plugins: ['vux-ui', {
+            name: 'less-theme',
+            path: 'src/theme.less'
+          }]
+      })
+    }
+  }
   ```
 - 配置`babel-loader`以正确编译 VUX 的js源码（通过配置vux-loader实现）
 
   ``` js
-  plugins: [{
-    name: 'vux-ui'
-  }]
+  module.exports = {
+    configureWebpack: config => {
+      require('@vux/loader').merge(config, {
+          plugins: ['vux-ui', {
+            name: 'less-theme',
+            path: 'src/theme.less'
+          }]
+      })
+    }
+  }
   ```
 - 安装`less-loader`以正确编译less源码
 

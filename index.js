@@ -163,6 +163,9 @@ import XProgress from './src/components/x-progress/index.vue'
 import XSwitch from './src/components/x-switch/index.vue'
 import XTable from './src/components/x-table/index.vue'
 import XTextarea from './src/components/x-textarea/index.vue'
+import XForm from './src/components/x-form/form.vue'
+import XFormField from './src/components/x-form/field.vue'
+
 
 export {
   Actionsheet,
@@ -325,5 +328,7 @@ export {
   XProgress,
   XSwitch,
   XTable,
-  XTextarea
+  XTextarea,
+  XForm,
+  XFormField
 }

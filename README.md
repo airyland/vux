@@ -67,6 +67,12 @@
   </a>
 </p>
 
+<p align="center">
+  <a href="https://www.upyun.com/">
+    <img src="https://ww1.sinaimg.cn/large/663d3650gy1fs3l83hokej20b4040weg.jpg" height="80">
+  </a>
+</p>
+
 ## 我们的产品
 
 <p align="center">
@@ -82,8 +88,6 @@
 </p>
 
 ## Requirements
-
-> 暂未适配 vue-cli@3.x，请注意。
 
 + vue@^2.3.0(for .sync modifier)
 + webpack@^2.0

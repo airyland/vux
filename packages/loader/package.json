@@ -1,6 +1,6 @@
 {
   "name": "@vux/loader",
-  "version": "2.0.0-rc4",
+  "version": "2.0.0-rc5",
   "description": "extended loader for vux",
   "main": "src/index.js",
   "keywords": [
