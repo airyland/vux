@@ -33,3 +33,4 @@ docs/sitemap.txt
 docs/algolia.json
 /src/demos/**/_index.vue
 yarn-error.log
+.vscode

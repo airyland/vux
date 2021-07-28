@@ -1,0 +1,143 @@
+category:
+  en: Form
+  'zh-CN': 表单
+icon: '&#xe699;'
+tags:
+  en:
+    - uploader
+  zh-CN:
+    - 上传组件
+
+extra:
+  en:
+  zh-CN: |
+    ```html
+      <uploader
+        v-model="fileList"
+        :url="remoteUrl"
+        name="upload"
+        title="自动上传"
+        :params="{
+          token: '13579',
+          linkid: '2323',
+          modelname: 'modelname'
+        }"
+        :headers="{
+          'custom-header': 'custom-info',
+        }"
+        :limit="6"
+        :limitPrompt="limit => `已经上传${limit}张图片嘞！`"
+        withCredentials
+        @before-upload="beforeUpload"
+        @after-upload="afterUpload"
+        @on-change="onChange"
+        @on-cancel="onCancel"
+        @on-success="onSuccess"
+        @on-error="onError"
+        @on-delete="onDelete"
+      />
+    ```
+props:
+  title:
+    type: String
+    default: '图片上传'
+    en: component title
+    zh-CN: 组件标题
+  files:
+    type: Array
+    default: []
+    en: initial file data source, through event `on-fileList-change` bind v-model
+    zh-CN: 初始化数据源，通过`on-fileList-change`事件绑定 v-model
+  limit:
+    type: Number, String
+    default: 5
+    en: limit upload image count
+    zh-CN: 限制上传图片个数
+  limitPrompt:
+    type: Function
+    default: (limit) => `不能上传超过${limit}张图片`
+    en: prompt for limit alert
+    zh-CN: 限制上传alert的提示语
+  capture:
+    type: Number, String
+    default: false
+    en: whether only invoke camera
+    zh-CN: 是否只选择调用相机
+  enableCompress:
+    type: Boolean
+    default: true
+    en: whether enable compress
+    zh-CN: 是否压缩
+  maxWidth:
+    type: String, Number
+    default: 1024
+    en: image compress max width
+    zh-CN: 图片压缩最大宽度
+  quality:
+    type: String, Number
+    default: 0.92
+    en: image compress rate
+    zh-CN: 图片压缩率
+  url:
+    type: String
+    en: upload server url
+    zh-CN: 上传服务器 url
+  headers:
+    type: Object
+    default: {}
+    en: custom upload request headers
+    zh-CN: 上传文件时自定义请求头
+  withCredentials:
+    type: Boolean
+    en: setting as true, can support CORS set cookie
+    zh-CN: 设置为`true`的话，支持标准CORS设置cookie值
+  params:
+    type: Object
+    en: custom formData params
+    zh-CN: 上传文件时自定义参数
+  name:
+    type: String
+    default: 'file'
+    en: upload formData key, default as `file`
+    zh-CN: 上传文件时 FormData 的 Key，默认为 file
+  autoUpload:
+    type: Boolean
+    default: true
+    en: whether auto upload
+    zh-CN: 是否自动开启上传
+  multiple:
+    type: String, Boolean
+    en: whether support multiple select image, `false` will not support
+    zh-CN: 是否支持多选, `false`为不支持
+  readonly:
+    type: Boolean
+    default: false
+    en: field readonly (hide add and delete button)
+    zh-CN: 只读模式（隐藏添加和删除按钮）
+events:
+  on-change:
+    params: '`(FileItem, FileList)`'
+    en: emits when file change
+    zh-CN: 选完照片，删除照片时，FileList 变化时触发，返回当前改变的 FileItem，以及当前的 FileList
+  on-cancel:
+    en: emits when cancel select image
+    zh-CN: 选择照片后取消的回调，用于错误提示
+  on-success:
+    params: '`(result, fileItem)`'
+    en: emits when file upload success
+    zh-CN: 上传请求成功后的回调，返回远程请求的返回结果，及当前添加文件的 FileItem
+  on-error:
+    params: '`(xhr)`'
+    en: emits when file upload failed
+    zh-CN: 上传请求失败后的回调，返回`xhr`
+  on-delete:
+    params: '`(cb)`'
+    en: emits when delete file, the first params is a callback which can hide previewer
+    zh-CN: 上传删除照片时的回调,返回隐藏 Previewer，删除图片的回调，没监听`onDelete`事件的时候，直接执行删除回调
+  before-upload:
+    en: emits before invoke xhr request
+    zh-CN: 上传图片之前的回调
+  after-upload:
+    params: '`(action)`'
+    en: emits after xhr request finished
+    zh-CN: 上传图片之后的回调
