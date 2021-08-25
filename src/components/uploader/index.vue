@@ -12,7 +12,7 @@
               'vux-uploader_file-status': !!item.fetchStatus && item.fetchStatus !== 'success'
             }"
           v-for="(item, index) in fileList"
-          :key="index"
+          :key="item.url"
           :style="{
               backgroundImage: `url(${item.url})`
             }"
