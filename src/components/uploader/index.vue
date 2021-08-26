@@ -50,13 +50,15 @@
     <priviewer
       ref="previewer"
       :list="fileList | filterList"
-      :readonly="readonly"
-      @on-delete="deleteImg"
-    ></priviewer>
+    >
+      <template slot="wrap-after">
+        <div class="vux-uploader_del" v-if="!readonly" @click="deleteImg"></div>
+      </template>
+    </priviewer>
   </div>
 </template>
 <script>
-import Priviewer from './preview.vue'
+import Priviewer from '../previewer'
 import { handleFile } from './utils'
 
 // compatibility for window.URL
@@ -252,7 +254,8 @@ export default {
     handleFileClick (e, item, index) {
       this.$refs.previewer.show(index)
     },
-    deleteImg (index) {
+    deleteImg () {
+      const index = this.$refs.previewer.getCurrentIndex()
       const { fileList } = this
       const delAction = () => {
         const deleteItem = fileList[index]
@@ -427,6 +430,23 @@ export default {
         opacity: 0;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       }
+    }
+  }
+  .vux-uploader_del {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #0d0d0d;
+    color: #ffffff;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-family: 'weui';
+    &:after {
+      color: #ffffff;
+      font-size: 22px;
+      content: '\EA11';
     }
   }
 }
