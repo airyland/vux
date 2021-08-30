@@ -100,7 +100,7 @@
 
 ## Issues
 
-> 不按照 [issue generator](https://doc.vux.li/issue-generator/#/zh-CN) 来提交的会被关闭并 `block`，毕竟提醒每一个故意忽略(眼瞎、文盲或者缺少礼貌？)`issue template`的人也是件很浪费时间的事。
+> 不按照 [issue generator](https://doc.vux.li/en/contribution/issue.html) 来提交的会被关闭并 `block`，毕竟提醒每一个故意忽略(眼瞎、文盲或者缺少礼貌？)`issue template`的人也是件很浪费时间的事。
 
 - `VUX` 并不是大团队维护的项目，**没有捐赠，纯靠热情**，维护者有权决定什么时候处理什么问题，什么问题不处理。<br>**入坑请万分谨慎**。
 
