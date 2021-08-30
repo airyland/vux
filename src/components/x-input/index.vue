@@ -348,7 +348,9 @@ export default {
       this.$emit('on-click-clear-icon')
     },
     focus () {
-      this.$refs.input.focus()
+      setTimeout(() => {
+        this.$refs.input.focus()
+      }, 0)
     },
     blur () {
       this.$refs.input.blur()
@@ -366,10 +368,12 @@ export default {
       // $event.target.
     },
     onBlur ($event) {
-      this.setTouched()
-      this.validate()
-      this.isFocus = false
-      this.$emit('on-blur', this.currentValue, $event)
+      setTimeout(() => {
+        this.setTouched()
+        this.validate()
+        this.isFocus = false
+        this.$emit('on-blur', this.currentValue, $event)
+      }, 0)
     },
     onKeyUp (e) {
       if (e.key === 'Enter') {
