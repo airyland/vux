@@ -45,6 +45,7 @@
         </div>
       </div>
     </div>
+    <slot name="wrap-after"></slot>
   </div>
 </template>
 

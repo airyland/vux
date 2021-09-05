@@ -53,12 +53,13 @@
   "DevTip": "src/components/dev-tip/index.vue",
   "Divider": "src/components/divider/index.vue",
   "Drawer": "src/components/drawer/index.vue",
-  "Field": "src/components/form/field.vue",
+  "Field": "src/components/x-form/field.vue",
   "Flexbox": "src/components/flexbox/flexbox.vue",
   "FlexboxItem": "src/components/flexbox/flexbox-item.vue",
   "Flow": "src/components/flow/flow.vue",
   "FlowLine": "src/components/flow/flow-line.vue",
   "FlowState": "src/components/flow/flow-state.vue",
+  "Form": "src/components/x-form/form.vue",
   "FormatTimeFilter": "src/filters/format-time.js",
   "FormPreview": "src/components/form-preview/index.vue",
   "FriendlyTimeFilter": "src/filters/friendly-time.js",
@@ -96,6 +97,7 @@
   "PopupHeader": "src/components/popup-header/index.vue",
   "PopupPicker": "src/components/popup-picker/index.vue",
   "PopupRadio": "src/components/popup-radio/index.vue",
+  "Preview": "src/components/uploader/preview.vue",
   "Previewer": "src/components/previewer/index.vue",
   "Qrcode": "src/components/qrcode/index.vue",
   "querystring": "src/tools/querystring/index.js",
@@ -129,6 +131,7 @@
   "TransferDom": "src/directives/transfer-dom/index.js",
   "TransferDomDirective": "src/directives/transfer-dom/index.js",
   "trim": "src/tools/string/trim",
+  "Uploader": "src/components/uploader/index.vue",
   "Value2nameFilter": "src/filters/value2name.js",
   "VArea": "src/components/v-chart/v-area.vue",
   "VAxis": "src/components/v-chart/v-axis.vue",
@@ -160,6 +163,5 @@
   "XProgress": "src/components/x-progress/index.vue",
   "XSwitch": "src/components/x-switch/index.vue",
   "XTable": "src/components/x-table/index.vue",
-  "XTextarea": "src/components/x-textarea/index.vue",
-  "XForm": "src/components/x-form/form.vue"
+  "XTextarea": "src/components/x-textarea/index.vue"
 }
