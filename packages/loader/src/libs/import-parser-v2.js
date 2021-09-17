@@ -18,7 +18,7 @@ function transform (code, filename) {
       }
     }]],
     'filename': filename
-  }).code.replace(/\s\/\/\sCOMMENT";/g, `" // this line is trasformed by vux-loader`)
+  }).code
 
   return `/* this file is transformed by vux-loader */
 /* eslint-disable */

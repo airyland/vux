@@ -144,7 +144,7 @@ module.exports = function() {
                             : types.importDefaultSpecifier(types.identifier(memberImport.local.name));
                         transforms.push(types.importDeclaration(
                             [newImportSpecifier],
-                            types.stringLiteral(replace + ' // COMMENT')
+                            types.stringLiteral(replace)
                         ));
                     });
 
