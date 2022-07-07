@@ -37,11 +37,20 @@ function DonePlugin(callbacks) {
 
 DonePlugin.prototype.apply = function (compiler) {
   let callbacks = this.callbacks
-  compiler.plugin('done', function () {
-    callbacks.forEach(function (fn) {
-      fn()
-    })
-  });
+  if (compiler.hooks) {
+    const plugin = {name: 'WebpackDonePlugin'};
+    compiler.hooks.done.tap(plugin, function () {
+      callbacks.forEach(function (fn) {
+        fn()
+      })
+    });
+  } else {
+    compiler.plugin('done', function () {
+      callbacks.forEach(function (fn) {
+        fn()
+      })
+    });
+  }
 };
 
 /** emit plugin **/
@@ -51,9 +60,16 @@ function EmitPlugin(callback) {
 
 EmitPlugin.prototype.apply = function (compiler) {
   let callback = this.callback
-  compiler.plugin("emit", function (compilation, cb) {
-    callback(compilation, cb)
-  });
+  if (compiler.hooks) {
+    const plugin = {name: 'WebpackEmitPlugin'};
+    compiler.hooks.emit.tapAsync(plugin, (compilation, cb) => {
+      callback(compilation, cb)
+    })
+  } else {
+    compiler.plugin("emit", function (compilation, cb) {
+      callback(compilation, cb)
+    });
+  }
 }
 
 function hasPlugin(name, list) {
