@@ -62,30 +62,11 @@
 ## Sponsors
 
 <p align="center">
-  <a href="https://www.sb/?utm_source=vux">
-    <img src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1ftmvim3r34j3056034wee.jpg" height="100">
-  </a>
-</p>
-
-<p align="center">
   <a href="https://www.upyun.com/">
     <img src="https://ww1.sinaimg.cn/large/663d3650gy1fs3l83hokej20b4040weg.jpg" height="80">
   </a>
 </p>
 
-## 我们的产品
-
-<p align="center">
-  <a href="https://wereader.app?utm_source=vux-github">
-    <img src="https://i.loli.net/2019/12/30/SM4y7mfunjvhWEc.png" width="125">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://werss.app?utm_source=vux-github">
-    <img src="https://cdn.weapp.design/werss/werss-logo.png" width="250">
-  </a>
-</p>
 
 ## Requirements
 
@@ -97,14 +78,6 @@
 
 + [中文文档](https://vux.li/)
 + English(working)
-
-## Issues
-
-> 不按照 [issue generator](https://doc.vux.li/en/contribution/issue.html) 来提交的会被关闭并 `block`，毕竟提醒每一个故意忽略(眼瞎、文盲或者缺少礼貌？)`issue template`的人也是件很浪费时间的事。
-
-- `VUX` 并不是大团队维护的项目，**没有捐赠，纯靠热情**，维护者有权决定什么时候处理什么问题，什么问题不处理。<br>**入坑请万分谨慎**。
-
-- UI 组件库和样式、功能灵活性是矛盾的。如果你需要一个高度自定义的组件库，VUX 并不适合你(即使已经在尽力提供样式变量)，请不要使用，因为大部分人会抱怨的(并且只会抱怨)。
 
 ## Quick Start
 
@@ -118,14 +91,6 @@ cd projectPath
 npm install // or yarn
 npm run dev // or yarn dev
 ```
-
-## Get notified
-
-<p align="center">
-  <img src="https://ws1.sinaimg.cn/large/663d3650gy1fpno3msj6wj20dw0dw748.jpg" alt="" width="100">
-  <br>
-  <span>Scan with Wechat</span>
-</p>
 
 ## Maintainers
 
