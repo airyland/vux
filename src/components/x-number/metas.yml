@@ -60,6 +60,11 @@ props:
     default: false
     en: if use can fill the number
     zh-CN: 是否可填写
+  disabled:
+    type: Boolean
+    default: false
+    en: Whether the input and button is disabled
+    zh-CN: 输入框和按钮是否禁用
   width:
     type: String
     default: 50px
@@ -76,6 +81,11 @@ props:
     en: align setting of the selecting area
     zh-CN: '按钮部分位置，默认在右边(right)，可选值为`left`和`right`'
 changes:
+  v2.11.2:
+    en:
+      - '[feature] support prop:`disabled`'
+    zh-CN:
+      - '[feature] 支持`disabled`属性'
   v2.8.0:
     en:
       - '[fix] fix on-change fires after created'

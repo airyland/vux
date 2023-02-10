@@ -28,6 +28,10 @@
       <x-number :value="10" :title="$t('Quantity')" fillable></x-number>
     </group>
 
+    <group :title="$t('disabled = false')">
+      <x-number :value="10" :title="$t('Quantity')" disabled></x-number>
+    </group>
+
   </div>
 </template>
 
@@ -47,6 +51,8 @@ set value=1, min=-5 and max=8:
   zh-CN: 设置值为1，最小值为-5，最大值为8
 fillable = true:
   zh-CN: 设置可以输入
+disabled = false:
+  zh-CN: 设置输入框和按钮禁用
 use with other group elements:
   zh-CN: 和其他group子元素一起使用
 Switch Component:
