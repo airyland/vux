@@ -28,13 +28,21 @@ function Plugin(options) {
 }
 
 Plugin.prototype.apply = function (compiler) {
-  let _this = this
-  compiler.plugin('compilation', function (compilation) {
-    for (let i in _this.events) {
-      compilation.plugin('html-webpack-plugin-' + i, _this.events[i]);
-    }
-  });
-
+  let _this = this;
+  const plugin = { name: "WebpackHtmlBuildCallback" };
+  if (compiler.hooks) {
+    compiler.hooks.compilation.tap(plugin, (compilation) => {
+      for (let i in _this.events) {
+        compilation.plugin("html-webpack-plugin-" + i, _this.events[i]);
+      }
+    });
+  } else {
+    compiler.plugin("compilation", function (compilation) {
+      for (let i in _this.events) {
+        compilation.plugin("html-webpack-plugin-" + i, _this.events[i]);
+      }
+    });
+  }
 };
 
 module.exports = Plugin;
