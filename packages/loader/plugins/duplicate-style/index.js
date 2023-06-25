@@ -153,7 +153,8 @@ OptimizeCssAssetsPlugin.prototype.apply = function(compiler) {
       compileCallback()
       self.print('======== vux-loader: duplicate-style done!   ========\n')
      }, compileCallback)
-  })
+    })
+  }
 }
 
 module.exports = OptimizeCssAssetsPlugin
