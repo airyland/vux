@@ -82,7 +82,7 @@ export default {
         interval: this.interval,
         threshold: this.threshold,
         duration: this.duration,
-        height: this.height || this._height,
+        height: this.height || this.xheight,
         minMovingDistance: this.minMovingDistance,
         imgList: this.imgList
       })
