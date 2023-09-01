@@ -39,7 +39,6 @@ export const stringify = function (obj, sep, eq, arrayKey) {
 
   var buf = [],
     key, val;
-  var escape = escape;
 
   for (key in obj) {
     if (!hasOwnProperty.call(obj, key)) continue;
@@ -95,7 +94,6 @@ export const parse = function (str, sep, eq) {
 
   var pairs = str.split(sep || '&');
   eq = eq || '=';
-  var unescape = unescape;
 
   for (var i = 0; i < pairs.length; i++) {
 
