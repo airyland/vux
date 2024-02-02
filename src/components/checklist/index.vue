@@ -18,6 +18,7 @@
             :name="`vux-checkbox-${uuid}`"
             :value="getKey(one)"
             v-model="currentValue"
+            @change="selectItem"
             :id="disabled ? '' : `checkbox_${uuid}_${index}`"
             :disabled="isDisabled(getKey(one))">
           <i class="weui-icon-checked vux-checklist-icon-checked"></i>
@@ -113,7 +114,10 @@ export default {
       this.currentOptions = this.options
     }
   },
-  methods: {
+  methods: {  
+    selectItem(e) {
+      this.$emit("selectItem", this.currentValue);
+    },
     getValue,
     getKey,
     getInlineDesc,
