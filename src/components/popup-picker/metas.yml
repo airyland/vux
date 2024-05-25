@@ -107,6 +107,11 @@ events:
     en: emits when picker value is changed
     zh-CN: picker 值变化时触发，即滑动 picker 时触发
 changes:
+  next:
+    en:
+      - '[fix] use first-of-type inplace of first-child #2880'
+    zh-CN:
+      - '[fix] 多个picker同时出现时使用 first-of-type 来实现分割线 #2880'
   v2.9.0:
     en:
       - '[feature] add prop:disabled #2594'

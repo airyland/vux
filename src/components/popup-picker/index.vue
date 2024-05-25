@@ -251,7 +251,7 @@ export default {
 .vux-cell-box {
   position: relative;
 }
-.vux-cell-box:not(:first-child):before {
+.vux-cell-box:not(:first-of-type):before {
   content: " ";
   position: absolute;
   top: 0;
