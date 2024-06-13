@@ -84,6 +84,9 @@ module.exports = [{
   }, {
     title: '禁用 eslint',
     path: '/zh-CN/development/vue-loader-disable-eslint.html'
+  }, {
+    title: 'rem 适配',
+    path: '/zh-CN/development/rem.html'
   }]
 },
 {
