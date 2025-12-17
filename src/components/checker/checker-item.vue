@@ -16,7 +16,7 @@ export default {
   },
   watch: {
     disabled (val) {
-      if (val && this.$parent.type === 'radio' && this.value === this.$parent.currentValue) {
+      if (val && this.$parent.type === 'radio' && this.$parent.autoClear && this.value === this.$parent.currentValue) {
         this.$parent.currentValue = ''
       }
     }
