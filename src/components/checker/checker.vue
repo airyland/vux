@@ -17,7 +17,11 @@ export default {
     },
     value: [String, Number, Array, Object],
     max: Number,
-    radioRequired: Boolean
+    radioRequired: Boolean,
+    autoClear: {
+      type: Boolean,
+      default: true,
+    }
   },
   watch: {
     value (newValue) {

@@ -51,6 +51,11 @@ checker:
       default: false
       en: whether value is required in radio mode. if true, current selected item will always be selected even after clicking
       zh-CN: 在单选模式下是否必选一个值。设为 true 后点击当前选中项不会取消选中。
+    auto-clear:
+      type: Boolean
+      default: true
+      en: whether value is required in radio mode. if disabled is set to true, will the selected value be automatically cleared
+      zh-CN: 在单选模式下，将disabled设为true，是否自动清空已选值。
   events:
     on-change:
       params: '`(value)`'
