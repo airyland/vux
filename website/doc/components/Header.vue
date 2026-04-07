@@ -80,197 +80,178 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
-.doc {
-  &-header {
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    right: 0;
-    min-width: 1300px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: $doc-header-height;
-    line-height: $doc-header-height;
-    text-align: left;
-    padding: 0 50px;
-    font-size: 20px;
-    background-color: #42b983;
-    color: #fff;
-    .header-select {
-      &-box {
-        &.select-down {
-          .header-select-hd {
-            background-image: url('../../assets/images/icon-select-white-down.png');
-          }
-        }
-        &.select-up {
-          .header-select-hd {
-            background-image: url('../../assets/images/icon-select-white-up.png');
-          }
-        }
-      }
-      &-hd {
-        color: $theme-red-word;
-        border: 1px solid $theme-white-select-border;
-      }
-      &-bd {
-        color: $theme-white-select-word;
-      }
-      &-item {
-        border-color: $theme-red-select-border;
-        background-color: $theme-red-select-bg;
-        &:hover {
-          color: $theme-red;
-        }
-      }
-    }
-  }
+<style>
+.doc-header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-width: 1300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: var(--doc-header-height);
+  line-height: var(--doc-header-height);
+  text-align: left;
+  padding: 0 50px;
+  font-size: 20px;
+  background-color: #42b983;
+  color: #fff;
 }
-.header {
-  &-logo {
-    position: relative;
-    display: inline-block;
-    width: 100px;
-    height: 64px;
-    cursor: pointer;
-    .logo-link {
-      display: inline-block;
-      width: 46px;
-      height: 46px;
-      vertical-align: middle;
-      position: absolute;
-      top: 50%;
-      margin-top: -23px;
-      background: url('/logo.svg') no-repeat center/100%;
-    }
-    .logo-title {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin-top: auto;
-      margin-bottom: auto;
-      right: 0;
-      font-size: 30px;
-      color: #fff;
-    }
-  }
-  &-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    float: right;
-    padding: 0 40px;
-    .nav-box {
-      .nav-list {
-        min-width: 445px;
-        display: flex;
-        list-style: none;
-        align-items: center;
-        justify-content: space-around;
-      }
-      .nav-item {
-        position: relative;
-        margin-right: 30px;
-        font-size: 14px;
-        height: 63px;
-        line-height: 63px;
-        text-align: center;
-        cursor: pointer;
-        color: #fff;
-        a {
-          display: inline-block;
-          line-height: 64px;
-          color: #fff;
-        }
-        // overflow: hidden;
-        &.active {
-          font-weight: bold;
-          &:after {
-            content: '';
-            display: inline-block;
-            width: 35px;
-            height: 13px;
-            position: absolute;
-            bottom: 3px;
-            left: 50%;
-            margin-left: -17.5px;
-            background: url('../../assets/images/item-active.png');
-            background-position: 0 0;
-          }
-        }
-        &:last-of-type {
-          margin-right: 0;
-        }
-      }
-      .user-link {
-        display: inline-block;
-        width: 26px;
-        height: 26px;
-        vertical-align: middle;
-        background: url('../../assets/images/icon-user.png') no-repeat;
-        background-size: 26px;
-        background-position: 0 0;
-      }
-    }
-    .search-box {
-      .search-input {
-        color: $theme-red-word;
-        background-position: 0 0;
-        &::-webkit-input-placeholder {
-          color: $theme-red-input;
-        }
-      }
-    }
-  }
+.header-select-box.select-down .header-select-hd {
+  background-image: url('../../assets/images/icon-select-white-down.png');
 }
-.header-select {
-  &-box {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    outline: 0;
-  }
-  &-hd {
-    min-width: 77px;
-    height: 28px;
-    padding: 0 30px 0 15px;
-    line-height: 26px;
-    font-size: 14px;
-    color: $theme-red-word;
-    background-position: right 15px top 12px;
-    background-size: 8px 5px;
-    background-repeat: no-repeat;
-    border-radius: 14px;
-  }
-  &-bd {
-    position: absolute;
-    top: 30px;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  &-item {
-    width: 77px;
-    height: 28px;
-    padding: 0 12px;
-    line-height: 26px;
-    font-size: 14px;
-    border-width: 0px 1px 1px;
-    border-style: solid;
-    cursor: pointer;
-    &:first-of-type {
-      border-top-width: 1px;
-    }
-  }
+.header-select-box.select-up .header-select-hd {
+  background-image: url('../../assets/images/icon-select-white-up.png');
 }
-// 下拉列表选择动画效果
+.header-select-hd {
+  color: var(--theme-red-word);
+  border: 1px solid var(--theme-white-select-border);
+}
+.header-select-bd {
+  color: var(--theme-white-select-word);
+}
+.header-select-item {
+  border-color: var(--theme-red-select-border);
+  background-color: var(--theme-red-select-bg);
+}
+.header-select-item:hover {
+  color: var(--theme-red);
+}
+.header-logo {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 64px;
+  cursor: pointer;
+}
+.header-logo .logo-link {
+  display: inline-block;
+  width: 46px;
+  height: 46px;
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  margin-top: -23px;
+  background: url('/logo.svg') no-repeat center/100%;
+}
+.header-logo .logo-title {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  right: 0;
+  font-size: 30px;
+  color: #fff;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  float: right;
+  padding: 0 40px;
+}
+.header-nav .nav-box .nav-list {
+  min-width: 445px;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: space-around;
+}
+.header-nav .nav-box .nav-item {
+  position: relative;
+  margin-right: 30px;
+  font-size: 14px;
+  height: 63px;
+  line-height: 63px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+}
+.header-nav .nav-box .nav-item a {
+  display: inline-block;
+  line-height: 64px;
+  color: #fff;
+}
+.header-nav .nav-box .nav-item.active {
+  font-weight: bold;
+}
+.header-nav .nav-box .nav-item.active:after {
+  content: '';
+  display: inline-block;
+  width: 35px;
+  height: 13px;
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -17.5px;
+  background: url('../../assets/images/item-active.png');
+  background-position: 0 0;
+}
+.header-nav .nav-box .nav-item:last-of-type {
+  margin-right: 0;
+}
+.header-nav .nav-box .user-link {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  vertical-align: middle;
+  background: url('../../assets/images/icon-user.png') no-repeat;
+  background-size: 26px;
+  background-position: 0 0;
+}
+.search-box .search-input {
+  color: var(--theme-red-word);
+  background-position: 0 0;
+}
+.search-box .search-input::-webkit-input-placeholder {
+  color: var(--theme-red-input);
+}
+.header-select-box {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  outline: 0;
+}
+.header-select-hd {
+  min-width: 77px;
+  height: 28px;
+  padding: 0 30px 0 15px;
+  line-height: 26px;
+  font-size: 14px;
+  color: var(--theme-red-word);
+  background-position: right 15px top 12px;
+  background-size: 8px 5px;
+  background-repeat: no-repeat;
+  border-radius: 14px;
+}
+.header-select-bd {
+  position: absolute;
+  top: 30px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.header-select-item {
+  width: 77px;
+  height: 28px;
+  padding: 0 12px;
+  line-height: 26px;
+  font-size: 14px;
+  border-width: 0px 1px 1px;
+  border-style: solid;
+  cursor: pointer;
+}
+.header-select-item:first-of-type {
+  border-top-width: 1px;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

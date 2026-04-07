@@ -1,0 +1,13 @@
+{
+  "name": "@vux/utils",
+  "version": "3.0.0",
+  "main": "index.ts",
+  "types": "index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./pxUtil": "./pxUtil.ts",
+    "./date": "./date.ts",
+    "./raf": "./raf.ts"
+  },
+  "license": "MIT"
+}

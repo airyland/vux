@@ -134,7 +134,6 @@ export default defineComponent({
       isShowSelect: false
     });
     const clickOut = () => {
-      //点击组件以外的地方，收起
       document.addEventListener(
         'click',
         e => {
@@ -148,8 +147,6 @@ export default defineComponent({
       data.activeIndex = index;
       data.theme = color;
       themeColor.value = color;
-      console.log('themeColor1', themeColor);
-      // bus.emit('select-theme', color)
     };
     return {
       data,
@@ -160,229 +157,229 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
-.doc {
-  &-footer {
-    padding: 30px 80px 20px;
-    text-align: center;
-    &-content {
-      display: flex;
-      justify-content: space-around;
-      align-items: flex-start;
-      margin-right: 50px;
-    }
-    &-list {
-      position: relative;
-      &:first-child {
-        margin-right: 65px;
-      }
-    }
-    &-logo {
-      margin-top: 8px;
-    }
-    &-title {
-      margin-bottom: 24px;
-      font-size: 16px;
-      font-weight: bold;
-      text-align: left;
-    }
-    &-item {
-      margin-bottom: 14px;
-      line-height: 17px;
-      font-size: 12px;
-      text-align: left;
-      cursor: pointer;
-      .sub-link {
-        // cursor: pointer;
-      }
-    }
-    &-desc {
-      font-size: 12px;
-    }
-    &-select-hd {
-      width: 92px;
-      height: 32px;
-      padding: 0 10px;
-      line-height: 32px;
-      font-size: 12px;
-      text-align: left;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 2px;
-      cursor: pointer;
-    }
-    &-select-bd {
-      position: absolute;
-      border-radius: 2px;
-      text-align: left;
-    }
-    &-select-item {
-      width: 92px;
-      height: 32px;
-      padding: 0 10px;
-      line-height: 32px;
-      font-size: 12px;
-      border-width: 0px 1px 1px;
-      border-style: solid;
-      border-radius: 2px;
-      cursor: pointer;
-    }
-    .icon-color {
-      display: inline-block;
-      width: 12px;
-      height: 10px;
-      margin-right: 10px;
-      background: url('../../assets/images/icon-color.png') no-repeat
-        center/100%;
-    }
-    .circle-red,
-    .circle-black,
-    .circle-white {
-      position: relative;
-      top: -1px;
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      margin-right: 10px;
-      border-radius: 50%;
-      vertical-align: middle;
-    }
-  }
-}
-// 颜色
+<style>
 .doc-footer {
-  height: 240px;
-  // 黑色
-  &-black {
-    background: $theme-black-footer-bg;
-    border-top: 1px solid $theme-black-footer-border;
-    .doc-footer {
-      &-title {
-        color: $theme-black-footer-word1;
-      }
-      &-item {
-        color: $theme-black-footer-word2;
-        .sub-link {
-          color: $theme-black-footer-word2;
-        }
-      }
-      &-desc {
-        color: $theme-black-footer-word4;
-      }
-      &-select-hd {
-        color: $theme-black-footer-word2;
-        // background: rgba(29, 29, 33, 1);
-        border-color: $theme-black-theme-border;
-        &:hover {
-          color: $theme-black-footer-hover;
-        }
-      }
-      &-select-item {
-        color: $theme-black-footer-word2;
-        // background: rgba(29, 29, 33, 1);
-        border-color: $theme-black-theme-border;
-        .circle-red {
-          background: $theme-red-gradient;
-        }
-        .circle-black {
-          background: $theme-black-circle;
-          border: 1px solid $theme-black-theme-border;
-        }
-        .circle-white {
-          background: $theme-white-circle;
-        }
-        &:hover {
-          background-color: $theme-black-theme-border;
-          .circle-black {
-            border-color: $theme-black-circle;
-          }
-        }
-        &.active {
-          background-color: $theme-black-footer-hover;
-          border-color: $theme-black-footer-hover;
-          .circle-red {
-            border: 1px solid $theme-red-border;
-          }
-          .circle-black {
-            border-color: $theme-black-footer-bg;
-          }
-        }
-      }
-    }
-  }
-  // 白色、红色
-  &-white,
-  &-red {
-    background: $theme-white-footer-bg;
-    border-top: 1px solid $theme-white-footer-border;
-    .doc-footer {
-      &-title {
-        color: $theme-white-footer-word1;
-      }
-      &-item {
-        color: $theme-white-footer-word2;
-        .sub-link {
-          color: $theme-white-footer-word2;
-        }
-      }
-      &-desc {
-        color: $theme-white-footer-word4;
-      }
-      &-select-hd {
-        color: $theme-white-footer-word2;
-        // background: rgba(29, 29, 33, 1);
-        border-color: $theme-white-theme-border;
-        &:hover {
-          color: $theme-white-footer-hover;
-        }
-      }
-      &-select-item {
-        color: $theme-white-footer-word2;
-        // background: rgba(29, 29, 33, 1);
-        border-color: $theme-white-theme-border;
-        .circle-red {
-          background: $theme-red-gradient;
-        }
-        .circle-black {
-          background: $theme-black-circle;
-          border: 1px solid $theme-black-circle;
-        }
-        .circle-white {
-          background: $theme-white-circle;
-          border: 1px solid $theme-white-circle-border;
-        }
-        &:hover {
-          color: $theme-white-footer-word3;
-          background-color: $theme-white-theme-border;
-          .circle-black {
-            border-color: $theme-black-circle;
-          }
-        }
-        &.active {
-          color: $theme-white;
-          background-color: $theme-white-footer-hover;
-          border-color: $theme-white-footer-hover;
-          .circle-red {
-            border: 1px solid $theme-red-border;
-          }
-          .circle-black {
-            border-color: $theme-black-circle;
-          }
-          .circle-white {
-            border-color: $theme-white-circle;
-          }
-        }
-      }
-    }
-  }
+  padding: 30px 80px 20px;
+  text-align: center;
 }
+.doc-footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-right: 50px;
+}
+.doc-footer-list {
+  position: relative;
+}
+.doc-footer-list:first-child {
+  margin-right: 65px;
+}
+.doc-footer-logo {
+  margin-top: 8px;
+}
+.doc-footer-title {
+  margin-bottom: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+}
+.doc-footer-item {
+  margin-bottom: 14px;
+  line-height: 17px;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+.doc-footer-desc {
+  font-size: 12px;
+}
+.doc-footer-select-hd {
+  width: 92px;
+  height: 32px;
+  padding: 0 10px;
+  line-height: 32px;
+  font-size: 12px;
+  text-align: left;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.doc-footer-select-bd {
+  position: absolute;
+  border-radius: 2px;
+  text-align: left;
+}
+.doc-footer-select-item {
+  width: 92px;
+  height: 32px;
+  padding: 0 10px;
+  line-height: 32px;
+  font-size: 12px;
+  border-width: 0px 1px 1px;
+  border-style: solid;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.icon-color {
+  display: inline-block;
+  width: 12px;
+  height: 10px;
+  margin-right: 10px;
+  background: url('../../assets/images/icon-color.png') no-repeat
+    center/100%;
+}
+.circle-red,
+.circle-black,
+.circle-white {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+/* Black theme */
+.doc-footer-black {
+  background: var(--theme-black-footer-bg);
+  border-top: 1px solid var(--theme-black-footer-border);
+}
+.doc-footer-black .doc-footer-title {
+  color: var(--theme-black-footer-word1);
+}
+.doc-footer-black .doc-footer-item {
+  color: var(--theme-black-footer-word2);
+}
+.doc-footer-black .doc-footer-item .sub-link {
+  color: var(--theme-black-footer-word2);
+}
+.doc-footer-black .doc-footer-desc {
+  color: var(--theme-black-footer-word4);
+}
+.doc-footer-black .doc-footer-select-hd {
+  color: var(--theme-black-footer-word2);
+  border-color: var(--theme-black-theme-border);
+}
+.doc-footer-black .doc-footer-select-hd:hover {
+  color: var(--theme-black-footer-hover);
+}
+.doc-footer-black .doc-footer-select-item {
+  color: var(--theme-black-footer-word2);
+  border-color: var(--theme-black-theme-border);
+}
+.doc-footer-black .doc-footer-select-item .circle-red {
+  background: var(--theme-red-gradient);
+}
+.doc-footer-black .doc-footer-select-item .circle-black {
+  background: var(--theme-black-circle);
+  border: 1px solid var(--theme-black-theme-border);
+}
+.doc-footer-black .doc-footer-select-item .circle-white {
+  background: var(--theme-white-circle);
+}
+.doc-footer-black .doc-footer-select-item:hover {
+  background-color: var(--theme-black-theme-border);
+}
+.doc-footer-black .doc-footer-select-item:hover .circle-black {
+  border-color: var(--theme-black-circle);
+}
+.doc-footer-black .doc-footer-select-item.active {
+  background-color: var(--theme-black-footer-hover);
+  border-color: var(--theme-black-footer-hover);
+}
+.doc-footer-black .doc-footer-select-item.active .circle-red {
+  border: 1px solid var(--theme-red-border);
+}
+.doc-footer-black .doc-footer-select-item.active .circle-black {
+  border-color: var(--theme-black-footer-bg);
+}
+
+/* White and Red theme */
+.doc-footer-white,
+.doc-footer-red {
+  background: var(--theme-white-footer-bg);
+  border-top: 1px solid var(--theme-white-footer-border);
+}
+.doc-footer-white .doc-footer-title,
+.doc-footer-red .doc-footer-title {
+  color: var(--theme-white-footer-word1);
+}
+.doc-footer-white .doc-footer-item,
+.doc-footer-red .doc-footer-item {
+  color: var(--theme-white-footer-word2);
+}
+.doc-footer-white .doc-footer-item .sub-link,
+.doc-footer-red .doc-footer-item .sub-link {
+  color: var(--theme-white-footer-word2);
+}
+.doc-footer-white .doc-footer-desc,
+.doc-footer-red .doc-footer-desc {
+  color: var(--theme-white-footer-word4);
+}
+.doc-footer-white .doc-footer-select-hd,
+.doc-footer-red .doc-footer-select-hd {
+  color: var(--theme-white-footer-word2);
+  border-color: var(--theme-white-theme-border);
+}
+.doc-footer-white .doc-footer-select-hd:hover,
+.doc-footer-red .doc-footer-select-hd:hover {
+  color: var(--theme-white-footer-hover);
+}
+.doc-footer-white .doc-footer-select-item,
+.doc-footer-red .doc-footer-select-item {
+  color: var(--theme-white-footer-word2);
+  border-color: var(--theme-white-theme-border);
+}
+.doc-footer-white .doc-footer-select-item .circle-red,
+.doc-footer-red .doc-footer-select-item .circle-red {
+  background: var(--theme-red-gradient);
+}
+.doc-footer-white .doc-footer-select-item .circle-black,
+.doc-footer-red .doc-footer-select-item .circle-black {
+  background: var(--theme-black-circle);
+  border: 1px solid var(--theme-black-circle);
+}
+.doc-footer-white .doc-footer-select-item .circle-white,
+.doc-footer-red .doc-footer-select-item .circle-white {
+  background: var(--theme-white-circle);
+  border: 1px solid var(--theme-white-circle-border);
+}
+.doc-footer-white .doc-footer-select-item:hover,
+.doc-footer-red .doc-footer-select-item:hover {
+  color: var(--theme-white-footer-word3);
+  background-color: var(--theme-white-theme-border);
+}
+.doc-footer-white .doc-footer-select-item:hover .circle-black,
+.doc-footer-red .doc-footer-select-item:hover .circle-black {
+  border-color: var(--theme-black-circle);
+}
+.doc-footer-white .doc-footer-select-item.active,
+.doc-footer-red .doc-footer-select-item.active {
+  color: var(--theme-white);
+  background-color: var(--theme-white-footer-hover);
+  border-color: var(--theme-white-footer-hover);
+}
+.doc-footer-white .doc-footer-select-item.active .circle-red,
+.doc-footer-red .doc-footer-select-item.active .circle-red {
+  border: 1px solid var(--theme-red-border);
+}
+.doc-footer-white .doc-footer-select-item.active .circle-black,
+.doc-footer-red .doc-footer-select-item.active .circle-black {
+  border-color: var(--theme-black-circle);
+}
+.doc-footer-white .doc-footer-select-item.active .circle-white,
+.doc-footer-red .doc-footer-select-item.active .circle-white {
+  border-color: var(--theme-white-circle);
+}
+
 .vx-item {
   position: relative;
-  &:hover {
-    .vx-box {
-      display: block;
-    }
-  }
+}
+.vx-item:hover .vx-box {
+  display: block;
 }
 .icon-vx {
   display: inline-block;
@@ -402,25 +399,25 @@ export default defineComponent({
   background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(238, 238, 238, 1);
   box-shadow: 0px 2px 4px 0px rgba(143, 143, 143, 0.5);
-  .vx-desc {
-    margin-bottom: 10px;
-    line-height: 17px;
-    font-family: PingFangSC-Regular;
-    font-size: 12px;
-    color: #1a1a1a;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  .img-code {
-    width: 121px;
-    height: 121px;
-    margin-bottom: 10px;
-  }
-  .vx-red {
-    margin: 0 4px;
-    font-weight: bold;
-    color: #fa2c19;
-  }
+}
+.vx-box .vx-desc {
+  margin-bottom: 10px;
+  line-height: 17px;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #1a1a1a;
+}
+.vx-box .vx-desc:last-child {
+  margin-bottom: 0;
+}
+.vx-box .img-code {
+  width: 121px;
+  height: 121px;
+  margin-bottom: 10px;
+}
+.vx-box .vx-red {
+  margin: 0 4px;
+  font-weight: bold;
+  color: #fa2c19;
 }
 </style>

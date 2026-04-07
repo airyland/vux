@@ -64,7 +64,10 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style>
+.phone {
+	position: relative;
+}
 .phone:after {
 	position:absolute;
 	content:"";
@@ -404,5 +407,4 @@ export default defineComponent({
 	left:0px;
 	bottom:5%;
 }
-
 </style>

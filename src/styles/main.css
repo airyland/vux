@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* VUX Theme Configuration */
+@theme {
+  /* Colors - Based on WeUI + VUX brand colors */
+  --color-primary: #04BE02;
+  --color-primary-active: #03a402;
+  --color-warn: #FFC41E;
+  --color-warn-active: #e6b01d;
+  --color-danger: #FA2C19;
+  --color-danger-active: #e02816;
+
+  /* Button colors */
+  --color-button-default: #ffffff;
+  --color-button-default-active: #f5f5f5;
+  --color-button-primary: #1AAD19;
+  --color-button-primary-active: #179b16;
+  --color-button-warn: #FFC41E;
+  --color-button-warn-active: #e6b01d;
+
+  /* Text colors */
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #666666;
+  --color-text-placeholder: #999999;
+  --color-text-disabled: #cccccc;
+
+  /* Background colors */
+  --color-bg: #f7f8fa;
+  --color-bg-overlay: rgba(0, 0, 0, 0.6);
+
+  /* Border colors */
+  --color-border: #e5e5e5;
+  --color-border-light: #f5f5f5;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-xxl: 24px;
+
+  /* Border radius */
+  --radius-sm: 2px;
+  --radius-md: 5px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  /* Font sizes */
+  --text-xs: 10px;
+  --text-sm: 12px;
+  --text-base: 14px;
+  --text-lg: 16px;
+  --text-xl: 18px;
+  --text-xxl: 20px;
+
+  /* Line heights */
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}

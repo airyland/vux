@@ -1,8 +1,11 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import '../assets/styles/reset.scss';
-import '../assets/styles/md-style.scss';
+import '../../src/styles/variables.css';
+import '../../src/styles/main.css';
+import '../assets/styles/reset.css';
+import '../assets/styles/highlight.css';
+import '../assets/styles/md-style.css';
 
 import '../../packages/theme-chalk/weui.less'
 import 'vite-plugin-vuedoc/style.css'

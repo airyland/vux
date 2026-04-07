@@ -19,15 +19,15 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .online-part {
   display: flex;
   justify-content: flex-end;
-  .online-btn {
-    display: block;
-    padding: 10px;
-    background: #eee;
-    cursor: pointer;
-  }
+}
+.online-part .online-btn {
+  display: block;
+  padding: 10px;
+  background: #eee;
+  cursor: pointer;
 }
 </style>

@@ -15,24 +15,22 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
-.doc {
-  &-demo-preview {
-    position: fixed;
-    right: 30px;
-    top: 100px;
-    overflow: hidden;
-    width:400px;
-    height:800px;
-    background: #fff;
-    border-radius: 30px;
-    iframe {
-      position: absolute;
-      left: 13px;
-      top: 35px;
-      width: calc(100% - 25px);
-      height: calc(100% - 70px);
-    }
-  }
+<style>
+.doc-demo-preview {
+  position: fixed;
+  right: 30px;
+  top: 100px;
+  overflow: hidden;
+  width:400px;
+  height:800px;
+  background: #fff;
+  border-radius: 30px;
+}
+.doc-demo-preview iframe {
+  position: absolute;
+  left: 13px;
+  top: 35px;
+  width: calc(100% - 25px);
+  height: calc(100% - 70px);
 }
 </style>

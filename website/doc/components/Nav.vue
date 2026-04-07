@@ -61,87 +61,74 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
-.doc {
-  &-nav {
-    position: fixed;
-    top: $doc-header-height + 50;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
-    background: #ffffff;
-    width: 290px;
-    border-right: 1px solid #eee;
-    overflow: auto;
-    padding-left: 35px;
-    ol {
-      &.introduce {
-        padding-left: 5px;
-        li {
-          cursor: pointer;
-          &:hover {
-            color: $doc-default-color;
-          }
-        }
-      }
-      li {
-        height: 48px;
-        line-height: 48px;
-        font-size: 14px;
-        color: $doc-default-nav-color;
-        font-weight: bold;
-        position: relative;
-
-        &.active {
-          &::before {
-            position: absolute;
-            content: '';
-            left: 0;
-            top: 50%;
-            width: 22px;
-            margin-top: -5px;
-            height: 10px;
-            transform: rotate(90deg);
-            background: url(https://img10.360buyimg.com/imagetools/jfs/t1/136135/19/14659/946/5fa20aa8E33a9aa26/d329fbe669171208.png)
-              no-repeat;
-            background-size: 100% 100%;
-          }
-        }
-      }
-      > ul {
-        li {
-          padding-left: 29px;
-          cursor: pointer;
-          &:hover {
-            a {
-              color: $doc-default-color;
-            }
-          }
-          a {
-            &.router-link-active {
-              color: $doc-default-color !important;
-            }
-
-            &:hover {
-              color: $doc-default-color;
-              &:visited {
-                color: $doc-default-color;
-              }
-            }
-            &:link,
-            &:visited {
-              color: $title-color;
-            }
-
-            height: 100%;
-            b {
-              font-weight: normal;
-              font-size: 12px;
-            }
-          }
-        }
-      }
-    }
-  }
+<style>
+.doc-nav {
+  position: fixed;
+  top: calc(var(--doc-header-height) + 50px);
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #ffffff;
+  width: 290px;
+  border-right: 1px solid #eee;
+  overflow: auto;
+  padding-left: 35px;
+}
+.doc-nav ol.introduce {
+  padding-left: 5px;
+}
+.doc-nav ol.introduce li {
+  cursor: pointer;
+}
+.doc-nav ol.introduce li:hover {
+  color: var(--doc-default-color);
+}
+.doc-nav ol li {
+  height: 48px;
+  line-height: 48px;
+  font-size: 14px;
+  color: var(--doc-default-nav-color);
+  font-weight: bold;
+  position: relative;
+}
+.doc-nav ol li.active::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 50%;
+  width: 22px;
+  margin-top: -5px;
+  height: 10px;
+  transform: rotate(90deg);
+  background: url(https://img10.360buyimg.com/imagetools/jfs/t1/136135/19/14659/946/5fa20aa8E33a9aa26/d329fbe669171208.png)
+    no-repeat;
+  background-size: 100% 100%;
+}
+.doc-nav ol > ul li {
+  padding-left: 29px;
+  cursor: pointer;
+}
+.doc-nav ol > ul li:hover a {
+  color: var(--doc-default-color);
+}
+.doc-nav ol > ul li a.router-link-active {
+  color: var(--doc-default-color) !important;
+}
+.doc-nav ol > ul li a:hover {
+  color: var(--doc-default-color);
+}
+.doc-nav ol > ul li a:visited {
+  color: var(--doc-default-color);
+}
+.doc-nav ol > ul li a:link,
+.doc-nav ol > ul li a:visited {
+  color: var(--title-color);
+}
+.doc-nav ol > ul li a {
+  height: 100%;
+}
+.doc-nav ol > ul li a b {
+  font-weight: normal;
+  font-size: 12px;
 }
 </style>

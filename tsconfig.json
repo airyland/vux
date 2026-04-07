@@ -1,27 +1,36 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    // "rootDir": "./packages",
-    "target": "es6",
+    "target": "ES2020",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
     "declaration": true,
+    "declarationDir": "./dist/types",
     "noImplicitAny": false,
     "removeComments": true,
     "resolveJsonModule": true,
-    "noLib": false,
     "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
-    "allowSyntheticDefaultImports": true,
-    "types": ["vite/client", "jest"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "types": ["vite/client", "node"],
     "paths": {
       "@/*": ["packages/*"],
       "@vux/*": ["packages/*"]
-    }
+    },
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
-  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.vue", "./*.d.ts", "website/**/*.ts", "website/**/*.d.ts", "website/**/*.vue"],
-  "exclude": ["./node_modules"]
+  "include": [
+    "packages/**/*.ts",
+    "packages/**/*.d.ts",
+    "packages/**/*.vue",
+    "packages/**/*.tsx",
+    "./*.ts",
+    "./vite.config.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
 }

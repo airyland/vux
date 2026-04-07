@@ -55,16 +55,13 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
-.doc {
-  &-content {
-    margin-left: 290px;
-    display: flex;
-    flex-direction: column;
-
-    &-document {
-      min-height: 800px;
-    }
-  }
+<style scoped>
+.doc-content {
+  margin-left: 290px;
+  display: flex;
+  flex-direction: column;
+}
+.doc-content-document {
+  min-height: 800px;
 }
 </style>

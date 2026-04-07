@@ -115,25 +115,25 @@ export default defineComponent({
   }
 });
 </script>
-<style lang="scss">
+<style>
 .search-box {
   position: relative;
   margin-left: 30px;
   height: 22px;
   line-height: 22px;
-  .search-input {
-    height: 22px;
-    padding-left: 42px;
-    font-size: 14px;
-    vertical-align: middle;
-    background: transparent url('../../assets/images/input-search.png')
-      no-repeat;
-    font-size: 14px;
-    color: #fff;
-    &:focus {
-      outline: none;
-    }
-  }
+}
+.search-input {
+  height: 22px;
+  padding-left: 42px;
+  font-size: 14px;
+  vertical-align: middle;
+  background: transparent url('../../assets/images/input-search.png')
+    no-repeat;
+  font-size: 14px;
+  color: #fff;
+}
+.search-input:focus {
+  outline: none;
 }
 .search-list {
   background: #fff;
@@ -144,38 +144,38 @@ export default defineComponent({
   z-index: 99999;
   top: 27px;
   padding: 0;
-  li {
-    height: 40px;
-    line-height: 40px;
-    font-size: 12px;
-    a {
-      display: inline-block;
-      box-sizing: border-box;
-      width: 100%;
-      padding-left: 40px;
-      text-decoration: none;
-      color: #666;
-    }
-    &:hover {
-      color: #42b983;
-      a {
-        color: #42b983;
-      }
-    }
-  }
-  .cur {
-    background: #42b983;
-    color: #fff;
-    &:hover {
-      color: #fff;
-      font-weight: bold;
-      a {
-        color: #fff;
-      }
-    }
-    a {
-      color: #fff;
-    }
-  }
+}
+.search-list li {
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+}
+.search-list li a {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 40px;
+  text-decoration: none;
+  color: #666;
+}
+.search-list li:hover {
+  color: #42b983;
+}
+.search-list li:hover a {
+  color: #42b983;
+}
+.search-list .cur {
+  background: #42b983;
+  color: #fff;
+}
+.search-list .cur:hover {
+  color: #fff;
+  font-weight: bold;
+}
+.search-list .cur:hover a {
+  color: #fff;
+}
+.search-list .cur a {
+  color: #fff;
 }
 </style>

@@ -1,0 +1,11 @@
+{
+  "name": "@vux/theme-chalk",
+  "version": "3.0.0",
+  "main": "weui.less",
+  "style": "weui.less",
+  "exports": {
+    ".": "./weui.less",
+    "./*": "./*"
+  },
+  "license": "MIT"
+}

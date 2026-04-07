@@ -8,13 +8,13 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
+<style>
 ::selection {
-  background: $doc-default-color;
+  background: var(--doc-default-color);
   color: #fff;
 }
 #doc {
-  font-family: PingFangSC-Regular;
+  font-family: PingFangSC-Regular, -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: none;
@@ -24,6 +24,6 @@ export default defineComponent({
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: $doc-header-height;
+  padding-top: var(--doc-header-height);
 }
 </style>
