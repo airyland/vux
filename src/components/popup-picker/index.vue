@@ -7,11 +7,11 @@
         </slot>
         <inline-desc v-if="inlineDesc">{{ inlineDesc }}</inline-desc>
       </div>
-      <div class="vux-cell-primary vux-popup-picker-select-box">
+      <div class="weui-cell__bd vux-popup-picker-select-box">
         <div class="vux-popup-picker-select" :style="{textAlign: valueTextAlign}">
-          <span class="vux-popup-picker-value vux-cell-value" v-if="!displayFormat && !showName && value.length">{{value | array2string}}</span>
-          <span class="vux-popup-picker-value vux-cell-value" v-if="!displayFormat && showName && value.length">{{value | value2name(data)}}</span>
-          <span class="vux-popup-picker-value vux-cell-value" v-if="displayFormat && value.length">{{ displayFormat(value, value2name(value, data)) }}</span>
+          <span class="vux-popup-picker-value weui-input" v-if="!displayFormat && !showName && value.length">{{value | array2string}}</span>
+          <span class="vux-popup-picker-value weui-input" v-if="!displayFormat && showName && value.length">{{value | value2name(data)}}</span>
+          <span class="vux-popup-picker-value weui-input" v-if="displayFormat && value.length">{{ displayFormat(value, value2name(value, data)) }}</span>
           <span v-if="!value.length && placeholder" v-text="placeholder" class="vux-popup-picker-placeholder vux-cell-placeholder"></span>
         </div>
       </div>
@@ -288,22 +288,6 @@ export default {
 .vux-popup-picker-select {
   width: 100%;
   position: relative;
-}
-.vux-popup-picker-select-box.weui-cell__bd:after {
-  content: " ";
-  display: inline-block;
-  transform: rotate(45deg);
-  height: 6px;
-  width: 6px;
-  border-width: 2px 2px 0 0;
-  border-color: #C8C8CD;
-  border-style: solid;
-  position: relative;
-  top: -2px;
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  margin-top: -3px;
 }
 .vux-popup-picker-cancel {
   color: @popup-picker-header-cancel-text-color;
