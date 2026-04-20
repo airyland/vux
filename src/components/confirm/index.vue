@@ -120,11 +120,20 @@ export default {
       if (val) {
         if (this.showInput) {
           this.msg = ''
-          setTimeout(() => {
+          const str = navigator.userAgent.toLowerCase()
+          const isIOS = str.match(/cpu iphone os (.*?) like mac os/)
+          if (!isIOS || parseInt(isIOS[1]) < 11) { // 非IOS系统及IOS版本小于11
+            setTimeout(() => {
+              if (this.$refs.input) {
+                this.setInputFocus()
+              }
+            }, 300)
+            return
+          } else {
             if (this.$refs.input) {
               this.setInputFocus()
             }
-          }, 300)
+          }
         }
         this.$emit('on-show') // emit just after msg is cleared
       }
