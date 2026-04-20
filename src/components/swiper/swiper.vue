@@ -114,13 +114,13 @@ export default {
     },
     getHeight () {
       const hasHeight = parseInt(this.height, 10)
-      if (hasHeight) return this.height
-      if (!hasHeight) {
-        if (this.aspectRatio) {
-          return this.$el.offsetWidth * this.aspectRatio + 'px'
-        }
-        return '180px'
+      if (hasHeight) {
+        return this.height
       }
+      if (this.aspectRatio) {
+        return this.$el.offsetWidth * this.aspectRatio + 'px'
+      }
+      return 'auto'
     }
   },
   props: {
@@ -163,7 +163,7 @@ export default {
     },
     height: {
       type: String,
-      default: 'auto'
+      default: '180px'
     },
     aspectRatio: Number,
     minMovingDistance: {
