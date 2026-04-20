@@ -42,6 +42,9 @@ class Swiper {
     this._onResize()
     return this
   }
+  setOptions (newOptions = {}) {
+    this._options = objectAssign(this._options, newOptions)
+  }
 
   _auto () {
     const me = this

@@ -187,6 +187,7 @@ export default {
   },
   watch: {
     auto (val) {
+      this.swiper && this.swiper.setOptions({auto: val})
       if (!val) {
         this.swiper && this.swiper.stop()
       } else {
