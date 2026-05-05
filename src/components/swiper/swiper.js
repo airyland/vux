@@ -170,7 +170,9 @@ class Swiper {
         me._setTransform(distance)
       }
 
-      noScrollerY && e.preventDefault()
+      if (e.cancelable) {
+        noScrollerY && e.preventDefault()
+      }
     }
 
     me.touchendHandler = (e) => {
