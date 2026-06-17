@@ -53,10 +53,10 @@ export default function (nav, options = {}) {
   const getFillElem = function (el) {
     let next = el.nextSibling
     // 寻找最近的一个兄弟元素
-    while (next.nodeType !== 1) {
+    while (!!next && next.nodeType !== 1) {
       next = next.nextSibling
     }
-    if (next.classList.contains('vux-sticky-fill')) {
+    if (!!next && next.classList.contains('vux-sticky-fill')) {
       return next
     }
     // 没有使用vux-sticky-fill按照之前的方式获取外层容器
