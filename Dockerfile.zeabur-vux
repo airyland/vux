@@ -1,0 +1,6 @@
+FROM nginx:1.27-alpine
+
+COPY docs/ /usr/share/nginx/html/
+COPY deploy/zeabur-vux.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 8080

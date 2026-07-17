@@ -25,7 +25,7 @@
         赞助商
         </router-link>
         -->
-        <div class="analytics">
+        <div class="analytics" v-if="showAnalytics">
           <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_30m.quantity }}</span><br>▴<br></p>
           <p style="font-size:12px;">{{ t('Online developers') }}
             <el-popover trigger="hover" v-if="hasReady && lang === 'zh-CN'">
@@ -253,8 +253,8 @@ export default {
     },
     async fetchAnalytics () {
       // 获取统计
-      const summary = await Axios.get('https://vux.li/analytics')
-      this.analytics = summary.data
+      // const summary = await Axios.get('https://vux.li/analytics')
+      // this.analytics = summary.data
     },
     getLang () {
       if (this.$route.path.indexOf('/en/') !== -1) {
@@ -279,6 +279,7 @@ export default {
   },
   data () {
     return {
+      showAnalytics: false,
       hide: false,
       hasReady: false,
       analytics: {

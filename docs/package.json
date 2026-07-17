@@ -1,7 +1,7 @@
 {
   "scripts": {
     "gen": "ream generate",
-    "start": "ream start",
+    "start": "ream start --port=8005",
     "build": "ream build",
     "dev": "ream dev"
   },
