@@ -90,7 +90,7 @@ export default {
         if (typeof this.min !== 'undefined' && this.currentValue < this.min) {
           this.currentValue = this.min
         }
-        if (this.max && this.currentValue > this.max) {
+        if (typeof this.max !== 'undefined' && this.currentValue > this.max) {
           this.currentValue = this.max
         }
       }
