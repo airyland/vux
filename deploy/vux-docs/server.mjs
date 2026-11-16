@@ -24,6 +24,11 @@ const server = createServer((request, response) => {
   const pathname = queryIndex === -1 ? rawTarget : rawTarget.slice(0, queryIndex)
   const query = queryIndex === -1 ? '' : rawTarget.slice(queryIndex)
 
+  if (request.headers.host === 'docs.vux.li' && pathname.startsWith('/')) {
+    response.writeHead(301, { Location: 'https://doc.vux.li' + pathname + query }).end()
+    return
+  }
+
   if (pathname === '/healthz') {
     response.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' }).end('ok\n')
     return
