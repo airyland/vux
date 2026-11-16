@@ -1,0 +1,5 @@
+.git
+**/node_modules
+docs/.ream
+docs/algolia.json
+docs/sitemap.txt

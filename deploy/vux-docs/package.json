@@ -1,0 +1,16 @@
+{
+  "name": "vux-docs-deploy",
+  "private": true,
+  "dependencies": {
+    "sirv": "3.0.2"
+  },
+  "devDependencies": {
+    "glob": "7.2.3",
+    "js-yaml": "3.14.1",
+    "lodash": "4.17.21",
+    "mkdirp": "0.5.6",
+    "rimraf": "2.7.1",
+    "semver": "5.7.2",
+    "sort-object": "3.0.3"
+  }
+}

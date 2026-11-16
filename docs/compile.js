@@ -261,9 +261,9 @@ langs.forEach(lang => {
     path: '/${lang}/about/contributors.html',
     component: () => import('../${lang}/about/contributors.vue')
   })`
-  paths.push('/${lang}/')
-  paths.push('/${lang}/faq/')
-  paths.push('/${lang}/about/contributors.html')
+  paths.push(`/${lang}/`)
+  paths.push(`/${lang}/faq/`)
+  paths.push(`/${lang}/about/contributors.html`)
 })
 
 files.forEach(file => {
@@ -741,7 +741,7 @@ export default {
                   </td>
                   <td v-html="getTypeHTML(prop.type)"></td>
                   <td>{{ prop.default}}</td>
-                  <td v-html="prop['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
+                  <td v-html="(prop['${lang}'] || prop['zh-CN'] || '').replace(/${parseReg}/g, '<code>$1</code>')"></td>
                   <td>{{ prop.version || '--'}}</td>
                 </tr>
               </tbody>
@@ -824,7 +824,7 @@ export default {
                     </el-tooltip>
                   </td>
                   <td v-html="method['params'] ? method['params'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
-                  <td v-html="method['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
+                  <td v-html="(method['${lang}'] || method['zh-CN'] || '').replace(/${parseReg}/g, '<code>$1</code>')"></td>
                   <td>{{ method['version'] }}</td>
                 </tr>
               </tbody>
