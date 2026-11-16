@@ -1,9 +1,10 @@
 <template>
   <div>
-  <h1>贡献者列表<span class="count"> (目前有 <code>{{ contributors.length }}</code> 个有为青年贡献了代码)</span></h1>
+  <h1>贡献者列表<span v-if="contributors.length" class="count"> (目前有 <code>{{ contributors.length }}</code> 个有为青年贡献了代码)</span></h1>
   <div class="tip">
   无论是编辑文档还是提交代码都可以帮助 VUX 做得更好。
   </div>
+  <a href="https://github.com/airyland/vux/graphs/contributors">GitHub</a>
   <ul class="list">
     <li v-for="user in contributors">
       <a :href="user.html_url" target="_blank" class="link">
@@ -17,11 +18,14 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { mapState }  from 'vuex'
 export default {
-  preFetch ({ store }) {
-    return store.dispatch('updateContributors')
+  async mounted () {
+    try {
+      await this.$store.dispatch('updateContributors')
+    } catch (error) {
+      console.warn('Could not load VUX contributors', error.message)
+    }
   },
   computed: mapState(['contributors']),
   head: {

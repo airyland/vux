@@ -25,10 +25,10 @@
         赞助商
         </router-link>
         -->
-        <div class="analytics">
+        <div v-if="analytics" class="analytics">
           <p class="vux-center vux-sub-title vux-time-ago"><span>{{ analytics.total_quantity_within_30m.quantity }}</span><br>▴<br></p>
           <p style="font-size:12px;">{{ t('Online developers') }}
-            <el-popover trigger="hover" v-if="hasReady && lang === 'zh-CN'">
+            <el-popover trigger="hover" v-if="lang === 'zh-CN'">
               <i class="el-icon-info" slot="reference"></i>
               <p>该数值表示当前正在进行 VUX(Vue) 开发的唯一用户数，非文档站访问数。
                 <br>数据来源于 vux-loader 发送的匿名统计，作为 webpack 配置工具仅在 development 发送统计，不对构建文件加入任何代码。</p>
@@ -213,11 +213,8 @@ export default {
   async mounted () {
     this.githubStarBadge = 'https://img.shields.io/github/stars/airyland/vux.svg?style=social&amp;label=Star'
 
-    await this.fetchAnalytics()
-    setInterval(async () => {
-      await this.fetchAnalytics()
-    }, 60000)
-    this.hasReady = true
+    this.fetchAnalytics()
+    this.analyticsTimer = setInterval(() => this.fetchAnalytics(), 60000)
 
     // scroll current component nav into view
     if (/components\//.test(this.$route.path)) {
@@ -231,6 +228,9 @@ export default {
         }
       } catch (e) {}
     }
+  },
+  beforeDestroy () {
+    clearInterval(this.analyticsTimer)
   },
   methods: {
     getPath (path) {
@@ -252,9 +252,16 @@ export default {
       }
     },
     async fetchAnalytics () {
-      // 获取统计
-      const summary = await Axios.get('https://vux.li/analytics')
-      this.analytics = summary.data
+      try {
+        const { data } = await Axios.get('https://vux.li/analytics', { timeout: 5000 })
+        if (data && data.total_quantity_within_30m && data.total_quantity_within_24h
+            && data.user_quantity_within_24h_group_by_city
+            && Array.isArray(data.user_quantity_within_24h_group_by_city.list)) {
+          this.analytics = data
+        }
+      } catch (error) {
+        this.analytics = null
+      }
     },
     getLang () {
       if (this.$route.path.indexOf('/en/') !== -1) {
@@ -280,18 +287,7 @@ export default {
   data () {
     return {
       hide: false,
-      hasReady: false,
-      analytics: {
-        total_quantity_within_30m: {
-          quantity: '--'
-        },
-        total_quantity_within_24h: {
-          quantity: '--'
-        },
-        user_quantity_within_24h_group_by_city: {
-          list: []
-        }
-      },
+      analytics: null,
       showAd: false,
       components,
       githubStarBadge: null,

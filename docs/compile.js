@@ -1014,9 +1014,13 @@ export default {
       }
     },
     async mounted () {
-      const rs = await Axios.get('https://api.github.com/search/issues?q=repo:airyland/vux%20label:component/' + this.componentName)
-      this.issues = rs.data.items
       this.hasReady = true
+      try {
+        const { data } = await Axios.get('https://api.github.com/search/issues?q=repo:airyland/vux%20label:component/' + this.componentName, { timeout: 5000 })
+        this.issues = data.items
+      } catch (error) {
+        console.warn('Could not load VUX component issues', error.message)
+      }
     },
     watch: {
       async sourceCodeDialogVisibility (val) {
