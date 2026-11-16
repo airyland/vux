@@ -6,6 +6,18 @@ const fs = require('fs')
 const yaml = require('js-yaml')
 const hljs = require('highlight.js')
 const MD = require('markdown-it')
+const QRCode = require('qrcode-svg')
+const { createHash } = require('crypto')
+
+const qrDirectory = path.join(__dirname, 'public', 'demo-qr')
+fs.mkdirSync(qrDirectory, { recursive: true })
+
+function demoQr(url) {
+  const svg = new QRCode({ content: url, join: true, width: 144, height: 144 }).svg()
+  const name = createHash('sha256').update(url).digest('hex') + '.svg'
+  fs.writeFileSync(path.join(qrDirectory, name), svg)
+  return '/public/demo-qr/' + name
+}
 const argv = require('yargs').argv
 let langs = ['en', 'zh-CN']
 const t = require('./i18n')
@@ -412,8 +424,10 @@ export default {
             order = meta.order * 1
           }
         }
+        const demoFile = one.replace('.vue', '')
         return {
-          file: one.replace('.vue', ''),
+          file: demoFile,
+          qr: demoQr(`https://vux.li/demos/v2/?locale=${lang}#/components/${demoFile}`),
           title,
           route: route,
           code: '<pre class="hljs"><code>' +
@@ -577,7 +591,7 @@ export default {
             <a href="https://github.com/airyland/vux/blob/v2/src/components/${componentName}/" target="_blank">${t('component source code', lang)}</a>
             <el-popover trigger="hover" v-if="hasReady">
               <div style="width:100%;text-align:center;">
-                <img class="qr" width="100" src="https://qr.vux.li/api.php?text=${encodeURIComponent(url)}"/>
+                <img class="qr" width="100" src="${demoQr(url)}" alt="QR"/>
               </div>
               <a href="javascript:" slot="reference">
               ${t('qr', lang)}
@@ -687,7 +701,7 @@ export default {
             <div v-html="demo.code" contenteditable></div>
             <div v-if="demo.height === demo.oriHeight" class="demo-code-masker" @click="demo.height='auto'">
               <div>
-                  <img class="demo-qr" width="100" :src="'https://qr.vux.li/api.php?text=' + encodeURIComponent(domain + '?locale=${lang}#/components/' + demo.file)"/>
+                  <img class="demo-qr" width="100" :src="demo.qr" alt="QR"/>
                   <br/>
                   <span>
                     <el-icon class="el-icon-arrow-left"/>

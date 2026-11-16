@@ -29,6 +29,7 @@
   "devDependencies": {
     "algoliasearch": "^3.26.0",
     "markdown-it": "^8.3.1",
+    "qrcode-svg": "1.1.0",
     "ream": "^1.0.0-rc.6",
     "shelljs": "^0.8.1",
     "vue-server-renderer": "^2.5.16",

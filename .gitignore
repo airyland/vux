@@ -34,3 +34,5 @@ docs/algolia.json
 /src/demos/**/_index.vue
 yarn-error.log
 .vscode
+
+/docs/public/demo-qr/
