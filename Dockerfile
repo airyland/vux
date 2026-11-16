@@ -9,7 +9,7 @@ COPY build/ build/
 COPY src/ src/
 COPY docs/ docs/
 RUN NODE_PATH=/build/deploy/vux-docs/node_modules:/build/docs/node_modules npm run doc:build
-RUN cd docs && NODE_OPTIONS=--openssl-legacy-provider npm run gen
+RUN cd docs && NODE_OPTIONS=--openssl-legacy-provider node generate-static.js
 RUN cp docs/favicon.ico docs/sitemap.txt docs/.ream/dist/ \
     && rm docs/.ream/dist/vue-ssr-*.json \
     && find docs/.ream/dist -type f -name '*.map' -delete \
